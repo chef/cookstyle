@@ -1,0 +1,4 @@
+inherit_from:
+  - upstream.yml
+  - disable_all.yml
+  - chefstyle.yml

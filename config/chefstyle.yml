@@ -1,0 +1,370 @@
+#
+# Lint
+#
+
+Lint/AmbiguousOperator:
+  Enabled: true
+Lint/BlockAlignment:
+  Enabled: true
+Lint/CircularArgumentReference:
+  Enabled: true
+Lint/ConditionPosition:
+  Enabled: true
+Lint/Debugger:
+  Enabled: true
+Lint/DefEndAlignment:
+  Enabled: true
+Lint/DuplicateMethods:
+  Enabled: true
+Lint/DuplicatedKey:
+  Enabled: true
+Lint/EachWithObjectArgument:
+  Enabled: true
+Lint/ElseLayout:
+  Enabled: true
+Lint/EmptyEnsure:
+  Enabled: true
+Lint/EmptyInterpolation:
+  Enabled: true
+Lint/EndAlignment:
+  Enabled: true
+Lint/EndInMethod:
+  Enabled: true
+Lint/EnsureReturn:
+  Enabled: true
+Lint/FormatParameterMismatch:
+  Enabled: true
+Lint/InvalidCharacterLiteral:
+  Enabled: true
+Lint/LiteralInCondition:
+  Enabled: true
+Lint/LiteralInInterpolation:
+  Enabled: true
+Lint/Loop:
+  Enabled: true
+Lint/NonLocalExitFromIterator:
+  Enabled: true
+Lint/RequireParentheses:
+  Enabled: true
+Lint/StringConversionInInterpolation:
+  Enabled: true
+Lint/UnneededDisable:
+  Enabled: true
+Lint/UnreachableCode:
+  Enabled: true
+Lint/UselessComparison:
+  Enabled: true
+Lint/UselessElseWithoutRescue:
+  Enabled: true
+Lint/UselessSetterCall:
+  Enabled: true
+
+#
+# Disabled Lint
+#
+
+# These are disabled per https://github.com/chef/chef/pull/3038
+Lint/UnusedBlockArgument:
+  Enabled: false
+Lint/UnusedMethodArgument:
+  Enabled: false
+
+# We ignore Exceptions a lot
+Lint/HandleExceptions:
+  Enabled: false
+# We also decorate Exceptions a lot
+Lint/RescueException:
+  Enabled: false
+
+#
+# Performance
+#
+
+Performance/Casecmp:
+  Enabled: true
+Performance/CaseWhenSplat:
+  Enabled: true
+Performance/Detect:
+  Enabled: true
+Performance/FixedSize:
+  Enabled: true
+Performance/FlatMap:
+  Enabled: true
+Performance/RangeInclude:
+  Enabled: true
+Performance/RedundantBlockCall:
+  Enabled: true
+Performance/RedundantMatch:
+  Enabled: true
+Performance/RedundantMerge:
+  Enabled: true
+Performance/ReverseEach:
+  Enabled: true
+Performance/Sample:
+  Enabled: true
+Performance/Size:
+  Enabled: true
+Performance/StringReplacement:
+  Enabled: true
+
+#
+# Rails
+#
+
+Rails/ActionFilter:
+  Enabled: true
+Rails/Date:
+  Enabled: true
+Rails/Delegate:
+  Enabled: true
+Rails/FindBy:
+  Enabled: true
+Rails/FindEach:
+  Enabled: true
+Rails/HasAndBelongsToMany:
+  Enabled: true
+Rails/Output:
+  Enabled: true
+Rails/PluralizationGrammar:
+  Enabled: true
+Rails/ReadWriteAttribute:
+  Enabled: true
+Rails/ScopeArgs:
+  Enabled: true
+Rails/TimeZone:
+  Enabled: true
+Rails/Validation:
+  Enabled: true
+
+#
+# Metrics
+#
+
+# Metrics cops are all disabled, there would be too much refactoring
+# work to do and we have much higher priorities.
+Metrics/AbcSize:
+  Enabled: false
+Metrics/BlockNesting:
+  Enabled: false
+Metrics/ClassLength:
+  Enabled: false
+Metrics/CyclomaticComplexity:
+  Enabled: false
+Metrics/LineLength:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
+Metrics/ModuleLength:
+  Enabled: false
+Metrics/ParameterLists:
+  Enabled: false
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+
+#
+# Style
+#
+
+Style/AlignHash:
+  Enabled: true
+Style/AndOr:
+  Enabled: true
+Style/ArrayJoin:
+  Enabled: true
+Style/AsciiIdentifiers:
+  Enabled: true
+Style/Attr:
+  Enabled: true
+Style/BeginBlock:
+  Enabled: true
+Style/CharacterLiteral:
+  Enabled: true
+Style/ClassMethods:
+  Enabled: true
+Style/ColonMethodCall:
+  Enabled: true
+Style/CommandLiteral:
+  Enabled: true
+Style/ElseAlignment:
+  Enabled: true
+Style/EmptyLineBetweenDefs:
+  Enabled: true
+Style/EmptyLines:
+  Enabled: true
+Style/EmptyLinesAroundAccessModifier:
+  Enabled: true
+Style/EmptyLinesAroundMethodBody:
+  Enabled: true
+Style/EndBlock:
+  Enabled: true
+Style/EndOfLine:
+  Enabled: true
+Style/EvenOdd:
+  Enabled: true
+Style/ExtraSpacing:
+  Enabled: true
+Style/FlipFlop:
+  Enabled: true
+Style/For:
+  Enabled: true
+Style/IfWithSemicolon:
+  Enabled: true
+Style/IndentationConsistency:
+  Enabled: true
+Style/IndentationWidth:
+  Enabled: true
+Style/InfiniteLoop:
+  Enabled: true
+Style/InitialIndentation:
+  Enabled: true
+Style/LambdaCall:
+  Enabled: true
+Style/MethodDefParentheses:
+  Enabled: true
+Style/MultilineOperationIndentation:
+  Enabled: true
+  EnforcedStyle: indented
+Style/NegatedWhile:
+  Enabled: true
+Style/NestedModifier:
+  Enabled: true
+Style/NestedTernaryOperator:
+  Enabled: true
+Style/OneLineConditional:
+  Enabled: true
+Style/ParenthesesAroundCondition:
+  Enabled: true
+# - The chef source code predominantly uses {} for %,%i,%q,%Q,%r,%w,%W
+# - The old 1.9 pickaxe book predominantly uses {} for %,%q,%Q,%r,%w,%W,%x
+# - The chef source code does not use %x enough to determine a preference
+# - The old 1.9 pickaxe book does not use %i
+# - %s is not used in chef code or the pickaxe book, and is %s{} for consistency
+Style/PercentLiteralDelimiters:
+  Enabled: true
+  PreferredDelimiters:
+    '%':  '{}'
+    '%i': '{}'
+    '%q': '{}'
+    '%Q': '{}'
+    '%r': '{}'
+    '%s': '{}'
+    '%w': '{}'
+    '%W': '{}'
+    '%x': '{}'
+Style/PercentQLiterals:
+  Enabled: true
+Style/RedundantFreeze:
+  Enabled: true
+Style/RescueEnsureAlignment:
+  Enabled: true
+# we only 'raise' and do not 'fail'
+Style/SignalException:
+  EnforcedStyle: only_raise
+  Enabled: true
+Style/SpaceAfterColon:
+  Enabled: true
+Style/SpaceAfterComma:
+  Enabled: true
+Style/SpaceAfterMethodName:
+  Enabled: true
+Style/SpaceAroundBlockParameters:
+  Enabled: true
+Style/SpaceAroundEqualsInParameterDefault:
+  Enabled: true
+Style/SpaceAroundOperators:
+  Enabled: true
+Style/SpaceBeforeBlockBraces:
+  Enabled: true
+Style/SpaceBeforeFirstArg:
+  Enabled: true
+Style/SpaceAroundKeyword:
+  Enabled: true
+Style/SpaceInsideBlockBraces:
+  Enabled: true
+Style/SpaceInsideHashLiteralBraces:
+  Enabled: true
+Style/SpaceInsideRangeLiteral:
+  Enabled: true
+Style/StabbyLambdaParentheses:
+  Enabled: true
+# core chef community prefers double quotes over single quotes
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+  Enabled: true
+Style/SymbolLiteral:
+  Enabled: true
+Style/Tab:
+  Enabled: true
+Style/TrailingBlankLines:
+  Enabled: true
+Style/TrailingCommaInArguments:
+  Enabled: true
+# rubocop's default gets this completely backwards
+Style/TrailingCommaInLiteral:
+  Enabled: true
+  EnforcedStyleForMultiline: comma
+Style/TrailingUnderscoreVariable:
+  Enabled: true
+Style/TrailingWhitespace:
+  Enabled: true
+Style/UnneededCapitalW:
+  Enabled: true
+#Style/UnneededPercentQ:  # would like to enable this one but its buggy as of 0.35.1
+#  Enabled: true
+Style/WhenThen:
+  Enabled: true
+Style/WhileUntilDo:
+  Enabled: true
+Style/WordArray:
+  Enabled: true
+
+#
+# Disabled Style
+#
+
+# As of this commit we have 686 modules and classes without docs.
+# This is a cop that we /should/ have enabled, but tactically we can't really enable.
+Style/Documentation:
+  Enabled: false
+
+# this makes whitespace formatting of DSL code impossible
+Style/SpaceBeforeFirstArg:
+  Enabled: false
+
+# whitespace in expressions is useful to enhance readability
+Style/SpaceInsideBrackets:
+  Enabled: false
+Style/SpaceInsideParens:
+  Enabled: false
+
+# more whitespace cops that we allow since they can enhance readability
+Style/EmptyLinesAroundBlockBody:
+  Enabled: false
+Style/EmptyLinesAroundClassBody:
+  Enabled: false
+Style/EmptyLinesAroundModuleBody:
+  Enabled: false
+
+# double negation is perfectly idiomatic ruby
+Style/DoubleNegation:
+  Enabled: false
+# format strings are also perfectly idiomatic ruby
+Style/FormatString:
+  Enabled: false
+# single line if/unless blocks may read more naturally than modifiers
+Style/IfUnlessModifier:
+  Enabled: false
+
+# we are ruby > 2.0 only so can disable the Encoding cop
+Style/Encoding:
+  Enabled: false
+
+# Dan is -1 on this one: https://github.com/chef/chef/pull/4526#issuecomment-179950045
+Style/IndentHash:
+  Enabled: false
+
+# This is overly aggressive and autofix broke stuff, would need to exclude classes
+#  - https://github.com/chef/chef/pull/4541
+Style/TrivialAccessors:
+  Enabled: false
