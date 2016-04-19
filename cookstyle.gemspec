@@ -5,7 +5,7 @@ require 'cookstyle/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "cookstyle"
-  spec.version       = cookstyle::VERSION
+  spec.version       = Cookstyle::VERSION
   spec.authors       = ["Thom May"]
   spec.email         = ["thom@chef.io"]
 
@@ -21,5 +21,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec"
-  spec.add_dependency("rubocop", cookstyle::RUBOCOP_VERSION)
+  spec.add_dependency("rubocop", Cookstyle::RUBOCOP_VERSION)
 end
