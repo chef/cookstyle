@@ -3,10 +3,10 @@
 
 $LOAD_PATH.unshift File.join(File.dirname(__FILE__), %w[.. lib])
 
-require "chefstyle"
+require "cookstyle"
 
 if ARGV.size == 1 && %w[-v --version].include?(ARGV.first)
-  puts "Chefstyle #{Chefstyle::VERSION}"
+  puts "Cookstyle #{Cookstyle::VERSION}"
   print "  * RuboCop "
 end
 

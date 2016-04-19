@@ -1,7 +1,7 @@
-require "chefstyle/version"
+require "cookstyle/version"
 
 # ensure the desired target version of RuboCop is gem activated
-gem "rubocop", "= #{Chefstyle::RUBOCOP_VERSION}"
+gem "rubocop", "= #{Cookstyle::RUBOCOP_VERSION}"
 require "rubocop"
 
 module RuboCop
@@ -18,9 +18,9 @@ module RuboCop
   end
 end
 
-# Chefstyle patches the RuboCop tool to set a new default configuration that
-# is vendored in the Chefstyle codebase.
-module Chefstyle
+# Cookstyle patches the RuboCop tool to set a new default configuration that
+# is vendored in the Cookstyle codebase.
+module Cookstyle
   # @return [String] the absolute path to the main RuboCop configuration YAML
   #   file
   def self.config

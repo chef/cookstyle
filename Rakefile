@@ -21,7 +21,7 @@ task :vendor do
   sh %{git commit -m "Vendor rubocop-#{upstream.version} upstream configuration."}
 end
 
-require "chefstyle"
+require "cookstyle"
 require "rubocop/rake_task"
 RuboCop::RakeTask.new(:style) do |task|
   task.options << "--display-cop-names"
