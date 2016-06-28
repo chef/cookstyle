@@ -1,4 +1,4 @@
 module Cookstyle
-  VERSION = "0.0.1".freeze
-  RUBOCOP_VERSION = "0.39.0".freeze
+  VERSION = "1.0.0".freeze
+  RUBOCOP_VERSION = "0.41.1".freeze
 end
