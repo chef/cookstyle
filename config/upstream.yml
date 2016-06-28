@@ -25,6 +25,8 @@ AllCops:
     - '**/Berksfile'
     - '**/Cheffile'
     - '**/Vagabondfile'
+    - '**/Fastfile'
+    - '**/*Fastfile'
   Exclude:
     - 'vendor/**/*'
   # Default formatter will be used if no -f/--format option is given.
@@ -63,6 +65,14 @@ AllCops:
   # which is "/tmp" on Unix-like systems, but could be something else on other
   # systems.
   CacheRootDirectory: /tmp
+  # The default cache root directory is /tmp, which on most systems is
+  # writable by any system user. This means that it is possible for a
+  # malicious user to anticipate the location of Rubocop's cache directory,
+  # and create a symlink in its place that could cause Rubocop to overwrite
+  # unintended files, or read malicious input. If you are certain that your
+  # cache location is secure from this kind of attack, and wish to use a
+  # symlinked cache location, set this value to "true".
+  AllowSymlinksInCacheRootDirectory: false
   # What version of the Ruby interpreter is the inspected code intended to
   # run on? (If there is more than one, set this to the lowest version.)
   TargetRubyVersion: 2.0
@@ -165,6 +175,9 @@ Style/AlignParameters:
   SupportedStyles:
     - with_first_parameter
     - with_fixed_indentation
+  # By default, the indentation width from Style/IndentationWidth is used
+  # But it can be overridden by setting this parameter
+  IndentationWidth: ~
 
 Style/AndOr:
   # Whether `and` and `or` are banned only in conditionals (conditionals)
@@ -425,10 +438,11 @@ Style/EmptyLinesAroundModuleBody:
 # AutoCorrectEncodingComment must match the regex
 # /#.*coding\s?[:=]\s?(?:UTF|utf)-8/
 Style/Encoding:
-  EnforcedStyle: always
+  EnforcedStyle: never
   SupportedStyles:
     - when_needed
     - always
+    - never
   AutoCorrectEncodingComment: '# encoding: utf-8'
 
 Style/ExtraSpacing:
@@ -518,8 +532,10 @@ Style/HashSyntax:
     - ruby19
     - ruby19_no_mixed_keys
     - hash_rockets
-# Force hashes that have a symbol value to use hash rockets
+  # Force hashes that have a symbol value to use hash rockets
   UseHashRocketsWithSymbolValues: false
+  # Do not suggest { a?: 1 } over { :a? => 1 } in ruby19 style
+  PreferHashRocketsForNonAlnumEndingSymbols: false
 
 Style/IfUnlessModifier:
   MaxLineLength: 80
@@ -590,6 +606,13 @@ Style/IndentHash:
   # But it can be overridden by setting this parameter
   IndentationWidth: ~
 
+Style/Lambda:
+  EnforcedStyle: line_count_dependent
+  SupportedStyles:
+    - line_count_dependent
+    - lambda
+    - literal
+
 Style/LambdaCall:
   EnforcedStyle: call
   SupportedStyles:
@@ -630,6 +653,22 @@ Style/MethodName:
     - snake_case
     - camelCase
 
+Style/ModuleFunction:
+  EnforcedStyle: module_function
+  SupportedStyles:
+    - module_function
+    - extend_self
+
+Style/MultilineArrayBraceLayout:
+  EnforcedStyle: symmetrical
+  SupportedStyles:
+    # symmetrical: closing brace is positioned in same way as opening brace
+    # new_line: closing brace is always on a new line
+    # same_line: closing brace is always on the same line as last element
+    - symmetrical
+    - new_line
+    - same_line
+
 Style/MultilineAssignmentLayout:
   # The types of assignments which are subject to this rule.
   SupportedTypes:
@@ -648,14 +687,45 @@ Style/MultilineAssignmentLayout:
     # for the set of supported types.
     - new_line
 
+Style/MultilineHashBraceLayout:
+  EnforcedStyle: symmetrical
+  SupportedStyles:
+    # symmetrical: closing brace is positioned in same way as opening brace
+    # new_line: closing brace is always on a new line
+    # same_line: closing brace is always on same line as last element
+    - symmetrical
+    - new_line
+    - same_line
+
+Style/MultilineMethodCallBraceLayout:
+  EnforcedStyle: symmetrical
+  SupportedStyles:
+    # symmetrical: closing brace is positioned in same way as opening brace
+    # new_line: closing brace is always on a new line
+    # same_line: closing brace is always on the same line as last argument
+    - symmetrical
+    - new_line
+    - same_line
+
 Style/MultilineMethodCallIndentation:
   EnforcedStyle: aligned
   SupportedStyles:
     - aligned
     - indented
+    - indented_relative_to_receiver
   # By default, the indentation width from Style/IndentationWidth is used
   # But it can be overridden by setting this parameter
   IndentationWidth: ~
+
+Style/MultilineMethodDefinitionBraceLayout:
+  EnforcedStyle: symmetrical
+  SupportedStyles:
+    # symmetrical: closing brace is positioned in same way as opening brace
+    # new_line: closing brace is always on a new line
+    # same_line: closing brace is always on the same line as last parameter
+    - symmetrical
+    - new_line
+    - same_line
 
 Style/MultilineOperationIndentation:
   EnforcedStyle: aligned
@@ -668,6 +738,12 @@ Style/MultilineOperationIndentation:
 
 Style/NumericLiterals:
   MinDigits: 5
+
+Style/NumericLiteralPrefix:
+  EnforcedOctalStyle: zero_with_o
+  SupportedOctalStyles:
+    - zero_with_o
+    - zero_only
 
 Style/OptionHash:
   # A list of parameter names that will be flagged by this cop.
@@ -715,6 +791,10 @@ Style/PredicateName:
   # should still be accepted
   NameWhitelist:
     - is_a?
+  # Exclude Rspec specs because there is a strong convetion to write spec
+  # helpers in the form of `have_something` or `be_something`.
+  Exclude:
+    - 'spec/**/*'
 
 Style/RaiseArgs:
   EnforcedStyle: exploded
@@ -846,6 +926,9 @@ Style/SpaceInsideHashLiteralBraces:
   SupportedStyles:
     - space
     - no_space
+    # 'compact' normally requires a space inside hash braces, with the exception
+    # that successive left braces or right braces are collapsed together
+    - compact
 
 Style/SpaceInsideStringInterpolation:
   EnforcedStyle: no_space
@@ -864,6 +947,7 @@ Style/SymbolProc:
   # The names should be fairly unique, otherwise you'll end up ignoring lots of code.
   IgnoredMethods:
     - respond_to
+    - define_method
 
 Style/TrailingBlankLines:
   EnforcedStyle: final_newline
@@ -944,11 +1028,17 @@ Style/VariableName:
 Style/WhileUntilModifier:
   MaxLineLength: 80
 
+# WordArray enforces how array literals of word-like strings should be expressed.
 Style/WordArray:
   EnforcedStyle: percent
   SupportedStyles:
+    # percent style: %w(word1 word2)
     - percent
+    # bracket style: ['word1', 'word2']
     - brackets
+  # The MinSize option causes the WordArray rule to be ignored for arrays
+  # smaller than a certain size.  The rule is only applied to arrays
+  # whose element count is greater than or equal to MinSize.
   MinSize: 0
   # The regular expression WordRegex decides what is considered a word.
   WordRegex: !ruby/regexp '/\A[\p{Word}\n\t]+\z/'
@@ -1006,7 +1096,7 @@ Lint/AssignmentInCondition:
 Lint/BlockAlignment:
   # The value `start_of_block` means that the `end` should be aligned with line
   # where the `do` keyword appears.
-  # The value `start_of_line` means it should be aligned with the whole 
+  # The value `start_of_line` means it should be aligned with the whole
   # expression's starting line.
   # The value `either` means both are allowed.
   AlignWith: either
@@ -1042,9 +1132,17 @@ Lint/DefEndAlignment:
     - def
   AutoCorrect: false
 
+Lint/InheritException:
+  # The default base class in favour of `Exception`.
+  EnforcedStyle: runtime_error
+  SupportedStyles:
+    - runtime_error
+    - standard_error
+
 # Checks for unused block arguments
 Lint/UnusedBlockArgument:
   IgnoreEmptyBlocks: true
+  AllowUnusedKeywordArguments: false
 
 # Checks for unused method arguments.
 Lint/UnusedMethodArgument:
@@ -1078,6 +1176,14 @@ Rails/Date:
     - strict
     - flexible
 
+Rails/Exit:
+  Include:
+    - app/**/*.rb
+    - config/**/*.rb
+    - lib/**/*.rb
+  Exclude:
+    - lib/**/*.rake
+
 Rails/FindBy:
   Include:
     - app/models/**/*.rb
@@ -1101,6 +1207,12 @@ Rails/ReadWriteAttribute:
   Include:
     - app/models/**/*.rb
 
+Rails/RequestReferer:
+  EnforcedStyle: referer
+  SupportedStyles:
+    - referer
+    - referrer
+
 Rails/ScopeArgs:
   Include:
     - app/models/**/*.rb
@@ -1112,6 +1224,13 @@ Rails/TimeZone:
   SupportedStyles:
     - strict
     - flexible
+
+Rails/UniqBeforePluck:
+  EnforcedMode: conservative
+  SupportedModes:
+    - conservative
+    - aggressive
+  AutoCorrect: false
 
 Rails/Validation:
   Include:
