@@ -31,3 +31,8 @@ PerceivedComplexity:
   Enabled: false
 Style/ClassAndModuleChildren:
   Enabled: false
+
+# regex rules often trigger no matter what you do with inspec/serverspec matchers
+Style/RegexpLiteral:
+  Exclude:
+    - 'test/**/*'
