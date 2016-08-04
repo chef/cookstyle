@@ -5,6 +5,11 @@
 Rails:
   Enabled: false
 
+Rails/SaveBang:
+  Description: 'Identifies possible cases where Active Record save! or related should be used.'
+  StyleGuide: 'https://github.com/bbatsov/rails-style-guide#save-bang'
+  Enabled: false
+
 Style/AutoResourceCleanup:
   Description: 'Suggests the usage of an auto resource cleanup version of a method (if available).'
   Enabled: false
@@ -47,6 +52,12 @@ Style/FirstMethodParameterLineBreak:
                  multi-line method parameter definition.
   Enabled: false
 
+Style/ImplicitRuntimeError:
+  Description: >-
+                 Use `raise` or `fail` with an explicit exception class and
+                 message, rather than just a message.
+  Enabled: false
+
 Style/InlineComment:
   Description: 'Avoid inline comments.'
   Enabled: false
@@ -73,37 +84,9 @@ Style/MissingElse:
     - case
     - both
 
-Style/MultilineArrayBraceLayout:
-  Description: >-
-                 Checks that the closing brace in an array literal is
-                 symmetrical with respect to the opening brace and the
-                 array elements.
-  Enabled: false
-
 Style/MultilineAssignmentLayout:
   Description: 'Check for a newline after the assignment operator in multi-line assignments.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#indent-conditional-assignment'
-  Enabled: false
-
-Style/MultilineHashBraceLayout:
-  Description: >-
-                 Checks that the closing brace in a hash literal is
-                 symmetrical with respect to the opening brace and the
-                 hash elements.
-  Enabled: false
-
-Style/MultilineMethodCallBraceLayout:
-  Description: >-
-                 Checks that the closing brace in a method call is
-                 symmetrical with respect to the opening brace and the
-                 method arguments.
-  Enabled: false
-
-Style/MultilineMethodDefinitionBraceLayout:
-  Description: >-
-                 Checks that the closing brace in a method definition is
-                 symmetrical with respect to the opening brace and the
-                 method parameters.
   Enabled: false
 
 Style/OptionHash:
