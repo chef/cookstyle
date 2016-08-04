@@ -34,3 +34,8 @@ Style/ClassAndModuleChildren:
 Style/TrailingCommaInLiteral:
   Enabled: true
   EnforcedStyleForMultiline: comma
+
+# regex rules often trigger no matter what you do with inspec/serverspec matchers
+Style/RegexpLiteral:
+  Exclude:
+    - 'test/**/*'
