@@ -31,3 +31,6 @@ PerceivedComplexity:
   Enabled: false
 Style/ClassAndModuleChildren:
   Enabled: false
+Style/TrailingCommaInLiteral:
+  Enabled: true
+    EnforcedStyleForMultiline: comma
