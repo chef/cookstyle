@@ -17,6 +17,8 @@ Lint/DefEndAlignment:
   Enabled: false
 Lint/DeprecatedClassMethods:
   Enabled: false
+Lint/DuplicateCaseCondition:
+  Enabled: false
 Lint/DuplicateMethods:
   Enabled: false
 Lint/DuplicatedKey:
@@ -27,7 +29,11 @@ Lint/ElseLayout:
   Enabled: false
 Lint/EmptyEnsure:
   Enabled: false
+Lint/EmptyExpression:
+  Enabled: false
 Lint/EmptyInterpolation:
+  Enabled: false
+Lint/EmptyWhen:
   Enabled: false
 Lint/EndAlignment:
   Enabled: false
@@ -44,6 +50,8 @@ Lint/FormatParameterMismatch:
 Lint/HandleExceptions:
   Enabled: false
 Lint/ImplicitStringConcatenation:
+  Enabled: false
+Lint/InheritException:
   Enabled: false
 Lint/IneffectiveAccessModifier:
   Enabled: false
@@ -63,11 +71,17 @@ Lint/NonLocalExitFromIterator:
   Enabled: false
 Lint/ParenthesesAsGroupedExpression:
   Enabled: false
+Lint/PercentStringArray:
+  Enabled: false
+Lint/PercentSymbolArray:
+  Enabled: false
 Lint/RandOne:
   Enabled: false
 Lint/RequireParentheses:
   Enabled: false
 Lint/RescueException:
+  Enabled: false
+Lint/ShadowedException:
   Enabled: false
 Lint/ShadowingOuterLocalVariable:
   Enabled: false
@@ -75,7 +89,11 @@ Lint/StringConversionInInterpolation:
   Enabled: false
 Lint/UnderscorePrefixedVariableName:
   Enabled: false
+Lint/UnifiedInteger:
+  Enabled: false
 Lint/UnneededDisable:
+  Enabled: false
+Lint/UnneededSplatExpansion:
   Enabled: false
 Lint/UnreachableCode:
   Enabled: false
@@ -98,6 +116,8 @@ Lint/Void:
 Metrics/CyclomaticComplexity:
   Enabled: false
 Metrics/AbcSize:
+  Enabled: false
+Metrics/BlockLength:
   Enabled: false
 Metrics/BlockNesting:
   Enabled: false
@@ -148,6 +168,8 @@ Performance/ReverseEach:
 Performance/Sample:
   Enabled: false
 Performance/Size:
+  Enabled: false
+Performance/SortWithBlock:
   Enabled: false
 Performance/StartWith:
   Enabled: false
@@ -227,7 +249,9 @@ Style/Copyright:
   Enabled: false
 Style/DefWithParentheses:
   Enabled: false
-Style/DeprecatedHashMethods:
+Style/PreferredHashMethods:
+  Enabled: false
+Style/DocumentationMethod:
   Enabled: false
 Style/Documentation:
   Enabled: false
@@ -235,9 +259,13 @@ Style/DotPosition:
   Enabled: false
 Style/DoubleNegation:
   Enabled: false
+Style/EachForSimpleLoop:
+  Enabled: false
 Style/EachWithObject:
   Enabled: false
 Style/ElseAlignment:
+  Enabled: false
+Style/EmptyCaseCondition:
   Enabled: false
 Style/EmptyElse:
   Enabled: false
@@ -303,6 +331,8 @@ Style/IfUnlessModifierOfIfUnless:
   Enabled: false
 Style/IfWithSemicolon:
   Enabled: false
+Style/ImplicitRuntimeError:
+  Enabled: false
 Style/IndentArray:
   Enabled: false
 Style/IndentAssignment:
@@ -335,6 +365,8 @@ Style/MethodDefParentheses:
   Enabled: false
 Style/MethodName:
   Enabled: false
+Style/MethodMissing:
+  Enabled: false
 Style/MissingElse:
   Enabled: false
 Style/ModuleFunction:
@@ -350,6 +382,10 @@ Style/MultilineBlockLayout:
 Style/MultilineHashBraceLayout:
   Enabled: false
 Style/MultilineIfThen:
+  Enabled: false
+Style/MultilineIfModifier:
+  Enabled: false
+Style/MultilineMemoization:
   Enabled: false
 Style/MultilineMethodCallBraceLayout:
   Enabled: false
@@ -382,6 +418,10 @@ Style/NonNilCheck:
 Style/Not:
   Enabled: false
 Style/NumericLiterals:
+  Enabled: false
+Style/NumericLiteralPrefix:
+  Enabled: false
+Style/NumericPredicate:
   Enabled: false
 Style/OneLineConditional:
   Enabled: false
@@ -425,6 +465,8 @@ Style/RescueEnsureAlignment:
   Enabled: false
 Style/RescueModifier:
   Enabled: false
+Style/SafeNavigation:
+  Enabled: false
 Style/SelfAssignment:
   Enabled: false
 Style/Semicolon:
@@ -465,6 +507,10 @@ Style/SpaceBeforeFirstArg:
   Enabled: false
 Style/SpaceBeforeSemicolon:
   Enabled: false
+Style/SpaceInLambdaLiteral:
+  Enabled: false
+Style/SpaceInsideArrayPercentLiteral:
+  Enabled: false
 Style/SpaceInsideBlockBraces:
   Enabled: false
 Style/SpaceInsideBrackets:
@@ -472,6 +518,8 @@ Style/SpaceInsideBrackets:
 Style/SpaceInsideHashLiteralBraces:
   Enabled: false
 Style/SpaceInsideParens:
+  Enabled: false
+Style/SpaceInsidePercentLiteralDelimiters:
   Enabled: false
 Style/SpaceInsideRangeLiteral:
   Enabled: false
@@ -497,6 +545,8 @@ Style/SymbolProc:
   Enabled: false
 Style/Tab:
   Enabled: false
+Style/TernaryParentheses:
+  Enabled: false
 Style/TrailingBlankLines:
   Enabled: false
 Style/TrailingCommaInArguments:
@@ -521,6 +571,8 @@ Style/VariableInterpolation:
   Enabled: false
 Style/VariableName:
   Enabled: false
+Style/VariableNumber:
+  Enabled: false
 Style/WhenThen:
   Enabled: false
 Style/WhileUntilDo:
@@ -535,7 +587,13 @@ Rails/ActionFilter:
   Enabled: false
 Rails/Date:
   Enabled: false
+Rails/DynamicFindBy:
+  Enabled: false
 Rails/Delegate:
+  Enabled: false
+Rails/DelegateAllowBlank:
+  Enabled: false
+Rails/Exit:
   Enabled: false
 Rails/FindBy:
   Enabled: false
@@ -543,15 +601,31 @@ Rails/FindEach:
   Enabled: false
 Rails/HasAndBelongsToMany:
   Enabled: false
+Rails/HttpPositionalArguments:
+  Enabled: false
+Rails/NotNullColumn:
+  Enabled: false
+Rails/OutputSafety:
+  Enabled: false
 Rails/Output:
   Enabled: false
 Rails/PluralizationGrammar:
   Enabled: false
 Rails/ReadWriteAttribute:
   Enabled: false
+Rails/RequestReferer:
+  Enabled: false
+Rails/SafeNavigation:
+  Enabled: false
+Rails/SaveBang:
+  Enabled: false
 Rails/ScopeArgs:
   Enabled: false
 Rails/TimeZone:
   Enabled: false
+Rails/UniqBeforePluck:
+  Enabled: false
 Rails/Validation:
+  Enabled: false
+Security/JSONLoad:
   Enabled: false
