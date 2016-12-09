@@ -5,22 +5,34 @@
 Rails:
   Enabled: false
 
+Rails/SaveBang:
+  Description: 'Identifies possible cases where Active Record save! or related should be used.'
+  StyleGuide: 'https://github.com/bbatsov/rails-style-guide#save-bang'
+  Enabled: false
+
 Style/AutoResourceCleanup:
   Description: 'Suggests the usage of an auto resource cleanup version of a method (if available).'
   Enabled: false
 
 Style/CollectionMethods:
   Description: 'Preferred collection methods.'
-  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#map-find-select-reduce-size'
+  StyleGuide: '#map-find-select-reduce-size'
   Enabled: false
 
 Style/Copyright:
   Description: 'Include a copyright notice in each file before any code.'
   Enabled: false
 
+Style/DocumentationMethod:
+  Description: 'Public methods.'
+  Enabled: false
+  Exclude:
+    - 'spec/**/*'
+    - 'test/**/*'
+
 Style/Encoding:
   Description: 'Use UTF-8 as the source file encoding.'
-  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#utf-8'
+  StyleGuide: '#utf-8'
   Enabled: false
 
 Style/FirstArrayElementLineBreak:
@@ -47,13 +59,19 @@ Style/FirstMethodParameterLineBreak:
                  multi-line method parameter definition.
   Enabled: false
 
+Style/ImplicitRuntimeError:
+  Description: >-
+                 Use `raise` or `fail` with an explicit exception class and
+                 message, rather than just a message.
+  Enabled: false
+
 Style/InlineComment:
-  Description: 'Avoid inline comments.'
+  Description: 'Avoid trailing inline comments.'
   Enabled: false
 
 Style/MethodCalledOnDoEndBlock:
   Description: 'Avoid chaining a method call on a do...end block.'
-  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#single-line-blocks'
+  StyleGuide: '#single-line-blocks'
   Enabled: false
 
 Style/MissingElse:
@@ -73,37 +91,9 @@ Style/MissingElse:
     - case
     - both
 
-Style/MultilineArrayBraceLayout:
-  Description: >-
-                 Checks that the closing brace in an array literal is
-                 symmetrical with respect to the opening brace and the
-                 array elements.
-  Enabled: false
-
 Style/MultilineAssignmentLayout:
   Description: 'Check for a newline after the assignment operator in multi-line assignments.'
-  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#indent-conditional-assignment'
-  Enabled: false
-
-Style/MultilineHashBraceLayout:
-  Description: >-
-                 Checks that the closing brace in a hash literal is
-                 symmetrical with respect to the opening brace and the
-                 hash elements.
-  Enabled: false
-
-Style/MultilineMethodCallBraceLayout:
-  Description: >-
-                 Checks that the closing brace in a method call is
-                 symmetrical with respect to the opening brace and the
-                 method arguments.
-  Enabled: false
-
-Style/MultilineMethodDefinitionBraceLayout:
-  Description: >-
-                 Checks that the closing brace in a method definition is
-                 symmetrical with respect to the opening brace and the
-                 method parameters.
+  StyleGuide: '#indent-conditional-assignment'
   Enabled: false
 
 Style/OptionHash:
@@ -112,7 +102,7 @@ Style/OptionHash:
 
 Style/Send:
   Description: 'Prefer `Object#__send__` or `Object#public_send` to `send`, as `send` may overlap with existing methods.'
-  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#prefer-public-send'
+  StyleGuide: '#prefer-public-send'
   Enabled: false
 
 Style/StringMethods:
@@ -121,5 +111,5 @@ Style/StringMethods:
 
 Style/SymbolArray:
   Description: 'Use %i or %I for arrays of symbols.'
-  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#percent-i'
+  StyleGuide: '#percent-i'
   Enabled: false
