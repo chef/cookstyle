@@ -33,4 +33,4 @@ Style/ClassAndModuleChildren:
   Enabled: false
 Style/TrailingCommaInLiteral:
   Enabled: true
-    EnforcedStyleForMultiline: comma
+  EnforcedStyleForMultiline: comma
