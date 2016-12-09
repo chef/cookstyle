@@ -5,10 +5,6 @@ AllCops:
 
 AlignParameters:
   Enabled: false
-ClassLength:
-  Enabled: false
-CyclomaticComplexity:
-  Enabled: false
 Documentation:
   Enabled: false
 Encoding:
@@ -49,3 +45,63 @@ Style/RegexpLiteral:
 # some names are not ascii and this prevents copyright comments
 Style/AsciiComments:
   Enabled: false
+
+# avoid case statements where the 2nd 'when' would never fire
+Lint/DuplicateCaseCondition:
+  Enabled: true
+
+# empty expressions serve no purpose
+Lint/EmptyExpression:
+  Enabled: true
+
+# when in a case statement should always do something
+Lint/EmptyWhen:
+  Enabled: true
+
+# %w('something') is almost always a typo
+Lint/PercentStringArray:
+  Enabled: true
+
+# %w(:something) should be a string not a symbol
+Lint/PercentSymbolArray:
+  Enabled: true
+
+# if you rescue Exception, then rescue say StandardError you're gonna have a bad time
+Lint/ShadowedException:
+  Enabled: false
+
+# We're on modern ruby so let's assume Integer everywhere
+Lint/UnifiedInteger:
+  Enabled: true
+
+# consistent hash key/value checks
+Style/PreferredHashMethods:
+  Enabled: true
+
+# when iterating a fixed number of times this is much easier to read
+Style/EachForSimpleLoop:
+  Enabled: true
+
+# a case statement without a condition is just an if statement
+Style/EmptyCaseCondition:
+  Enabled: true
+
+# lowercase prefix literals stand out much better
+Style/NumericLiteralPrefix:
+  Enabled: true
+
+# helpers are easiest to read
+Style/NumericPredicate:
+  Enabled: true
+
+# this is bad %w(something     another_thing   one_more)
+Style/SpaceInsideArrayPercentLiteral:
+  Enabled: true
+
+# ( true ) ? 'bob' : 'bill' is unnecessary
+Style/TernaryParentheses:
+  Enabled: true
+
+# There's no reason to have a gem listed twice
+Bundler/DuplicatedGem:
+   Enabled: true
