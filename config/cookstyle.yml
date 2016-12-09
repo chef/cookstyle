@@ -31,9 +31,13 @@ PerceivedComplexity:
   Enabled: false
 Style/ClassAndModuleChildren:
   Enabled: false
+
+# https://github.com/chef/cookstyle/pull/5
 Style/TrailingCommaInLiteral:
   Enabled: true
   EnforcedStyleForMultiline: comma
+
+# Underscores in numbers are unnecessary, especially for port numbers where they are unexpected
 Style/NumericLiterals:
   Enabled: false
 
@@ -41,3 +45,7 @@ Style/NumericLiterals:
 Style/RegexpLiteral:
   Exclude:
     - 'test/**/*'
+
+# some names are not ascii and this prevents copyright comments
+Style/AsciiComments:
+  Enabled: false
