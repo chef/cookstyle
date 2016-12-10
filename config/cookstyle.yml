@@ -86,10 +86,6 @@ Style/EachForSimpleLoop:
 Style/EmptyCaseCondition:
   Enabled: true
 
-# lowercase prefix literals stand out much better
-Style/NumericLiteralPrefix:
-  Enabled: true
-
 # helpers are easiest to read
 Style/NumericPredicate:
   Enabled: true
