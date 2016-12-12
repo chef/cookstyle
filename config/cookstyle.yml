@@ -98,6 +98,10 @@ Style/SpaceInsideArrayPercentLiteral:
 Style/TernaryParentheses:
   Enabled: true
 
+# disable this until there's an autocorrect
+Bundler/OrderedGems:
+  Enabled: false
+
 # There's no reason to have a gem listed twice
 Bundler/DuplicatedGem:
    Enabled: true
