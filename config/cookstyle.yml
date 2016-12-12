@@ -70,7 +70,7 @@ Lint/PercentSymbolArray:
 
 # if you rescue Exception, then rescue say StandardError you're gonna have a bad time
 Lint/ShadowedException:
-  Enabled: false
+  Enabled: true
 
 # We're on modern ruby so let's assume Integer everywhere
 Lint/UnifiedInteger:
@@ -94,10 +94,6 @@ Style/NumericPredicate:
 
 # this is bad %w(something     another_thing   one_more)
 Style/SpaceInsideArrayPercentLiteral:
-  Enabled: true
-
-# ( true ) ? 'bob' : 'bill' is unnecessary
-Style/TernaryParentheses:
   Enabled: true
 
 # disable this until there's an autocorrect
