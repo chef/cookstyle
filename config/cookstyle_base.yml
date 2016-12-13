@@ -479,27 +479,3 @@ Performance/StringReplacement:
   Enabled: true
 Performance/TimesMap:
   Enabled: true
-Rails/ActionFilter:
-  Enabled: true
-Rails/Date:
-  Enabled: true
-Rails/Delegate:
-  Enabled: true
-Rails/FindBy:
-  Enabled: true
-Rails/FindEach:
-  Enabled: true
-Rails/HasAndBelongsToMany:
-  Enabled: true
-Rails/Output:
-  Enabled: true
-Rails/PluralizationGrammar:
-  Enabled: true
-Rails/ReadWriteAttribute:
-  Enabled: true
-Rails/ScopeArgs:
-  Enabled: true
-Rails/TimeZone:
-  Enabled: true
-Rails/Validation:
-  Enabled: true
