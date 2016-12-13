@@ -23,6 +23,8 @@ Metrics/AbcSize:
   Enabled: false
 Metrics/ModuleLength:
   Enabled: false
+Metrics/ClassLength:
+  Enabled: false
 Metrics/CyclomaticComplexity:
   Enabled: false
 PerceivedComplexity:

@@ -332,23 +332,13 @@ Style/WordArray:
   Enabled: true
 Style/ZeroLengthPredicate:
   Enabled: true
-Metrics/AbcSize:
-  Enabled: true
 Metrics/BlockNesting:
-  Enabled: true
-Metrics/ClassLength:
-  Enabled: true
-Metrics/ModuleLength:
-  Enabled: true
-Metrics/CyclomaticComplexity:
   Enabled: true
 Metrics/LineLength:
   Enabled: true
 Metrics/MethodLength:
   Enabled: true
 Metrics/ParameterLists:
-  Enabled: true
-Metrics/PerceivedComplexity:
   Enabled: true
 Lint/AmbiguousOperator:
   Enabled: true
@@ -488,28 +478,4 @@ Performance/StartWith:
 Performance/StringReplacement:
   Enabled: true
 Performance/TimesMap:
-  Enabled: true
-Rails/ActionFilter:
-  Enabled: true
-Rails/Date:
-  Enabled: true
-Rails/Delegate:
-  Enabled: true
-Rails/FindBy:
-  Enabled: true
-Rails/FindEach:
-  Enabled: true
-Rails/HasAndBelongsToMany:
-  Enabled: true
-Rails/Output:
-  Enabled: true
-Rails/PluralizationGrammar:
-  Enabled: true
-Rails/ReadWriteAttribute:
-  Enabled: true
-Rails/ScopeArgs:
-  Enabled: true
-Rails/TimeZone:
-  Enabled: true
-Rails/Validation:
   Enabled: true
