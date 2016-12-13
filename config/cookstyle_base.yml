@@ -332,23 +332,13 @@ Style/WordArray:
   Enabled: true
 Style/ZeroLengthPredicate:
   Enabled: true
-Metrics/AbcSize:
-  Enabled: true
 Metrics/BlockNesting:
-  Enabled: true
-Metrics/ClassLength:
-  Enabled: true
-Metrics/ModuleLength:
-  Enabled: true
-Metrics/CyclomaticComplexity:
   Enabled: true
 Metrics/LineLength:
   Enabled: true
 Metrics/MethodLength:
   Enabled: true
 Metrics/ParameterLists:
-  Enabled: true
-Metrics/PerceivedComplexity:
   Enabled: true
 Lint/AmbiguousOperator:
   Enabled: true
