@@ -105,3 +105,7 @@ Bundler/OrderedGems:
 # There's no reason to have a gem listed twice
 Bundler/DuplicatedGem:
    Enabled: true
+
+# guard clause refactoring makes some cookbook logic harder to comprehend
+Style/GuardClause:
+  Enabled: false

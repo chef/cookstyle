@@ -1,5 +1,9 @@
 # Cookstyle Changelog
 
+## 1.2.0 (2016-12-16)
+
+- Disable Style/GuardClause
+
 ## 1.1.0 (2016-12-13)
 
 ### Newly Disabled Cops:
