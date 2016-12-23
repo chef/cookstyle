@@ -1,5 +1,9 @@
 # Cookstyle Changelog
 
+## 1.1.1 (2016-12-22)
+
+- Properly disabled the correct cop to avoid warning on InSpec matchers: Lint/AmbiguousRegexpLiteral
+
 ## 1.1.0 (2016-12-13)
 
 ### Newly Disabled Cops:
