@@ -41,8 +41,8 @@ Style/TrailingCommaInLiteral:
 Style/NumericLiterals:
   Enabled: false
 
-# regex rules often trigger no matter what you do with inspec/serverspec matchers
-Style/RegexpLiteral:
+# This often triggers no matter what you do with inspec/serverspec matchers
+Lint/AmbiguousRegexpLiteral:
   Exclude:
     - 'test/**/*'
 
