@@ -90,18 +90,19 @@ Style/EachForSimpleLoop:
 Style/EmptyCaseCondition:
   Enabled: true
 
-# helpers are easiest to read
+# == 0 is more performant than .zero? and .zero? also introduced several regressions
 Style/NumericPredicate:
   Enabled: true
+  EnforcedStyle: comparison
 
 # this is bad %w(something     another_thing   one_more)
 Style/SpaceInsideArrayPercentLiteral:
   Enabled: true
 
-# disable this until there's an autocorrect
+# disable this until there's an autocorrect (0.47 has one)
 Bundler/OrderedGems:
   Enabled: false
 
 # There's no reason to have a gem listed twice
 Bundler/DuplicatedGem:
-   Enabled: true
+  Enabled: true
