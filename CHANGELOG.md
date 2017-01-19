@@ -1,5 +1,9 @@
 # Cookstyle Changelog
 
+## 1.2.0 (2017-01-19)
+
+- Change Style/NumericPredicate to use comparisons. We found that cookstyle autocorrecting code from foo == 0 to foo.zero? was breaking a lot of cookbooks. Additionally .zero? is significantly slower than just using foo == 0.
+
 ## 1.1.1 (2016-12-22)
 
 - Properly disabled the correct cop to avoid warning on InSpec matchers: Lint/AmbiguousRegexpLiteral
