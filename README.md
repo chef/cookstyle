@@ -1,14 +1,20 @@
-# Cookstyle - Version Pinned rubocop and sane defaults for Chef Cookbooks
+# Cookstyle - Sane rubocop defaults for Chef Cookbooks
 
 [![Gem Version](https://badge.fury.io/rb/cookstyle.svg)](https://badge.fury.io/rb/cookstyle) [![Build Status](https://travis-ci.org/chef/cookstyle.svg?branch=master)](https://travis-ci.org/chef/cookstyle)
 
-Pull Requests will not be accepted that assume unfunded mandates for other people to finish the work cleaning up various Chef owned cookbooks. Do not open PRs offering opinions or suggestions without offering to do the work.
+Cookstyle is a set of opinions about ruby code that are specific to
+cookbooks. Running both cookstyle and rubocop on the same codebase will
+result, by design, in changes being applied and then removed. Needless
+to say you should *not* use both tools on the same cookbook.
 
-The project itself is a derivative of [finstyle](https://github.com/fnichol/finstyle), but starts with all rules disabled. The active ruleset is in the [config/cookstyle.yml](https://github.com/chef/cookstyle/blob/master/config/cookstyle.yml) file.
+Cookstyle is included in the ChefDK, and can be used from the command
+line by running `cookstyle`.
+
+The active ruleset is in the [config/cookstyle.yml](https://github.com/chef/cookstyle/blob/master/config/cookstyle.yml) file. Changes to the rule set must be accompanied by arguments and code demonstrating why the change should be made, and in most cases we would expect the author of the change to help with updating the core community cookbooks.
 
 ## How It Works
 
-This library has a direct dependency on one specific version of RuboCop (at a time), and [patches it][patch] to load the [upstream configuration][upstream] and [custom set][config] of rule updates. When a new RuboCop release comes out, this library can rev its pinned version dependency and [re-vendor][rakefile] the upstream configuration to determine if any breaking style or lint rules were added/dropped/reversed/etc.
+The project itself is a derivative of [finstyle](https://github.com/fnichol/finstyle), but starts with all rules disabled. Cookstyle has a direct dependency on one specific version of RuboCop (at a time), and [patches it][patch] to load the [upstream configuration][upstream] and [custom set][config] of rule updates. When a new RuboCop release comes out, this library can rev its pinned version dependency and [re-vendor][rakefile] the upstream configuration to determine if any breaking style or lint rules were added/dropped/reversed/etc.
 
 ## NOTE CAREFULLY ABOUT UPDATING COOKSTYLE
 
@@ -27,6 +33,9 @@ When updating to a new engine the `rake vendor` task should still always be run 
 When editing the `cookstyle_base.yml` becomes too much of a PITA, it may be time to bump the engine, run `rake vendor` and then drop the new `enabled.yml` into `cookstyle_base.yml`, fix it up, and ship it and then deal with the fallout of all the new cops...
 
 ## Installation
+
+Cookstyle is included in the [ChefDK](https://downloads.chef.io/chefdk). If you choose not to use ChefDK,
+you can still install Cookstyle manually using the instructions below.
 
 Add this line to your application's Gemfile:
 
