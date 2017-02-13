@@ -1,4 +1,8 @@
 ---
+Bundler/DuplicatedGem:
+  Enabled: false
+Bundler/OrderedGems:
+  Enabled: false
 Lint/AmbiguousOperator:
   Enabled: false
 Lint/AmbiguousRegexpLiteral:
@@ -41,8 +45,6 @@ Lint/EndInMethod:
   Enabled: false
 Lint/EnsureReturn:
   Enabled: false
-Lint/Eval:
-  Enabled: false
 Lint/FloatOutOfRange:
   Enabled: false
 Lint/FormatParameterMismatch:
@@ -63,6 +65,8 @@ Lint/LiteralInInterpolation:
   Enabled: false
 Lint/Loop:
   Enabled: false
+Lint/MultipleCompare:
+  Enabled: false
 Lint/NestedMethodDefinition:
   Enabled: false
 Lint/NextWithoutAccumulator:
@@ -80,6 +84,8 @@ Lint/RandOne:
 Lint/RequireParentheses:
   Enabled: false
 Lint/RescueException:
+  Enabled: false
+Lint/SafeNavigationChain:
   Enabled: false
 Lint/ShadowedException:
   Enabled: false
@@ -163,13 +169,15 @@ Performance/RedundantMerge:
   Enabled: false
 Performance/RedundantSortBy:
   Enabled: false
+Performance/RegexpMatch:
+  Enabled: false
 Performance/ReverseEach:
   Enabled: false
 Performance/Sample:
   Enabled: false
 Performance/Size:
   Enabled: false
-Performance/SortWithBlock:
+Performance/CompareWithBlock:
   Enabled: false
 Performance/StartWith:
   Enabled: false
@@ -285,6 +293,8 @@ Style/EmptyLinesAroundModuleBody:
   Enabled: false
 Style/EmptyLiteral:
   Enabled: false
+Style/EmptyMethod:
+  Enabled: false
 Style/Encoding:
   Enabled: false
 Style/EndBlock:
@@ -357,7 +367,9 @@ Style/LeadingCommentSpace:
   Enabled: false
 Style/LineEndConcatenation:
   Enabled: false
-Style/MethodCallParentheses:
+Style/MethodCallWithoutArgsParentheses:
+  Enabled: false
+Style/MethodCallWithArgsParentheses:
   Enabled: false
 Style/MethodCalledOnDoEndBlock:
   Enabled: false
@@ -593,7 +605,11 @@ Rails/Delegate:
   Enabled: false
 Rails/DelegateAllowBlank:
   Enabled: false
+Rails/EnumUniqueness:
+  Enabled: false
 Rails/Exit:
+  Enabled: false
+Rails/FilePath:
   Enabled: false
 Rails/FindBy:
   Enabled: false
@@ -615,11 +631,15 @@ Rails/ReadWriteAttribute:
   Enabled: false
 Rails/RequestReferer:
   Enabled: false
+Rails/ReversibleMigration:
+  Enabled: false
 Rails/SafeNavigation:
   Enabled: false
 Rails/SaveBang:
   Enabled: false
 Rails/ScopeArgs:
+  Enabled: false
+Rails/SkipsModelValidations:
   Enabled: false
 Rails/TimeZone:
   Enabled: false
@@ -627,5 +647,11 @@ Rails/UniqBeforePluck:
   Enabled: false
 Rails/Validation:
   Enabled: false
+Security/Eval:
+  Enabled: false
 Security/JSONLoad:
+  Enabled: false
+Security/MarshalLoad:
+  Enabled: false
+Security/YAMLLoad:
   Enabled: false

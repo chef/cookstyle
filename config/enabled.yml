@@ -404,7 +404,7 @@ Style/LineEndConcatenation:
                  line end.
   Enabled: true
 
-Style/MethodCallParentheses:
+Style/MethodCallWithoutArgsParentheses:
   Description: 'Do not use parentheses for method calls with no arguments.'
   StyleGuide: '#method-invocation-parens'
   Enabled: true
@@ -708,10 +708,6 @@ Style/Semicolon:
 Style/SignalException:
   Description: 'Checks for proper usage of fail and raise.'
   StyleGuide: '#prefer-raise-over-fail'
-  Enabled: true
-
-Style/SingleLineBlockParams:
-  Description: 'Enforces the names of some block params.'
   Enabled: true
 
 Style/SingleLineMethods:
@@ -1120,10 +1116,6 @@ Lint/EnsureReturn:
   StyleGuide: '#no-return-ensure'
   Enabled: true
 
-Lint/Eval:
-  Description: 'The use of eval represents a serious security risk.'
-  Enabled: true
-
 Lint/FloatOutOfRange:
   Description: >-
                  Catches floating-point literals too large or small for Ruby to
@@ -1176,6 +1168,10 @@ Lint/Loop:
   StyleGuide: '#loop-with-break'
   Enabled: true
 
+Lint/MultipleCompare:
+  Description: "Use `&&` operator to compare multiple value."
+  Enabled: true
+
 Lint/NestedMethodDefinition:
   Description: 'Do not use nested method definitions.'
   StyleGuide: '#no-nested-methods'
@@ -1223,6 +1219,10 @@ Lint/RequireParentheses:
 Lint/RescueException:
   Description: 'Avoid rescuing the Exception class.'
   StyleGuide: '#no-blind-rescues'
+  Enabled: true
+
+Lint/SafeNavigationChain:
+  Description: 'Do not chain ordinary method call after safe navigation operator.'
   Enabled: true
 
 Lint/ShadowedException:
@@ -1279,6 +1279,7 @@ Lint/UselessAccessModifier:
   Description: 'Checks for useless access modifiers.'
   Enabled: true
   ContextCreatingMethods: []
+  MethodCreatingMethods: []
 
 Lint/UselessAssignment:
   Description: 'Checks for useless assignment to a local variable.'
@@ -1408,6 +1409,10 @@ Performance/RedundantSortBy:
   Description: 'Use `sort` instead of `sort_by { |x| x }`.'
   Enabled: true
 
+Performance/RegexpMatch:
+  Description: 'Use `match?` instead of `Regexp#match`, `String#match`, `Symbol#match`, `Regexp#===` or `=~` when `MatchData` is not used.'
+  Enabled: true
+
 Performance/ReverseEach:
   Description: 'Use `reverse_each` instead of `reverse.each`.'
   Reference: 'https://github.com/JuanitoFatas/fast-ruby#enumerablereverseeach-vs-enumerablereverse_each-code'
@@ -1488,6 +1493,10 @@ Rails/Exit:
                   exits during unit testing or running in production.
   Enabled: true
 
+Rails/FilePath:
+  Description: 'Use `Rails.root.join` for file path joining.'
+  Enabled: true
+
 Rails/FindBy:
   Description: 'Prefer find_by over where.first.'
   StyleGuide: 'https://github.com/bbatsov/rails-style-guide#find_by'
@@ -1537,6 +1546,12 @@ Rails/RequestReferer:
   Description: 'Use consistent syntax for request.referer.'
   Enabled: true
 
+Rails/ReversibleMigration:
+  Description: 'Checks whether the change method of the migration file is reversible.'
+  StyleGuide: 'https://github.com/bbatsov/rails-style-guide#reversible-migration'
+  Reference: 'http://api.rubyonrails.org/classes/ActiveRecord/Migration/CommandRecorder.html'
+  Enabled: true
+
 Rails/SafeNavigation:
   Description: "Use Ruby's safe navigation operator (`&.`) instead of `try!`"
   Enabled: true
@@ -1555,8 +1570,19 @@ Rails/UniqBeforePluck:
   Description: 'Prefer the use of uniq or distinct before pluck.'
   Enabled: true
 
+Rails/SkipsModelValidations:
+  Description: >-
+                 Use methods that skips model validations with caution.
+                 See reference for more information.
+  Reference: 'http://guides.rubyonrails.org/active_record_validations.html#skipping-validations'
+  Enabled: true
+
 Rails/Validation:
   Description: 'Use validates :attribute, hash of validations.'
+  Enabled: true
+
+Security/Eval:
+  Description: 'The use of eval represents a serious security risk.'
   Enabled: true
 
 Security/JSONLoad:
@@ -1568,6 +1594,20 @@ Security/JSONLoad:
   # Autocorrect here will change to a method that may cause crashes depending
   # on the value of the argument.
   AutoCorrect: false
+
+Security/MarshalLoad:
+  Description: >-
+                 Avoid using of `Marshal.load` or `Marshal.restore` due to potential
+                 security issues. See reference for more information.
+  Reference: 'http://ruby-doc.org/core-2.3.3/Marshal.html#module-Marshal-label-Security+considerations'
+  Enabled: true
+
+Security/YAMLLoad:
+  Description: >-
+                 Prefer usage of `YAML.safe_load` over `YAML.load` due to potential
+                 security issues. See reference for more information.
+  Reference: 'https://ruby-doc.org/stdlib-2.3.3/libdoc/yaml/rdoc/YAML.html#module-YAML-label-Security'
+  Enabled: true
 
 ##################### Bundler #############################
 
