@@ -376,7 +376,7 @@ Lint/EndInMethod:
   Enabled: true
 Lint/EnsureReturn:
   Enabled: true
-Lint/Eval:
+Security/Eval:
   Enabled: true
 Lint/FloatOutOfRange:
   Enabled: true

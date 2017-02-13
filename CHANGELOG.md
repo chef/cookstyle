@@ -1,5 +1,9 @@
 # Cookstyle Changelog
 
+## 1.3.0 (2017-02-13)
+
+- Upgraded the Rubocop engine from 0.46 -> 0.47.1, but disabled all new cops. This aligns cookstyle with the Rubocop in Chefstyle and also resolves multiple bugs in Rubocop 0.46\. If you previously disabled the Lint/Eval cop in your own Rubocop config you'll need to update that with the new cop name of Security/Eval.
+
 ## 1.2.0 (2017-01-19)
 
 - Change Style/NumericPredicate to use comparisons. We found that cookstyle autocorrecting code from foo == 0 to foo.zero? was breaking a lot of cookbooks. Additionally .zero? is significantly slower than just using foo == 0.
