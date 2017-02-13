@@ -15,6 +15,10 @@ Style/Alias:
   Enabled: false
 Style/SpaceBeforeFirstArg:
   Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+# disable all the length cops as they're not appropriate for cookbooks
 LineLength:
   Enabled: false
 MethodLength:
@@ -28,8 +32,6 @@ Metrics/ClassLength:
 Metrics/CyclomaticComplexity:
   Enabled: false
 PerceivedComplexity:
-  Enabled: false
-Style/ClassAndModuleChildren:
   Enabled: false
 
 # https://github.com/chef/cookstyle/pull/5
