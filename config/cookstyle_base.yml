@@ -70,8 +70,6 @@ Style/Documentation:
   Enabled: true
 Style/DotPosition:
   Enabled: true
-Style/DoubleNegation:
-  Enabled: true
 Style/EachWithObject:
   Enabled: true
 Style/ElseAlignment:
