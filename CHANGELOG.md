@@ -1,5 +1,11 @@
 # Cookstyle Changelog
 
+## 1.3.1 (2017-04-17)
+
+### Newly Disabled Cops:
+
+- Style/DoubleNegation which is needed in some situations to avoid Chef deprecation warnings
+
 ## 1.3.0 (2017-02-13)
 
 - Upgraded the Rubocop engine from 0.46 -> 0.47.1, but disabled all new cops. This aligns cookstyle with the Rubocop in Chefstyle and also resolves multiple bugs in Rubocop 0.46\. If you previously disabled the Lint/Eval cop in your own Rubocop config you'll need to update that with the new cop name of Security/Eval.
