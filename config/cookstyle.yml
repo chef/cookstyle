@@ -17,6 +17,8 @@ Style/SpaceBeforeFirstArg:
   Enabled: false
 Style/ClassAndModuleChildren:
   Enabled: false
+Style/DoubleNegation:
+  Enabled: false
 
 # disable all the length cops as they're not appropriate for cookbooks
 LineLength:
