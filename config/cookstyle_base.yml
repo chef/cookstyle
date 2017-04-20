@@ -434,8 +434,6 @@ Lint/UselessSetterCall:
   Enabled: true
 Lint/Void:
   Enabled: true
-Performance/Casecmp:
-  Enabled: true
 Performance/CaseWhenSplat:
   Enabled: true
 Performance/Count:
