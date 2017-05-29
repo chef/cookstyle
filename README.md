@@ -2,13 +2,9 @@
 
 [![Gem Version](https://badge.fury.io/rb/cookstyle.svg)](https://badge.fury.io/rb/cookstyle) [![Build Status](https://travis-ci.org/chef/cookstyle.svg?branch=master)](https://travis-ci.org/chef/cookstyle)
 
-Cookstyle is a set of opinions about ruby code that are specific to
-cookbooks. Running both cookstyle and rubocop on the same codebase will
-result, by design, in changes being applied and then removed. Needless
-to say you should *not* use both tools on the same cookbook.
+Cookstyle is a set of opinions about ruby code that are specific to cookbooks. Running both cookstyle and rubocop on the same codebase will result, by design, in changes being applied and then removed. Needless to say you should _not_ use both tools on the same cookbook.
 
-Cookstyle is included in the ChefDK, and can be used from the command
-line by running `cookstyle`.
+Cookstyle is included in the ChefDK, and can be used from the command line by running `cookstyle`.
 
 The active ruleset is in the [config/cookstyle.yml](https://github.com/chef/cookstyle/blob/master/config/cookstyle.yml) file. Changes to the rule set must be accompanied by arguments and code demonstrating why the change should be made, and in most cases we would expect the author of the change to help with updating the core community cookbooks.
 
@@ -34,8 +30,7 @@ When editing the `cookstyle_base.yml` becomes too much of a PITA, it may be time
 
 ## Installation
 
-Cookstyle is included in the [ChefDK](https://downloads.chef.io/chefdk). If you choose not to use ChefDK,
-you can still install Cookstyle manually using the instructions below.
+Cookstyle is included in the [ChefDK](https://downloads.chef.io/chefdk). If you choose not to use ChefDK, you can still install Cookstyle manually using the instructions below.
 
 Add this line to your application's Gemfile:
 
