@@ -26,6 +26,8 @@ LineLength:
   Enabled: false
 MethodLength:
   Enabled: false
+BlockLength:
+  Enabled: false
 Metrics/AbcSize:
   Enabled: false
 Metrics/ModuleLength:
