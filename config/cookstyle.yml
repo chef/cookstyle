@@ -1,4 +1,5 @@
 AllCops:
+  TargetRubyVersion: 2.0
   Exclude:
     - vendor/**/*
     - Guardfile
@@ -25,6 +26,8 @@ LineLength:
   Enabled: false
 MethodLength:
   Enabled: false
+BlockLength:
+  Enabled: false
 Metrics/AbcSize:
   Enabled: false
 Metrics/ModuleLength:
@@ -48,7 +51,7 @@ Style/NumericLiterals:
 # This often triggers no matter what you do with inspec/serverspec matchers
 Lint/AmbiguousRegexpLiteral:
   Exclude:
-    - 'test/**/*'
+    - '**/*/test/**/*'
 
 # some names are not ascii and this prevents copyright comments
 Style/AsciiComments:
