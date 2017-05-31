@@ -117,3 +117,17 @@ Bundler/DuplicatedGem:
 # This results in very confusing code to read with little perf benefit
 Performance/Casecmp:
   Enabled: false
+
+# maintain the previous array behavior in previous cookstyle releases
+Style/PercentLiteralDelimiters:
+   PreferredDelimiters:
+    '%':  ()
+    '%i': ()
+    '%I': ()
+    '%q': ()
+    '%Q': ()
+    '%r': '{}'
+    '%s': ()
+    '%w': ()
+    '%W': ()
+    '%x': ()
