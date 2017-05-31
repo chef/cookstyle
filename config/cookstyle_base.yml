@@ -1,14 +1,14 @@
-Style/AccessModifierIndentation:
+Layout/AccessModifierIndentation:
   Enabled: true
 Style/AccessorMethodName:
   Enabled: true
 Style/Alias:
   Enabled: true
-Style/AlignArray:
+Layout/AlignArray:
   Enabled: true
-Style/AlignHash:
+Layout/AlignHash:
   Enabled: true
-Style/AlignParameters:
+Layout/AlignParameters:
   Enabled: true
 Style/AndOr:
   Enabled: true
@@ -26,7 +26,7 @@ Style/BarePercentLiterals:
   Enabled: true
 Style/BlockComments:
   Enabled: true
-Style/BlockEndNewline:
+Layout/BlockEndNewline:
   Enabled: true
 Style/BlockDelimiters:
   Enabled: true
@@ -34,7 +34,7 @@ Style/BracesAroundHashParameters:
   Enabled: true
 Style/CaseEquality:
   Enabled: true
-Style/CaseIndentation:
+Layout/CaseIndentation:
   Enabled: true
 Style/CharacterLiteral:
   Enabled: true
@@ -48,7 +48,7 @@ Style/ClassMethods:
   Enabled: true
 Style/ClassVars:
   Enabled: true
-Style/ClosingParenthesisIndentation:
+Layout/ClosingParenthesisIndentation:
   Enabled: true
 Style/ColonMethodCall:
   Enabled: true
@@ -56,7 +56,7 @@ Style/CommandLiteral:
   Enabled: true
 Style/CommentAnnotation:
   Enabled: true
-Style/CommentIndentation:
+Layout/CommentIndentation:
   Enabled: true
 Style/ConditionalAssignment:
   Enabled: true
@@ -68,45 +68,45 @@ Style/DeprecatedHashMethods:
   Enabled: true
 Style/Documentation:
   Enabled: true
-Style/DotPosition:
+Layout/DotPosition:
   Enabled: true
 Style/EachWithObject:
   Enabled: true
-Style/ElseAlignment:
+Layout/ElseAlignment:
   Enabled: true
 Style/EmptyElse:
   Enabled: true
-Style/EmptyLineBetweenDefs:
+Layout/EmptyLineBetweenDefs:
   Enabled: true
-Style/EmptyLines:
+Layout/EmptyLines:
   Enabled: true
-Style/EmptyLinesAroundAccessModifier:
+Layout/EmptyLinesAroundAccessModifier:
   Enabled: true
-Style/EmptyLinesAroundBlockBody:
+Layout/EmptyLinesAroundBlockBody:
   Enabled: true
-Style/EmptyLinesAroundClassBody:
+Layout/EmptyLinesAroundClassBody:
   Enabled: true
-Style/EmptyLinesAroundModuleBody:
+Layout/EmptyLinesAroundModuleBody:
   Enabled: true
-Style/EmptyLinesAroundMethodBody:
+Layout/EmptyLinesAroundMethodBody:
   Enabled: true
 Style/EmptyLiteral:
   Enabled: true
 Style/EndBlock:
   Enabled: true
-Style/EndOfLine:
+Layout/EndOfLine:
   Enabled: true
 Style/EvenOdd:
   Enabled: true
-Style/ExtraSpacing:
+Layout/ExtraSpacing:
   Enabled: true
 Style/FileName:
   Enabled: true
 Style/FrozenStringLiteralComment:
   Enabled: true
-Style/InitialIndentation:
+Layout/InitialIndentation:
   Enabled: true
-Style/FirstParameterIndentation:
+Layout/FirstParameterIndentation:
   Enabled: true
 Style/FlipFlop:
   Enabled: true
@@ -126,17 +126,17 @@ Style/IfUnlessModifier:
   Enabled: true
 Style/IfWithSemicolon:
   Enabled: true
-Style/IndentationConsistency:
+Layout/IndentationConsistency:
   Enabled: true
-Style/IndentationWidth:
+Layout/IndentationWidth:
   Enabled: true
 Style/IdenticalConditionalBranches:
   Enabled: true
-Style/IndentArray:
+Layout/IndentArray:
   Enabled: true
-Style/IndentAssignment:
+Layout/IndentAssignment:
   Enabled: true
-Style/IndentHash:
+Layout/IndentHash:
   Enabled: true
 Style/InfiniteLoop:
   Enabled: true
@@ -144,7 +144,7 @@ Style/Lambda:
   Enabled: true
 Style/LambdaCall:
   Enabled: true
-Style/LeadingCommentSpace:
+Layout/LeadingCommentSpace:
   Enabled: true
 Style/LineEndConcatenation:
   Enabled: true
@@ -158,13 +158,13 @@ Style/ModuleFunction:
   Enabled: true
 Style/MultilineBlockChain:
   Enabled: true
-Style/MultilineBlockLayout:
+Layout/MultilineBlockLayout:
   Enabled: true
 Style/MultilineIfThen:
   Enabled: true
-Style/MultilineMethodCallIndentation:
+Layout/MultilineMethodCallIndentation:
   Enabled: true
-Style/MultilineOperationIndentation:
+Layout/MultilineOperationIndentation:
   Enabled: true
 Style/MultilineTernaryOperator:
   Enabled: true
@@ -226,7 +226,7 @@ Style/RedundantSelf:
   Enabled: true
 Style/RegexpLiteral:
   Enabled: true
-Style/RescueEnsureAlignment:
+Layout/RescueEnsureAlignment:
   Enabled: true
 Style/RescueModifier:
   Enabled: true
@@ -240,45 +240,45 @@ Style/SingleLineBlockParams:
   Enabled: true
 Style/SingleLineMethods:
   Enabled: true
-Style/SpaceBeforeFirstArg:
+Layout/SpaceBeforeFirstArg:
   Enabled: true
-Style/SpaceAfterColon:
+Layout/SpaceAfterColon:
   Enabled: true
-Style/SpaceAfterComma:
+Layout/SpaceAfterComma:
   Enabled: true
-Style/SpaceAfterMethodName:
+Layout/SpaceAfterMethodName:
   Enabled: true
-Style/SpaceAfterNot:
+Layout/SpaceAfterNot:
   Enabled: true
-Style/SpaceAfterSemicolon:
+Layout/SpaceAfterSemicolon:
   Enabled: true
-Style/SpaceBeforeBlockBraces:
+Layout/SpaceBeforeBlockBraces:
   Enabled: true
-Style/SpaceBeforeComma:
+Layout/SpaceBeforeComma:
   Enabled: true
-Style/SpaceBeforeComment:
+Layout/SpaceBeforeComment:
   Enabled: true
-Style/SpaceBeforeSemicolon:
+Layout/SpaceBeforeSemicolon:
   Enabled: true
-Style/SpaceInsideBlockBraces:
+Layout/SpaceInsideBlockBraces:
   Enabled: true
-Style/SpaceAroundBlockParameters:
+Layout/SpaceAroundBlockParameters:
   Enabled: true
-Style/SpaceAroundEqualsInParameterDefault:
+Layout/SpaceAroundEqualsInParameterDefault:
   Enabled: true
-Style/SpaceAroundKeyword:
+Layout/SpaceAroundKeyword:
   Enabled: true
-Style/SpaceAroundOperators:
+Layout/SpaceAroundOperators:
   Enabled: true
-Style/SpaceInsideBrackets:
+Layout/SpaceInsideBrackets:
   Enabled: true
-Style/SpaceInsideHashLiteralBraces:
+Layout/SpaceInsideHashLiteralBraces:
   Enabled: true
-Style/SpaceInsideParens:
+Layout/SpaceInsideParens:
   Enabled: true
-Style/SpaceInsideRangeLiteral:
+Layout/SpaceInsideRangeLiteral:
   Enabled: true
-Style/SpaceInsideStringInterpolation:
+Layout/SpaceInsideStringInterpolation:
   Enabled: true
 Style/SpecialGlobalVars:
   Enabled: true
@@ -294,15 +294,15 @@ Style/SymbolLiteral:
   Enabled: true
 Style/SymbolProc:
   Enabled: true
-Style/Tab:
+Layout/Tab:
   Enabled: true
-Style/TrailingBlankLines:
+Layout/TrailingBlankLines:
   Enabled: true
 Style/TrailingCommaInArguments:
   Enabled: true
 Style/TrailingCommaInLiteral:
   Enabled: true
-Style/TrailingWhitespace:
+Layout/TrailingWhitespace:
   Enabled: true
 Style/TrivialAccessors:
   Enabled: true

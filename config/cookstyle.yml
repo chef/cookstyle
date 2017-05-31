@@ -14,7 +14,7 @@ Style/FileName:
   Enabled: false
 Style/Alias:
   Enabled: false
-Style/SpaceBeforeFirstArg:
+Layout/SpaceBeforeFirstArg:
   Enabled: false
 Style/ClassAndModuleChildren:
   Enabled: false
@@ -103,7 +103,7 @@ Style/NumericPredicate:
   EnforcedStyle: comparison
 
 # this is bad %w(something     another_thing   one_more)
-Style/SpaceInsideArrayPercentLiteral:
+Layout/SpaceInsideArrayPercentLiteral:
   Enabled: true
 
 # disable this until there's an autocorrect (0.47 has one)
