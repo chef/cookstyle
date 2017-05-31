@@ -131,3 +131,10 @@ Style/PercentLiteralDelimiters:
     '%w': ()
     '%W': ()
     '%x': ()
+
+# backwards conditions are hard to read
+Style/YodaCondition:
+  Enabled: true
+
+Layout/EmptyLinesAroundExceptionHandlingKeywords:
+  Enabled: true
