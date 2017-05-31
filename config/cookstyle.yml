@@ -113,3 +113,7 @@ Bundler/OrderedGems:
 # There's no reason to have a gem listed twice
 Bundler/DuplicatedGem:
   Enabled: true
+
+# This results in very confusing code to read with little perf benefit
+Performance/Casecmp:
+  Enabled: false

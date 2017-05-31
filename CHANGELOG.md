@@ -1,5 +1,15 @@
 # Cookstyle Changelog
 
+## 1.4.0 (2017-05-30)
+
+- Our configuration of Lint/AmbiguousRegexpLiteral now ignores files in the test dir even if you run Cookstyle against a chef-repo directory instead of individual cookbook directories.
+- We now explicitly set TargetRubyVersion to 2.0, as Ruby 2.0 shipped in older Chef 12 releases.
+
+### Newly Disabled Cops:
+
+- BlockLength which completes Cookstyle ignoring length in cookbooks.
+- Performance/Casecmp which resulted in confusing code.
+
 ## 1.3.1 (2017-04-17)
 
 ### Newly Disabled Cops:
