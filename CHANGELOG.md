@@ -1,5 +1,16 @@
 # Cookstyle Changelog
 
+## 2.0.0 (2017-05-31)
+
+### Security Update
+
+Rubocop has been upgraded from 0.47.1 to 0.49.1 to resolve <http://www.cvedetails.com/cve/CVE-2017-8418/>. Unfortunately between these versions a large number of rules were moved from the style namespace to the layout namespace. If you previously enabled/disabled whitespace or layout related rules in your own .rubocop.yml there is a good chance you'll need to update your config.
+
+### Newly Enabled Cops:
+
+- Style/YodaCondition which alerts on backwards and confusing condition logic
+- Layout/EmptyLinesAroundExceptionHandlingKeywords which makes our empty line policy more consistent when using exception handling
+
 ## 1.4.0 (2017-05-30)
 
 - Our configuration of Lint/AmbiguousRegexpLiteral now ignores files in the test dir even if you run Cookstyle against a chef-repo directory instead of individual cookbook directories.
