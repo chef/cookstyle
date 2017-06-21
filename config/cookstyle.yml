@@ -1,5 +1,5 @@
 AllCops:
-  TargetRubyVersion: 2.0
+  TargetRubyVersion: 2.3
   Exclude:
     - vendor/**/*
     - Guardfile
@@ -116,6 +116,10 @@ Bundler/DuplicatedGem:
 
 # This results in very confusing code to read with little perf benefit
 Performance/Casecmp:
+  Enabled: false
+
+# This comes with changing the ruby target to 2.3+
+Style/FrozenStringLiteralComment:
   Enabled: false
 
 # maintain the previous array behavior in previous cookstyle releases
