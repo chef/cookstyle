@@ -118,6 +118,10 @@ Bundler/DuplicatedGem:
 Performance/Casecmp:
   Enabled: false
 
+# This comes with changing the ruby target to 2.3+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
 # maintain the previous array behavior in previous cookstyle releases
 Style/PercentLiteralDelimiters:
    PreferredDelimiters:
