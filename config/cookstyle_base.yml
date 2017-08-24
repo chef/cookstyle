@@ -94,8 +94,6 @@ Style/EmptyLiteral:
   Enabled: true
 Style/EndBlock:
   Enabled: true
-Layout/EndOfLine:
-  Enabled: true
 Style/EvenOdd:
   Enabled: true
 Layout/ExtraSpacing:

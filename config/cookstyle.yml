@@ -138,3 +138,8 @@ Style/YodaCondition:
 
 Layout/EmptyLinesAroundExceptionHandlingKeywords:
   Enabled: true
+
+# enforce lf to avoid failures on Windows systems
+Layout/EndOfLine:
+  Enabled: true
+  EnforcedStyle: lf
