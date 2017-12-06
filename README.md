@@ -4,6 +4,10 @@
 
 Cookstyle is a set of opinions about ruby code that are specific to cookbooks. Running both cookstyle and rubocop on the same codebase will result, by design, in changes being applied and then removed. Needless to say you should _not_ use both tools on the same cookbook.
 
+Cookstyle is infrequently updated, since the rule set is mature and
+fairly stable. We sync new rubocop versions when there's advantage to
+doing so, but are conservative by default.
+
 Cookstyle is included in the ChefDK, and can be used from the command line by running `cookstyle`.
 
 The active ruleset is in the [config/cookstyle.yml](https://github.com/chef/cookstyle/blob/master/config/cookstyle.yml) file. Changes to the rule set must be accompanied by arguments and code demonstrating why the change should be made, and in most cases we would expect the author of the change to help with updating the core community cookbooks.
