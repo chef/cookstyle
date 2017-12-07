@@ -1,5 +1,9 @@
 # Cookstyle Changelog
 
+## 2.2.0 (2017-12-6)
+
+- Style/GuardClause disabled as it forces consistency that may sacrifice readability in a cookbook.
+
 ## 2.1.0 (2017-08-24)
 
 - The Layout/EndOfLine cop now enforces a LF for line endings. This prevents users on Windows from seeing the "Carriage return character missing" error message.
