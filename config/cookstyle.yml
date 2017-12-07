@@ -143,3 +143,7 @@ Layout/EmptyLinesAroundExceptionHandlingKeywords:
 Layout/EndOfLine:
   Enabled: true
   EnforcedStyle: lf
+
+# guardclause sacrifices ease of readability for consistency at times
+Style/GuardClause:
+  Enabled: false
