@@ -50,8 +50,7 @@ Style/NumericLiterals:
 
 # This often triggers no matter what you do with inspec/serverspec matchers
 Lint/AmbiguousRegexpLiteral:
-  Exclude:
-    - '**/test/**/*'
+  Enabled: false
 
 # some names are not ascii and this prevents copyright comments
 Style/AsciiComments:
