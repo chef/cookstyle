@@ -40,7 +40,12 @@ PerceivedComplexity:
   Enabled: false
 
 # https://github.com/chef/cookstyle/pull/5
-Style/TrailingCommaInLiteral:
+Style/TrailingCommaInHashLiteral:
+  Enabled: true
+  EnforcedStyleForMultiline: comma
+
+# https://github.com/chef/cookstyle/pull/5
+Style/TrailingCommaInArrayLiteral:
   Enabled: true
   EnforcedStyleForMultiline: comma
 

@@ -296,7 +296,9 @@ Layout/TrailingBlankLines:
   Enabled: true
 Style/TrailingCommaInArguments:
   Enabled: true
-Style/TrailingCommaInLiteral:
+Style/TrailingCommaInHashLiteral:
+  Enabled: true
+Style/TrailingCommaInArrayLiteral:
   Enabled: true
 Layout/TrailingWhitespace:
   Enabled: true
