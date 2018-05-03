@@ -10,7 +10,7 @@ Documentation:
   Enabled: false
 Encoding:
   Enabled: false
-Style/FileName:
+Naming/FileName:
   Enabled: false
 Style/Alias:
   Enabled: false
