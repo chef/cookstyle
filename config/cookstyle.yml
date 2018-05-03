@@ -1,5 +1,5 @@
 AllCops:
-  TargetRubyVersion: 2.3
+  TargetRubyVersion: 2.4
   Exclude:
     - vendor/**/*
     - Guardfile
@@ -10,7 +10,7 @@ Documentation:
   Enabled: false
 Encoding:
   Enabled: false
-Style/FileName:
+Naming/FileName:
   Enabled: false
 Style/Alias:
   Enabled: false
@@ -40,7 +40,12 @@ PerceivedComplexity:
   Enabled: false
 
 # https://github.com/chef/cookstyle/pull/5
-Style/TrailingCommaInLiteral:
+Style/TrailingCommaInHashLiteral:
+  Enabled: true
+  EnforcedStyleForMultiline: comma
+
+# https://github.com/chef/cookstyle/pull/5
+Style/TrailingCommaInArrayLiteral:
   Enabled: true
   EnforcedStyleForMultiline: comma
 
@@ -50,8 +55,7 @@ Style/NumericLiterals:
 
 # This often triggers no matter what you do with inspec/serverspec matchers
 Lint/AmbiguousRegexpLiteral:
-  Exclude:
-    - '**/test/**/*'
+  Enabled: false
 
 # some names are not ascii and this prevents copyright comments
 Style/AsciiComments:
