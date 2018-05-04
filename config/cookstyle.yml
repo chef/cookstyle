@@ -155,3 +155,78 @@ Layout/EndOfLine:
 # guardclause sacrifices ease of readability for consistency at times
 Style/GuardClause:
   Enabled: false
+
+# Users really shouldn't have a gem, but if they do they should do it securely
+Bundler/InsecureProtocolSource:
+  Enabled: true
+
+# It's easier to read a simple .each and they're faster
+Lint/RedundantWithIndex:
+  Enabled: true
+
+# Catches when a user single quotes a string with interpolation
+Lint/InterpolationCheck:
+  Enabled: true
+
+# Bad: `bar = [foo.min, foo.max]`. Good: bar = foo.minmax
+Style/MinMax:
+  Enabled: true
+
+# Avoid ruby deprecation warnings
+Lint/UriRegexp:
+  Enabled: true
+
+Performance/UriDefaultParser:
+  Enabled: true
+
+# :true or :false seems like a horrible idea
+Lint/BooleanSymbol:
+  Enabled: true
+
+# this avoids very verbose code for no reason
+Style/RedundantConditional:
+  Enabled: true
+
+# catches people writing a regex check wrong
+Lint/RegexpInCondition:
+  Enabled: true
+
+# Avoids pointless / complex code
+Lint/RedundantWithObject:
+  Enabled: true
+
+# avoid requiring things that come for free
+Lint/UnneededRequireStatement:
+  Enabled: true
+
+# Avoid poorly formatted methods
+Style/TrailingBodyOnMethodDefinition:
+  Enabled: true
+
+# Avoid weird empty lines in an argument
+Layout/EmptyLinesAroundArguments:
+  Enabled: true
+
+# don't shadow arguments
+Lint/ShadowedArgument:
+  Enabled: true
+
+# find orphaned empty comments
+Layout/EmptyComment:
+  Enabled: true
+
+# warn on deprecated functionality
+Lint/BigDecimalNew:
+  Enabled: true
+
+# remove bogus rubocop comments. We already enabled Disable directives
+Lint/UnneededCopEnableDirective:
+  Enabled: true
+
+# get people on a much simpler ruby 2.4 way of doing things
+Style/UnpackFirst:
+  Enabled: true
+
+# simplify how you get the min or max of an array
+Performance/UnneededSort:
+  Enable: true
