@@ -1,5 +1,31 @@
 # Cookstyle Changelog
 
+## 3.0.0 (2018-05-07)
+
+The RuboCop engine has been updated from 0.49 to 0.55 in this release of Cookstyle. This fixes a very large number of bugs and may lead to new warnings being shown for existing rules. Additionally the names of many rules were changed which may require updating your .rubocop.yml files if you previously disabled these rules.
+
+### Newly Enabled Cops:
+
+- Bundler/InsecureProtocolSource
+- Layout/EmptyComment
+- Layout/EmptyLinesAroundArguments
+- Lint/BigDecimalNew
+- Lint/BooleanSymbol
+- Lint/InterpolationCheck:
+- Lint/RedundantWithIndex
+- Lint/RedundantWithObject
+- Lint/RegexpInCondition
+- Lint/ShadowedArgument
+- Lint/UnneededCopEnableDirective
+- Lint/UnneededRequireStatement
+- Lint/UriRegexp
+- Performance/UnneededSort
+- Performance/UriDefaultParser
+- Style/MinMax
+- Style/RedundantConditional
+- Style/TrailingBodyOnMethodDefinition
+- Style/UnpackFirst
+
 ## 2.2.0 (2017-12-6)
 
 - Style/GuardClause disabled as it forces consistency that may sacrifice readability in a cookbook.
