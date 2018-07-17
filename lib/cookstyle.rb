@@ -1,19 +1,19 @@
-require "cookstyle/version"
+require 'cookstyle/version'
 
 # ensure the desired target version of RuboCop is gem activated
-gem "rubocop", "= #{Cookstyle::RUBOCOP_VERSION}"
-require "rubocop"
+gem 'rubocop', "= #{Cookstyle::RUBOCOP_VERSION}"
+require 'rubocop'
 
 module RuboCop
   class ConfigLoader
     RUBOCOP_HOME.gsub!(
       /^.*$/,
-      File.realpath(File.join(File.dirname(__FILE__), ".."))
+      File.realpath(File.join(File.dirname(__FILE__), '..'))
     )
 
     DEFAULT_FILE.gsub!(
       /^.*$/,
-      File.join(RUBOCOP_HOME, "config", "default.yml")
+      File.join(RUBOCOP_HOME, 'config', 'default.yml')
     )
   end
 end
