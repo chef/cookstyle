@@ -230,3 +230,15 @@ Style/UnpackFirst:
 # simplify how you get the min or max of an array
 Performance/UnneededSort:
   Enable: true
+
+# disable group expressions as it does not make much sense with a DSL
+# take the following example:
+# sensu_client node['sensu']['client_name'] do
+#   subscriptions (['base'] + node['sensu']['subscriptions'] + node['subscriptions']).uniq.sort
+# end
+# will result in:
+# recipes/client.rb:23:16: W: Lint/ParenthesesAsGroupedExpression: (...) interpreted as grouped expression. (https://github.com/bbatsov/ruby-style-guide#parens-no-spaces)
+#   subscriptions (['base'] + node['sensu']['subscriptions'] + node['subscriptions']).uniq.sort
+#                ^
+Lint/ParenthesesAsGroupedExpression:
+  Enable: false
