@@ -1,5 +1,9 @@
 # Cookstyle Changelog
 
+## 3.0.1 (2018-11-20)
+
+Cookstyle now ignores lazy { } for symbol proc check. The autocorrected code produced by the Rubocop engine would cause chef-client failures in this situation. Thanks @martinisoft for the fix
+
 ## 3.0.0 (2018-05-07)
 
 The RuboCop engine has been updated from 0.49 to 0.55 in this release of Cookstyle. This fixes a very large number of bugs and may lead to new warnings being shown for existing rules. Additionally the names of many rules were changed which may require updating your .rubocop.yml files if you previously disabled these rules.
