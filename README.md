@@ -12,7 +12,7 @@ The active ruleset is in the [config/cookstyle.yml](https://github.com/chef/cook
 
 ## How It Works
 
-The project itself is a derivative of [finstyle](https://github.com/fnichol/finstyle), but starts with all rules disabled. Cookstyle has a direct dependency on one specific version of RuboCop (at a time), and [patches it][patch] to load the [upstream configuration][upstream] and [custom set][config] of rule updates. When a new RuboCop release comes out, this library can rev its pinned version dependency and [re-vendor][rakefile] the upstream configuration to determine if any breaking style or lint rules were added/dropped/reversed/etc.
+The project itself is a derivative of [finstyle](https://github.com/fnichol/finstyle), but starts with all rules disabled. Cookstyle has a direct dependency on one specific version of RuboCop (at a time), and [patches it][patch] to load the [upstream configuration][upstream] and [custom set][config] of rule updates. When a new RuboCop release comes out, this library can rev its pinned version dependency and [re-vendor](https://github.com/chef/cookstyle/blob/master/Rakefile) the upstream configuration to determine if any breaking style or lint rules were added/dropped/reversed/etc.
 
 ## NOTE CAREFULLY ABOUT UPDATING COOKSTYLE
 
