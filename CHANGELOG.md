@@ -1,5 +1,9 @@
 # Cookstyle Changelog
 
+## 3.0.2 (2018-12-14)
+
+- Add back the gemspec and gemfile in the gem artifact so this gem can be appbundled in projects like Chef DK / Workstation.
+
 ## 3.0.1 (2018-11-20)
 
 Cookstyle now ignores lazy { } for symbol proc check. The autocorrected code produced by the Rubocop engine would cause chef-client failures in this situation. Thanks @martinisoft for the fix
