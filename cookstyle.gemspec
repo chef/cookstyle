@@ -14,7 +14,8 @@ Gem::Specification.new do |spec|
   spec.license       = 'Apache-2.0'
   spec.required_ruby_version = '>= 2.1'
 
-  spec.files = %w{LICENSE} + Dir.glob("{lib,bin,config}/**/*")
+  # the gemspec and Gemfile are necessary for appbundling of the gem
+  spec.files = %w{LICENSE cookstyle.gemspec Gemfile} + Dir.glob("{lib,bin,config}/**/*")
   spec.executables = %w(cookstyle)
   spec.require_paths = ['lib']
 
