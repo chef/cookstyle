@@ -1,8 +1,16 @@
 # Cookstyle Changelog
 
+<!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## 3.0.2 (2018-12-14)
 
 - Add back the gemspec and gemfile in the gem artifact so this gem can be appbundled in projects like Chef DK / Workstation.
+<!-- latest_stable_release -->
 
 ## 3.0.1 (2018-11-20)
 
