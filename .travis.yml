@@ -1,14 +1,13 @@
 language: ruby
 cache: bundler
+dist: xenial
 sudo: false
 
 branches:
   only:
     - master
 
-# Early warning system to catch if Rubygems breaks something
-before_install:
-  - gem update --system
+bundler_args: --jobs 7 --without docs debug
 
 rvm:
   - 2.2.10
