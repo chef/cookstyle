@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release -->
+<!-- latest_release 3.1.0 -->
+## [v3.1.0](https://github.com/chef/cookstyle/tree/v3.1.0) (2018-12-22)
+
+#### Merged Pull Requests
+- Require Ruby 2.2+ and update boilerplate [#57](https://github.com/chef/cookstyle/pull/57) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=3.0.2 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Require Ruby 2.2+ and update boilerplate [#57](https://github.com/chef/cookstyle/pull/57) ([tas50](https://github.com/tas50)) <!-- 3.1.0 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
