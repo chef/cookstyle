@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.summary       = 'RuboCop configuration for Chef cookbooks'
   spec.homepage      = 'https://github.com/chef/cookstyle'
   spec.license       = 'Apache-2.0'
-  spec.required_ruby_version = '>= 2.2'
+  spec.required_ruby_version = '>= 2.4'
 
   # the gemspec and Gemfile are necessary for appbundling of the gem
   spec.files = %w{LICENSE cookstyle.gemspec Gemfile} + Dir.glob("{lib,bin,config}/**/*")
