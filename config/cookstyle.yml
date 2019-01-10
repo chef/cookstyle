@@ -460,7 +460,7 @@ Layout/AlignParameters:
   Enabled: false
 Style/Documentation:
   Enabled: true
-Style/Encoding::
+Style/Encoding:
   Enabled: false
 Style/Alias:
   Enabled: false
