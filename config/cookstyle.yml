@@ -1,4 +1,5 @@
 AllCops:
+  DisabledByDefault: true
   TargetRubyVersion: 2.4
   Exclude:
     - vendor/**/*
