@@ -1,5 +1,3 @@
 inherit_from:
   - upstream.yml
-  - disable_all.yml
-  - cookstyle_base.yml
   - cookstyle.yml
