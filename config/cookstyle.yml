@@ -116,8 +116,6 @@ Style/HashSyntax:
   Enabled: true
 Style/IfInsideElse:
   Enabled: true
-Style/IfUnlessModifier:
-  Enabled: true
 Style/IfWithSemicolon:
   Enabled: true
 Layout/IndentationConsistency:
@@ -458,8 +456,6 @@ Performance/TimesMap:
 
 Layout/AlignParameters:
   Enabled: false
-Style/Documentation:
-  Enabled: true
 Style/Encoding:
   Enabled: false
 Style/Alias:
@@ -563,10 +559,6 @@ Style/NumericPredicate:
 # this is bad %w(something     another_thing   one_more)
 Layout/SpaceInsideArrayPercentLiteral:
   Enabled: true
-
-# disable this until there's an autocorrect (0.47 has one)
-Bundler/OrderedGems:
-  Enabled: false
 
 # There's no reason to have a gem listed twice
 Bundler/DuplicatedGem:
@@ -690,3 +682,15 @@ Style/SymbolProc:
   # The names should be fairly unique, otherwise you'll end up ignoring lots of code.
   IgnoredMethods:
     - lazy
+
+# as much as I wish everyone would document things it's just not going to happen
+Style/Documentation:
+  Enabled: false
+
+# compact code is nice, but this is actually harder to read for new users
+Style/IfUnlessModifier:
+  Enabled: false
+
+# in general cookbooks shouldn't include a gemfile, but if they do they can do with it as they wish
+Bundler/OrderedGems:
+  Enabled: false
