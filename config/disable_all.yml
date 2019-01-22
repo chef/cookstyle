@@ -491,7 +491,7 @@ Style/EmptyElse:
   Enabled: false
 Style/EmptyLambdaParameter:
   Enabled: false
-Style/EmptyLineAfterGuardClause:
+Layout/EmptyLineAfterGuardClause:
   Enabled: false
 Style/EmptyLiteral:
   Enabled: false
@@ -743,7 +743,11 @@ Rails/ApplicationJob:
   Enabled: false
 Rails/ApplicationRecord:
   Enabled: false
+Rails/AssertNot:
+  Enabled: false
 Rails/Blank:
+  Enabled: false
+Rails/BulkChangeTable:
   Enabled: false
 Rails/CreateTableWithTimestamps:
   Enabled: false
@@ -779,6 +783,8 @@ Rails/InverseOf:
   Enabled: false
 Rails/LexicallyScopedActionFilter:
   Enabled: false
+Rails/LinkToBlank:
+  Enabled: false
 Rails/NotNullColumn:
   Enabled: false
 Rails/OutputSafety:
@@ -794,6 +800,8 @@ Rails/Present:
 Rails/ReadWriteAttribute:
   Enabled: false
 Rails/RedundantReceiverInWithOptions:
+  Enabled: false
+Rails/RefuteMethods:
   Enabled: false
 Rails/RequestReferer:
   Enabled: false

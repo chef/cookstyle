@@ -4,13 +4,459 @@ AllCops:
     - vendor/**/*
     - Guardfile
 
-AlignParameters:
+#### The base rubocop 0.37 enabled.yml file we started with ####
+
+Layout/AccessModifierIndentation:
+  Enabled: true
+Naming/AccessorMethodName:
+  Enabled: true
+Layout/AlignArray:
+  Enabled: true
+Layout/AlignHash:
+  Enabled: true
+Style/AndOr:
+  Enabled: true
+Style/ArrayJoin:
+  Enabled: true
+Naming/AsciiIdentifiers:
+  Enabled: true
+Style/Attr:
+  Enabled: true
+Style/BeginBlock:
+  Enabled: true
+Style/BarePercentLiterals:
+  Enabled: true
+Style/BlockComments:
+  Enabled: true
+Layout/BlockEndNewline:
+  Enabled: true
+Style/BlockDelimiters:
+  Enabled: true
+Style/BracesAroundHashParameters:
+  Enabled: true
+Style/CaseEquality:
+  Enabled: true
+Layout/CaseIndentation:
+  Enabled: true
+Style/CharacterLiteral:
+  Enabled: true
+Naming/ClassAndModuleCamelCase:
+  Enabled: true
+Style/ClassCheck:
+  Enabled: true
+Style/ClassMethods:
+  Enabled: true
+Style/ClassVars:
+  Enabled: true
+Layout/ClosingParenthesisIndentation:
+  Enabled: true
+Style/ColonMethodCall:
+  Enabled: true
+Style/CommandLiteral:
+  Enabled: true
+Style/CommentAnnotation:
+  Enabled: true
+Layout/CommentIndentation:
+  Enabled: true
+Style/ConditionalAssignment:
+  Enabled: true
+Naming/ConstantName:
+  Enabled: true
+Style/DefWithParentheses:
+  Enabled: true
+Style/DeprecatedHashMethods:
+  Enabled: true
+Layout/DotPosition:
+  Enabled: true
+Style/EachWithObject:
+  Enabled: true
+Layout/ElseAlignment:
+  Enabled: true
+Style/EmptyElse:
+  Enabled: true
+Layout/EmptyLineBetweenDefs:
+  Enabled: true
+Layout/EmptyLines:
+  Enabled: true
+Layout/EmptyLinesAroundAccessModifier:
+  Enabled: true
+Layout/EmptyLinesAroundBlockBody:
+  Enabled: true
+Layout/EmptyLinesAroundClassBody:
+  Enabled: true
+Layout/EmptyLinesAroundModuleBody:
+  Enabled: true
+Layout/EmptyLinesAroundMethodBody:
+  Enabled: true
+Style/EmptyLiteral:
+  Enabled: true
+Style/EndBlock:
+  Enabled: true
+Style/EvenOdd:
+  Enabled: true
+Layout/ExtraSpacing:
+  Enabled: true
+Style/FrozenStringLiteralComment:
+  Enabled: true
+Layout/InitialIndentation:
+  Enabled: true
+Layout/FirstParameterIndentation:
+  Enabled: true
+Style/FlipFlop:
+  Enabled: true
+Style/For:
+  Enabled: true
+Style/FormatString:
+  Enabled: true
+Style/GlobalVars:
+  Enabled: true
+Style/GuardClause:
+  Enabled: true
+Style/HashSyntax:
+  Enabled: true
+Style/IfInsideElse:
+  Enabled: true
+Style/IfWithSemicolon:
+  Enabled: true
+Layout/IndentationConsistency:
+  Enabled: true
+Layout/IndentationWidth:
+  Enabled: true
+Style/IdenticalConditionalBranches:
+  Enabled: true
+Layout/IndentArray:
+  Enabled: true
+Layout/IndentAssignment:
+  Enabled: true
+Layout/IndentHash:
+  Enabled: true
+Style/InfiniteLoop:
+  Enabled: true
+Style/Lambda:
+  Enabled: true
+Style/LambdaCall:
+  Enabled: true
+Layout/LeadingCommentSpace:
+  Enabled: true
+Style/LineEndConcatenation:
+  Enabled: true
+Style/MethodCallParentheses:
+  Enabled: true
+Style/MethodDefParentheses:
+  Enabled: true
+Naming/MethodName:
+  Enabled: true
+Style/ModuleFunction:
+  Enabled: true
+Style/MultilineBlockChain:
+  Enabled: true
+Layout/MultilineBlockLayout:
+  Enabled: true
+Style/MultilineIfThen:
+  Enabled: true
+Layout/MultilineMethodCallIndentation:
+  Enabled: true
+Layout/MultilineOperationIndentation:
+  Enabled: true
+Style/MultilineTernaryOperator:
+  Enabled: true
+Style/MutableConstant:
+  Enabled: true
+Style/NegatedIf:
+  Enabled: true
+Style/NegatedWhile:
+  Enabled: true
+Style/NestedModifier:
+  Enabled: true
+Style/NestedParenthesizedCalls:
+  Enabled: true
+Style/NestedTernaryOperator:
+  Enabled: true
+Style/Next:
+  Enabled: true
+Style/NilComparison:
+  Enabled: true
+Style/NonNilCheck:
+  Enabled: true
+Style/Not:
+  Enabled: true
+Style/OneLineConditional:
+  Enabled: true
+Naming/OpMethod:
+  Enabled: true
+Style/OptionalArguments:
+  Enabled: true
+Style/ParallelAssignment:
+  Enabled: true
+Style/ParenthesesAroundCondition:
+  Enabled: true
+Style/PercentLiteralDelimiters:
+  Enabled: true
+Style/PercentQLiterals:
+  Enabled: true
+Style/PerlBackrefs:
+  Enabled: true
+Naming/PredicateName:
+  Enabled: true
+Style/Proc:
+  Enabled: true
+Style/RaiseArgs:
+  Enabled: true
+Style/RedundantBegin:
+  Enabled: true
+Style/RedundantException:
+  Enabled: true
+Style/RedundantFreeze:
+  Enabled: true
+Style/RedundantParentheses:
+  Enabled: true
+Style/RedundantReturn:
+  Enabled: true
+Style/RedundantSelf:
+  Enabled: true
+Style/RegexpLiteral:
+  Enabled: true
+Layout/RescueEnsureAlignment:
+  Enabled: true
+Style/RescueModifier:
+  Enabled: true
+Style/SelfAssignment:
+  Enabled: true
+Style/Semicolon:
+  Enabled: true
+Style/SignalException:
+  Enabled: true
+Style/SingleLineBlockParams:
+  Enabled: true
+Style/SingleLineMethods:
+  Enabled: true
+Layout/SpaceAfterColon:
+  Enabled: true
+Layout/SpaceAfterComma:
+  Enabled: true
+Layout/SpaceAfterMethodName:
+  Enabled: true
+Layout/SpaceAfterNot:
+  Enabled: true
+Layout/SpaceAfterSemicolon:
+  Enabled: true
+Layout/SpaceBeforeBlockBraces:
+  Enabled: true
+Layout/SpaceBeforeComma:
+  Enabled: true
+Layout/SpaceBeforeComment:
+  Enabled: true
+Layout/SpaceBeforeSemicolon:
+  Enabled: true
+Layout/SpaceInsideBlockBraces:
+  Enabled: true
+Layout/SpaceAroundBlockParameters:
+  Enabled: true
+Layout/SpaceAroundEqualsInParameterDefault:
+  Enabled: true
+Layout/SpaceAroundKeyword:
+  Enabled: true
+Layout/SpaceAroundOperators:
+  Enabled: true
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: true
+Layout/SpaceInsideParens:
+  Enabled: true
+Layout/SpaceInsideRangeLiteral:
+  Enabled: true
+Layout/SpaceInsideStringInterpolation:
+  Enabled: true
+Style/SpecialGlobalVars:
+  Enabled: true
+Style/StabbyLambdaParentheses:
+  Enabled: true
+Style/StringLiterals:
+  Enabled: true
+Style/StringLiteralsInInterpolation:
+  Enabled: true
+Style/StructInheritance:
+  Enabled: true
+Style/SymbolLiteral:
+  Enabled: true
+Style/SymbolProc:
+  Enabled: true
+Layout/Tab:
+  Enabled: true
+Layout/TrailingBlankLines:
+  Enabled: true
+Style/TrailingCommaInArguments:
+  Enabled: true
+Layout/TrailingWhitespace:
+  Enabled: true
+Style/TrivialAccessors:
+  Enabled: true
+Style/UnlessElse:
+  Enabled: true
+Style/UnneededCapitalW:
+  Enabled: true
+Style/UnneededInterpolation:
+  Enabled: true
+Style/UnneededPercentQ:
+  Enabled: true
+Style/TrailingUnderscoreVariable:
+  Enabled: true
+Style/VariableInterpolation:
+  Enabled: true
+Naming/VariableName:
+  Enabled: true
+Style/WhenThen:
+  Enabled: true
+Style/WhileUntilDo:
+  Enabled: true
+Style/WhileUntilModifier:
+  Enabled: true
+Style/WordArray:
+  Enabled: true
+Style/ZeroLengthPredicate:
+  Enabled: true
+Metrics/BlockNesting:
+  Enabled: true
+Metrics/ParameterLists:
+  Enabled: true
+Lint/AmbiguousOperator:
+  Enabled: true
+Lint/AssignmentInCondition:
+  Enabled: true
+Layout/BlockAlignment:
+  Enabled: true
+Lint/CircularArgumentReference:
+  Enabled: true
+Layout/ConditionPosition:
+  Enabled: true
+Lint/Debugger:
+  Enabled: true
+Layout/DefEndAlignment:
+  Enabled: true
+Lint/DeprecatedClassMethods:
+  Enabled: true
+Lint/DuplicateMethods:
+  Enabled: true
+Lint/DuplicatedKey:
+  Enabled: true
+Lint/EachWithObjectArgument:
+  Enabled: true
+Lint/ElseLayout:
+  Enabled: true
+Lint/EmptyEnsure:
+  Enabled: true
+Lint/EmptyInterpolation:
+  Enabled: true
+Layout/EndAlignment:
+  Enabled: true
+Lint/EndInMethod:
+  Enabled: true
+Lint/EnsureReturn:
+  Enabled: true
+Security/Eval:
+  Enabled: true
+Lint/FloatOutOfRange:
+  Enabled: true
+Lint/FormatParameterMismatch:
+  Enabled: true
+Lint/HandleExceptions:
+  Enabled: true
+Lint/ImplicitStringConcatenation:
+  Enabled: true
+Lint/IneffectiveAccessModifier:
+  Enabled: true
+Lint/LiteralAsCondition:
+  Enabled: true
+Lint/LiteralInInterpolation:
+  Enabled: true
+Lint/Loop:
+  Enabled: true
+Lint/NestedMethodDefinition:
+  Enabled: true
+Lint/NextWithoutAccumulator:
+  Enabled: true
+Lint/NonLocalExitFromIterator:
+  Enabled: true
+Lint/ParenthesesAsGroupedExpression:
+  Enabled: true
+Lint/RandOne:
+  Enabled: true
+Lint/RequireParentheses:
+  Enabled: true
+Lint/RescueException:
+  Enabled: true
+Lint/ShadowingOuterLocalVariable:
+  Enabled: true
+Lint/StringConversionInInterpolation:
+  Enabled: true
+Lint/UnderscorePrefixedVariableName:
+  Enabled: true
+Lint/UnneededCopDisableDirective:
+  Enabled: true
+Lint/UnusedBlockArgument:
+  Enabled: true
+Lint/UnusedMethodArgument:
+  Enabled: true
+Lint/UnreachableCode:
+  Enabled: true
+Lint/UselessAccessModifier:
+  Enabled: true
+Lint/UselessAssignment:
+  Enabled: true
+Lint/UselessComparison:
+  Enabled: true
+Lint/UselessElseWithoutRescue:
+  Enabled: true
+Lint/UselessSetterCall:
+  Enabled: true
+Lint/Void:
+  Enabled: true
+Performance/Casecmp:
+  Enabled: true
+Performance/CaseWhenSplat:
+  Enabled: true
+Performance/Count:
+  Enabled: true
+Performance/Detect:
+  Enabled: true
+Performance/DoubleStartEndWith:
+  Enabled: true
+Performance/EndWith:
+  Enabled: true
+Performance/FixedSize:
+  Enabled: true
+Performance/FlatMap:
+  Enabled: true
+  EnabledForFlattenWithoutParams: false
+Performance/LstripRstrip:
+  Enabled: true
+Performance/RangeInclude:
+  Enabled: true
+Performance/RedundantBlockCall:
+  Enabled: true
+Performance/RedundantMatch:
+  Enabled: true
+Performance/RedundantMerge:
+  Enabled: true
+Performance/RedundantSortBy:
+  Enabled: true
+Performance/ReverseEach:
+  Enabled: true
+Performance/Sample:
+  Enabled: true
+Performance/Size:
+  Enabled: true
+Performance/StartWith:
+  Enabled: true
+Performance/StringReplacement:
+  Enabled: true
+Performance/TimesMap:
+  Enabled: true
+
+##### Additional rules we enable/disable over the rubocop 0.37 rules ago #####
+
+Layout/AlignParameters:
   Enabled: false
-Documentation:
-  Enabled: false
-Encoding:
-  Enabled: false
-Naming/FileName:
+Style/Encoding:
   Enabled: false
 Style/Alias:
   Enabled: false
@@ -21,12 +467,16 @@ Style/ClassAndModuleChildren:
 Style/DoubleNegation:
   Enabled: false
 
+# file names don't matter in cookbooks
+Naming/FileName:
+  Enabled: false
+
 # disable all the length cops as they're not appropriate for cookbooks
-LineLength:
+Metrics/LineLength:
   Enabled: false
-MethodLength:
+Metrics/MethodLength:
   Enabled: false
-BlockLength:
+Metrics/BlockLength:
   Enabled: false
 Metrics/AbcSize:
   Enabled: false
@@ -36,7 +486,7 @@ Metrics/ClassLength:
   Enabled: false
 Metrics/CyclomaticComplexity:
   Enabled: false
-PerceivedComplexity:
+Metrics/PerceivedComplexity:
   Enabled: false
 
 # https://github.com/chef/cookstyle/pull/5
@@ -109,10 +559,6 @@ Style/NumericPredicate:
 # this is bad %w(something     another_thing   one_more)
 Layout/SpaceInsideArrayPercentLiteral:
   Enabled: true
-
-# disable this until there's an autocorrect (0.47 has one)
-Bundler/OrderedGems:
-  Enabled: false
 
 # There's no reason to have a gem listed twice
 Bundler/DuplicatedGem:
@@ -236,3 +682,15 @@ Style/SymbolProc:
   # The names should be fairly unique, otherwise you'll end up ignoring lots of code.
   IgnoredMethods:
     - lazy
+
+# as much as I wish everyone would document things it's just not going to happen
+Style/Documentation:
+  Enabled: false
+
+# compact code is nice, but this is actually harder to read for new users
+Style/IfUnlessModifier:
+  Enabled: false
+
+# in general cookbooks shouldn't include a gemfile, but if they do they can do with it as they wish
+Bundler/OrderedGems:
+  Enabled: false

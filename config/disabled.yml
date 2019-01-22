@@ -68,7 +68,7 @@ Style/DocumentationMethod:
     - 'spec/**/*'
     - 'test/**/*'
 
-Style/EmptyLineAfterGuardClause:
+Layout/EmptyLineAfterGuardClause:
   Description: 'Add empty line after guard clause.'
   Enabled: false
 
