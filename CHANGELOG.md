@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release 3.1.3 -->
-## [v3.1.3](https://github.com/chef/cookstyle/tree/v3.1.3) (2019-01-15)
+<!-- latest_release 3.1.4 -->
+## [v3.1.4](https://github.com/chef/cookstyle/tree/v3.1.4) (2019-01-22)
 
 #### Merged Pull Requests
-- Update cases in the readme [#61](https://github.com/chef/cookstyle/pull/61) ([tas50](https://github.com/tas50))
+- Update to Rubocop 0.62 and require Ruby 2.4 [#62](https://github.com/chef/cookstyle/pull/62) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=3.0.2 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Update to Rubocop 0.62 and require Ruby 2.4 [#62](https://github.com/chef/cookstyle/pull/62) ([tas50](https://github.com/tas50)) <!-- 3.1.4 -->
 - Update cases in the readme [#61](https://github.com/chef/cookstyle/pull/61) ([tas50](https://github.com/tas50)) <!-- 3.1.3 -->
 - Fix the update version script for expeditor [#60](https://github.com/chef/cookstyle/pull/60) ([tas50](https://github.com/tas50)) <!-- 3.1.2 -->
 - Unpin the bundler dev dep [#59](https://github.com/chef/cookstyle/pull/59) ([tas50](https://github.com/tas50)) <!-- 3.1.1 -->
