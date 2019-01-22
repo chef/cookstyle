@@ -7,23 +7,25 @@
 - Bump to 4.0 and resolve new cookstyle warnings [#63](https://github.com/chef/cookstyle/pull/63) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup since=3.0.2 -->
+<!-- release_rollup since=4.0.0 -->
 ### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Bump to 4.0 and resolve new cookstyle warnings [#63](https://github.com/chef/cookstyle/pull/63) ([tas50](https://github.com/tas50)) <!-- 4.0.0 -->
-- Update to Rubocop 0.62 and require Ruby 2.4 [#62](https://github.com/chef/cookstyle/pull/62) ([tas50](https://github.com/tas50)) <!-- 3.1.4 -->
-- Update cases in the readme [#61](https://github.com/chef/cookstyle/pull/61) ([tas50](https://github.com/tas50)) <!-- 3.1.3 -->
-- Fix the update version script for expeditor [#60](https://github.com/chef/cookstyle/pull/60) ([tas50](https://github.com/tas50)) <!-- 3.1.2 -->
-- Unpin the bundler dev dep [#59](https://github.com/chef/cookstyle/pull/59) ([tas50](https://github.com/tas50)) <!-- 3.1.1 -->
-- Require Ruby 2.2+ and update boilerplate [#57](https://github.com/chef/cookstyle/pull/57) ([tas50](https://github.com/tas50)) <!-- 3.1.0 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v4.0.0](https://github.com/chef/cookstyle/tree/v4.0.0) (2019-01-22)
+
+#### Merged Pull Requests
+- Require Ruby 2.2+ and update boilerplate [#57](https://github.com/chef/cookstyle/pull/57) ([tas50](https://github.com/tas50))
+- Unpin the bundler dev dep [#59](https://github.com/chef/cookstyle/pull/59) ([tas50](https://github.com/tas50))
+- Fix the update version script for expeditor [#60](https://github.com/chef/cookstyle/pull/60) ([tas50](https://github.com/tas50))
+- Update cases in the readme [#61](https://github.com/chef/cookstyle/pull/61) ([tas50](https://github.com/tas50))
+- Update to Rubocop 0.62 and require Ruby 2.4 [#62](https://github.com/chef/cookstyle/pull/62) ([tas50](https://github.com/tas50))
+- Bump to 4.0 and resolve new cookstyle warnings [#63](https://github.com/chef/cookstyle/pull/63) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## 3.0.2 (2018-12-14)
 
 - Add back the gemspec and gemfile in the gem artifact so this gem can be appbundled in projects like Chef DK / Workstation.
-<!-- latest_stable_release -->
 
 ## 3.0.1 (2018-11-20)
 
