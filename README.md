@@ -2,6 +2,12 @@
 
 [![Gem Version](https://badge.fury.io/rb/cookstyle.svg)](https://badge.fury.io/rb/cookstyle) [![Build Status](https://travis-ci.org/chef/cookstyle.svg?branch=master)](https://travis-ci.org/chef/cookstyle)
 
+**Umbrella Project**: [Workstation](https://github.com/chef/chef-oss-practices/blob/master/projects/chef-workstation.md)
+
+* **[Project State](https://github.com/chef/chef-oss-practices/blob/master/repo-management/repo-states.md):** Active
+* **Issues [Response Time Maximum](https://github.com/chef/chef-oss-practices/blob/master/repo-management/repo-states.md):** 14 days
+* **Pull Request [Response Time Maximum](https://github.com/chef/chef-oss-practices/blob/master/repo-management/repo-states.md):** 14 days
+
 Cookstyle is a set of opinions about Ruby code that are specific to Chef cookbooks. Running both cookstyle and RuboCop on the same codebase will result, by design, in changes being applied and then removed. Needless to say you should _not_ use both tools on the same cookbook.
 
 Cookstyle is infrequently updated, since the rule set is mature and fairly stable. We update Cookstyle to the latest RuboCop engine yearly in April to coincide with the yearly major version bump of Chef. This yearly release will introduce new warnings to existing cookbook codebases due to new and updated RuboCop rules being enabled.
