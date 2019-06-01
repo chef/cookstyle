@@ -38,7 +38,7 @@ When editing the `cookstyle_base.yml` becomes too much of a PITA, it may be time
 
 ## Installation
 
-Cookstyle is included in the [ChefDK](https://downloads.chef.io/chefdk). If you choose not to use ChefDK, you can still install Cookstyle manually using the instructions below.
+Cookstyle is included in the [ChefDK](https://downloads.chef.io/chefdk) and [Chef Workstation](https://downloads.chef.io/chef-workstation/). If you choose not to use thhese packages, you can still install Cookstyle manually using the instructions below.
 
 Add this line to your application's Gemfile:
 
