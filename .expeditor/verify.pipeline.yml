@@ -1,6 +1,6 @@
 steps:
 
-- label: run-specs-ruby-2.4
+- label: run-cookstyle-ruby-2.4
   command:
     - asdf local ruby 2.4.5
     - bundle install --jobs=7 --retry=3
@@ -9,7 +9,7 @@ steps:
     executor:
       docker:
 
-- label: run-specs-ruby-2.5
+- label: run-cookstyle-ruby-2.5
   command:
     - asdf local ruby 2.5.5
     - bundle install --jobs=7 --retry=3
@@ -18,7 +18,7 @@ steps:
     executor:
       docker:
 
-- label: run-specs-ruby-2.6
+- label: run-cookstyle-ruby-2.6
   command:
     - asdf local ruby 2.6.3
     - bundle install --jobs=7 --retry=3
