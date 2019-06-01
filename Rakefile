@@ -28,15 +28,15 @@ RuboCop::RakeTask.new(:style) do |task|
 end
 
 begin
-  require "yard"
+  require 'yard'
   YARD::Rake::YardocTask.new(:docs)
 rescue LoadError
-  puts "yard is not available. bundle install first to make sure all dependencies are installed."
+  puts 'yard is not available. bundle install first to make sure all dependencies are installed.'
 end
 
 task :console do
-  require "irb"
-  require "irb/completion"
+  require 'irb'
+  require 'irb/completion'
   ARGV.clear
   IRB.start
 end
