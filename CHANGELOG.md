@@ -1,17 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release 4.0.1 -->
-## [4.0.1](https://github.com/chef/cookstyle/tree/4.0.1) (2019-06-01)
+<!-- latest_release 4.0.2 -->
+## [4.0.2](https://github.com/chef/cookstyle/tree/4.0.2) (2019-06-01)
 
 #### Merged Pull Requests
-- Add buildkite PR test pipeline [#67](https://github.com/chef/cookstyle/pull/67) ([tas50](https://github.com/tas50))
-- Bump to 4.0 and resolve new cookstyle warnings [#63](https://github.com/chef/cookstyle/pull/63) ([tas50](https://github.com/tas50))
+- Fix buildkite pipeline setup [#68](https://github.com/chef/cookstyle/pull/68) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=4.0.0 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Fix buildkite pipeline setup [#68](https://github.com/chef/cookstyle/pull/68) ([tas50](https://github.com/tas50)) <!-- 4.0.2 -->
 - Add buildkite PR test pipeline [#67](https://github.com/chef/cookstyle/pull/67) ([tas50](https://github.com/tas50)) <!-- 4.0.1 -->
 <!-- release_rollup -->
 
