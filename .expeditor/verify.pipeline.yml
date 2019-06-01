@@ -1,0 +1,36 @@
+steps:
+
+- label: lint-cookstyle
+  command:
+    - bundle install --jobs=7 --retry=3
+    - bundle exec rake style
+  expeditor:
+    executor:
+      docker:
+
+- label: run-specs-ruby-2.4
+  command:
+    - asdf local ruby 2.4.5
+    - bundle install --jobs=7 --retry=3
+    - bundle exec rake spec
+  expeditor:
+    executor:
+      docker:
+
+- label: run-specs-ruby-2.5
+  command:
+    - asdf local ruby 2.5.5
+    - bundle install --jobs=7 --retry=3
+    - bundle exec rake spec
+  expeditor:
+    executor:
+      docker:
+
+- label: run-specs-ruby-2.6
+  command:
+    - asdf local ruby 2.6.3
+    - bundle install --jobs=7 --retry=3
+    - bundle exec rake spec
+  expeditor:
+    executor:
+      docker:
