@@ -1,5 +1,6 @@
 # Cookstyle - Sane rubocop defaults for Chef Cookbooks
 
+[![Build status](https://badge.buildkite.com/c086ffe05e32e4d61282b91ead96b3721590a59ed4360cf7ac.svg?branch=master)](https://buildkite.com/chef-oss/chef-cookstyle-master-verify)
 [![Gem Version](https://badge.fury.io/rb/cookstyle.svg)](https://badge.fury.io/rb/cookstyle)
 
 * **Umbrella Project**: [Workstation](https://github.com/chef/chef-oss-practices/blob/master/projects/chef-workstation.md)
