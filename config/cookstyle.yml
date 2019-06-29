@@ -410,47 +410,6 @@ Lint/UselessSetterCall:
   Enabled: true
 Lint/Void:
   Enabled: true
-Performance/Casecmp:
-  Enabled: true
-Performance/CaseWhenSplat:
-  Enabled: true
-Performance/Count:
-  Enabled: true
-Performance/Detect:
-  Enabled: true
-Performance/DoubleStartEndWith:
-  Enabled: true
-Performance/EndWith:
-  Enabled: true
-Performance/FixedSize:
-  Enabled: true
-Performance/FlatMap:
-  Enabled: true
-  EnabledForFlattenWithoutParams: false
-Performance/LstripRstrip:
-  Enabled: true
-Performance/RangeInclude:
-  Enabled: true
-Performance/RedundantBlockCall:
-  Enabled: true
-Performance/RedundantMatch:
-  Enabled: true
-Performance/RedundantMerge:
-  Enabled: true
-Performance/RedundantSortBy:
-  Enabled: true
-Performance/ReverseEach:
-  Enabled: true
-Performance/Sample:
-  Enabled: true
-Performance/Size:
-  Enabled: true
-Performance/StartWith:
-  Enabled: true
-Performance/StringReplacement:
-  Enabled: true
-Performance/TimesMap:
-  Enabled: true
 
 ##### Additional rules we enable/disable over the rubocop 0.37 rules ago #####
 
