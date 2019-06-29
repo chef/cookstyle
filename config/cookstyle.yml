@@ -96,21 +96,17 @@ Style/EvenOdd:
   Enabled: true
 Layout/ExtraSpacing:
   Enabled: true
-Style/FrozenStringLiteralComment:
-  Enabled: true
 Layout/InitialIndentation:
   Enabled: true
 Layout/FirstParameterIndentation:
   Enabled: true
-Style/FlipFlop:
+Lint/FlipFlop:
   Enabled: true
 Style/For:
   Enabled: true
 Style/FormatString:
   Enabled: true
 Style/GlobalVars:
-  Enabled: true
-Style/GuardClause:
   Enabled: true
 Style/HashSyntax:
   Enabled: true
@@ -189,8 +185,6 @@ Style/OptionalArguments:
 Style/ParallelAssignment:
   Enabled: true
 Style/ParenthesesAroundCondition:
-  Enabled: true
-Style/PercentLiteralDelimiters:
   Enabled: true
 Style/PercentQLiterals:
   Enabled: true
@@ -277,8 +271,6 @@ Style/StringLiteralsInInterpolation:
 Style/StructInheritance:
   Enabled: true
 Style/SymbolLiteral:
-  Enabled: true
-Style/SymbolProc:
   Enabled: true
 Layout/Tab:
   Enabled: true
@@ -533,7 +525,8 @@ Style/FrozenStringLiteralComment:
 
 # maintain the previous array behavior in previous cookstyle releases
 Style/PercentLiteralDelimiters:
-   PreferredDelimiters:
+  Enabled: true
+  PreferredDelimiters:
     '%':  ()
     '%i': ()
     '%I': ()
@@ -632,11 +625,8 @@ Lint/UnneededCopEnableDirective:
 Style/UnpackFirst:
   Enabled: true
 
-# simplify how you get the min or max of an array
-Performance/UnneededSort:
-  Enable: true
-
 Style/SymbolProc:
+  Enabled: true
   # A list of method names to be ignored by the check.
   # The names should be fairly unique, otherwise you'll end up ignoring lots of code.
   IgnoredMethods:
