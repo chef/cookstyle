@@ -51,8 +51,6 @@ module RuboCop
           end
         end
 
-        private
-
         def autocorrect(comment)
           # Extract the type and the actual value. Strip out "Name" or "File"
           # 'Cookbook Name' should be 'Cookbook'. Also skip a :: if present
@@ -62,6 +60,8 @@ module RuboCop
 
           ->(corrector) { corrector.replace(comment.loc.expression, correct_comment) }
         end
+
+        private
 
         def invalid_comment?(comment)
           comment_types = %w(Author Cookbook Library Attribute Copyright Recipe Resource Definition License)
