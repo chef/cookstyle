@@ -3,6 +3,47 @@ AllCops:
   Exclude:
     - vendor/**/*
     - Guardfile
+  ChefAttributes:
+    Patterns:
+    - attributes/.*\.rb
+  ChefDefinitions:
+    Patterns:
+    - definitions/.*\.rb
+  ChefLibraries:
+    Patterns:
+    - libraries/.*\.rb
+  ChefMetadata:
+    Patterns:
+    - metadata\.rb
+  ChefProviders:
+    Patterns:
+    - providers/.*\.rb
+  ChefRecipes:
+    Patterns:
+    - recipes/.*\.rb
+  ChefResources:
+    Patterns:
+    - resources/.*\.rb
+
+Chef/AttributeKeys:
+  Description: Check which style of keys are used to access node attributes.
+  Enabled: true
+  EnforcedStyle: strings
+  SupportedStyles:
+  - strings
+  - symbols
+
+Chef/ServiceResource:
+  Description: Use a service resource to start and stop services
+  Enabled: true
+
+Chef/CopyrightCommentFormat:
+  Description: Properly format copyright dates in comment blocks and ensure dates are up to date
+  Enabled: false
+
+Chef/CommentFormat:
+  Description: Use Chef's format for comment headers
+  Enabled: true
 
 #### The base rubocop 0.37 enabled.yml file we started with ####
 
