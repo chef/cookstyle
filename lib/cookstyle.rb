@@ -31,10 +31,7 @@ module Cookstyle
 end
 
 require 'rubocop/chef'
-require 'rubocop/chef/inject'
 require 'rubocop/chef/cookbook_only'
-
-RuboCop::Chef::Inject.defaults!
 
 # cops
 require 'rubocop/cop/chef/attribute_keys'
