@@ -33,9 +33,10 @@ end
 require 'rubocop/chef'
 require 'rubocop/chef/cookbook_only'
 
-# cops
+# Chef specific cops
 require 'rubocop/cop/chef/attribute_keys'
 require 'rubocop/cop/chef/file_mode'
 require 'rubocop/cop/chef/service_resource'
 require 'rubocop/cop/chef/comments_format'
 require 'rubocop/cop/chef/comments_copyright_format'
+require 'rubocop/cop/chef/tmp_path'
