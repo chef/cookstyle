@@ -33,6 +33,10 @@ Chef/AttributeKeys:
   - strings
   - symbols
 
+Chef/FileMode:
+  Description: Use strings to represent file modes in Chef resources
+  Enabled: true
+
 Chef/ServiceResource:
   Description: Use a service resource to start and stop services
   Enabled: true
@@ -42,7 +46,7 @@ Chef/CopyrightCommentFormat:
   Enabled: false
 
 Chef/CommentFormat:
-  Description: Use Chef's format for comment headers
+  Description: Use Chef's unique format for comment headers
   Enabled: true
 
 #### The base rubocop 0.37 enabled.yml file we started with ####
