@@ -1,5 +1,8 @@
 require 'cookstyle/version'
 
+require 'pathname'
+require 'yaml'
+
 # ensure the desired target version of RuboCop is gem activated
 gem 'rubocop', "= #{Cookstyle::RUBOCOP_VERSION}"
 require 'rubocop'
@@ -21,9 +24,19 @@ end
 # Cookstyle patches the RuboCop tool to set a new default configuration that
 # is vendored in the Cookstyle codebase.
 module Cookstyle
-  # @return [String] the absolute path to the main RuboCop configuration YAML
-  #   file
+  # @return [String] the absolute path to the main RuboCop configuration YAML file
   def self.config
     RuboCop::ConfigLoader::DEFAULT_FILE
   end
 end
+
+require 'rubocop/chef'
+require 'rubocop/chef/cookbook_only'
+
+# Chef specific cops
+require 'rubocop/cop/chef/attribute_keys'
+require 'rubocop/cop/chef/file_mode'
+require 'rubocop/cop/chef/service_resource'
+require 'rubocop/cop/chef/comments_format'
+require 'rubocop/cop/chef/comments_copyright_format'
+require 'rubocop/cop/chef/tmp_path'

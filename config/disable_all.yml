@@ -1,6 +1,8 @@
 ---
 Bundler/DuplicatedGem:
   Enabled: false
+Bundler/GemComment:
+  Enabled: false
 Bundler/InsecureProtocolSource:
   Enabled: false
 Bundler/OrderedGems:
@@ -11,7 +13,11 @@ Gemspec/OrderedDependencies:
   Enabled: false
 Gemspec/RequiredRubyVersion:
   Enabled: false
+Gemspec/RubyVersionGlobalsUsage:
+  Enabled: false
 Layout/AccessModifierIndentation:
+  Enabled: false
+Layout/AlignArguments:
   Enabled: false
 Layout/AlignArray:
   Enabled: false
@@ -27,6 +33,8 @@ Layout/CaseIndentation:
   Enabled: false
 Layout/ClassStructure:
   Enabled: false
+Layout/ClosingHeredocIndentation:
+  Enabled: false
 Layout/ClosingParenthesisIndentation:
   Enabled: false
 Layout/CommentIndentation:
@@ -40,6 +48,8 @@ Layout/DotPosition:
 Layout/ElseAlignment:
   Enabled: false
 Layout/EmptyComment:
+  Enabled: false
+Layout/EmptyLineAfterGuardClause:
   Enabled: false
 Layout/EmptyLineAfterMagicComment:
   Enabled: false
@@ -77,9 +87,7 @@ Layout/FirstMethodArgumentLineBreak:
   Enabled: false
 Layout/FirstMethodParameterLineBreak:
   Enabled: false
-Layout/FirstParameterIndentation:
-  Enabled: false
-Layout/IndentArray:
+Layout/HeredocArgumentClosingParenthesis:
   Enabled: false
 Layout/IndentAssignment:
   Enabled: false
@@ -87,21 +95,35 @@ Layout/IndentationConsistency:
   Enabled: false
 Layout/IndentationWidth:
   Enabled: false
-Layout/IndentHash:
+Layout/IndentFirstArgument:
+  Enabled: false
+Layout/IndentFirstArrayElement:
+  Enabled: false
+Layout/IndentFirstHashElement:
+  Enabled: false
+Layout/IndentFirstParameter:
   Enabled: false
 Layout/IndentHeredoc:
   Enabled: false
 Layout/InitialIndentation:
   Enabled: false
+Layout/LeadingBlankLines:
+  Enabled: false
 Layout/LeadingCommentSpace:
   Enabled: false
 Layout/MultilineArrayBraceLayout:
+  Enabled: false
+Layout/MultilineArrayLineBreaks:
   Enabled: false
 Layout/MultilineAssignmentLayout:
   Enabled: false
 Layout/MultilineBlockLayout:
   Enabled: false
 Layout/MultilineHashBraceLayout:
+  Enabled: false
+Layout/MultilineHashKeyLineBreaks:
+  Enabled: false
+Layout/MultilineMethodArgumentLineBreaks:
   Enabled: false
 Layout/MultilineMethodCallBraceLayout:
   Enabled: false
@@ -185,6 +207,8 @@ Lint/Debugger:
   Enabled: false
 Lint/DeprecatedClassMethods:
   Enabled: false
+Lint/DisjunctiveAssignmentInConstructor:
+  Enabled: false
 Lint/DuplicateCaseCondition:
   Enabled: false
 Lint/DuplicateMethods:
@@ -207,11 +231,17 @@ Lint/EndInMethod:
   Enabled: false
 Lint/EnsureReturn:
   Enabled: false
+Lint/ErbNewArguments:
+  Enabled: false
+Lint/FlipFlop:
+  Enabled: false
 Lint/FloatOutOfRange:
   Enabled: false
 Lint/FormatParameterMismatch:
   Enabled: false
 Lint/HandleExceptions:
+  Enabled: false
+Lint/HeredocMethodCallPosition:
   Enabled: false
 Lint/ImplicitStringConcatenation:
   Enabled: false
@@ -269,6 +299,8 @@ Lint/SafeNavigationConsistency:
   Enabled: false
 Lint/SafeNavigationChain:
   Enabled: false
+Lint/SafeNavigationWithEmpty:
+  Enabled: false
 Lint/ScriptPermission:
   Enabled: false
 Lint/ShadowedArgument:
@@ -280,6 +312,8 @@ Lint/ShadowingOuterLocalVariable:
 Lint/StringConversionInInterpolation:
   Enabled: false
 Lint/Syntax:
+  Enabled: false
+Lint/ToJSON:
   Enabled: false
 Lint/UnderscorePrefixedVariableName:
   Enabled: false
@@ -357,6 +391,8 @@ Naming/BinaryOperatorParameterName:
   Enabled: false
 Naming/PredicateName:
   Enabled: false
+Naming/RescuedExceptionsVariableName:
+  Enabled: false
 Naming/UncommunicativeBlockParamName:
   Enabled: false
 Naming/UncommunicativeMethodParamName:
@@ -365,57 +401,7 @@ Naming/VariableName:
   Enabled: false
 Naming/VariableNumber:
   Enabled: false
-Performance/Caller:
-  Enabled: false
-Performance/CaseWhenSplat:
-  Enabled: false
-Performance/Casecmp:
-  Enabled: false
-Performance/Count:
-  Enabled: false
-Performance/Detect:
-  Enabled: false
-Performance/DoubleStartEndWith:
-  Enabled: false
-Performance/EndWith:
-  Enabled: false
-Performance/FixedSize:
-  Enabled: false
-Performance/FlatMap:
-  Enabled: false
-Performance/LstripRstrip:
-  Enabled: false
-Performance/RangeInclude:
-  Enabled: false
-Performance/RedundantBlockCall:
-  Enabled: false
-Performance/RedundantMatch:
-  Enabled: false
-Performance/RedundantMerge:
-  Enabled: false
-Performance/RedundantSortBy:
-  Enabled: false
-Performance/RegexpMatch:
-  Enabled: false
-Performance/ReverseEach:
-  Enabled: false
-Performance/Sample:
-  Enabled: false
-Performance/Size:
-  Enabled: false
-Performance/CompareWithBlock:
-  Enabled: false
-Performance/StartWith:
-  Enabled: false
-Performance/StringReplacement:
-  Enabled: false
-Performance/TimesMap:
-  Enabled: false
-Performance/UnfreezeString:
-  Enabled: false
-Performance/UnneededSort:
-  Enabled: false
-Performance/UriDefaultParser:
+Style/AccessModifierDeclarations:
   Enabled: false
 Style/Alias:
   Enabled: false
@@ -465,6 +451,8 @@ Style/CommentedKeyword:
   Enabled: false
 Style/ConditionalAssignment:
   Enabled: false
+Style/ConstantVisibility:
+  Enabled: false
 Style/Copyright:
   Enabled: false
 Style/DateTime:
@@ -491,8 +479,6 @@ Style/EmptyElse:
   Enabled: false
 Style/EmptyLambdaParameter:
   Enabled: false
-Layout/EmptyLineAfterGuardClause:
-  Enabled: false
 Style/EmptyLiteral:
   Enabled: false
 Style/EmptyMethod:
@@ -507,7 +493,7 @@ Style/EvenOdd:
   Enabled: false
 Style/ExpandPathArguments:
   Enabled: false
-Style/FlipFlop:
+Style/FloatDivision:
   Enabled: false
 Style/For:
   Enabled: false
@@ -541,6 +527,8 @@ Style/InverseMethods:
   Enabled: false
 Style/InlineComment:
   Enabled: false
+Style/IpAddresses:
+  Enabled: false
 Style/Lambda:
   Enabled: false
 Style/LambdaCall:
@@ -555,11 +543,13 @@ Style/MethodCalledOnDoEndBlock:
   Enabled: false
 Style/MethodDefParentheses:
   Enabled: false
-Style/MethodMissing:
+Style/MethodMissingSuper:
   Enabled: false
 Style/MinMax:
   Enabled: false
 Style/MissingElse:
+  Enabled: false
+Style/MissingRespondToMissing:
   Enabled: false
 Style/MixinGrouping:
   Enabled: false
@@ -573,6 +563,8 @@ Style/MultilineIfThen:
   Enabled: false
 Style/MultilineIfModifier:
   Enabled: false
+Style/MultilineMethodSignature:
+  Enabled: false
 Style/MultilineMemoization:
   Enabled: false
 Style/MultilineTernaryOperator:
@@ -582,6 +574,8 @@ Style/MultipleComparison:
 Style/MutableConstant:
   Enabled: false
 Style/NegatedIf:
+  Enabled: false
+Style/NegatedUnless:
   Enabled: false
 Style/NegatedWhile:
   Enabled: false
@@ -633,6 +627,8 @@ Style/RandomWithOffset:
   Enabled: false
 Style/RedundantBegin:
   Enabled: false
+Style/RedundantConditional:
+  Enabled: false
 Style/RedundantException:
   Enabled: false
 Style/RedundantFreeze:
@@ -643,7 +639,7 @@ Style/RedundantReturn:
   Enabled: false
 Style/RedundantSelf:
   Enabled: false
-Style/RedundantConditional:
+Style/RedundantSortBy:
   Enabled: false
 Style/RegexpLiteral:
   Enabled: false
@@ -654,6 +650,8 @@ Style/RescueStandardError:
 Style/ReturnNil:
   Enabled: false
 Style/SafeNavigation:
+  Enabled: false
+Style/Sample:
   Enabled: false
 Style/SelfAssignment:
   Enabled: false
@@ -680,6 +678,8 @@ Style/StringLiterals:
 Style/StringLiteralsInInterpolation:
   Enabled: false
 Style/StringMethods:
+  Enabled: false
+Style/Strip:
   Enabled: false
 Style/StructInheritance:
   Enabled: false
@@ -713,9 +713,13 @@ Style/UnlessElse:
   Enabled: false
 Style/UnneededCapitalW:
   Enabled: false
+Style/UnneededCondition:
+  Enabled: false
 Style/UnneededInterpolation:
   Enabled: false
 Style/UnneededPercentQ:
+  Enabled: false
+Style/UnneededSort:
   Enabled: false
 Style/UnpackFirst:
   Enabled: false
@@ -732,98 +736,6 @@ Style/WordArray:
 Style/YodaCondition:
   Enabled: false
 Style/ZeroLengthPredicate:
-  Enabled: false
-Rails/ActionFilter:
-  Enabled: false
-Rails/ActiveRecordAliases:
-  Enabled: false
-Rails/ActiveSupportAliases:
-  Enabled: false
-Rails/ApplicationJob:
-  Enabled: false
-Rails/ApplicationRecord:
-  Enabled: false
-Rails/AssertNot:
-  Enabled: false
-Rails/Blank:
-  Enabled: false
-Rails/BulkChangeTable:
-  Enabled: false
-Rails/CreateTableWithTimestamps:
-  Enabled: false
-Rails/Date:
-  Enabled: false
-Rails/DynamicFindBy:
-  Enabled: false
-Rails/Delegate:
-  Enabled: false
-Rails/DelegateAllowBlank:
-  Enabled: false
-Rails/EnumUniqueness:
-  Enabled: false
-Rails/EnvironmentComparison:
-  Enabled: false
-Rails/Exit:
-  Enabled: false
-Rails/FilePath:
-  Enabled: false
-Rails/FindBy:
-  Enabled: false
-Rails/FindEach:
-  Enabled: false
-Rails/HasAndBelongsToMany:
-  Enabled: false
-Rails/HasManyOrHasOneDependent:
-  Enabled: false
-Rails/HttpPositionalArguments:
-  Enabled: false
-Rails/HttpStatus:
-  Enabled: false
-Rails/InverseOf:
-  Enabled: false
-Rails/LexicallyScopedActionFilter:
-  Enabled: false
-Rails/LinkToBlank:
-  Enabled: false
-Rails/NotNullColumn:
-  Enabled: false
-Rails/OutputSafety:
-  Enabled: false
-Rails/Output:
-  Enabled: false
-Rails/PluralizationGrammar:
-  Enabled: false
-Rails/Presence:
-  Enabled: false
-Rails/Present:
-  Enabled: false
-Rails/ReadWriteAttribute:
-  Enabled: false
-Rails/RedundantReceiverInWithOptions:
-  Enabled: false
-Rails/RefuteMethods:
-  Enabled: false
-Rails/RequestReferer:
-  Enabled: false
-Rails/ReversibleMigration:
-  Enabled: false
-Rails/RelativeDateConstant:
-  Enabled: false
-Rails/SafeNavigation:
-  Enabled: false
-Rails/SaveBang:
-  Enabled: false
-Rails/ScopeArgs:
-  Enabled: false
-Rails/SkipsModelValidations:
-  Enabled: false
-Rails/TimeZone:
-  Enabled: false
-Rails/UniqBeforePluck:
-  Enabled: false
-Rails/UnknownEnv:
-  Enabled: false
-Rails/Validation:
   Enabled: false
 Security/Eval:
   Enabled: false

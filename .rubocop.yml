@@ -1,0 +1,3 @@
+Chef/CommentFormat:
+  Exclude:
+    - 'lib/rubocop/cop/chef/comments_format.rb'

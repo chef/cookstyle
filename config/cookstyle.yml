@@ -3,6 +3,51 @@ AllCops:
   Exclude:
     - vendor/**/*
     - Guardfile
+  ChefAttributes:
+    Patterns:
+    - attributes/.*\.rb
+  ChefDefinitions:
+    Patterns:
+    - definitions/.*\.rb
+  ChefLibraries:
+    Patterns:
+    - libraries/.*\.rb
+  ChefMetadata:
+    Patterns:
+    - metadata\.rb
+  ChefProviders:
+    Patterns:
+    - providers/.*\.rb
+  ChefRecipes:
+    Patterns:
+    - recipes/.*\.rb
+  ChefResources:
+    Patterns:
+    - resources/.*\.rb
+
+Chef/AttributeKeys:
+  Description: Check which style of keys are used to access node attributes.
+  Enabled: true
+  EnforcedStyle: strings
+  SupportedStyles:
+  - strings
+  - symbols
+
+Chef/FileMode:
+  Description: Use strings to represent file modes in Chef resources
+  Enabled: true
+
+Chef/ServiceResource:
+  Description: Use a service resource to start and stop services
+  Enabled: true
+
+Chef/CopyrightCommentFormat:
+  Description: Properly format copyright dates in comment blocks and ensure dates are up to date
+  Enabled: false
+
+Chef/CommentFormat:
+  Description: Use Chef's unique format for comment headers
+  Enabled: true
 
 #### The base rubocop 0.37 enabled.yml file we started with ####
 
@@ -96,21 +141,17 @@ Style/EvenOdd:
   Enabled: true
 Layout/ExtraSpacing:
   Enabled: true
-Style/FrozenStringLiteralComment:
-  Enabled: true
 Layout/InitialIndentation:
   Enabled: true
 Layout/FirstParameterIndentation:
   Enabled: true
-Style/FlipFlop:
+Lint/FlipFlop:
   Enabled: true
 Style/For:
   Enabled: true
 Style/FormatString:
   Enabled: true
 Style/GlobalVars:
-  Enabled: true
-Style/GuardClause:
   Enabled: true
 Style/HashSyntax:
   Enabled: true
@@ -189,8 +230,6 @@ Style/OptionalArguments:
 Style/ParallelAssignment:
   Enabled: true
 Style/ParenthesesAroundCondition:
-  Enabled: true
-Style/PercentLiteralDelimiters:
   Enabled: true
 Style/PercentQLiterals:
   Enabled: true
@@ -277,8 +316,6 @@ Style/StringLiteralsInInterpolation:
 Style/StructInheritance:
   Enabled: true
 Style/SymbolLiteral:
-  Enabled: true
-Style/SymbolProc:
   Enabled: true
 Layout/Tab:
   Enabled: true
@@ -410,47 +447,6 @@ Lint/UselessSetterCall:
   Enabled: true
 Lint/Void:
   Enabled: true
-Performance/Casecmp:
-  Enabled: true
-Performance/CaseWhenSplat:
-  Enabled: true
-Performance/Count:
-  Enabled: true
-Performance/Detect:
-  Enabled: true
-Performance/DoubleStartEndWith:
-  Enabled: true
-Performance/EndWith:
-  Enabled: true
-Performance/FixedSize:
-  Enabled: true
-Performance/FlatMap:
-  Enabled: true
-  EnabledForFlattenWithoutParams: false
-Performance/LstripRstrip:
-  Enabled: true
-Performance/RangeInclude:
-  Enabled: true
-Performance/RedundantBlockCall:
-  Enabled: true
-Performance/RedundantMatch:
-  Enabled: true
-Performance/RedundantMerge:
-  Enabled: true
-Performance/RedundantSortBy:
-  Enabled: true
-Performance/ReverseEach:
-  Enabled: true
-Performance/Sample:
-  Enabled: true
-Performance/Size:
-  Enabled: true
-Performance/StartWith:
-  Enabled: true
-Performance/StringReplacement:
-  Enabled: true
-Performance/TimesMap:
-  Enabled: true
 
 ##### Additional rules we enable/disable over the rubocop 0.37 rules ago #####
 
@@ -574,7 +570,8 @@ Style/FrozenStringLiteralComment:
 
 # maintain the previous array behavior in previous cookstyle releases
 Style/PercentLiteralDelimiters:
-   PreferredDelimiters:
+  Enabled: true
+  PreferredDelimiters:
     '%':  ()
     '%i': ()
     '%I': ()
@@ -673,11 +670,8 @@ Lint/UnneededCopEnableDirective:
 Style/UnpackFirst:
   Enabled: true
 
-# simplify how you get the min or max of an array
-Performance/UnneededSort:
-  Enable: true
-
 Style/SymbolProc:
+  Enabled: true
   # A list of method names to be ignored by the check.
   # The names should be fairly unique, otherwise you'll end up ignoring lots of code.
   IgnoredMethods:
