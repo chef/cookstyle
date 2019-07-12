@@ -30,7 +30,7 @@ module RuboCop
       #   node.normal['foo'] = true
       #
       class NodeSet < Cop
-        MSG = 'Do not use node.set'.freeze
+        MSG = 'Do not use node.set. Replace with node.normal to keep identical behavior.'.freeze
 
         def_node_matcher :node_set?, <<-PATTERN
           (send (send _ :node) :set)
