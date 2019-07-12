@@ -38,7 +38,7 @@ module RuboCop
 
         def on_send(node)
           node_set?(node) do
-            add_offense(node, location: :expression, message: MSG, severity: :error)
+            add_offense(node, location: :expression, message: MSG, severity: :warning)
           end
         end
 
