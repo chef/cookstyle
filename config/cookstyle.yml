@@ -24,6 +24,9 @@ AllCops:
   ChefResources:
     Patterns:
     - resources/.*\.rb
+  NodeSet:
+    Patterns:
+    - .*\.rb
 
 Chef/AttributeKeys:
   Description: Check which style of keys are used to access node attributes.
@@ -47,6 +50,10 @@ Chef/CopyrightCommentFormat:
 
 Chef/CommentFormat:
   Description: Use Chef's unique format for comment headers
+  Enabled: true
+
+Chef/NodeSet:
+  Description: Do not use node.set
   Enabled: true
 
 #### The base rubocop 0.37 enabled.yml file we started with ####
