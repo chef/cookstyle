@@ -49,6 +49,10 @@ Chef/CommentFormat:
   Description: Use Chef's unique format for comment headers
   Enabled: true
 
+Chef/NodeSet:
+  Description: Do not use node.set
+  Enabled: true
+
 #### The base rubocop 0.37 enabled.yml file we started with ####
 
 Layout/AccessModifierIndentation:

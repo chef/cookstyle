@@ -34,9 +34,7 @@ require 'rubocop/chef'
 require 'rubocop/chef/cookbook_only'
 
 # Chef specific cops
-require 'rubocop/cop/chef/attribute_keys'
-require 'rubocop/cop/chef/file_mode'
-require 'rubocop/cop/chef/service_resource'
-require 'rubocop/cop/chef/comments_format'
-require 'rubocop/cop/chef/comments_copyright_format'
-require 'rubocop/cop/chef/tmp_path'
+Dir.glob(File.dirname(__FILE__) + '/rubocop/cop/chef/**/*.rb') do |file|
+  next if File.directory?(file)
+  require_relative file # not actually relative but require_relative is faster
+end
