@@ -24,9 +24,6 @@ AllCops:
   ChefResources:
     Patterns:
     - resources/.*\.rb
-  NodeSet:
-    Patterns:
-    - .*\.rb
 
 Chef/AttributeKeys:
   Description: Check which style of keys are used to access node attributes.
