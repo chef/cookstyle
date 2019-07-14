@@ -29,7 +29,7 @@ module RuboCop
         MSG = 'Use a service resource to start and stop services'.freeze
 
         def_node_matcher :execute_command?, <<-PATTERN
-          (send nil :command $str)
+          (send nil? :command $str)
         PATTERN
 
         def on_send(node)
