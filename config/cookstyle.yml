@@ -38,7 +38,7 @@ Chef/FileMode:
   Enabled: true
 
 Chef/ServiceResource:
-  Description: Use a service resource to start and stop services
+  Description: Use a service resource to start and stop services instead of execute resources
   Enabled: true
 
 Chef/CopyrightCommentFormat:
@@ -50,7 +50,11 @@ Chef/CommentFormat:
   Enabled: true
 
 Chef/NodeSet:
-  Description: Do not use node.set
+  Description: Do not use the deprecated node.set method
+  Enabled: true
+
+Chef/TmpPath:
+  Description: Use file_cache_path rather than hard-coding tmp paths
   Enabled: true
 
 #### The base rubocop 0.37 enabled.yml file we started with ####
