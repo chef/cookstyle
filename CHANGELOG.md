@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.0.3 -->
-## [v5.0.3](https://github.com/chef/cookstyle/tree/v5.0.3) (2019-07-15)
+<!-- latest_release 5.0.4 -->
+## [v5.0.4](https://github.com/chef/cookstyle/tree/v5.0.4) (2019-07-15)
 
 #### Merged Pull Requests
-- Add and update cookstyle cop descriptions [#72](https://github.com/chef/cookstyle/pull/72) ([tas50](https://github.com/tas50))
+- Fix node matchers to properly trigger [#73](https://github.com/chef/cookstyle/pull/73) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.0.0 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Fix node matchers to properly trigger [#73](https://github.com/chef/cookstyle/pull/73) ([tas50](https://github.com/tas50)) <!-- 5.0.4 -->
 - Add and update cookstyle cop descriptions [#72](https://github.com/chef/cookstyle/pull/72) ([tas50](https://github.com/tas50)) <!-- 5.0.3 -->
 - Fix version bumps and codeowners [#71](https://github.com/chef/cookstyle/pull/71) ([tas50](https://github.com/tas50)) <!-- 5.0.2 -->
 - add Chef/NodeSet cop with autocorrect [#70](https://github.com/chef/cookstyle/pull/70) ([lamont-granquist](https://github.com/lamont-granquist)) <!-- 5.0.1 -->
