@@ -32,7 +32,7 @@ module RuboCop
         MSG = 'Use strings for file modes'.freeze
 
         def_node_matcher :resource_mode?, <<-PATTERN
-          (send nil :mode $int)
+          (send nil? :mode $int)
         PATTERN
 
         def on_send(node)
