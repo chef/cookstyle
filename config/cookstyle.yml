@@ -57,6 +57,10 @@ Chef/TmpPath:
   Description: Use file_cache_path rather than hard-coding tmp paths
   Enabled: true
 
+Chef/LegacyBerksfileSource:
+  Description: Do not use legacy Berkfile community sources. Use Chef Supermarket instead.
+  Enabled: true
+
 #### The base rubocop 0.37 enabled.yml file we started with ####
 
 Layout/AccessModifierIndentation:
