@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release -->
+<!-- latest_release 5.0.5 -->
+## [v5.0.5](https://github.com/chef/cookstyle/tree/v5.0.5) (2019-07-16)
+
+#### Merged Pull Requests
+- Add cop to detect old Berkfile sources [#81](https://github.com/chef/cookstyle/pull/81) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=5.0.4 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Add cop to detect old Berkfile sources [#81](https://github.com/chef/cookstyle/pull/81) ([tas50](https://github.com/tas50)) <!-- 5.0.5 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
