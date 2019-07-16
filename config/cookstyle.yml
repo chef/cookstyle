@@ -45,6 +45,10 @@ Chef/CopyrightCommentFormat:
   Description: Properly format copyright dates in comment blocks and ensure dates are up to date
   Enabled: false
 
+Chef/CommentSentenceSpacing:
+  Description: Use a single space after sentences in comments
+  Enabled: false
+
 Chef/CommentFormat:
   Description: Use Chef's unique format for comment headers
   Enabled: true
