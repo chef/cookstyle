@@ -27,8 +27,8 @@ module RuboCop
       #   source_url 'http://gitlab.com/something/something'
       #
       #   # good
-
-      #   source 'https://supermarket.chef.io'
+      #   source_url 'http://github.com/something/something'
+      #   source_url 'http://gitlab.com/something/something'
       #
       class InsecureCookbookURL < Cop
         MSG = 'Insecure http Github or Gitlab URLs for metadata source_url/issues_url fields'.freeze
