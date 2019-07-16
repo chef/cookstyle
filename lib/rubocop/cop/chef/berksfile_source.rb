@@ -42,7 +42,6 @@ module RuboCop
 
         def on_send(node)
           berksfile_source?(node) do
-
             add_offense(node, location: :expression, message: MSG, severity: :warning)
           end
         end
