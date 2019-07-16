@@ -61,6 +61,10 @@ Chef/LegacyBerksfileSource:
   Description: Do not use legacy Berkfile community sources. Use Chef Supermarket instead.
   Enabled: true
 
+Chef/InsecureCookbookURL:
+  Description: Insecure http Github or Gitlab URLs for metadata source_url/issues_url fields
+  Enabled: true
+
 #### The base rubocop 0.37 enabled.yml file we started with ####
 
 Layout/AccessModifierIndentation:
