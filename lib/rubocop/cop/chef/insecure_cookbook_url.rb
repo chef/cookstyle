@@ -28,7 +28,6 @@ module RuboCop
       #
       #   # good
 
-
       #   source 'https://supermarket.chef.io'
       #
       class InsecureCookbookURL < Cop
@@ -40,7 +39,7 @@ module RuboCop
 
         def insecure_url?(url)
           # https://rubular.com/r/dS6L6bQZvwWxWq
-          url.match?(/http:\/\/(www.)*git(hub|lab)/)
+          url.match?(%r{http://(www.)*git(hub|lab)})
         end
 
         def on_send(node)
@@ -51,7 +50,7 @@ module RuboCop
 
         def autocorrect(node)
           lambda do |corrector|
-            corrector.replace(node.loc.expression, node.source.gsub(/http:\/\/(www.)*/,'https://'))
+            corrector.replace(node.loc.expression, node.source.gsub(%r{http://(www.)*}, 'https://'))
           end
         end
       end
