@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.0.6 -->
-## [v5.0.6](https://github.com/chef/cookstyle/tree/v5.0.6) (2019-07-16)
+<!-- latest_release 5.1.0 -->
+## [v5.1.0](https://github.com/chef/cookstyle/tree/v5.1.0) (2019-07-16)
 
 #### Merged Pull Requests
-- Add an autocorrect for insecure gitlab/github source/issue url metadata [#82](https://github.com/chef/cookstyle/pull/82) ([tas50](https://github.com/tas50))
+- Add Chef/CommentSentenceSpacing cop (disabled by default) [#83](https://github.com/chef/cookstyle/pull/83) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.0.4 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add Chef/CommentSentenceSpacing cop (disabled by default) [#83](https://github.com/chef/cookstyle/pull/83) ([tas50](https://github.com/tas50)) <!-- 5.1.0 -->
 - Add an autocorrect for insecure gitlab/github source/issue url metadata [#82](https://github.com/chef/cookstyle/pull/82) ([tas50](https://github.com/tas50)) <!-- 5.0.6 -->
 - Add cop to detect old Berkfile sources [#81](https://github.com/chef/cookstyle/pull/81) ([tas50](https://github.com/tas50)) <!-- 5.0.5 -->
 <!-- release_rollup -->
