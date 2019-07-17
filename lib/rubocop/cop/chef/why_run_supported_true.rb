@@ -29,7 +29,7 @@ module RuboCop
         MSG = 'why_run_supported? no longer needs to be set to true as that is the default in Chef 13+'.freeze
 
         def on_def(node)
-          if node.method_name == :why_run_supported? && node.body == s(:true)
+          if node.method_name == :why_run_supported? && node.body == s(:true) # rubocop: disable Lint/BooleanSymbol
             add_offense(node, location: :expression, message: MSG, severity: :refactor)
           end
         end
