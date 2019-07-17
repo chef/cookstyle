@@ -61,6 +61,14 @@ Chef/NodeSetUnless:
   Description: Do not use the deprecated node.set_unless method
   Enabled: true
 
+Chef/NodeNormal:
+  Description: Do not use the node.normal method
+  Enabled: true
+
+Chef/NodeNormalUnless:
+  Description: Do not use the node.normal_unless method
+  Enabled: true
+
 Chef/TmpPath:
   Description: Use file_cache_path rather than hard-coding tmp paths
   Enabled: true
