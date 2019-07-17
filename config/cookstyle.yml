@@ -57,6 +57,10 @@ Chef/NodeSet:
   Description: Do not use the deprecated node.set method
   Enabled: true
 
+Chef/NodeSetUnless:
+  Description: Do not use the deprecated node.set_unless method
+  Enabled: true
+
 Chef/TmpPath:
   Description: Use file_cache_path rather than hard-coding tmp paths
   Enabled: true
