@@ -16,7 +16,7 @@
 - Add Chef/NodeSetUnless to autocorrect node.set_unless usage [#102](https://github.com/chef/cookstyle/pull/102) ([lamont-granquist](https://github.com/lamont-granquist)) <!-- 5.1.1 -->
 - Add Chef/CommentSentenceSpacing cop (disabled by default) [#83](https://github.com/chef/cookstyle/pull/83) ([tas50](https://github.com/tas50)) <!-- 5.1.0 -->
 - Add an autocorrect for insecure gitlab/github source/issue url metadata [#82](https://github.com/chef/cookstyle/pull/82) ([tas50](https://github.com/tas50)) <!-- 5.0.6 -->
-- Add cop to detect old Berkfile sources [#81](https://github.com/chef/cookstyle/pull/81) ([tas50](https://github.com/tas50)) <!-- 5.0.5 -->
+- Add cop to detect old Berksfile sources [#81](https://github.com/chef/cookstyle/pull/81) ([tas50](https://github.com/tas50)) <!-- 5.0.5 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->

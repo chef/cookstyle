@@ -31,7 +31,7 @@ module RuboCop
       #   source 'https://supermarket.chef.io'
       #
       class LegacyBerksfileSource < Cop
-        MSG = 'Do not use legacy Berkfile community sources. Use Chef Supermarket instead.'.freeze
+        MSG = 'Do not use legacy Berksfile community sources. Use Chef Supermarket instead.'.freeze
 
         def_node_matcher :berksfile_source?, <<-PATTERN
           (send nil? :source (str #old_berkshelf_url?))
