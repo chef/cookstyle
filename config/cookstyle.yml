@@ -25,6 +25,10 @@ AllCops:
     Patterns:
     - resources/.*\.rb
 
+###############################
+# Making cookbooks look better
+###############################
+
 Chef/AttributeKeys:
   Description: Check which style of keys are used to access node attributes.
   Enabled: true
@@ -32,14 +36,6 @@ Chef/AttributeKeys:
   SupportedStyles:
   - strings
   - symbols
-
-Chef/FileMode:
-  Description: Use strings to represent file modes in Chef resources
-  Enabled: true
-
-Chef/ServiceResource:
-  Description: Use a service resource to start and stop services instead of execute resources
-  Enabled: true
 
 Chef/CopyrightCommentFormat:
   Description: Properly format copyright dates in comment blocks and ensure dates are up to date
@@ -53,12 +49,17 @@ Chef/CommentFormat:
   Description: Use Chef's unique format for comment headers
   Enabled: true
 
-Chef/NodeSet:
-  Description: Do not use the deprecated node.set method
+
+###############################
+# Avoiding potential problems
+###############################
+
+Chef/FileMode:
+  Description: Use strings to represent file modes in Chef resources
   Enabled: true
 
-Chef/NodeSetUnless:
-  Description: Do not use the deprecated node.set_unless method
+Chef/ServiceResource:
+  Description: Use a service resource to start and stop services instead of execute resources
   Enabled: true
 
 Chef/NodeNormal:
@@ -73,13 +74,34 @@ Chef/TmpPath:
   Description: Use file_cache_path rather than hard-coding tmp paths
   Enabled: true
 
-Chef/LegacyBerksfileSource:
-  Description: Do not use legacy Berkfile community sources. Use Chef Supermarket instead.
-  Enabled: true
-
 Chef/InsecureCookbookURL:
   Description: Insecure http Github or Gitlab URLs for metadata source_url/issues_url fields
   Enabled: true
+
+###############################
+# Resolving Deprecations
+###############################
+
+Chef/NodeSet:
+  Description: Do not use the deprecated node.set method
+  Enabled: true
+
+Chef/NodeSetUnless:
+  Description: Do not use the deprecated node.set_unless method
+  Enabled: true
+
+###############################
+# Cleaning up Leggacy Code
+###############################
+
+Chef/LegacyBerksfileSource:
+  Description: Do not use legacy Berksfile community sources. Use Chef Supermarket instead.
+  Enabled: true
+
+Chef/WhyRunSupportedTrue:
+  Description: why_run_supported? no longer needs to be set to true as it is the default in Chef 13+
+  Enabled: true
+
 
 #### The base rubocop 0.37 enabled.yml file we started with ####
 
