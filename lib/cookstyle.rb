@@ -32,6 +32,7 @@ end
 
 require 'rubocop/chef'
 require 'rubocop/chef/cookbook_only'
+require 'rubocop/mixin/target_chef_version'
 
 # Chef specific cops
 Dir.glob(File.dirname(__FILE__) + '/rubocop/cop/chef/**/*.rb') do |file|

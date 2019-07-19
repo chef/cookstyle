@@ -26,6 +26,10 @@ module RuboCop
       #   end
       #
       class WhyRunSupportedTrue < Cop
+        extend TargetChefVersion
+
+        minimum_target_chef_version 13
+
         MSG = 'why_run_supported? no longer needs to be set to true as it is the default in Chef 13++'.freeze
 
         def on_def(node)
