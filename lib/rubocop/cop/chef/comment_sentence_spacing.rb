@@ -26,14 +26,14 @@ module RuboCop
         def investigate(processed_source)
           return unless processed_source.ast
           processed_source.comments.each do |comment|
-            if comment.text.match?(/\.  /)
+            if comment.text.match?(/(.|\?)\s{2}/) # https://rubular.com/r/8o3SiDrQMJSzuU
               add_offense(comment, location: comment.loc.expression, message: MSG, severity: :warning)
             end
           end
         end
 
         def autocorrect(comment)
-          ->(corrector) { corrector.replace(comment.loc.expression, comment.text.gsub('.  ', '. ')) }
+          ->(corrector) { corrector.replace(comment.loc.expression, comment.text.gsub('.  ', '. ').gsub('?  ', '? ')) }
         end
       end
     end
