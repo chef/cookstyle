@@ -5,6 +5,13 @@ $LOAD_PATH.unshift File.join(File.dirname(__FILE__), %w(.. lib))
 
 require 'cookstyle'
 
+# force the fail level to :convention so that we can set all our new rules to
+# the lowest level of :refactor without failing everyone's CI jobs
+unless ARGV.include?('--fail-level')
+  ARGV << '--fail-level'
+  ARGV << 'C'
+end
+
 if ARGV.size == 1 && %w(-v --version).include?(ARGV.first)
   puts "Cookstyle #{Cookstyle::VERSION}"
   print '  * RuboCop '
