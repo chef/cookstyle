@@ -46,7 +46,7 @@ module RuboCop
             next unless comment.inline? # headers aren't in blocks
 
             if invalid_copyright_comment?(comment)
-              add_offense(comment, location: comment.loc.expression, message: MSG, severity: :warning)
+              add_offense(comment, location: comment.loc.expression, message: MSG, severity: :refactor)
             end
           end
         end

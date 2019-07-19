@@ -44,7 +44,7 @@ module RuboCop
 
         def on_send(node)
           insecure_cb_url?(node) do
-            add_offense(node, location: :expression, message: MSG, severity: :warning)
+            add_offense(node, location: :expression, message: MSG, severity: :refactor)
           end
         end
 

@@ -37,9 +37,7 @@ module RuboCop
 
         def on_send(node)
           resource_mode?(node) do |mode_int|
-            # for post April 2020
-            # add_offense(mode_int, location: :expression, message: MSG, severity: octal?(mode_int) ? :warning : :error)
-            add_offense(mode_int, location: :expression, message: MSG, severity: :warning)
+            add_offense(mode_int, location: :expression, message: MSG, severity: :refactor)
           end
         end
 
