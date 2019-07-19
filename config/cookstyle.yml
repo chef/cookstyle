@@ -76,6 +76,8 @@ Chef/TmpPath:
 Chef/InsecureCookbookURL:
   Description: Insecure http Github or Gitlab URLs for metadata source_url/issues_url fields
   Enabled: true
+  Include:
+    - '**/metadata.rb'
 
 ###############################
 # Resolving Deprecations
