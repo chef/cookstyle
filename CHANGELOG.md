@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.1.6 -->
-## [v5.1.6](https://github.com/chef/cookstyle/tree/v5.1.6) (2019-07-19)
+<!-- latest_release 5.1.7 -->
+## [v5.1.7](https://github.com/chef/cookstyle/tree/v5.1.7) (2019-07-19)
 
 #### Merged Pull Requests
-- Add new UseBuildEssentialResource cop [#118](https://github.com/chef/cookstyle/pull/118) ([tas50](https://github.com/tas50))
+- Force the fail level to :convention and set rules to :refactor level [#117](https://github.com/chef/cookstyle/pull/117) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.0.4 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Force the fail level to :convention and set rules to :refactor level [#117](https://github.com/chef/cookstyle/pull/117) ([tas50](https://github.com/tas50)) <!-- 5.1.7 -->
 - Add new UseBuildEssentialResource cop [#118](https://github.com/chef/cookstyle/pull/118) ([tas50](https://github.com/tas50)) <!-- 5.1.6 -->
 - Improve detection of double spaces after sentences [#120](https://github.com/chef/cookstyle/pull/120) ([tas50](https://github.com/tas50)) <!-- 5.1.5 -->
 - Test the cookstyle binary on Windows in Buildkite [#116](https://github.com/chef/cookstyle/pull/116) ([tas50](https://github.com/tas50)) <!-- 5.1.4 -->
