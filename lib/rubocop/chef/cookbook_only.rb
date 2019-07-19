@@ -4,15 +4,15 @@ module RuboCop
   module Chef
     # Mixin for cops that skips non-cookbook files
     #
-    # The criteria for whether rubocop-rspec analyzes a certain ruby file
-    # is configured via `AllCops/RSpec`. For example, if you want to
+    # The criteria for whether cookstyle analyzes a certain ruby file
+    # is configured via `AllCops/Chef`. For example, if you want to
     # customize your project to scan all files within a `test/` directory
     # then you could add this to your configuration:
     #
     # @example configuring analyzed paths
     #
     #   AllCops:
-    #     RSpec:
+    #     Chef:
     #       Patterns:
     #       - '_spec.rb$'
     #       - '(?:^|/)spec/'

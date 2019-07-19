@@ -49,7 +49,6 @@ Chef/CommentFormat:
   Description: Use Chef's unique format for comment headers
   Enabled: true
 
-
 ###############################
 # Avoiding potential problems
 ###############################
