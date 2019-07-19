@@ -21,7 +21,7 @@ module RuboCop
       # @example
       #
       #   # bad
-      #   why_run_supported?
+      #   def why_run_supported?
       #    true
       #   end
       #
