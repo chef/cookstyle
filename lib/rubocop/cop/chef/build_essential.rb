@@ -28,10 +28,6 @@ module RuboCop
       #   # good
       #   build_essential 'install compilation tools'
       class UseBuildEssentialResource < Cop
-        extend TargetChefVersion
-
-        minimum_target_chef_version 14
-
         MSG = 'Use the build_essential resource instead of the legacy build-essential recipe'.freeze
 
         def_node_matcher :build_essential_recipe_usage?, <<-PATTERN
