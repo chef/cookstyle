@@ -90,7 +90,7 @@ Chef/NodeSetUnless:
   Enabled: true
 
 ###############################
-# Cleaning up Leggacy Code
+# Cleaning up Legacy Code
 ###############################
 
 Chef/LegacyBerksfileSource:
