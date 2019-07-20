@@ -24,7 +24,7 @@ See the current set of cops in [config/cookstyle.yml](https://github.com/chef/co
 
 #### Stable
 
-RuboCop is an increadibly active project with new cops being introduced monthly. The new cops cause existing codebases to fail CI tests, and force authors to constantly update their code. With Cookstyle we update the RuboCop engine for bug and performance fixes, but we only change the set of cops tat will fail tests once a year during Chef Infra's April major release. All new cops are introduced at RuboCop's "refactor" alert level, meaning they will alert to the screen as you run Cookstyle, but they won't fail a build. This stability means you are free to upgrade releases of Cookstyle without being forced to update your infrastructure code.
+RuboCop is an incredibly active project with new cops being introduced monthly. The new cops cause existing codebases to fail CI tests, and force authors to constantly update their code. With Cookstyle we update the RuboCop engine for bug and performance fixes, but we only change the set of cops tat will fail tests once a year during Chef Infra's April major release. All new cops are introduced at RuboCop's "refactor" alert level, meaning they will alert to the screen as you run Cookstyle, but they won't fail a build. This stability means you are free to upgrade releases of Cookstyle without being forced to update your infrastructure code.
 
 ## Installation
 
@@ -106,7 +106,7 @@ As with RuboCop, any custom settings can still be placed in a `.rubocop.yml` fil
 
 ## Getting Involved
 
-We'd love to have your help developing Cookstyle. See our [Contributing Guide](https://github.com/chef/chef/blob/master/CONTRIBUTING.md) for more information on contributing to Chef projects. There's also a [Developer Guide](./DEVELOPER_GUIDE.md) for Cookstyle that outlines how the configs work and how you can upgrade the RuboCop engine.
+We'd love to have your help in developing Cookstyle. See our [Contributing Guide](https://github.com/chef/chef/blob/master/CONTRIBUTING.md) for more information on contributing to Chef projects. There's also a [Developer Guide](./DEVELOPER_GUIDE.md) for Cookstyle that outlines how the configs work and how you can upgrade the RuboCop engine.
 
 ## License and Copyright
 
