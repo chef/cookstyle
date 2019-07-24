@@ -108,8 +108,8 @@ Chef/WhyRunSupportedTrue:
 PropertyWithNameAttribute:
     Description: Resource property sets name_attribute not name_property
     Enabled: true
-    #Include:
-    #  - '**/resources/*'
+    # Include:
+    #   - '**/resources/.*\.rb'
 
 ###############################
 # Utilize new built-in resources
