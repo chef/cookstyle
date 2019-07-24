@@ -44,6 +44,7 @@ module RuboCop
           return unless processed_source.ast
 
           processed_source.comments.each do |comment|
+            next if comment.loc.first_line > 10 # avoid false positives when we were checking further down the file
             next unless comment.inline? # headers aren't in blocks
 
             if invalid_comment?(comment)
