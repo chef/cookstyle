@@ -91,6 +91,10 @@ Chef/NodeSetUnless:
   Description: Do not use the deprecated node.set_unless method
   Enabled: true
 
+Chef/EpicFail:
+  Description: Use ignore_failure method instead of the deprecated epic_fail method
+  Enabled: true
+
 ###############################
 # Cleaning up Legacy Code
 ###############################
