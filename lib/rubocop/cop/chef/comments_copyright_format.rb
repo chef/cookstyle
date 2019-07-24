@@ -1,5 +1,6 @@
 #
-# Copyright:: 2016, Tim Smith
+# Copyright:: 2016-2019, Chef Software, Inc.
+# Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -42,6 +43,7 @@ module RuboCop
 
         def investigate(processed_source)
           return unless processed_source.ast
+
           processed_source.comments.each do |comment|
             next unless comment.inline? # headers aren't in blocks
 
@@ -63,6 +65,7 @@ module RuboCop
 
           # no copyright year present so return this year
           return Time.new.year if dates.empty?
+
           oldest_date = dates.min[0].to_i
 
           # Avoid returning THIS_YEAR - THIS_YEAR

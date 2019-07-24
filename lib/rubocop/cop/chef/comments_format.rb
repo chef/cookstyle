@@ -42,6 +42,7 @@ module RuboCop
 
         def investigate(processed_source)
           return unless processed_source.ast
+
           processed_source.comments.each do |comment|
             next unless comment.inline? # headers aren't in blocks
 

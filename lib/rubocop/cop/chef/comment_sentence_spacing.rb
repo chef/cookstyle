@@ -1,6 +1,6 @@
 #
-# Author: Tim Smith (<tsmith@chef.io>)
-# Copyright:: 2019, Chef Software, Inc.
+# Copyright:: 2016-2019, Chef Software, Inc.
+# Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ module RuboCop
 
         def investigate(processed_source)
           return unless processed_source.ast
+
           processed_source.comments.each do |comment|
             if comment.text.match?(/(.|\?)\s{2}/) # https://rubular.com/r/8o3SiDrQMJSzuU
               add_offense(comment, location: comment.loc.expression, message: MSG, severity: :refactor)

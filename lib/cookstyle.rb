@@ -36,5 +36,6 @@ require 'rubocop/chef/cookbook_only'
 # Chef specific cops
 Dir.glob(File.dirname(__FILE__) + '/rubocop/cop/chef/**/*.rb') do |file|
   next if File.directory?(file)
+
   require_relative file # not actually relative but require_relative is faster
 end

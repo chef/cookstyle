@@ -31,6 +31,7 @@ module RuboCop
         patterns = []
         COOKBOOK_SEGMENTS.each do |segment|
           next unless self.class.cookbook_only_segments[segment.to_sym]
+
           cookbook_pattern_config(segment).each do |pattern|
             patterns << Regexp.new(pattern)
           end
