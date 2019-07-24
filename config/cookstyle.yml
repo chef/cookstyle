@@ -114,6 +114,14 @@ PropertyWithNameAttribute:
     Enabled: true
     # Include:
     #   - '**/resources/.*\.rb'
+    #   - '**/libraries/.*\.rb'
+
+PropertyWithRequiredAndDefault:
+    Description: Resource property should not be both required and have a default value
+    Enabled: true
+    # Include:
+    #   - '**/resources/.*\.rb'
+    #   - '**/libraries/.*\.rb'
 
 ###############################
 # Utilize new built-in resources
@@ -122,7 +130,6 @@ PropertyWithNameAttribute:
 Chef/UseBuildEssentialResource:
   Description: Use the build_essential resource instead of the legacy build-essential recipe
   Enabled: true
-
 
 #### The base rubocop 0.37 enabled.yml file we started with ####
 
