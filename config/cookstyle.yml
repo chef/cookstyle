@@ -105,6 +105,12 @@ Chef/WhyRunSupportedTrue:
   Description: why_run_supported? no longer needs to be set to true as it is the default in Chef 13+
   Enabled: true
 
+PropertyWithNameAttribute:
+    Description: Resource property sets name_attribute not name_property
+    Enabled: true
+    #Include:
+    #  - '**/resources/*'
+
 ###############################
 # Utilize new built-in resources
 ###############################
