@@ -37,7 +37,7 @@ module RuboCop
 
         def autocorrect(node)
           lambda do |corrector|
-            corrector.replace(node.loc.expression, node.source.gsub('name_attribute: true', 'name_property: true'))
+            corrector.replace(node.loc.expression, node.source.gsub('name_attribute', 'name_property'))
           end
         end
 
