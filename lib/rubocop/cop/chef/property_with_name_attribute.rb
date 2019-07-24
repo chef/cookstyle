@@ -47,7 +47,7 @@ module RuboCop
           if node.method_name == :property
             node.arguments.each do |arg|
               if arg.type == :hash
-                return true if arg.source == 'name_attribute: true'
+                return true if arg.source.match?(/name_attribute:/)
               end
             end
             false # no name_attribute found
