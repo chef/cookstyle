@@ -15,6 +15,15 @@ group :docs do
   gem 'yard'
 end
 
+group :development do
+  gem 'adamantium'
+  gem 'anima'
+  gem 'concord'
+  gem 'rake'
+  gem 'rspec', '>= 3.4'
+  gem 'simplecov'
+end
+
 instance_eval(ENV['GEMFILE_MOD']) if ENV['GEMFILE_MOD']
 
 # If you want to load debugging tools into the bundle exec sandbox,
