@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.1.12 -->
-## [v5.1.12](https://github.com/chef/cookstyle/tree/v5.1.12) (2019-07-25)
+<!-- latest_release 5.1.13 -->
+## [v5.1.13](https://github.com/chef/cookstyle/tree/v5.1.13) (2019-07-25)
 
 #### Merged Pull Requests
-- Rework the docs for the new world of Chef specific rules [#122](https://github.com/chef/cookstyle/pull/122) ([tas50](https://github.com/tas50))
+- Add rules for Effortless Infra pattern [#137](https://github.com/chef/cookstyle/pull/137) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.0.4 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add rules for Effortless Infra pattern [#137](https://github.com/chef/cookstyle/pull/137) ([tas50](https://github.com/tas50)) <!-- 5.1.13 -->
 - Rework the docs for the new world of Chef specific rules [#122](https://github.com/chef/cookstyle/pull/122) ([tas50](https://github.com/tas50)) <!-- 5.1.12 -->
 - Avoid false positives in header cleanup [#133](https://github.com/chef/cookstyle/pull/133) ([tas50](https://github.com/tas50)) <!-- 5.1.11 -->
 - Add new Chef/PropertyWithRequiredAndDefault [#129](https://github.com/chef/cookstyle/pull/129) ([tas50](https://github.com/tas50)) <!-- 5.1.10 -->
