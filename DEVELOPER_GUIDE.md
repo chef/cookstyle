@@ -14,7 +14,7 @@ Cookstyle works by overwriting RuboCop's standard config with our own default.ym
 
 [upstream.yml](https://github.com/chef/cookstyle/blob/master/config/upstream.yml)
 
-This is a vendored copy of the out of the box RuboCop config from the version of the engine we're using. It's necessary to start with this file as it includes cop metadata like descriptions and also includes the actual configuration details for each cop.
+This is a vendored copy of the out-of-the-box RuboCop config from the version of the engine we're using. It's necessary to start with this file as it includes cop metadata like descriptions and also includes the actual configuration details for each cop.
 
 [disable_all.yml](https://github.com/chef/cookstyle/blob/master/config/disable_all.yml)
 
