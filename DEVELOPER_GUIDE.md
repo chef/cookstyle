@@ -8,7 +8,7 @@ Cookstyle is designed to allow bumping the RuboCop engine while keeping backward
 
 Enabling or disabling any new cops in this file must be accompanied by comments demonstrating why the change should be made. Keep in mind anything you add here causes Chef users significant work, so make sure it's worth it.
 
-## Cookstyle Config Files
+## Cookstyle Configuration Files
 
 Cookstyle works by overwriting RuboCop's standard config with our own default.yml file. This file sources three other files to provide the final layer-cake that is Cookstyle:
 
