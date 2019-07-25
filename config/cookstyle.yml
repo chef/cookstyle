@@ -131,6 +131,18 @@ Chef/UseBuildEssentialResource:
   Description: Use the build_essential resource instead of the legacy build-essential recipe
   Enabled: true
 
+###############################
+# Migrating to new patterns
+###############################
+
+Chef/CookbookUsesSearch:
+  Description: Cookbook uses search, which cannot be used in the Effortless Infra pattern
+  Enabled: false
+
+Chef/CookbookUsesDatabags:
+  Description: Cookbook uses data bags, which cannot be used in the Effortless Infra pattern
+  Enabled: false
+
 #### The base rubocop 0.37 enabled.yml file we started with ####
 
 Layout/AccessModifierIndentation:
