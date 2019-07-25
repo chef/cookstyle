@@ -1,6 +1,6 @@
 ## How It Works
 
-The project itself is a derivative of [finstyle](https://github.com/fnichol/finstyle), but starts with all cops disabled. Cookstyle has a direct dependency on one specific version of RuboCop (at a time), and patches it to load the upstream configuration and custom set of cop updates. When a new RuboCop release comes out, this library can bump the pinned RuboCop version dependency and [re-vendor](https://github.com/chef/cookstyle/blob/master/Rakefile) the upstream configuration to determine if any breaking style or lint cops were added/dropped/reversed/etc.
+The project itself is a derivative of [finstyle](https://github.com/fnichol/finstyle), but starts with all cops (rules) disabled. Cookstyle has a direct dependency on one specific version of RuboCop (at a time), and patches it to load the upstream configuration and custom set of cop updates. When a new RuboCop release comes out, this library can bump the pinned RuboCop version dependency and [re-vendor](https://github.com/chef/cookstyle/blob/master/Rakefile) the upstream configuration to determine if any breaking style or lint cops were added/dropped/reversed/etc.
 
 ## NOTE CAREFULLY ABOUT UPDATING COOKSTYLE
 
