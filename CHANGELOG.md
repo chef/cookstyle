@@ -42,7 +42,7 @@
 #### Merged Pull Requests
 - Add buildkite PR test pipeline [#67](https://github.com/chef/cookstyle/pull/67) ([tas50](https://github.com/tas50))
 - Fix buildkite pipeline setup [#68](https://github.com/chef/cookstyle/pull/68) ([tas50](https://github.com/tas50))
-- Update Rubocop to 0.72 &amp; merge rubocop-chef [#69](https://github.com/chef/cookstyle/pull/69) ([tas50](https://github.com/tas50))
+- Update RuboCop to 0.72 &amp; merge rubocop-chef [#69](https://github.com/chef/cookstyle/pull/69) ([tas50](https://github.com/tas50))
 
 ## [v4.0.0](https://github.com/chef/cookstyle/tree/v4.0.0) (2019-01-22)
 
@@ -51,7 +51,7 @@
 - Unpin the bundler dev dep [#59](https://github.com/chef/cookstyle/pull/59) ([tas50](https://github.com/tas50))
 - Fix the update version script for expeditor [#60](https://github.com/chef/cookstyle/pull/60) ([tas50](https://github.com/tas50))
 - Update cases in the readme [#61](https://github.com/chef/cookstyle/pull/61) ([tas50](https://github.com/tas50))
-- Update to Rubocop 0.62 and require Ruby 2.4 [#62](https://github.com/chef/cookstyle/pull/62) ([tas50](https://github.com/tas50))
+- Update to RuboCop 0.62 and require Ruby 2.4 [#62](https://github.com/chef/cookstyle/pull/62) ([tas50](https://github.com/tas50))
 - Bump to 4.0 and resolve new cookstyle warnings [#63](https://github.com/chef/cookstyle/pull/63) ([tas50](https://github.com/tas50))
 
 ## 3.0.2 (2018-12-14)
@@ -60,7 +60,7 @@
 
 ## 3.0.1 (2018-11-20)
 
-Cookstyle now ignores lazy { } for symbol proc check. The autocorrected code produced by the Rubocop engine would cause chef-client failures in this situation. Thanks @martinisoft for the fix
+Cookstyle now ignores lazy { } for symbol proc check. The autocorrected code produced by the RuboCop engine would cause chef-client failures in this situation. Thanks @martinisoft for the fix
 
 ## 3.0.0 (2018-05-07)
 
@@ -100,7 +100,7 @@ The RuboCop engine has been updated from 0.49 to 0.55 in this release of Cooksty
 
 ### Security Update
 
-Rubocop has been upgraded from 0.47.1 to 0.49.1 to resolve <http://www.cvedetails.com/cve/CVE-2017-8418/>. Unfortunately between these versions a large number of rules were moved from the style namespace to the layout namespace. If you previously enabled/disabled whitespace or layout related rules in your own .rubocop.yml there is a good chance you'll need to update your config.
+RuboCop has been upgraded from 0.47.1 to 0.49.1 to resolve <http://www.cvedetails.com/cve/CVE-2017-8418/>. Unfortunately between these versions a large number of rules were moved from the style namespace to the layout namespace. If you previously enabled/disabled whitespace or layout related rules in your own .rubocop.yml there is a good chance you'll need to update your config.
 
 ### Newly Enabled Cops:
 
@@ -125,7 +125,7 @@ Rubocop has been upgraded from 0.47.1 to 0.49.1 to resolve <http://www.cvedetail
 
 ## 1.3.0 (2017-02-13)
 
-- Upgraded the Rubocop engine from 0.46 -> 0.47.1, but disabled all new cops. This aligns cookstyle with the Rubocop in Chefstyle and also resolves multiple bugs in Rubocop 0.46\. If you previously disabled the Lint/Eval cop in your own Rubocop config you'll need to update that with the new cop name of Security/Eval.
+- Upgraded the RuboCop engine from 0.46 -> 0.47.1, but disabled all new cops. This aligns cookstyle with the RuboCop in Chefstyle and also resolves multiple bugs in RuboCop 0.46\. If you previously disabled the Lint/Eval cop in your own RuboCop config you'll need to update that with the new cop name of Security/Eval.
 
 ## 1.2.0 (2017-01-19)
 
