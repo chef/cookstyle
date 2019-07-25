@@ -25,6 +25,22 @@ RuboCop::RakeTask.new(:style) do |task|
   task.options << '--display-cop-names'
 end
 
+require 'rspec/core/rake_task'
+RSpec::Core::RakeTask.new(:spec) do |spec|
+  spec.pattern = FileList['spec/**/*_spec.rb']
+end
+
+desc 'Run RSpec with code coverage'
+task :coverage do
+  ENV['COVERAGE'] = 'true'
+  Rake::Task['spec'].execute
+end
+
+desc 'Run RuboCop over this gem'
+task :internal_investigation do
+  sh('bundle exec rubocop --require rubocop-rspec')
+end
+
 begin
   require 'yard'
   YARD::Rake::YardocTask.new(:docs)
@@ -38,4 +54,4 @@ task :console do
   ARGV.clear
   IRB.start
 end
-task default: [:build, :install]
+task default: [:style, :spec]
