@@ -108,6 +108,13 @@ Chef/EpicFail:
   Enabled: true
   VersionAdded: '5.1.0'
 
+Chef/CookbookDependsOnPoise:
+  Description: Cookbooks should not depend on the deprecated Poise framework
+  Enabled: true
+  VersionAdded: '5.1.0'
+  Include:
+    - '**/metadata.rb'
+
 ###############################
 # Cleaning up Legacy Code
 ###############################
