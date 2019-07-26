@@ -89,6 +89,11 @@ Chef/InsecureCookbookURL:
   Include:
     - '**/metadata.rb'
 
+Chef/NamePropertyIsRequired:
+  Description: Resource properties marked as name properties should not also be required properties
+  Enabled: true
+  VersionAdded: '5.1.0'
+
 ###############################
 # Resolving Deprecations
 ###############################
