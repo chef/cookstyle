@@ -33,6 +33,7 @@ Chef/AttributeKeys:
   Description: Check which style of keys are used to access node attributes.
   Enabled: true
   EnforcedStyle: strings
+  VersionAdded: '5.0.0'
   SupportedStyles:
   - strings
   - symbols
@@ -40,14 +41,17 @@ Chef/AttributeKeys:
 Chef/CopyrightCommentFormat:
   Description: Properly format copyright dates in comment blocks and ensure dates are up to date
   Enabled: false
+  VersionAdded: '5.0.0'
 
 Chef/CommentSentenceSpacing:
   Description: Use a single space after sentences in comments
   Enabled: false
+  VersionAdded: '5.1.0'
 
 Chef/CommentFormat:
   Description: Use Chef's unique format for comment headers
   Enabled: true
+  VersionAdded: '5.0.0'
 
 ###############################
 # Avoiding potential problems
@@ -56,26 +60,32 @@ Chef/CommentFormat:
 Chef/FileMode:
   Description: Use strings to represent file modes in Chef resources
   Enabled: true
+  VersionAdded: '5.0.0'
 
 Chef/ServiceResource:
   Description: Use a service resource to start and stop services instead of execute resources
   Enabled: true
+  VersionAdded: '5.0.0'
 
 Chef/NodeNormal:
   Description: Do not use the node.normal method
   Enabled: true
+  VersionAdded: '5.1.0'
 
 Chef/NodeNormalUnless:
   Description: Do not use the node.normal_unless method
   Enabled: true
+  VersionAdded: '5.1.0'
 
 Chef/TmpPath:
   Description: Use file_cache_path rather than hard-coding tmp paths
   Enabled: true
+  VersionAdded: '5.0.0'
 
 Chef/InsecureCookbookURL:
   Description: Insecure http Github or Gitlab URLs for metadata source_url/issues_url fields
   Enabled: true
+  VersionAdded: '5.1.0'
   Include:
     - '**/metadata.rb'
 
@@ -86,14 +96,17 @@ Chef/InsecureCookbookURL:
 Chef/NodeSet:
   Description: Do not use the deprecated node.set method
   Enabled: true
+  VersionAdded: '5.0.0'
 
 Chef/NodeSetUnless:
   Description: Do not use the deprecated node.set_unless method
   Enabled: true
+  VersionAdded: '5.1.0'
 
 Chef/EpicFail:
   Description: Use ignore_failure method instead of the deprecated epic_fail method
   Enabled: true
+  VersionAdded: '5.1.0'
 
 ###############################
 # Cleaning up Legacy Code
@@ -102,16 +115,19 @@ Chef/EpicFail:
 Chef/LegacyBerksfileSource:
   Description: Do not use legacy Berksfile community sources. Use Chef Supermarket instead.
   Enabled: true
+  VersionAdded: '5.1.0'
   Include:
     - '**/Berksfile'
 
 Chef/WhyRunSupportedTrue:
   Description: why_run_supported? no longer needs to be set to true as it is the default in Chef 13+
   Enabled: true
+  VersionAdded: '5.1.0'
 
 PropertyWithNameAttribute:
     Description: Resource property sets name_attribute not name_property
     Enabled: true
+    VersionAdded: '5.1.0'
     # Include:
     #   - '**/resources/.*\.rb'
     #   - '**/libraries/.*\.rb'
@@ -119,6 +135,7 @@ PropertyWithNameAttribute:
 PropertyWithRequiredAndDefault:
     Description: Resource property should not be both required and have a default value
     Enabled: true
+    VersionAdded: '5.1.0'
     # Include:
     #   - '**/resources/.*\.rb'
     #   - '**/libraries/.*\.rb'
@@ -129,7 +146,8 @@ PropertyWithRequiredAndDefault:
 
 Chef/UseBuildEssentialResource:
   Description: Use the build_essential resource instead of the legacy build-essential recipe
-  Enabled: true
+  Enabled: false
+  VersionAdded: '5.1.0'
 
 ###############################
 # Migrating to new patterns
@@ -138,10 +156,12 @@ Chef/UseBuildEssentialResource:
 Chef/CookbookUsesSearch:
   Description: Cookbook uses search, which cannot be used in the Effortless Infra pattern
   Enabled: false
+  VersionAdded: '5.1.0'
 
 Chef/CookbookUsesDatabags:
   Description: Cookbook uses data bags, which cannot be used in the Effortless Infra pattern
   Enabled: false
+  VersionAdded: '5.1.0'
 
 #### The base rubocop 0.37 enabled.yml file we started with ####
 
