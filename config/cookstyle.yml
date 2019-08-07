@@ -134,6 +134,13 @@ Chef/SuggestsMetadata:
   Include:
     - '**/metadata.rb'
 
+Chef/ProvidesMetadata:
+  Description: Don't use the deprecated 'provides' metadata value
+  Enabled: true
+  VersionAdded: '5.1.0'
+  Include:
+    - '**/metadata.rb'
+
 Chef/ReplacesMetadata:
   Description: Don't use the deprecated 'replaces' metadata value
   Enabled: true
@@ -142,14 +149,14 @@ Chef/ReplacesMetadata:
     - '**/metadata.rb'
 
 Chef/CookbookDependsOnCompatResource:
-  Description: Don't depend on the deprecated compat_resource cookbook
+  Description: Don't depend on the deprecated compat_resource cookbook made obsolete by Chef 12.19+
   Enabled: true
   VersionAdded: '5.1.0'
   Include:
     - '**/metadata.rb'
 
 Chef/PartialSearchDepends:
-  Description: Don't depend on the deprecated partial_search cookbook
+  Description: Don't depend on the deprecated partial_search cookbook made obsolete by Chef 13+
   Enabled: true
   VersionAdded: '5.1.0'
   Include:
@@ -210,7 +217,6 @@ Chef/UnnecessaryDependsChef14:
   Description: Don't depend on cookbooks made obsolete by Chef 14
   Enabled: true
   VersionAdded: '5.1.0'
-
 
 ###############################
 # Utilize new built-in resources
