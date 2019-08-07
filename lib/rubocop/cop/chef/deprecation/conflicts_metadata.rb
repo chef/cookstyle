@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      # Make sure ignore_failure is used instead of epic_fail
+      # Don't use the deprecated 'conflicts' metadata value
       #
       # @example
       #

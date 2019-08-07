@@ -163,12 +163,12 @@ Chef/PartialSearchDepends:
     - '**/metadata.rb'
 
 Chef/EasyInstallResource:
-  Description: Don't use the deprecated easy_install resource
+  Description: Don't use the deprecated easy_install resource resource removed in Chef 13
   Enabled: true
   VersionAdded: '5.1.0'
 
 Chef/ErlCallResource:
-  Description: Don't use the deprecated erl_call resource
+  Description: Don't use the deprecated erl_call resource removed in Chef 13
   Enabled: true
   VersionAdded: '5.1.0'
 

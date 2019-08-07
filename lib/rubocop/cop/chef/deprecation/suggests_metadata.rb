@@ -18,13 +18,13 @@
 module RuboCop
   module Cop
     module Chef
-      # Make sure ignore_failure is used instead of epic_fail
+      # Don't use the deprecated 'suggests' metadata value
       #
       # @example
       #
       #   # bad in metadata.rb:
       #
-      #   replaces "another_cookbook"
+      #   suggests "another_cookbook"
       #
       class SuggestsMetadata < Cop
         MSG = "Don't use the deprecated 'suggests' metadata value".freeze

@@ -22,18 +22,19 @@ module RuboCop
       # @example
       #
       #   # bad
-      #   depends 'dmg'
-      #   depends 'sysctl'
-      #   depends 'mac_os_x'
+      #   depends 'build-essential'
       #   depends 'chef_handler'
-      #   depends 'swap'
       #   depends 'chef_hostname'
+      #   depends 'dmg'
+      #   depends 'mac_os_x'
+      #   depends 'swap'
+      #   depends 'sysctl'
       #
       class UnnecessaryDependsChef14 < Cop
         MSG = "Don't depend on cookbooks made obsolete by Chef 14".freeze
 
         def_node_matcher :legacy_depends?, <<-PATTERN
-          (send nil? :depends (str {"build-essential" "sysctl" "mac_os_x" "chef_handler" "swap" "chef_hostname"}))
+          (send nil? :depends (str {"build-essential" "chef_handler" "chef_hostname" "dmg" "mac_os_x" "swap" "sysctl"}))
         PATTERN
 
         def on_send(node)
