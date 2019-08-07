@@ -17,7 +17,7 @@
 module RuboCop
   module Cop
     module Chef
-      # Don't depend on cookbooks made obsolete by Chef 14
+      # Don't depend on the deprecated compat_resource cookbook made obsolete by Chef 12.19+
       #
       # @example
       #
@@ -25,7 +25,7 @@ module RuboCop
       #   depends 'compat_resource'
       #
       class CookbookDependsOnCompatResource < Cop
-        MSG = "Don't depend on the deprecated compat_resource cookbook".freeze
+        MSG = "Don't depend on the deprecated compat_resource cookbook made obsolete by Chef 12.19+".freeze
 
         def_node_matcher :depends_compat_resource?, <<-PATTERN
           (send nil? :depends (str {"compat_resource"}))
