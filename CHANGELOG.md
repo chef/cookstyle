@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.1.18 -->
-## [v5.1.18](https://github.com/chef/cookstyle/tree/v5.1.18) (2019-07-28)
+<!-- latest_release 5.1.19 -->
+## [v5.1.19](https://github.com/chef/cookstyle/tree/v5.1.19) (2019-08-08)
 
 #### Merged Pull Requests
-- Add Chef/NamePropertyIsRequired cop [#141](https://github.com/chef/cookstyle/pull/141) ([tas50](https://github.com/tas50))
+- Add 10 additional cops for detected deprecated behavior [#143](https://github.com/chef/cookstyle/pull/143) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.0.4 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add 10 additional cops for detected deprecated behavior [#143](https://github.com/chef/cookstyle/pull/143) ([tas50](https://github.com/tas50)) <!-- 5.1.19 -->
 - Add Chef/NamePropertyIsRequired cop [#141](https://github.com/chef/cookstyle/pull/141) ([tas50](https://github.com/tas50)) <!-- 5.1.18 -->
 - Add Chef/CookbookDependsOnPoise rule [#140](https://github.com/chef/cookstyle/pull/140) ([tas50](https://github.com/tas50)) <!-- 5.1.17 -->
 - Add additional specs [#142](https://github.com/chef/cookstyle/pull/142) ([tas50](https://github.com/tas50)) <!-- 5.1.16 -->
