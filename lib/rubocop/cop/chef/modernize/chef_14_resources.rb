@@ -17,33 +17,35 @@
 module RuboCop
   module Cop
     module Chef
-      # Use secure Github and Gitlab URLs for source_url and issues_url
+      # Don't depend on cookbooks made obsolete by Chef 14
       #
       # @example
       #
       #   # bad
       #   depends 'build-essential'
-      #   include_recipe 'build-essential::default'
-      #   include_recipe 'build-essential'
+      #   depends 'chef_handler'
+      #   depends 'chef_hostname'
+      #   depends 'dmg'
+      #   depends 'mac_os_x'
+      #   depends 'swap'
+      #   depends 'sysctl'
       #
-      #   # good
-      #   build_essential 'install compilation tools'
-      class UseBuildEssentialResource < Cop
-        MSG = 'Use the build_essential resource built into Chef 14+ instead of the legacy build-essential recipe'.freeze
+      class UnnecessaryDependsChef14 < Cop
+        MSG = "Don't depend on cookbooks made obsolete by Chef 14".freeze
 
-        def_node_matcher :build_essential_recipe_usage?, <<-PATTERN
-          (send nil? :include_recipe (str {"build-essential" "build-essential::default"}))
+        def_node_matcher :legacy_depends?, <<-PATTERN
+          (send nil? :depends (str {"build-essential" "chef_handler" "chef_hostname" "dmg" "mac_os_x" "swap" "sysctl"}))
         PATTERN
 
         def on_send(node)
-          build_essential_recipe_usage?(node) do
+          legacy_depends?(node) do
             add_offense(node, location: :expression, message: MSG, severity: :refactor)
           end
         end
 
         def autocorrect(node)
           lambda do |corrector|
-            corrector.replace(node.loc.expression, "build_essential 'install compilation tools'")
+            corrector.remove(node.loc.expression)
           end
         end
       end

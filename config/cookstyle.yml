@@ -120,6 +120,65 @@ Chef/CookbookDependsOnPoise:
   Include:
     - '**/metadata.rb'
 
+Chef/ConflictsMetadata:
+  Description: Don't use the deprecated 'conflicts' metadata value
+  Enabled: true
+  VersionAdded: '5.1.0'
+  Include:
+    - '**/metadata.rb'
+
+Chef/SuggestsMetadata:
+  Description: Don't use the deprecated 'suggests' metadata value
+  Enabled: true
+  VersionAdded: '5.1.0'
+  Include:
+    - '**/metadata.rb'
+
+Chef/ProvidesMetadata:
+  Description: Don't use the deprecated 'provides' metadata value
+  Enabled: true
+  VersionAdded: '5.1.0'
+  Include:
+    - '**/metadata.rb'
+
+Chef/ReplacesMetadata:
+  Description: Don't use the deprecated 'replaces' metadata value
+  Enabled: true
+  VersionAdded: '5.1.0'
+  Include:
+    - '**/metadata.rb'
+
+Chef/AttributeMetadata:
+  Description: Don't use the deprecated 'attribute' metadata value
+  Enabled: true
+  VersionAdded: '5.1.0'
+  Include:
+    - '**/metadata.rb'
+
+Chef/CookbookDependsOnCompatResource:
+  Description: Don't depend on the deprecated compat_resource cookbook made obsolete by Chef 12.19+
+  Enabled: true
+  VersionAdded: '5.1.0'
+  Include:
+    - '**/metadata.rb'
+
+Chef/CookbookDependsOnPartialSearch:
+  Description: Don't depend on the deprecated partial_search cookbook made obsolete by Chef 13+
+  Enabled: true
+  VersionAdded: '5.1.0'
+  Include:
+    - '**/metadata.rb'
+
+Chef/EasyInstallResource:
+  Description: Don't use the deprecated easy_install resource resource removed in Chef 13
+  Enabled: true
+  VersionAdded: '5.1.0'
+
+Chef/ErlCallResource:
+  Description: Don't use the deprecated erl_call resource removed in Chef 13
+  Enabled: true
+  VersionAdded: '5.1.0'
+
 ###############################
 # Cleaning up Legacy Code
 ###############################
@@ -135,22 +194,33 @@ Chef/WhyRunSupportedTrue:
   Description: why_run_supported? no longer needs to be set to true as it is the default in Chef 13+
   Enabled: true
   VersionAdded: '5.1.0'
+  Include:
+    - '**/resources/.*\.rb'
+    - '**/providers/.*\.rb'
+    - '**/libraries/.*\.rb'
 
 PropertyWithNameAttribute:
-    Description: Resource property sets name_attribute not name_property
-    Enabled: true
-    VersionAdded: '5.1.0'
-    # Include:
-    #   - '**/resources/.*\.rb'
-    #   - '**/libraries/.*\.rb'
+  Description: Resource property sets name_attribute not name_property
+  Enabled: true
+  VersionAdded: '5.1.0'
+  Include:
+    - '**/resources/.*\.rb'
+    - '**/libraries/.*\.rb'
 
 PropertyWithRequiredAndDefault:
-    Description: Resource property should not be both required and have a default value
-    Enabled: true
-    VersionAdded: '5.1.0'
-    # Include:
-    #   - '**/resources/.*\.rb'
-    #   - '**/libraries/.*\.rb'
+  Description: Resource property should not be both required and have a default value
+  Enabled: true
+  VersionAdded: '5.1.0'
+  Include:
+    - '**/resources/.*\.rb'
+    - '**/libraries/.*\.rb'
+
+Chef/UnnecessaryDependsChef14:
+  Description: Don't depend on cookbooks made obsolete by Chef 14
+  Enabled: true
+  VersionAdded: '5.1.0'
+  Include:
+    - '**/metadata.rb'
 
 ###############################
 # Utilize new built-in resources

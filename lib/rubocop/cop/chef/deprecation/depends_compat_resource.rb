@@ -17,33 +17,29 @@
 module RuboCop
   module Cop
     module Chef
-      # Use secure Github and Gitlab URLs for source_url and issues_url
+      # Don't depend on the deprecated compat_resource cookbook made obsolete by Chef 12.19+
       #
       # @example
       #
       #   # bad
-      #   depends 'build-essential'
-      #   include_recipe 'build-essential::default'
-      #   include_recipe 'build-essential'
+      #   depends 'compat_resource'
       #
-      #   # good
-      #   build_essential 'install compilation tools'
-      class UseBuildEssentialResource < Cop
-        MSG = 'Use the build_essential resource built into Chef 14+ instead of the legacy build-essential recipe'.freeze
+      class CookbookDependsOnCompatResource < Cop
+        MSG = "Don't depend on the deprecated compat_resource cookbook made obsolete by Chef 12.19+".freeze
 
-        def_node_matcher :build_essential_recipe_usage?, <<-PATTERN
-          (send nil? :include_recipe (str {"build-essential" "build-essential::default"}))
+        def_node_matcher :depends_compat_resource?, <<-PATTERN
+          (send nil? :depends (str {"compat_resource"}))
         PATTERN
 
         def on_send(node)
-          build_essential_recipe_usage?(node) do
+          depends_compat_resource?(node) do
             add_offense(node, location: :expression, message: MSG, severity: :refactor)
           end
         end
 
         def autocorrect(node)
           lambda do |corrector|
-            corrector.replace(node.loc.expression, "build_essential 'install compilation tools'")
+            corrector.remove(node.loc.expression)
           end
         end
       end
