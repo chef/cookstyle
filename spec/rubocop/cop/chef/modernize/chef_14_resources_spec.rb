@@ -40,7 +40,6 @@ describe RuboCop::Cop::Chef::UnnecessaryDependsChef14, :config do
     RUBY
   end
 
-
   it 'registers an offense when a cookbook depends on "dmg"' do
     expect_violation(<<-RUBY)
       depends 'dmg'
