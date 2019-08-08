@@ -33,6 +33,14 @@ describe RuboCop::Cop::Chef::UnnecessaryDependsChef14, :config do
     RUBY
   end
 
+  it 'registers an offense when a cookbook depends on "chef_hostname"' do
+    expect_violation(<<-RUBY)
+      depends 'chef_hostname'
+      ^^^^^^^^^^^^^^^^^^^^^^^ Don't depend on cookbooks made obsolete by Chef 14
+    RUBY
+  end
+
+
   it 'registers an offense when a cookbook depends on "dmg"' do
     expect_violation(<<-RUBY)
       depends 'dmg'
