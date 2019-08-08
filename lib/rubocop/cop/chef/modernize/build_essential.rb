@@ -32,7 +32,7 @@ module RuboCop
         MSG = 'Use the build_essential resource built into Chef 14+ instead of the legacy build-essential recipe'.freeze
 
         def_node_matcher :build_essential_recipe_usage?, <<-PATTERN
-          (send nil? {:depends :include_recipe} (str {"build-essential" "build-essential::default"}))
+          (send nil? :include_recipe (str {"build-essential" "build-essential::default"}))
         PATTERN
 
         def on_send(node)
@@ -43,11 +43,7 @@ module RuboCop
 
         def autocorrect(node)
           lambda do |corrector|
-            if node.method_name == :include_recipe
-              corrector.replace(node.loc.expression, "build_essential 'install compilation tools'")
-            else # metadata depends
-              corrector.remove(node.loc.expression)
-            end
+            corrector.replace(node.loc.expression, "build_essential 'install compilation tools'")
           end
         end
       end
