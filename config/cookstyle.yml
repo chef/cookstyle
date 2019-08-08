@@ -179,11 +179,6 @@ Chef/ErlCallResource:
   Enabled: true
   VersionAdded: '5.1.0'
 
-Chef/ChefHandlerUsesSupports:
-  Description: Use the type property instead of the deprecated supports property in the chef_handler resource
-  Enabled: true
-  VersionAdded: '5.1.0'
-
 ###############################
 # Cleaning up Legacy Code
 ###############################
