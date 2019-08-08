@@ -162,7 +162,7 @@ Chef/CookbookDependsOnCompatResource:
   Include:
     - '**/metadata.rb'
 
-Chef/PartialSearchDepends:
+Chef/CookbookDependsOnPartialSearch:
   Description: Don't depend on the deprecated partial_search cookbook made obsolete by Chef 13+
   Enabled: true
   VersionAdded: '5.1.0'

@@ -24,7 +24,7 @@ module RuboCop
       #   # bad
       #   depends 'partial_search'
       #
-      class PartialSearchDepends < Cop
+      class CookbookDependsOnPartialSearch < Cop
         MSG = "Don't depend on the deprecated partial_search cookbook made obsolete by Chef 13".freeze
 
         def_node_matcher :depends_partial_search?, <<-PATTERN
