@@ -1,41 +1,39 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.1.19 -->
-## [v5.1.19](https://github.com/chef/cookstyle/tree/v5.1.19) (2019-08-08)
-
-#### Merged Pull Requests
-- Add 10 additional cops for detected deprecated behavior [#143](https://github.com/chef/cookstyle/pull/143) ([tas50](https://github.com/tas50))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=5.0.4 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Add 10 additional cops for detected deprecated behavior [#143](https://github.com/chef/cookstyle/pull/143) ([tas50](https://github.com/tas50)) <!-- 5.1.19 -->
-- Add Chef/NamePropertyIsRequired cop [#141](https://github.com/chef/cookstyle/pull/141) ([tas50](https://github.com/tas50)) <!-- 5.1.18 -->
-- Add Chef/CookbookDependsOnPoise rule [#140](https://github.com/chef/cookstyle/pull/140) ([tas50](https://github.com/tas50)) <!-- 5.1.17 -->
-- Add additional specs [#142](https://github.com/chef/cookstyle/pull/142) ([tas50](https://github.com/tas50)) <!-- 5.1.16 -->
-- Add introduced fields and turn off Chef/UseBuildEssentialResource by default [#139](https://github.com/chef/cookstyle/pull/139) ([tas50](https://github.com/tas50)) <!-- 5.1.15 -->
-- Add the majority of specs from rubocop-chef [#138](https://github.com/chef/cookstyle/pull/138) ([tas50](https://github.com/tas50)) <!-- 5.1.14 -->
-- Add rules for Effortless Infra pattern [#137](https://github.com/chef/cookstyle/pull/137) ([tas50](https://github.com/tas50)) <!-- 5.1.13 -->
-- Rework the docs for the new world of Chef specific rules [#122](https://github.com/chef/cookstyle/pull/122) ([tas50](https://github.com/tas50)) <!-- 5.1.12 -->
-- Avoid false positives in header cleanup [#133](https://github.com/chef/cookstyle/pull/133) ([tas50](https://github.com/tas50)) <!-- 5.1.11 -->
-- Add new Chef/PropertyWithRequiredAndDefault [#129](https://github.com/chef/cookstyle/pull/129) ([tas50](https://github.com/tas50)) <!-- 5.1.10 -->
-- Add new PropertyWithNameAttribute rule [#125](https://github.com/chef/cookstyle/pull/125) ([tas50](https://github.com/tas50)) <!-- 5.1.9 -->
-- Add Chef/EpicFail [#124](https://github.com/chef/cookstyle/pull/124) ([tas50](https://github.com/tas50)) <!-- 5.1.8 -->
-- Force the fail level to :convention and set rules to :refactor level [#117](https://github.com/chef/cookstyle/pull/117) ([tas50](https://github.com/tas50)) <!-- 5.1.7 -->
-- Add new UseBuildEssentialResource cop [#118](https://github.com/chef/cookstyle/pull/118) ([tas50](https://github.com/tas50)) <!-- 5.1.6 -->
-- Improve detection of double spaces after sentences [#120](https://github.com/chef/cookstyle/pull/120) ([tas50](https://github.com/tas50)) <!-- 5.1.5 -->
-- Test the cookstyle binary on Windows in Buildkite [#116](https://github.com/chef/cookstyle/pull/116) ([tas50](https://github.com/tas50)) <!-- 5.1.4 -->
-- Add Chef/WhyRunSupportedTrue [#115](https://github.com/chef/cookstyle/pull/115) ([tas50](https://github.com/tas50)) <!-- 5.1.3 -->
-- Add Chef/NodeNormal &amp; Chef/NodeNormalUnless for node.normal/node.normal_unless usage [#104](https://github.com/chef/cookstyle/pull/104) ([lamont-granquist](https://github.com/lamont-granquist)) <!-- 5.1.2 -->
-- Add Chef/NodeSetUnless to autocorrect node.set_unless usage [#102](https://github.com/chef/cookstyle/pull/102) ([lamont-granquist](https://github.com/lamont-granquist)) <!-- 5.1.1 -->
-- Add Chef/CommentSentenceSpacing cop (disabled by default) [#83](https://github.com/chef/cookstyle/pull/83) ([tas50](https://github.com/tas50)) <!-- 5.1.0 -->
-- Add an autocorrect for insecure gitlab/github source/issue url metadata [#82](https://github.com/chef/cookstyle/pull/82) ([tas50](https://github.com/tas50)) <!-- 5.0.6 -->
-- Add cop to detect old Berksfile sources [#81](https://github.com/chef/cookstyle/pull/81) ([tas50](https://github.com/tas50)) <!-- 5.0.5 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v5.1.19](https://github.com/chef/cookstyle/tree/v5.1.19) (2019-08-08)
+
+#### Merged Pull Requests
+- Add cop to detect old Berksfile sources [#81](https://github.com/chef/cookstyle/pull/81) ([tas50](https://github.com/tas50))
+- Add an autocorrect for insecure gitlab/github source/issue url metadata [#82](https://github.com/chef/cookstyle/pull/82) ([tas50](https://github.com/tas50))
+- Add Chef/CommentSentenceSpacing cop (disabled by default) [#83](https://github.com/chef/cookstyle/pull/83) ([tas50](https://github.com/tas50))
+- Add Chef/NodeSetUnless to autocorrect node.set_unless usage [#102](https://github.com/chef/cookstyle/pull/102) ([lamont-granquist](https://github.com/lamont-granquist))
+- Add Chef/NodeNormal &amp; Chef/NodeNormalUnless for node.normal/node.normal_unless usage [#104](https://github.com/chef/cookstyle/pull/104) ([lamont-granquist](https://github.com/lamont-granquist))
+- Add Chef/WhyRunSupportedTrue [#115](https://github.com/chef/cookstyle/pull/115) ([tas50](https://github.com/tas50))
+- Test the cookstyle binary on Windows in Buildkite [#116](https://github.com/chef/cookstyle/pull/116) ([tas50](https://github.com/tas50))
+- Improve detection of double spaces after sentences [#120](https://github.com/chef/cookstyle/pull/120) ([tas50](https://github.com/tas50))
+- Add new UseBuildEssentialResource cop [#118](https://github.com/chef/cookstyle/pull/118) ([tas50](https://github.com/tas50))
+- Force the fail level to :convention and set rules to :refactor level [#117](https://github.com/chef/cookstyle/pull/117) ([tas50](https://github.com/tas50))
+- Add Chef/EpicFail [#124](https://github.com/chef/cookstyle/pull/124) ([tas50](https://github.com/tas50))
+- Add new PropertyWithNameAttribute rule [#125](https://github.com/chef/cookstyle/pull/125) ([tas50](https://github.com/tas50))
+- Add new Chef/PropertyWithRequiredAndDefault [#129](https://github.com/chef/cookstyle/pull/129) ([tas50](https://github.com/tas50))
+- Avoid false positives in header cleanup [#133](https://github.com/chef/cookstyle/pull/133) ([tas50](https://github.com/tas50))
+- Rework the docs for the new world of Chef specific rules [#122](https://github.com/chef/cookstyle/pull/122) ([tas50](https://github.com/tas50))
+- Add rules for Effortless Infra pattern [#137](https://github.com/chef/cookstyle/pull/137) ([tas50](https://github.com/tas50))
+- Add the majority of specs from rubocop-chef [#138](https://github.com/chef/cookstyle/pull/138) ([tas50](https://github.com/tas50))
+- Add introduced fields and turn off Chef/UseBuildEssentialResource by default [#139](https://github.com/chef/cookstyle/pull/139) ([tas50](https://github.com/tas50))
+- Add additional specs [#142](https://github.com/chef/cookstyle/pull/142) ([tas50](https://github.com/tas50))
+- Add Chef/CookbookDependsOnPoise rule [#140](https://github.com/chef/cookstyle/pull/140) ([tas50](https://github.com/tas50))
+- Add Chef/NamePropertyIsRequired cop [#141](https://github.com/chef/cookstyle/pull/141) ([tas50](https://github.com/tas50))
+- Add 10 additional cops for detected deprecated behavior [#143](https://github.com/chef/cookstyle/pull/143) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v5.0.4](https://github.com/chef/cookstyle/tree/v5.0.4) (2019-07-15)
 
 #### Merged Pull Requests
@@ -43,7 +41,6 @@
 - Fix version bumps and codeowners [#71](https://github.com/chef/cookstyle/pull/71) ([tas50](https://github.com/tas50))
 - Add and update cookstyle cop descriptions [#72](https://github.com/chef/cookstyle/pull/72) ([tas50](https://github.com/tas50))
 - Fix node matchers to properly trigger [#73](https://github.com/chef/cookstyle/pull/73) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v5.0.0](https://github.com/chef/cookstyle/tree/v5.0.0) (2019-07-02)
 
