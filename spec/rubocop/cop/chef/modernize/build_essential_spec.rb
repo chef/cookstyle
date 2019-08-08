@@ -19,36 +19,23 @@ require 'spec_helper'
 describe RuboCop::Cop::Chef::UseBuildEssentialResource, :config do
   subject(:cop) { described_class.new(config) }
 
-  it 'registers an offense when a cookbook depends on "build-essential"' do
-    expect_violation(<<-RUBY)
-      depends 'build-essential'
-      ^^^^^^^^^^^^^^^^^^^^^^^^^ Use the build_essential resource instead of the legacy build-essential recipe
-    RUBY
-  end
-
   it 'registers an when including the "build-essential" recipe' do
     expect_violation(<<-RUBY)
       include_recipe 'build-essential'
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the build_essential resource instead of the legacy build-essential recipe
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the build_essential resource built into Chef 14+ instead of the legacy build-essential recipe
     RUBY
   end
 
-  it 'registers an when including the "build-essential::default" recipe' do
+  it 'registers an offense when including the "build-essential::default" recipe' do
     expect_violation(<<-RUBY)
       include_recipe 'build-essential::default'
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the build_essential resource instead of the legacy build-essential recipe
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the build_essential resource built into Chef 14+ instead of the legacy build-essential recipe
     RUBY
   end
 
   it "doesn't register an offense when using the build_essential resource" do
     expect_no_violations(<<-RUBY)
       build_essential 'install some tools!'
-    RUBY
-  end
-
-  it "doesn't register an offense when depending on any old cookbook" do
-    expect_no_violations(<<-RUBY)
-      depends 'build-essentially'
     RUBY
   end
 end
