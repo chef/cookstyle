@@ -4,7 +4,7 @@ Cookstyle 5.1 greatly expands the Chef Infra linting experience of Cookstyle wit
 
 Cookstyle now ships with 32 Chef Infra specific cops to help you update cookbooks for the latest releases of Chef Infra Client.
 
-This release also introduces a less user impacting method of shipping new Chef cops going forward. All of the existing Chef cops are now `Refactor` level instead of `Error`, and Cookstyle has been updated to not fail builds for anything at the Refactor level by default. We'll continue to ship new Cops every month and you'll be able to autocorrect any of these new warnings without impacting any CI jobs. Every April, in our major release window, the existing cops will become `Error` level and any occurances will need to be resolved or excluded.
+This release also introduces a less user impacting method of shipping new Chef cops going forward. All of the existing Chef cops are now `Refactor` level instead of `Error`, and Cookstyle has been updated to not fail builds for anything at the Refactor level by default. We'll continue to ship new Cops every month and you'll be able to autocorrect any of these new warnings without impacting any CI jobs. Every April, in our major release window, the existing cops will become `Error` level and any occurrences will need to be resolved or excluded.
 
 ### New Chef Cops
 
@@ -14,7 +14,7 @@ The `ConflictsMetadata` cop detects the usage of the `conflicts` method in metad
 
 `Enabled by default`: True
 
-`Autocorrects`: True (deletes the occurance)
+`Autocorrects`: True (deletes the occurrence)
 
 #### Chef/SuggestsMetadata
 
@@ -22,7 +22,7 @@ The `SuggestsMetadata` cop detects the usage of the `suggests` method in metadat
 
 `Enabled by default`: True
 
-`Autocorrects`: True (deletes the occurance)
+`Autocorrects`: True (deletes the occurrence)
 
 #### Chef/ReplacesMetadata
 
@@ -30,7 +30,7 @@ The `ReplacesMetadata` cop detects the usage of the `replaces` method in metadat
 
 `Enabled by default`: True
 
-`Autocorrects`: True (deletes the occurance)
+`Autocorrects`: True (deletes the occurrence)
 
 #### Chef/ProvidesMetadata
 
@@ -38,7 +38,7 @@ The `ProvidesMetadata` cop detects the usage of the `provides` method in metadat
 
 `Enabled by default`: True
 
-`Autocorrects`: True (deletes the occurance)
+`Autocorrects`: True (deletes the occurrence)
 
 #### Chef/AttributeMetadata
 
@@ -54,7 +54,7 @@ The `CookbookDependsOnCompatResource` cop detects cookbooks that depend on the d
 
 `Enabled by default`: True
 
-`Autocorrects`: True (deletes the occurance)
+`Autocorrects`: True (deletes the occurrence)
 
 #### Chef/CookbookDependsOnPartialSearch
 
@@ -62,7 +62,7 @@ The `CookbookDependsOnPartialSearch` cop detects cookbooks that depend on the de
 
 `Enabled by default`: True
 
-`Autocorrects`: True (deletes the occurance)
+`Autocorrects`: True (deletes the occurrence)
 
 #### Chef/UnnecessaryDependsChef14
 
@@ -82,7 +82,7 @@ depends 'sysctl'
 
 `Enabled by default`: True
 
-`Autocorrects`: True (deletes the occurance)
+`Autocorrects`: True (deletes the occurrence)
 
 #### Chef/CookbookDependsOnPoise
 
@@ -181,7 +181,7 @@ The `WhyRunSupportedTrue` cop detects cookbooks that enable Why Run support with
 
 `Enabled by default`: True
 
-`Autocorrects`: True
+`Autocorrects`: True (deletes the occurrence)
 
 #### Chef/NodeNormal
 
@@ -201,7 +201,7 @@ The `NodeNormalUnless` detects the usage of `node.normal_unless` level attribute
 
 #### Chef/NodeSetUnless
 
-The `NodeSetUnless` detects the usage of `node.set_unless` level attributes. The name `set` was unfortunate and did not correctly convey the functionaly of the level. The `set` level of attributes was removed in Chef Infra Client 14 in favor of the `normal` level, which behaves the same, but has a more descriptive name. This cop will autocorrect `node.set_unless` to `node.normal_unless`
+The `NodeSetUnless` detects the usage of `node.set_unless` level attributes. The name `set` was unfortunate and did not correctly convey the functionality of the level. The `set` level of attributes was removed in Chef Infra Client 14 in favor of the `normal` level, which behaves the same, but has a more descriptive name. This cop will autocorrect `node.set_unless` to `node.normal_unless`
 
 `Enabled by default`: True
 
