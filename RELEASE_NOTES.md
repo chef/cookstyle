@@ -185,7 +185,7 @@ The `WhyRunSupportedTrue` cop detects cookbooks that enable Why Run support with
 
 #### Chef/NodeNormal
 
-The `NodeNormal` detects the usage of `node.set` level attributes. The name `set` was unfortunate and did not correctly convey the functionaly of the level. The `set` level of attributes was removed in Chef Infra Client 14 in favor of the `normal` level, which behaves the same, but has a more descriptive name. This cop will autocorrect `node.set` to `node.normal`
+The `NodeNormal` detects the usage of `node.normal` level attributes. Normal level attributes persist to the node even if the cookbook code is removed and should be avoided unless there is an absolute need for their usage. Instead consider `default` or `override` levels.
 
 `Enabled by default`: True
 
@@ -193,7 +193,7 @@ The `NodeNormal` detects the usage of `node.set` level attributes. The name `set
 
 #### Chef/NodeNormalUnless
 
-The `NodeNormalUnless` detects the usage of `node.normal_unless` level attributes. Normal level attributes persist to the node even if the cookbook code is removed and should be avoided unless there is an absolute need for their usage. Instead consider `default` or `override` levels.
+The `NodeNormalUnless` detects the usage of `node.normal_unless` level attributes. Normal level attributes persist to the node even if the cookbook code is removed and should be avoided unless there is an absolute need for their usage. Instead consider `default_unless` or `override_unless` levels.
 
 `Enabled by default`: True
 
