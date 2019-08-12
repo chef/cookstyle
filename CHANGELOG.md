@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.1.20 -->
-## [v5.1.20](https://github.com/chef/cookstyle/tree/v5.1.20) (2019-08-12)
+<!-- latest_release 5.2.0 -->
+## [v5.2.0](https://github.com/chef/cookstyle/tree/v5.2.0) (2019-08-12)
 
 #### Merged Pull Requests
-- Add Chef/CookbooksDependsOnSelf and Chef/MetadataMissingName [#162](https://github.com/chef/cookstyle/pull/162) ([tas50](https://github.com/tas50))
+- Add Chef/RequireRecipe rule [#161](https://github.com/chef/cookstyle/pull/161) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.1.19 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add Chef/RequireRecipe rule [#161](https://github.com/chef/cookstyle/pull/161) ([tas50](https://github.com/tas50)) <!-- 5.2.0 -->
 - Add Chef/CookbooksDependsOnSelf and Chef/MetadataMissingName [#162](https://github.com/chef/cookstyle/pull/162) ([tas50](https://github.com/tas50)) <!-- 5.1.20 -->
 <!-- release_rollup -->
 
