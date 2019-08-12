@@ -223,6 +223,24 @@ Chef/UnnecessaryDependsChef14:
     - '**/metadata.rb'
 
 ###############################
+# Detecting code that breaks Chef
+###############################
+
+Chef/CookbooksDependsOnSelf:
+  Description: A cookbook cannot depend on itself
+  Enabled: true
+  VersionAdded: '5.2.0'
+  Include:
+    - '**/metadata.rb'
+
+Chef/MetadataMissingName:
+  Description: MetadataMissingName
+  Enabled: true
+  VersionAdded: '5.2.0'
+  Include:
+    - '**/metadata.rb'
+
+###############################
 # Utilize new built-in resources
 ###############################
 
