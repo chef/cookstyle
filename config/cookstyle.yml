@@ -94,6 +94,13 @@ Chef/NamePropertyIsRequired:
   Enabled: true
   VersionAdded: '5.1.0'
 
+Chef/InvalidLicenseString:
+  Description: Cookbook metadata.rb does not use a SPDX compliant license string or "all rights reserved"
+  Enabled: true
+  VersionAdded: '5.2.0'
+  Include:
+    - '**/metadata.rb'
+
 ###############################
 # Resolving Deprecations
 ###############################
