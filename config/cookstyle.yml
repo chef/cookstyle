@@ -162,6 +162,13 @@ Chef/AttributeMetadata:
   Include:
     - '**/metadata.rb'
 
+Chef/LongDescriptionMetadata:
+  Description: The long_description metadata.rb method is not used and is unnecessary in cookbooks
+  Enabled: true
+  VersionAdded: '5.2.0'
+  Include:
+    - '**/metadata.rb'
+
 Chef/CookbookDependsOnCompatResource:
   Description: Don't depend on the deprecated compat_resource cookbook made obsolete by Chef 12.19+
   Enabled: true
