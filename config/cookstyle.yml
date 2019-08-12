@@ -179,6 +179,11 @@ Chef/ErlCallResource:
   Enabled: true
   VersionAdded: '5.1.0'
 
+Chef/RequireRecipe:
+  Description: Use include_recipe instead of the require_recipe method
+  Enabled: true
+  VersionAdded: '5.2.0'
+
 ###############################
 # Cleaning up Legacy Code
 ###############################
