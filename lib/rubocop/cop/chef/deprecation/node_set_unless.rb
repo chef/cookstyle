@@ -33,7 +33,7 @@ module RuboCop
         MSG = 'Do not use node.set_unless. Replace with node.normal_unless to keep identical behavior.'.freeze
 
         def_node_matcher :node_set_unless?, <<-PATTERN
-          (send (send _ :node) ${:set_unless})
+          (send (send _ :node) $:set_unless)
         PATTERN
 
         def on_send(node)

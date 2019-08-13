@@ -33,7 +33,7 @@ module RuboCop
         MSG = 'Do not use node.set. Replace with node.normal to keep identical behavior.'.freeze
 
         def_node_matcher :node_set?, <<-PATTERN
-          (send (send _ :node) ${:set})
+          (send (send _ :node) $:set)
         PATTERN
 
         def on_send(node)
