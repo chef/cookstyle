@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.2.4 -->
-## [v5.2.4](https://github.com/chef/cookstyle/tree/v5.2.4) (2019-08-13)
+<!-- latest_release 5.2.5 -->
+## [v5.2.5](https://github.com/chef/cookstyle/tree/v5.2.5) (2019-08-13)
 
 #### Merged Pull Requests
-- Add Chef/InvalidPlatformMetadata cop [#173](https://github.com/chef/cookstyle/pull/173) ([tas50](https://github.com/tas50))
+- fix node.set/set_unless autocorrects to not break ChefSpec tests [#175](https://github.com/chef/cookstyle/pull/175) ([lamont-granquist](https://github.com/lamont-granquist))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.1.19 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- fix node.set/set_unless autocorrects to not break ChefSpec tests [#175](https://github.com/chef/cookstyle/pull/175) ([lamont-granquist](https://github.com/lamont-granquist)) <!-- 5.2.5 -->
 - Add Chef/InvalidPlatformMetadata cop [#173](https://github.com/chef/cookstyle/pull/173) ([tas50](https://github.com/tas50)) <!-- 5.2.4 -->
 - Add Chef/RespondToInMetadata cop [#174](https://github.com/chef/cookstyle/pull/174) ([tas50](https://github.com/tas50)) <!-- 5.2.3 -->
 - Add Chef/LongDescriptionMetadata cop [#170](https://github.com/chef/cookstyle/pull/170) ([tas50](https://github.com/tas50)) <!-- 5.2.2 -->
