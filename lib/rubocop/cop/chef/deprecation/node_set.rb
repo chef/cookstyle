@@ -1,5 +1,5 @@
 #
-# Copyright:: Copyright 2019, Chef Software Inc.
+# Copyright:: Copyright 2019-2019, Chef Software Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -33,18 +33,18 @@ module RuboCop
         MSG = 'Do not use node.set. Replace with node.normal to keep identical behavior.'.freeze
 
         def_node_matcher :node_set?, <<-PATTERN
-          (send (send _ :node) :set)
+          (send (send _ :node) ${:set})
         PATTERN
 
         def on_send(node)
           node_set?(node) do
-            add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            add_offense(node, location: :selector, message: MSG, severity: :refactor)
           end
         end
 
         def autocorrect(node)
           lambda do |corrector|
-            corrector.replace(node.loc.expression, 'node.normal')
+            corrector.replace(node.loc.selector, 'normal')
           end
         end
       end
