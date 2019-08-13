@@ -101,6 +101,13 @@ Chef/InvalidLicenseString:
   Include:
     - '**/metadata.rb'
 
+Chef/InvalidPlatformMetadata:
+  Description: metadata.rb "supports" platform is invalid
+  Enabled: true
+  VersionAdded: '5.2.0'
+  Include:
+    - '**/metadata.rb'
+
 ###############################
 # Resolving Deprecations
 ###############################
