@@ -22,7 +22,7 @@ describe RuboCop::Cop::Chef::RespondToInMetadata, :config do
   it "registers an offense when metadata includes the 'if respond_to?(:foo)' gate" do
     expect_violation(<<-RUBY)
       chef_version '> 13' if respond_to?(:chef_version)
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ It is no longer necessary to use respond_to? in metadata.rb
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ It is no longer necessary to use respond_to? in metadata.rb in Chef 12.15 and later
     RUBY
   end
 

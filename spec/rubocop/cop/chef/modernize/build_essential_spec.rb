@@ -22,14 +22,14 @@ describe RuboCop::Cop::Chef::UseBuildEssentialResource, :config do
   it 'registers an when including the "build-essential" recipe' do
     expect_violation(<<-RUBY)
       include_recipe 'build-essential'
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the build_essential resource built into Chef 14+ instead of the legacy build-essential recipe
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the build_essential resource instead of the legacy build-essential recipe. This resource ships in the build-essential cookbook v5.0+ and is built into Chef Infra Client 14+
     RUBY
   end
 
   it 'registers an offense when including the "build-essential::default" recipe' do
     expect_violation(<<-RUBY)
       include_recipe 'build-essential::default'
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the build_essential resource built into Chef 14+ instead of the legacy build-essential recipe
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the build_essential resource instead of the legacy build-essential recipe. This resource ships in the build-essential cookbook v5.0+ and is built into Chef Infra Client 14+
     RUBY
   end
 

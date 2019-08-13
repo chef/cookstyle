@@ -30,7 +30,7 @@ module RuboCop
       #
 
       class RespondToInMetadata < Cop
-        MSG = 'It is no longer necessary to use respond_to? in metadata.rb'.freeze
+        MSG = 'It is no longer necessary to use respond_to? in metadata.rb in Chef 12.15 and later'.freeze
 
         def on_if(node)
           if_repond_to?(node) do
