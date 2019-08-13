@@ -255,6 +255,22 @@ Chef/RespondToInMetadata:
   Include:
     - '**/metadata.rb'
 
+Chef/RespondToResourceName:
+  Description: respond_to?(:resource_name) in resources is no longer necessary in Chef Infra Client 12.5+
+  Enabled: true
+  VersionAdded: '5.2.0'
+  Include:
+    - '**/resources/*.rb'
+    - '**/libraries/*.rb'
+
+Chef/RespondToProvides:
+  Description: respond_to?(:provides) in resources is no longer necessary in Chef Infra Client 12+
+  Enabled: true
+  VersionAdded: '5.2.0'
+  Include:
+    - '**/providers/*.rb'
+    - '**/libraries/*.rb'
+
 ###############################
 # Detecting code that breaks Chef
 ###############################
