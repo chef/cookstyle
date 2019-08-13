@@ -29,7 +29,7 @@ module RuboCop
       #   # good
       #   build_essential 'install compilation tools'
       class UseBuildEssentialResource < Cop
-        MSG = 'Use the build_essential resource built into Chef 14+ instead of the legacy build-essential recipe'.freeze
+        MSG = 'Use the build_essential resource instead of the legacy build-essential recipe. This resource ships in the build-essential cookbook v5.0+ and is built into Chef Infra Client 14+'.freeze
 
         def_node_matcher :build_essential_recipe_usage?, <<-PATTERN
           (send nil? :include_recipe (str {"build-essential" "build-essential::default"}))

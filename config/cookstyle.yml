@@ -249,9 +249,9 @@ Chef/UnnecessaryDependsChef14:
     - '**/metadata.rb'
 
 Chef/RespondToInMetadata:
-  Description: It is no longer necessary to use respond_to? in metadata.rb
+  Description: It is no longer necessary to use respond_to? in metadata.rb in Chef 12.15 and later
   Enabled: true
-  VersionAdded: '5.1.0'
+  VersionAdded: '5.2.0'
   Include:
     - '**/metadata.rb'
 
@@ -278,8 +278,8 @@ Chef/MetadataMissingName:
 ###############################
 
 Chef/UseBuildEssentialResource:
-  Description: Use the build_essential resource instead of the legacy build-essential recipe
-  Enabled: false
+  Description: Use the build_essential resource instead of the legacy build-essential recipe. This resource ships in the build-essential cookbook v5.0+ and is built into Chef Infra Client 14+
+  Enabled: true
   VersionAdded: '5.1.0'
 
 ###############################
