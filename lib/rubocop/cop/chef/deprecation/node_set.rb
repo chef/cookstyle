@@ -37,7 +37,7 @@ module RuboCop
         PATTERN
 
         def on_send(node)
-          node_set?(node) do |method|
+          node_set?(node) do
             add_offense(node, location: :selector, message: MSG, severity: :refactor)
           end
         end
