@@ -241,6 +241,13 @@ Chef/UnnecessaryDependsChef14:
   Include:
     - '**/metadata.rb'
 
+Chef/RespondToInMetadata:
+  Description: It is no longer necessary to use respond_to? in metadata.rb
+  Enabled: true
+  VersionAdded: '5.1.0'
+  Include:
+    - '**/metadata.rb'
+
 ###############################
 # Detecting code that breaks Chef
 ###############################
