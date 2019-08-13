@@ -33,18 +33,18 @@ module RuboCop
         MSG = 'Do not use node.set_unless. Replace with node.normal_unless to keep identical behavior.'.freeze
 
         def_node_matcher :node_set_unless?, <<-PATTERN
-          (send (send _ :node) :set_unless)
+          (send (send _ :node) ${:set_unless})
         PATTERN
 
         def on_send(node)
           node_set_unless?(node) do
-            add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            add_offense(node, location: :selector, message: MSG, severity: :refactor)
           end
         end
 
         def autocorrect(node)
           lambda do |corrector|
-            corrector.replace(node.loc.expression, 'node.normal_unless')
+            corrector.replace(node.loc.selector, 'normal_unless')
           end
         end
       end
