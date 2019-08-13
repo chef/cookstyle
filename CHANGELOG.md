@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.2.8 -->
-## [v5.2.8](https://github.com/chef/cookstyle/tree/v5.2.8) (2019-08-13)
+<!-- latest_release 5.2.9 -->
+## [v5.2.9](https://github.com/chef/cookstyle/tree/v5.2.9) (2019-08-13)
 
 #### Merged Pull Requests
-- Fix file matching in the configs [#178](https://github.com/chef/cookstyle/pull/178) ([tas50](https://github.com/tas50))
+- Fix typo in method name [#179](https://github.com/chef/cookstyle/pull/179) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.1.19 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Fix typo in method name [#179](https://github.com/chef/cookstyle/pull/179) ([tas50](https://github.com/tas50)) <!-- 5.2.9 -->
 - Fix file matching in the configs [#178](https://github.com/chef/cookstyle/pull/178) ([tas50](https://github.com/tas50)) <!-- 5.2.8 -->
 - Enable UseBuildEssentialResource and improve messaging [#177](https://github.com/chef/cookstyle/pull/177) ([tas50](https://github.com/tas50)) <!-- 5.2.7 -->
 - don&#39;t need the ${}&#39;s guess that is grouping [#176](https://github.com/chef/cookstyle/pull/176) ([lamont-granquist](https://github.com/lamont-granquist)) <!-- 5.2.6 -->
