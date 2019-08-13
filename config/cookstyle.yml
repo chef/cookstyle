@@ -221,25 +221,25 @@ Chef/WhyRunSupportedTrue:
   Enabled: true
   VersionAdded: '5.1.0'
   Include:
-    - '**/resources/.*\.rb'
-    - '**/providers/.*\.rb'
-    - '**/libraries/.*\.rb'
+    - '**/resources/*.rb'
+    - '**/providers/*.rb'
+    - '**/libraries/*.rb'
 
-PropertyWithNameAttribute:
+Chef/PropertyWithNameAttribute:
   Description: Resource property sets name_attribute not name_property
   Enabled: true
   VersionAdded: '5.1.0'
   Include:
-    - '**/resources/.*\.rb'
-    - '**/libraries/.*\.rb'
+    - '**/resources/*.rb'
+    - '**/libraries/*.rb'
 
-PropertyWithRequiredAndDefault:
+Chef/PropertyWithRequiredAndDefault:
   Description: Resource property should not be both required and have a default value
   Enabled: true
   VersionAdded: '5.1.0'
   Include:
-    - '**/resources/.*\.rb'
-    - '**/libraries/.*\.rb'
+    - '**/resources/*.rb'
+    - '**/libraries/*.rb'
 
 Chef/UnnecessaryDependsChef14:
   Description: Don't depend on cookbooks made obsolete by Chef 14
