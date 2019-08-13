@@ -33,12 +33,12 @@ module RuboCop
         MSG = 'It is no longer necessary to use respond_to? in metadata.rb in Chef 12.15 and later'.freeze
 
         def on_if(node)
-          if_repond_to?(node) do
+          if_respond_to?(node) do
             add_offense(node, location: :expression, message: MSG, severity: :refactor)
           end
         end
 
-        def_node_matcher :if_repond_to?, <<~PATTERN
+        def_node_matcher :if_respond_to?, <<~PATTERN
         (if (send nil? :respond_to? _ ) ... )
         PATTERN
 
