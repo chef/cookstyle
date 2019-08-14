@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.2.10 -->
-## [v5.2.10](https://github.com/chef/cookstyle/tree/v5.2.10) (2019-08-14)
+<!-- latest_release 5.2.11 -->
+## [v5.2.11](https://github.com/chef/cookstyle/tree/v5.2.11) (2019-08-14)
 
 #### Merged Pull Requests
-- Add Chef/RespondToResourceName and Chef/RespondToProvides cops [#180](https://github.com/chef/cookstyle/pull/180) ([tas50](https://github.com/tas50))
+- Add Chef/SetOrReturnInResources cop [#181](https://github.com/chef/cookstyle/pull/181) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.1.19 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add Chef/SetOrReturnInResources cop [#181](https://github.com/chef/cookstyle/pull/181) ([tas50](https://github.com/tas50)) <!-- 5.2.11 -->
 - Add Chef/RespondToResourceName and Chef/RespondToProvides cops [#180](https://github.com/chef/cookstyle/pull/180) ([tas50](https://github.com/tas50)) <!-- 5.2.10 -->
 - Fix typo in method name [#179](https://github.com/chef/cookstyle/pull/179) ([tas50](https://github.com/tas50)) <!-- 5.2.9 -->
 - Fix file matching in the configs [#178](https://github.com/chef/cookstyle/pull/178) ([tas50](https://github.com/tas50)) <!-- 5.2.8 -->
