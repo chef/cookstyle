@@ -39,9 +39,16 @@ module RuboCop
           cb_name?(node) do
             dependencies(processed_source.ast).each do |dep|
               if dep.arguments == node.arguments
-                add_offense(node, location: node.source_range, message: MSG, severity: :refactor)
+                node = dep # set our dependency node as the node for autocorrecting later
+                add_offense(node, location: dep.source_range, message: MSG, severity: :refactor)
               end
             end
+          end
+        end
+
+        def autocorrect(node)
+          lambda do |corrector|
+            corrector.remove(node.source_range)
           end
         end
       end

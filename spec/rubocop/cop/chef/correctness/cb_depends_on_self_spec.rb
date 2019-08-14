@@ -22,8 +22,8 @@ describe RuboCop::Cop::Chef::CookbooksDependsOnSelf, :config do
   it 'registers an offense when a cookbook depends on itself' do
     expect_violation(<<-RUBY)
       name 'foo'
-      ^^^^^^^^^^ A cookbook cannot depend on itself
       depends 'foo'
+      ^^^^^^^^^^^^^ A cookbook cannot depend on itself
     RUBY
   end
 
