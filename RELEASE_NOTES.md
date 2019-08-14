@@ -80,7 +80,7 @@ The `SetOrReturnInResources` cop detects the usage of the `set_or_return` helper
 
 `Examples`
 
-set_or_return created property:
+A resource property created using set_or_return:
 ```ruby
   def severity(arg = nil)
     set_or_return(
