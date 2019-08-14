@@ -12,7 +12,8 @@ unless ARGV.include?('--fail-level')
   ARGV << 'C'
 end
 
-if ARGV.size == 1 && %w(-v --version).include?(ARGV.first)
+# if only -v is passed we'll get 3 args (-v, --fail-level, and C)
+if ARGV.size == 3 && %w(-v --version).include?(ARGV.first)
   puts "Cookstyle #{Cookstyle::VERSION}"
   print '  * RuboCop '
 end
