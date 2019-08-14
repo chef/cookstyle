@@ -271,6 +271,14 @@ Chef/RespondToProvides:
     - '**/providers/*.rb'
     - '**/libraries/*.rb'
 
+Chef/SetOrReturnInResources:
+  Description: Do not use set_or_return within a method to define a property for a resource. Use the property method instead, which supports validation, reporting, and documentation functionality.
+  Enabled: true
+  VersionAdded: '5.2.0'
+  Include:
+    - '**/resources/*.rb'
+    - '**/libraries/*.rb'
+
 ###############################
 # Detecting code that breaks Chef
 ###############################
