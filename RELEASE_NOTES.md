@@ -74,6 +74,32 @@ The `InvalidLicenseString` cop detects non-SPDX compliant license strings (or 'a
 
 `Autocorrects`: True
 
+#### Chef/SetOrReturnInResources
+
+The `SetOrReturnInResources` cop detects the usage of the `set_or_return` helper method in resources to create properties instead of using the `property` method. This was traditionally done when writing HWRPs, but properties created this way lack additional validation, reporting, and documentation functionality.
+
+`Examples`
+
+set_or_return created property:
+```ruby
+  def severity(arg = nil)
+    set_or_return(
+      :severity, arg,
+      :kind_of => String,
+      :default => nil
+    )
+  end
+```
+
+The same property created using the resource DSL
+```ruby
+  property :severity, String
+```
+
+`Enabled by default`: True
+
+`Autocorrects`: False
+
 ### Other fixes and changes
 
 - The configuration file has been improved to properly verify LWRP/HWRP files
