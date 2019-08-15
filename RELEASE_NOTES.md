@@ -1,3 +1,128 @@
+## Cookstyle 5.2
+
+### New Chef Cops
+
+#### Chef/InvalidPlatformMetadata
+
+The `InvalidPlatformMetadata` cop detects invalid platform names in the supports metadata.rb method. It uses a hardcoded set of common typos so it can't detect all invalid platforms, but it does detect the most common mistakes found on the Supermarket.
+
+`Enabled by default`: True
+
+`Autocorrects`: True (deletes the occurrence)
+
+#### Chef/RespondToResourceName
+
+The `RespondToResourceName` cop detects the usage of respond_to?(:resource_name) in resources to provide backwards compatibility. This `respond_to?` check is no longer necessary in Chef Infra Client 12.5+
+
+`Enabled by default`: True
+
+`Autocorrects`: True (deletes the `if respond_to?` occurence)
+
+#### Chef/RespondToProvides
+
+The `RespondToProvides` cop detects the usage of respond_to?(:provides) in providers to provide backwards compatibility. This `respond_to?` check is no longer necessary in Chef Infra Client 12+
+
+`Enabled by default`: True
+
+`Autocorrects`: True (deletes the `if respond_to?` occurence)
+
+#### Chef/RespondToInMetadata
+
+The `RespondToInMetadata` cop detects the usage of `if respond_to?(:foo)` to prevent newer metadata methods from running on Chef Infra Client versions older than 12.15. The chef-client doesn't fail when it encounters unknown metadata in Chef Infra Client versions 12.15.
+
+`Enabled by default`: True
+
+`Autocorrects`: True (deletes the `if respond_to?` occurence)
+
+#### Chef/LongDescriptionMetadata
+
+The `LongDescriptionMetadata` cop detects usage of `long_description` in metadata.rb. Chef Infra and Supermarket never utilized the `long_description` metadata, but cookbooks commonly load their README.md file into the metadata. This increases the size of metadata stored on Chef Infra Server without providing a clear benefit to users.
+
+`Enabled by default`: True
+
+`Autocorrects`: True (deletes the `if respond_to?` occurence)
+
+#### Chef/CookbooksDependsOnSelf
+
+The `CookbooksDependsOnSelf` cop detects a cookbook that depends on itself in metadata.rb.
+
+`Enabled by default`: True
+
+`Autocorrects`: False
+
+#### Chef/MetadataMissingName
+
+The `MetadataMissingName` cop detects a missing name field in the metadata.rb. Chef Infra Client 12+ requires the name field.
+
+`Enabled by default`: True
+
+`Autocorrects`: False
+
+#### Chef/RequireRecipe
+
+The `RequireRecipe` cop detects the usage of `require_recipe` to include a recipe instead of `include_recipe`.
+
+`Enabled by default`: True
+
+`Autocorrects`: True
+
+#### Chef/InvalidLicenseString
+
+The `InvalidLicenseString` cop detects non-SPDX compliant license strings (or 'all rights reserved') in metadata.rb and autocorrects many common license typos.
+
+`Enabled by default`: True
+
+`Autocorrects`: True
+
+#### Chef/SetOrReturnInResources
+
+The `SetOrReturnInResources` cop detects the usage of the `set_or_return` helper method in resources to create properties. Modern Chef Infra practice prefers using the `property` method because `set_or_return` lacks additional validation, reporting, and documentation functionality.
+
+`Examples`
+
+A resource property created using set_or_return:
+```ruby
+  def severity(arg = nil)
+    set_or_return(
+      :severity, arg,
+      :kind_of => String,
+      :default => nil
+    )
+  end
+```
+
+The same property created using the resource DSL
+```ruby
+  property :severity, String
+```
+
+`Enabled by default`: True
+
+`Autocorrects`: False
+
+#### Chef/CustomResourceWithAttributes
+
+The `CustomResourceWithAttributes` cop detects a custom resource that contains attributes. LWRPs and HWRPs contained attributes, but custom resources changed the name attribute to property to avoid confusion with traditional Chef Infra node attributes.
+
+`Enabled by default`: True
+
+`Autocorrects`: True  (deletes the occurrence)
+
+#### Chef/CustomResourceWithAllowedActions
+
+The `CustomResourceWithAllowedActions` cop detects a custom resource that uses the `actions` or `allowed_actions` methods. These methods were necessary when writing LWRPs and HWRPs, but are no longer necessary with custom resources.
+
+`Enabled by default`: True
+
+`Autocorrects`: True  (deletes the occurrence)
+
+### Other fixes and changes
+
+- Improves the configuration file to correctly verify LWRP/HWRP files
+- Enables several Chef/* cops in the config file
+- Enables Chef/UseBuildEssentialResource by default
+- Fixes Chef/NodeSetUnless and Chef/NodeSet to correctly autocorrect node.set in ChefSpec tests
+
 ## Cookstyle 5.1
 
 Cookstyle 5.1 greatly expands the Chef Infra linting experience of Cookstyle with a large number of new Chef specific Cops and improved configuration default behavior.
