@@ -1,38 +1,36 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.2.17 -->
-## [v5.2.17](https://github.com/chef/cookstyle/tree/v5.2.17) (2019-08-15)
-
-#### Merged Pull Requests
-- Add Chef/CustomResourceWithAllowedActions [#192](https://github.com/chef/cookstyle/pull/192) ([tas50](https://github.com/tas50))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=5.1.19 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Add Chef/CustomResourceWithAllowedActions [#192](https://github.com/chef/cookstyle/pull/192) ([tas50](https://github.com/tas50)) <!-- 5.2.17 -->
-- Add Chef/CustomResourceWithAttributes cop [#193](https://github.com/chef/cookstyle/pull/193) ([tas50](https://github.com/tas50)) <!-- 5.2.16 -->
-- Add Cookstyle 5.2 release notes [#182](https://github.com/chef/cookstyle/pull/182) ([tas50](https://github.com/tas50)) <!-- 5.2.15 -->
-- Add Chef/BlockGuardWithOnlyString [#189](https://github.com/chef/cookstyle/pull/189) ([tas50](https://github.com/tas50)) <!-- 5.2.14 -->
-- Fix the regression where we no longer show the cookstyle version [#188](https://github.com/chef/cookstyle/pull/188) ([tas50](https://github.com/tas50)) <!-- 5.2.13 -->
-- Add autocorrecting to CookbooksDependsOnSelf [#186](https://github.com/chef/cookstyle/pull/186) ([tas50](https://github.com/tas50)) <!-- 5.2.12 -->
-- Add Chef/SetOrReturnInResources cop [#181](https://github.com/chef/cookstyle/pull/181) ([tas50](https://github.com/tas50)) <!-- 5.2.11 -->
-- Add Chef/RespondToResourceName and Chef/RespondToProvides cops [#180](https://github.com/chef/cookstyle/pull/180) ([tas50](https://github.com/tas50)) <!-- 5.2.10 -->
-- Fix typo in method name [#179](https://github.com/chef/cookstyle/pull/179) ([tas50](https://github.com/tas50)) <!-- 5.2.9 -->
-- Fix file matching in the configs [#178](https://github.com/chef/cookstyle/pull/178) ([tas50](https://github.com/tas50)) <!-- 5.2.8 -->
-- Enable UseBuildEssentialResource and improve messaging [#177](https://github.com/chef/cookstyle/pull/177) ([tas50](https://github.com/tas50)) <!-- 5.2.7 -->
-- don&#39;t need the ${}&#39;s guess that is grouping [#176](https://github.com/chef/cookstyle/pull/176) ([lamont-granquist](https://github.com/lamont-granquist)) <!-- 5.2.6 -->
-- fix node.set/set_unless autocorrects to not break ChefSpec tests [#175](https://github.com/chef/cookstyle/pull/175) ([lamont-granquist](https://github.com/lamont-granquist)) <!-- 5.2.5 -->
-- Add Chef/InvalidPlatformMetadata cop [#173](https://github.com/chef/cookstyle/pull/173) ([tas50](https://github.com/tas50)) <!-- 5.2.4 -->
-- Add Chef/RespondToInMetadata cop [#174](https://github.com/chef/cookstyle/pull/174) ([tas50](https://github.com/tas50)) <!-- 5.2.3 -->
-- Add Chef/LongDescriptionMetadata cop [#170](https://github.com/chef/cookstyle/pull/170) ([tas50](https://github.com/tas50)) <!-- 5.2.2 -->
-- Add Chef/InvalidLicenseString cop [#171](https://github.com/chef/cookstyle/pull/171) ([tas50](https://github.com/tas50)) <!-- 5.2.1 -->
-- Add Chef/RequireRecipe rule [#161](https://github.com/chef/cookstyle/pull/161) ([tas50](https://github.com/tas50)) <!-- 5.2.0 -->
-- Add Chef/CookbooksDependsOnSelf and Chef/MetadataMissingName [#162](https://github.com/chef/cookstyle/pull/162) ([tas50](https://github.com/tas50)) <!-- 5.1.20 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v5.2.17](https://github.com/chef/cookstyle/tree/v5.2.17) (2019-08-15)
+
+#### Merged Pull Requests
+- Add Chef/CookbooksDependsOnSelf and Chef/MetadataMissingName [#162](https://github.com/chef/cookstyle/pull/162) ([tas50](https://github.com/tas50))
+- Add Chef/RequireRecipe rule [#161](https://github.com/chef/cookstyle/pull/161) ([tas50](https://github.com/tas50))
+- Add Chef/InvalidLicenseString cop [#171](https://github.com/chef/cookstyle/pull/171) ([tas50](https://github.com/tas50))
+- Add Chef/LongDescriptionMetadata cop [#170](https://github.com/chef/cookstyle/pull/170) ([tas50](https://github.com/tas50))
+- Add Chef/RespondToInMetadata cop [#174](https://github.com/chef/cookstyle/pull/174) ([tas50](https://github.com/tas50))
+- Add Chef/InvalidPlatformMetadata cop [#173](https://github.com/chef/cookstyle/pull/173) ([tas50](https://github.com/tas50))
+- fix node.set/set_unless autocorrects to not break ChefSpec tests [#175](https://github.com/chef/cookstyle/pull/175) ([lamont-granquist](https://github.com/lamont-granquist))
+- don&#39;t need the ${}&#39;s guess that is grouping [#176](https://github.com/chef/cookstyle/pull/176) ([lamont-granquist](https://github.com/lamont-granquist))
+- Enable UseBuildEssentialResource and improve messaging [#177](https://github.com/chef/cookstyle/pull/177) ([tas50](https://github.com/tas50))
+- Fix file matching in the configs [#178](https://github.com/chef/cookstyle/pull/178) ([tas50](https://github.com/tas50))
+- Fix typo in method name [#179](https://github.com/chef/cookstyle/pull/179) ([tas50](https://github.com/tas50))
+- Add Chef/RespondToResourceName and Chef/RespondToProvides cops [#180](https://github.com/chef/cookstyle/pull/180) ([tas50](https://github.com/tas50))
+- Add Chef/SetOrReturnInResources cop [#181](https://github.com/chef/cookstyle/pull/181) ([tas50](https://github.com/tas50))
+- Add autocorrecting to CookbooksDependsOnSelf [#186](https://github.com/chef/cookstyle/pull/186) ([tas50](https://github.com/tas50))
+- Fix the regression where we no longer show the cookstyle version [#188](https://github.com/chef/cookstyle/pull/188) ([tas50](https://github.com/tas50))
+- Add Chef/BlockGuardWithOnlyString [#189](https://github.com/chef/cookstyle/pull/189) ([tas50](https://github.com/tas50))
+- Add Cookstyle 5.2 release notes [#182](https://github.com/chef/cookstyle/pull/182) ([tas50](https://github.com/tas50))
+- Add Chef/CustomResourceWithAttributes cop [#193](https://github.com/chef/cookstyle/pull/193) ([tas50](https://github.com/tas50))
+- Add Chef/CustomResourceWithAllowedActions [#192](https://github.com/chef/cookstyle/pull/192) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v5.1.19](https://github.com/chef/cookstyle/tree/v5.1.19) (2019-08-08)
 
 #### Merged Pull Requests
@@ -58,7 +56,6 @@
 - Add Chef/CookbookDependsOnPoise rule [#140](https://github.com/chef/cookstyle/pull/140) ([tas50](https://github.com/tas50))
 - Add Chef/NamePropertyIsRequired cop [#141](https://github.com/chef/cookstyle/pull/141) ([tas50](https://github.com/tas50))
 - Add 10 additional cops for detected deprecated behavior [#143](https://github.com/chef/cookstyle/pull/143) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v5.0.4](https://github.com/chef/cookstyle/tree/v5.0.4) (2019-07-15)
 
