@@ -52,7 +52,7 @@ The `CookbooksDependsOnSelf` cop detects a cookbook that depends on itself in me
 
 #### Chef/MetadataMissingName
 
-The `MetadataMissingName` cop detects metadata.rb which is missing the name field required by Chef Infra Client 12+
+The `MetadataMissingName` cop detects a missing name field in the metadata.rb. Chef Infra Client 12+ requires the name field.
 
 `Enabled by default`: True
 
