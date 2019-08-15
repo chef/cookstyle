@@ -100,6 +100,22 @@ The same property created using the resource DSL
 
 `Autocorrects`: False
 
+#### Chef/CustomResourceWithAttributes
+
+The `CustomResourceWithAttributes` cop detects a custom resource that contains attributes. LWRPs and HWRPs contained attributes, but custom resources changed the name attribute to property to avoid confusion with traditional Chef Infra node attributes.
+
+`Enabled by default`: True
+
+`Autocorrects`: True  (deletes the occurrence)
+
+#### Chef/CustomResourceWithAllowedActions
+
+The `CustomResourceWithAllowedActions` cop detects a custom resource that uses the `actions` or `allowed_actions` methods. These methods were necessary when writing LWRPs and HWRPs, but are no longer necessary with custom resources.
+
+`Enabled by default`: True
+
+`Autocorrects`: True  (deletes the occurrence)
+
 ### Other fixes and changes
 
 - The configuration file has been improved to properly verify LWRP/HWRP files
