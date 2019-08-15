@@ -55,7 +55,7 @@ module RuboCop
         PATTERN
 
         def_node_search :resource_actions?, <<-PATTERN
-          (send nil? :action ... )
+          (block (send nil? :action ... ) ... )
         PATTERN
 
         def on_send(node)
