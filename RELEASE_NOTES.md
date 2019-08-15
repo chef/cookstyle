@@ -76,7 +76,7 @@ The `InvalidLicenseString` cop detects non-SPDX compliant license strings (or 'a
 
 #### Chef/SetOrReturnInResources
 
-The `SetOrReturnInResources` cop detects the usage of the `set_or_return` helper method in resources to create properties instead of using the `property` method. This was traditionally done when writing HWRPs, but properties created this way lack additional validation, reporting, and documentation functionality.
+The `SetOrReturnInResources` cop detects the usage of the `set_or_return` helper method in resources to create properties. Modern Chef Infra practice prefers using the `property` method because `set_or_return` lacks additional validation, reporting, and documentation functionality.
 
 `Examples`
 
