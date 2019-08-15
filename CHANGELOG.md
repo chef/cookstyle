@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.2.13 -->
-## [v5.2.13](https://github.com/chef/cookstyle/tree/v5.2.13) (2019-08-14)
+<!-- latest_release 5.2.14 -->
+## [v5.2.14](https://github.com/chef/cookstyle/tree/v5.2.14) (2019-08-15)
 
 #### Merged Pull Requests
-- Fix the regression where we no longer show the cookstyle version [#188](https://github.com/chef/cookstyle/pull/188) ([tas50](https://github.com/tas50))
+- Add Chef/BlockGuardWithOnlyString [#189](https://github.com/chef/cookstyle/pull/189) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.1.19 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add Chef/BlockGuardWithOnlyString [#189](https://github.com/chef/cookstyle/pull/189) ([tas50](https://github.com/tas50)) <!-- 5.2.14 -->
 - Fix the regression where we no longer show the cookstyle version [#188](https://github.com/chef/cookstyle/pull/188) ([tas50](https://github.com/tas50)) <!-- 5.2.13 -->
 - Add autocorrecting to CookbooksDependsOnSelf [#186](https://github.com/chef/cookstyle/pull/186) ([tas50](https://github.com/tas50)) <!-- 5.2.12 -->
 - Add Chef/SetOrReturnInResources cop [#181](https://github.com/chef/cookstyle/pull/181) ([tas50](https://github.com/tas50)) <!-- 5.2.11 -->
