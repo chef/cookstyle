@@ -4,7 +4,7 @@
 
 #### Chef/InvalidPlatformMetadata
 
-The `InvalidPlatformMetadata` cop detects invalid platform names being used in the supports metadata.rb method. It uses a hardcoded set of common typos so it's not able to detect all invalid platforms, but it does detect the most common mistakes found on the Supermarket.
+The `InvalidPlatformMetadata` cop detects invalid platform names in the supports metadata.rb method. It uses a hardcoded set of common typos so it can't detect all invalid platforms, but it does detect the most common mistakes found on the Supermarket.
 
 `Enabled by default`: True
 
