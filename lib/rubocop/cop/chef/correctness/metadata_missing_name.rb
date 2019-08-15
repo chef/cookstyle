@@ -32,6 +32,7 @@ module RuboCop
 
         def investigate(processed_source)
           return if processed_source.blank?
+          return unless File.basename(processed_source.file_path) == 'metadata.rb'
 
           # Using range similar to RuboCop::Cop::Naming::Filename (file_name.rb)
           range = source_range(processed_source.buffer, 1, 0)
