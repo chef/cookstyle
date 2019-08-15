@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.2.15 -->
-## [v5.2.15](https://github.com/chef/cookstyle/tree/v5.2.15) (2019-08-15)
+<!-- latest_release 5.2.16 -->
+## [v5.2.16](https://github.com/chef/cookstyle/tree/v5.2.16) (2019-08-15)
 
 #### Merged Pull Requests
-- Add Cookstyle 5.2 release notes [#182](https://github.com/chef/cookstyle/pull/182) ([tas50](https://github.com/tas50))
+- Add Chef/CustomResourceWithAttributes cop [#193](https://github.com/chef/cookstyle/pull/193) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.1.19 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add Chef/CustomResourceWithAttributes cop [#193](https://github.com/chef/cookstyle/pull/193) ([tas50](https://github.com/tas50)) <!-- 5.2.16 -->
 - Add Cookstyle 5.2 release notes [#182](https://github.com/chef/cookstyle/pull/182) ([tas50](https://github.com/tas50)) <!-- 5.2.15 -->
 - Add Chef/BlockGuardWithOnlyString [#189](https://github.com/chef/cookstyle/pull/189) ([tas50](https://github.com/tas50)) <!-- 5.2.14 -->
 - Fix the regression where we no longer show the cookstyle version [#188](https://github.com/chef/cookstyle/pull/188) ([tas50](https://github.com/tas50)) <!-- 5.2.13 -->
