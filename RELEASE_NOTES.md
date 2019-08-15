@@ -121,7 +121,7 @@ The `CustomResourceWithAllowedActions` cop detects a custom resource that uses t
 - Improves the configuration file to correctly verify LWRP/HWRP files
 - Enables several Chef/* cops in the config file
 - Enables Chef/UseBuildEssentialResource by default
-- Chef/NodeSetUnless and Chef/NodeSet have been improved to properly correct usage of node.set in ChefSpec tests
+- Fixes Chef/NodeSetUnless and Chef/NodeSet to properly correctly use of node.set in ChefSpec tests
 
 ## Cookstyle 5.1
 
