@@ -32,6 +32,14 @@ module RuboCop
       #     # some action code because we're in a custom resource
       #   end
       #
+      #   # also bad
+      #   property :something, String
+      #
+      #   actions [:create, :remove]
+      #   action :create do
+      #     # some action code because we're in a custom resource
+      #   end
+      #
       #   # good
       #   property :something, String
       #
@@ -40,10 +48,10 @@ module RuboCop
       #   end
       #
       class CustomResourceWithAllowedActions < Cop
-        MSG = "Custom Resources don't need to define allowed_actions".freeze
+        MSG = "Custom Resources don't need to define the allowed actions with allowed_actions or actions methods".freeze
 
         def_node_matcher :allowed_actions?, <<-PATTERN
-          (send nil? :allowed_actions ... )
+          (send nil? {:allowed_actions :actions} ... )
         PATTERN
 
         def_node_search :resource_actions?, <<-PATTERN

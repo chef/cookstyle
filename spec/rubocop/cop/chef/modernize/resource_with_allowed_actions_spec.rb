@@ -19,19 +19,31 @@ require 'spec_helper'
 describe RuboCop::Cop::Chef::CustomResourceWithAllowedActions, :config do
   subject(:cop) { described_class.new(config) }
 
-  it 'registers an offense with a custom resource that uses allowed_actions' do
+  it 'registers an offense with a custom resource that uses allowed_actions method' do
     expect_violation(<<-RUBY)
       property :something, String
 
       allowed_actions [:create, :remove]
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Custom Resources don't need to define allowed_actions
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Custom Resources don't need to define the allowed actions with allowed_actions or actions methods
       action :create do
         # some action code because we're in a custom resource
       end
     RUBY
   end
 
-  it 'does not register an offense with a custom resource that does not use allowed_actions' do
+  it 'registers an offense with a custom resource that uses actions method' do
+    expect_violation(<<-RUBY)
+      property :something, String
+
+      actions [:create, :remove]
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^ Custom Resources don't need to define the allowed actions with allowed_actions or actions methods
+      action :create do
+        # some action code because we're in a custom resource
+      end
+    RUBY
+  end
+
+  it 'does not register an offense with a custom resource that does not use allowed_actions or actions methods' do
     expect_no_violations(<<-RUBY)
       property :something, String
 
@@ -41,11 +53,19 @@ describe RuboCop::Cop::Chef::CustomResourceWithAllowedActions, :config do
     RUBY
   end
 
-  it 'does not register an offense with a LWRP that uses allowed_actions' do
+  it 'does not register an offense with a LWRP that uses allowed_actions method' do
     expect_no_violations(<<-RUBY)
       attribute :something, String
 
       allowed_actions [:create, :remove]
+    RUBY
+  end
+
+  it 'does not register an offense with a LWRP that uses actions method' do
+    expect_no_violations(<<-RUBY)
+      attribute :something, String
+
+      actions [:create, :remove]
     RUBY
   end
 end

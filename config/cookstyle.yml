@@ -286,6 +286,13 @@ Chef/CustomResourceWithAttributes:
   Include:
     - '**/resources/*.rb'
 
+Chef/CustomResourceWithAllowedActions:
+  Description: Custom Resources don't need to define the allowed actions with allowed_actions or actions methods
+  Enabled: true
+  VersionAdded: '5.2.0'
+  Include:
+    - '**/resources/*.rb'
+
 ###############################
 # Detecting code that breaks Chef
 ###############################
