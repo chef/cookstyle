@@ -28,7 +28,7 @@ The `RespondToProvides` cop detects the usage of respond_to?(:provides) in provi
 
 #### Chef/RespondToInMetadata
 
-The `RespondToInMetadata` cop detects the usage of `if respond_to?(:foo)` to gate newer metadata methods from running on older Chef Infra Client releases. In Chef Infra Client 12.15 and later this is no longer necessary as chef-client will no longer fail if unknown metadata is encoutered.
+The `RespondToInMetadata` cop detects the usage of `if respond_to?(:foo)` to prevent newer metadata methods from running on Chef Infra Client versions older than 12.15. The chef-client doesn't fail when it encounters unknown metadata in Chef Infra Client versions 12.15.
 
 `Enabled by default`: True
 
