@@ -36,7 +36,7 @@ The `RespondToInMetadata` cop detects the usage of `if respond_to?(:foo)` to pre
 
 #### Chef/LongDescriptionMetadata
 
-The `LongDescriptionMetadata` cop detects usage of `long_description` in metadata.rb. The `long_description` metadata was never utilized by Chef Infra or Supermarket, but cookbooks commonly load their README.md file into the metadata. This increases the size of metadata stored on Chef Infra Server and provides no benefit to users.
+The `LongDescriptionMetadata` cop detects usage of `long_description` in metadata.rb. Chef Infra and Supermarket never utilized the `long_description` metadata, but cookbooks commonly load their README.md file into the metadata. This increases the size of metadata stored on Chef Infra Server without providing a clear benefit to users.
 
 `Enabled by default`: True
 
