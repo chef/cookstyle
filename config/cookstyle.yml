@@ -297,6 +297,11 @@ Chef/MetadataMissingName:
   Include:
     - '**/metadata.rb'
 
+Chef/BlockGuardWithOnlyString:
+  Description: A resource guard (not_if/only_if) that is a string should not be wrapped in {}. Wrapping a guard string in {} causes it be executed as Ruby code which will always returns true instead of a shell command that will actually run.
+  Enabled: true
+  VersionAdded: '5.2.0'
+
 ###############################
 # Utilize new built-in resources
 ###############################
