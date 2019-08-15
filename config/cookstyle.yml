@@ -279,6 +279,13 @@ Chef/SetOrReturnInResources:
     - '**/resources/*.rb'
     - '**/libraries/*.rb'
 
+Chef/CustomResourceWithAttributes:
+  Description: Custom Resources should contain properties not attributes.
+  Enabled: true
+  VersionAdded: '5.2.0'
+  Include:
+    - '**/resources/*.rb'
+
 ###############################
 # Detecting code that breaks Chef
 ###############################
