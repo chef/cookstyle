@@ -31,6 +31,7 @@ module Cookstyle
 end
 
 require 'rubocop/chef'
+require 'rubocop/chef/cookbook_helpers'
 require 'rubocop/chef/cookbook_only'
 
 # Chef specific cops
