@@ -16,7 +16,7 @@ The `RespondToResourceName` cop detects the usage of respond_to?(:resource_name)
 
 `Enabled by default`: True
 
-`Autocorrects`: True (deletes the `if respond_to?` occurence)
+`Autocorrects`: True (deletes the `if respond_to?` occurrence)
 
 #### Chef/RespondToProvides
 
@@ -24,7 +24,7 @@ The `RespondToProvides` cop detects the usage of respond_to?(:provides) in provi
 
 `Enabled by default`: True
 
-`Autocorrects`: True (deletes the `if respond_to?` occurence)
+`Autocorrects`: True (deletes the `if respond_to?` occurrence)
 
 #### Chef/RespondToInMetadata
 
@@ -32,7 +32,7 @@ The `RespondToInMetadata` cop detects the usage of `if respond_to?(:foo)` to pre
 
 `Enabled by default`: True
 
-`Autocorrects`: True (deletes the `if respond_to?` occurence)
+`Autocorrects`: True (deletes the `if respond_to?` occurrence)
 
 #### Chef/LongDescriptionMetadata
 
@@ -40,7 +40,7 @@ The `LongDescriptionMetadata` cop detects usage of `long_description` in metadat
 
 `Enabled by default`: True
 
-`Autocorrects`: True (deletes the `if respond_to?` occurence)
+`Autocorrects`: True (deletes the occurrence)
 
 #### Chef/CookbooksDependsOnSelf
 
@@ -48,7 +48,7 @@ The `CookbooksDependsOnSelf` cop detects a cookbook that depends on itself in me
 
 `Enabled by default`: True
 
-`Autocorrects`: False
+`Autocorrects`: True
 
 #### Chef/MetadataMissingName
 
