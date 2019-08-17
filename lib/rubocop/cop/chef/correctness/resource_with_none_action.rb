@@ -40,7 +40,7 @@ module RuboCop
         def on_block(node)
           match_property_in_resource?(nil, 'action', node) do |action_node|
             action_node.arguments.each do |action|
-              add_offense(action, location: :expression, message: MSG, severity: :refactor) if action.source == ":none"
+              add_offense(action, location: :expression, message: MSG, severity: :refactor) if action.source == ':none'
             end
           end
         end
