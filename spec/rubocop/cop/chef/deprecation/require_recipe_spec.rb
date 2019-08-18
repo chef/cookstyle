@@ -20,14 +20,18 @@ describe RuboCop::Cop::Chef::RequireRecipe, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when require_recipe is used' do
-    expect_offense(<<-RUBY)
+    expect_offense(<<~RUBY)
       require_recipe 'foo'
       ^^^^^^^^^^^^^^ Use include_recipe instead of the require_recipe method
+    RUBY
+
+    expect_correction(<<~RUBY)
+      include_recipe 'foo'
     RUBY
   end
 
   it "doesn't register an offense when include_recipe is used" do
-    expect_no_offenses(<<-RUBY)
+    expect_no_offenses(<<~RUBY)
       include_recipe 'foo'
     RUBY
   end

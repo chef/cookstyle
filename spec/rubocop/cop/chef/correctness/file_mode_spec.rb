@@ -20,27 +20,41 @@ describe RuboCop::Cop::Chef::FileMode do
   subject(:cop) { described_class.new }
 
   it 'registers an offense when setting a mode using a decimal integer' do
-    expect_offense(<<-RUBY)
+    expect_offense(<<~RUBY)
       file '/foo' do
         owner 'root'
         mode 644
              ^^^ Use strings for file modes
       end
     RUBY
+
+    expect_correction(<<~RUBY)
+      file '/foo' do
+        owner 'root'
+        mode "644"
+      end
+    RUBY
   end
 
   it 'registers an offense when setting a mode using a octal integer' do
-    expect_offense(<<-RUBY)
+    expect_offense(<<~RUBY)
       file '/foo' do
         owner 'root'
         mode 0644
              ^^^^ Use strings for file modes
       end
     RUBY
+
+    expect_correction(<<~RUBY)
+      file '/foo' do
+        owner 'root'
+        mode "644"
+      end
+    RUBY
   end
 
   it 'does not register an offense when setting a mode using a single quoted string' do
-    expect_no_offenses(<<-RUBY)
+    expect_no_offenses(<<~RUBY)
       file '/foo' do
         owner 'root'
         mode '644'
@@ -49,7 +63,7 @@ describe RuboCop::Cop::Chef::FileMode do
   end
 
   it 'does not register an offense when setting a mode using a double quoted string' do
-    expect_no_offenses(<<-RUBY)
+    expect_no_offenses(<<~RUBY)
       file '/foo' do
         owner 'root'
         mode "644"

@@ -20,14 +20,14 @@ describe RuboCop::Cop::Chef::LongDescriptionMetadata, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when metadata used "conflicts"' do
-    expect_offense(<<-RUBY)
+    expect_offense(<<~RUBY)
       long_description 'foo'
       ^^^^^^^^^^^^^^^^^^^^^^ The long_description metadata.rb method is not used and is unnecessary in cookbooks
     RUBY
   end
 
   it "doesn't register an offense on normal metadata" do
-    expect_no_offenses(<<-RUBY)
+    expect_no_offenses(<<~RUBY)
       depends 'foo'
     RUBY
   end

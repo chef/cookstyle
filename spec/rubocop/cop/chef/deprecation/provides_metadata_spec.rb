@@ -20,14 +20,14 @@ describe RuboCop::Cop::Chef::ProvidesMetadata, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when metadata used "provides"' do
-    expect_offense(<<-RUBY)
+    expect_offense(<<~RUBY)
       provides 'foo'
       ^^^^^^^^^^^^^^ Don't use the deprecated 'provides' metadata value
     RUBY
   end
 
   it "doesn't register an offense on normal metadata" do
-    expect_no_offenses(<<-RUBY)
+    expect_no_offenses(<<~RUBY)
       depends 'foo'
     RUBY
   end

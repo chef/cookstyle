@@ -20,21 +20,29 @@ describe RuboCop::Cop::Chef::UseBuildEssentialResource, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an when including the "build-essential" recipe' do
-    expect_offense(<<-RUBY)
+    expect_offense(<<~RUBY)
       include_recipe 'build-essential'
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the build_essential resource instead of the legacy build-essential recipe. This resource ships in the build-essential cookbook v5.0+ and is built into Chef Infra Client 14+
+    RUBY
+
+    expect_correction(<<~RUBY)
+      build_essential 'install compilation tools'
     RUBY
   end
 
   it 'registers an offense when including the "build-essential::default" recipe' do
-    expect_offense(<<-RUBY)
+    expect_offense(<<~RUBY)
       include_recipe 'build-essential::default'
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the build_essential resource instead of the legacy build-essential recipe. This resource ships in the build-essential cookbook v5.0+ and is built into Chef Infra Client 14+
+    RUBY
+
+    expect_correction(<<~RUBY)
+      build_essential 'install compilation tools'
     RUBY
   end
 
   it "doesn't register an offense when using the build_essential resource" do
-    expect_no_offenses(<<-RUBY)
+    expect_no_offenses(<<~RUBY)
       build_essential 'install some tools!'
     RUBY
   end

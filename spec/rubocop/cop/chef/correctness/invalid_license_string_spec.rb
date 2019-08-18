@@ -20,21 +20,25 @@ describe RuboCop::Cop::Chef::InvalidLicenseString, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when a cookbook sets its license to a non-standard form of the the Apache 2.0 license' do
-    expect_offense(<<-RUBY)
+    expect_offense(<<~RUBY)
       license 'Apache 2.0'
               ^^^^^^^^^^^^ Cookbook metadata.rb does not use a SPDX compliant license string or \"all rights reserved\". See https://spdx.org/licenses/ for a complete list of license identifiers.
+    RUBY
+
+    expect_correction(<<~RUBY)
+    license 'Apache-2.0'
     RUBY
   end
 
   it 'registers an offense when a cookbook sets its license to bogus junk' do
-    expect_offense(<<-RUBY)
+    expect_offense(<<~RUBY)
       license 'I am not a license'
               ^^^^^^^^^^^^^^^^^^^^ Cookbook metadata.rb does not use a SPDX compliant license string or \"all rights reserved\". See https://spdx.org/licenses/ for a complete list of license identifiers.
     RUBY
   end
 
   it "doesn't register an offense with a valid SPDX compliant license string" do
-    expect_no_offenses(<<-RUBY)
+    expect_no_offenses(<<~RUBY)
       license 'Apache-2.0'
     RUBY
   end

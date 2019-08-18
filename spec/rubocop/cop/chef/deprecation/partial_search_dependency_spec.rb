@@ -20,14 +20,14 @@ describe RuboCop::Cop::Chef::CookbookDependsOnPartialSearch, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when a cookbook depends on "partial_search"' do
-    expect_offense(<<-RUBY)
+    expect_offense(<<~RUBY)
       depends 'partial_search'
       ^^^^^^^^^^^^^^^^^^^^^^^^ Don't depend on the deprecated partial_search cookbook made obsolete by Chef 13
     RUBY
   end
 
   it "doesn't register an offense when depending on any old cookbook" do
-    expect_no_offenses(<<-RUBY)
+    expect_no_offenses(<<~RUBY)
       depends 'foo'
     RUBY
   end

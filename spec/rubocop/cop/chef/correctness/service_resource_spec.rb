@@ -20,7 +20,7 @@ describe RuboCop::Cop::Chef::ServiceResource, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when starting a service in execute resource' do
-    expect_offense(<<-RUBY)
+    expect_offense(<<~RUBY)
       execute 'apache_start' do
         command '/etc/init.d/httpd start'
                 ^^^^^^^^^^^^^^^^^^^^^^^^^ Use a service resource to start and stop services
@@ -29,7 +29,7 @@ describe RuboCop::Cop::Chef::ServiceResource, :config do
   end
 
   it 'does not register an offense when running a normal command' do
-    expect_no_offenses(<<-RUBY)
+    expect_no_offenses(<<~RUBY)
       execute 'apache_start' do
         command 'echo "not starting a service"'
       end

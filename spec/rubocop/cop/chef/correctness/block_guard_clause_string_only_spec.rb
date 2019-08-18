@@ -21,7 +21,7 @@ describe RuboCop::Cop::Chef::BlockGuardWithOnlyString do
   subject(:cop) { described_class.new }
 
   it 'registers an offense with a block guard that contains only a string' do
-    expect_offense(<<-RUBY)
+    expect_offense(<<~RUBY)
       template '/etc/foo' do
         mode '0644'
         source 'foo.erb'
@@ -29,10 +29,18 @@ describe RuboCop::Cop::Chef::BlockGuardWithOnlyString do
         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ A resource guard (not_if/only_if) that is a string should not be wrapped in {}. Wrapping a guard string in {} causes it be executed as Ruby code which will always returns true instead of a shell command that will actually run.
       end
     RUBY
+
+    expect_correction(<<~RUBY)
+      template '/etc/foo' do
+        mode '0644'
+        source 'foo.erb'
+        only_if 'test -f /etc/foo'
+      end
+    RUBY
   end
 
   it 'does not register an offense with a valid block guard' do
-    expect_no_offenses(<<-RUBY)
+    expect_no_offenses(<<~RUBY)
       template '/etc/foo' do
         mode '0644'
         source 'foo.erb'
@@ -42,7 +50,7 @@ describe RuboCop::Cop::Chef::BlockGuardWithOnlyString do
   end
 
   it 'does not register an offense with a valid string guard' do
-    expect_no_offenses(<<-RUBY)
+    expect_no_offenses(<<~RUBY)
       template '/etc/foo' do
         mode '0644'
         source 'foo.erb'

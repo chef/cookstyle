@@ -20,14 +20,14 @@ describe RuboCop::Cop::Chef::ConflictsMetadata, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when metadata used "conflicts"' do
-    expect_offense(<<-RUBY)
+    expect_offense(<<~RUBY)
       conflicts 'foo'
       ^^^^^^^^^^^^^^^ Don't use the deprecated 'conflicts' metadata value
     RUBY
   end
 
   it "doesn't register an offense on normal metadata" do
-    expect_no_offenses(<<-RUBY)
+    expect_no_offenses(<<~RUBY)
       depends 'foo'
     RUBY
   end

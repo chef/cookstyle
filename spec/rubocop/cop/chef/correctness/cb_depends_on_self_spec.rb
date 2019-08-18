@@ -20,21 +20,26 @@ describe RuboCop::Cop::Chef::CookbooksDependsOnSelf, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when a cookbook depends on itself' do
-    expect_offense(<<-RUBY)
-      name 'foo'
+    expect_offense(<<~RUBY)
       depends 'foo'
       ^^^^^^^^^^^^^ A cookbook cannot depend on itself
+      name 'foo'
+    RUBY
+
+    expect_correction(<<~RUBY)
+
+      name 'foo'
     RUBY
   end
 
   it "doesn't register an offense when a cookbook has no name property" do
-    expect_no_offenses(<<-RUBY)
-      depends 'foo'
+    expect_no_offenses(<<~RUBY)
+      depends 'foo'\n
     RUBY
   end
 
   it "doesn't register an offense when a cookbook depends on valid cookbook names" do
-    expect_no_offenses(<<-RUBY)
+    expect_no_offenses(<<~RUBY)
       name 'foo'
       depends 'bar'
     RUBY

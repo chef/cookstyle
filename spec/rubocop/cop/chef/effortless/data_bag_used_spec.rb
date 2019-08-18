@@ -20,14 +20,14 @@ describe RuboCop::Cop::Chef::CookbookUsesDatabags, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when data_bag method is used' do
-    expect_offense(<<-RUBY)
+    expect_offense(<<~RUBY)
       data_bag_item('admins', login)
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Cookbook uses data bags, which cannot be used in the Effortless Infra pattern
     RUBY
   end
 
   it 'registers an offense when data_bag_item method is used' do
-    expect_offense(<<-RUBY)
+    expect_offense(<<~RUBY)
       data_bag(data_bag_name)
       ^^^^^^^^^^^^^^^^^^^^^^^ Cookbook uses data bags, which cannot be used in the Effortless Infra pattern
     RUBY

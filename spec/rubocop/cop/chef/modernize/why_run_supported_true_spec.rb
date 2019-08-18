@@ -20,14 +20,14 @@ describe RuboCop::Cop::Chef::WhyRunSupportedTrue, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when a resource sets why-run to true' do
-    expect_offense(<<-RUBY)
+    expect_offense(<<~RUBY)
       def why_run_supported?; true; end
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ why_run_supported? no longer needs to be set to true as it is the default in Chef 13+
     RUBY
   end
 
   it "doesn't register an offense when a resource sets why-run to false" do
-    expect_no_offenses(<<-RUBY)
+    expect_no_offenses(<<~RUBY)
       def why_run_supported?; false; end
     RUBY
   end

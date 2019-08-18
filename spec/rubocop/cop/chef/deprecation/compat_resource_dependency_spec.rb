@@ -20,14 +20,14 @@ describe RuboCop::Cop::Chef::CookbookDependsOnCompatResource, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when a cookbook depends on "compat_resource"' do
-    expect_offense(<<-RUBY)
+    expect_offense(<<~RUBY)
       depends 'compat_resource'
       ^^^^^^^^^^^^^^^^^^^^^^^^^ Don't depend on the deprecated compat_resource cookbook made obsolete by Chef 12.19+
     RUBY
   end
 
   it "doesn't register an offense when depending on any old cookbook" do
-    expect_no_offenses(<<-RUBY)
+    expect_no_offenses(<<~RUBY)
       depends 'foo'
     RUBY
   end
