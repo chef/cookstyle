@@ -293,6 +293,27 @@ Chef/CustomResourceWithAllowedActions:
   Include:
     - '**/resources/*.rb'
 
+Chef/IncludingAptDefaultRecipe:
+  Description: Do not include the Apt default recipe to update package cache. Instead use the apt_update resource, which is built into Chef Infra Client 12.7 and later.
+  Enabled: true
+  VersionAdded: '5.3.0'
+  Exclude:
+    - '**/metadata.rb'
+
+Chef/IncludingWindowsDefaultRecipe:
+  Description: Do not include the Windows default recipe, which only installs win32 gems already included in Chef Infra Client
+  Enabled: true
+  VersionAdded: '5.3.0'
+  Exclude:
+    - '**/metadata.rb'
+
+Chef/IncludingYumDNFCompatRecipe:
+  Description: Do not include the yum::dnf_yum_compat default recipe to install yum on dnf systems. Chef Infra Client now includes built in support for DNF.
+  Enabled: true
+  VersionAdded: '5.3.0'
+  Exclude:
+    - '**/metadata.rb'
+
 ###############################
 # Detecting code that breaks Chef
 ###############################
