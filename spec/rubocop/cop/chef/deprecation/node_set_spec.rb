@@ -20,27 +20,27 @@ describe RuboCop::Cop::Chef::NodeSet do
   subject(:cop) { described_class.new }
 
   it 'registers an offense on using node.set' do
-    expect_violation(<<-RUBY)
+    expect_offense(<<-RUBY)
       node.set[:foo]
            ^^^ Do not use node.set. Replace with node.normal to keep identical behavior.
     RUBY
   end
 
   it 'registers an offense on using chef_run.node.set' do
-    expect_violation(<<-RUBY)
+    expect_offense(<<-RUBY)
       chef_run.node.set[:foo]
                     ^^^ Do not use node.set. Replace with node.normal to keep identical behavior.
     RUBY
   end
 
   it 'registers no offense on using chef_run.set' do
-    expect_no_violations(<<-RUBY)
+    expect_no_offenses(<<-RUBY)
       chef_run.set[:foo]
     RUBY
   end
 
   it 'registers no offense on using node.default' do
-    expect_no_violations(<<-RUBY)
+    expect_no_offenses(<<-RUBY)
       node.default[:foo]
     RUBY
   end

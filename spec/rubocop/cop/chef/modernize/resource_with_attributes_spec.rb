@@ -20,7 +20,7 @@ describe RuboCop::Cop::Chef::CustomResourceWithAttributes, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense with a custom resource that contains attributes' do
-    expect_violation(<<-RUBY)
+    expect_offense(<<-RUBY)
       attribute :something, String
       ^^^^^^^^^ Custom Resources should contain properties not attributes
       action :create do
@@ -30,7 +30,7 @@ describe RuboCop::Cop::Chef::CustomResourceWithAttributes, :config do
   end
 
   it 'does not register an offense with a LWRP that contains attributes' do
-    expect_no_violations(<<-RUBY)
+    expect_no_offenses(<<-RUBY)
       attribute :something, String
     RUBY
   end

@@ -20,7 +20,7 @@ describe RuboCop::Cop::Chef::CustomResourceWithAllowedActions, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense with a custom resource that uses allowed_actions method' do
-    expect_violation(<<-RUBY)
+    expect_offense(<<-RUBY)
       property :something, String
 
       allowed_actions [:create, :remove]
@@ -32,7 +32,7 @@ describe RuboCop::Cop::Chef::CustomResourceWithAllowedActions, :config do
   end
 
   it 'registers an offense with a custom resource that uses actions method' do
-    expect_violation(<<-RUBY)
+    expect_offense(<<-RUBY)
       property :something, String
 
       actions [:create, :remove]
@@ -44,7 +44,7 @@ describe RuboCop::Cop::Chef::CustomResourceWithAllowedActions, :config do
   end
 
   it 'does not register an offense with a custom resource that does not use allowed_actions or actions methods' do
-    expect_no_violations(<<-RUBY)
+    expect_no_offenses(<<-RUBY)
       property :something, String
 
       action :create do
@@ -54,7 +54,7 @@ describe RuboCop::Cop::Chef::CustomResourceWithAllowedActions, :config do
   end
 
   it 'does not register an offense with a LWRP that uses allowed_actions method' do
-    expect_no_violations(<<-RUBY)
+    expect_no_offenses(<<-RUBY)
       attribute :something, String
 
       allowed_actions [:create, :remove]
@@ -62,7 +62,7 @@ describe RuboCop::Cop::Chef::CustomResourceWithAllowedActions, :config do
   end
 
   it 'does not register an offense with a LWRP that uses actions method' do
-    expect_no_violations(<<-RUBY)
+    expect_no_offenses(<<-RUBY)
       attribute :something, String
 
       actions [:create, :remove]

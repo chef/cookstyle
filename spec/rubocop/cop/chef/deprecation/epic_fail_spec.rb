@@ -20,7 +20,7 @@ describe RuboCop::Cop::Chef::EpicFail do
   subject(:cop) { described_class.new }
 
   it 'registers an offense when using epic_fail' do
-    expect_violation(<<-RUBY)
+    expect_offense(<<-RUBY)
       file '/foo' do
         owner 'root'
         epic_fail true
@@ -30,7 +30,7 @@ describe RuboCop::Cop::Chef::EpicFail do
   end
 
   it 'does not register an offense when using ignore_failure' do
-    expect_no_violations(<<-RUBY)
+    expect_no_offenses(<<-RUBY)
       file '/foo' do
         owner 'root'
         ignore_failure true

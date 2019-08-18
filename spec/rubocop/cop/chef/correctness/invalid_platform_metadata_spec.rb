@@ -20,7 +20,7 @@ describe RuboCop::Cop::Chef::InvalidPlatformMetadata, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when a cookbook contains an invalid supports platform' do
-    expect_violation(<<-RUBY)
+    expect_offense(<<-RUBY)
       supports 'darwin'
                ^^^^^^^^ metadata.rb \"supports\" platform is invalid
       depends 'foo'
@@ -28,7 +28,7 @@ describe RuboCop::Cop::Chef::InvalidPlatformMetadata, :config do
   end
 
   it "doesn't register an offense when a cookbook contains a valid supports platform" do
-    expect_no_violations(<<-RUBY)
+    expect_no_offenses(<<-RUBY)
       supports 'mac_os_x'
     RUBY
   end

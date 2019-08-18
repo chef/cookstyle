@@ -20,7 +20,7 @@ describe RuboCop::Cop::Chef::RespondToResourceName, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense with a HWRP that uses respond_to? with resource_name' do
-    expect_violation(<<-RUBY)
+    expect_offense(<<-RUBY)
     class Chef
       class Resource
         class Icinga2Apiuser < Chef::Resource
@@ -43,7 +43,7 @@ describe RuboCop::Cop::Chef::RespondToResourceName, :config do
   end
 
   it 'registers an offense with a HWRP that uses respond_to? with resource_name' do
-    expect_no_violations(<<-RUBY)
+    expect_no_offenses(<<-RUBY)
     class Chef
       class Resource
         class Icinga2Apiuser < Chef::Resource
@@ -65,14 +65,14 @@ describe RuboCop::Cop::Chef::RespondToResourceName, :config do
   end
 
   it 'registers an offense with a LWRP that uses respond_to? with resource_name' do
-    expect_violation(<<-RUBY)
+    expect_offense(<<-RUBY)
     resource_name :icinga2_apiuser if respond_to?(:resource_name)
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ respond_to?(:resource_name) in resources is no longer necessary in Chef Infra Client 12.5+
     RUBY
   end
 
   it 'does not register an offense with a LWRP that does not use resource_name' do
-    expect_no_violations(<<-RUBY)
+    expect_no_offenses(<<-RUBY)
     resource_name :icinga2_apiuser
     RUBY
   end

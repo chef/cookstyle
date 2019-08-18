@@ -20,7 +20,7 @@ describe RuboCop::Cop::Chef::MetadataMissingName, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when the name method is missing' do
-    expect_violation(<<~RUBY)
+    expect_offense(<<~RUBY)
     source_url 'http://github.com/something/something'
     ^ metadata.rb needs to include the name method
     depends 'foo'
@@ -28,7 +28,7 @@ describe RuboCop::Cop::Chef::MetadataMissingName, :config do
   end
 
   it "doesn't register an offense when the name property is present" do
-    expect_no_violations(<<-RUBY)
+    expect_no_offenses(<<-RUBY)
       name 'foo'
     RUBY
   end

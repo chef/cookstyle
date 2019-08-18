@@ -20,20 +20,20 @@ describe RuboCop::Cop::Chef::NamePropertyIsRequired, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when a resource property is both a name_property and a required property' do
-    expect_violation(<<-RUBY)
+    expect_offense(<<-RUBY)
       property :foo, String, name_property: true, required: true
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Resource properties marked as name properties should not also be required properties
     RUBY
   end
 
   it "doesn't register an offense with a required property that is not a name_property" do
-    expect_no_violations(<<-RUBY)
+    expect_no_offenses(<<-RUBY)
       property :foo, String, required: true
     RUBY
   end
 
   it "doesn't register an offense with name_property that is not required" do
-    expect_no_violations(<<-RUBY)
+    expect_no_offenses(<<-RUBY)
       property :foo, String, name_property: true
     RUBY
   end

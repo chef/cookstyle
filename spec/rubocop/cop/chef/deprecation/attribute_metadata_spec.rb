@@ -20,14 +20,14 @@ describe RuboCop::Cop::Chef::AttributeMetadata, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when metadata used "attribute"' do
-    expect_violation(<<-RUBY)
+    expect_offense(<<-RUBY)
       attribute 'foo'
       ^^^^^^^^^^^^^^^ Don't use the deprecated 'attribute' metadata value
     RUBY
   end
 
   it "doesn't register an offense on normal metadata" do
-    expect_no_violations(<<-RUBY)
+    expect_no_offenses(<<-RUBY)
       depends 'foo'
     RUBY
   end
