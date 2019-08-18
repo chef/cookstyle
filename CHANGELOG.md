@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.3.0 -->
-## [v5.3.0](https://github.com/chef/cookstyle/tree/v5.3.0) (2019-08-18)
+<!-- latest_release 5.3.1 -->
+## [v5.3.1](https://github.com/chef/cookstyle/tree/v5.3.1) (2019-08-18)
 
 #### Merged Pull Requests
-- Add 3 new cops for detecting legacy recipes being included [#214](https://github.com/chef/cookstyle/pull/214) ([tas50](https://github.com/tas50))
+- Use Rubocop::RSpec::ExpectOffense for better specs [#215](https://github.com/chef/cookstyle/pull/215) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.2.17 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Use Rubocop::RSpec::ExpectOffense for better specs [#215](https://github.com/chef/cookstyle/pull/215) ([tas50](https://github.com/tas50)) <!-- 5.3.1 -->
 - Add 3 new cops for detecting legacy recipes being included [#214](https://github.com/chef/cookstyle/pull/214) ([tas50](https://github.com/tas50)) <!-- 5.3.0 -->
 <!-- release_rollup -->
 
