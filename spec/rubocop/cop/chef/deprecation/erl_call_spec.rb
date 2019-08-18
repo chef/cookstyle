@@ -20,7 +20,7 @@ describe RuboCop::Cop::Chef::ErlCallResource do
   subject(:cop) { described_class.new }
 
   it 'registers an offense when using the easy_install resource' do
-    expect_offense(<<-RUBY)
+    expect_offense(<<~RUBY)
       erl_call "my_thing" do
       ^^^^^^^^^^^^^^^^^^^ Don't use the deprecated erl_call resource removed in Chef 13
         bar
@@ -29,7 +29,7 @@ describe RuboCop::Cop::Chef::ErlCallResource do
   end
 
   it 'does not register an offense when using any other resource' do
-    expect_no_offenses(<<-RUBY)
+    expect_no_offenses(<<~RUBY)
       file '/foo' do
         owner 'root'
         ignore_failure true

@@ -20,7 +20,7 @@ describe RuboCop::Cop::Chef::RespondToProvides, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense with a HWRP that uses respond_to? with provides' do
-    expect_offense(<<-RUBY)
+    expect_offense(<<~RUBY)
     class Chef
       class Provider
         class Icinga2Environment < Chef::Provider::LWRPBase
@@ -30,17 +30,31 @@ describe RuboCop::Cop::Chef::RespondToProvides, :config do
       end
     end
     RUBY
+
+    expect_correction(<<~RUBY)
+    class Chef
+      class Provider
+        class Icinga2Environment < Chef::Provider::LWRPBase
+          provides :icinga2_environment
+        end
+      end
+    end
+    RUBY
   end
 
   it 'registers an offense with a LWRP that uses respond_to? with resource_name' do
-    expect_offense(<<-RUBY)
+    expect_offense(<<~RUBY)
     provides :icinga2_environment if respond_to?(:provides)
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ respond_to?(:provides) in resources is no longer necessary in Chef Infra Client 12+
+    RUBY
+
+    expect_correction(<<~RUBY)
+    provides :icinga2_environment
     RUBY
   end
 
   it 'does not register an offense with a LWRP that does not use provides' do
-    expect_no_offenses(<<-RUBY)
+    expect_no_offenses(<<~RUBY)
     provides :icinga2_environment
     RUBY
   end

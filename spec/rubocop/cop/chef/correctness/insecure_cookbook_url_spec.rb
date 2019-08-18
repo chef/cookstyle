@@ -20,53 +20,69 @@ describe RuboCop::Cop::Chef::InsecureCookbookURL, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when a cookbook sets its source_url to "http://github.com/something/something"' do
-    expect_offense(<<-RUBY)
+    expect_offense(<<~RUBY)
       source_url 'http://github.com/something/something'
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Insecure http Github or Gitlab URLs for metadata source_url/issues_url fields
+    RUBY
+
+    expect_correction(<<~RUBY)
+      source_url 'https://github.com/something/something'
     RUBY
   end
 
   it 'registers an offense when a cookbook sets its source_url to "http://www.github.com/something/something"' do
-    expect_offense(<<-RUBY)
+    expect_offense(<<~RUBY)
       source_url 'http://www.github.com/something/something'
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Insecure http Github or Gitlab URLs for metadata source_url/issues_url fields
+    RUBY
+
+    expect_correction(<<~RUBY)
+      source_url 'https://github.com/something/something'
     RUBY
   end
 
   it 'registers an offense when a cookbook sets its source_url to "http://gitlab.com/something/something"' do
-    expect_offense(<<-RUBY)
+    expect_offense(<<~RUBY)
       source_url 'http://gitlab.com/something/something'
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Insecure http Github or Gitlab URLs for metadata source_url/issues_url fields
+    RUBY
+
+    expect_correction(<<~RUBY)
+      source_url 'https://gitlab.com/something/something'
     RUBY
   end
 
   it 'also registers an offense when a cookbook sets its a bad issue_url' do
-    expect_offense(<<-RUBY)
-      source_url 'http://gitlab.com/something/something'
+    expect_offense(<<~RUBY)
+      issues_url 'http://gitlab.com/something/something'
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Insecure http Github or Gitlab URLs for metadata source_url/issues_url fields
+    RUBY
+
+    expect_correction(<<~RUBY)
+      issues_url 'https://gitlab.com/something/something'
     RUBY
   end
 
   it "doesn't register an offense with a valid GitHub non-www URL" do
-    expect_no_offenses(<<-RUBY)
+    expect_no_offenses(<<~RUBY)
       source_url 'https://github.com/something/something'
     RUBY
   end
 
   it "doesn't register an offense with a valid GitHub www URL" do
-    expect_no_offenses(<<-RUBY)
+    expect_no_offenses(<<~RUBY)
       source_url 'https://www.github.com/something/something'
     RUBY
   end
 
   it "doesn't register an offense with a valid Gitlab non-www URL" do
-    expect_no_offenses(<<-RUBY)
+    expect_no_offenses(<<~RUBY)
       source_url 'https://gitlab.com/something/something'
     RUBY
   end
 
   it "doesn't register an offense with a valid Gitlab www URL" do
-    expect_no_offenses(<<-RUBY)
+    expect_no_offenses(<<~RUBY)
       source_url 'https://www.gitlab.com/something/something'
     RUBY
   end

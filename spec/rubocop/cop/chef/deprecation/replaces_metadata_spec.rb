@@ -20,14 +20,14 @@ describe RuboCop::Cop::Chef::ReplacesMetadata, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when metadata used "replaces"' do
-    expect_offense(<<-RUBY)
+    expect_offense(<<~RUBY)
       replaces 'foo'
       ^^^^^^^^^^^^^^ Don't use the deprecated 'replaces' metadata value
     RUBY
   end
 
   it "doesn't register an offense on normal metadata" do
-    expect_no_offenses(<<-RUBY)
+    expect_no_offenses(<<~RUBY)
       depends 'foo'
     RUBY
   end

@@ -23,27 +23,27 @@ describe RuboCop::Cop::Chef::AttributeKeys, :config do
     let(:cop_config) { { 'EnforcedStyle' => 'symbols' } }
 
     it 'does not register an offense when accessing a single node attribute with a symbol' do
-      expect_no_offenses(<<-RUBY)
+      expect_no_offenses(<<~RUBY)
         node[:foo]
       RUBY
     end
 
     it 'registers an offense when accessing a single node attribute with a single quoted string' do
-      expect_offense(<<-RUBY)
+      expect_offense(<<~RUBY)
         node['foo']
              ^^^^^ Use symbols to access node attributes
       RUBY
     end
 
     it 'registers an offense when accessing a single node attribute with a double quoted string' do
-      expect_offense(<<-RUBY)
+      expect_offense(<<~RUBY)
         node["foo"]
              ^^^^^ Use symbols to access node attributes
       RUBY
     end
 
     it 'registers an offense when accessing a nested node attributes with strings' do
-      expect_offense(<<-RUBY)
+      expect_offense(<<~RUBY)
         node['foo']["bar"][%q{baz}]
              ^^^^^ Use symbols to access node attributes
                     ^^^^^ Use symbols to access node attributes
@@ -52,7 +52,7 @@ describe RuboCop::Cop::Chef::AttributeKeys, :config do
     end
 
     it 'registers an offense when accessing a nested node attributes with mixed values' do
-      expect_offense(<<-RUBY)
+      expect_offense(<<~RUBY)
         node["foo"][:bar][0]['other']
              ^^^^^ Use symbols to access node attributes
                              ^^^^^^^ Use symbols to access node attributes
@@ -72,37 +72,49 @@ describe RuboCop::Cop::Chef::AttributeKeys, :config do
     let(:cop_config) { { 'EnforcedStyle' => 'strings' } }
 
     it 'registers an offense when accessing a single node attribute with a symbol' do
-      expect_offense(<<-RUBY)
+      expect_offense(<<~RUBY)
         node[:foo]
              ^^^^ Use strings to access node attributes
+      RUBY
+
+      expect_correction(<<~RUBY)
+        node["foo"]
       RUBY
     end
 
     it 'does not register an offense when accessing a single node attribute with a single quoted string' do
-      expect_no_offenses(<<-RUBY)
+      expect_no_offenses(<<~RUBY)
         node['foo']
       RUBY
     end
 
     it 'does not register an offense when accessing a single node attribute with a double quoted string' do
-      expect_no_offenses(<<-RUBY)
+      expect_no_offenses(<<~RUBY)
         node["foo"]
       RUBY
     end
 
     it 'registers an offense when accessing a nested node attributes with symbols' do
-      expect_offense(<<-RUBY)
+      expect_offense(<<~RUBY)
         node[:foo][:bar][:baz]
              ^^^^ Use strings to access node attributes
                    ^^^^ Use strings to access node attributes
                          ^^^^ Use strings to access node attributes
       RUBY
+
+      expect_correction(<<~RUBY)
+        node["foo"]["bar"]["baz"]
+      RUBY
     end
 
     it 'registers an offense when accessing a nested node attributes with mixed values' do
-      expect_offense(<<-RUBY)
+      expect_offense(<<~RUBY)
         node["foo"][:bar][0]['other']
                     ^^^^ Use strings to access node attributes
+      RUBY
+
+      expect_correction(<<~RUBY)
+        node["foo"]["bar"][0]['other']
       RUBY
     end
 

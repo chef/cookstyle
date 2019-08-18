@@ -20,7 +20,7 @@ describe RuboCop::Cop::Chef::TmpPath, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when hardcoding a path in /tmp' do
-    expect_offense(<<-RUBY)
+    expect_offense(<<~RUBY)
       remote_file '/tmp/large-file.tar.gz' do
                   ^^^^^^^^^^^^^^^^^^^^^^^^ Use file_cache_path rather than hard-coding tmp paths
         source 'http://www.example.org/large-file.tar.gz'
@@ -29,7 +29,7 @@ describe RuboCop::Cop::Chef::TmpPath, :config do
   end
 
   it "doesn't register an offense when using file_cache_path" do
-    expect_no_offenses(<<-RUBY)
+    expect_no_offenses(<<~RUBY)
       remote_file "\#\{Chef::Config[:file_cache_path]\}/large-file.tar.gz" do
         source 'http://www.example.org/large-file.tar.gz'
       end

@@ -29,8 +29,14 @@ module RuboCop
       class LongDescriptionMetadata < Cop
         MSG = 'The long_description metadata.rb method is not used and is unnecessary in cookbooks'.freeze
 
+        def_node_matcher :long_description?, <<-PATTERN
+          (send nil? :long_description ... )
+        PATTERN
+
         def on_send(node)
-          add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :long_description
+          long_description?(node) do
+            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :long_description
+          end
         end
 
         def autocorrect(node)

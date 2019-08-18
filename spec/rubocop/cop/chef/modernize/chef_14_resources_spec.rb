@@ -20,56 +20,56 @@ describe RuboCop::Cop::Chef::UnnecessaryDependsChef14, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when a cookbook depends on "build-essential"' do
-    expect_offense(<<-RUBY)
+    expect_offense(<<~RUBY)
       depends 'build-essential'
       ^^^^^^^^^^^^^^^^^^^^^^^^^ Don't depend on cookbooks made obsolete by Chef 14
     RUBY
   end
 
   it 'registers an offense when a cookbook depends on "chef_handler"' do
-    expect_offense(<<-RUBY)
+    expect_offense(<<~RUBY)
       depends 'chef_handler'
       ^^^^^^^^^^^^^^^^^^^^^^ Don't depend on cookbooks made obsolete by Chef 14
     RUBY
   end
 
   it 'registers an offense when a cookbook depends on "chef_hostname"' do
-    expect_offense(<<-RUBY)
+    expect_offense(<<~RUBY)
       depends 'chef_hostname'
       ^^^^^^^^^^^^^^^^^^^^^^^ Don't depend on cookbooks made obsolete by Chef 14
     RUBY
   end
 
   it 'registers an offense when a cookbook depends on "dmg"' do
-    expect_offense(<<-RUBY)
+    expect_offense(<<~RUBY)
       depends 'dmg'
       ^^^^^^^^^^^^^ Don't depend on cookbooks made obsolete by Chef 14
     RUBY
   end
 
   it 'registers an offense when a cookbook depends on "mac_os_x"' do
-    expect_offense(<<-RUBY)
+    expect_offense(<<~RUBY)
       depends 'mac_os_x'
       ^^^^^^^^^^^^^^^^^^ Don't depend on cookbooks made obsolete by Chef 14
     RUBY
   end
 
   it 'registers an offense when a cookbook depends on "swap"' do
-    expect_offense(<<-RUBY)
+    expect_offense(<<~RUBY)
       depends 'swap'
       ^^^^^^^^^^^^^^ Don't depend on cookbooks made obsolete by Chef 14
     RUBY
   end
 
   it 'registers an offense when a cookbook depends on "sysctl"' do
-    expect_offense(<<-RUBY)
+    expect_offense(<<~RUBY)
       depends 'sysctl'
       ^^^^^^^^^^^^^^^^ Don't depend on cookbooks made obsolete by Chef 14
     RUBY
   end
 
   it "doesn't register an offense when depending on any old cookbook" do
-    expect_no_offenses(<<-RUBY)
+    expect_no_offenses(<<~RUBY)
       depends 'build-essentially'
     RUBY
   end

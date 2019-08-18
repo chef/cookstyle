@@ -28,7 +28,7 @@ describe RuboCop::Cop::Chef::MetadataMissingName, :config do
   end
 
   it "doesn't register an offense when the name property is present" do
-    expect_no_offenses(<<-RUBY)
+    expect_no_offenses(<<~RUBY)
       name 'foo'
     RUBY
   end
