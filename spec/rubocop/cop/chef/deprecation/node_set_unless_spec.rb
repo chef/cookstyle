@@ -20,27 +20,27 @@ describe RuboCop::Cop::Chef::NodeSetUnless do
   subject(:cop) { described_class.new }
 
   it 'registers an offense on using node.set_unless' do
-    expect_violation(<<-RUBY)
+    expect_offense(<<-RUBY)
       node.set_unless[:foo]
            ^^^^^^^^^^ Do not use node.set_unless. Replace with node.normal_unless to keep identical behavior.
     RUBY
   end
 
   it 'registers an offense on using chef_run.node.set_unless' do
-    expect_violation(<<-RUBY)
+    expect_offense(<<-RUBY)
       chef_run.node.set_unless[:foo]
                     ^^^^^^^^^^ Do not use node.set_unless. Replace with node.normal_unless to keep identical behavior.
     RUBY
   end
 
   it 'registers no offense on using chef_run.set_unless' do
-    expect_no_violations(<<-RUBY)
+    expect_no_offenses(<<-RUBY)
       chef_run.set_unless[:foo]
     RUBY
   end
 
   it 'registers no offense on using node.default_unless' do
-    expect_no_violations(<<-RUBY)
+    expect_no_offenses(<<-RUBY)
       node.default_unless[:foo]
     RUBY
   end

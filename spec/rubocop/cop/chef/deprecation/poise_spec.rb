@@ -20,14 +20,14 @@ describe RuboCop::Cop::Chef::CookbookDependsOnPoise, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when a cookbook depends on "poise"' do
-    expect_violation(<<-RUBY)
+    expect_offense(<<-RUBY)
       depends 'poise'
       ^^^^^^^^^^^^^^^ Cookbooks should not depend on the deprecated Poise framework
     RUBY
   end
 
   it "doesn't register an offense when depending on any old cookbook" do
-    expect_no_violations(<<-RUBY)
+    expect_no_offenses(<<-RUBY)
       depends 'poise-ish'
     RUBY
   end

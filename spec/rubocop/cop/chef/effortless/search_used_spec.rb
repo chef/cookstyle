@@ -20,14 +20,14 @@ describe RuboCop::Cop::Chef::CookbookUsesSearch, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when search is used' do
-    expect_violation(<<-RUBY)
+    expect_offense(<<-RUBY)
       search(:node, 'run_list:recipe\[bacula\:\:server\]')
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Cookbook uses search, which cannot be used in the Effortless Infra pattern
     RUBY
   end
 
   it "doesn't register an offense when a resource sets why-run to false" do
-    expect_no_violations(<<-RUBY)
+    expect_no_offenses(<<-RUBY)
       search_is_not_what_im_using(:node)
     RUBY
   end

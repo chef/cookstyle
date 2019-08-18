@@ -29,7 +29,7 @@ RSpec.configure do |config|
     mocks.syntax = :expect # Disable `should_receive` and `stub`
   end
 
-  config.include(ExpectViolation)
+  config.include RuboCop::RSpec::ExpectOffense
 end
 
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))

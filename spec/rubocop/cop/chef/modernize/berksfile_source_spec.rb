@@ -20,28 +20,28 @@ describe RuboCop::Cop::Chef::LegacyBerksfileSource, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when using community.opscode.com' do
-    expect_violation(<<-RUBY)
+    expect_offense(<<-RUBY)
       source 'http://community.opscode.com/api/v3'
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Do not use legacy Berksfile community sources. Use Chef Supermarket instead.
     RUBY
   end
 
   it 'registers an offense when using api.berkshelf.com' do
-    expect_violation(<<-RUBY)
+    expect_offense(<<-RUBY)
       source 'https://api.berkshelf.com'
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Do not use legacy Berksfile community sources. Use Chef Supermarket instead.
     RUBY
   end
 
   it 'registers an offense when using supermarket.getchef.com' do
-    expect_violation(<<-RUBY)
+    expect_offense(<<-RUBY)
       source 'https://supermarket.getchef.com'
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Do not use legacy Berksfile community sources. Use Chef Supermarket instead.
     RUBY
   end
 
   it "doesn't register an offense when using supermarket.chef.io" do
-    expect_no_violations(<<-RUBY)
+    expect_no_offenses(<<-RUBY)
       source 'https://supermarket.chef.io'
     RUBY
   end

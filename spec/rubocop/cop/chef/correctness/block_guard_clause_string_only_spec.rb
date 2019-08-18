@@ -21,7 +21,7 @@ describe RuboCop::Cop::Chef::BlockGuardWithOnlyString do
   subject(:cop) { described_class.new }
 
   it 'registers an offense with a block guard that contains only a string' do
-    expect_violation(<<-RUBY)
+    expect_offense(<<-RUBY)
       template '/etc/foo' do
         mode '0644'
         source 'foo.erb'
@@ -32,7 +32,7 @@ describe RuboCop::Cop::Chef::BlockGuardWithOnlyString do
   end
 
   it 'does not register an offense with a valid block guard' do
-    expect_no_violations(<<-RUBY)
+    expect_no_offenses(<<-RUBY)
       template '/etc/foo' do
         mode '0644'
         source 'foo.erb'
@@ -42,7 +42,7 @@ describe RuboCop::Cop::Chef::BlockGuardWithOnlyString do
   end
 
   it 'does not register an offense with a valid string guard' do
-    expect_no_violations(<<-RUBY)
+    expect_no_offenses(<<-RUBY)
       template '/etc/foo' do
         mode '0644'
         source 'foo.erb'
