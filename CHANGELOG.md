@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.3.3 -->
-## [v5.3.3](https://github.com/chef/cookstyle/tree/v5.3.3) (2019-08-18)
+<!-- latest_release 5.3.4 -->
+## [v5.3.4](https://github.com/chef/cookstyle/tree/v5.3.4) (2019-08-18)
 
 #### Merged Pull Requests
-- Add auto correct specs where possible [#220](https://github.com/chef/cookstyle/pull/220) ([tas50](https://github.com/tas50))
+- Autocorrect Apache v2.0 license to Apache-2.0 [#221](https://github.com/chef/cookstyle/pull/221) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.2.17 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Autocorrect Apache v2.0 license to Apache-2.0 [#221](https://github.com/chef/cookstyle/pull/221) ([tas50](https://github.com/tas50)) <!-- 5.3.4 -->
 - Add auto correct specs where possible [#220](https://github.com/chef/cookstyle/pull/220) ([tas50](https://github.com/tas50)) <!-- 5.3.3 -->
 - Add Chef/DefinesChefSpecMatchers: cop [#216](https://github.com/chef/cookstyle/pull/216) ([tas50](https://github.com/tas50)) <!-- 5.3.2 -->
 - Use Rubocop::RSpec::ExpectOffense for better specs [#215](https://github.com/chef/cookstyle/pull/215) ([tas50](https://github.com/tas50)) <!-- 5.3.1 -->
