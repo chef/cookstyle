@@ -321,6 +321,13 @@ Chef/DefinesChefSpecMatchers:
   Include:
     - '**/libraries/*.rb'
 
+Chef/ExecuteAptUpdate:
+  Description: Use the apt_update resource instead of the execute resource to run an apt-get update package cache update
+  Enabled: true
+  VersionAdded: '5.3.0'
+  Exclude:
+    - '**/metadata.rb'
+
 ###############################
 # Detecting code that breaks Chef
 ###############################
