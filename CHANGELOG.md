@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.3.5 -->
-## [v5.3.5](https://github.com/chef/cookstyle/tree/v5.3.5) (2019-08-20)
+<!-- latest_release 5.3.6 -->
+## [v5.3.6](https://github.com/chef/cookstyle/tree/v5.3.6) (2019-08-20)
 
 #### Merged Pull Requests
-- Add Chef/ExecuteAptUpdate rule [#222](https://github.com/chef/cookstyle/pull/222) ([tas50](https://github.com/tas50))
+- Fix autocorrection of comments that are indented with more than one space [#223](https://github.com/chef/cookstyle/pull/223) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.2.17 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Fix autocorrection of comments that are indented with more than one space [#223](https://github.com/chef/cookstyle/pull/223) ([tas50](https://github.com/tas50)) <!-- 5.3.6 -->
 - Add Chef/ExecuteAptUpdate rule [#222](https://github.com/chef/cookstyle/pull/222) ([tas50](https://github.com/tas50)) <!-- 5.3.5 -->
 - Autocorrect Apache v2.0 license to Apache-2.0 [#221](https://github.com/chef/cookstyle/pull/221) ([tas50](https://github.com/tas50)) <!-- 5.3.4 -->
 - Add auto correct specs where possible [#220](https://github.com/chef/cookstyle/pull/220) ([tas50](https://github.com/tas50)) <!-- 5.3.3 -->
