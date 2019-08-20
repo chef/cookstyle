@@ -1,26 +1,24 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.3.6 -->
-## [v5.3.6](https://github.com/chef/cookstyle/tree/v5.3.6) (2019-08-20)
-
-#### Merged Pull Requests
-- Fix autocorrection of comments that are indented with more than one space [#223](https://github.com/chef/cookstyle/pull/223) ([tas50](https://github.com/tas50))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=5.2.17 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Fix autocorrection of comments that are indented with more than one space [#223](https://github.com/chef/cookstyle/pull/223) ([tas50](https://github.com/tas50)) <!-- 5.3.6 -->
-- Add Chef/ExecuteAptUpdate rule [#222](https://github.com/chef/cookstyle/pull/222) ([tas50](https://github.com/tas50)) <!-- 5.3.5 -->
-- Autocorrect Apache v2.0 license to Apache-2.0 [#221](https://github.com/chef/cookstyle/pull/221) ([tas50](https://github.com/tas50)) <!-- 5.3.4 -->
-- Add auto correct specs where possible [#220](https://github.com/chef/cookstyle/pull/220) ([tas50](https://github.com/tas50)) <!-- 5.3.3 -->
-- Add Chef/DefinesChefSpecMatchers: cop [#216](https://github.com/chef/cookstyle/pull/216) ([tas50](https://github.com/tas50)) <!-- 5.3.2 -->
-- Use Rubocop::RSpec::ExpectOffense for better specs [#215](https://github.com/chef/cookstyle/pull/215) ([tas50](https://github.com/tas50)) <!-- 5.3.1 -->
-- Add 3 new cops for detecting legacy recipes being included [#214](https://github.com/chef/cookstyle/pull/214) ([tas50](https://github.com/tas50)) <!-- 5.3.0 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v5.3.6](https://github.com/chef/cookstyle/tree/v5.3.6) (2019-08-20)
+
+#### Merged Pull Requests
+- Add 3 new cops for detecting legacy recipes being included [#214](https://github.com/chef/cookstyle/pull/214) ([tas50](https://github.com/tas50))
+- Use Rubocop::RSpec::ExpectOffense for better specs [#215](https://github.com/chef/cookstyle/pull/215) ([tas50](https://github.com/tas50))
+- Add Chef/DefinesChefSpecMatchers: cop [#216](https://github.com/chef/cookstyle/pull/216) ([tas50](https://github.com/tas50))
+- Add auto correct specs where possible [#220](https://github.com/chef/cookstyle/pull/220) ([tas50](https://github.com/tas50))
+- Autocorrect Apache v2.0 license to Apache-2.0 [#221](https://github.com/chef/cookstyle/pull/221) ([tas50](https://github.com/tas50))
+- Add Chef/ExecuteAptUpdate rule [#222](https://github.com/chef/cookstyle/pull/222) ([tas50](https://github.com/tas50))
+- Fix autocorrection of comments that are indented with more than one space [#223](https://github.com/chef/cookstyle/pull/223) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v5.2.17](https://github.com/chef/cookstyle/tree/v5.2.17) (2019-08-15)
 
 #### Merged Pull Requests
@@ -43,7 +41,6 @@
 - Add Cookstyle 5.2 release notes [#182](https://github.com/chef/cookstyle/pull/182) ([tas50](https://github.com/tas50))
 - Add Chef/CustomResourceWithAttributes cop [#193](https://github.com/chef/cookstyle/pull/193) ([tas50](https://github.com/tas50))
 - Add Chef/CustomResourceWithAllowedActions [#192](https://github.com/chef/cookstyle/pull/192) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v5.1.19](https://github.com/chef/cookstyle/tree/v5.1.19) (2019-08-08)
 
