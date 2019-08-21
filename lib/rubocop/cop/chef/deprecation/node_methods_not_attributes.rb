@@ -39,7 +39,7 @@ module RuboCop
         MSG = 'Use node attributes to access Ohai data instead of node methods, which were deprecated in Chef Infra Client 13.'.freeze
 
         def_node_matcher :node_ohai_methods?, <<-PATTERN
-          (send (send nil? :node) ${:fqdn :platform :platform_version :platform_family :hostname})
+          (send (send nil? :node) #non_nested_ohai_attribute?)
         PATTERN
 
         def on_send(node)
@@ -52,6 +52,31 @@ module RuboCop
           lambda do |corrector|
             corrector.replace(node.loc.expression, "node['#{node.method_name}']")
           end
+        end
+
+        private
+
+        def non_nested_ohai_attribute?(attribute)
+          %i(
+            current_user
+            domain
+            fqdn
+            hostname
+            ip6address
+            ipaddress
+            macaddress
+            machinename
+            ohai_time
+            os
+            os_version
+            platform
+            platform_build
+            platform_family
+            platform_version
+            root_group
+            shard_seed
+            uptime
+            uptime_seconds).include?(attribute)
         end
       end
     end
