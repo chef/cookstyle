@@ -205,6 +205,13 @@ Chef/RequireRecipe:
   Enabled: true
   VersionAdded: '5.2.0'
 
+Chef/NodeMethodsInsteadofAttributes:
+  Description: Use node attributes to access Ohai data instead of node methods, which were deprecated in Chef Infra Client 13.
+  Enabled: true
+  VersionAdded: '5.4.0'
+  Exclude:
+    - '**/metadata.rb'
+
 ###############################
 # Cleaning up Legacy Code
 ###############################
