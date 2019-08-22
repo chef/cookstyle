@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      # The :nothing action is often typo'd as :nothing
+      # The :nothing action is often typo'd as :none
       #
       # @example
       #
