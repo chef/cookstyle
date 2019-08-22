@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.4.0 -->
-## [v5.4.0](https://github.com/chef/cookstyle/tree/v5.4.0) (2019-08-21)
+<!-- latest_release 5.4.1 -->
+## [v5.4.1](https://github.com/chef/cookstyle/tree/v5.4.1) (2019-08-22)
 
 #### Merged Pull Requests
-- Add Chef/NodeMethodsInsteadofAttributes cop [#224](https://github.com/chef/cookstyle/pull/224) ([tas50](https://github.com/tas50))
+- Avoid scanning metadata.rb files for rules that don&#39;t apply there [#225](https://github.com/chef/cookstyle/pull/225) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.3.6 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Avoid scanning metadata.rb files for rules that don&#39;t apply there [#225](https://github.com/chef/cookstyle/pull/225) ([tas50](https://github.com/tas50)) <!-- 5.4.1 -->
 - Add Chef/NodeMethodsInsteadofAttributes cop [#224](https://github.com/chef/cookstyle/pull/224) ([tas50](https://github.com/tas50)) <!-- 5.4.0 -->
 <!-- release_rollup -->
 
