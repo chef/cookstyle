@@ -37,6 +37,8 @@ Chef/AttributeKeys:
   SupportedStyles:
   - strings
   - symbols
+  Exclude:
+    - '**/metadata.rb'
 
 Chef/CopyrightCommentFormat:
   Description: Properly format copyright dates in comment blocks and ensure dates are up to date
@@ -61,26 +63,36 @@ Chef/FileMode:
   Description: Use strings to represent file modes in Chef resources
   Enabled: true
   VersionAdded: '5.0.0'
+  Exclude:
+    - '**/metadata.rb'
 
 Chef/ServiceResource:
   Description: Use a service resource to start and stop services instead of execute resources
   Enabled: true
   VersionAdded: '5.0.0'
+  Exclude:
+    - '**/metadata.rb'
 
 Chef/NodeNormal:
   Description: Do not use the node.normal method
   Enabled: true
   VersionAdded: '5.1.0'
+  Exclude:
+    - '**/metadata.rb'
 
 Chef/NodeNormalUnless:
   Description: Do not use the node.normal_unless method
   Enabled: true
   VersionAdded: '5.1.0'
+  Exclude:
+    - '**/metadata.rb'
 
 Chef/TmpPath:
   Description: Use file_cache_path rather than hard-coding tmp paths
   Enabled: true
   VersionAdded: '5.0.0'
+  Exclude:
+    - '**/metadata.rb'
 
 Chef/InsecureCookbookURL:
   Description: Insecure http Github or Gitlab URLs for metadata source_url/issues_url fields
@@ -116,16 +128,22 @@ Chef/NodeSet:
   Description: Do not use the deprecated node.set method
   Enabled: true
   VersionAdded: '5.0.0'
+  Exclude:
+    - '**/metadata.rb'
 
 Chef/NodeSetUnless:
   Description: Do not use the deprecated node.set_unless method
   Enabled: true
   VersionAdded: '5.1.0'
+  Exclude:
+    - '**/metadata.rb'
 
 Chef/EpicFail:
   Description: Use ignore_failure method instead of the deprecated epic_fail method
   Enabled: true
   VersionAdded: '5.1.0'
+  Exclude:
+    - '**/metadata.rb'
 
 Chef/CookbookDependsOnPoise:
   Description: Cookbooks should not depend on the deprecated Poise framework
@@ -194,16 +212,22 @@ Chef/EasyInstallResource:
   Description: Don't use the deprecated easy_install resource resource removed in Chef 13
   Enabled: true
   VersionAdded: '5.1.0'
+  Exclude:
+    - '**/metadata.rb'
 
 Chef/ErlCallResource:
   Description: Don't use the deprecated erl_call resource removed in Chef 13
   Enabled: true
   VersionAdded: '5.1.0'
+  Exclude:
+    - '**/metadata.rb'
 
 Chef/RequireRecipe:
   Description: Use include_recipe instead of the require_recipe method
   Enabled: true
   VersionAdded: '5.2.0'
+  Exclude:
+    - '**/metadata.rb'
 
 Chef/NodeMethodsInsteadofAttributes:
   Description: Use node attributes to access Ohai data instead of node methods, which were deprecated in Chef Infra Client 13.
