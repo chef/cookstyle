@@ -359,6 +359,27 @@ Chef/ExecuteAptUpdate:
   Exclude:
     - '**/metadata.rb'
 
+Chef/WindowsZipfileUsage:
+  Description: Use the archive_file resource built into Chef Infra Client 15+ instead of the windows_zipfile from the Windows cookbook
+  Enabled: true
+  VersionAdded: '5.4.0'
+  Exclude:
+    - '**/metadata.rb'
+
+Chef/WindowsVersionHelper:
+  Description: Use node['platform_version'] data instead of the Windows::VersionHelper helper from the Windows cookbook.
+  Enabled: true
+  VersionAdded: '5.4.0'
+  Exclude:
+    - '**/metadata.rb'
+
+Chef/MinitestHandlerUsage:
+  Description: Use Chef InSpec for testing instead of the Minitest Handler cookbook pattern.
+  Enabled: true
+  VersionAdded: '5.4.0'
+  Include:
+    - '**/metadata.rb'
+
 ###############################
 # Detecting code that breaks Chef
 ###############################
