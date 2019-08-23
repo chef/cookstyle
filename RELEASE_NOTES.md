@@ -36,7 +36,7 @@ The `IncludingYumDNFCompatRecipe` detects cookbooks that include the `yum::dnf_y
 
 #### Chef/DefinesChefSpecMatchers
 
-The `DefinesChefSpecMatchers` detects cookbooks that ship ChefSpec matchers. ChefSpec 7.1 and later automatically generate ChefSpec matchers for testing resources, so these no longer need to be shipped with cookbooks.
+The `DefinesChefSpecMatchers` detects cookbooks that ship ChefSpec matchers. ChefSpec 7.1 and later automatically generate ChefSpec matchers for testing resources, so these ChefSpec matchers no longer need to be shipped with cookbooks.
 
 `Enabled by default`: True
 
