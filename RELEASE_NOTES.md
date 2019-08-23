@@ -1,3 +1,53 @@
+## Cookstyle 5.3
+
+### New Chef Cops
+
+#### Chef/IncludingAptDefaultRecipe
+
+The `IncludingAptDefaultRecipe` cop detects cookbooks that include the `apt::default` cookbook in order to run the `apt-get update` command. Users should use Chef Infra Client's built in `apt_update` resource instead.
+
+`Enabled by default`: True
+
+`Autocorrects`: No, due to potential notifications to these resources, which need to be updated.
+
+#### Chef/ExecuteAptUpdate
+
+The `ExecuteAptUpdate` cop detects the use of an `execute` resource to run the `apt-get update` command. Users should use Chef Infra Client's built in `apt_update` resource instead.
+
+`Enabled by default`: True
+
+`Autocorrects`: No, due to potential notifications to these resources, which need to be updated.
+
+#### Chef/IncludingWindowsDefaultRecipe
+
+The `IncludingWindowsDefaultRecipe` detects cookbooks that include the `windows::default` recipe. This recipe installs gems that ship as part of Chef Infra Client 12.0+ and do not need to be installed again.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### Chef/IncludingYumDNFCompatRecipe
+
+The `IncludingYumDNFCompatRecipe` detects cookbooks that include the `yum::dnf_yum_compat` recipe in order to install yum libraries on systems that use DNF as their default package manager. Chef Infra Client 12.18 and later support the native installation of packages using DNF.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### Chef/DefinesChefSpecMatchers
+
+The `DefinesChefSpecMatchers` detects cookbooks that ship ChefSpec matchers. ChefSpec 7.1 and later automatically generate ChefSpec matchers for testing resources, so these ChefSpec matchers no longer need to be shipped with cookbooks.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes. This may result in an empty `libraries/matchers.rb` file, which can then be deleted.
+
+### Other fixes and changes
+
+- Chef/InvalidLicenseString now auto-corrects `Apache v2.0` to `Apache-2.0`
+- Chef/CommentFormat better handles leading spaces in comments when auto-correcting
+- Testing has been expanded to include testing of auto-correct functionality
+
 ## Cookstyle 5.2
 
 ### New Chef Cops
