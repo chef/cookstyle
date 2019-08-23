@@ -16,7 +16,7 @@ The `ExecuteAptUpdate` cop detects the use of an `execute` resource to run the `
 
 `Enabled by default`: True
 
-`Autocorrects`: No due to potential notifications to these resources, which need to be updated.
+`Autocorrects`: No, due to potential notifications to these resources, which need to be updated.
 
 #### Chef/IncludingWindowsDefaultRecipe
 
