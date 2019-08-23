@@ -8,7 +8,7 @@ The `IncludingAptDefaultRecipe` cop detects cookbooks that include the `apt::def
 
 `Enabled by default`: True
 
-`Autocorrects`: No due to potential notifications to these resources, which need to be updated.
+`Autocorrects`: No, due to potential notifications to these resources, which need to be updated.
 
 #### Chef/ExecuteAptUpdate
 
