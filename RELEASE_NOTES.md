@@ -40,7 +40,7 @@ The `DefinesChefSpecMatchers` detects cookbooks that ship ChefSpec matchers. Che
 
 `Enabled by default`: True
 
-`Autocorrects`: Yes. This may result in an empty `libraries/matchers.rb` file which can then be deleted.
+`Autocorrects`: Yes. This may result in an empty `libraries/matchers.rb` file, which can then be deleted.
 
 ### Other fixes and changes
 
