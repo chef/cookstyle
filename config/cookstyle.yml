@@ -55,6 +55,13 @@ Chef/CommentFormat:
   Enabled: true
   VersionAdded: '5.0.0'
 
+Chef/DefaultMetadataMaintainer:
+  Description: Metadata contains default maintainer information from the cookbook generator. Add actual cookbook maintainer information to the metadata.rb.
+  Enabled: true
+  VersionAdded: '5.4.0'
+  Include:
+    - '**/metadata.rb'
+
 ###############################
 # Avoiding potential problems
 ###############################
