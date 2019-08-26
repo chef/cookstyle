@@ -40,6 +40,16 @@ module RuboCop
         end
 
         def_node_search :cb_name, '(send nil? :name str ...)'
+
+        def autocorrect(_node)
+          lambda do |_corrector|
+            path = processed_source.path
+            cb_name = File.basename(File.dirname(path))
+
+            metadata = IO.read(path)
+            IO.write(path, "name '#{cb_name}'\n" + metadata)
+          end
+        end
       end
     end
   end
