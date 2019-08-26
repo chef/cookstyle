@@ -247,9 +247,16 @@ Chef/UsesDeprecatedMixins:
   Description: Don't use deprecated Mixins no longer included in Chef Infra Client 14 and later.
   Enabled: true
   VersionAdded: '5.4.0'
-  # Include:
-  #   - '**/libraries/*.rb'
-  #   - '**/providers/*.rb'
+  Include:
+    - '**/libraries/*.rb'
+    - '**/providers/*.rb'
+
+Chef/LegacyYumCookbookRecipes:
+  Description: The elrepo, epel, ius, remi, and repoforge recipes were split into their own cookbooks and the yum recipe was renamed to be default with the release of yum cookbook 3.0 (Dec 2013).
+  Enabled: true
+  VersionAdded: '5.4.0'
+  Exclude:
+    - '**/metadata.rb'
 
 ###############################
 # Cleaning up Legacy Code
@@ -393,6 +400,20 @@ Chef/MinitestHandlerUsage:
   Enabled: true
   VersionAdded: '5.4.0'
   Include:
+    - '**/metadata.rb'
+
+Chef/IncludingOhaiDefaultRecipe:
+  Description: Use the ohai_plugin resource to ship custom Ohai plugins instead of using the ohai::default recipe. If you're not shipping custom Ohai plugins, then you can remove this recipe entirely.
+  Enabled: true
+  VersionAdded: '5.4.0'
+  Exclude:
+    - '**/metadata.rb'
+
+Chef/IncludingXMLRubyRecipe:
+  Description: The xml::ruby recipe installs nokogiri which is included in Chef Infra Client 12 and later.
+  Enabled: true
+  VersionAdded: '5.4.0'
+  Exclude:
     - '**/metadata.rb'
 
 ###############################
