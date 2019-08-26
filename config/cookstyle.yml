@@ -236,6 +236,14 @@ Chef/NodeMethodsInsteadofAttributes:
   Exclude:
     - '**/metadata.rb'
 
+Chef/UsesDeprecatedMixins:
+  Description: Don't use deprecated Mixins no longer included in Chef Infra Client 14 and later.
+  Enabled: true
+  VersionAdded: '5.4.0'
+  # Include:
+  #   - '**/libraries/*.rb'
+  #   - '**/providers/*.rb'
+
 ###############################
 # Cleaning up Legacy Code
 ###############################
