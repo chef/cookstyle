@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.4.4 -->
-## [v5.4.4](https://github.com/chef/cookstyle/tree/v5.4.4) (2019-08-26)
+<!-- latest_release 5.4.5 -->
+## [v5.4.5](https://github.com/chef/cookstyle/tree/v5.4.5) (2019-08-26)
 
 #### Merged Pull Requests
-- Add Chef/UsesDeprecatedMixins [#243](https://github.com/chef/cookstyle/pull/243) ([tas50](https://github.com/tas50))
+- Add Chef/DefaultMetadataMaintainer [#242](https://github.com/chef/cookstyle/pull/242) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.3.6 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add Chef/DefaultMetadataMaintainer [#242](https://github.com/chef/cookstyle/pull/242) ([tas50](https://github.com/tas50)) <!-- 5.4.5 -->
 - Add Chef/UsesDeprecatedMixins [#243](https://github.com/chef/cookstyle/pull/243) ([tas50](https://github.com/tas50)) <!-- 5.4.4 -->
 - Add autocorrect to MetadataMissingName [#244](https://github.com/chef/cookstyle/pull/244) ([tas50](https://github.com/tas50)) <!-- 5.4.3 -->
 - Add Chef/MinitestHandlerUsage Chef/WindowsVersionHelper Chef/WindowsZipfileUsage [#237](https://github.com/chef/cookstyle/pull/237) ([tas50](https://github.com/tas50)) <!-- 5.4.2 -->
