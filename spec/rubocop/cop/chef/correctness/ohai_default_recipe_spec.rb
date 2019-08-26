@@ -26,6 +26,13 @@ describe RuboCop::Cop::Chef::IncludingOhaiDefaultRecipe, :config do
     RUBY
   end
 
+  it 'registers an offense when a recipe includes "ohai"' do
+    expect_offense(<<~RUBY)
+      include_recipe 'ohai'
+      ^^^^^^^^^^^^^^^^^^^^^ Use the ohai_plugin resource to ship custom Ohai plugins instead of using the ohai::default recipe. If you're not shipping custom Ohai plugins, then you can remove this recipe entirely
+    RUBY
+  end
+
   it "doesn't register an offense when a recipe includes another recipe" do
     expect_no_offenses(<<~RUBY)
       include_recipe 'ohai::other_thing'
