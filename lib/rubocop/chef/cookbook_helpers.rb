@@ -17,9 +17,9 @@ module RuboCop
         # bail out if we're not in the resource we care about or nil was passed (all resources)
         return unless resource_name.nil? || node.children.first.method?(resource_name.to_sym) # see if we're in the right resource
 
-        if node.children[2] && node.children[2].begin_type? # nil would be an empty block. begin_type is the parent of our properties
-          node.children[2].children.each do |property|
-            extract_properties(property) do |p|
+        if node.children[2] && node.children[2].begin_type? # nil would be an empty block. begin_type is the parent of all our properties
+          node.children[2].children.each do |block_child_node|
+            conditional_branches(block_child_node) do |p|
               yield(p) if p.method_name == property_name.to_sym
             end
           end
@@ -28,12 +28,16 @@ module RuboCop
 
       private
 
-      def extract_properties(node)
+      def conditional_branches(node)
         yield(node) if node.send_type?
-        if node.conditional?
-          node.branches.each do |n|
-            yield(n)
-          end
+
+        if node.basic_conditional? # if else while
+          node.branches.each { |n| yield(n) }
+        end
+
+        if node.case_type? # case conditionals don't have the branches helper method :(
+          node.when_branches.each { |n| yield(n.body) } unless node.when_branches.nil?
+          node.else_branch.each { |n| yield(n.body) } unless node.else_branch.nil?
         end
       end
     end
