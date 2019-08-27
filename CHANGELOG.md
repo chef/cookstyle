@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.4.5 -->
-## [v5.4.5](https://github.com/chef/cookstyle/tree/v5.4.5) (2019-08-26)
+<!-- latest_release 5.4.6 -->
+## [v5.4.6](https://github.com/chef/cookstyle/tree/v5.4.6) (2019-08-27)
 
 #### Merged Pull Requests
-- Add Chef/DefaultMetadataMaintainer [#242](https://github.com/chef/cookstyle/pull/242) ([tas50](https://github.com/tas50))
+- Add Chef/IncludingOhaiDefaultRecipe Chef/IncludingXMLRubyRecipe &amp; Chef/LegacyYumCookbookRecipes [#246](https://github.com/chef/cookstyle/pull/246) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.3.6 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add Chef/IncludingOhaiDefaultRecipe Chef/IncludingXMLRubyRecipe &amp; Chef/LegacyYumCookbookRecipes [#246](https://github.com/chef/cookstyle/pull/246) ([tas50](https://github.com/tas50)) <!-- 5.4.6 -->
 - Add Chef/DefaultMetadataMaintainer [#242](https://github.com/chef/cookstyle/pull/242) ([tas50](https://github.com/tas50)) <!-- 5.4.5 -->
 - Add Chef/UsesDeprecatedMixins [#243](https://github.com/chef/cookstyle/pull/243) ([tas50](https://github.com/tas50)) <!-- 5.4.4 -->
 - Add autocorrect to MetadataMissingName [#244](https://github.com/chef/cookstyle/pull/244) ([tas50](https://github.com/tas50)) <!-- 5.4.3 -->
