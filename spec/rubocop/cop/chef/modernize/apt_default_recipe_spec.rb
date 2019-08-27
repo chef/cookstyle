@@ -19,7 +19,7 @@ require 'spec_helper'
 describe RuboCop::Cop::Chef::IncludingAptDefaultRecipe, :config do
   subject(:cop) { described_class.new(config) }
 
-  it 'registers an when including the "apt" recipe' do
+  it 'registers an offense when including the "apt" recipe' do
     expect_offense(<<~RUBY)
       include_recipe 'apt'
       ^^^^^^^^^^^^^^^^^^^^ Do not include the Apt default recipe to update package cache. Instead use the apt_update resource, which is built into Chef Infra Client 12.7 and later.

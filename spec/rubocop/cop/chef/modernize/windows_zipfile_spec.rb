@@ -19,7 +19,7 @@ require 'spec_helper'
 describe RuboCop::Cop::Chef::WindowsZipfileUsage, :config do
   subject(:cop) { described_class.new(config) }
 
-  it 'registers an when including the "build-essential" recipe' do
+  it 'registers an offense when including the "build-essential" recipe' do
     expect_offense(<<~RUBY)
       windows_zipfile 'Precompiled.zip' do
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the archive_file resource built into Chef Infra Client 15+ instead of the windows_zipfile from the Windows cookbook

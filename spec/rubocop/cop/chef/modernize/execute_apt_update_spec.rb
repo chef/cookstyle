@@ -19,7 +19,7 @@ require 'spec_helper'
 describe RuboCop::Cop::Chef::ExecuteAptUpdate, :config do
   subject(:cop) { described_class.new(config) }
 
-  it 'registers an when using execute to run apt-get update' do
+  it 'registers an offense when using execute to run apt-get update' do
     expect_offense(<<~RUBY)
     execute 'apt-get update' do
     ^^^^^^^^^^^^^^^^^^^^^^^^ Use the apt_update resource instead of the execute resource to run an apt-get update package cache update

@@ -19,7 +19,7 @@ require 'spec_helper'
 describe RuboCop::Cop::Chef::IncludingWindowsDefaultRecipe, :config do
   subject(:cop) { described_class.new(config) }
 
-  it 'registers an when including the "windows" recipe' do
+  it 'registers an offense when including the "windows" recipe' do
     expect_offense(<<~RUBY)
       include_recipe 'windows'
       ^^^^^^^^^^^^^^^^^^^^^^^^ Do not include the Windows default recipe, which only installs win32 gems already included in Chef Infra Client

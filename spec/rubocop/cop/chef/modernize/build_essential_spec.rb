@@ -19,7 +19,7 @@ require 'spec_helper'
 describe RuboCop::Cop::Chef::UseBuildEssentialResource, :config do
   subject(:cop) { described_class.new(config) }
 
-  it 'registers an when including the "build-essential" recipe' do
+  it 'registers an offense when including the "build-essential" recipe' do
     expect_offense(<<~RUBY)
       include_recipe 'build-essential'
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the build_essential resource instead of the legacy build-essential recipe. This resource ships in the build-essential cookbook v5.0+ and is built into Chef Infra Client 14+
