@@ -27,7 +27,7 @@ module RuboCop
       #   include Chef::Mixin::ShellOut
 
       class IncludingMixinShelloutInResources < Cop
-        MSG = "There is no need to include Chef::Mixin::ShellOut in resources or providers as this is already done by Chef Infra Client.".freeze
+        MSG = 'There is no need to include Chef::Mixin::ShellOut in resources or providers as this is already done by Chef Infra Client.'.freeze
 
         def_node_matcher :include_shellout?, <<-PATTERN
           (send nil? :include (const (const (const nil? :Chef) :Mixin) :ShellOut))

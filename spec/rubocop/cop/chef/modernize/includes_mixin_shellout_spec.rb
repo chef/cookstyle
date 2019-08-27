@@ -19,9 +19,6 @@ require 'spec_helper'
 describe RuboCop::Cop::Chef::IncludingMixinShelloutInResources, :config do
   subject(:cop) { described_class.new(config) }
 
-      #
-      #   include Chef::Mixin::ShellOut
-
   it 'registers an error when requiring "chef/mixin/shell_out"' do
     expect_offense(<<~RUBY)
     require 'chef/mixin/shell_out'
