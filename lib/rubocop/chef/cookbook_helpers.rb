@@ -13,6 +13,7 @@ module RuboCop
       def match_property_in_resource?(resource_name, property_name, node)
         return unless node.block_type? # resources are blocks if they have properties
         return unless node.children.first.receiver.nil? # resource blocks don't have a receiver
+        return if node.send_node.arguments.first.is_a?(RuboCop::AST::SymbolNode) # resources have a string name. resource actions have symbols
 
         # bail out if we're not in the resource we care about or nil was passed (all resources)
         return unless resource_name.nil? || node.children.first.method?(resource_name.to_sym) # see if we're in the right resource
