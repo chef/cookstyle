@@ -1,6 +1,33 @@
+## Unreleased
+
+### 9 New Chef Cops
+
+#### Chef/IncludingOhaiDefaultRecipe
+
+#### Chef/IncludingXMLRubyRecipe
+
+#### Chef/LegacyYumCookbookRecipes
+
+#### Chef/DefaultMetadataMaintainer
+
+#### Chef/UsesDeprecatedMixins
+
+#### Chef/MinitestHandlerUsage
+
+#### Chef/WindowsVersionHelper
+
+#### Chef/WindowsZipfileUsage
+
+#### Chef/NodeMethodsInsteadofAttributes
+
+### Other fixes and changes
+
+- Multiple cops will now skip scanning metadata.rb to speed up cookstyle runs
+- Chef/MetadataMissingName now supports autocorrecting. The folder containing the metadata.rb will be used as the cookbook name if it's missing from metdata.rb
+
 ## Cookstyle 5.3
 
-### New Chef Cops
+### 5 New Chef Cops
 
 #### Chef/IncludingAptDefaultRecipe
 
