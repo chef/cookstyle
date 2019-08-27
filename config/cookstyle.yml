@@ -251,6 +251,14 @@ Chef/UsesDeprecatedMixins:
     - '**/libraries/*.rb'
     - '**/providers/*.rb'
 
+Chef/IncludingMixinShelloutInResources:
+  Description: There is no need to include Chef::Mixin::ShellOut in resources or providers as this is already done by Chef Infra Client.
+  Enabled: true
+  VersionAdded: '5.4.0'
+  Include:
+    - '**/resources/*.rb'
+    - '**/providers/*.rb'
+
 Chef/LegacyYumCookbookRecipes:
   Description: The elrepo, epel, ius, remi, and repoforge recipes were split into their own cookbooks and the yum recipe was renamed to be default with the release of yum cookbook 3.0 (Dec 2013).
   Enabled: true

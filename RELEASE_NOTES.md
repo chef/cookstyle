@@ -1,6 +1,6 @@
 ## Unreleased
 
-### 9 New Chef Cops
+### 10 New Chef Cops
 
 #### Chef/IncludingOhaiDefaultRecipe
 
@@ -19,6 +19,8 @@
 #### Chef/WindowsZipfileUsage
 
 #### Chef/NodeMethodsInsteadofAttributes
+
+#### Chef/IncludingMixinShelloutInResources
 
 ### Other fixes and changes
 
