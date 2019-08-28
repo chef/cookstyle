@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      # Make sure a cookbook doesn't depend on itself
+      # Make sure a cookbook doesn't depend on itself. This will fail on Chef Infra Client 13+
       #
       # @example
       #
@@ -30,7 +30,7 @@ module RuboCop
       #   name 'foo'
       #
       class CookbooksDependsOnSelf < Cop
-        MSG = 'A cookbook cannot depend on itself'.freeze
+        MSG = 'A cookbook cannot depend on itself. This will fail on Chef Infra Client 13+'.freeze
 
         def_node_search :dependencies, '(send nil? :depends str ...)'
         def_node_matcher :cb_name?, '(send nil? :name str ...)'

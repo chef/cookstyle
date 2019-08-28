@@ -19,7 +19,8 @@ module RuboCop
     module Chef
       # When using properties in a custom resource you shouldn't set a property to
       # required and then provide a default value. If a property is required the
-      # user will always pass in a value and the default will never be used.
+      # user will always pass in a value and the default will never be used. In Chef
+      # Infra Client 13+ this became an error.
       #
       # @example
       #
@@ -30,7 +31,7 @@ module RuboCop
       #   property :bob, String, required: true
       #
       class PropertyWithRequiredAndDefault < Cop
-        MSG = 'Resource property should not be both required and have a default value'.freeze
+        MSG = 'Resource property should not be both required and have a default value. This will fail on Chef Infra Client 13+'.freeze
 
         def on_send(node)
           if required_property?(node) && property_has_default?(node)

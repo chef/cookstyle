@@ -22,7 +22,7 @@ describe RuboCop::Cop::Chef::CookbooksDependsOnSelf, :config do
   it 'registers an offense when a cookbook depends on itself' do
     expect_offense(<<~RUBY)
       depends 'foo'
-      ^^^^^^^^^^^^^ A cookbook cannot depend on itself
+      ^^^^^^^^^^^^^ A cookbook cannot depend on itself. This will fail on Chef Infra Client 13+
       name 'foo'
     RUBY
 
