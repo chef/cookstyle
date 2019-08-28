@@ -416,6 +416,15 @@ Chef/IncludingXMLRubyRecipe:
   Exclude:
     - '**/metadata.rb'
 
+Chef/UseInlineResourcesDefined:
+  Description: use_inline_resources is now the default for resources in Chef Infra Client 13+ and does not need to be specified.
+  Enabled: true
+  VersionAdded: '5.4.0'
+  Include:
+    - '**/libraries/*.rb'
+    - '**/providers/*.rb'
+    - '**/resources/*.rb'
+
 ###############################
 # Detecting code that breaks Chef
 ###############################
