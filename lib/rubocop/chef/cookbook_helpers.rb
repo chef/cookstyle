@@ -18,27 +18,32 @@ module RuboCop
         # bail out if we're not in the resource we care about or nil was passed (all resources)
         return unless resource_name.nil? || node.children.first.method?(resource_name.to_sym) # see if we're in the right resource
 
-        if node.children[2] && node.children[2].begin_type? # nil would be an empty block. begin_type is the parent of all our properties
-          node.children[2].children.each do |block_child_node|
-            conditional_branches(block_child_node) do |p|
+        resource_block = node.children[2] # the 3rd child is the actual block in the resource
+        return unless resource_block # nil would be an empty block
+        if resource_block.begin_type? # if begin_type we need to iterate over the children
+          resource_block.children.each do |resource_blk_child|
+            extract_send_types(resource_blk_child) do |p|
               yield(p) if p.method_name == property_name.to_sym
             end
+          end
+        else # there's only a single property to check
+          extract_send_types(resource_block) do |p|
+            yield(p) if p.method_name == property_name.to_sym
           end
         end
       end
 
       private
 
-      def conditional_branches(node)
-        yield(node) if node.send_type?
-
-        if node.basic_conditional? # if else while
-          node.branches.each { |n| yield(n) }
-        end
-
-        if node.case_type? # case conditionals don't have the branches helper method :(
-          node.when_branches.each { |n| yield(n.body) } unless node.when_branches.nil?
-          node.else_branch.each { |n| yield(n.body) } unless node.else_branch.nil?
+      def extract_send_types(node)
+        case node.type
+        when :send
+          yield(node)
+        when :if, :while
+          node.branches.each { |n| extract_send_types(n) { |t| yield(t) } }
+        when :case
+          node.when_branches.each { |n| extract_send_types(n.body) { |t| yield(t) } } # unless node.when_branches.nil?
+          extract_send_types(node.else_branch) { |t| yield(t) } if node.else_branch
         end
       end
     end
