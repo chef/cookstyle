@@ -36,6 +36,7 @@ module RuboCop
       private
 
       def extract_send_types(node)
+        return if node.nil? # there are cases we can be passed an empty node
         case node.type
         when :send
           yield(node)
