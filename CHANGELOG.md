@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.4.12 -->
-## [v5.4.12](https://github.com/chef/cookstyle/tree/v5.4.12) (2019-08-29)
+<!-- latest_release 5.4.13 -->
+## [v5.4.13](https://github.com/chef/cookstyle/tree/v5.4.13) (2019-08-29)
 
 #### Merged Pull Requests
-- Add spec for Chef/PropertyWithRequiredAndDefault [#263](https://github.com/chef/cookstyle/pull/263) ([tas50](https://github.com/tas50))
+- Remove old spec helpers leftover from rubocop-rspec [#265](https://github.com/chef/cookstyle/pull/265) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.3.6 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Remove old spec helpers leftover from rubocop-rspec [#265](https://github.com/chef/cookstyle/pull/265) ([tas50](https://github.com/tas50)) <!-- 5.4.13 -->
 - Add spec for Chef/PropertyWithRequiredAndDefault [#263](https://github.com/chef/cookstyle/pull/263) ([tas50](https://github.com/tas50)) <!-- 5.4.12 -->
 - Add Chef/IncludingMixinShelloutInResources cop [#249](https://github.com/chef/cookstyle/pull/249) ([tas50](https://github.com/tas50)) <!-- 5.4.11 -->
 - Exclude the files directory for scans [#248](https://github.com/chef/cookstyle/pull/248) ([tas50](https://github.com/tas50)) <!-- 5.4.10 -->
