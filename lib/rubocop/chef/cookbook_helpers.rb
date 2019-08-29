@@ -40,7 +40,9 @@ module RuboCop
         case node.type
         when :send
           yield(node)
-        when :if, :while
+        when :while
+          extract_send_types(node.body) { |t| yield(t) }
+        when :if
           node.branches.each { |n| extract_send_types(n) { |t| yield(t) } }
         when :case
           node.when_branches.each { |n| extract_send_types(n.body) { |t| yield(t) } } # unless node.when_branches.nil?
