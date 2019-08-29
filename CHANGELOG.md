@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.4.6 -->
-## [v5.4.6](https://github.com/chef/cookstyle/tree/v5.4.6) (2019-08-27)
+<!-- latest_release 5.4.7 -->
+## [v5.4.7](https://github.com/chef/cookstyle/tree/v5.4.7) (2019-08-29)
 
 #### Merged Pull Requests
-- Add Chef/IncludingOhaiDefaultRecipe Chef/IncludingXMLRubyRecipe &amp; Chef/LegacyYumCookbookRecipes [#246](https://github.com/chef/cookstyle/pull/246) ([tas50](https://github.com/tas50))
+- Improve error messages in CookbooksDependsOnSelf &amp; PropertyWithRequiredAndDefault [#262](https://github.com/chef/cookstyle/pull/262) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.3.6 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Improve error messages in CookbooksDependsOnSelf &amp; PropertyWithRequiredAndDefault [#262](https://github.com/chef/cookstyle/pull/262) ([tas50](https://github.com/tas50)) <!-- 5.4.7 -->
 - Add Chef/IncludingOhaiDefaultRecipe Chef/IncludingXMLRubyRecipe &amp; Chef/LegacyYumCookbookRecipes [#246](https://github.com/chef/cookstyle/pull/246) ([tas50](https://github.com/tas50)) <!-- 5.4.6 -->
 - Add Chef/DefaultMetadataMaintainer [#242](https://github.com/chef/cookstyle/pull/242) ([tas50](https://github.com/tas50)) <!-- 5.4.5 -->
 - Add Chef/UsesDeprecatedMixins [#243](https://github.com/chef/cookstyle/pull/243) ([tas50](https://github.com/tas50)) <!-- 5.4.4 -->
