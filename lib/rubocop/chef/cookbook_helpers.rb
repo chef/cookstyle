@@ -39,7 +39,7 @@ module RuboCop
         return if node.nil? # there are cases we can be passed an empty node
         case node.type
         when :send
-          yield(node)
+          yield(node) if node.receiver.nil? # if it's not nil then we're not in a property foo we're in bar.foo
         when :while
           extract_send_types(node.body) { |t| yield(t) }
         when :if
