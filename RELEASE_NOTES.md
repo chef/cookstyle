@@ -2,7 +2,7 @@
 
 ### 11 New Chef Cops
 
-### Chef/UseInlineResourcesDefined
+#### Chef/UseInlineResourcesDefined
 
 #### Chef/IncludingOhaiDefaultRecipe
 
