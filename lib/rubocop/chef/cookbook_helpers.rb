@@ -15,6 +15,11 @@ module RuboCop
         return unless node.children.first.receiver.nil? # resource blocks don't have a receiver
         return if node.send_node.arguments.first.is_a?(RuboCop::AST::SymbolNode) # resources have a string name. resource actions have symbols
 
+        # bail if the block doesn't have a name a resource *generally* has a name.
+        # This isn't 100% true with things like apt_update and build_essential, but we'll live
+        # with that for now to avoid the false positives of getting stuck in generic blocks in resources
+        return if node.children.first.arguments.empty?
+
         # bail out if we're not in the resource we care about or nil was passed (all resources)
         return unless resource_name.nil? || node.children.first.method?(resource_name.to_sym) # see if we're in the right resource
 
