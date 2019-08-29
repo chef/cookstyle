@@ -8,3 +8,6 @@
 /spec/reports/
 /tmp/
 *.gem
+
+# for tim's local testing
+/test.rb
