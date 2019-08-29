@@ -1,5 +1,5 @@
 #
-# Copyright:: 2019, Chef Software Inc.
+# Copyright:: Copyright 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,27 +17,22 @@
 module RuboCop
   module Cop
     module Chef
-      # why_run_supported? no longer needs to be set to true as that is the default in Chef 13+
+      # Do not use node.save with effortless as there is no server to save node state back to
       #
       # @example
       #
       #   # bad
-      #   def why_run_supported?
-      #    true
-      #   end
-      #
-      class WhyRunSupportedTrue < Cop
-        MSG = 'why_run_supported? no longer needs to be set to true as it is the default in Chef 13+'.freeze
+      #   node.save
+      class CookbookUsesNodeSave < Cop
+        MSG = 'Do not use node.save with Effortless as there is no server to save node state back to'.freeze
 
-        def on_def(node)
-          if node.method_name == :why_run_supported? && node.body == s(:true) # rubocop: disable Lint/BooleanSymbol
+        def_node_matcher :node_save?, <<-PATTERN
+          (send (send nil? :node) :save)
+        PATTERN
+
+        def on_send(node)
+          node_save?(node) do
             add_offense(node, location: :expression, message: MSG, severity: :refactor)
-          end
-        end
-
-        def autocorrect(node)
-          lambda do |corrector|
-            corrector.remove(node.loc.expression)
           end
         end
       end
