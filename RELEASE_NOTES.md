@@ -26,6 +26,7 @@
 
 - Multiple cops will now skip scanning metadata.rb to speed up cookstyle runs
 - Chef/MetadataMissingName now supports autocorrecting. The folder containing the metadata.rb will be used as the cookbook name if it's missing from metdata.rb
+- Chef/WhyRunSupportedTrue has been corrected to properly trigger on the whyrun_supported method in resources
 
 ## Cookstyle 5.3
 
