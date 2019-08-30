@@ -95,7 +95,7 @@ The same version comparison could be done using Ohai attributes
 
 #### Chef/WindowsZipfileUsage
 
-The `WindowsZipfileUsage` detects the usage of the `windows_zipfile` resource in the [windows](https://supermarket.chef.io/cookbooks/windows) cookbook. This is one of the remaining resources in the windows cookbook that is not present in Chef Infra Client itself. In Chef Infra Client 15.0 we introduced the [archive_file](https://docs.chef.io/resource_archive_file.html) resource, which is a cross platform resource for uncompressing archives. This resource uses an ulta-fast compression library with support for multiple compression formats, and should be used instead of the legacy `windows_zipfile` resource.
+The `WindowsZipfileUsage` detects the usage of the `windows_zipfile` resource in the [windows](https://supermarket.chef.io/cookbooks/windows) cookbook. The `windows_zipfile` resource is one of the remaining resources in the windows cookbook that is not present in Chef Infra Client itself. In Chef Infra Client 15.0, we introduced the [archive_file](https://docs.chef.io/resource_archive_file.html) resource, which is a cross-platform resource for uncompressing archives. This new resource uses an ultra-fast compression library with support for multiple compression formats, and should be used instead of the legacy `windows_zipfile` resource.
 
 `Enabled by default`: True
 
