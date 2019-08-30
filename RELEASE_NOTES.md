@@ -127,7 +127,7 @@ The preferred format:
 
 #### Chef/IncludingMixinShelloutInResources
 
-The `IncludingMixinShelloutInResources` cop detects resources that require and include the Chef Shellout Mixin helper. Chef Infra Client now includes this mixin helper automatically for all resources so this require and include can be removed.
+The `IncludingMixinShelloutInResources` cop detects resources that require and include the Chef Shellout Mixin helper. Chef Infra Client now includes the Chef Shellout Mixin helper automatically for all resources, so require and include statements can be removed from all resources.
 
 `Enabled by default`: True
 
