@@ -67,7 +67,7 @@ The `UsesDeprecatedMixins` cop detects various legacy mixins used in `HWRP` and 
 
 #### Chef/MinitestHandlerUsage
 
-The `MinitestHandlerUsage` cop detects cookbooks that depend on the [minitest-handler](https://supermarket.chef.io/cookbooks/minitest-handler) cookbook. This cookbook provides a handler for running [minitests](https://github.com/seattlerb/minitest) after each Chef Infra Client run. The handler is no longer maintained and we highly recommend using InSpec for validating a system configuration after a Chef Infra Client run. InSpec includes over 100 build in resources and integrates with Automate to report the results of a system state validation.
+The `MinitestHandlerUsage` cop detects cookbooks that depend on the [minitest-handler](https://supermarket.chef.io/cookbooks/minitest-handler) cookbook. This cookbook provides a handler for running [minitests](https://github.com/seattlerb/minitest) after each Chef Infra Client run. The handler is no longer maintained and we highly recommend using InSpec for validating a system configuration after a Chef Infra Client run. InSpec includes over 100 built-in resources and integrates with Automate to report the results of a system state validation.
 
 `Enabled by default`: True
 
