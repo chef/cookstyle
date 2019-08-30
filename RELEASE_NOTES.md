@@ -4,7 +4,7 @@
 
 #### Chef/UseInlineResourcesDefined
 
-The `UseInlineResourcesDefined` checks for resources that call the `use_inline_resources` method. Chef Infra Client 13 made the inline resources mode the default for all resources, so this call is no longer necessary.
+The `UseInlineResourcesDefined` cop checks for resources that call the `use_inline_resources` method. Chef Infra Client 13 made the inline resources mode as the default for all resources, so this call is no longer necessary.
 
 `Enabled by default`: True
 
