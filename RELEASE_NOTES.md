@@ -28,7 +28,7 @@ The `IncludingXMLRubyRecipe` cop detects cookbooks that include the `xml::ruby` 
 
 #### Chef/LegacyYumCookbookRecipes
 
-The `LegacyYumCookbookRecipes` cop detects usage of legacy [yum](https://supermarket.chef.io/cookbooks/yum) cookbook recipes. These recipes were removed from the yum cookbook in verson 3.0, which was released in 2013. Cookbooks should be updated to use the new individual yum cookbooks that contain the same functionality.
+The `LegacyYumCookbookRecipes` cop detects usage of legacy [yum](https://supermarket.chef.io/cookbooks/yum) cookbook recipes. These recipes were removed from the yum cookbook in verson 3.0, which was released in 2013. Legacy yum cookbook recipes should be updated to the new individual yum cookbooks that contain the same functionality.
 
 
 `Examples`
