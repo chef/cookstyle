@@ -12,7 +12,7 @@ The `UseInlineResourcesDefined` cop checks for resources that call the `use_inli
 
 #### Chef/IncludingOhaiDefaultRecipe
 
-The `IncludingOhaiDefaultRecipe` cop detects cookbooks that include the `ohai::default` recipe. The ohai cookbook's default recipe was used to install custom Ohai plugins located in the cookbook's `files` directory. Since the ohai cookbook required placing plugins into the cookbook's `files` directory it had to be forked locally, which we no longer recommend doing. Modern versions of the Ohai cookbook provide an [ohai_plugin resource](https://github.com/chef-cookbooks/ohai/#ohai_plugin), which can be used to install plugins into Chef Infra Client. Additionally, plugins can be placed in a `/ohai` directory in any cookbook to have Chef Infra Client install these at runtime. Note: This feature requires Chef Infra *Server* 12.18 or later.
+The `IncludingOhaiDefaultRecipe` cop detects cookbooks that include the `ohai::default` recipe. The ohai cookbook's default recipe was used to install custom Ohai plugins located in the cookbook's `files` directory. Since the ohai cookbook required placing plugins into the cookbook's `files` directory it had to be forked locally, which we no longer recommend doing. Modern versions of the Ohai cookbook provide an [ohai_plugin resource](https://github.com/chef-cookbooks/ohai/#ohai_plugin), which can be used to install plugins into Chef Infra Client. Chef Infra Client will install also install Ohai plugins at runtime if they are placed in an `/ohai` directory in any cookbook. Note: This feature requires Chef Infra *Server* 12.18 or later.
 
 `Enabled by default`: True
 
