@@ -103,7 +103,7 @@ The `WindowsZipfileUsage` detects the usage of the `windows_zipfile` resource in
 
 #### Chef/NodeMethodsInsteadofAttributes
 
-The `NodeMethodsInsteadofAttributes` cop detects cookbooks that reference node attributes in the legacy `node.some.value` format. Chef Infra Client 13 officially deprecated this attribute format. This cop detects the usage of common Ohai attributes and can autocorrect those, but it won't detect cookbook attributes, which will also need to be updated.
+The `NodeMethodsInsteadofAttributes` cop detects cookbooks that reference node attributes in the legacy `node.some.value` format. Chef Infra Client 13 officially deprecated this attribute format. This cop detects the usage of common Ohai attributes and can autocorrect those. But it won't detect cookbook attributes which also need to be updated.
 
 `Enabled by default`: True
 
