@@ -59,7 +59,7 @@ The `DefaultMetadataMaintainer` cop detects the default `maintainer` and `mainta
 
 #### Chef/UsesDeprecatedMixins
 
-The `UsesDeprecatedMixins` cop detects various legacy mixins used in `HWRP` and `LWRP` resources. These mixins are no longer necessary and were removed in Chef Infra Client 14, which will cause errors when running these resources on modern Chef Infra Client releases.
+The `UsesDeprecatedMixins` cop detects various legacy mixins used in `HWRP` and `LWRP` resources. These mixins are no longer necessary and were removed in Chef Infra Client 14. Running these legacy mixins with `HWRP` and `LWRP` resources on modern Chef Infra Client releases will cause errors.
 
 `Enabled by default`: True
 
@@ -75,7 +75,7 @@ The `MinitestHandlerUsage` cop detects cookbooks that depend on the [minitest-ha
 
 #### Chef/WindowsVersionHelper
 
-The `WindowsVersionHelper` cop detects the usage of the various Windows version helpers that shipped in the [windows](https://supermarket.chef.io/cookbooks/windows) cookbook. Nearly all of the resources that originally shipped in the windows cookbook are now part of Chef Infra Client itself. We would like to help move users away from this Windows cookbook so they can avoid the added dependency in their environment. Instead of using the Windows version helpers, we suggest using data from Ohai itself to determine what version of Windows is running on a node.
+The `WindowsVersionHelper` cop detects the usage of the various Windows version helpers that shipped in the [windows](https://supermarket.chef.io/cookbooks/windows) cookbook. Nearly all of the resources that originally shipped in the windows cookbook are now part of Chef Infra Client itself. We would like to help move users away from the windows cookbook so they can avoid the added dependency in their environment. Instead of using the Windows version helpers, we suggest using data from Ohai itself to determine what version of Windows is running on a node.
 
 `Examples`
 
