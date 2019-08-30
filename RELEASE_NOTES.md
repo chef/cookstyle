@@ -59,7 +59,7 @@ The `DefaultMetadataMaintainer` cop detects the default `maintainer` and `mainta
 
 #### Chef/UsesDeprecatedMixins
 
-The `UsesDeprecatedMixins` cop detects various legacy mixins used in `HWRP` and `LWRP` resources. These mixins are no longer necessary and were removed in Chef Infra Client 14, which will cause errors running these resources on modern Chef Infra Client releases.
+The `UsesDeprecatedMixins` cop detects various legacy mixins used in `HWRP` and `LWRP` resources. These mixins are no longer necessary and were removed in Chef Infra Client 14, which will cause errors when running these resources on modern Chef Infra Client releases.
 
 `Enabled by default`: True
 
