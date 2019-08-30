@@ -1,33 +1,31 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.4.13 -->
-## [v5.4.13](https://github.com/chef/cookstyle/tree/v5.4.13) (2019-08-29)
-
-#### Merged Pull Requests
-- Remove old spec helpers leftover from rubocop-rspec [#265](https://github.com/chef/cookstyle/pull/265) ([tas50](https://github.com/tas50))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=5.3.6 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Remove old spec helpers leftover from rubocop-rspec [#265](https://github.com/chef/cookstyle/pull/265) ([tas50](https://github.com/tas50)) <!-- 5.4.13 -->
-- Add spec for Chef/PropertyWithRequiredAndDefault [#263](https://github.com/chef/cookstyle/pull/263) ([tas50](https://github.com/tas50)) <!-- 5.4.12 -->
-- Add Chef/IncludingMixinShelloutInResources cop [#249](https://github.com/chef/cookstyle/pull/249) ([tas50](https://github.com/tas50)) <!-- 5.4.11 -->
-- Exclude the files directory for scans [#248](https://github.com/chef/cookstyle/pull/248) ([tas50](https://github.com/tas50)) <!-- 5.4.10 -->
-- Add UseInlineResourcesDefined cop [#260](https://github.com/chef/cookstyle/pull/260) ([tas50](https://github.com/tas50)) <!-- 5.4.9 -->
-- Fix Chef/WhyRunSupportedTrue to find the correct method [#261](https://github.com/chef/cookstyle/pull/261) ([tas50](https://github.com/tas50)) <!-- 5.4.8 -->
-- Improve error messages in CookbooksDependsOnSelf &amp; PropertyWithRequiredAndDefault [#262](https://github.com/chef/cookstyle/pull/262) ([tas50](https://github.com/tas50)) <!-- 5.4.7 -->
-- Add Chef/IncludingOhaiDefaultRecipe Chef/IncludingXMLRubyRecipe &amp; Chef/LegacyYumCookbookRecipes [#246](https://github.com/chef/cookstyle/pull/246) ([tas50](https://github.com/tas50)) <!-- 5.4.6 -->
-- Add Chef/DefaultMetadataMaintainer [#242](https://github.com/chef/cookstyle/pull/242) ([tas50](https://github.com/tas50)) <!-- 5.4.5 -->
-- Add Chef/UsesDeprecatedMixins [#243](https://github.com/chef/cookstyle/pull/243) ([tas50](https://github.com/tas50)) <!-- 5.4.4 -->
-- Add autocorrect to MetadataMissingName [#244](https://github.com/chef/cookstyle/pull/244) ([tas50](https://github.com/tas50)) <!-- 5.4.3 -->
-- Add Chef/MinitestHandlerUsage Chef/WindowsVersionHelper Chef/WindowsZipfileUsage [#237](https://github.com/chef/cookstyle/pull/237) ([tas50](https://github.com/tas50)) <!-- 5.4.2 -->
-- Avoid scanning metadata.rb files for rules that don&#39;t apply there [#225](https://github.com/chef/cookstyle/pull/225) ([tas50](https://github.com/tas50)) <!-- 5.4.1 -->
-- Add Chef/NodeMethodsInsteadofAttributes cop [#224](https://github.com/chef/cookstyle/pull/224) ([tas50](https://github.com/tas50)) <!-- 5.4.0 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v5.4.13](https://github.com/chef/cookstyle/tree/v5.4.13) (2019-08-30)
+
+#### Merged Pull Requests
+- Add Chef/NodeMethodsInsteadofAttributes cop [#224](https://github.com/chef/cookstyle/pull/224) ([tas50](https://github.com/tas50))
+- Avoid scanning metadata.rb files for rules that don&#39;t apply there [#225](https://github.com/chef/cookstyle/pull/225) ([tas50](https://github.com/tas50))
+- Add Chef/MinitestHandlerUsage Chef/WindowsVersionHelper Chef/WindowsZipfileUsage [#237](https://github.com/chef/cookstyle/pull/237) ([tas50](https://github.com/tas50))
+- Add autocorrect to MetadataMissingName [#244](https://github.com/chef/cookstyle/pull/244) ([tas50](https://github.com/tas50))
+- Add Chef/UsesDeprecatedMixins [#243](https://github.com/chef/cookstyle/pull/243) ([tas50](https://github.com/tas50))
+- Add Chef/DefaultMetadataMaintainer [#242](https://github.com/chef/cookstyle/pull/242) ([tas50](https://github.com/tas50))
+- Add Chef/IncludingOhaiDefaultRecipe Chef/IncludingXMLRubyRecipe &amp; Chef/LegacyYumCookbookRecipes [#246](https://github.com/chef/cookstyle/pull/246) ([tas50](https://github.com/tas50))
+- Improve error messages in CookbooksDependsOnSelf &amp; PropertyWithRequiredAndDefault [#262](https://github.com/chef/cookstyle/pull/262) ([tas50](https://github.com/tas50))
+- Fix Chef/WhyRunSupportedTrue to find the correct method [#261](https://github.com/chef/cookstyle/pull/261) ([tas50](https://github.com/tas50))
+- Add UseInlineResourcesDefined cop [#260](https://github.com/chef/cookstyle/pull/260) ([tas50](https://github.com/tas50))
+- Exclude the files directory for scans [#248](https://github.com/chef/cookstyle/pull/248) ([tas50](https://github.com/tas50))
+- Add Chef/IncludingMixinShelloutInResources cop [#249](https://github.com/chef/cookstyle/pull/249) ([tas50](https://github.com/tas50))
+- Add spec for Chef/PropertyWithRequiredAndDefault [#263](https://github.com/chef/cookstyle/pull/263) ([tas50](https://github.com/tas50))
+- Remove old spec helpers leftover from rubocop-rspec [#265](https://github.com/chef/cookstyle/pull/265) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v5.3.6](https://github.com/chef/cookstyle/tree/v5.3.6) (2019-08-20)
 
 #### Merged Pull Requests
@@ -38,7 +36,6 @@
 - Autocorrect Apache v2.0 license to Apache-2.0 [#221](https://github.com/chef/cookstyle/pull/221) ([tas50](https://github.com/tas50))
 - Add Chef/ExecuteAptUpdate rule [#222](https://github.com/chef/cookstyle/pull/222) ([tas50](https://github.com/tas50))
 - Fix autocorrection of comments that are indented with more than one space [#223](https://github.com/chef/cookstyle/pull/223) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v5.2.17](https://github.com/chef/cookstyle/tree/v5.2.17) (2019-08-15)
 
