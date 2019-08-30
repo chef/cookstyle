@@ -12,7 +12,7 @@ The `UseInlineResourcesDefined` cop checks for resources that call the `use_inli
 
 #### Chef/IncludingOhaiDefaultRecipe
 
-The `IncludingOhaiDefaultRecipe` cop detects cookbooks that include the `ohai::default` recipe. The ohai cookbook's default recipe was used to install custom Ohai plugins located in the cookbook's `files` directory. This required forking the ohai community cookbook to add your own plugins, which we no longer recommend doing. The Ohai cookbook provides an [ohai_plugin resource](https://github.com/chef-cookbooks/ohai/#ohai_plugin), which can be used to install plugins and Chef Infra Client. Additionally, plugins can be placed in a `/ohai` directory in any cookbook to have Chef Infra Client install these at runtime. Note: This feature requires Chef Infra *Server* 12.18 or later.
+The `IncludingOhaiDefaultRecipe` cop detects cookbooks that include the `ohai::default` recipe. The ohai cookbook's default recipe was used to install custom Ohai plugins located in the cookbook's `files` directory. Since the ohai cookbook required placing plugins into the cookbook's `files` directory it had to be forked locally, which we no longer recommend doing. Modern versions of the Ohai cookbook provide an [ohai_plugin resource](https://github.com/chef-cookbooks/ohai/#ohai_plugin), which can be used to install plugins into Chef Infra Client. Additionally, plugins can be placed in a `/ohai` directory in any cookbook to have Chef Infra Client install these at runtime. Note: This feature requires Chef Infra *Server* 12.18 or later.
 
 `Enabled by default`: True
 
@@ -28,7 +28,7 @@ The `IncludingXMLRubyRecipe` cop detects cookbooks that include the `xml::ruby` 
 
 #### Chef/LegacyYumCookbookRecipes
 
-The `LegacyYumCookbookRecipes` cop detects usage of legacy [yum](https://supermarket.chef.io/cookbooks/yum) cookbook recipes. These recipes were removed from the yum cookbook in verson 3.0, which was released in 2013. Legacy yum cookbook recipes should be updated to the new individual yum cookbooks that contain the same functionality.
+The `LegacyYumCookbookRecipes` cop detects usage of legacy [yum](https://supermarket.chef.io/cookbooks/yum) cookbook recipes. These recipes were removed from the yum cookbook in verson 3.0, which was released in 2013. Cookbooks should be updated to use the new individual yum cookbooks, which contain the same functionality as the legacy recipes.
 
 
 `Examples`
