@@ -20,7 +20,7 @@ The `IncludingOhaiDefaultRecipe` cop detects cookbooks that include the `ohai::d
 
 #### Chef/IncludingXMLRubyRecipe
 
-The `IncludingXMLRubyRecipe` detects cookbooks that include the `xml::ruby` recipe. This recipe was used to install the `nokogiri` gem into Chef Infra Client for use in parsing XML in cookbooks. Nokogori ships with Chef Infra Client 13+, so this recipe is no longer necessary.
+The `IncludingXMLRubyRecipe` cop detects cookbooks that include the `xml::ruby` recipe. This recipe was used to install the `nokogiri` gem into Chef Infra Client for use in parsing XML in cookbooks. Nokogori ships with Chef Infra Client 13+, so this recipe is no longer necessary.
 
 `Enabled by default`: True
 
