@@ -29,6 +29,8 @@ module RuboCop
       #   property :bob, String, name_property: true
       #
       class PropertyWithNameAttribute < Cop
+        include RuboCop::Chef::CookbookHelpers
+
         MSG = 'Resource property sets name_attribute not name_property'.freeze
 
         def on_send(node)
