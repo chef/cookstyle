@@ -1,4 +1,4 @@
-## Unreleased
+## Cookstyle 5.4
 
 ### 11 New Chef Cops
 
