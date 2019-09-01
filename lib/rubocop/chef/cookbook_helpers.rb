@@ -38,7 +38,7 @@ module RuboCop
         end
       end
 
-      def property_ast_to_string(ast)
+      def method_arg_ast_to_string(ast)
         # https://rubular.com/r/6uzOMd6WCHewOu
         m = ast.children[2].source.match(/^("|')(.*)("|')$/)
         return m[2] unless m.nil?
