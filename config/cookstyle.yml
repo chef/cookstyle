@@ -497,21 +497,21 @@ Chef/BlockGuardWithOnlyString:
 Chef/ResourceSetsInternalProperties:
   Description: Do not set properties used internally by Chef Infra Client to track the system state.
   Enabled: true
-  VersionAdded: '5.4.0'
+  VersionAdded: '5.5.0'
   Exclude:
     - '**/metadata.rb'
 
 Chef/ResourceSetsNameProperty:
   Description: Resource sets the name property in the resource instead of using a name_property.
   Enabled: true
-  VersionAdded: '5.4.0'
+  VersionAdded: '5.5.0'
   Exclude:
     - '**/metadata.rb'
 
 Chef/ResourceWithNoneAction:
   Description: Resource uses the nonexistent :none action instead of the :nothing action
   Enabled: true
-  VersionAdded: '5.4.0'
+  VersionAdded: '5.5.0'
   Exclude:
     - '**/metadata.rb'
 
