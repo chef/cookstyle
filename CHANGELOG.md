@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.4.14 -->
-## [v5.4.14](https://github.com/chef/cookstyle/tree/v5.4.14) (2019-09-02)
+<!-- latest_release 5.5.0 -->
+## [v5.5.0](https://github.com/chef/cookstyle/tree/v5.5.0) (2019-09-02)
 
 #### Merged Pull Requests
-- Validate that all cops are in the config in CI + add missing Chef/CookbookUsesNodeSave [#272](https://github.com/chef/cookstyle/pull/272) ([tas50](https://github.com/tas50))
+- Add Chef/LibarchiveFile and Chef/SevenZipArchiveResource [#271](https://github.com/chef/cookstyle/pull/271) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.4.13 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add Chef/LibarchiveFile and Chef/SevenZipArchiveResource [#271](https://github.com/chef/cookstyle/pull/271) ([tas50](https://github.com/tas50)) <!-- 5.5.0 -->
 - Validate that all cops are in the config in CI + add missing Chef/CookbookUsesNodeSave [#272](https://github.com/chef/cookstyle/pull/272) ([tas50](https://github.com/tas50)) <!-- 5.4.14 -->
 <!-- release_rollup -->
 
