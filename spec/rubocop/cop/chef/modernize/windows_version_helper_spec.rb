@@ -19,7 +19,7 @@ require 'spec_helper'
 describe RuboCop::Cop::Chef::WindowsVersionHelper, :config do
   subject(:cop) { described_class.new(config) }
 
-  it 'registers an offense when using execute to run apt-get update' do
+  it 'registers an offense when using Windows::VersionHelper helpers' do
     expect_offense(<<~RUBY)
     if Windows::VersionHelper.nt_version == 10
        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use node['platform_version'] data instead of the Windows::VersionHelper helper from the Windows cookbook.

@@ -19,7 +19,7 @@ require 'spec_helper'
 describe RuboCop::Cop::Chef::MinitestHandlerUsage, :config do
   subject(:cop) { described_class.new(config) }
 
-  it 'registers an offense when a cookbook depends on "build-essential"' do
+  it 'registers an offense when a cookbook depends on "minitest-handler"' do
     expect_offense(<<~RUBY)
       depends 'minitest-handler'
       ^^^^^^^^^^^^^^^^^^^^^^^^^^ Use Chef InSpec for testing instead of the Minitest Handler cookbook pattern.
