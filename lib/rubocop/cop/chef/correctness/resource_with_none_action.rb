@@ -35,7 +35,7 @@ module RuboCop
       class ResourceWithNoneAction < Cop
         include RuboCop::Chef::CookbookHelpers
 
-        MSG = 'Resource uses the :none action instead of :nothing'.freeze
+        MSG = 'Resource uses the nonexistent :none action instead of the :nothing action'.freeze
 
         def on_block(node)
           match_property_in_resource?(nil, 'action', node) do |action_node|

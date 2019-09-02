@@ -491,6 +491,29 @@ Chef/BlockGuardWithOnlyString:
   Description: A resource guard (not_if/only_if) that is a string should not be wrapped in {}. Wrapping a guard string in {} causes it be executed as Ruby code which will always returns true instead of a shell command that will actually run.
   Enabled: true
   VersionAdded: '5.2.0'
+  Exclude:
+    - '**/metadata.rb'
+
+Chef/ResourceSetsInternalProperties:
+  Description: Do not set properties used internally by Chef Infra Client to track the system state.
+  Enabled: true
+  VersionAdded: '5.4.0'
+  Exclude:
+    - '**/metadata.rb'
+
+Chef/ResourceSetsNameProperty:
+  Description: Resource sets the name property in the resource instead of using a name_property.
+  Enabled: true
+  VersionAdded: '5.4.0'
+  Exclude:
+    - '**/metadata.rb'
+
+Chef/ResourceWithNoneAction:
+  Description: Resource uses the nonexistent :none action instead of the :nothing action
+  Enabled: true
+  VersionAdded: '5.4.0'
+  Exclude:
+    - '**/metadata.rb'
 
 ###############################
 # Utilize new built-in resources
