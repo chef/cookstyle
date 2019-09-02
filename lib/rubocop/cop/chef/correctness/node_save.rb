@@ -17,7 +17,9 @@
 module RuboCop
   module Cop
     module Chef
-      # Do not use node.save with effortless as there is no server to save node state back to
+      # Don't use node.save to save partial node data to the Chef Infra Server mid-run unless it's
+      # absolutely necessary. Node.save can result in failed Chef Infra runs appearing in search and
+      # increases load on the Chef Infra Server."
       #
       # @example
       #
