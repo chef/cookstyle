@@ -22,11 +22,12 @@ module RuboCop
       # @example
       #
       #   # bad
-      #   locale 'foo' do
-      #     lc_all 'bar'
+      #   locale 'set locale' do
+      #     lang 'en_gb.utf-8'
+      #     lc_all 'en_gb.utf-8'
       #   end
       #
-      class LocaleDeprecatedLcallProperty < Cop
+      class LocaleDeprecatedLcAllProperty < Cop
         include RuboCop::Chef::CookbookHelpers
 
         MSG = "The local resource's lc_all property has been deprecated and will be removed in Chef Infra Client 16".freeze
