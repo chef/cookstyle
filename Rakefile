@@ -20,9 +20,8 @@ task :vendor do
 end
 
 require 'cookstyle'
-require 'rubocop/rake_task'
-RuboCop::RakeTask.new(:style) do |task|
-  task.options << '--display-cop-names'
+task :style do
+  sh('bundle exec cookstyle')
 end
 
 require 'rspec/core/rake_task'
@@ -36,11 +35,6 @@ task :coverage do
   Rake::Task['spec'].execute
 end
 
-desc 'Run Cookstyle over this gem'
-task :internal_investigation do
-  sh('bundle exec cookstyle')
-end
-
 desc 'Ensure that all cops are defined in the cookstyle.yml config'
 task :validate_config do
   require 'cookstyle'
@@ -48,12 +42,16 @@ task :validate_config do
   status = 0
   config = YAML.load_file('config/cookstyle.yml')
 
+  puts 'Checking that all cops are defined in config/cookstyle.yml:'
+
   RuboCop::Cop::Chef.constants.each do |cop|
     unless config["Chef/#{cop}"]
       puts "Error: Chef/#{cop} not found in config/cookstyle.yml"
       status = 1
     end
   end
+
+  puts 'All Cops found in the config. Good work.' if status == 0
 
   exit status
 end
@@ -71,4 +69,4 @@ task :console do
   ARGV.clear
   IRB.start
 end
-task default: [:style, :spec]
+task default: [:style, :spec, :validate_config]
