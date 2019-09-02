@@ -39,6 +39,8 @@ module RuboCop
       end
 
       def method_arg_ast_to_string(ast)
+        # a property without a value. This is totally bogus, but they exist
+        return if ast.children[2].nil?
         # https://rubular.com/r/6uzOMd6WCHewOu
         m = ast.children[2].source.match(/^("|')(.*)("|')$/)
         return m[2] unless m.nil?
