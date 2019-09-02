@@ -17,14 +17,21 @@
 module RuboCop
   module Cop
     module Chef
-      # Use the archive_file resource built into Chef Infra Client 15+ instead of the windows_zipfile from the Windows cookbook
+      # Use the windows_feature resource built into Chef Infra Client 15+ instead of the powershell_script resource
+      # to run Install-WindowsFeature or Add-WindowsFeature
       #
       # @example
       #
       #   # bad
-      #   powershell_script 'Expand website' do
-      #     code 'Expand-Archive "C:\\file.zip" -DestinationPath "C:\\inetpub\\wwwroot\\" -Force'
+      #   powershell_script 'Install Feature' do
+      #     code 'Install-WindowsFeature -Name "Net-framework-Core"'
       #   end
+      #
+      #  # good
+      #  windows_feature 'Net-framework-Core' do
+      #    action :install
+      #    install_method :windows_feature_powershell
+      #  end
       #
       class PowershellInstallWindowsFeature < Cop
         include RuboCop::Chef::CookbookHelpers

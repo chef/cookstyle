@@ -17,19 +17,23 @@
 module RuboCop
   module Cop
     module Chef
-      # Use the archive_file resource built into Chef Infra Client 15+ instead of the windows_zipfile from the Windows cookbook
+      # Use the powershell_package resource built into Chef Infra Client instead of the powershell_script
+      # resource to run Install-Package
       #
       # @example
       #
       #   # bad
       #   powershell_script 'Expand website' do
-      #     code 'Expand-Archive "C:\\file.zip" -DestinationPath "C:\\inetpub\\wwwroot\\" -Force'
+      #     code 'Install-Package -Name docker'
       #   end
+      #
+      #  # good
+      #  powershell_package 'docker'
       #
       class PowershellInstallPackage < Cop
         include RuboCop::Chef::CookbookHelpers
 
-        MSG = 'Use the package resource built into Chef Infra Client instead of using Install-Package in a powershell_script resource'.freeze
+        MSG = 'Use the powershell_package resource built into Chef Infra Client 12.16+ instead of using Install-Package in a powershell_script resource'.freeze
 
         def on_block(node)
           match_property_in_resource?(:powershell_script, 'code', node) do |code_property|

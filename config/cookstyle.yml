@@ -524,6 +524,27 @@ Chef/LibarchiveFileResource:
   Exclude:
     - '**/metadata.rb'
 
+Chef/PowershellScriptExpandArchive:
+  Description: Use the archive_file resource built into Chef Infra Client 15+ instead of using Expand-Archive in a powershell_script resource
+  Enabled: true
+  VersionAdded: '5.5.0'
+  Exclude:
+    - '**/metadata.rb'
+
+Chef/PowershellInstallPackage:
+  Description: Use the package resource built into Chef Infra Client instead of using Install-Package in a powershell_script resource
+  Enabled: true
+  VersionAdded: '5.5.0'
+  Exclude:
+    - '**/metadata.rb'
+
+Chef/PowershellInstallWindowsFeature:
+  Description: Use the windows_feature resource built into Chef Infra Client 13+ instead of using Install-WindowsFeature or Add-WindowsFeature in a powershell_script resource
+  Enabled: true
+  VersionAdded: '5.5.0'
+  Exclude:
+    - '**/metadata.rb'
+
 ###############################
 # Migrating to new patterns
 ###############################

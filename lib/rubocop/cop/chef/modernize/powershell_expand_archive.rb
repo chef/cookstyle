@@ -17,7 +17,8 @@
 module RuboCop
   module Cop
     module Chef
-      # Use the archive_file resource built into Chef Infra Client 15+ instead of the windows_zipfile from the Windows cookbook
+      # Use the archive_file resource built into Chef Infra Client 15+ instead of using the powershell_script
+      # resource to run Expand-Archive
       #
       # @example
       #

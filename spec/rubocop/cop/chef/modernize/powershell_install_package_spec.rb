@@ -16,25 +16,21 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::UserDeprecatedSupportsProperty, :config do
+describe RuboCop::Cop::Chef::PowershellInstallPackage, :config do
   subject(:cop) { described_class.new(config) }
 
-  it 'registers an offense when a user resource includes the supports property' do
+  it 'registers an offense when using the libarchive_file resource' do
     expect_offense(<<~RUBY)
-      user "betty" do
-        supports({
-        ^^^^^^^^^^ The supports property was removed in Chef Infra Client 13 in favor of individual 'manage_home' and 'non_unique' properties.
-          manage_home: true,
-          non_unique: true
-        })
+      powershell_script 'Expand website' do
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the powershell_package resource built into Chef Infra Client 12.16+ instead of using Install-Package in a powershell_script resource
+        code 'Install-Package -Name docker'
       end
-
     RUBY
   end
 
   it "doesn't register an offense when using powershell_script for other things" do
     expect_no_offenses(<<~RUBY)
-      powershell_script 'Expand website' do
+      powershell_script 'Any old thing' do
         code 'Nope nope nope'
       end
     RUBY
