@@ -281,6 +281,34 @@ Chef/UsesChefRESTHelpers:
   Exclude:
     - '**/metadata.rb'
 
+Chef/ChocolateyPackageUninstallAction:
+  Description: Use the :remove action in the chocolatey_package resource instead of :uninstall which was removed in Chef Infra Client 14+
+  Enabled: true
+  VersionAdded: '5.5.0'
+  Exclude:
+    - '**/metadata.rb'
+
+Chef/LaunchdDeprecatedHashProperty:
+  Description: The launchd resource's hash property was renamed to plist_hash in Chef Infra Client 13+ to avoid conflicts with Ruby's hash class.
+  Enabled: true
+  VersionAdded: '5.5.0'
+  Exclude:
+    - '**/metadata.rb'
+
+Chef/LocaleDeprecatedLcAllProperty:
+  Description: The local resource's lc_all property has been deprecated and will be removed in Chef Infra Client 16
+  Enabled: true
+  VersionAdded: '5.5.0'
+  Exclude:
+    - '**/metadata.rb'
+
+Chef/UserDeprecatedSupportsProperty:
+  Description: The supports property was removed in Chef Infra Client 13 in favor of individual 'manage_home' and 'non_unique' properties.
+  Enabled: true
+  VersionAdded: '5.5.0'
+  Exclude:
+    - '**/metadata.rb'
+
 ###############################
 # Cleaning up Legacy Code
 ###############################
