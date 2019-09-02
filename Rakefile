@@ -36,9 +36,26 @@ task :coverage do
   Rake::Task['spec'].execute
 end
 
-desc 'Run RuboCop over this gem'
+desc 'Run Cookstyle over this gem'
 task :internal_investigation do
-  sh('bundle exec rubocop --require rubocop-rspec')
+  sh('bundle exec cookstyle')
+end
+
+desc 'Ensure that all cops are defined in the cookstyle.yml config'
+task :validate_config do
+  require 'cookstyle'
+  require 'yaml'
+  status = 0
+  config = YAML.load_file('config/cookstyle.yml')
+
+  RuboCop::Cop::Chef.constants.each do |cop|
+    unless config["Chef/#{cop}"]
+      puts "Error: Chef/#{cop} not found in config/cookstyle.yml"
+      status = 1
+    end
+  end
+
+  exit status
 end
 
 begin
