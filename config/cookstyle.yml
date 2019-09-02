@@ -471,7 +471,7 @@ Chef/UseBuildEssentialResource:
 Chef/WindowsZipfileUsage:
   Description: Use the archive_file resource built into Chef Infra Client 15+ instead of the windows_zipfile from the Windows cookbook
   Enabled: true
-  VersionAdded: '5.5.0'
+  VersionAdded: '5.4.0'
   Exclude:
     - '**/metadata.rb'
 
