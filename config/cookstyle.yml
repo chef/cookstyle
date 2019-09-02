@@ -397,13 +397,6 @@ Chef/ExecuteAptUpdate:
   Exclude:
     - '**/metadata.rb'
 
-Chef/WindowsZipfileUsage:
-  Description: Use the archive_file resource built into Chef Infra Client 15+ instead of the windows_zipfile from the Windows cookbook
-  Enabled: true
-  VersionAdded: '5.4.0'
-  Exclude:
-    - '**/metadata.rb'
-
 Chef/WindowsVersionHelper:
   Description: Use node['platform_version'] data instead of the Windows::VersionHelper helper from the Windows cookbook.
   Enabled: true
@@ -472,6 +465,29 @@ Chef/UseBuildEssentialResource:
   Description: Use the build_essential resource instead of the legacy build-essential recipe. This resource ships in the build-essential cookbook v5.0+ and is built into Chef Infra Client 14+
   Enabled: true
   VersionAdded: '5.1.0'
+  Exclude:
+    - '**/metadata.rb'
+
+Chef/WindowsZipfileUsage:
+  Description: Use the archive_file resource built into Chef Infra Client 15+ instead of the windows_zipfile from the Windows cookbook
+  Enabled: true
+  VersionAdded: '5.5.0'
+  Exclude:
+    - '**/metadata.rb'
+
+Chef/SevenZipArchiveResource:
+  Description: Use the archive_file resource built into Chef Infra Client 15+ instead of the seven_zip_archive
+  Enabled: true
+  VersionAdded: '5.5.0'
+  Exclude:
+    - '**/metadata.rb'
+
+Chef/LibarchiveFileResource:
+  Description: Use the archive_file resource built into Chef Infra Client 15+ instead of the libarchive file resource
+  Enabled: true
+  VersionAdded: '5.5.0'
+  Exclude:
+    - '**/metadata.rb'
 
 ###############################
 # Migrating to new patterns
