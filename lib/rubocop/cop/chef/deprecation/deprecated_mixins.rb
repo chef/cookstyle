@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      # The long_description metadata.rb method is not used and is unnecessary in cookbooks
+      # Don't use deprecated Mixins no longer included in Chef Infra Client 14 and later
       #
       # @example
       #
@@ -28,9 +28,9 @@ module RuboCop
       #   include Chef::Mixin::LanguageIncludeRecipe
       #   include Chef::Mixin::Language
       #   include Chef::DSL::Recipe::FullDSL
-      #   require 'chef/mixin/language
-      #   require 'chef/mixin/language_include_attribute
-      #   require 'chef/mixin/language_include_recipe
+      #   require 'chef/mixin/language'
+      #   require 'chef/mixin/language_include_attribute'
+      #   require 'chef/mixin/language_include_recipe'
 
       class UsesDeprecatedMixins < Cop
         MSG = "Don't use deprecated Mixins no longer included in Chef Infra Client 14 and later.".freeze
