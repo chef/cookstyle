@@ -35,15 +35,15 @@ describe RuboCop::Cop::Chef::DefaultMetadataMaintainer, :config do
 
   it 'registers an offense when a cookbook uses the alt maintainer format from the generator' do
     expect_offense(<<~RUBY)
-      maintainer 'YOUR_COMPANY_NAME'
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Metadata contains default maintainer information from the cookbook generator. Add actual cookbook maintainer information to the metadata.rb.
+      maintainer 'The Authors'
+      ^^^^^^^^^^^^^^^^^^^^^^^^ Metadata contains default maintainer information from the cookbook generator. Add actual cookbook maintainer information to the metadata.rb.
     RUBY
   end
 
   it 'registers an offense when a cookbook the alt maintainer_email from the generator' do
     expect_offense(<<~RUBY)
-      maintainer_email 'YOUR_EMAIL'
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Metadata contains default maintainer information from the cookbook generator. Add actual cookbook maintainer information to the metadata.rb.
+      maintainer_email 'you@example.com'
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Metadata contains default maintainer information from the cookbook generator. Add actual cookbook maintainer information to the metadata.rb.
     RUBY
   end
 
