@@ -274,6 +274,13 @@ Chef/LegacyYumCookbookRecipes:
   Exclude:
     - '**/metadata.rb'
 
+Chef/UsesChefRESTHelpers:
+  Description: Don't use the helpers in Chef::REST which were removed in Chef Infra Client 13
+  Enabled: true
+  VersionAdded: '5.5.0'
+  Exclude:
+    - '**/metadata.rb'
+
 ###############################
 # Cleaning up Legacy Code
 ###############################
