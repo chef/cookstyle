@@ -14,13 +14,6 @@ RSpec.configure do |config|
   config.filter_run(:focus)
   config.order = :random
 
-  # Define spec metadata for all rspec cop spec files
-  cop_specs = 'spec/rubocop/cop/chef/'
-  config.define_derived_metadata(file_path: /\b#{cop_specs}/) do |metadata|
-    # Attach metadata that signals the specified code is for an RSpec only cop
-    metadata[:chef_cop] = true
-  end
-
   config.expect_with :rspec do |expectations|
     expectations.syntax = :expect # Disable `should`
   end
