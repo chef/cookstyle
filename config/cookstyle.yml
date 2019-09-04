@@ -568,6 +568,13 @@ Chef/PowershellInstallWindowsFeature:
   Exclude:
     - '**/metadata.rb'
 
+Chef/ShellOutToChocolatey:
+  Description: Use the Chocolatey resources built into Chef Infra Client instead of shelling out to the choco command
+  Enabled: true
+  VersionAdded: '5.5.0'
+  Exclude:
+    - '**/metadata.rb'
+
 ###############################
 # Migrating to new patterns
 ###############################

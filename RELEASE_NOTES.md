@@ -1,6 +1,6 @@
 ## Unreleased
 
-### 13 New Chef Cops
+### 14 New Chef Cops
 
 Chef/ResourceSetsInternalProperties
 Chef/ResourceSetsNameProperty
@@ -15,6 +15,11 @@ Chef/PowershellInstallWindowsFeature
 Chef/CookbookUsesNodeSave
 Chef/SevenZipArchiveResource
 Chef/LibarchiveFile
+Chef/ShellOutToChocolatey
+
+### Other fixes and changes
+
+- `Chef/DefaultMetadataMaintainer` now detects additional default `maintainer` and `maintainer_email` field values.
 
 ## Cookstyle 5.4
 
