@@ -1,6 +1,6 @@
 ## Unreleased
 
-### 14 New Chef Cops
+### 15 New Chef Cops
 
 Chef/ResourceSetsInternalProperties
 Chef/ResourceSetsNameProperty
@@ -16,6 +16,7 @@ Chef/CookbookUsesNodeSave
 Chef/SevenZipArchiveResource
 Chef/LibarchiveFile
 Chef/ShellOutToChocolatey
+Chef/UsesChefRESTHelpers
 
 ### Other fixes and changes
 
