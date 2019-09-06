@@ -9,6 +9,7 @@ The `ResourceSetsInternalProperties` cop detects resources that set internal sta
 `Examples`
 
 Service resource setting the running property:
+
 ```ruby
 service 'foo' do
   running true
@@ -18,7 +19,7 @@ end
 
 #### Chef/ResourceSetsNameProperty
 
-The `ResourceSetsNameProperty` cop detects a resource block with the `name` property set. The `name` property is a special property that is derived from the name of the resource block and should not be changed with the block. Changing the name within a resource block can cause issues with reporting and notifications. If you wish to give your resources a more friendly name, consider using setting a `name_property`, which is available in all built-in Chef Infra resources. The name_property for each resource can be found in the [resource reference documentation](https://docs.chef.io/resource_reference.html).
+The `ResourceSetsNameProperty` cop detects a resource block with the `name` property set. The `name` property is a special property that is derived from the name of the resource block and should not be changed with the block. Changing the name within a resource block can cause issues with reporting and notifications. If you wish to give your resources a more friendly name, consider setting a `name_property`, which is available in all built-in Chef Infra resources. The name_property for each resource can be found in the [resource reference documentation](https://docs.chef.io/resource_reference.html).
 
 `Examples`
 
@@ -89,7 +90,6 @@ end
 
 The `LaunchdDeprecatedHashProperty` cop detects the use of the deprecated `hash` property in the `launchd` resource. The hash property was renamed to `plist_hash` in Chef Infra Client 13 and support for the `hash` name was removed in Chef Infra Client 14.
 
-
 `Examples`
 
 launchd with the deprecated `hash` property:
@@ -101,6 +101,7 @@ end
 ```
 
 launchd with the correct `plist_hash` property:
+
 ```ruby
 launchd 'foo' do
   plist_hash foo: 'bar'
@@ -343,12 +344,14 @@ The `LegacyYumCookbookRecipes` cop detects usage of legacy [yum](https://superma
 `Examples`
 
 Legacy recipes:
+
 ```ruby
   include_recipe 'yum::epel'
   include_recipe 'yum::ius'
 ```
 
 New cookbooks containing the same functionality:
+
 ```ruby
   include_recipe 'yum-epel'
   include_recipe 'yum-ius'
@@ -389,11 +392,13 @@ The `WindowsVersionHelper` cop detects the usage of the various Windows version 
 `Examples`
 
 A cookbook using the Windows version helper:
+
 ```ruby
   Windows::VersionHelper.nt_version == 6.1
 ```
 
 The same version comparison could be done using Ohai attributes
+
 ```ruby
   node['platform_version'].to_f == 6.1
 ```
@@ -421,6 +426,7 @@ The `NodeMethodsInsteadofAttributes` cop detects cookbooks that reference node a
 `Examples`
 
 Node attributes in the method format:
+
 ```ruby
   node.platform
   node.platform_version
@@ -428,6 +434,7 @@ Node attributes in the method format:
 ```
 
 The preferred format:
+
 ```ruby
   node['platform']
   node['platform_version']
@@ -582,6 +589,7 @@ The `SetOrReturnInResources` cop detects the usage of the `set_or_return` helper
 `Examples`
 
 A resource property created using set_or_return:
+
 ```ruby
   def severity(arg = nil)
     set_or_return(
@@ -593,6 +601,7 @@ A resource property created using set_or_return:
 ```
 
 The same property created using the resource DSL
+
 ```ruby
   property :severity, String
 ```
