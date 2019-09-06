@@ -24,6 +24,8 @@ describe RuboCop::Cop::Chef::IncludingYumDNFCompatRecipe, :config do
       include_recipe 'yum::dnf_yum_compat'
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Do not include the yum::dnf_yum_compat default recipe to install yum on dnf systems. Chef Infra Client now includes built in support for DNF packages.
     RUBY
+
+    expect_correction("\n")
   end
 
   it "doesn't register an offense when including the yum::default recipe" do

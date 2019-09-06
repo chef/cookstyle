@@ -24,6 +24,8 @@ describe RuboCop::Cop::Chef::CookbookDependsOnCompatResource, :config do
       depends 'compat_resource'
       ^^^^^^^^^^^^^^^^^^^^^^^^^ Don't depend on the deprecated compat_resource cookbook made obsolete by Chef 12.19+
     RUBY
+
+    expect_correction("\n")
   end
 
   it "doesn't register an offense when depending on any old cookbook" do

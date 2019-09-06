@@ -27,6 +27,13 @@ describe RuboCop::Cop::Chef::EpicFail do
         ^^^^^^^^^^^^^^ Use ignore_failure method instead of the deprecated epic_fail method
       end
     RUBY
+
+    expect_correction(<<~RUBY)
+      file '/foo' do
+        owner 'root'
+        ignore_failure true
+      end
+    RUBY
   end
 
   it 'does not register an offense when using ignore_failure' do

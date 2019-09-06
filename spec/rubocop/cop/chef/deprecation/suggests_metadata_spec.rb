@@ -24,6 +24,8 @@ describe RuboCop::Cop::Chef::SuggestsMetadata, :config do
       suggests 'foo'
       ^^^^^^^^^^^^^^ Don't use the deprecated 'suggests' metadata value
     RUBY
+
+    expect_correction("\n")
   end
 
   it "doesn't register an offense on normal metadata" do

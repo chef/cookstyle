@@ -24,6 +24,8 @@ describe RuboCop::Cop::Chef::ConflictsMetadata, :config do
       conflicts 'foo'
       ^^^^^^^^^^^^^^^ Don't use the deprecated 'conflicts' metadata value
     RUBY
+
+    expect_correction("\n")
   end
 
   it "doesn't register an offense on normal metadata" do

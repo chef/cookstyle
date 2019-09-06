@@ -24,6 +24,8 @@ describe RuboCop::Cop::Chef::WhyRunSupportedTrue, :config do
       def whyrun_supported?; true; end
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ whyrun_supported? no longer needs to be set to true as it is the default in Chef Infra Client 13+
     RUBY
+
+    expect_correction("\n")
   end
 
   it "doesn't register an offense when a resource sets why-run to false" do

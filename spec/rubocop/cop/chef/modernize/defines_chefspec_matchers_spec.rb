@@ -28,6 +28,8 @@ describe RuboCop::Cop::Chef::DefinesChefSpecMatchers, :config do
         end
       end
     RUBY
+
+    expect_correction("\n")
   end
 
   it "doesn't register an offense when checking if another method class is defined" do
