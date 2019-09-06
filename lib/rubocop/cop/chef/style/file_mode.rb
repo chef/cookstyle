@@ -17,43 +17,45 @@
 module RuboCop
   module Cop
     module Chef
-      # Check the file modes are given as strings instead of integers.
-      #
-      # @example
-      #
-      #   # bad
-      #   mode 644
-      #   mode 0644
-      #
-      #   # good
-      #   mode '644'
-      #
-      class FileMode < Cop
-        MSG = 'Use strings for file modes'.freeze
+      module ChefStyle
+        # Check the file modes are given as strings instead of integers.
+        #
+        # @example
+        #
+        #   # bad
+        #   mode 644
+        #   mode 0644
+        #
+        #   # good
+        #   mode '644'
+        #
+        class FileMode < Cop
+          MSG = 'Use strings for file modes'.freeze
 
-        def_node_matcher :resource_mode?, <<-PATTERN
-          (send nil? :mode $int)
-        PATTERN
+          def_node_matcher :resource_mode?, <<-PATTERN
+            (send nil? :mode $int)
+          PATTERN
 
-        def on_send(node)
-          resource_mode?(node) do |mode_int|
-            add_offense(mode_int, location: :expression, message: MSG, severity: :refactor)
+          def on_send(node)
+            resource_mode?(node) do |mode_int|
+              add_offense(mode_int, location: :expression, message: MSG, severity: :refactor)
+            end
           end
-        end
 
-        def autocorrect(node)
-          lambda do |corrector|
-            # If it was an octal literal, make sure we write out the right number.
-            replacement_base = octal?(node) ? 8 : 10
-            replacement_mode = node.children.first.to_s(replacement_base)
-            corrector.replace(node.loc.expression, replacement_mode.inspect)
+          def autocorrect(node)
+            lambda do |corrector|
+              # If it was an octal literal, make sure we write out the right number.
+              replacement_base = octal?(node) ? 8 : 10
+              replacement_mode = node.children.first.to_s(replacement_base)
+              corrector.replace(node.loc.expression, replacement_mode.inspect)
+            end
           end
-        end
 
-        private
+          private
 
-        def octal?(node)
-          node.source =~ /^0o?\d+/i
+          def octal?(node)
+            node.source =~ /^0o?\d+/i
+          end
         end
       end
     end

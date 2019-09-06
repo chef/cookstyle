@@ -1,16 +1,12 @@
 <!-- START_COP_LIST -->
 #### Department [Chef](cops_chef.md)
 
-* [Chef/AttributeKeys](cops_chef.md#chefattributekeys)
 * [Chef/AttributeMetadata](cops_chef.md#chefattributemetadata)
 * [Chef/ChocolateyPackageUninstallAction](cops_chef.md#chefchocolateypackageuninstallaction)
-* [Chef/CommentFormat](cops_chef.md#chefcommentformat)
-* [Chef/CommentSentenceSpacing](cops_chef.md#chefcommentsentencespacing)
 * [Chef/ConflictsMetadata](cops_chef.md#chefconflictsmetadata)
 * [Chef/CookbookDependsOnCompatResource](cops_chef.md#chefcookbookdependsoncompatresource)
 * [Chef/CookbookDependsOnPartialSearch](cops_chef.md#chefcookbookdependsonpartialsearch)
 * [Chef/CookbookDependsOnPoise](cops_chef.md#chefcookbookdependsonpoise)
-* [Chef/CopyrightCommentFormat](cops_chef.md#chefcopyrightcommentformat)
 * [Chef/CustomResourceWithAllowedActions](cops_chef.md#chefcustomresourcewithallowedactions)
 * [Chef/CustomResourceWithAttributes](cops_chef.md#chefcustomresourcewithattributes)
 * [Chef/DefinesChefSpecMatchers](cops_chef.md#chefdefineschefspecmatchers)
@@ -18,7 +14,6 @@
 * [Chef/EpicFail](cops_chef.md#chefepicfail)
 * [Chef/ErlCallResource](cops_chef.md#cheferlcallresource)
 * [Chef/ExecuteAptUpdate](cops_chef.md#chefexecuteaptupdate)
-* [Chef/FileMode](cops_chef.md#cheffilemode)
 * [Chef/IncludingAptDefaultRecipe](cops_chef.md#chefincludingaptdefaultrecipe)
 * [Chef/IncludingMixinShelloutInResources](cops_chef.md#chefincludingmixinshelloutinresources)
 * [Chef/IncludingOhaiDefaultRecipe](cops_chef.md#chefincludingohaidefaultrecipe)
@@ -60,6 +55,7 @@
 
 #### Department [ChefCorrectness](cops_chefcorrectness.md)
 
+* [ChefCorrectness/BlockGuardWithOnlyString](cops_chefcorrectness.md#chefcorrectnessblockguardwithonlystring)
 * [ChefCorrectness/CookbookUsesNodeSave](cops_chefcorrectness.md#chefcorrectnesscookbookusesnodesave)
 * [ChefCorrectness/CookbooksDependsOnSelf](cops_chefcorrectness.md#chefcorrectnesscookbooksdependsonself)
 * [ChefCorrectness/DefaultMetadataMaintainer](cops_chefcorrectness.md#chefcorrectnessdefaultmetadatamaintainer)
@@ -80,8 +76,15 @@
 
 #### Department [ChefEffortless](cops_chefeffortless.md)
 
-* [ChefEffortless/BlockGuardWithOnlyString](cops_chefeffortless.md#chefeffortlessblockguardwithonlystring)
 * [ChefEffortless/CookbookUsesDatabags](cops_chefeffortless.md#chefeffortlesscookbookusesdatabags)
 * [ChefEffortless/CookbookUsesSearch](cops_chefeffortless.md#chefeffortlesscookbookusessearch)
+
+#### Department [ChefStyle](cops_chefstyle.md)
+
+* [ChefStyle/AttributeKeys](cops_chefstyle.md#chefstyleattributekeys)
+* [ChefStyle/CommentFormat](cops_chefstyle.md#chefstylecommentformat)
+* [ChefStyle/CommentSentenceSpacing](cops_chefstyle.md#chefstylecommentsentencespacing)
+* [ChefStyle/CopyrightCommentFormat](cops_chefstyle.md#chefstylecopyrightcommentformat)
+* [ChefStyle/FileMode](cops_chefstyle.md#chefstylefilemode)
 
 <!-- END_COP_LIST -->

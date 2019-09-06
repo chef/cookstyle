@@ -27,10 +27,10 @@ AllCops:
     - resources/.*\.rb
 
 ###############################
-# Making cookbooks look better
+# ChefStyle: Making cookbooks look better
 ###############################
 
-Chef/AttributeKeys:
+ChefStyle/AttributeKeys:
   Description: Check which style of keys are used to access node attributes.
   Enabled: true
   EnforcedStyle: strings
@@ -41,95 +41,153 @@ Chef/AttributeKeys:
   Exclude:
     - '**/metadata.rb'
 
-Chef/CopyrightCommentFormat:
+ChefStyle/CopyrightCommentFormat:
   Description: Properly format copyright dates in comment blocks and ensure dates are up to date
   Enabled: false
   VersionAdded: '5.0.0'
 
-Chef/CommentSentenceSpacing:
+ChefStyle/CommentSentenceSpacing:
   Description: Use a single space after sentences in comments
   Enabled: false
   VersionAdded: '5.1.0'
 
-Chef/CommentFormat:
+ChefStyle/CommentFormat:
   Description: Use Chef's unique format for comment headers
   Enabled: true
   VersionAdded: '5.0.0'
 
-Chef/DefaultMetadataMaintainer:
-  Description: Metadata contains default maintainer information from the cookbook generator. Add actual cookbook maintainer information to the metadata.rb.
-  Enabled: true
-  VersionAdded: '5.4.0'
-  Include:
-    - '**/metadata.rb'
-
-###############################
-# Avoiding potential problems
-###############################
-
-Chef/FileMode:
+ChefStyle/FileMode:
   Description: Use strings to represent file modes in Chef resources
   Enabled: true
   VersionAdded: '5.0.0'
   Exclude:
     - '**/metadata.rb'
 
-Chef/ServiceResource:
+###############################
+# ChefCorrectness: Avoiding potential problems
+###############################
+
+ChefCorrectness/ServiceResource:
   Description: Use a service resource to start and stop services instead of execute resources
   Enabled: true
   VersionAdded: '5.0.0'
   Exclude:
     - '**/metadata.rb'
 
-Chef/NodeNormal:
+ChefCorrectness/NodeNormal:
   Description: Do not use the node.normal method
   Enabled: true
   VersionAdded: '5.1.0'
   Exclude:
     - '**/metadata.rb'
 
-Chef/NodeNormalUnless:
+ChefCorrectness/NodeNormalUnless:
   Description: Do not use the node.normal_unless method
   Enabled: true
   VersionAdded: '5.1.0'
   Exclude:
     - '**/metadata.rb'
 
-Chef/TmpPath:
+ChefCorrectness/TmpPath:
   Description: Use file_cache_path rather than hard-coding tmp paths
   Enabled: true
   VersionAdded: '5.0.0'
   Exclude:
     - '**/metadata.rb'
 
-Chef/InsecureCookbookURL:
+ChefCorrectness/InsecureCookbookURL:
   Description: Insecure http Github or Gitlab URLs for metadata source_url/issues_url fields
   Enabled: true
   VersionAdded: '5.1.0'
   Include:
     - '**/metadata.rb'
 
-Chef/NamePropertyIsRequired:
+ChefCorrectness/NamePropertyIsRequired:
   Description: Resource properties marked as name properties should not also be required properties
   Enabled: true
   VersionAdded: '5.1.0'
 
-Chef/InvalidLicenseString:
+ChefCorrectness/InvalidLicenseString:
   Description: Cookbook metadata.rb does not use a SPDX compliant license string or "all rights reserved"
   Enabled: true
   VersionAdded: '5.2.0'
   Include:
     - '**/metadata.rb'
 
-Chef/InvalidPlatformMetadata:
+ChefCorrectness/InvalidPlatformMetadata:
   Description: metadata.rb "supports" platform is invalid
   Enabled: true
   VersionAdded: '5.2.0'
   Include:
     - '**/metadata.rb'
 
-Chef/CookbookUsesNodeSave:
+ChefCorrectness/CookbookUsesNodeSave:
   Description: Don't use node.save to save partial node data to the Chef Infra Server mid-run unless it's absolutely necessary. Node.save can result in failed Chef Infra runs appearing in search and increases load on the Chef Infra Server.
+  Enabled: true
+  VersionAdded: '5.5.0'
+  Exclude:
+    - '**/metadata.rb'
+
+ChefCorrectness/DefaultMetadataMaintainer:
+  Description: Metadata contains default maintainer information from the cookbook generator. Add actual cookbook maintainer information to the metadata.rb.
+  Enabled: true
+  VersionAdded: '5.4.0'
+  Include:
+    - '**/metadata.rb'
+
+ChefCorrectness/PropertyWithNameAttribute:
+  Description: Resource property sets name_attribute not name_property
+  Enabled: true
+  VersionAdded: '5.1.0'
+  Include:
+    - '**/resources/*.rb'
+    - '**/libraries/*.rb'
+
+ChefCorrectness/PropertyWithRequiredAndDefault:
+  Description: Resource property should not be both required and have a default value
+  Enabled: true
+  VersionAdded: '5.1.0'
+  Include:
+    - '**/resources/*.rb'
+    - '**/libraries/*.rb'
+
+ChefCorrectness/CookbooksDependsOnSelf:
+  Description: A cookbook cannot depend on itself
+  Enabled: true
+  VersionAdded: '5.2.0'
+  Include:
+    - '**/metadata.rb'
+
+ChefCorrectness/MetadataMissingName:
+  Description: MetadataMissingName
+  Enabled: true
+  VersionAdded: '5.2.0'
+  Include:
+    - '**/metadata.rb'
+
+ChefCorrectness/BlockGuardWithOnlyString:
+  Description: A resource guard (not_if/only_if) that is a string should not be wrapped in {}. Wrapping a guard string in {} causes it be executed as Ruby code which will always returns true instead of a shell command that will actually run.
+  Enabled: true
+  VersionAdded: '5.2.0'
+  Exclude:
+    - '**/metadata.rb'
+
+ChefCorrectness/ResourceSetsInternalProperties:
+  Description: Do not set properties used internally by Chef Infra Client to track the system state.
+  Enabled: true
+  VersionAdded: '5.5.0'
+  Exclude:
+    - '**/metadata.rb'
+
+ChefCorrectness/ResourceSetsNameProperty:
+  Description: Resource sets the name property in the resource instead of using a name_property.
+  Enabled: true
+  VersionAdded: '5.5.0'
+  Exclude:
+    - '**/metadata.rb'
+
+ChefCorrectness/ResourceWithNoneAction:
+  Description: Resource uses the nonexistent :none action instead of the :nothing action
   Enabled: true
   VersionAdded: '5.5.0'
   Exclude:
@@ -330,22 +388,6 @@ Chef/WhyRunSupportedTrue:
     - '**/providers/*.rb'
     - '**/libraries/*.rb'
 
-Chef/PropertyWithNameAttribute:
-  Description: Resource property sets name_attribute not name_property
-  Enabled: true
-  VersionAdded: '5.1.0'
-  Include:
-    - '**/resources/*.rb'
-    - '**/libraries/*.rb'
-
-Chef/PropertyWithRequiredAndDefault:
-  Description: Resource property should not be both required and have a default value
-  Enabled: true
-  VersionAdded: '5.1.0'
-  Include:
-    - '**/resources/*.rb'
-    - '**/libraries/*.rb'
-
 Chef/UnnecessaryDependsChef14:
   Description: Don't depend on cookbooks made obsolete by Chef 14
   Enabled: true
@@ -471,52 +513,6 @@ Chef/UseInlineResourcesDefined:
     - '**/resources/*.rb'
 
 ###############################
-# Detecting code that breaks Chef
-###############################
-
-Chef/CookbooksDependsOnSelf:
-  Description: A cookbook cannot depend on itself
-  Enabled: true
-  VersionAdded: '5.2.0'
-  Include:
-    - '**/metadata.rb'
-
-Chef/MetadataMissingName:
-  Description: MetadataMissingName
-  Enabled: true
-  VersionAdded: '5.2.0'
-  Include:
-    - '**/metadata.rb'
-
-Chef/BlockGuardWithOnlyString:
-  Description: A resource guard (not_if/only_if) that is a string should not be wrapped in {}. Wrapping a guard string in {} causes it be executed as Ruby code which will always returns true instead of a shell command that will actually run.
-  Enabled: true
-  VersionAdded: '5.2.0'
-  Exclude:
-    - '**/metadata.rb'
-
-Chef/ResourceSetsInternalProperties:
-  Description: Do not set properties used internally by Chef Infra Client to track the system state.
-  Enabled: true
-  VersionAdded: '5.5.0'
-  Exclude:
-    - '**/metadata.rb'
-
-Chef/ResourceSetsNameProperty:
-  Description: Resource sets the name property in the resource instead of using a name_property.
-  Enabled: true
-  VersionAdded: '5.5.0'
-  Exclude:
-    - '**/metadata.rb'
-
-Chef/ResourceWithNoneAction:
-  Description: Resource uses the nonexistent :none action instead of the :nothing action
-  Enabled: true
-  VersionAdded: '5.5.0'
-  Exclude:
-    - '**/metadata.rb'
-
-###############################
 # Utilize new built-in resources
 ###############################
 
@@ -580,12 +576,12 @@ Chef/ShellOutToChocolatey:
 # Migrating to new patterns
 ###############################
 
-Chef/CookbookUsesSearch:
+ChefEffortless/CookbookUsesSearch:
   Description: Cookbook uses search, which cannot be used in the Effortless Infra pattern
   Enabled: false
   VersionAdded: '5.1.0'
 
-Chef/CookbookUsesDatabags:
+ChefEffortless/CookbookUsesDatabags:
   Description: Cookbook uses data bags, which cannot be used in the Effortless Infra pattern
   Enabled: false
   VersionAdded: '5.1.0'

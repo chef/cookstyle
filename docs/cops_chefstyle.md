@@ -1,0 +1,149 @@
+# ChefStyle
+
+## ChefStyle/AttributeKeys
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+Check which style of keys are used to access node attributes.
+
+There are two supported styles: "symbols" and "strings".
+
+### Examples
+
+#### when configuration is `EnforcedStyle: symbols`
+
+```ruby
+# bad
+node['foo']
+node["foo"]
+
+# good
+node[:foo]
+```
+#### when configuration is `EnforcedStyle: strings`
+
+```ruby
+# bad
+node[:foo]
+
+# good
+node['foo']
+node["foo"]
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+EnforcedStyle | `strings` | `strings`, `symbols`
+VersionAdded | `5.0.0` | String
+Exclude | `**/metadata.rb` | Array
+
+## ChefStyle/CommentFormat
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+Checks for incorrectly formatted headers
+
+### Examples
+
+```ruby
+# bad
+Copyright 2013-2016 Chef Software, Inc.
+Recipe default.rb
+Attributes default.rb
+License Apache2
+Cookbook tomcat
+Cookbook Name:: Tomcat
+Attributes File:: default
+
+# good
+Copyright:: 2013-2016 Chef Software, Inc.
+Recipe:: default.rb
+Attributes:: default.rb
+License:: Apache License, Version 2.0
+Cookbook:: Tomcat
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.0.0` | String
+
+## ChefStyle/CommentSentenceSpacing
+
+Enabled by default | Supports autocorrection
+--- | ---
+Disabled | Yes
+
+Replaces double spaces between sentences with a single space.
+Note: This is DISABLED by default.
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.1.0` | String
+
+## ChefStyle/CopyrightCommentFormat
+
+Enabled by default | Supports autocorrection
+--- | ---
+Disabled | Yes
+
+Checks for incorrectly formatted copyright comments.
+
+### Examples
+
+```ruby
+# bad (assuming current year is 2019)
+Copyright:: 2013-2019 Opscode, Inc.
+Copyright:: 2013-2019 Chef Inc.
+Copyright:: 2013-2019 Chef Software Inc.
+Copyright:: 2009-2010 2013-2019 Chef Software Inc.
+Copyright:: Chef Software Inc.
+Copyright:: Tim Smith
+Copyright:: Copyright (c) 2015-2019 Chef Software, Inc.
+
+# good (assuming current year is 2019)
+Copyright:: 2013-2019 Chef Software, Inc.
+Copyright:: 2013-2019 Tim Smith
+Copyright:: 2019 37Signals, Inc.
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.0.0` | String
+
+## ChefStyle/FileMode
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+Check the file modes are given as strings instead of integers.
+
+### Examples
+
+```ruby
+# bad
+mode 644
+mode 0644
+
+# good
+mode '644'
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.0.0` | String
+Exclude | `**/metadata.rb` | Array
