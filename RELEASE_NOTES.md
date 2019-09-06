@@ -219,7 +219,7 @@ end
 
 #### Chef/CookbookUsesNodeSave
 
-The `CookbookUsesNodeSave` cop detects the usage of `node.save` within a cookbook. node.save is often used to ensure a run_list is saved, or so that other state information is immediately available for search by other nodes in your environment. The use of node.save can be incredibly problematic and should be avoided as a run failure will still result in the node data being saved to the Chef Infra Server. If search is used to put nodes into production state, this may result in non-functioning nodes being used.
+The `CookbookUsesNodeSave` cop detects the usage of `node.save` within a cookbook. `node.save` is often used to ensure a run_list is saved, or so that other state information is immediately available for search by other nodes in your environment. The use of `node.save` can be incredibly problematic and should be avoided as a run failure will still result in the node data being saved to the Chef Infra Server. If search is used to put nodes into production state, this may result in non-functioning nodes being used.
 
 `Enabled by default`: True
 
