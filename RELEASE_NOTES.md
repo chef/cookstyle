@@ -227,7 +227,7 @@ The `CookbookUsesNodeSave` cop detects the usage of `node.save` within a cookboo
 
 #### Chef/SevenZipArchiveResource
 
-The `SevenZipArchiveResource` cop detects the usage of the `seven_zip_archive` resource from the `seven_zip` community cookbook to expand archives. The `archive_file` resource built into Chef Infra Client 15.0 should be used instead to avoid the need for extra cookbook dependencies.
+The `SevenZipArchiveResource` cop detects the usage of the `seven_zip_archive` resource from the `seven_zip` community cookbook. The `archive_file` resource built into Chef Infra Client 15.0 should be used instead to avoid the need for extra cookbook dependencies.
 
 `Examples`
 
@@ -255,7 +255,7 @@ end
 
 #### Chef/LibarchiveFile
 
-The `LibarchiveFile` cop detects the usage of the `libarchive_file` resource from the `libarchive` community cookbook to expand archives. The `archive_file` resource built into Chef Infra Client 15.0 is based on the `libarchive_file` resource and it should be used instead to avoid the need for extra cookbook dependencies.
+The `LibarchiveFile` cop detects the usage of the `libarchive_file` resource from the `libarchive` community cookbook. The `archive_file` resource built into Chef Infra Client 15.0 is based on the `libarchive_file` resource and it should be used instead to avoid the need for extra cookbook dependencies.
 
 `Examples`
 
