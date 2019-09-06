@@ -1,3 +1,4 @@
+# rubocop:disable Lint/ParenthesesAsGroupedExpression, Lint/BooleanSymbol
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -19,88 +20,148 @@ require 'spec_helper'
 
 RSpec.describe RuboCop::Chef::CookbookHelpers do
   include RuboCop::AST::Sexp
+  include RuboCop::Chef::CookbookHelpers
 
-  subject(:match_property) { described_class.new(match_property_in_resource?(source)) }
+  let (:running_false_ast) { s(:send, nil, :running, s(:false)) }
 
-  subject(:arg_string) { described_class.new(method_arg_ast_to_string(source)) }
+  let (:running_true_ast) { s(:send, nil, :running, s(:true)) }
 
-  describe 'extracts a property from a resource with a single property' do
-    # service 'single_property' do
-    #   running true
-    # end
+  describe 'single property in a resource' do
+    let(:resource_source) { "service 'single_property' do; running true; end" }
+
+    it "should yield a single 'running' property ast objects" do
+      expect { |b| match_property_in_resource?(:service, 'running', parse_source(resource_source).ast, &b) }.to yield_successive_args(running_true_ast)
+    end
   end
 
-  describe 'extracts a property from a resource with a multiple properties' do
-    # service 'multiple properties' do
-    #   running true
-    #   not_running true
-    # end
+  describe 'multiple properties in a resource' do
+    let(:resource_source) { "service 'single_property' do; not_running true; running true; end" }
+
+    it "should yield a single 'running' property ast objects" do
+      expect { |b| match_property_in_resource?(:service, 'running', parse_source(resource_source).ast, &b) }.to yield_successive_args(running_true_ast)
+    end
   end
 
   describe 'extracts a property from a resource with an if statement' do
-    # service 'if statement' do
-    #   if platform?('mac_os_x')
-    #     running true
-    #   end
-    # end
+    let(:resource_source) do
+      <<~RUBY
+      service 'if statement' do
+        if platform?('mac_os_x')
+          running true
+        end
+      end
+      RUBY
+    end
+
+    it "should yield a single 'running' property ast objects" do
+      expect { |b| match_property_in_resource?(:service, 'running', parse_source(resource_source).ast, &b) }.to yield_successive_args(running_true_ast)
+    end
   end
 
   describe 'extracts a property from a resource with a case statement' do
-    # service 'case statement' do
-    #   case node['platform']
-    #   when 'windows'
-    #     running true
-    #   else
-    #     running true
-    #   end
-    # end
+    let(:resource_source) do
+      <<~RUBY
+      service 'case statement' do
+        case node['platform']
+        when 'windows'
+          running true
+        else
+          running false
+        end
+      end
+      RUBY
+    end
+
+    it "should yield both 'running' property ast objects" do
+      expect { |b| match_property_in_resource?(:service, 'running', parse_source(resource_source).ast, &b) }.to yield_successive_args(running_true_ast, running_false_ast)
+    end
   end
 
   describe 'extracts a property from a resource with nested conditionals' do
-    # service 'nested conditionals' do
-    #   case node['platform']
-    #   when 'windows'
-    #     if node['platform_version'].to_f == '6.1'
-    #       running true
-    #     else
-    #       running false
-    #     end
-    #   else
-    #     running true
-    #   end
-    # end
+    let(:resource_source) do
+      <<~RUBY
+      service 'nested conditionals' do
+        case node['platform']
+        when 'windows'
+          if node['platform_version'].to_f == '6.1'
+            running true
+          else
+            running false
+          end
+        else
+          running true
+        end
+      end
+      RUBY
+    end
+
+    it "should yield three 'running' property ast objects" do
+      expect { |b| match_property_in_resource?(:service, 'running', parse_source(resource_source).ast, &b) }.to yield_successive_args(running_true_ast, running_false_ast, running_true_ast)
+    end
   end
 
   describe 'extracts a property from a resource with case statement with an empty when' do
-    # service 'case statement with an empty when' do
-    #   case node['platform']
-    #   when 'windows'
-    #     running false
-    #   when 'mac_os_x'
-    #     # haha there's nothing here
-    #   end
-    # end
+    let(:resource_source) do
+      <<~RUBY
+      service 'case statement with an empty when' do
+        case node['platform']
+        when 'windows'
+          running false
+        when 'mac_os_x'
+          # haha there's nothing here
+        end
+      end
+      RUBY
+    end
+
+    it "should yield a single 'running' property ast objects" do
+      expect { |b| match_property_in_resource?(:service, 'running', parse_source(resource_source).ast, &b) }.to yield_successive_args(running_false_ast)
+    end
   end
 
   describe 'extracts a property from a resource with a while loop' do
-    # service 'while conditional' do
-    #   while true
-    #     running false
-    #   end
-    # end
+    let(:resource_source) do
+      <<~RUBY
+      service 'while conditional' do
+        while true
+          running false
+        end
+      end
+      RUBY
+    end
+
+    it "should yield a single 'running' property ast objects" do
+      expect { |b| match_property_in_resource?(:service, 'running', parse_source(resource_source).ast, &b) }.to yield_successive_args(running_false_ast)
+    end
   end
 
   describe "doesn't extract methods that look like properties but aren't" do
-    # service 'while conditional' do
-    #   while true
-    #     running false
-    #   end
-    # end
+    let(:resource_source) do
+      <<~RUBY
+      service 'while conditional' do
+        while true
+          running false
+        end
+      end
+      RUBY
+    end
+
+    it "should yield a single 'running' property ast objects" do
+      expect { |b| match_property_in_resource?(:service, 'running', parse_source(resource_source).ast, &b) }.to yield_successive_args(running_false_ast)
+    end
   end
 
   describe "doesn't extract methods from blocks that don't look like resources" do
-    # method_with_a_block_and_no_string_arg do |desired|
-    #   running false
-    # end
+    let(:resource_source) do
+      <<~RUBY
+      method_with_a_block_and_no_string_arg do |desired|
+        running false
+      end
+      RUBY
+    end
+
+    it 'should not yield anything' do
+      expect { |b| match_property_in_resource?(:service, 'running', parse_source(resource_source).ast, &b) }.not_to yield_control
+    end
   end
 end
