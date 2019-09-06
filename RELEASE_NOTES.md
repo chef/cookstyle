@@ -308,6 +308,7 @@ The `UsesChefRESTHelpers` cop detects the usage of the various Chef::REST helper
 ### Other fixes and changes
 
 - `Chef/DefaultMetadataMaintainer` now detects additional default `maintainer` and `maintainer_email` field values.
+- `Chef/UsesDeprecatedMixins` now inspects files in the resources directory in addition to the providers and libraries directories.
 
 ## Cookstyle 5.4
 
