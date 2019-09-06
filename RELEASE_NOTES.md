@@ -1,3 +1,27 @@
+## Unreleased
+
+### 15 New Chef Cops
+
+Chef/ResourceSetsInternalProperties
+Chef/ResourceSetsNameProperty
+Chef/ResourceWithNoneAction
+Chef/ChocolateyPackageUninstallAction
+Chef/LaunchdDeprecatedHashProperty
+Chef/LocaleDeprecatedLcAllProperty
+Chef/UserDeprecatedSupportsProperty
+Chef/PowershellScriptExpandArchive
+Chef/PowershellInstallPackage
+Chef/PowershellInstallWindowsFeature
+Chef/CookbookUsesNodeSave
+Chef/SevenZipArchiveResource
+Chef/LibarchiveFile
+Chef/ShellOutToChocolatey
+Chef/UsesChefRESTHelpers
+
+### Other fixes and changes
+
+- `Chef/DefaultMetadataMaintainer` now detects additional default `maintainer` and `maintainer_email` field values.
+
 ## Cookstyle 5.4
 
 ### 11 New Chef Cops
