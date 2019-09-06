@@ -2,21 +2,35 @@
 
 ### 15 New Chef Cops
 
-Chef/ResourceSetsInternalProperties
-Chef/ResourceSetsNameProperty
-Chef/ResourceWithNoneAction
-Chef/ChocolateyPackageUninstallAction
-Chef/LaunchdDeprecatedHashProperty
-Chef/LocaleDeprecatedLcAllProperty
-Chef/UserDeprecatedSupportsProperty
-Chef/PowershellScriptExpandArchive
-Chef/PowershellInstallPackage
-Chef/PowershellInstallWindowsFeature
-Chef/CookbookUsesNodeSave
-Chef/SevenZipArchiveResource
-Chef/LibarchiveFile
-Chef/ShellOutToChocolatey
-Chef/UsesChefRESTHelpers
+#### Chef/ResourceSetsInternalProperties
+
+#### Chef/ResourceSetsNameProperty
+
+#### Chef/ResourceWithNoneAction
+
+#### Chef/ChocolateyPackageUninstallAction
+
+#### Chef/LaunchdDeprecatedHashProperty
+
+#### Chef/LocaleDeprecatedLcAllProperty
+
+#### Chef/UserDeprecatedSupportsProperty
+
+#### Chef/PowershellScriptExpandArchive
+
+#### Chef/PowershellInstallPackage
+
+#### Chef/PowershellInstallWindowsFeature
+
+#### Chef/CookbookUsesNodeSave
+
+#### Chef/SevenZipArchiveResource
+
+#### Chef/LibarchiveFile
+
+#### Chef/ShellOutToChocolatey
+
+#### Chef/UsesChefRESTHelpers
 
 ### Other fixes and changes
 
