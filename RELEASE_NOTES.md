@@ -2,7 +2,7 @@
 
 ### Chef Cops Broken Up Into Four Departments
 
-The Chef cops have been broken up into four more grandular departments of cops. This makes it easier to pick and choose which cops to scan for, and makes disabling groups of cops simpler. Instead of just "Chef" we now have the following departments:
+The Chef cops have been broken up into four more granular cop departments. This makes it easier to pick and choose which cops to scan for, and makes disabling groups of cops simpler. Instead of just "Chef" we now have the following departments:
 
 - `ChefDeprecations`: Cops that detect (and in many cases correct) deprecations that will prevent cookbooks from running on modern versions of Chef Infra Client.
 - `ChefStyle`: Cops that help with the format and readability of your cookbooks.
