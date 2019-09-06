@@ -4,7 +4,7 @@
 
 #### Chef/ResourceSetsInternalProperties
 
-The `ResourceSetsInternalProperties` cop detects resources that set internal state properties used by built in Chef Infra resources. These undocumented properties should not be set in a resource block and doing so will cause unexpected behavior when running Chef Infra Client.
+The `ResourceSetsInternalProperties` cop detects resources that set internal state properties used by built-in Chef Infra resources. These undocumented properties should not be set in a resource block and doing so will cause unexpected behavior when running Chef Infra Client.
 
 `Examples`
 
