@@ -18,30 +18,32 @@
 module RuboCop
   module Cop
     module Chef
-      # Make sure to use include_recipe instead of require_recipe
-      #
-      # @example
-      #
-      #   # bad
-      #   require_recipe 'foo'
-      #
-      #   # good
-      #   include_recipe 'foo'
-      #
-      class RequireRecipe < Cop
-        MSG = 'Use include_recipe instead of the require_recipe method'.freeze
+      module ChefDeprecations
+        # Make sure to use include_recipe instead of require_recipe
+        #
+        # @example
+        #
+        #   # bad
+        #   require_recipe 'foo'
+        #
+        #   # good
+        #   include_recipe 'foo'
+        #
+        class RequireRecipe < Cop
+          MSG = 'Use include_recipe instead of the require_recipe method'.freeze
 
-        def_node_matcher :require_recipe?, <<-PATTERN
-          (send nil? :require_recipe $str)
-        PATTERN
+          def_node_matcher :require_recipe?, <<-PATTERN
+            (send nil? :require_recipe $str)
+          PATTERN
 
-        def on_send(node)
-          require_recipe?(node) { add_offense(node, location: :selector, message: MSG, severity: :refactor) }
-        end
+          def on_send(node)
+            require_recipe?(node) { add_offense(node, location: :selector, message: MSG, severity: :refactor) }
+          end
 
-        def autocorrect(node)
-          lambda do |corrector|
-            corrector.replace(node.loc.selector, 'include_recipe')
+          def autocorrect(node)
+            lambda do |corrector|
+              corrector.replace(node.loc.selector, 'include_recipe')
+            end
           end
         end
       end

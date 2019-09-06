@@ -17,25 +17,27 @@
 module RuboCop
   module Cop
     module Chef
-      # Instead of using the execute resource to to run the `apt-get update` use Chef Infra Client's built-n
-      # apt_update resource which is available in Chef Infra Client 12.7 and later.
-      #
-      #   # bad
-      #   execute 'apt-get update'
-      #
-      #   # good
-      #   apt_update
-      #
-      class ExecuteAptUpdate < Cop
-        MSG = 'Use the apt_update resource instead of the execute resource to run an apt-get update package cache update'.freeze
+      module ChefModernize
+        # Instead of using the execute resource to to run the `apt-get update` use Chef Infra Client's built-n
+        # apt_update resource which is available in Chef Infra Client 12.7 and later.
+        #
+        #   # bad
+        #   execute 'apt-get update'
+        #
+        #   # good
+        #   apt_update
+        #
+        class ExecuteAptUpdate < Cop
+          MSG = 'Use the apt_update resource instead of the execute resource to run an apt-get update package cache update'.freeze
 
-        def_node_matcher :execute_apt_update?, <<-PATTERN
-          (send nil? :execute (str "apt-get update"))
-        PATTERN
+          def_node_matcher :execute_apt_update?, <<-PATTERN
+            (send nil? :execute (str "apt-get update"))
+          PATTERN
 
-        def on_send(node)
-          execute_apt_update?(node) do
-            add_offense(node, location: :expression, message: MSG, severity: :refactor)
+          def on_send(node)
+            execute_apt_update?(node) do
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            end
           end
         end
       end

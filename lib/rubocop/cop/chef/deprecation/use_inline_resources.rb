@@ -1,5 +1,5 @@
 #
-# Copyright:: 2019, Chef Software, Inc.
+# Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,22 +18,28 @@ module RuboCop
   module Cop
     module Chef
       module ChefDeprecations
-        # Don't depend on the deprecated compat_resource cookbook made obsolete by Chef 12.19+
+        # use_inline_resources became the default in Chef Infra Client 13+ and no longer needs
+        # to be called in resources
         #
         # @example
         #
         #   # bad
-        #   depends 'compat_resource'
+        #   use_inline_resources
+        #   use_inline_resources if defined?(use_inline_resources)
         #
-        class CookbookDependsOnCompatResource < Cop
-          MSG = "Don't depend on the deprecated compat_resource cookbook made obsolete by Chef 12.19+".freeze
-
-          def_node_matcher :depends_compat_resource?, <<-PATTERN
-            (send nil? :depends (str {"compat_resource"}))
-          PATTERN
+        class UseInlineResourcesDefined < Cop
+          MSG = 'use_inline_resources is now the default for resources in Chef Infra Client 13+ and does not need to be specified.'.freeze
 
           def on_send(node)
-            depends_compat_resource?(node) do
+            if node.method_name == :use_inline_resources
+              # don't alert on the use_inline_resources within the defined? check
+              # that would result in 2 alerts on the same line and wouldn't be useful
+              return if node.parent && node.parent.defined_type?
+
+              # catch the full offense if the method is gated like this: use_inline_resources if defined?(use_inline_resources)
+              if node.parent && node.parent.if_type? && node.parent.children.first.method_name == :defined?
+                node = node.parent
+              end
               add_offense(node, location: :expression, message: MSG, severity: :refactor)
             end
           end

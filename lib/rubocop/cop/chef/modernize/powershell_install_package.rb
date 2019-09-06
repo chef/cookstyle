@@ -17,29 +17,31 @@
 module RuboCop
   module Cop
     module Chef
-      # Use the powershell_package resource built into Chef Infra Client instead of the powershell_script
-      # resource to run Install-Package
-      #
-      # @example
-      #
-      #   # bad
-      #   powershell_script 'Expand website' do
-      #     code 'Install-Package -Name docker'
-      #   end
-      #
-      #  # good
-      #  powershell_package 'docker'
-      #
-      class PowershellInstallPackage < Cop
-        include RuboCop::Chef::CookbookHelpers
+      module ChefModernize
+        # Use the powershell_package resource built into Chef Infra Client instead of the powershell_script
+        # resource to run Install-Package
+        #
+        # @example
+        #
+        #   # bad
+        #   powershell_script 'Expand website' do
+        #     code 'Install-Package -Name docker'
+        #   end
+        #
+        #  # good
+        #  powershell_package 'docker'
+        #
+        class PowershellInstallPackage < Cop
+          include RuboCop::Chef::CookbookHelpers
 
-        MSG = 'Use the powershell_package resource built into Chef Infra Client 12.16+ instead of using Install-Package in a powershell_script resource'.freeze
+          MSG = 'Use the powershell_package resource built into Chef Infra Client 12.16+ instead of using Install-Package in a powershell_script resource'.freeze
 
-        def on_block(node)
-          match_property_in_resource?(:powershell_script, 'code', node) do |code_property|
-            property_data = method_arg_ast_to_string(code_property)
-            if property_data && property_data.match?(/^install-package\s/i)
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+          def on_block(node)
+            match_property_in_resource?(:powershell_script, 'code', node) do |code_property|
+              property_data = method_arg_ast_to_string(code_property)
+              if property_data && property_data.match?(/^install-package\s/i)
+                add_offense(node, location: :expression, message: MSG, severity: :refactor)
+              end
             end
           end
         end

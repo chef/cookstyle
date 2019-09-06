@@ -16,25 +16,25 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::NamePropertyIsRequired, :config do
+describe RuboCop::Cop::Chef::ChefCorrectness::NamePropertyIsRequired, :config do
   subject(:cop) { described_class.new(config) }
 
-  it 'registers an offense when a name_property is required' do
+  it 'registers an offense when a resource property is both a name_property and a required property' do
     expect_offense(<<~RUBY)
-    property :bob, String, required: true, name_property: true
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Resource properties marked as name properties should not also be required properties
+      property :foo, String, name_property: true, required: true
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Resource properties marked as name properties should not also be required properties
     RUBY
   end
 
-  it "doesn't register an offense when a property is required and not a name_property" do
+  it "doesn't register an offense with a required property that is not a name_property" do
     expect_no_offenses(<<~RUBY)
-    property :bob, String, required: true
+      property :foo, String, required: true
     RUBY
   end
 
-  it "doesn't register an offense when name_property isn't required" do
+  it "doesn't register an offense with name_property that is not required" do
     expect_no_offenses(<<~RUBY)
-    property :bob, String, name_property; true
+      property :foo, String, name_property: true
     RUBY
   end
 end

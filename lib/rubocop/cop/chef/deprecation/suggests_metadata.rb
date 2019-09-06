@@ -18,24 +18,26 @@
 module RuboCop
   module Cop
     module Chef
-      # Don't use the deprecated 'suggests' metadata value
-      #
-      # @example
-      #
-      #   # bad in metadata.rb:
-      #
-      #   suggests "another_cookbook"
-      #
-      class SuggestsMetadata < Cop
-        MSG = "Don't use the deprecated 'suggests' metadata value".freeze
+      module ChefDeprecations
+        # Don't use the deprecated 'suggests' metadata value
+        #
+        # @example
+        #
+        #   # bad in metadata.rb:
+        #
+        #   suggests "another_cookbook"
+        #
+        class SuggestsMetadata < Cop
+          MSG = "Don't use the deprecated 'suggests' metadata value".freeze
 
-        def on_send(node)
-          add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :suggests
-        end
+          def on_send(node)
+            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :suggests
+          end
 
-        def autocorrect(node)
-          lambda do |corrector|
-            corrector.remove(node.loc.expression)
+          def autocorrect(node)
+            lambda do |corrector|
+              corrector.remove(node.loc.expression)
+            end
           end
         end
       end

@@ -16,7 +16,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ResourceSetsNameProperty, :config do
+describe RuboCop::Cop::Chef::ChefCorrectness::ResourceSetsNameProperty, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when a resource sets the name property' do

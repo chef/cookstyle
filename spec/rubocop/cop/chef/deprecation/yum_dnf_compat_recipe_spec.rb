@@ -16,13 +16,13 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::IncludingYumDNFCompatRecipe, :config do
+describe RuboCop::Cop::Chef::ChefDeprecations::IncludingYumDNFCompatRecipe, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when including the "yum::dnf_yum_compat" recipe' do
     expect_offense(<<~RUBY)
       include_recipe 'yum::dnf_yum_compat'
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Do not include the yum::dnf_yum_compat default recipe to install yum on dnf systems. Chef Infra Client now includes built in support for DNF packages.
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Do not include the deprecated yum::dnf_yum_compat default recipe to install yum on dnf systems. Chef Infra Client now includes built in support for DNF packages.
     RUBY
 
     expect_correction("\n")

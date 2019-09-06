@@ -18,22 +18,23 @@ module RuboCop
   module Cop
     module Chef
       module ChefDeprecations
-        # Don't depend on the deprecated compat_resource cookbook made obsolete by Chef 12.19+
+        # Don't include the deprecated yum DNF compatibility recipe, which is no longer necessary
+        # as Chef Infra Client includes DNF package support
         #
         # @example
         #
         #   # bad
-        #   depends 'compat_resource'
+        #   include_recipe 'yum::dnf_yum_compat'
         #
-        class CookbookDependsOnCompatResource < Cop
-          MSG = "Don't depend on the deprecated compat_resource cookbook made obsolete by Chef 12.19+".freeze
+        class IncludingYumDNFCompatRecipe < Cop
+          MSG = 'Do not include the deprecated yum::dnf_yum_compat default recipe to install yum on dnf systems. Chef Infra Client now includes built in support for DNF packages.'.freeze
 
-          def_node_matcher :depends_compat_resource?, <<-PATTERN
-            (send nil? :depends (str {"compat_resource"}))
+          def_node_matcher :yum_dnf_compat_recipe_usage?, <<-PATTERN
+            (send nil? :include_recipe (str "yum::dnf_yum_compat"))
           PATTERN
 
           def on_send(node)
-            depends_compat_resource?(node) do
+            yum_dnf_compat_recipe_usage?(node) do
               add_offense(node, location: :expression, message: MSG, severity: :refactor)
             end
           end

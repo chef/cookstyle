@@ -16,7 +16,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ServiceResource, :config do
+describe RuboCop::Cop::Chef::ChefCorrectness::ServiceResource, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when starting a service in execute resource' do

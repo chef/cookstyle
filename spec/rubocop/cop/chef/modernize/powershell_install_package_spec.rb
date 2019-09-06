@@ -16,7 +16,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::PowershellInstallPackage, :config do
+describe RuboCop::Cop::Chef::ChefModernize::PowershellInstallPackage, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when using the libarchive_file resource' do

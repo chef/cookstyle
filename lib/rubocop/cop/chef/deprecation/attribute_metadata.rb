@@ -18,29 +18,30 @@
 module RuboCop
   module Cop
     module Chef
-      # Don't use the deprecated 'attribute' metadata value
-      #
-      # @example
-      #
-      #   # bad in metadata.rb:
-      #
-      #    attribute 'zookeeper_bridge/server',
-      #              display_name: 'zookeeper server',
-      #              description: 'Zookeeper server address.',
-      #              type: 'string',
-      #              required: 'optional',
-      #              default: '"127.0.0.1:2181"'
+      module ChefDeprecations
+        # Don't use the deprecated 'attribute' metadata value
+        #
+        # @example
+        #
+        #   # bad in metadata.rb:
+        #
+        #    attribute 'zookeeper_bridge/server',
+        #              display_name: 'zookeeper server',
+        #              description: 'Zookeeper server address.',
+        #              type: 'string',
+        #              required: 'optional',
+        #              default: '"127.0.0.1:2181"'
+        class AttributeMetadata < Cop
+          MSG = "Don't use the deprecated 'attribute' metadata value".freeze
 
-      class AttributeMetadata < Cop
-        MSG = "Don't use the deprecated 'attribute' metadata value".freeze
+          def on_send(node)
+            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :attribute
+          end
 
-        def on_send(node)
-          add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :attribute
-        end
-
-        def autocorrect(node)
-          lambda do |corrector|
-            corrector.remove(node.loc.expression)
+          def autocorrect(node)
+            lambda do |corrector|
+              corrector.remove(node.loc.expression)
+            end
           end
         end
       end

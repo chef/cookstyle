@@ -17,30 +17,34 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefDeprecations
-        # Don't depend on the deprecated compat_resource cookbook made obsolete by Chef 12.19+
+      module ChefModernize
+        # It is not longer necessary respond_to?(:foo) in metadata. This was used to support new metadata
+        # methods in Chef 11 and early versions of Chef 12.
         #
         # @example
         #
         #   # bad
-        #   depends 'compat_resource'
+        #   chef_version '>= 13' if respond_to?(:chef_version)
         #
-        class CookbookDependsOnCompatResource < Cop
-          MSG = "Don't depend on the deprecated compat_resource cookbook made obsolete by Chef 12.19+".freeze
+        #   # good
+        #   chef_version '>= 13'
+        #
+        class RespondToInMetadata < Cop
+          MSG = 'It is no longer necessary to use respond_to? in metadata.rb in Chef Infra Client 12.15 and later'.freeze
 
-          def_node_matcher :depends_compat_resource?, <<-PATTERN
-            (send nil? :depends (str {"compat_resource"}))
-          PATTERN
-
-          def on_send(node)
-            depends_compat_resource?(node) do
+          def on_if(node)
+            if_respond_to?(node) do
               add_offense(node, location: :expression, message: MSG, severity: :refactor)
             end
           end
 
+          def_node_matcher :if_respond_to?, <<~PATTERN
+          (if (send nil? :respond_to? _ ) ... )
+          PATTERN
+
           def autocorrect(node)
             lambda do |corrector|
-              corrector.remove(node.loc.expression)
+              corrector.replace(node.loc.expression, node.children[1].source)
             end
           end
         end

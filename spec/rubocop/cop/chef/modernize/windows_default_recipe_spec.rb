@@ -16,7 +16,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::IncludingWindowsDefaultRecipe, :config do
+describe RuboCop::Cop::Chef::ChefModernize::IncludingWindowsDefaultRecipe, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when including the "windows" recipe' do

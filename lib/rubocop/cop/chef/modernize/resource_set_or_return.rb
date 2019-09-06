@@ -18,30 +18,32 @@
 module RuboCop
   module Cop
     module Chef
-      # set_or_return within a method should not be used to define property in a resource. Instead use
-      # the property method which properly validates and defines properties in a way that works with
-      # reporting and documentation functionality in Chef Infra Client
-      #
-      # @example
-      #
-      #   # bad
-      #    def severity(arg = nil)
-      #      set_or_return(
-      #        :severity, arg,
-      #        :kind_of => String,
-      #        :default => nil
-      #      )
-      #    end
-      #
-      #   # good
-      #   property :severity, String
-      #
-      class SetOrReturnInResources < Cop
-        MSG = 'Do not use set_or_return within a method to define a property for a resource. Use the property method instead, which supports validation, reporting, and documentation functionality'.freeze
+      module ChefModernize
+        # set_or_return within a method should not be used to define property in a resource. Instead use
+        # the property method which properly validates and defines properties in a way that works with
+        # reporting and documentation functionality in Chef Infra Client
+        #
+        # @example
+        #
+        #   # bad
+        #    def severity(arg = nil)
+        #      set_or_return(
+        #        :severity, arg,
+        #        :kind_of => String,
+        #        :default => nil
+        #      )
+        #    end
+        #
+        #   # good
+        #   property :severity, String
+        #
+        class SetOrReturnInResources < Cop
+          MSG = 'Do not use set_or_return within a method to define a property for a resource. Use the property method instead, which supports validation, reporting, and documentation functionality'.freeze
 
-        def on_send(node)
-          if node.method_name == :set_or_return
-            add_offense(node, location: :expression, message: MSG, severity: :refactor)
+          def on_send(node)
+            if node.method_name == :set_or_return
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            end
           end
         end
       end

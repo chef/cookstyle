@@ -17,32 +17,34 @@
 module RuboCop
   module Cop
     module Chef
-      # The supports property was removed in Chef Infra Client 13 in favor of individual 'manage_home' and 'non_unique' properties.
-      #
-      # @example
-      #
-      #   # bad
-      #   user "betty" do
-      #     supports({
-      #       manage_home: true,
-      #       non_unique: true
-      #     })
-      #   end
-      #
-      #   # good
-      #   user "betty" do
-      #     manage_home true
-      #     non_unique true
-      #   end
-      #
-      class UserDeprecatedSupportsProperty < Cop
-        include RuboCop::Chef::CookbookHelpers
+      module ChefDeprecations
+        # The supports property was removed in Chef Infra Client 13 in favor of individual 'manage_home' and 'non_unique' properties.
+        #
+        # @example
+        #
+        #   # bad
+        #   user "betty" do
+        #     supports({
+        #       manage_home: true,
+        #       non_unique: true
+        #     })
+        #   end
+        #
+        #   # good
+        #   user "betty" do
+        #     manage_home true
+        #     non_unique true
+        #   end
+        #
+        class UserDeprecatedSupportsProperty < Cop
+          include RuboCop::Chef::CookbookHelpers
 
-        MSG = "The supports property was removed in Chef Infra Client 13 in favor of individual 'manage_home' and 'non_unique' properties.".freeze
+          MSG = "The supports property was removed in Chef Infra Client 13 in favor of individual 'manage_home' and 'non_unique' properties.".freeze
 
-        def on_block(node)
-          match_property_in_resource?(:user, 'supports', node) do |property|
-            add_offense(property, location: :expression, message: MSG, severity: :refactor)
+          def on_block(node)
+            match_property_in_resource?(:user, 'supports', node) do |property|
+              add_offense(property, location: :expression, message: MSG, severity: :refactor)
+            end
           end
         end
       end

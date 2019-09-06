@@ -17,40 +17,42 @@
 module RuboCop
   module Cop
     module Chef
-      # Over the course of years there have been many different valid community site / Supermarket
-      # URLs to use in a cookbook's Berksfile. These old URLs continue to function via redirects,
-      # but should be updated to point to the latest Supermarket URL.
-      #
-      # @example
-      #
-      #   # bad
-      #   source 'http://community.opscode.com/api/v3'
-      #   source 'https://supermarket.getchef.com'
-      #   source 'https://api.berkshelf.com'
-      #
-      #   # good
-      #   source 'https://supermarket.chef.io'
-      #
-      class LegacyBerksfileSource < Cop
-        MSG = 'Do not use legacy Berksfile community sources. Use Chef Supermarket instead.'.freeze
+      module ChefModernize
+        # Over the course of years there have been many different valid community site / Supermarket
+        # URLs to use in a cookbook's Berksfile. These old URLs continue to function via redirects,
+        # but should be updated to point to the latest Supermarket URL.
+        #
+        # @example
+        #
+        #   # bad
+        #   source 'http://community.opscode.com/api/v3'
+        #   source 'https://supermarket.getchef.com'
+        #   source 'https://api.berkshelf.com'
+        #
+        #   # good
+        #   source 'https://supermarket.chef.io'
+        #
+        class LegacyBerksfileSource < Cop
+          MSG = 'Do not use legacy Berksfile community sources. Use Chef Supermarket instead.'.freeze
 
-        def_node_matcher :berksfile_source?, <<-PATTERN
-          (send nil? :source (str #old_berkshelf_url?))
-        PATTERN
+          def_node_matcher :berksfile_source?, <<-PATTERN
+            (send nil? :source (str #old_berkshelf_url?))
+          PATTERN
 
-        def old_berkshelf_url?(url)
-          %w(http://community.opscode.com/api/v3 https://supermarket.getchef.com https://api.berkshelf.com).include?(url)
-        end
-
-        def on_send(node)
-          berksfile_source?(node) do
-            add_offense(node, location: :expression, message: MSG, severity: :refactor)
+          def old_berkshelf_url?(url)
+            %w(http://community.opscode.com/api/v3 https://supermarket.getchef.com https://api.berkshelf.com).include?(url)
           end
-        end
 
-        def autocorrect(node)
-          lambda do |corrector|
-            corrector.replace(node.loc.expression, "source 'https://supermarket.chef.io'")
+          def on_send(node)
+            berksfile_source?(node) do
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            end
+          end
+
+          def autocorrect(node)
+            lambda do |corrector|
+              corrector.replace(node.loc.expression, "source 'https://supermarket.chef.io'")
+            end
           end
         end
       end

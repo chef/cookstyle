@@ -16,7 +16,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::NodeNormalUnless do
+describe RuboCop::Cop::Chef::ChefCorrectness::NodeNormalUnless do
   subject(:cop) { described_class.new }
 
   it 'registers an offense on using node.normal_unless' do

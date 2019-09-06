@@ -18,23 +18,30 @@ module RuboCop
   module Cop
     module Chef
       module ChefDeprecations
-        # Cookbooks should not depend on the deprecated Poise framework. They should instead
-        # be refactored as standard custom resources.
+        # Do not include the deprecated xml::ruby recipe to install the nokogiri gem.
+        # Chef Infra Client 12 and later ships with nokogiri included.
         #
         # @example
         #
         #   # bad
-        #   depends 'poise'
-        class CookbookDependsOnPoise < Cop
-          MSG = 'Cookbooks should not depend on the deprecated Poise framework'.freeze
+        #   include_recipe 'xml::ruby'
+        #
+        class IncludingXMLRubyRecipe < Cop
+          MSG = 'Do not include the deprecated xml::ruby recipe to install the nokogiri gem. Chef Infra Client 12 and later ships with nokogiri included.'.freeze
 
-          def_node_matcher :depends_method?, <<-PATTERN
-            (send nil? :depends $str)
+          def_node_matcher :xml_ruby_recipe?, <<-PATTERN
+            (send nil? :include_recipe (str "xml::ruby"))
           PATTERN
 
           def on_send(node)
-            depends_method?(node) do |arg|
-              add_offense(node, location: :expression, message: MSG, severity: :refactor) if arg == s(:str, 'poise')
+            xml_ruby_recipe?(node) do
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            end
+          end
+
+          def autocorrect(node)
+            lambda do |corrector|
+              corrector.remove(node.loc.expression)
             end
           end
         end

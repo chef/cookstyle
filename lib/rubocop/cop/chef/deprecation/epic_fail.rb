@@ -18,30 +18,32 @@
 module RuboCop
   module Cop
     module Chef
-      # Make sure ignore_failure is used instead of epic_fail
-      #
-      # @example
-      #
-      #   # bad
-      #   package "foo" do
-      #     epic_fail true
-      #   end
-      #
-      #   # good
-      #   package "foo" do
-      #     ignore_failure true
-      #   end
-      #
-      class EpicFail < Cop
-        MSG = 'Use ignore_failure method instead of the deprecated epic_fail method'.freeze
+      module ChefDeprecations
+        # Make sure ignore_failure is used instead of epic_fail
+        #
+        # @example
+        #
+        #   # bad
+        #   package "foo" do
+        #     epic_fail true
+        #   end
+        #
+        #   # good
+        #   package "foo" do
+        #     ignore_failure true
+        #   end
+        #
+        class EpicFail < Cop
+          MSG = 'Use ignore_failure method instead of the deprecated epic_fail method'.freeze
 
-        def on_send(node)
-          add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :epic_fail
-        end
+          def on_send(node)
+            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :epic_fail
+          end
 
-        def autocorrect(node)
-          lambda do |corrector|
-            corrector.replace(node.loc.expression, 'ignore_failure true')
+          def autocorrect(node)
+            lambda do |corrector|
+              corrector.replace(node.loc.expression, 'ignore_failure true')
+            end
           end
         end
       end

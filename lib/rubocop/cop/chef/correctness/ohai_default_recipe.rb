@@ -17,30 +17,27 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefDeprecations
-        # Don't depend on the deprecated compat_resource cookbook made obsolete by Chef 12.19+
+      module ChefCorrectness
+        # The Ohai default recipe previously allowed a user to ship custom Ohai plugins to a system by including them
+        # in a directory in the Ohai cookbook. This functionality was replaced with the ohai_plugin resource, which
+        # should be used instead as it doesn't require forking the ohai cookbook.
         #
         # @example
         #
         #   # bad
-        #   depends 'compat_resource'
+        #   include_recipe 'ohai::default'
+        #   include_recipe 'ohai'
         #
-        class CookbookDependsOnCompatResource < Cop
-          MSG = "Don't depend on the deprecated compat_resource cookbook made obsolete by Chef 12.19+".freeze
+        class IncludingOhaiDefaultRecipe < Cop
+          MSG = "Use the ohai_plugin resource to ship custom Ohai plugins instead of using the ohai::default recipe. If you're not shipping custom Ohai plugins, then you can remove this recipe entirely".freeze
 
-          def_node_matcher :depends_compat_resource?, <<-PATTERN
-            (send nil? :depends (str {"compat_resource"}))
+          def_node_matcher :ohai_recipe_usage?, <<-PATTERN
+            (send nil? :include_recipe (str {"ohai" "ohai::default"}))
           PATTERN
 
           def on_send(node)
-            depends_compat_resource?(node) do
+            ohai_recipe_usage?(node) do
               add_offense(node, location: :expression, message: MSG, severity: :refactor)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.remove(node.loc.expression)
             end
           end
         end

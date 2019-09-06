@@ -197,119 +197,119 @@ ChefCorrectness/ResourceWithNoneAction:
 # Resolving Deprecations
 ###############################
 
-Chef/NodeSet:
+ChefDeprecations/NodeSet:
   Description: Do not use the deprecated node.set method
   Enabled: true
   VersionAdded: '5.0.0'
   Exclude:
     - '**/metadata.rb'
 
-Chef/NodeSetUnless:
+ChefDeprecations/NodeSetUnless:
   Description: Do not use the deprecated node.set_unless method
   Enabled: true
   VersionAdded: '5.1.0'
   Exclude:
     - '**/metadata.rb'
 
-Chef/EpicFail:
+ChefDeprecations/EpicFail:
   Description: Use ignore_failure method instead of the deprecated epic_fail method
   Enabled: true
   VersionAdded: '5.1.0'
   Exclude:
     - '**/metadata.rb'
 
-Chef/CookbookDependsOnPoise:
+ChefDeprecations/CookbookDependsOnPoise:
   Description: Cookbooks should not depend on the deprecated Poise framework
   Enabled: true
   VersionAdded: '5.1.0'
   Include:
     - '**/metadata.rb'
 
-Chef/ConflictsMetadata:
+ChefDeprecations/ConflictsMetadata:
   Description: Don't use the deprecated 'conflicts' metadata value
   Enabled: true
   VersionAdded: '5.1.0'
   Include:
     - '**/metadata.rb'
 
-Chef/SuggestsMetadata:
+ChefDeprecations/SuggestsMetadata:
   Description: Don't use the deprecated 'suggests' metadata value
   Enabled: true
   VersionAdded: '5.1.0'
   Include:
     - '**/metadata.rb'
 
-Chef/ProvidesMetadata:
+ChefDeprecations/ProvidesMetadata:
   Description: Don't use the deprecated 'provides' metadata value
   Enabled: true
   VersionAdded: '5.1.0'
   Include:
     - '**/metadata.rb'
 
-Chef/ReplacesMetadata:
+ChefDeprecations/ReplacesMetadata:
   Description: Don't use the deprecated 'replaces' metadata value
   Enabled: true
   VersionAdded: '5.1.0'
   Include:
     - '**/metadata.rb'
 
-Chef/AttributeMetadata:
+ChefDeprecations/AttributeMetadata:
   Description: Don't use the deprecated 'attribute' metadata value
   Enabled: true
   VersionAdded: '5.1.0'
   Include:
     - '**/metadata.rb'
 
-Chef/LongDescriptionMetadata:
+ChefDeprecations/LongDescriptionMetadata:
   Description: The long_description metadata.rb method is not used and is unnecessary in cookbooks
   Enabled: true
   VersionAdded: '5.2.0'
   Include:
     - '**/metadata.rb'
 
-Chef/CookbookDependsOnCompatResource:
+ChefDeprecations/CookbookDependsOnCompatResource:
   Description: Don't depend on the deprecated compat_resource cookbook made obsolete by Chef 12.19+
   Enabled: true
   VersionAdded: '5.1.0'
   Include:
     - '**/metadata.rb'
 
-Chef/CookbookDependsOnPartialSearch:
+ChefDeprecations/CookbookDependsOnPartialSearch:
   Description: Don't depend on the deprecated partial_search cookbook made obsolete by Chef 13+
   Enabled: true
   VersionAdded: '5.1.0'
   Include:
     - '**/metadata.rb'
 
-Chef/EasyInstallResource:
+ChefDeprecations/EasyInstallResource:
   Description: Don't use the deprecated easy_install resource resource removed in Chef 13
   Enabled: true
   VersionAdded: '5.1.0'
   Exclude:
     - '**/metadata.rb'
 
-Chef/ErlCallResource:
+ChefDeprecations/ErlCallResource:
   Description: Don't use the deprecated erl_call resource removed in Chef 13
   Enabled: true
   VersionAdded: '5.1.0'
   Exclude:
     - '**/metadata.rb'
 
-Chef/RequireRecipe:
+ChefDeprecations/RequireRecipe:
   Description: Use include_recipe instead of the require_recipe method
   Enabled: true
   VersionAdded: '5.2.0'
   Exclude:
     - '**/metadata.rb'
 
-Chef/NodeMethodsInsteadofAttributes:
+ChefDeprecations/NodeMethodsInsteadofAttributes:
   Description: Use node attributes to access Ohai data instead of node methods, which were deprecated in Chef Infra Client 13.
   Enabled: true
   VersionAdded: '5.4.0'
   Exclude:
     - '**/metadata.rb'
 
-Chef/UsesDeprecatedMixins:
+ChefDeprecations/UsesDeprecatedMixins:
   Description: Don't use deprecated Mixins no longer included in Chef Infra Client 14 and later.
   Enabled: true
   VersionAdded: '5.4.0'
@@ -318,192 +318,49 @@ Chef/UsesDeprecatedMixins:
     - '**/providers/*.rb'
     - '**/resources/*.rb'
 
-Chef/IncludingMixinShelloutInResources:
-  Description: There is no need to include Chef::Mixin::ShellOut in resources or providers as this is already done by Chef Infra Client.
-  Enabled: true
-  VersionAdded: '5.4.0'
-  Include:
-    - '**/resources/*.rb'
-    - '**/providers/*.rb'
-
-Chef/LegacyYumCookbookRecipes:
+ChefDeprecations/LegacyYumCookbookRecipes:
   Description: The elrepo, epel, ius, remi, and repoforge recipes were split into their own cookbooks and the yum recipe was renamed to be default with the release of yum cookbook 3.0 (Dec 2013).
   Enabled: true
   VersionAdded: '5.4.0'
   Exclude:
     - '**/metadata.rb'
 
-Chef/UsesChefRESTHelpers:
+ChefDeprecations/UsesChefRESTHelpers:
   Description: Don't use the helpers in Chef::REST which were removed in Chef Infra Client 13
   Enabled: true
   VersionAdded: '5.5.0'
   Exclude:
     - '**/metadata.rb'
 
-Chef/ChocolateyPackageUninstallAction:
+ChefDeprecations/ChocolateyPackageUninstallAction:
   Description: Use the :remove action in the chocolatey_package resource instead of :uninstall which was removed in Chef Infra Client 14+
   Enabled: true
   VersionAdded: '5.5.0'
   Exclude:
     - '**/metadata.rb'
 
-Chef/LaunchdDeprecatedHashProperty:
+ChefDeprecations/LaunchdDeprecatedHashProperty:
   Description: The launchd resource's hash property was renamed to plist_hash in Chef Infra Client 13+ to avoid conflicts with Ruby's hash class.
   Enabled: true
   VersionAdded: '5.5.0'
   Exclude:
     - '**/metadata.rb'
 
-Chef/LocaleDeprecatedLcAllProperty:
+ChefDeprecations/LocaleDeprecatedLcAllProperty:
   Description: The local resource's lc_all property has been deprecated and will be removed in Chef Infra Client 16
   Enabled: true
   VersionAdded: '5.5.0'
   Exclude:
     - '**/metadata.rb'
 
-Chef/UserDeprecatedSupportsProperty:
+ChefDeprecations/UserDeprecatedSupportsProperty:
   Description: The supports property was removed in Chef Infra Client 13 in favor of individual 'manage_home' and 'non_unique' properties.
   Enabled: true
   VersionAdded: '5.5.0'
   Exclude:
     - '**/metadata.rb'
 
-###############################
-# Cleaning up Legacy Code
-###############################
-
-Chef/LegacyBerksfileSource:
-  Description: Do not use legacy Berksfile community sources. Use Chef Supermarket instead.
-  Enabled: true
-  VersionAdded: '5.1.0'
-  Include:
-    - '**/Berksfile'
-
-Chef/WhyRunSupportedTrue:
-  Description: whyrun_supported? no longer needs to be set to true as it is the default in Chef 13+
-  Enabled: true
-  VersionAdded: '5.1.0'
-  Include:
-    - '**/resources/*.rb'
-    - '**/providers/*.rb'
-    - '**/libraries/*.rb'
-
-Chef/UnnecessaryDependsChef14:
-  Description: Don't depend on cookbooks made obsolete by Chef 14
-  Enabled: true
-  VersionAdded: '5.1.0'
-  Include:
-    - '**/metadata.rb'
-
-Chef/RespondToInMetadata:
-  Description: It is no longer necessary to use respond_to? in metadata.rb in Chef 12.15 and later
-  Enabled: true
-  VersionAdded: '5.2.0'
-  Include:
-    - '**/metadata.rb'
-
-Chef/RespondToResourceName:
-  Description: respond_to?(:resource_name) in resources is no longer necessary in Chef Infra Client 12.5+
-  Enabled: true
-  VersionAdded: '5.2.0'
-  Include:
-    - '**/resources/*.rb'
-    - '**/libraries/*.rb'
-
-Chef/RespondToProvides:
-  Description: respond_to?(:provides) in resources is no longer necessary in Chef Infra Client 12+
-  Enabled: true
-  VersionAdded: '5.2.0'
-  Include:
-    - '**/providers/*.rb'
-    - '**/libraries/*.rb'
-
-Chef/SetOrReturnInResources:
-  Description: Do not use set_or_return within a method to define a property for a resource. Use the property method instead, which supports validation, reporting, and documentation functionality.
-  Enabled: true
-  VersionAdded: '5.2.0'
-  Include:
-    - '**/resources/*.rb'
-    - '**/libraries/*.rb'
-
-Chef/CustomResourceWithAttributes:
-  Description: Custom Resources should contain properties not attributes.
-  Enabled: true
-  VersionAdded: '5.2.0'
-  Include:
-    - '**/resources/*.rb'
-
-Chef/CustomResourceWithAllowedActions:
-  Description: Custom Resources don't need to define the allowed actions with allowed_actions or actions methods
-  Enabled: true
-  VersionAdded: '5.2.0'
-  Include:
-    - '**/resources/*.rb'
-
-Chef/IncludingAptDefaultRecipe:
-  Description: Do not include the Apt default recipe to update package cache. Instead use the apt_update resource, which is built into Chef Infra Client 12.7 and later.
-  Enabled: true
-  VersionAdded: '5.3.0'
-  Exclude:
-    - '**/metadata.rb'
-
-Chef/IncludingWindowsDefaultRecipe:
-  Description: Do not include the Windows default recipe, which only installs win32 gems already included in Chef Infra Client
-  Enabled: true
-  VersionAdded: '5.3.0'
-  Exclude:
-    - '**/metadata.rb'
-
-Chef/IncludingYumDNFCompatRecipe:
-  Description: Do not include the yum::dnf_yum_compat default recipe to install yum on dnf systems. Chef Infra Client now includes built in support for DNF.
-  Enabled: true
-  VersionAdded: '5.3.0'
-  Exclude:
-    - '**/metadata.rb'
-
-Chef/DefinesChefSpecMatchers:
-  Description: ChefSpec matchers are now auto generated by ChefSpec 7.1+ and do not need to be defined in a cookbook
-  Enabled: true
-  VersionAdded: '5.3.0'
-  Include:
-    - '**/libraries/*.rb'
-
-Chef/ExecuteAptUpdate:
-  Description: Use the apt_update resource instead of the execute resource to run an apt-get update package cache update
-  Enabled: true
-  VersionAdded: '5.3.0'
-  Exclude:
-    - '**/metadata.rb'
-
-Chef/WindowsVersionHelper:
-  Description: Use node['platform_version'] data instead of the Windows::VersionHelper helper from the Windows cookbook.
-  Enabled: true
-  VersionAdded: '5.4.0'
-  Exclude:
-    - '**/metadata.rb'
-
-Chef/MinitestHandlerUsage:
-  Description: Use Chef InSpec for testing instead of the Minitest Handler cookbook pattern.
-  Enabled: true
-  VersionAdded: '5.4.0'
-  Include:
-    - '**/metadata.rb'
-
-Chef/IncludingOhaiDefaultRecipe:
-  Description: Use the ohai_plugin resource to ship custom Ohai plugins instead of using the ohai::default recipe. If you're not shipping custom Ohai plugins, then you can remove this recipe entirely.
-  Enabled: true
-  VersionAdded: '5.4.0'
-  Exclude:
-    - '**/metadata.rb'
-
-Chef/IncludingXMLRubyRecipe:
-  Description: The xml::ruby recipe installs nokogiri which is included in Chef Infra Client 12 and later.
-  Enabled: true
-  VersionAdded: '5.4.0'
-  Exclude:
-    - '**/metadata.rb'
-
-Chef/UseInlineResourcesDefined:
+ChefDeprecations/UseInlineResourcesDefined:
   Description: use_inline_resources is now the default for resources in Chef Infra Client 13+ and does not need to be specified.
   Enabled: true
   VersionAdded: '5.4.0'
@@ -513,8 +370,147 @@ Chef/UseInlineResourcesDefined:
     - '**/resources/*.rb'
 
 ###############################
-# Utilize new built-in resources
+# ChefModernize: Cleaning up legacy code and using new built-in resources
 ###############################
+
+ChefModernize/LegacyBerksfileSource:
+  Description: Do not use legacy Berksfile community sources. Use Chef Supermarket instead.
+  Enabled: true
+  VersionAdded: '5.1.0'
+  Include:
+    - '**/Berksfile'
+
+ChefModernize/WhyRunSupportedTrue:
+  Description: whyrun_supported? no longer needs to be set to true as it is the default in Chef 13+
+  Enabled: true
+  VersionAdded: '5.1.0'
+  Include:
+    - '**/resources/*.rb'
+    - '**/providers/*.rb'
+    - '**/libraries/*.rb'
+
+ChefModernize/UnnecessaryDependsChef14:
+  Description: Don't depend on cookbooks made obsolete by Chef 14
+  Enabled: true
+  VersionAdded: '5.1.0'
+  Include:
+    - '**/metadata.rb'
+
+ChefModernize/RespondToInMetadata:
+  Description: It is no longer necessary to use respond_to? in metadata.rb in Chef 12.15 and later
+  Enabled: true
+  VersionAdded: '5.2.0'
+  Include:
+    - '**/metadata.rb'
+
+ChefModernize/RespondToResourceName:
+  Description: respond_to?(:resource_name) in resources is no longer necessary in Chef Infra Client 12.5+
+  Enabled: true
+  VersionAdded: '5.2.0'
+  Include:
+    - '**/resources/*.rb'
+    - '**/libraries/*.rb'
+
+ChefModernize/RespondToProvides:
+  Description: respond_to?(:provides) in resources is no longer necessary in Chef Infra Client 12+
+  Enabled: true
+  VersionAdded: '5.2.0'
+  Include:
+    - '**/providers/*.rb'
+    - '**/libraries/*.rb'
+
+ChefModernize/SetOrReturnInResources:
+  Description: Do not use set_or_return within a method to define a property for a resource. Use the property method instead, which supports validation, reporting, and documentation functionality.
+  Enabled: true
+  VersionAdded: '5.2.0'
+  Include:
+    - '**/resources/*.rb'
+    - '**/libraries/*.rb'
+
+ChefModernize/CustomResourceWithAttributes:
+  Description: Custom Resources should contain properties not attributes.
+  Enabled: true
+  VersionAdded: '5.2.0'
+  Include:
+    - '**/resources/*.rb'
+
+ChefModernize/CustomResourceWithAllowedActions:
+  Description: Custom Resources don't need to define the allowed actions with allowed_actions or actions methods
+  Enabled: true
+  VersionAdded: '5.2.0'
+  Include:
+    - '**/resources/*.rb'
+
+ChefModernize/IncludingAptDefaultRecipe:
+  Description: Do not include the Apt default recipe to update package cache. Instead use the apt_update resource, which is built into Chef Infra Client 12.7 and later.
+  Enabled: true
+  VersionAdded: '5.3.0'
+  Exclude:
+    - '**/metadata.rb'
+
+ChefModernize/IncludingWindowsDefaultRecipe:
+  Description: Do not include the Windows default recipe, which only installs win32 gems already included in Chef Infra Client
+  Enabled: true
+  VersionAdded: '5.3.0'
+  Exclude:
+    - '**/metadata.rb'
+
+ChefModernize/IncludingYumDNFCompatRecipe:
+  Description: Do not include the yum::dnf_yum_compat default recipe to install yum on dnf systems. Chef Infra Client now includes built in support for DNF.
+  Enabled: true
+  VersionAdded: '5.3.0'
+  Exclude:
+    - '**/metadata.rb'
+
+ChefModernize/DefinesChefSpecMatchers:
+  Description: ChefSpec matchers are now auto generated by ChefSpec 7.1+ and do not need to be defined in a cookbook
+  Enabled: true
+  VersionAdded: '5.3.0'
+  Include:
+    - '**/libraries/*.rb'
+
+ChefModernize/ExecuteAptUpdate:
+  Description: Use the apt_update resource instead of the execute resource to run an apt-get update package cache update
+  Enabled: true
+  VersionAdded: '5.3.0'
+  Exclude:
+    - '**/metadata.rb'
+
+ChefModernize/WindowsVersionHelper:
+  Description: Use node['platform_version'] data instead of the Windows::VersionHelper helper from the Windows cookbook.
+  Enabled: true
+  VersionAdded: '5.4.0'
+  Exclude:
+    - '**/metadata.rb'
+
+ChefModernize/MinitestHandlerUsage:
+  Description: Use Chef InSpec for testing instead of the Minitest Handler cookbook pattern.
+  Enabled: true
+  VersionAdded: '5.4.0'
+  Include:
+    - '**/metadata.rb'
+
+ChefModernize/IncludingOhaiDefaultRecipe:
+  Description: Use the ohai_plugin resource to ship custom Ohai plugins instead of using the ohai::default recipe. If you're not shipping custom Ohai plugins, then you can remove this recipe entirely.
+  Enabled: true
+  VersionAdded: '5.4.0'
+  Exclude:
+    - '**/metadata.rb'
+
+ChefModernize/IncludingXMLRubyRecipe:
+  Description: The xml::ruby recipe installs nokogiri which is included in Chef Infra Client 12 and later.
+  Enabled: true
+  VersionAdded: '5.4.0'
+  Exclude:
+    - '**/metadata.rb'
+
+ChefModernize/IncludingMixinShelloutInResources:
+  Description: There is no need to include Chef::Mixin::ShellOut in resources or providers as this is already done by Chef Infra Client.
+  Enabled: true
+  VersionAdded: '5.4.0'
+  Include:
+    - '**/resources/*.rb'
+    - '**/providers/*.rb'
 
 Chef/UseBuildEssentialResource:
   Description: Use the build_essential resource instead of the legacy build-essential recipe. This resource ships in the build-essential cookbook v5.0+ and is built into Chef Infra Client 14+

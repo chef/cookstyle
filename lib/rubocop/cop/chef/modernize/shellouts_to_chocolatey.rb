@@ -17,37 +17,39 @@
 module RuboCop
   module Cop
     module Chef
-      # Use the Chocolatey resources built into Chef Infra Client instead of shelling out to the choco command
-      #
-      # @example
-      #
-      #   # bad
-      #   execute 'install package foo' do
-      #     command "choco install --source=artifactory \"foo\" -y --no-progress --ignore-package-exit-codes"
-      #   end
-      #
-      #  powershell_script 'add artifactory choco source' do
-      #    code "choco source add -n=artifactory -s='https://mycorp.jfrog.io/mycorp/api/nuget/chocolatey-remote' -u foo -p bar"x
-      #    not_if 'choco source list | findstr artifactory'
-      #  end
-      #
-      class ShellOutToChocolatey < Cop
-        include RuboCop::Chef::CookbookHelpers
+      module ChefModernize
+        # Use the Chocolatey resources built into Chef Infra Client instead of shelling out to the choco command
+        #
+        # @example
+        #
+        #   # bad
+        #   execute 'install package foo' do
+        #     command "choco install --source=artifactory \"foo\" -y --no-progress --ignore-package-exit-codes"
+        #   end
+        #
+        #  powershell_script 'add artifactory choco source' do
+        #    code "choco source add -n=artifactory -s='https://mycorp.jfrog.io/mycorp/api/nuget/chocolatey-remote' -u foo -p bar"x
+        #    not_if 'choco source list | findstr artifactory'
+        #  end
+        #
+        class ShellOutToChocolatey < Cop
+          include RuboCop::Chef::CookbookHelpers
 
-        MSG = 'Use the Chocolatey resources built into Chef Infra Client instead of shelling out to the choco command'.freeze
+          MSG = 'Use the Chocolatey resources built into Chef Infra Client instead of shelling out to the choco command'.freeze
 
-        def on_block(node)
-          match_property_in_resource?(:powershell_script, 'code', node) do |code_property|
-            property_data = method_arg_ast_to_string(code_property)
-            if property_data && property_data.match?(/^choco /i)
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+          def on_block(node)
+            match_property_in_resource?(:powershell_script, 'code', node) do |code_property|
+              property_data = method_arg_ast_to_string(code_property)
+              if property_data && property_data.match?(/^choco /i)
+                add_offense(node, location: :expression, message: MSG, severity: :refactor)
+              end
             end
-          end
 
-          match_property_in_resource?(:execute, 'command', node) do |code_property|
-            property_data = method_arg_ast_to_string(code_property)
-            if property_data && property_data.match?(/^choco /i)
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            match_property_in_resource?(:execute, 'command', node) do |code_property|
+              property_data = method_arg_ast_to_string(code_property)
+              if property_data && property_data.match?(/^choco /i)
+                add_offense(node, location: :expression, message: MSG, severity: :refactor)
+              end
             end
           end
         end

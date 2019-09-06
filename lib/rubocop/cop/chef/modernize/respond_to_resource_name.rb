@@ -17,34 +17,36 @@
 module RuboCop
   module Cop
     module Chef
-      # Chef 12.5 introduced the resource_name method for resources. Many cookbooks used
-      # respond_to?(:resource_name) to provide backwards compatibility with older chef-client
-      # releases. This backwards compatibility is no longer necessary.
-      #
-      # @example
-      #
-      #   # bad
-      #   resource_name :foo if respond_to?(:resource_name)
-      #
-      #   # good
-      #   resource_name :foo
-      #
-      class RespondToResourceName < Cop
-        MSG = 'respond_to?(:resource_name) in resources is no longer necessary in Chef Infra Client 12.5+'.freeze
+      module ChefModernize
+        # Chef 12.5 introduced the resource_name method for resources. Many cookbooks used
+        # respond_to?(:resource_name) to provide backwards compatibility with older chef-client
+        # releases. This backwards compatibility is no longer necessary.
+        #
+        # @example
+        #
+        #   # bad
+        #   resource_name :foo if respond_to?(:resource_name)
+        #
+        #   # good
+        #   resource_name :foo
+        #
+        class RespondToResourceName < Cop
+          MSG = 'respond_to?(:resource_name) in resources is no longer necessary in Chef Infra Client 12.5+'.freeze
 
-        def on_if(node)
-          if_respond_to_resource_name?(node) do
-            add_offense(node, location: :expression, message: MSG, severity: :refactor)
+          def on_if(node)
+            if_respond_to_resource_name?(node) do
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            end
           end
-        end
 
-        def_node_matcher :if_respond_to_resource_name?, <<~PATTERN
-        (if (send nil? :respond_to? ( :sym :resource_name ) ) ... )
-        PATTERN
+          def_node_matcher :if_respond_to_resource_name?, <<~PATTERN
+          (if (send nil? :respond_to? ( :sym :resource_name ) ) ... )
+          PATTERN
 
-        def autocorrect(node)
-          lambda do |corrector|
-            corrector.replace(node.loc.expression, node.children[1].source)
+          def autocorrect(node)
+            lambda do |corrector|
+              corrector.replace(node.loc.expression, node.children[1].source)
+            end
           end
         end
       end

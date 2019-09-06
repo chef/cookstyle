@@ -16,7 +16,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::WindowsZipfileUsage, :config do
+describe RuboCop::Cop::Chef::ChefModernize::WindowsZipfileUsage, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when using the windows_zipfile resource' do

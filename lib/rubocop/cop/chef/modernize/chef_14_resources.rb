@@ -17,35 +17,37 @@
 module RuboCop
   module Cop
     module Chef
-      # Don't depend on cookbooks made obsolete by Chef 14
-      #
-      # @example
-      #
-      #   # bad
-      #   depends 'build-essential'
-      #   depends 'chef_handler'
-      #   depends 'chef_hostname'
-      #   depends 'dmg'
-      #   depends 'mac_os_x'
-      #   depends 'swap'
-      #   depends 'sysctl'
-      #
-      class UnnecessaryDependsChef14 < Cop
-        MSG = "Don't depend on cookbooks made obsolete by Chef 14".freeze
+      module ChefModernize
+        # Don't depend on cookbooks made obsolete by Chef 14
+        #
+        # @example
+        #
+        #   # bad
+        #   depends 'build-essential'
+        #   depends 'chef_handler'
+        #   depends 'chef_hostname'
+        #   depends 'dmg'
+        #   depends 'mac_os_x'
+        #   depends 'swap'
+        #   depends 'sysctl'
+        #
+        class UnnecessaryDependsChef14 < Cop
+          MSG = "Don't depend on cookbooks made obsolete by Chef 14".freeze
 
-        def_node_matcher :legacy_depends?, <<-PATTERN
-          (send nil? :depends (str {"build-essential" "chef_handler" "chef_hostname" "dmg" "mac_os_x" "swap" "sysctl"}))
-        PATTERN
+          def_node_matcher :legacy_depends?, <<-PATTERN
+            (send nil? :depends (str {"build-essential" "chef_handler" "chef_hostname" "dmg" "mac_os_x" "swap" "sysctl"}))
+          PATTERN
 
-        def on_send(node)
-          legacy_depends?(node) do
-            add_offense(node, location: :expression, message: MSG, severity: :refactor)
+          def on_send(node)
+            legacy_depends?(node) do
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            end
           end
-        end
 
-        def autocorrect(node)
-          lambda do |corrector|
-            corrector.remove(node.loc.expression)
+          def autocorrect(node)
+            lambda do |corrector|
+              corrector.remove(node.loc.expression)
+            end
           end
         end
       end

@@ -16,26 +16,26 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::IncludingOhaiDefaultRecipe, :config do
+describe RuboCop::Cop::Chef::ChefCorrectness::IncludingOhaiDefaultRecipe, :config do
   subject(:cop) { described_class.new(config) }
 
-  it 'registers an offense when a recipe includes "ohai::default"' do
-    expect_offense(<<~RUBY)
-      include_recipe 'ohai::default'
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the ohai_plugin resource to ship custom Ohai plugins instead of using the ohai::default recipe. If you're not shipping custom Ohai plugins, then you can remove this recipe entirely
-    RUBY
-  end
-
-  it 'registers an offense when a recipe includes "ohai"' do
+  it 'registers an offense when including the "ohai" recipe' do
     expect_offense(<<~RUBY)
       include_recipe 'ohai'
       ^^^^^^^^^^^^^^^^^^^^^ Use the ohai_plugin resource to ship custom Ohai plugins instead of using the ohai::default recipe. If you're not shipping custom Ohai plugins, then you can remove this recipe entirely
     RUBY
   end
 
-  it "doesn't register an offense when a recipe includes another recipe" do
+  it 'registers an offense when including the "ohai::default" recipe' do
+    expect_offense(<<~RUBY)
+      include_recipe 'ohai::default'
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the ohai_plugin resource to ship custom Ohai plugins instead of using the ohai::default recipe. If you're not shipping custom Ohai plugins, then you can remove this recipe entirely
+    RUBY
+  end
+
+  it "doesn't register an offense when including any other recipe" do
     expect_no_offenses(<<~RUBY)
-      include_recipe 'ohai::other_thing'
+      include_recipe 'foo'
     RUBY
   end
 end

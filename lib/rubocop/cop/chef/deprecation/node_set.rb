@@ -16,35 +16,37 @@
 module RuboCop
   module Cop
     module Chef
-      # The node.set method has been removed in Chef-13 and must be replaced by node.normal.
-      #
-      # Note that node.normal keeps the semantics identical, but the use of node.normal is
-      # also discouraged.
-      #
-      # @example
-      #
-      #   # bad
-      #   node.set['foo'] = true
-      #
-      #   # good
-      #   node.normal['foo'] = true
-      #
-      class NodeSet < Cop
-        MSG = 'Do not use node.set. Replace with node.normal to keep identical behavior.'.freeze
+      module ChefDeprecations
+        # The node.set method has been removed in Chef-13 and must be replaced by node.normal.
+        #
+        # Note that node.normal keeps the semantics identical, but the use of node.normal is
+        # also discouraged.
+        #
+        # @example
+        #
+        #   # bad
+        #   node.set['foo'] = true
+        #
+        #   # good
+        #   node.normal['foo'] = true
+        #
+        class NodeSet < Cop
+          MSG = 'Do not use node.set. Replace with node.normal to keep identical behavior.'.freeze
 
-        def_node_matcher :node_set?, <<-PATTERN
-          (send (send _ :node) $:set)
-        PATTERN
+          def_node_matcher :node_set?, <<-PATTERN
+            (send (send _ :node) $:set)
+          PATTERN
 
-        def on_send(node)
-          node_set?(node) do
-            add_offense(node, location: :selector, message: MSG, severity: :refactor)
+          def on_send(node)
+            node_set?(node) do
+              add_offense(node, location: :selector, message: MSG, severity: :refactor)
+            end
           end
-        end
 
-        def autocorrect(node)
-          lambda do |corrector|
-            corrector.replace(node.loc.selector, 'normal')
+          def autocorrect(node)
+            lambda do |corrector|
+              corrector.replace(node.loc.selector, 'normal')
+            end
           end
         end
       end

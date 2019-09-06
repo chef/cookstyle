@@ -17,28 +17,30 @@
 module RuboCop
   module Cop
     module Chef
-      # Don't include the apt default recipe to update apt's package cache when you can
-      # use the apt_update resource built into Chef Infra Client 12.7 and later.
-      #
-      # @example
-      #
-      #   # bad
-      #   include_recipe 'apt::default'
-      #   include_recipe 'apt'
-      #
-      #   # good
-      #   apt_update
-      #
-      class IncludingAptDefaultRecipe < Cop
-        MSG = 'Do not include the Apt default recipe to update package cache. Instead use the apt_update resource, which is built into Chef Infra Client 12.7 and later.'.freeze
+      module ChefModernize
+        # Don't include the apt default recipe to update apt's package cache when you can
+        # use the apt_update resource built into Chef Infra Client 12.7 and later.
+        #
+        # @example
+        #
+        #   # bad
+        #   include_recipe 'apt::default'
+        #   include_recipe 'apt'
+        #
+        #   # good
+        #   apt_update
+        #
+        class IncludingAptDefaultRecipe < Cop
+          MSG = 'Do not include the Apt default recipe to update package cache. Instead use the apt_update resource, which is built into Chef Infra Client 12.7 and later.'.freeze
 
-        def_node_matcher :apt_recipe_usage?, <<-PATTERN
-          (send nil? :include_recipe (str {"apt" "apt::default"}))
-        PATTERN
+          def_node_matcher :apt_recipe_usage?, <<-PATTERN
+            (send nil? :include_recipe (str {"apt" "apt::default"}))
+          PATTERN
 
-        def on_send(node)
-          apt_recipe_usage?(node) do
-            add_offense(node, location: :expression, message: MSG, severity: :refactor)
+          def on_send(node)
+            apt_recipe_usage?(node) do
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            end
           end
         end
       end

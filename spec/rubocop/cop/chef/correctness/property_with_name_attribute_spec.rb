@@ -16,7 +16,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::PropertyWithNameAttribute, :config do
+describe RuboCop::Cop::Chef::ChefCorrectness::PropertyWithNameAttribute, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when a property has a name_attribute value' do

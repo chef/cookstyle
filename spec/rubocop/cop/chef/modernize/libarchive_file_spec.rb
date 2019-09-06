@@ -16,7 +16,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::LibarchiveFileResource, :config do
+describe RuboCop::Cop::Chef::ChefModernize::LibarchiveFileResource, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when using the libarchive_file resource' do

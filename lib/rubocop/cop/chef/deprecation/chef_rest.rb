@@ -18,34 +18,36 @@
 module RuboCop
   module Cop
     module Chef
-      # Chef::REST was removed in Chef Infra Client 13.
-      #
-      # @example
-      #
-      #   # bad
-      #   require 'chef/rest'
-      #   Chef::REST::RESTRequest.new(:GET, FOO, nil).call
-      #
-      class UsesChefRESTHelpers < Cop
-        MSG = "Don't use the helpers in Chef::REST which were removed in Chef Infra Client 13".freeze
+      module ChefDeprecations
+        # Chef::REST was removed in Chef Infra Client 13.
+        #
+        # @example
+        #
+        #   # bad
+        #   require 'chef/rest'
+        #   Chef::REST::RESTRequest.new(:GET, FOO, nil).call
+        #
+        class UsesChefRESTHelpers < Cop
+          MSG = "Don't use the helpers in Chef::REST which were removed in Chef Infra Client 13".freeze
 
-        def_node_matcher :require_rest?, <<-PATTERN
-        (send nil? :require ( str "chef/rest"))
-        PATTERN
+          def_node_matcher :require_rest?, <<-PATTERN
+          (send nil? :require ( str "chef/rest"))
+          PATTERN
 
-        def_node_matcher :rest_const?, <<-PATTERN
-        (const (const nil? :Chef) :REST)
-        PATTERN
+          def_node_matcher :rest_const?, <<-PATTERN
+          (const (const nil? :Chef) :REST)
+          PATTERN
 
-        def on_send(node)
-          require_rest?(node) do
-            add_offense(node, location: :expression, message: MSG, severity: :refactor)
+          def on_send(node)
+            require_rest?(node) do
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            end
           end
-        end
 
-        def on_const(node)
-          rest_const?(node) do
-            add_offense(node, location: :expression, message: MSG, severity: :refactor)
+          def on_const(node)
+            rest_const?(node) do
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            end
           end
         end
       end

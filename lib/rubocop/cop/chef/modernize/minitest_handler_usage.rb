@@ -17,29 +17,31 @@
 module RuboCop
   module Cop
     module Chef
-      # Use Chef InSpec for testing instead of the Minitest Handler cookbook pattern.
-      #
-      # @example
-      #
-      #   # bad
-      #   depends 'minitest-handler'
-      #
-      class MinitestHandlerUsage < Cop
-        MSG = 'Use Chef InSpec for testing instead of the Minitest Handler cookbook pattern.'.freeze
+      module ChefModernize
+        # Use Chef InSpec for testing instead of the Minitest Handler cookbook pattern.
+        #
+        # @example
+        #
+        #   # bad
+        #   depends 'minitest-handler'
+        #
+        class MinitestHandlerUsage < Cop
+          MSG = 'Use Chef InSpec for testing instead of the Minitest Handler cookbook pattern.'.freeze
 
-        def_node_matcher :minitest_depends?, <<-PATTERN
-          (send nil? :depends (str "minitest-handler"))
-        PATTERN
+          def_node_matcher :minitest_depends?, <<-PATTERN
+            (send nil? :depends (str "minitest-handler"))
+          PATTERN
 
-        def on_send(node)
-          minitest_depends?(node) do
-            add_offense(node, location: :expression, message: MSG, severity: :refactor)
+          def on_send(node)
+            minitest_depends?(node) do
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            end
           end
-        end
 
-        def autocorrect(node)
-          lambda do |corrector|
-            corrector.remove(node.loc.expression)
+          def autocorrect(node)
+            lambda do |corrector|
+              corrector.remove(node.loc.expression)
+            end
           end
         end
       end

@@ -17,26 +17,28 @@
 module RuboCop
   module Cop
     module Chef
-      # Use node['platform_version] data instead of the Windows::VersionHelper helper from the Windows cookbook.
-      #
-      # @example
-      #
-      #   # bad
-      #   Windows::VersionHelper.nt_version
-      #
-      #   # good
-      #   node['platform_version].to_i
-      #
-      class WindowsVersionHelper < Cop
-        MSG = "Use node['platform_version'] data instead of the Windows::VersionHelper helper from the Windows cookbook.".freeze
+      module ChefModernize
+        # Use node['platform_version] data instead of the Windows::VersionHelper helper from the Windows cookbook.
+        #
+        # @example
+        #
+        #   # bad
+        #   Windows::VersionHelper.nt_version
+        #
+        #   # good
+        #   node['platform_version].to_i
+        #
+        class WindowsVersionHelper < Cop
+          MSG = "Use node['platform_version'] data instead of the Windows::VersionHelper helper from the Windows cookbook.".freeze
 
-        def_node_matcher :windows_helper?, <<-PATTERN
-          (send ( const ( const {nil? cbase} :Windows ) :VersionHelper ) ... )
-        PATTERN
+          def_node_matcher :windows_helper?, <<-PATTERN
+            (send ( const ( const {nil? cbase} :Windows ) :VersionHelper ) ... )
+          PATTERN
 
-        def on_send(node)
-          windows_helper?(node) do
-            add_offense(node, location: :expression, message: MSG, severity: :refactor)
+          def on_send(node)
+            windows_helper?(node) do
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            end
           end
         end
       end

@@ -16,7 +16,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::CookbookUsesNodeSave, :config do
+describe RuboCop::Cop::Chef::ChefCorrectness::CookbookUsesNodeSave, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when a cookbook uses node.save' do

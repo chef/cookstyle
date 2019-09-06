@@ -18,20 +18,22 @@
 module RuboCop
   module Cop
     module Chef
-      # Use the archive_file resource built into Chef Infra Client 15+ instead of the libarchive_file resource
-      #
-      # @example
-      #
-      #   # bad
-      #   libarchive "C:\file.zip" do
-      #     path 'C:\expand_here'
-      #   end
-      #
-      class LibarchiveFileResource < Cop
-        MSG = 'Use the archive_file resource built into Chef Infra Client 15+ instead of the libarchive file resource'.freeze
+      module ChefModernize
+        # Use the archive_file resource built into Chef Infra Client 15+ instead of the libarchive_file resource
+        #
+        # @example
+        #
+        #   # bad
+        #   libarchive "C:\file.zip" do
+        #     path 'C:\expand_here'
+        #   end
+        #
+        class LibarchiveFileResource < Cop
+          MSG = 'Use the archive_file resource built into Chef Infra Client 15+ instead of the libarchive file resource'.freeze
 
-        def on_send(node)
-          add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :libarchive_file
+          def on_send(node)
+            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :libarchive_file
+          end
         end
       end
     end
