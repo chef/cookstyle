@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.5.6 -->
-## [v5.5.6](https://github.com/chef/cookstyle/tree/v5.5.6) (2019-09-06)
+<!-- latest_release 5.5.7 -->
+## [v5.5.7](https://github.com/chef/cookstyle/tree/v5.5.7) (2019-09-06)
 
 #### Merged Pull Requests
-- Add additional autocorrect and improve autocorrection testing [#282](https://github.com/chef/cookstyle/pull/282) ([tas50](https://github.com/tas50))
+- Break up the Chef namespace into 4 namespaces [#283](https://github.com/chef/cookstyle/pull/283) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.4.13 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Break up the Chef namespace into 4 namespaces [#283](https://github.com/chef/cookstyle/pull/283) ([tas50](https://github.com/tas50)) <!-- 5.5.7 -->
 - Add additional autocorrect and improve autocorrection testing [#282](https://github.com/chef/cookstyle/pull/282) ([tas50](https://github.com/tas50)) <!-- 5.5.6 -->
 - Add release notes for Cookstyle 5.5 [#279](https://github.com/chef/cookstyle/pull/279) ([tas50](https://github.com/tas50)) <!-- 5.5.5 -->
 - Add the documentation generation rake task from rubocop-rspec [#278](https://github.com/chef/cookstyle/pull/278) ([tas50](https://github.com/tas50)) <!-- 5.5.4 -->
