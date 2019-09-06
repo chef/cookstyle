@@ -283,7 +283,7 @@ end
 
 #### Chef/ShellOutToChocolatey
 
-The `ShellOutToChocolatey` cop detects the use of `powershell_script` or `execute` resources to shell out to Chocolatey's `choco` command line utility. Chef Infra Client ships with multiple chocolatey resources which should be used instead to install packages, configure features, and setup sources:
+The `ShellOutToChocolatey` cop detects the use of `powershell_script` or `execute` resources to shell out to Chocolatey's `choco` command line utility. Chef Infra Client ships with multiple chocolatey resources, which should be used instead to install packages, configure features, and setup sources:
 
 - [chocolatey_config](https://docs.chef.io/resource_chocolatey_config.html)
 - [chocolatey_feature](https://docs.chef.io/resource_chocolatey_feature.html)
