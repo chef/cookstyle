@@ -258,6 +258,7 @@ Chef/UsesDeprecatedMixins:
   Include:
     - '**/libraries/*.rb'
     - '**/providers/*.rb'
+    - '**/resources/*.rb'
 
 Chef/IncludingMixinShelloutInResources:
   Description: There is no need to include Chef::Mixin::ShellOut in resources or providers as this is already done by Chef Infra Client.
