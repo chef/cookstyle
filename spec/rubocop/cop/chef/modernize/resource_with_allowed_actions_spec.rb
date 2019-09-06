@@ -29,6 +29,15 @@ describe RuboCop::Cop::Chef::CustomResourceWithAllowedActions, :config do
         # some action code because we're in a custom resource
       end
     RUBY
+
+    expect_correction(<<~RUBY)
+      property :something, String
+
+
+      action :create do
+        # some action code because we're in a custom resource
+      end
+    RUBY
   end
 
   it 'registers an offense with a custom resource that uses actions method' do
@@ -37,6 +46,15 @@ describe RuboCop::Cop::Chef::CustomResourceWithAllowedActions, :config do
 
       actions [:create, :remove]
       ^^^^^^^^^^^^^^^^^^^^^^^^^^ Custom Resources don't need to define the allowed actions with allowed_actions or actions methods
+      action :create do
+        # some action code because we're in a custom resource
+      end
+    RUBY
+
+    expect_correction(<<~RUBY)
+      property :something, String
+
+
       action :create do
         # some action code because we're in a custom resource
       end

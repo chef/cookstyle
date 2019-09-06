@@ -24,6 +24,8 @@ describe RuboCop::Cop::Chef::AttributeMetadata, :config do
       attribute 'foo'
       ^^^^^^^^^^^^^^^ Don't use the deprecated 'attribute' metadata value
     RUBY
+
+    expect_correction("\n")
   end
 
   it "doesn't register an offense on normal metadata" do

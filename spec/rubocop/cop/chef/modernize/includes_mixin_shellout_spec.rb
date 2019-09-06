@@ -24,6 +24,8 @@ describe RuboCop::Cop::Chef::IncludingMixinShelloutInResources, :config do
     require 'chef/mixin/shell_out'
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ There is no need to include Chef::Mixin::ShellOut in resources or providers as this is already done by Chef Infra Client.
     RUBY
+
+    expect_correction("\n")
   end
 
   it 'registers an error when including "Chef::Mixin::ShellOut"' do
@@ -31,6 +33,8 @@ describe RuboCop::Cop::Chef::IncludingMixinShelloutInResources, :config do
     include Chef::Mixin::ShellOut
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ There is no need to include Chef::Mixin::ShellOut in resources or providers as this is already done by Chef Infra Client.
     RUBY
+
+    expect_correction("\n")
   end
 
   it "doesn't register an offense when including Chef::Mixin::Foo" do

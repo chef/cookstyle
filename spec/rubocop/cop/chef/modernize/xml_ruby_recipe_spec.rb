@@ -24,6 +24,8 @@ describe RuboCop::Cop::Chef::IncludingXMLRubyRecipe, :config do
       include_recipe 'xml::ruby'
       ^^^^^^^^^^^^^^^^^^^^^^^^^^ The xml::ruby recipe installs nokogiri which is included in Chef Infra Client 12 and later.
     RUBY
+
+    expect_correction("\n")
   end
 
   it "doesn't register an offense when including any other recipe" do

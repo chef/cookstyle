@@ -28,7 +28,6 @@ describe RuboCop::Cop::Chef::UserDeprecatedSupportsProperty, :config do
           non_unique: true
         })
       end
-
     RUBY
   end
 

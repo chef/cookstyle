@@ -24,6 +24,8 @@ describe RuboCop::Cop::Chef::ProvidesMetadata, :config do
       provides 'foo'
       ^^^^^^^^^^^^^^ Don't use the deprecated 'provides' metadata value
     RUBY
+
+    expect_correction("\n")
   end
 
   it "doesn't register an offense on normal metadata" do

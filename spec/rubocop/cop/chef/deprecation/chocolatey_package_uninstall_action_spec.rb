@@ -26,6 +26,8 @@ describe RuboCop::Cop::Chef::ChocolateyPackageUninstallAction, :config do
                ^^^^^^^^^^ Use the :remove action in the chocolatey_package resource instead of :uninstall which was removed in Chef Infra Client 14+
       end
     RUBY
+
+    expect_correction("chocolatey_package 'nginx' do\n  action :remove\nend\n")
   end
 
   it "doesn't register an offense when chocolatey_package uses the :remove action" do

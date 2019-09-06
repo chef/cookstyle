@@ -24,6 +24,8 @@ describe RuboCop::Cop::Chef::UsesDeprecatedMixins, :config do
       include Chef::Mixin::LanguageIncludeAttribute
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Don't use deprecated Mixins no longer included in Chef Infra Client 14 and later.
     RUBY
+
+    expect_correction("\n")
   end
 
   it 'registers an offense when including Chef::Mixin::RecipeDefinitionDSLCore' do
@@ -31,6 +33,8 @@ describe RuboCop::Cop::Chef::UsesDeprecatedMixins, :config do
       include Chef::Mixin::RecipeDefinitionDSLCore
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Don't use deprecated Mixins no longer included in Chef Infra Client 14 and later.
     RUBY
+
+    expect_correction("\n")
   end
 
   it 'registers an offense when including Chef::Mixin::LanguageIncludeRecipe' do
@@ -38,6 +42,8 @@ describe RuboCop::Cop::Chef::UsesDeprecatedMixins, :config do
       include Chef::Mixin::LanguageIncludeRecipe
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Don't use deprecated Mixins no longer included in Chef Infra Client 14 and later.
     RUBY
+
+    expect_correction("\n")
   end
 
   it 'registers an offense when including Chef::Mixin::Language' do
@@ -45,6 +51,8 @@ describe RuboCop::Cop::Chef::UsesDeprecatedMixins, :config do
       include Chef::Mixin::Language
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Don't use deprecated Mixins no longer included in Chef Infra Client 14 and later.
     RUBY
+
+    expect_correction("\n")
   end
 
   it 'registers an offense when including Chef::DSL::Recipe::FullDSL' do
@@ -52,6 +60,8 @@ describe RuboCop::Cop::Chef::UsesDeprecatedMixins, :config do
       include Chef::DSL::Recipe::FullDSL
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Don't use deprecated Mixins no longer included in Chef Infra Client 14 and later.
     RUBY
+
+    expect_correction("\n")
   end
 
   it 'registers an offense when requiring chef/mixin/language' do
@@ -59,6 +69,8 @@ describe RuboCop::Cop::Chef::UsesDeprecatedMixins, :config do
       require 'chef/mixin/language'
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Don't use deprecated Mixins no longer included in Chef Infra Client 14 and later.
     RUBY
+
+    expect_correction("\n")
   end
 
   it 'registers an offense when requiring chef/mixin/language_include_attribute' do
@@ -66,6 +78,8 @@ describe RuboCop::Cop::Chef::UsesDeprecatedMixins, :config do
       require 'chef/mixin/language_include_attribute'
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Don't use deprecated Mixins no longer included in Chef Infra Client 14 and later.
     RUBY
+
+    expect_correction("\n")
   end
 
   it 'registers an offense when requiring chef/mixin/language_include_recipe' do
@@ -73,6 +87,8 @@ describe RuboCop::Cop::Chef::UsesDeprecatedMixins, :config do
       require 'chef/mixin/language_include_recipe'
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Don't use deprecated Mixins no longer included in Chef Infra Client 14 and later.
     RUBY
+
+    expect_correction("\n")
   end
 
   it "doesn't register an offense on normal metadata" do

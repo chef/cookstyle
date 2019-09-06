@@ -24,6 +24,8 @@ describe RuboCop::Cop::Chef::ReplacesMetadata, :config do
       replaces 'foo'
       ^^^^^^^^^^^^^^ Don't use the deprecated 'replaces' metadata value
     RUBY
+
+    expect_correction("\n")
   end
 
   it "doesn't register an offense on normal metadata" do

@@ -24,6 +24,8 @@ describe RuboCop::Cop::Chef::LongDescriptionMetadata, :config do
       long_description 'foo'
       ^^^^^^^^^^^^^^^^^^^^^^ The long_description metadata.rb method is not used and is unnecessary in cookbooks
     RUBY
+
+    expect_correction("\n")
   end
 
   it "doesn't register an offense on normal metadata" do

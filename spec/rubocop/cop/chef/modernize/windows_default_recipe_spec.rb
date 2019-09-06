@@ -24,6 +24,8 @@ describe RuboCop::Cop::Chef::IncludingWindowsDefaultRecipe, :config do
       include_recipe 'windows'
       ^^^^^^^^^^^^^^^^^^^^^^^^ Do not include the Windows default recipe, which only installs win32 gems already included in Chef Infra Client
     RUBY
+
+    expect_correction("\n")
   end
 
   it 'registers an offense when including the "windows::default" recipe' do
@@ -31,6 +33,8 @@ describe RuboCop::Cop::Chef::IncludingWindowsDefaultRecipe, :config do
       include_recipe 'windows::default'
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Do not include the Windows default recipe, which only installs win32 gems already included in Chef Infra Client
     RUBY
+
+    expect_correction("\n")
   end
 
   it "doesn't register an offense when including any other recipe" do

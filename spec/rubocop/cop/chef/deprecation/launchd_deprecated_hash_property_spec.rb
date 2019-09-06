@@ -28,7 +28,15 @@ describe RuboCop::Cop::Chef::LaunchdDeprecatedHashProperty, :config do
       ^^^^^^^^^^^^^^^ The launchd resource's hash property was renamed to plist_hash in Chef Infra Client 13+ to avoid conflicts with Ruby's hash class.
       time_out 300
     end
+    RUBY
 
+    expect_correction(<<~RUBY)
+      launchd 'call.mom.weekly' do
+        program '/Library/scripts/call_mom.sh'
+        start_calendar_interval 'Weekday' => 7, 'Hourly' => 10
+        plist_hash foo: 'bar'
+        time_out 300
+      end
     RUBY
   end
 
