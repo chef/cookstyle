@@ -87,7 +87,7 @@ end
 
 #### Chef/LaunchdDeprecatedHashProperty
 
-The `LaunchdDeprecatedHashProperty` cop detects the use of the deprecated `hash` property in the `launchd` resource. The hash property was renamed to `plist_hash` in Chef Infra Client 13 and support for the `hash` name was removed in `Chef Infra Client.
+The `LaunchdDeprecatedHashProperty` cop detects the use of the deprecated `hash` property in the `launchd` resource. The hash property was renamed to `plist_hash` in Chef Infra Client 13 and support for the `hash` name was removed in Chef Infra Client.
 
 
 `Examples`
