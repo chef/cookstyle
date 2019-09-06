@@ -170,6 +170,8 @@ end
 
 The `PowershellInstallPackage` cop detects the usage of the `powershell_script` resource to run the `Install-Package` Cmdlet. The [powershell_package](https://docs.chef.io/resource_powershell_package.html) resources should be used to install packages via the PowerShell Package Manager instead.
 
+Installing Docker via `powershell_script` and `Install-Package`:
+
 ```ruby
 powershell_script 'Install Docker' do
   code 'Install-Package -Name docker'
