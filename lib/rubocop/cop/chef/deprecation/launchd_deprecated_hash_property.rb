@@ -41,6 +41,12 @@ module RuboCop
             add_offense(hash_prop, location: :expression, message: MSG, severity: :refactor)
           end
         end
+
+        def autocorrect(node)
+          lambda do |corrector|
+            corrector.replace(node.loc.expression, node.loc.expression.source.gsub(/^hash/, 'plist_hash'))
+          end
+        end
       end
     end
   end
