@@ -22,7 +22,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::IncludingXMLRubyRecipe, :config d
   it 'registers an offense when including the "xml::ruby" recipe' do
     expect_offense(<<~RUBY)
       include_recipe 'xml::ruby'
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^ Do not include the deprecated xml::ruby recipe to install the nokogiri gem. Chef Infra Client 12 and later ships with nokogiri included.\n"
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^ Do not include the deprecated xml::ruby recipe to install the nokogiri gem. Chef Infra Client 12 and later ships with nokogiri included.
     RUBY
 
     expect_correction("\n")
