@@ -31,7 +31,6 @@ module RuboCop
       #   supports 'mac_os_x'
       #   supports 'windows'
       #
-
       class InvalidPlatformMetadata < Cop
         COMMON_TYPOS = {
           "aws": nil,

@@ -36,7 +36,6 @@ module RuboCop
       # json_data = JSON.parse(Net::HTTP.get(URI('https://raw.githubusercontent.com/spdx/license-list-data/master/json/licenses.json')))
       # licenses = json_data['licenses'].map {|l| l['licenseId'] }.sort
       #
-
       class InvalidLicenseString < Cop
         VALID_LICENSE_STRING = %w(
           0BSD

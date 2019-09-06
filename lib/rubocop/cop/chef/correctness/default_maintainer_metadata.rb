@@ -32,7 +32,6 @@ module RuboCop
       #   maintainer 'Bob Bobberson'
       #   maintainer_email 'bob@bobberson.com'
       #
-
       class DefaultMetadataMaintainer < Cop
         MSG = 'Metadata contains default maintainer information from the cookbook generator. Add actual cookbook maintainer information to the metadata.rb.'.freeze
 

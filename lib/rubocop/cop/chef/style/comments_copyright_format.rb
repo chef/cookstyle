@@ -22,19 +22,19 @@ module RuboCop
       #
       # @example
       #
-      #   # bad (assuming current year is 2016)
-      #   Copyright:: 2013-2016 Opscode, Inc.
-      #   Copyright:: 2013-2016 Chef Inc.
-      #   Copyright:: 2013-2016 Chef Software Inc.
-      #   Copyright:: 2009-2010 2013-2016 Chef Software Inc.
+      #   # bad (assuming current year is 2019)
+      #   Copyright:: 2013-2019 Opscode, Inc.
+      #   Copyright:: 2013-2019 Chef Inc.
+      #   Copyright:: 2013-2019 Chef Software Inc.
+      #   Copyright:: 2009-2010 2013-2019 Chef Software Inc.
       #   Copyright:: Chef Software Inc.
       #   Copyright:: Tim Smith
-      #   Copyright:: Copyright (c) 2015-2016 Chef Software, Inc.
+      #   Copyright:: Copyright (c) 2015-2019 Chef Software, Inc.
       #
-      #   # good (assuming current year is 2016)
-      #   Copyright:: 2013-2016 Chef Software, Inc.
-      #   Copyright:: 2013-2016 Tim Smith
-      #   Copyright:: 2016 37Signals, Inc.
+      #   # good (assuming current year is 2019)
+      #   Copyright:: 2013-2019 Chef Software, Inc.
+      #   Copyright:: 2013-2019 Tim Smith
+      #   Copyright:: 2019 37Signals, Inc.
       #
       class CopyrightCommentFormat < Cop
         require 'date'

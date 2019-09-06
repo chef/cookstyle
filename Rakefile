@@ -1,5 +1,7 @@
 require 'bundler/gem_tasks'
 
+Dir['tasks/**/*.rake'].each { |t| load t }
+
 upstream = Gem::Specification.find_by_name('rubocop')
 
 desc "Vendor rubocop-#{upstream.version} configuration into gem"
