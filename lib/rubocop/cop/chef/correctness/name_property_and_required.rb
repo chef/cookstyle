@@ -49,13 +49,12 @@ module RuboCop
       #
       # @example
       #
-      #
       #   # bad
       #   property :config_file, String, required: true, name_property: true
       #
-      #
       #   # good
       #   property :config_file, String, required: true
+      #
       class NamePropertyIsRequired < Cop
         MSG = 'Resource properties marked as name properties should not also be required properties'.freeze
 

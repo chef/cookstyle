@@ -4,33 +4,303 @@
 
 #### Chef/ResourceSetsInternalProperties
 
+The `ResourceSetsInternalProperties` cop detects resources that set internal state properties used by built in Chef Infra resources. These undocumented properties should not be set in a resource block and doing so will cause unexpected behavior when running Chef Infra Client.
+
+`Examples`
+
+Service resource setting the running property:
+```ruby
+service 'foo' do
+  running true
+  action [:start, :enable]
+end
+```
+
 #### Chef/ResourceSetsNameProperty
+
+The `ResourceSetsNameProperty` cop detects a resource block with the `name` property set. The `name` property is a special property that is derviced from the name of the resource block and should not be changed with the block. Changing the name within a resource block can cause issues with reporting and notifications. If you wish to give your resources a more friendly name consider setting using setting a `name_property` which is available in all built-in Chef Infra resources. The name_property for each resource can be found in the [resource reference documentation](https://docs.chef.io/resource_reference.html)
+
+`Examples`
+
+Service resource incorrectly setting the name property:
+```ruby
+service 'Start the important service' do
+  name 'foo'
+  action [:start, :enable]
+end
+```
+
+Service resource correctly setting the service_name name property:
+```ruby
+service 'Start the important service' do
+  service_name 'foo'
+  action [:start, :enable]
+end
+```
+
+`Enabled by default`: True
+
+`Autocorrects`: No
 
 #### Chef/ResourceWithNoneAction
 
+The `ResourceWithNoneAction` cop detects the use of the `:none` action in a resource. The `:none` action is a common typo for the built-in `:nothing` action in all resources.
+
+`Examples`
+
+Service resource with the incorrect :none action:
+```ruby
+service 'my_service' do
+  action [:none]
+end
+```
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
 #### Chef/ChocolateyPackageUninstallAction
+
+The `ChocolateyPackageUninstallAction` cop detects a `chocolatey_package` resource that uses the `:uninstall` action. The uninstall action has been replaced with the `:remove` action and will error in Chef Infra Client 14+
+
+`Examples`
+
+chocolatey_package incorrectly setting the :uninstall action:
+
+```ruby
+chocolatey_package 'nginx' do
+  action :uninstall
+end
+```
+
+chocolatey_package correctly setting the :remove action:
+
+```ruby
+chocolatey_package 'nginx' do
+  action :remove
+end
+```
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
 
 #### Chef/LaunchdDeprecatedHashProperty
 
+The `LaunchdDeprecatedHashProperty` cop detects the use of the deprecated `hash` property in the `launchd` resource. The hash property was renamed to `plist_hash` in Chef Infra Client 13 and support for the `hash` name was removed in `Chef Infra Client.
+
+
+`Examples`
+
+launchd with the deprecated `hash` property:
+
+```ruby
+launchd 'foo' do
+  hash foo: 'bar'
+end
+```
+
+launchd with the correct `plist_hash` property:
+```ruby
+launchd 'foo' do
+  plist_hash foo: 'bar'
+end
+```
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
 #### Chef/LocaleDeprecatedLcAllProperty
+
+The `LocaleDeprecatedLcAllProperty` cop detects the use of the `lc_all` property in the `locale` resource. The `lc_all` property was deprecated in Chef Infra Client 15.0 and will be removed in the 16.0 release. Setting the LC_ALL variable is NOT recommended. As a system-wide setting, LANG should provide the desired behavior. LC_ALL is intended to be used for temporarily troubleshooting issues rather than an everyday system setting. Changing LC_ALL can break Chef’s parsing of command output in unexpected ways. Use one of the more specific LC_ properties as needed.
+
+`Examples`
+
+locale resource setting the lc_all property:
+
+```ruby
+locale 'set locale' do
+  lang 'en_gb.utf-8'
+  lc_all 'en_gb.utf-8'
+end
+```
+
+`Enabled by default`: True
+
+`Autocorrects`: No
 
 #### Chef/UserDeprecatedSupportsProperty
 
+The `UserDeprecatedSupportsProperty` cop detects the usage of the deprecated `supports` property in the `user` resource.
+
+`Enabled by default`: True
+
+`Autocorrects`: No
+
 #### Chef/PowershellScriptExpandArchive
+
+The `PowershellScriptExpandArchive` op detects the usage of the `powershell_script` resource to run the `Expand-Archive` Cmdlet. The [archive_file](https://docs.chef.io/resource_archive_file.html) resource in Chef Infra Client 15.0 should be used instead.
+
+`Examples`
+
+powershell_script using Expand-Archive to setup a website:
+
+```ruby
+powershell_script 'Expand website' do
+  code 'Expand-Archive "C:\\file.zip" -DestinationPath "C:\\inetpub\\wwwroot\\mysite"'
+  not_if { File.exist?("C:\\inetpub\\wwwroot\\mysite") }
+end
+```
+
+The same archive handled by archive_file:
+
+```ruby
+archive_file 'Expand website' do
+  path 'C:\file.zip'
+  destination 'C:\inetpub\wwwroot\mysite'
+end
+```
+
+`Enabled by default`: True
+
+`Autocorrects`: No
 
 #### Chef/PowershellInstallPackage
 
+The `PowershellInstallPackage` cop detects the usage of the `powershell_script` resource to run the `Install-Package` Cmdlet. The [powershell_package](https://docs.chef.io/resource_powershell_package.html) resources should be used to install packages via the PowerShell Package Manager instead.
+
+```ruby
+powershell_script 'Install Docker' do
+  code 'Install-Package -Name docker'
+  not_if { File.exist?("C:\\Program Files\\Docker") }
+end
+```
+
+The same package installed with powershell_package:
+
+```ruby
+powershell_package 'Install Docker' do
+  package_name 'Docker'
+end
+```
+
+`Enabled by default`: True
+
+`Autocorrects`: No
+
 #### Chef/PowershellInstallWindowsFeature
+
+The `PowershellInstallWindowsFeature` cop detects the usage of the `powershell_script` resource to run the `Install-WindowsFeature` or `Add-WindowsFeature` Cmdlets. The `windows_feature` resource should be used to install Windows features.
+
+`Examples`
+
+powershell_script using Install-WindowsFeature to install a feature
+
+```ruby
+powershell_script 'Install Feature' do
+  code 'Install-WindowsFeature -Name "Windows-Identity-Foundation"'
+  not_if '(Get-WindowsFeature | where {$_.Name -eq "Windows-Identity-Foundation"}).IsInstalled -eq true'
+end
+```
+
+The same feature install with windows_feature:
+
+```ruby
+windows_feature 'Windows-Identity-Foundation' do
+  action :install
+  install_method :windows_feature_powershell
+end
+```
+
+`Enabled by default`: True
+
+`Autocorrects`: No
 
 #### Chef/CookbookUsesNodeSave
 
+The `CookbookUsesNodeSave` cop detects the usage of `node.save` within a cookbook. node.save is often used to ensure a run_list is saved or so that other state information is immediately available for search by other nodes in your environment. The use of node.save can be incredibly problematic and should be avoided as a run failure will still result in the node data being saved to the Chef Infra Server. If search is used to put nodes into production state this may result in non-functioning nodes being used.
+
+`Enabled by default`: True
+
+`Autocorrects`: No
+
 #### Chef/SevenZipArchiveResource
+
+The `SevenZipArchiveResource` cop detects the usage of the `seven_zip_archive` resource from the `seven_zip` community cookbook to expand archives. The `archive_file` resource built into Chef Infra Client 15.0 should be used instead to avoid the need for extra cookbook dependencies.
+
+`Examples`
+
+Expanding a zip archive with seven_zip_archive:
+
+```ruby
+seven_zip_archive 'seven_zip_source' do
+  path      'C:\inetpub\wwwroot\mysite'
+  source    'C:\file.zip'
+end
+```
+
+The same archive handled by archive_file:
+
+```ruby
+archive_file 'Expand website' do
+  path 'C:\file.zip'
+  destination 'C:\inetpub\wwwroot\mysite'
+end
+```
+
+`Enabled by default`: True
+
+`Autocorrects`: No
 
 #### Chef/LibarchiveFile
 
+The `LibarchiveFile` cop detects the usage of the `libarchive_file` resource from the `libarchive` community cookbook to expand archives. The `archive_file` resource built into Chef Infra Client 15.0 is based on the `libarchive_file` resource and it should be used instead to avoid the need for extra cookbook dependencies.
+
+`Examples`
+
+Expanding a zip archive with libarchive_file:
+
+```ruby
+libarchive_file 'seven_zip_source' do
+  path 'C:\file.zip'
+  destination 'C:\inetpub\wwwroot\mysite'
+end
+```
+
+The same archive handled by archive_file:
+
+```ruby
+archive_file 'Expand website' do
+  path 'C:\file.zip'
+  destination 'C:\inetpub\wwwroot\mysite'
+end
+```
+
+`Enabled by default`: True
+
+`Autocorrects`: No
+
 #### Chef/ShellOutToChocolatey
 
+The `ShellOutToChocolatey` cop detects the use of `powershell_script` or `execute` resources to shell out to Chocolatey's `choco` command line utility. Chef Infra Client ships with multiple chocolatey resources which should be used instead to install packages, configure features, and setup sources:
+
+- [chocolatey_config](https://docs.chef.io/resource_chocolatey_config.html)
+- [chocolatey_feature](https://docs.chef.io/resource_chocolatey_feature.html)
+- [chocolatey_package](https://docs.chef.io/resource_chocolatey_package.html)
+- [chocolatey_source](https://docs.chef.io/resource_chocolatey_source.html)
+
+`Enabled by default`: True
+
+`Autocorrects`: No
+
 #### Chef/UsesChefRESTHelpers
+
+The `UsesChefRESTHelpers` cop detects the usage of the various Chef::REST helpers, which were removed in Chef Infra Client 13.0. For communicating with the Chef Infra Server directly you may consider using the `Chef::ServerAPI` helpers instead.
+
+`Enabled by default`: True
+
+`Autocorrects`: No
 
 ### Other fixes and changes
 
@@ -66,8 +336,7 @@ The `IncludingXMLRubyRecipe` cop detects cookbooks that include the `xml::ruby` 
 
 #### Chef/LegacyYumCookbookRecipes
 
-The `LegacyYumCookbookRecipes` cop detects usage of legacy [yum](https://supermarket.chef.io/cookbooks/yum) cookbook recipes. These recipes were removed from the yum cookbook in verson 3.0, which was released in 2013. Cookbooks should be updated to use the new individual yum cookbooks, which contain the same functionality as the legacy recipes.
-
+The `LegacyYumCookbookRecipes` cop detects usage of legacy [yum](https://supermarket.chef.io/cookbooks/yum) cookbook recipes. These recipes were removed from the yum cookbook in version 3.0, which was released in 2013. Cookbooks should be updated to use the new individual yum cookbooks, which contain the same functionality as the legacy recipes.
 
 `Examples`
 
@@ -580,7 +849,7 @@ source 'https://api.berkshelf.com'
 
 #### Chef/InsecureCookbookURL
 
-The `InsecureCookbookURL` cop detects non-HTTP GitHub and Gitlab URLs in metadata.rb's `issue_url` and `source_url` fields.
+The `InsecureCookbookURL` cop detects non-HTTP GitHub and GitLab URLs in metadata.rb's `issue_url` and `source_url` fields.
 
 `Examples`:
 
