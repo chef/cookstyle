@@ -1,5 +1,37 @@
 ## Unreleased
 
+### Chef Cops Broken Up Into Four Departments
+
+The Chef cops have been broken up into four more grandular departments of cops. This makes it easier to pick and choose which cops to scan for, and makes disabling groups of cops simpler. Instead of just "Chef" we now have the following departments:
+
+- `ChefDeprecations`: Cops that detect (and in many cases correct) deprecations that will prevent cookbooks from running on modern versions of Chef Infra Client.
+- `ChefStyle`: Cops that help with the format and readability of your cookbooks.
+- `ChefModernize`: Cops that help you modernize your cookbooks to better use functionality introduced in new Chef Infra Client Releases.
+- `ChefEffortless`: Cops that help with the migration to the Effortless pattern. These are disabled by default.
+
+You can run cookstyle with just a single department:
+
+```bash
+cookstyle --only ChefDeprecations
+```
+
+You can also exclude a specific group from the command line:
+
+```bash
+cookstyle --except ChefStyle
+```
+
+You can also add the following to your .rubocop.yml config to disable a specific department:
+
+```yaml
+ChefStyle:
+  Enabled: false
+```
+
+### Chef Cop Documentation
+
+Documentation for all Chef cops can now be found in the Cookstyle repos's [docs directory](https://github.com/chef/cookstyle/blob/master/docs/cops.md)
+
 ### 15 New Chef Cops
 
 #### Chef/ResourceSetsInternalProperties
