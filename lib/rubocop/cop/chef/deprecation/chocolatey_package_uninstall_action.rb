@@ -44,6 +44,12 @@ module RuboCop
             end
           end
         end
+
+        def autocorrect(node)
+          lambda do |corrector|
+            corrector.replace(node.loc.expression, ':remove')
+          end
+        end
       end
     end
   end
