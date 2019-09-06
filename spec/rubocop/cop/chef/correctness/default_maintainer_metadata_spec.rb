@@ -16,7 +16,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::DefaultMetadataMaintainer, :config do
+describe RuboCop::Cop::Chef::ChefCorrectness::DefaultMetadataMaintainer, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when a cookbook uses the default maintainer from the generator' do

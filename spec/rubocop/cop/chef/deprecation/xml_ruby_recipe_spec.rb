@@ -16,26 +16,21 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::IncludingOhaiDefaultRecipe, :config do
+describe RuboCop::Cop::Chef::ChefDeprecations::IncludingXMLRubyRecipe, :config do
   subject(:cop) { described_class.new(config) }
 
-  it 'registers an offense when including the "ohai" recipe' do
+  it 'registers an offense when including the "xml::ruby" recipe' do
     expect_offense(<<~RUBY)
-      include_recipe 'ohai'
-      ^^^^^^^^^^^^^^^^^^^^^ Use the ohai_plugin resource to ship custom Ohai plugins instead of using the ohai::default recipe. If you're not shipping custom Ohai plugins, then you can remove this recipe entirely
+      include_recipe 'xml::ruby'
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^ Do not include the deprecated xml::ruby recipe to install the nokogiri gem. Chef Infra Client 12 and later ships with nokogiri included.
     RUBY
-  end
 
-  it 'registers an offense when including the "ohai::default" recipe' do
-    expect_offense(<<~RUBY)
-      include_recipe 'ohai::default'
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the ohai_plugin resource to ship custom Ohai plugins instead of using the ohai::default recipe. If you're not shipping custom Ohai plugins, then you can remove this recipe entirely
-    RUBY
+    expect_correction("\n")
   end
 
   it "doesn't register an offense when including any other recipe" do
     expect_no_offenses(<<~RUBY)
-      include_recipe 'foo'
+      include_recipe 'xml::default'
     RUBY
   end
 end

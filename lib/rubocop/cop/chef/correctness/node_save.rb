@@ -17,25 +17,27 @@
 module RuboCop
   module Cop
     module Chef
-      # Don't use node.save to save partial node data to the Chef Infra Server mid-run unless it's
-      # absolutely necessary. Node.save can result in failed Chef Infra runs appearing in search and
-      # increases load on the Chef Infra Server."
-      #
-      # @example
-      #
-      #   # bad
-      #   node.save
-      #
-      class CookbookUsesNodeSave < Cop
-        MSG = "Don't use node.save to save partial node data to the Chef Infra Server mid-run unless it's absolutely necessary. Node.save can result in failed Chef Infra runs appearing in search and increases load on the Chef Infra Server.".freeze
+      module ChefCorrectness
+        # Don't use node.save to save partial node data to the Chef Infra Server mid-run unless it's
+        # absolutely necessary. Node.save can result in failed Chef Infra runs appearing in search and
+        # increases load on the Chef Infra Server."
+        #
+        # @example
+        #
+        #   # bad
+        #   node.save
+        #
+        class CookbookUsesNodeSave < Cop
+          MSG = "Don't use node.save to save partial node data to the Chef Infra Server mid-run unless it's absolutely necessary. Node.save can result in failed Chef Infra runs appearing in search and increases load on the Chef Infra Server.".freeze
 
-        def_node_matcher :node_save?, <<-PATTERN
-          (send (send nil? :node) :save)
-        PATTERN
+          def_node_matcher :node_save?, <<-PATTERN
+            (send (send nil? :node) :save)
+          PATTERN
 
-        def on_send(node)
-          node_save?(node) do
-            add_offense(node, location: :expression, message: MSG, severity: :refactor)
+          def on_send(node)
+            node_save?(node) do
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            end
           end
         end
       end

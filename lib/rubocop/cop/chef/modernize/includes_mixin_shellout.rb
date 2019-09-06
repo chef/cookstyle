@@ -18,38 +18,40 @@
 module RuboCop
   module Cop
     module Chef
-      # There is no need to include Chef::Mixin::ShellOut in resources or providers as this is already done by Chef Infra Client.
-      #
-      # @example
-      #
-      #   # bad
-      #   require 'chef/mixin/shell_out'
-      #   include Chef::Mixin::ShellOut
+      module ChefModernize
+        # There is no need to include Chef::Mixin::ShellOut in resources or providers as this is already done by Chef Infra Client.
+        #
+        # @example
+        #
+        #   # bad
+        #   require 'chef/mixin/shell_out'
+        #   include Chef::Mixin::ShellOut
 
-      class IncludingMixinShelloutInResources < Cop
-        MSG = 'There is no need to include Chef::Mixin::ShellOut in resources or providers as this is already done by Chef Infra Client.'.freeze
+        class IncludingMixinShelloutInResources < Cop
+          MSG = 'There is no need to include Chef::Mixin::ShellOut in resources or providers as this is already done by Chef Infra Client.'.freeze
 
-        def_node_matcher :include_shellout?, <<-PATTERN
-          (send nil? :include (const (const (const nil? :Chef) :Mixin) :ShellOut))
-        PATTERN
+          def_node_matcher :include_shellout?, <<-PATTERN
+            (send nil? :include (const (const (const nil? :Chef) :Mixin) :ShellOut))
+          PATTERN
 
-        def_node_matcher :require_shellout?, <<-PATTERN
-          (send nil? :require ( str "chef/mixin/shell_out"))
-        PATTERN
+          def_node_matcher :require_shellout?, <<-PATTERN
+            (send nil? :require ( str "chef/mixin/shell_out"))
+          PATTERN
 
-        def on_send(node)
-          require_shellout?(node) do
-            add_offense(node, location: :expression, message: MSG, severity: :refactor)
+          def on_send(node)
+            require_shellout?(node) do
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            end
+
+            include_shellout?(node) do
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            end
           end
 
-          include_shellout?(node) do
-            add_offense(node, location: :expression, message: MSG, severity: :refactor)
-          end
-        end
-
-        def autocorrect(node)
-          lambda do |corrector|
-            corrector.remove(node.loc.expression)
+          def autocorrect(node)
+            lambda do |corrector|
+              corrector.remove(node.loc.expression)
+            end
           end
         end
       end

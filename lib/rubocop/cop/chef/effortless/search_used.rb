@@ -17,18 +17,20 @@
 module RuboCop
   module Cop
     module Chef
-      # Search is not compatible with the Effortless Infra pattern
-      #
-      # @example
-      #
-      #   # bad
-      #   search(:node, 'run_list:recipe\[bacula\:\:server\]')
-      #
-      class CookbookUsesSearch < Cop
-        MSG = 'Cookbook uses search, which cannot be used in the Effortless Infra pattern'.freeze
+      module ChefEffortless
+        # Search is not compatible with the Effortless Infra pattern
+        #
+        # @example
+        #
+        #   # bad
+        #   search(:node, 'run_list:recipe\[bacula\:\:server\]')
+        #
+        class CookbookUsesSearch < Cop
+          MSG = 'Cookbook uses search, which cannot be used in the Effortless Infra pattern'.freeze
 
-        def on_send(node)
-          add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :search
+          def on_send(node)
+            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :search
+          end
         end
       end
     end

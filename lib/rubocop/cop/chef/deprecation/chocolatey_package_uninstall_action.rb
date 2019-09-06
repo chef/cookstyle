@@ -18,36 +18,38 @@
 module RuboCop
   module Cop
     module Chef
-      # Use the :remove action in the chocolatey_package resource instead of :uninstall which was removed in Chef Infra Client 14+
-      #
-      # @example
-      #
-      #   # bad
-      #   chocolatey_package 'nginx' do
-      #     action :uninstall
-      #   end
-      #
-      #   # good
-      #   chocolatey_package 'nginx' do
-      #     action :remove
-      #   end
-      #
-      class ChocolateyPackageUninstallAction < Cop
-        include RuboCop::Chef::CookbookHelpers
+      module ChefDeprecations
+        # Use the :remove action in the chocolatey_package resource instead of :uninstall which was removed in Chef Infra Client 14+
+        #
+        # @example
+        #
+        #   # bad
+        #   chocolatey_package 'nginx' do
+        #     action :uninstall
+        #   end
+        #
+        #   # good
+        #   chocolatey_package 'nginx' do
+        #     action :remove
+        #   end
+        #
+        class ChocolateyPackageUninstallAction < Cop
+          include RuboCop::Chef::CookbookHelpers
 
-        MSG = 'Use the :remove action in the chocolatey_package resource instead of :uninstall which was removed in Chef Infra Client 14+'.freeze
+          MSG = 'Use the :remove action in the chocolatey_package resource instead of :uninstall which was removed in Chef Infra Client 14+'.freeze
 
-        def on_block(node)
-          match_property_in_resource?(:chocolatey_package, 'action', node) do |choco_action|
-            choco_action.arguments.each do |action|
-              add_offense(action, location: :expression, message: MSG, severity: :refactor) if action.source == ':uninstall'
+          def on_block(node)
+            match_property_in_resource?(:chocolatey_package, 'action', node) do |choco_action|
+              choco_action.arguments.each do |action|
+                add_offense(action, location: :expression, message: MSG, severity: :refactor) if action.source == ':uninstall'
+              end
             end
           end
-        end
 
-        def autocorrect(node)
-          lambda do |corrector|
-            corrector.replace(node.loc.expression, ':remove')
+          def autocorrect(node)
+            lambda do |corrector|
+              corrector.replace(node.loc.expression, ':remove')
+            end
           end
         end
       end

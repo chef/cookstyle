@@ -17,32 +17,34 @@
 module RuboCop
   module Cop
     module Chef
-      # Use the windows_feature resource built into Chef Infra Client 15+ instead of the powershell_script resource
-      # to run Install-WindowsFeature or Add-WindowsFeature
-      #
-      # @example
-      #
-      #   # bad
-      #   powershell_script 'Install Feature' do
-      #     code 'Install-WindowsFeature -Name "Net-framework-Core"'
-      #   end
-      #
-      #  # good
-      #  windows_feature 'Net-framework-Core' do
-      #    action :install
-      #    install_method :windows_feature_powershell
-      #  end
-      #
-      class PowershellInstallWindowsFeature < Cop
-        include RuboCop::Chef::CookbookHelpers
+      module ChefModernize
+        # Use the windows_feature resource built into Chef Infra Client 15+ instead of the powershell_script resource
+        # to run Install-WindowsFeature or Add-WindowsFeature
+        #
+        # @example
+        #
+        #   # bad
+        #   powershell_script 'Install Feature' do
+        #     code 'Install-WindowsFeature -Name "Net-framework-Core"'
+        #   end
+        #
+        #  # good
+        #  windows_feature 'Net-framework-Core' do
+        #    action :install
+        #    install_method :windows_feature_powershell
+        #  end
+        #
+        class PowershellInstallWindowsFeature < Cop
+          include RuboCop::Chef::CookbookHelpers
 
-        MSG = 'Use the windows_feature resource built into Chef Infra Client 13+ instead of using Install-WindowsFeature or Add-WindowsFeature in a powershell_script resource'.freeze
+          MSG = 'Use the windows_feature resource built into Chef Infra Client 13+ instead of using Install-WindowsFeature or Add-WindowsFeature in a powershell_script resource'.freeze
 
-        def on_block(node)
-          match_property_in_resource?(:powershell_script, 'code', node) do |code_property|
-            property_data = method_arg_ast_to_string(code_property)
-            if property_data && property_data.match?(/^(install|add)-windowsfeature\s/i)
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+          def on_block(node)
+            match_property_in_resource?(:powershell_script, 'code', node) do |code_property|
+              property_data = method_arg_ast_to_string(code_property)
+              if property_data && property_data.match?(/^(install|add)-windowsfeature\s/i)
+                add_offense(node, location: :expression, message: MSG, severity: :refactor)
+              end
             end
           end
         end

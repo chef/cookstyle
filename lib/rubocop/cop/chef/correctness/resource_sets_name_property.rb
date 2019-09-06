@@ -18,29 +18,31 @@
 module RuboCop
   module Cop
     module Chef
-      # Use name properties instead of setting the name property in a resource. Setting the name property
-      # directly causes notification and reporting issues.
-      #
-      # @example
-      #
-      #   # bad
-      #   service 'foo' do
-      #    name 'bar'
-      #   end
-      #
-      #   # good
-      #   service 'foo' do
-      #    service_name 'bar'
-      #   end
-      #
-      class ResourceSetsNameProperty < Cop
-        include RuboCop::Chef::CookbookHelpers
+      module ChefCorrectness
+        # Use name properties instead of setting the name property in a resource. Setting the name property
+        # directly causes notification and reporting issues.
+        #
+        # @example
+        #
+        #   # bad
+        #   service 'foo' do
+        #    name 'bar'
+        #   end
+        #
+        #   # good
+        #   service 'foo' do
+        #    service_name 'bar'
+        #   end
+        #
+        class ResourceSetsNameProperty < Cop
+          include RuboCop::Chef::CookbookHelpers
 
-        MSG = 'Resource sets the name property in the resource instead of using a name_property.'.freeze
+          MSG = 'Resource sets the name property in the resource instead of using a name_property.'.freeze
 
-        def on_block(node)
-          match_property_in_resource?(nil, 'name', node) do |name_node|
-            add_offense(name_node, location: :expression, message: MSG, severity: :refactor)
+          def on_block(node)
+            match_property_in_resource?(nil, 'name', node) do |name_node|
+              add_offense(name_node, location: :expression, message: MSG, severity: :refactor)
+            end
           end
         end
       end

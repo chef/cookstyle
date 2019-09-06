@@ -17,20 +17,22 @@
 module RuboCop
   module Cop
     module Chef
-      # Use the archive_file resource built into Chef Infra Client 15+ instead of the windows_zipfile from the Windows cookbook
-      #
-      # @example
-      #
-      #   # bad
-      #   windows_zipfile 'C:\\files\\' do
-      #     source 'C:\\Temp\\file.zip'
-      #   end
-      #
-      class WindowsZipfileUsage < Cop
-        MSG = 'Use the archive_file resource built into Chef Infra Client 15+ instead of the windows_zipfile from the Windows cookbook'.freeze
+      module ChefModernize
+        # Use the archive_file resource built into Chef Infra Client 15+ instead of the windows_zipfile from the Windows cookbook
+        #
+        # @example
+        #
+        #   # bad
+        #   windows_zipfile 'C:\\files\\' do
+        #     source 'C:\\Temp\\file.zip'
+        #   end
+        #
+        class WindowsZipfileUsage < Cop
+          MSG = 'Use the archive_file resource built into Chef Infra Client 15+ instead of the windows_zipfile from the Windows cookbook'.freeze
 
-        def on_send(node)
-          add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :windows_zipfile
+          def on_send(node)
+            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :windows_zipfile
+          end
         end
       end
     end

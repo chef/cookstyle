@@ -17,49 +17,51 @@
 module RuboCop
   module Cop
     module Chef
-      # When using properties in a custom resource you shouldn't set a property to
-      # required and then provide a default value. If a property is required the
-      # user will always pass in a value and the default will never be used. In Chef
-      # Infra Client 13+ this became an error.
-      #
-      # @example
-      #
-      #   # bad
-      #   property :bob, String, required: true, default: 'foo'
-      #
-      #   # good
-      #   property :bob, String, required: true
-      #
-      class PropertyWithRequiredAndDefault < Cop
-        MSG = 'Resource property should not be both required and have a default value. This will fail on Chef Infra Client 13+'.freeze
+      module ChefCorrectness
+        # When using properties in a custom resource you shouldn't set a property to
+        # required and then provide a default value. If a property is required the
+        # user will always pass in a value and the default will never be used. In Chef
+        # Infra Client 13+ this became an error.
+        #
+        # @example
+        #
+        #   # bad
+        #   property :bob, String, required: true, default: 'foo'
+        #
+        #   # good
+        #   property :bob, String, required: true
+        #
+        class PropertyWithRequiredAndDefault < Cop
+          MSG = 'Resource property should not be both required and have a default value. This will fail on Chef Infra Client 13+'.freeze
 
-        def on_send(node)
-          if required_property?(node) && property_has_default?(node)
-            add_offense(node, location: :expression, message: MSG, severity: :refactor)
-          end
-        end
-
-        private
-
-        def required_property?(node)
-          if node.method_name == :property
-            node.arguments.each do |arg|
-              if arg.type == :hash
-                return true if arg.source.match?(/required:\s*true/)
-              end
+          def on_send(node)
+            if required_property?(node) && property_has_default?(node)
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
             end
-            false # no required: true found
           end
-        end
 
-        def property_has_default?(node)
-          if node.method_name == :property
-            node.arguments.each do |arg|
-              if arg.type == :hash
-                return true if arg.source.match?(/default:/)
+          private
+
+          def required_property?(node)
+            if node.method_name == :property
+              node.arguments.each do |arg|
+                if arg.type == :hash
+                  return true if arg.source.match?(/required:\s*true/)
+                end
               end
+              false # no required: true found
             end
-            false # no default: found
+          end
+
+          def property_has_default?(node)
+            if node.method_name == :property
+              node.arguments.each do |arg|
+                if arg.type == :hash
+                  return true if arg.source.match?(/default:/)
+                end
+              end
+              false # no default: found
+            end
           end
         end
       end

@@ -16,7 +16,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::CustomResourceWithAllowedActions, :config do
+describe RuboCop::Cop::Chef::ChefModernize::CustomResourceWithAllowedActions, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense with a custom resource that uses allowed_actions method' do

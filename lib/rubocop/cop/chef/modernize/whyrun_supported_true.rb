@@ -17,27 +17,29 @@
 module RuboCop
   module Cop
     module Chef
-      # whyrun_supported? no longer needs to be set to true as that is the default in Chef Infra Client 13+
-      #
-      # @example
-      #
-      #   # bad
-      #   def whyrun_supported?
-      #    true
-      #   end
-      #
-      class WhyRunSupportedTrue < Cop
-        MSG = 'whyrun_supported? no longer needs to be set to true as it is the default in Chef Infra Client 13+'.freeze
+      module ChefModernize
+        # whyrun_supported? no longer needs to be set to true as that is the default in Chef Infra Client 13+
+        #
+        # @example
+        #
+        #   # bad
+        #   def whyrun_supported?
+        #    true
+        #   end
+        #
+        class WhyRunSupportedTrue < Cop
+          MSG = 'whyrun_supported? no longer needs to be set to true as it is the default in Chef Infra Client 13+'.freeze
 
-        def on_def(node)
-          if node.method_name == :whyrun_supported? && node.body == s(:true) # rubocop: disable Lint/BooleanSymbol
-            add_offense(node, location: :expression, message: MSG, severity: :refactor)
+          def on_def(node)
+            if node.method_name == :whyrun_supported? && node.body == s(:true) # rubocop: disable Lint/BooleanSymbol
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            end
           end
-        end
 
-        def autocorrect(node)
-          lambda do |corrector|
-            corrector.remove(node.loc.expression)
+          def autocorrect(node)
+            lambda do |corrector|
+              corrector.remove(node.loc.expression)
+            end
           end
         end
       end

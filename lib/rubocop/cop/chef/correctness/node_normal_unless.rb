@@ -16,35 +16,37 @@
 module RuboCop
   module Cop
     module Chef
-      # Normal attributes are discouraged since their semantics differ importantly from the
-      # default and override levels.  Their values persist in the node object even after
-      # all code referencing them has been deleted, unlike default and override.
-      #
-      # Code should be updated to use default or override levels, but this will change
-      # attribute merging behavior so needs to be validated manually and force_default or
-      # force_override levels may need to be used in recipe code.
-      #
-      # @example
-      #
-      #   # bad
-      #   node.normal_unless['foo'] = true
-      #
-      #   # good
-      #   node.default_unless['foo'] = true
-      #   node.override_unless['foo'] = true
-      #   node.force_default_unless['foo'] = true
-      #   node.force_override_unless['foo'] = true
-      #
-      class NodeNormalUnless < Cop
-        MSG = 'Do not use node.normal_unless. Replace with default/override/force_default/force_override attribute levels.'.freeze
+      module ChefCorrectness
+        # Normal attributes are discouraged since their semantics differ importantly from the
+        # default and override levels.  Their values persist in the node object even after
+        # all code referencing them has been deleted, unlike default and override.
+        #
+        # Code should be updated to use default or override levels, but this will change
+        # attribute merging behavior so needs to be validated manually and force_default or
+        # force_override levels may need to be used in recipe code.
+        #
+        # @example
+        #
+        #   # bad
+        #   node.normal_unless['foo'] = true
+        #
+        #   # good
+        #   node.default_unless['foo'] = true
+        #   node.override_unless['foo'] = true
+        #   node.force_default_unless['foo'] = true
+        #   node.force_override_unless['foo'] = true
+        #
+        class NodeNormalUnless < Cop
+          MSG = 'Do not use node.normal_unless. Replace with default/override/force_default/force_override attribute levels.'.freeze
 
-        def_node_matcher :node_normal_unless?, <<-PATTERN
-          (send (send _ :node) :normal_unless)
-        PATTERN
+          def_node_matcher :node_normal_unless?, <<-PATTERN
+            (send (send _ :node) :normal_unless)
+          PATTERN
 
-        def on_send(node)
-          node_normal_unless?(node) do
-            add_offense(node, location: :expression, message: MSG, severity: :refactor)
+          def on_send(node)
+            node_normal_unless?(node) do
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            end
           end
         end
       end

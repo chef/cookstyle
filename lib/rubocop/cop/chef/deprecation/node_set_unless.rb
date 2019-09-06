@@ -16,35 +16,37 @@
 module RuboCop
   module Cop
     module Chef
-      # The node.set_unless method has been removed in Chef-13 and must be replaced by node.normal_unless.
-      #
-      # Note that node.normal_unless keeps the semantics identical, but the use of node.normal is
-      # also discouraged.
-      #
-      # @example
-      #
-      #   # bad
-      #   node.set_unless['foo'] = true
-      #
-      #   # good
-      #   node.normal_unless['foo'] = true
-      #
-      class NodeSetUnless < Cop
-        MSG = 'Do not use node.set_unless. Replace with node.normal_unless to keep identical behavior.'.freeze
+      module ChefDeprecations
+        # The node.set_unless method has been removed in Chef-13 and must be replaced by node.normal_unless.
+        #
+        # Note that node.normal_unless keeps the semantics identical, but the use of node.normal is
+        # also discouraged.
+        #
+        # @example
+        #
+        #   # bad
+        #   node.set_unless['foo'] = true
+        #
+        #   # good
+        #   node.normal_unless['foo'] = true
+        #
+        class NodeSetUnless < Cop
+          MSG = 'Do not use node.set_unless. Replace with node.normal_unless to keep identical behavior.'.freeze
 
-        def_node_matcher :node_set_unless?, <<-PATTERN
-          (send (send _ :node) $:set_unless)
-        PATTERN
+          def_node_matcher :node_set_unless?, <<-PATTERN
+            (send (send _ :node) $:set_unless)
+          PATTERN
 
-        def on_send(node)
-          node_set_unless?(node) do
-            add_offense(node, location: :selector, message: MSG, severity: :refactor)
+          def on_send(node)
+            node_set_unless?(node) do
+              add_offense(node, location: :selector, message: MSG, severity: :refactor)
+            end
           end
-        end
 
-        def autocorrect(node)
-          lambda do |corrector|
-            corrector.replace(node.loc.selector, 'normal_unless')
+          def autocorrect(node)
+            lambda do |corrector|
+              corrector.replace(node.loc.selector, 'normal_unless')
+            end
           end
         end
       end

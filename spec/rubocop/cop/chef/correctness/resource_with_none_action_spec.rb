@@ -16,7 +16,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ResourceWithNoneAction, :config do
+describe RuboCop::Cop::Chef::ChefCorrectness::ResourceWithNoneAction, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when a resource calls the :none action' do

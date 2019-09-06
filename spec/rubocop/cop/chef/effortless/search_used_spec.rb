@@ -16,7 +16,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::CookbookUsesSearch, :config do
+describe RuboCop::Cop::Chef::ChefEffortless::CookbookUsesSearch, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when search is used' do

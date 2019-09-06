@@ -17,66 +17,68 @@
 module RuboCop
   module Cop
     module Chef
-      # Incorrectly using node methods for Ohai data when you really want node attributes
-      #
-      # @example
-      #
-      #   # bad
-      #   node.fqdn
-      #   node.platform
-      #   node.platform_family
-      #   node.platform_version
-      #   node.hostname
-      #
-      #   # good
-      #   node['fqdn']
-      #   node['platform']
-      #   node['platform_family']
-      #   node['platform_version']
-      #   node['hostname']
-      #
-      class NodeMethodsInsteadofAttributes < Cop
-        MSG = 'Use node attributes to access Ohai data instead of node methods, which were deprecated in Chef Infra Client 13.'.freeze
+      module ChefDeprecations
+        # Incorrectly using node methods for Ohai data when you really want node attributes
+        #
+        # @example
+        #
+        #   # bad
+        #   node.fqdn
+        #   node.platform
+        #   node.platform_family
+        #   node.platform_version
+        #   node.hostname
+        #
+        #   # good
+        #   node['fqdn']
+        #   node['platform']
+        #   node['platform_family']
+        #   node['platform_version']
+        #   node['hostname']
+        #
+        class NodeMethodsInsteadofAttributes < Cop
+          MSG = 'Use node attributes to access Ohai data instead of node methods, which were deprecated in Chef Infra Client 13.'.freeze
 
-        def_node_matcher :node_ohai_methods?, <<-PATTERN
-          (send (send nil? :node) #non_nested_ohai_attribute?)
-        PATTERN
+          def_node_matcher :node_ohai_methods?, <<-PATTERN
+            (send (send nil? :node) #non_nested_ohai_attribute?)
+          PATTERN
 
-        def on_send(node)
-          node_ohai_methods?(node) do
-            add_offense(node, location: :selector, message: MSG, severity: :refactor)
+          def on_send(node)
+            node_ohai_methods?(node) do
+              add_offense(node, location: :selector, message: MSG, severity: :refactor)
+            end
           end
-        end
 
-        def autocorrect(node)
-          lambda do |corrector|
-            corrector.replace(node.loc.expression, "node['#{node.method_name}']")
+          def autocorrect(node)
+            lambda do |corrector|
+              corrector.replace(node.loc.expression, "node['#{node.method_name}']")
+            end
           end
-        end
 
-        private
+          private
 
-        def non_nested_ohai_attribute?(attribute)
-          %i(
-            current_user
-            domain
-            fqdn
-            hostname
-            ip6address
-            ipaddress
-            macaddress
-            machinename
-            ohai_time
-            os
-            os_version
-            platform
-            platform_build
-            platform_family
-            platform_version
-            root_group
-            shard_seed
-            uptime
-            uptime_seconds).include?(attribute)
+          def non_nested_ohai_attribute?(attribute)
+            %i(
+              current_user
+              domain
+              fqdn
+              hostname
+              ip6address
+              ipaddress
+              macaddress
+              machinename
+              ohai_time
+              os
+              os_version
+              platform
+              platform_build
+              platform_family
+              platform_version
+              root_group
+              shard_seed
+              uptime
+              uptime_seconds).include?(attribute)
+          end
         end
       end
     end

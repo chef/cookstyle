@@ -17,23 +17,25 @@
 module RuboCop
   module Cop
     module Chef
-      # Cookbooks should not depend on the deprecated Poise framework. They should instead
-      # be refactored as standard custom resources.
-      #
-      # @example
-      #
-      #   # bad
-      #   depends 'poise'
-      class CookbookDependsOnPoise < Cop
-        MSG = 'Cookbooks should not depend on the deprecated Poise framework'.freeze
+      module ChefDeprecations
+        # Cookbooks should not depend on the deprecated Poise framework. They should instead
+        # be refactored as standard custom resources.
+        #
+        # @example
+        #
+        #   # bad
+        #   depends 'poise'
+        class CookbookDependsOnPoise < Cop
+          MSG = 'Cookbooks should not depend on the deprecated Poise framework'.freeze
 
-        def_node_matcher :depends_method?, <<-PATTERN
-          (send nil? :depends $str)
-        PATTERN
+          def_node_matcher :depends_method?, <<-PATTERN
+            (send nil? :depends $str)
+          PATTERN
 
-        def on_send(node)
-          depends_method?(node) do |arg|
-            add_offense(node, location: :expression, message: MSG, severity: :refactor) if arg == s(:str, 'poise')
+          def on_send(node)
+            depends_method?(node) do |arg|
+              add_offense(node, location: :expression, message: MSG, severity: :refactor) if arg == s(:str, 'poise')
+            end
           end
         end
       end

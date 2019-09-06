@@ -17,31 +17,33 @@
 module RuboCop
   module Cop
     module Chef
-      # Don't include the windows default recipe that is either full of gem install that are part
-      # of the Chef Infra Client, or empty (depends on version).
-      #
-      # @example
-      #
-      #   # bad
-      #   include_recipe 'windows::default'
-      #   include_recipe 'windows'
-      #
-      class IncludingWindowsDefaultRecipe < Cop
-        MSG = 'Do not include the Windows default recipe, which only installs win32 gems already included in Chef Infra Client'.freeze
+      module ChefModernize
+        # Don't include the windows default recipe that is either full of gem install that are part
+        # of the Chef Infra Client, or empty (depends on version).
+        #
+        # @example
+        #
+        #   # bad
+        #   include_recipe 'windows::default'
+        #   include_recipe 'windows'
+        #
+        class IncludingWindowsDefaultRecipe < Cop
+          MSG = 'Do not include the Windows default recipe, which only installs win32 gems already included in Chef Infra Client'.freeze
 
-        def_node_matcher :windows_recipe_usage?, <<-PATTERN
-          (send nil? :include_recipe (str {"windows" "windows::default"}))
-        PATTERN
+          def_node_matcher :windows_recipe_usage?, <<-PATTERN
+            (send nil? :include_recipe (str {"windows" "windows::default"}))
+          PATTERN
 
-        def on_send(node)
-          windows_recipe_usage?(node) do
-            add_offense(node, location: :expression, message: MSG, severity: :refactor)
+          def on_send(node)
+            windows_recipe_usage?(node) do
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            end
           end
-        end
 
-        def autocorrect(node)
-          lambda do |corrector|
-            corrector.remove(node.loc.expression)
+          def autocorrect(node)
+            lambda do |corrector|
+              corrector.remove(node.loc.expression)
+            end
           end
         end
       end

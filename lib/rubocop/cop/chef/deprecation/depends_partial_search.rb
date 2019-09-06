@@ -17,23 +17,25 @@
 module RuboCop
   module Cop
     module Chef
-      # Don't depend on the partial_search cookbook made obsolete by Chef 13
-      #
-      # @example
-      #
-      #   # bad
-      #   depends 'partial_search'
-      #
-      class CookbookDependsOnPartialSearch < Cop
-        MSG = "Don't depend on the deprecated partial_search cookbook made obsolete by Chef 13".freeze
+      module ChefDeprecations
+        # Don't depend on the partial_search cookbook made obsolete by Chef 13
+        #
+        # @example
+        #
+        #   # bad
+        #   depends 'partial_search'
+        #
+        class CookbookDependsOnPartialSearch < Cop
+          MSG = "Don't depend on the deprecated partial_search cookbook made obsolete by Chef 13".freeze
 
-        def_node_matcher :depends_partial_search?, <<-PATTERN
-          (send nil? :depends (str {"partial_search"}))
-        PATTERN
+          def_node_matcher :depends_partial_search?, <<-PATTERN
+            (send nil? :depends (str {"partial_search"}))
+          PATTERN
 
-        def on_send(node)
-          depends_partial_search?(node) do
-            add_offense(node, location: :expression, message: MSG, severity: :refactor)
+          def on_send(node)
+            depends_partial_search?(node) do
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            end
           end
         end
       end

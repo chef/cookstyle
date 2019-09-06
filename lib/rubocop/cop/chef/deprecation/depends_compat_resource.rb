@@ -17,29 +17,31 @@
 module RuboCop
   module Cop
     module Chef
-      # Don't depend on the deprecated compat_resource cookbook made obsolete by Chef 12.19+
-      #
-      # @example
-      #
-      #   # bad
-      #   depends 'compat_resource'
-      #
-      class CookbookDependsOnCompatResource < Cop
-        MSG = "Don't depend on the deprecated compat_resource cookbook made obsolete by Chef 12.19+".freeze
+      module ChefDeprecations
+        # Don't depend on the deprecated compat_resource cookbook made obsolete by Chef 12.19+
+        #
+        # @example
+        #
+        #   # bad
+        #   depends 'compat_resource'
+        #
+        class CookbookDependsOnCompatResource < Cop
+          MSG = "Don't depend on the deprecated compat_resource cookbook made obsolete by Chef 12.19+".freeze
 
-        def_node_matcher :depends_compat_resource?, <<-PATTERN
-          (send nil? :depends (str {"compat_resource"}))
-        PATTERN
+          def_node_matcher :depends_compat_resource?, <<-PATTERN
+            (send nil? :depends (str {"compat_resource"}))
+          PATTERN
 
-        def on_send(node)
-          depends_compat_resource?(node) do
-            add_offense(node, location: :expression, message: MSG, severity: :refactor)
+          def on_send(node)
+            depends_compat_resource?(node) do
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            end
           end
-        end
 
-        def autocorrect(node)
-          lambda do |corrector|
-            corrector.remove(node.loc.expression)
+          def autocorrect(node)
+            lambda do |corrector|
+              corrector.remove(node.loc.expression)
+            end
           end
         end
       end

@@ -17,18 +17,20 @@
 module RuboCop
   module Cop
     module Chef
-      # Data bags cannot be used with the Effortless Infra pattern
-      #
-      # @example
-      #
-      #   # bad
-      #   data_bag_item('admins', login)
-      #   data_bag(data_bag_name)
-      class CookbookUsesDatabags < Cop
-        MSG = 'Cookbook uses data bags, which cannot be used in the Effortless Infra pattern'.freeze
+      module ChefEffortless
+        # Data bags cannot be used with the Effortless Infra pattern
+        #
+        # @example
+        #
+        #   # bad
+        #   data_bag_item('admins', login)
+        #   data_bag(data_bag_name)
+        class CookbookUsesDatabags < Cop
+          MSG = 'Cookbook uses data bags, which cannot be used in the Effortless Infra pattern'.freeze
 
-        def on_send(node)
-          add_offense(node, location: :expression, message: MSG, severity: :refactor) if %i(data_bag data_bag_item).include?(node.method_name)
+          def on_send(node)
+            add_offense(node, location: :expression, message: MSG, severity: :refactor) if %i(data_bag data_bag_item).include?(node.method_name)
+          end
         end
       end
     end

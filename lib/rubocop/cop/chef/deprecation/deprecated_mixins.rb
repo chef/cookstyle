@@ -18,52 +18,54 @@
 module RuboCop
   module Cop
     module Chef
-      # Don't use deprecated Mixins no longer included in Chef Infra Client 14 and later
-      #
-      # @example
-      #
-      #   # bad
-      #   include Chef::Mixin::LanguageIncludeAttribute
-      #   include Chef::Mixin::RecipeDefinitionDSLCore
-      #   include Chef::Mixin::LanguageIncludeRecipe
-      #   include Chef::Mixin::Language
-      #   include Chef::DSL::Recipe::FullDSL
-      #   require 'chef/mixin/language'
-      #   require 'chef/mixin/language_include_attribute'
-      #   require 'chef/mixin/language_include_recipe'
+      module ChefDeprecations
+        # Don't use deprecated Mixins no longer included in Chef Infra Client 14 and later
+        #
+        # @example
+        #
+        #   # bad
+        #   include Chef::Mixin::LanguageIncludeAttribute
+        #   include Chef::Mixin::RecipeDefinitionDSLCore
+        #   include Chef::Mixin::LanguageIncludeRecipe
+        #   include Chef::Mixin::Language
+        #   include Chef::DSL::Recipe::FullDSL
+        #   require 'chef/mixin/language'
+        #   require 'chef/mixin/language_include_attribute'
+        #   require 'chef/mixin/language_include_recipe'
 
-      class UsesDeprecatedMixins < Cop
-        MSG = "Don't use deprecated Mixins no longer included in Chef Infra Client 14 and later.".freeze
+        class UsesDeprecatedMixins < Cop
+          MSG = "Don't use deprecated Mixins no longer included in Chef Infra Client 14 and later.".freeze
 
-        def_node_matcher :deprecated_mixin?, <<-PATTERN
-          (send nil? :include (const (const (const nil? :Chef) :Mixin) { :Language :LanguageIncludeAttribute :RecipeDefinitionDSLCore :LanguageIncludeRecipe }))
-        PATTERN
+          def_node_matcher :deprecated_mixin?, <<-PATTERN
+            (send nil? :include (const (const (const nil? :Chef) :Mixin) { :Language :LanguageIncludeAttribute :RecipeDefinitionDSLCore :LanguageIncludeRecipe }))
+          PATTERN
 
-        def_node_matcher :deprecated_dsl?, <<-PATTERN
-          (send nil? :include (const (const (const (const nil? :Chef) :DSL) :Recipe) :FullDSL))
-        PATTERN
+          def_node_matcher :deprecated_dsl?, <<-PATTERN
+            (send nil? :include (const (const (const (const nil? :Chef) :DSL) :Recipe) :FullDSL))
+          PATTERN
 
-        def_node_matcher :dsl_mixin_require?, <<-PATTERN
-          (send nil? :require ( str {"chef/mixin/language" "chef/mixin/language_include_attribute" "chef/mixin/language_include_recipe"}))
-        PATTERN
+          def_node_matcher :dsl_mixin_require?, <<-PATTERN
+            (send nil? :require ( str {"chef/mixin/language" "chef/mixin/language_include_attribute" "chef/mixin/language_include_recipe"}))
+          PATTERN
 
-        def on_send(node)
-          deprecated_mixin?(node) do
-            add_offense(node, location: :expression, message: MSG, severity: :refactor)
+          def on_send(node)
+            deprecated_mixin?(node) do
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            end
+
+            deprecated_dsl?(node) do
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            end
+
+            dsl_mixin_require?(node) do
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            end
           end
 
-          deprecated_dsl?(node) do
-            add_offense(node, location: :expression, message: MSG, severity: :refactor)
-          end
-
-          dsl_mixin_require?(node) do
-            add_offense(node, location: :expression, message: MSG, severity: :refactor)
-          end
-        end
-
-        def autocorrect(node)
-          lambda do |corrector|
-            corrector.remove(node.loc.expression)
+          def autocorrect(node)
+            lambda do |corrector|
+              corrector.remove(node.loc.expression)
+            end
           end
         end
       end

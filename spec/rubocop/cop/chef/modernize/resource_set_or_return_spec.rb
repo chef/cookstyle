@@ -16,7 +16,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::SetOrReturnInResources, :config do
+describe RuboCop::Cop::Chef::ChefModernize::SetOrReturnInResources, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense with a resource that uses set_or_return' do

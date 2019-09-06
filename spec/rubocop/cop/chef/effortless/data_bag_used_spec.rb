@@ -16,7 +16,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::CookbookUsesDatabags, :config do
+describe RuboCop::Cop::Chef::ChefEffortless::CookbookUsesDatabags, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when data_bag method is used' do

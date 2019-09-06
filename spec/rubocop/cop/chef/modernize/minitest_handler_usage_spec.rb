@@ -16,7 +16,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::MinitestHandlerUsage, :config do
+describe RuboCop::Cop::Chef::ChefModernize::MinitestHandlerUsage, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when a cookbook depends on "minitest-handler"' do

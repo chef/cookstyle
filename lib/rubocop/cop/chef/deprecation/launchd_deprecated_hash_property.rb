@@ -17,34 +17,36 @@
 module RuboCop
   module Cop
     module Chef
-      # The launchd resource's hash property was renamed to plist_hash in Chef Infra Client 13+ to avoid conflicts with Ruby's hash class.
-      #
-      # @example
-      #
-      #   # bad
-      #   launchd 'foo' do
-      #     hash foo: 'bar'
-      #   end
-      #
-      #   # good
-      #   launchd 'foo' do
-      #     plist_hash foo: 'bar'
-      #   end
-      #
-      class LaunchdDeprecatedHashProperty < Cop
-        include RuboCop::Chef::CookbookHelpers
+      module ChefDeprecations
+        # The launchd resource's hash property was renamed to plist_hash in Chef Infra Client 13+ to avoid conflicts with Ruby's hash class.
+        #
+        # @example
+        #
+        #   # bad
+        #   launchd 'foo' do
+        #     hash foo: 'bar'
+        #   end
+        #
+        #   # good
+        #   launchd 'foo' do
+        #     plist_hash foo: 'bar'
+        #   end
+        #
+        class LaunchdDeprecatedHashProperty < Cop
+          include RuboCop::Chef::CookbookHelpers
 
-        MSG = "The launchd resource's hash property was renamed to plist_hash in Chef Infra Client 13+ to avoid conflicts with Ruby's hash class.".freeze
+          MSG = "The launchd resource's hash property was renamed to plist_hash in Chef Infra Client 13+ to avoid conflicts with Ruby's hash class.".freeze
 
-        def on_block(node)
-          match_property_in_resource?(:launchd, 'hash', node) do |hash_prop|
-            add_offense(hash_prop, location: :expression, message: MSG, severity: :refactor)
+          def on_block(node)
+            match_property_in_resource?(:launchd, 'hash', node) do |hash_prop|
+              add_offense(hash_prop, location: :expression, message: MSG, severity: :refactor)
+            end
           end
-        end
 
-        def autocorrect(node)
-          lambda do |corrector|
-            corrector.replace(node.loc.expression, node.loc.expression.source.gsub(/^hash/, 'plist_hash'))
+          def autocorrect(node)
+            lambda do |corrector|
+              corrector.replace(node.loc.expression, node.loc.expression.source.gsub(/^hash/, 'plist_hash'))
+            end
           end
         end
       end

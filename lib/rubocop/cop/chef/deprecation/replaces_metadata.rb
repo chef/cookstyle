@@ -18,24 +18,26 @@
 module RuboCop
   module Cop
     module Chef
-      # Don't use the deprecated 'replaces' metadata value
-      #
-      # @example
-      #
-      #   # bad in metadata.rb:
-      #
-      #   replaces "another_cookbook"
-      #
-      class ReplacesMetadata < Cop
-        MSG = "Don't use the deprecated 'replaces' metadata value".freeze
+      module ChefDeprecations
+        # Don't use the deprecated 'replaces' metadata value
+        #
+        # @example
+        #
+        #   # bad in metadata.rb:
+        #
+        #   replaces "another_cookbook"
+        #
+        class ReplacesMetadata < Cop
+          MSG = "Don't use the deprecated 'replaces' metadata value".freeze
 
-        def on_send(node)
-          add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :replaces
-        end
+          def on_send(node)
+            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :replaces
+          end
 
-        def autocorrect(node)
-          lambda do |corrector|
-            corrector.remove(node.loc.expression)
+          def autocorrect(node)
+            lambda do |corrector|
+              corrector.remove(node.loc.expression)
+            end
           end
         end
       end

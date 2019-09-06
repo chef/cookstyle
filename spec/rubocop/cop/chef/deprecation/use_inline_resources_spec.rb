@@ -16,7 +16,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::UseInlineResourcesDefined, :config do
+describe RuboCop::Cop::Chef::ChefDeprecations::UseInlineResourcesDefined, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when a resource includes use_inline_resources' do

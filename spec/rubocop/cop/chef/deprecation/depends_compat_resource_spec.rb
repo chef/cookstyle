@@ -16,7 +16,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::CookbookDependsOnCompatResource, :config do
+describe RuboCop::Cop::Chef::ChefDeprecations::CookbookDependsOnCompatResource, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when a cookbook depends on "compat_resource"' do

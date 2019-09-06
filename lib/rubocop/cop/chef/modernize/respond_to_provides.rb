@@ -17,33 +17,35 @@
 module RuboCop
   module Cop
     module Chef
-      # It is not longer necessary respond_to?(:foo) in metadata. This was used to support new metadata
-      # methods in Chef 11 and early versions of Chef 12.
-      #
-      # @example
-      #
-      #   # bad
-      #   provides :foo if respond_to?(:provides)
-      #
-      #   # good
-      #   provides :foo
-      #
-      class RespondToProvides < Cop
-        MSG = 'respond_to?(:provides) in resources is no longer necessary in Chef Infra Client 12+'.freeze
+      module ChefModernize
+        # It is not longer necessary respond_to?(:foo) in metadata. This was used to support new metadata
+        # methods in Chef 11 and early versions of Chef 12.
+        #
+        # @example
+        #
+        #   # bad
+        #   provides :foo if respond_to?(:provides)
+        #
+        #   # good
+        #   provides :foo
+        #
+        class RespondToProvides < Cop
+          MSG = 'respond_to?(:provides) in resources is no longer necessary in Chef Infra Client 12+'.freeze
 
-        def on_if(node)
-          if_respond_to_provides?(node) do
-            add_offense(node, location: :expression, message: MSG, severity: :refactor)
+          def on_if(node)
+            if_respond_to_provides?(node) do
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            end
           end
-        end
 
-        def_node_matcher :if_respond_to_provides?, <<~PATTERN
-        (if (send nil? :respond_to? ( :sym :provides ) ) ... )
-        PATTERN
+          def_node_matcher :if_respond_to_provides?, <<~PATTERN
+          (if (send nil? :respond_to? ( :sym :provides ) ) ... )
+          PATTERN
 
-        def autocorrect(node)
-          lambda do |corrector|
-            corrector.replace(node.loc.expression, node.children[1].source)
+          def autocorrect(node)
+            lambda do |corrector|
+              corrector.replace(node.loc.expression, node.children[1].source)
+            end
           end
         end
       end

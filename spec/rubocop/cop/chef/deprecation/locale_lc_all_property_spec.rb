@@ -16,7 +16,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::LocaleDeprecatedLcAllProperty, :config do
+describe RuboCop::Cop::Chef::ChefDeprecations::LocaleDeprecatedLcAllProperty, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when a the locale resource includes the lc_all property' do

@@ -16,7 +16,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::PropertyWithRequiredAndDefault, :config do
+describe RuboCop::Cop::Chef::ChefCorrectness::PropertyWithRequiredAndDefault, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when a property has a default value and is required' do

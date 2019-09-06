@@ -16,7 +16,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::NodeSet do
+describe RuboCop::Cop::Chef::ChefDeprecations::NodeSet do
   subject(:cop) { described_class.new }
 
   it 'registers an offense on using node.set' do

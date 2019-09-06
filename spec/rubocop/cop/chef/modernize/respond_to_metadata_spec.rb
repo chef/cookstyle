@@ -16,13 +16,13 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::RespondToInMetadata, :config do
+describe RuboCop::Cop::Chef::ChefModernize::RespondToInMetadata, :config do
   subject(:cop) { described_class.new(config) }
 
   it "registers an offense when metadata includes the 'if respond_to?(:foo)' gate" do
     expect_offense(<<~RUBY)
       chef_version '> 13' if respond_to?(:chef_version)
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ It is no longer necessary to use respond_to? in metadata.rb in Chef 12.15 and later
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ It is no longer necessary to use respond_to? in metadata.rb in Chef Infra Client 12.15 and later
     RUBY
 
     expect_correction(<<~RUBY)

@@ -18,29 +18,31 @@
 module RuboCop
   module Cop
     module Chef
-      # The :nothing action is often typo'd as :none
-      #
-      # @example
-      #
-      #   # bad
-      #   service 'foo' do
-      #    action :none
-      #   end
-      #
-      #   # good
-      #   service 'foo' do
-      #    action :nothing
-      #   end
-      #
-      class ResourceWithNoneAction < Cop
-        include RuboCop::Chef::CookbookHelpers
+      module ChefCorrectness
+        # The :nothing action is often typo'd as :none
+        #
+        # @example
+        #
+        #   # bad
+        #   service 'foo' do
+        #    action :none
+        #   end
+        #
+        #   # good
+        #   service 'foo' do
+        #    action :nothing
+        #   end
+        #
+        class ResourceWithNoneAction < Cop
+          include RuboCop::Chef::CookbookHelpers
 
-        MSG = 'Resource uses the nonexistent :none action instead of the :nothing action'.freeze
+          MSG = 'Resource uses the nonexistent :none action instead of the :nothing action'.freeze
 
-        def on_block(node)
-          match_property_in_resource?(nil, 'action', node) do |action_node|
-            action_node.arguments.each do |action|
-              add_offense(action, location: :expression, message: MSG, severity: :refactor) if action.source == ':none'
+          def on_block(node)
+            match_property_in_resource?(nil, 'action', node) do |action_node|
+              action_node.arguments.each do |action|
+                add_offense(action, location: :expression, message: MSG, severity: :refactor) if action.source == ':none'
+              end
             end
           end
         end

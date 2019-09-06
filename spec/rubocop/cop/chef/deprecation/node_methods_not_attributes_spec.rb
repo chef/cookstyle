@@ -16,7 +16,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::NodeMethodsInsteadofAttributes, :config do
+describe RuboCop::Cop::Chef::ChefDeprecations::NodeMethodsInsteadofAttributes, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when using node.platform', :config do

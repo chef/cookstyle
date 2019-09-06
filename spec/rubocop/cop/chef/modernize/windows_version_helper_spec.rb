@@ -16,7 +16,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::WindowsVersionHelper, :config do
+describe RuboCop::Cop::Chef::ChefModernize::WindowsVersionHelper, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when using Windows::VersionHelper helpers' do
