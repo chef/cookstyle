@@ -18,28 +18,30 @@
 module RuboCop
   module Cop
     module Chef
-      # Metadata contains default maintainer information from the `chef generate cookbook`
-      # command. This should be updated to reflect that actual maintainer of the cookbook.
-      #
-      # @example
-      #
-      #   # bad
-      #   maintainer 'YOUR_COMPANY_NAME'
-      #   maintainer_email 'YOUR_EMAIL'
-      #   maintainer 'The Authors'
-      #   maintainer_email 'you@example.com'
-      #   # good
-      #   maintainer 'Bob Bobberson'
-      #   maintainer_email 'bob@bobberson.com'
-      #
-      class DefaultMetadataMaintainer < Cop
-        MSG = 'Metadata contains default maintainer information from the cookbook generator. Add actual cookbook maintainer information to the metadata.rb.'.freeze
+      module ChefCorrectness
+        # Metadata contains default maintainer information from the `chef generate cookbook`
+        # command. This should be updated to reflect that actual maintainer of the cookbook.
+        #
+        # @example
+        #
+        #   # bad
+        #   maintainer 'YOUR_COMPANY_NAME'
+        #   maintainer_email 'YOUR_EMAIL'
+        #   maintainer 'The Authors'
+        #   maintainer_email 'you@example.com'
+        #   # good
+        #   maintainer 'Bob Bobberson'
+        #   maintainer_email 'bob@bobberson.com'
+        #
+        class DefaultMetadataMaintainer < Cop
+          MSG = 'Metadata contains default maintainer information from the cookbook generator. Add actual cookbook maintainer information to the metadata.rb.'.freeze
 
-        def_node_matcher :default_metadata?, '(send nil? {:maintainer :maintainer_email} (str {"YOUR_COMPANY_NAME" "The Authors" "YOUR_EMAIL" "you@example.com"}))'
+          def_node_matcher :default_metadata?, '(send nil? {:maintainer :maintainer_email} (str {"YOUR_COMPANY_NAME" "The Authors" "YOUR_EMAIL" "you@example.com"}))'
 
-        def on_send(node)
-          default_metadata?(node) do
-            add_offense(node, location: :expression, message: MSG, severity: :refactor)
+          def on_send(node)
+            default_metadata?(node) do
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            end
           end
         end
       end

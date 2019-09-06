@@ -29,26 +29,28 @@ module RuboCop
       #   # good
       #   name 'foo'
       #
-      class CookbooksDependsOnSelf < Cop
-        MSG = 'A cookbook cannot depend on itself. This will fail on Chef Infra Client 13+'.freeze
+      module ChefCorrectness
+        class CookbooksDependsOnSelf < Cop
+          MSG = 'A cookbook cannot depend on itself. This will fail on Chef Infra Client 13+'.freeze
 
-        def_node_search :dependencies, '(send nil? :depends str ...)'
-        def_node_matcher :cb_name?, '(send nil? :name str ...)'
+          def_node_search :dependencies, '(send nil? :depends str ...)'
+          def_node_matcher :cb_name?, '(send nil? :name str ...)'
 
-        def on_send(node)
-          cb_name?(node) do
-            dependencies(processed_source.ast).each do |dep|
-              if dep.arguments == node.arguments
-                node = dep # set our dependency node as the node for autocorrecting later
-                add_offense(node, location: dep.source_range, message: MSG, severity: :refactor)
+          def on_send(node)
+            cb_name?(node) do
+              dependencies(processed_source.ast).each do |dep|
+                if dep.arguments == node.arguments
+                  node = dep # set our dependency node as the node for autocorrecting later
+                  add_offense(node, location: dep.source_range, message: MSG, severity: :refactor)
+                end
               end
             end
           end
-        end
 
-        def autocorrect(node)
-          lambda do |corrector|
-            corrector.remove(node.source_range)
+          def autocorrect(node)
+            lambda do |corrector|
+              corrector.remove(node.source_range)
+            end
           end
         end
       end

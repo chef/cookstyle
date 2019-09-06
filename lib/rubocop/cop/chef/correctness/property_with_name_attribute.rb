@@ -17,40 +17,42 @@
 module RuboCop
   module Cop
     module Chef
-      # When using properties in a custom resource you should use name_property not
-      # the legacy name_attribute from the days of attributes
-      #
-      # @example
-      #
-      #   # bad
-      #   property :bob, String, name_attribute: true
-      #
-      #   # good
-      #   property :bob, String, name_property: true
-      #
-      class PropertyWithNameAttribute < Cop
-        MSG = 'Resource property sets name_attribute not name_property'.freeze
+      module ChefCorrectness
+        # When using properties in a custom resource you should use name_property not
+        # the legacy name_attribute from the days of attributes
+        #
+        # @example
+        #
+        #   # bad
+        #   property :bob, String, name_attribute: true
+        #
+        #   # good
+        #   property :bob, String, name_property: true
+        #
+        class PropertyWithNameAttribute < Cop
+          MSG = 'Resource property sets name_attribute not name_property'.freeze
 
-        def on_send(node)
-          add_offense(node, location: :expression, message: MSG, severity: :refactor) if attribute_method_mix?(node)
-        end
-
-        def autocorrect(node)
-          lambda do |corrector|
-            corrector.replace(node.loc.expression, node.source.gsub('name_attribute', 'name_property'))
+          def on_send(node)
+            add_offense(node, location: :expression, message: MSG, severity: :refactor) if attribute_method_mix?(node)
           end
-        end
 
-        private
-
-        def attribute_method_mix?(node)
-          if node.method_name == :property
-            node.arguments.each do |arg|
-              if arg.type == :hash
-                return true if arg.source.match?(/name_attribute:/)
-              end
+          def autocorrect(node)
+            lambda do |corrector|
+              corrector.replace(node.loc.expression, node.source.gsub('name_attribute', 'name_property'))
             end
-            false # no name_attribute found
+          end
+
+          private
+
+          def attribute_method_mix?(node)
+            if node.method_name == :property
+              node.arguments.each do |arg|
+                if arg.type == :hash
+                  return true if arg.source.match?(/name_attribute:/)
+                end
+              end
+              false # no name_attribute found
+            end
           end
         end
       end

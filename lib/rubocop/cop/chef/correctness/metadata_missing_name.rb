@@ -25,29 +25,31 @@ module RuboCop
       #   # good
       #   name 'foo'
       #
-      class MetadataMissingName < Cop
-        include RangeHelp
+      module ChefCorrectness
+        class MetadataMissingName < Cop
+          include RangeHelp
 
-        MSG = 'metadata.rb needs to include the name method'.freeze
+          MSG = 'metadata.rb needs to include the name method'.freeze
 
-        def investigate(processed_source)
-          return if processed_source.blank?
+          def investigate(processed_source)
+            return if processed_source.blank?
 
-          # Using range similar to RuboCop::Cop::Naming::Filename (file_name.rb)
-          range = source_range(processed_source.buffer, 1, 0)
+            # Using range similar to RuboCop::Cop::Naming::Filename (file_name.rb)
+            range = source_range(processed_source.buffer, 1, 0)
 
-          add_offense(nil, location: range, message: MSG, severity: :refactor) unless cb_name(processed_source.ast).any?
-        end
+            add_offense(nil, location: range, message: MSG, severity: :refactor) unless cb_name(processed_source.ast).any?
+          end
 
-        def_node_search :cb_name, '(send nil? :name str ...)'
+          def_node_search :cb_name, '(send nil? :name str ...)'
 
-        def autocorrect(_node)
-          lambda do |_corrector|
-            path = processed_source.path
-            cb_name = File.basename(File.dirname(path))
+          def autocorrect(_node)
+            lambda do |_corrector|
+              path = processed_source.path
+              cb_name = File.basename(File.dirname(path))
 
-            metadata = IO.read(path)
-            IO.write(path, "name '#{cb_name}'\n" + metadata)
+              metadata = IO.read(path)
+              IO.write(path, "name '#{cb_name}'\n" + metadata)
+            end
           end
         end
       end
