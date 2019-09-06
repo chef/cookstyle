@@ -65,7 +65,7 @@ The `ChocolateyPackageUninstallAction` cop detects a `chocolatey_package` resour
 
 `Examples`
 
-chocolatey_package incorrectly setting the :uninstall action:
+chocolatey_package incorrectly setting the `:uninstall` action:
 
 ```ruby
 chocolatey_package 'nginx' do
