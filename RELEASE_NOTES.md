@@ -18,7 +18,7 @@ end
 
 #### Chef/ResourceSetsNameProperty
 
-The `ResourceSetsNameProperty` cop detects a resource block with the `name` property set. The `name` property is a special property that is derviced from the name of the resource block and should not be changed with the block. Changing the name within a resource block can cause issues with reporting and notifications. If you wish to give your resources a more friendly name consider setting using setting a `name_property` which is available in all built-in Chef Infra resources. The name_property for each resource can be found in the [resource reference documentation](https://docs.chef.io/resource_reference.html)
+The `ResourceSetsNameProperty` cop detects a resource block with the `name` property set. The `name` property is a special property that is derived from the name of the resource block and should not be changed with the block. Changing the name within a resource block can cause issues with reporting and notifications. If you wish to give your resources a more friendly name, consider using setting a `name_property`, which is available in all built-in Chef Infra resources. The name_property for each resource can be found in the [resource reference documentation](https://docs.chef.io/resource_reference.html).
 
 `Examples`
 
