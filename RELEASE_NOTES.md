@@ -195,7 +195,7 @@ The `PowershellInstallWindowsFeature` cop detects the usage of the `powershell_s
 
 `Examples`
 
-powershell_script using Install-WindowsFeature to install a feature
+powershell_script using Install-WindowsFeature to install a feature:
 
 ```ruby
 powershell_script 'Install Feature' do
