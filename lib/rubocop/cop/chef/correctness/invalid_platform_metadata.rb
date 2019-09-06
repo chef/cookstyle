@@ -26,7 +26,6 @@ module RuboCop
       #   supports 'darwin'
       #   supports 'mswin'
       #
-      #
       #   # good
       #   supports 'mac_os_x'
       #   supports 'windows'

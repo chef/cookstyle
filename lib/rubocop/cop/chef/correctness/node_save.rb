@@ -25,6 +25,7 @@ module RuboCop
       #
       #   # bad
       #   node.save
+      #
       class CookbookUsesNodeSave < Cop
         MSG = "Don't use node.save to save partial node data to the Chef Infra Server mid-run unless it's absolutely necessary. Node.save can result in failed Chef Infra runs appearing in search and increases load on the Chef Infra Server.".freeze
 
