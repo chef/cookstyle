@@ -1,28 +1,26 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.5.7 -->
-## [v5.5.7](https://github.com/chef/cookstyle/tree/v5.5.7) (2019-09-06)
-
-#### Merged Pull Requests
-- Break up the Chef namespace into 4 namespaces [#283](https://github.com/chef/cookstyle/pull/283) ([tas50](https://github.com/tas50))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=5.4.13 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Break up the Chef namespace into 4 namespaces [#283](https://github.com/chef/cookstyle/pull/283) ([tas50](https://github.com/tas50)) <!-- 5.5.7 -->
-- Add additional autocorrect and improve autocorrection testing [#282](https://github.com/chef/cookstyle/pull/282) ([tas50](https://github.com/tas50)) <!-- 5.5.6 -->
-- Add release notes for Cookstyle 5.5 [#279](https://github.com/chef/cookstyle/pull/279) ([tas50](https://github.com/tas50)) <!-- 5.5.5 -->
-- Add the documentation generation rake task from rubocop-rspec [#278](https://github.com/chef/cookstyle/pull/278) ([tas50](https://github.com/tas50)) <!-- 5.5.4 -->
-- Add helpers for matching on resource properties and add 11 new cops using those helpers [#226](https://github.com/chef/cookstyle/pull/226) ([tas50](https://github.com/tas50)) <!-- 5.5.3 -->
-- Add Chef/UsesChefRESTHelpers [#276](https://github.com/chef/cookstyle/pull/276) ([tas50](https://github.com/tas50)) <!-- 5.5.2 -->
-- Catch additional formats for default maintainer information in metadata [#275](https://github.com/chef/cookstyle/pull/275) ([tas50](https://github.com/tas50)) <!-- 5.5.1 -->
-- Add Chef/LibarchiveFile and Chef/SevenZipArchiveResource [#271](https://github.com/chef/cookstyle/pull/271) ([tas50](https://github.com/tas50)) <!-- 5.5.0 -->
-- Validate that all cops are in the config in CI + add missing Chef/CookbookUsesNodeSave [#272](https://github.com/chef/cookstyle/pull/272) ([tas50](https://github.com/tas50)) <!-- 5.4.14 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v5.5.7](https://github.com/chef/cookstyle/tree/v5.5.7) (2019-09-06)
+
+#### Merged Pull Requests
+- Validate that all cops are in the config in CI + add missing Chef/CookbookUsesNodeSave [#272](https://github.com/chef/cookstyle/pull/272) ([tas50](https://github.com/tas50))
+- Add Chef/LibarchiveFile and Chef/SevenZipArchiveResource [#271](https://github.com/chef/cookstyle/pull/271) ([tas50](https://github.com/tas50))
+- Catch additional formats for default maintainer information in metadata [#275](https://github.com/chef/cookstyle/pull/275) ([tas50](https://github.com/tas50))
+- Add Chef/UsesChefRESTHelpers [#276](https://github.com/chef/cookstyle/pull/276) ([tas50](https://github.com/tas50))
+- Add helpers for matching on resource properties and add 11 new cops using those helpers [#226](https://github.com/chef/cookstyle/pull/226) ([tas50](https://github.com/tas50))
+- Add the documentation generation rake task from rubocop-rspec [#278](https://github.com/chef/cookstyle/pull/278) ([tas50](https://github.com/tas50))
+- Add release notes for Cookstyle 5.5 [#279](https://github.com/chef/cookstyle/pull/279) ([tas50](https://github.com/tas50))
+- Add additional autocorrect and improve autocorrection testing [#282](https://github.com/chef/cookstyle/pull/282) ([tas50](https://github.com/tas50))
+- Break up the Chef namespace into 4 namespaces [#283](https://github.com/chef/cookstyle/pull/283) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v5.4.13](https://github.com/chef/cookstyle/tree/v5.4.13) (2019-08-30)
 
 #### Merged Pull Requests
@@ -40,7 +38,6 @@
 - Add Chef/IncludingMixinShelloutInResources cop [#249](https://github.com/chef/cookstyle/pull/249) ([tas50](https://github.com/tas50))
 - Add spec for Chef/PropertyWithRequiredAndDefault [#263](https://github.com/chef/cookstyle/pull/263) ([tas50](https://github.com/tas50))
 - Remove old spec helpers leftover from rubocop-rspec [#265](https://github.com/chef/cookstyle/pull/265) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v5.3.6](https://github.com/chef/cookstyle/tree/v5.3.6) (2019-08-20)
 
