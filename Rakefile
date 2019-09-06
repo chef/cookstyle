@@ -46,10 +46,12 @@ task :validate_config do
 
   puts 'Checking that all cops are defined in config/cookstyle.yml:'
 
-  RuboCop::Cop::Chef.constants.each do |cop|
-    unless config["Chef/#{cop}"]
-      puts "Error: Chef/#{cop} not found in config/cookstyle.yml"
-      status = 1
+  RuboCop::Cop::Chef.constants.each do |dep|
+    eval("RuboCop::Cop::Chef::#{dep}.constants").each do |cop|
+      unless config["#{dep}/#{cop}"]
+        puts "Error: #{dep}/#{cop} not found in config/cookstyle.yml"
+        status = 1
+      end
     end
   end
 
