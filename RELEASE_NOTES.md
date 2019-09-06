@@ -61,7 +61,7 @@ end
 
 #### Chef/ChocolateyPackageUninstallAction
 
-The `ChocolateyPackageUninstallAction` cop detects a `chocolatey_package` resource that uses the `:uninstall` action. The uninstall action has been replaced with the `:remove` action and will error in Chef Infra Client 14+
+The `ChocolateyPackageUninstallAction` cop detects a `chocolatey_package` resource that uses the `:uninstall` action. The uninstall action has been replaced with the `:remove` action and will error in Chef Infra Client 14+.
 
 `Examples`
 
