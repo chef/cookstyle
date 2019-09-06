@@ -296,7 +296,7 @@ The `ShellOutToChocolatey` cop detects the use of `powershell_script` or `execut
 
 #### Chef/UsesChefRESTHelpers
 
-The `UsesChefRESTHelpers` cop detects the usage of the various Chef::REST helpers, which were removed in Chef Infra Client 13.0. For communicating with the Chef Infra Server directly you may consider using the `Chef::ServerAPI` helpers instead.
+The `UsesChefRESTHelpers` cop detects the usage of the various Chef::REST helpers, which were removed in Chef Infra Client 13.0. For communicating with the Chef Infra Server directly, you may consider using the `Chef::ServerAPI` helpers instead.
 
 `Enabled by default`: True
 
