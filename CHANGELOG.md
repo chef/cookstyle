@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.5.3 -->
-## [v5.5.3](https://github.com/chef/cookstyle/tree/v5.5.3) (2019-09-06)
+<!-- latest_release 5.5.4 -->
+## [v5.5.4](https://github.com/chef/cookstyle/tree/v5.5.4) (2019-09-06)
 
 #### Merged Pull Requests
-- Add helpers for matching on resource properties and add 11 new cops using those helpers [#226](https://github.com/chef/cookstyle/pull/226) ([tas50](https://github.com/tas50))
+- Add the documentation generation rake task from rubocop-rspec [#278](https://github.com/chef/cookstyle/pull/278) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.4.13 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add the documentation generation rake task from rubocop-rspec [#278](https://github.com/chef/cookstyle/pull/278) ([tas50](https://github.com/tas50)) <!-- 5.5.4 -->
 - Add helpers for matching on resource properties and add 11 new cops using those helpers [#226](https://github.com/chef/cookstyle/pull/226) ([tas50](https://github.com/tas50)) <!-- 5.5.3 -->
 - Add Chef/UsesChefRESTHelpers [#276](https://github.com/chef/cookstyle/pull/276) ([tas50](https://github.com/tas50)) <!-- 5.5.2 -->
 - Catch additional formats for default maintainer information in metadata [#275](https://github.com/chef/cookstyle/pull/275) ([tas50](https://github.com/tas50)) <!-- 5.5.1 -->
