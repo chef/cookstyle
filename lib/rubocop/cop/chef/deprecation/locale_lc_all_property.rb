@@ -17,7 +17,7 @@
 module RuboCop
   module Cop
     module Chef
-      # The supports property was removed in Chef Infra Client 13 in favor of individual 'manage_home' and 'non_unique' properties.
+      # The local resource's lc_all property has been deprecated and will be removed in Chef Infra Client 16
       #
       # @example
       #
