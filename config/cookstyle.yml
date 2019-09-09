@@ -274,6 +274,13 @@ ChefDeprecations/LongDescriptionMetadata:
   Include:
     - '**/metadata.rb'
 
+ChefDeprecations/RecipeMetadata:
+  Description: The recipe metadata.rb method is not used and is unnecessary in cookbooks. Recipes should be documented in the README.md file instead.
+  Enabled: true
+  VersionAdded: '5.6.0'
+  Include:
+    - '**/metadata.rb'
+
 ChefDeprecations/CookbookDependsOnCompatResource:
   Description: Don't depend on the deprecated compat_resource cookbook made obsolete by Chef 12.19+
   Enabled: true
