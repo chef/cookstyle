@@ -63,6 +63,14 @@ ChefStyle/FileMode:
   Exclude:
     - '**/metadata.rb'
 
+ChefStyle/UsePlatformHelpers:
+  Description: Use platform? and platform_family? helpers for checking node platform in resources and recipes
+  Enabled: true
+  VersionAdded: '5.6.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/libraries/*'
+
 ###############################
 # ChefCorrectness: Avoiding potential problems
 ###############################
