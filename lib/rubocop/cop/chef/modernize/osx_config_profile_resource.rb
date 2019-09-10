@@ -22,13 +22,13 @@ module RuboCop
         # The new resource name should be used.
         #
         #   # bad
-        #   sysctl_param 'fs.aio-max-nr' do
-        #     value '1048576'
+        #   osx_config_profile 'Install screensaver profile' do
+        #     profile 'screensaver/com.company.screensaver.mobileconfig'
         #   end
         #
         #   # good
-        #   sysctl 'fs.aio-max-nr' do
-        #     value '1048576'
+        #   osx_profile 'Install screensaver profile' do
+        #     profile 'screensaver/com.company.screensaver.mobileconfig'
         #   end
         #
         class OsxConfigProfileResource < Cop
