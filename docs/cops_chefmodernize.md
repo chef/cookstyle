@@ -1,5 +1,28 @@
 # ChefModernize
 
+## ChefModernize/CronManageResource
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+The cron_manage resource was renamed to cron_access in the 6.1 release of the cron
+cookbook, and later shipped in Chef Infra Client 14.4. The new resource name should
+be used.
+
+  # bad
+  cron_manage 'mike'
+
+  # good
+  cron_access 'mike'
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.6.0` | String
+Exclude | `**/metadata.rb` | Array
+
 ## ChefModernize/CustomResourceWithAllowedActions
 
 Enabled by default | Supports autocorrection
@@ -105,6 +128,29 @@ Name | Default value | Configurable values
 VersionAdded | `5.3.0` | String
 Include | `**/libraries/*.rb` | Array
 
+## ChefModernize/DependsOnZypperCookbook
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+Don't depend the zypper cookbook as the zypper_repository resource is built into
+Chef Infra Client 13.3
+
+### Examples
+
+```ruby
+# bad
+depends 'zypper'
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.6.0` | String
+Exclude | `**/metadata.rb` | Array
+
 ## ChefModernize/ExecuteAptUpdate
 
 Enabled by default | Supports autocorrection
@@ -125,6 +171,37 @@ apt_update resource which is available in Chef Infra Client 12.7 and later.
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.3.0` | String
+Exclude | `**/metadata.rb` | Array
+
+## ChefModernize/ExecuteTzUtil
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+Instead of using the execute or powershell_script resources to to run the `tzutil` command, use
+Chef Infra Client's built-in timezone resource which is available in Chef Infra Client 14.6 and later.
+
+  # bad
+  execute 'set tz' do
+    command 'tzutil.exe /s UTC'
+  end
+
+  execute 'tzutil /s UTC'
+
+  powershell_script 'set windows timezone' do
+    code "tzutil.exe /s UTC"
+    not_if { shell_out('tzutil.exe /g').stdout.include?('UTC') }
+  end
+
+  # good
+  timezone 'UTC'
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.6.0` | String
 Exclude | `**/metadata.rb` | Array
 
 ## ChefModernize/IncludingAptDefaultRecipe
@@ -254,6 +331,36 @@ Name | Default value | Configurable values
 VersionAdded | `5.5.0` | String
 Exclude | `**/metadata.rb` | Array
 
+## ChefModernize/MacOsXUserdefaults
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+The mac_os_x_userdefaults resource was renamed to macos_userdefaults when it was added to Chef Infra Client
+14.0. The new resource name should be used.
+
+  # bad
+  mac_os_x_userdefaults 'full keyboard access to all controls' do
+    domain 'AppleKeyboardUIMode'
+    global true
+    value '2'
+  end
+
+  # good
+  macos_userdefaults 'full keyboard access to all controls' do
+    domain 'AppleKeyboardUIMode'
+    global true
+    value '2'
+  end
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.6.0` | String
+Exclude | `**/metadata.rb` | Array
+
 ## ChefModernize/MinitestHandlerUsage
 
 Enabled by default | Supports autocorrection
@@ -275,6 +382,90 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.4.0` | String
 Include | `**/metadata.rb` | Array
+
+## ChefModernize/OpensslRsaKeyResource
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+The openssl_rsa_key resource was renamed to openssl_rsa_private_key in Chef
+Infra Client 14.0. The new resource name should be used.
+
+  # bad
+  openssl_rsa_key '/etc/httpd/ssl/server.key' do
+    key_length 2048
+  end
+
+  # good
+  openssl_rsa_private_key '/etc/httpd/ssl/server.key' do
+    key_length 2048
+  end
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.6.0` | String
+Exclude | `**/metadata.rb` | Array
+
+## ChefModernize/OpensslX509Resource
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+The openssl_x509 resource was renamed to openssl_x509_certificate.
+The new resource name should be used.
+
+  # bad
+  openssl_x509 '/etc/httpd/ssl/mycert.pem' do
+    common_name 'www.f00bar.com'
+    org 'Foo Bar'
+    org_unit 'Lab'
+    country 'US'
+  end
+
+  # good
+  openssl_x509_certificate '/etc/httpd/ssl/mycert.pem' do
+    common_name 'www.f00bar.com'
+    org 'Foo Bar'
+    org_unit 'Lab'
+    country 'US'
+  end
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.6.0` | String
+Exclude | `**/metadata.rb` | Array
+
+## ChefModernize/OsxConfigProfileResource
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+The osx_config_profile resource was renamed to osx_profile.
+The new resource name should be used.
+
+  # bad
+  osx_config_profile 'Install screensaver profile' do
+    profile 'screensaver/com.company.screensaver.mobileconfig'
+  end
+
+  # good
+  osx_profile 'Install screensaver profile' do
+    profile 'screensaver/com.company.screensaver.mobileconfig'
+  end
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.6.0` | String
+Exclude | `**/metadata.rb` | Array
 
 ## ChefModernize/PowershellInstallPackage
 
@@ -525,6 +716,32 @@ Name | Default value | Configurable values
 VersionAdded | `5.5.0` | String
 Exclude | `**/metadata.rb` | Array
 
+## ChefModernize/SysctlParamResource
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+The sysctl_param resource was renamed to sysctl when it was added to Chef Infra Client
+14.0. The new resource name should be used.
+
+  # bad
+  sysctl_param 'fs.aio-max-nr' do
+    value '1048576'
+  end
+
+  # good
+  sysctl 'fs.aio-max-nr' do
+    value '1048576'
+  end
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.6.0` | String
+Exclude | `**/metadata.rb` | Array
+
 ## ChefModernize/UnnecessaryDependsChef14
 
 Enabled by default | Supports autocorrection
@@ -578,6 +795,41 @@ build_essential 'install compilation tools'
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.1.0` | String
+Exclude | `**/metadata.rb` | Array
+
+## ChefModernize/UsesZypperRepo
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+The zypper_repo resource was renamed zypper_repository when it was added to Chef Infra Client 13.3.
+
+### Examples
+
+```ruby
+# bad
+zypper_repo 'apache' do
+  baseurl 'http://download.opensuse.org/repositories/Apache'
+  path '/openSUSE_Leap_42.2'
+  type 'rpm-md'
+  priority '100'
+end
+
+# good
+zypper_repository 'apache' do
+  baseurl 'http://download.opensuse.org/repositories/Apache'
+  path '/openSUSE_Leap_42.2'
+  type 'rpm-md'
+  priority '100'
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.6.0` | String
 Exclude | `**/metadata.rb` | Array
 
 ## ChefModernize/WhyRunSupportedTrue

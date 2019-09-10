@@ -487,6 +487,29 @@ Name | Default value | Configurable values
 VersionAdded | `5.1.0` | String
 Include | `**/metadata.rb` | Array
 
+## ChefDeprecations/RecipeMetadata
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+The recipe metadata.rb method is not used and is unnecessary in cookbooks. Recipes should be documented
+in the README.md file instead.
+
+### Examples
+
+```ruby
+# bad
+recipe 'openldap::default', 'Install and configure OpenLDAP'
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.6.0` | String
+Include | `**/metadata.rb` | Array
+
 ## ChefDeprecations/ReplacesMetadata
 
 Enabled by default | Supports autocorrection
@@ -666,3 +689,39 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.4.0` | String
 Include | `**/libraries/*.rb`, `**/providers/*.rb`, `**/resources/*.rb` | Array
+
+## ChefDeprecations/WindowsTaskChangeAction
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+The :change action in the windows_task resource was removed when windows_task was added to Chef Infra Client 13+
+The default action of :create should can now be used to create an update tasks.
+
+### Examples
+
+```ruby
+# bad
+windows_task 'chef ad-join leave start time' do
+  task_name 'chef ad-join leave'
+  start_day '06/09/2016'
+  start_time '01:00'
+  action [:change, :create]
+end
+
+# good
+windows_task 'chef ad-join leave start time' do
+  task_name 'chef ad-join leave'
+  start_day '06/09/2016'
+  start_time '01:00'
+  action :create
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.6.0` | String
+Exclude | `**/metadata.rb` | Array
