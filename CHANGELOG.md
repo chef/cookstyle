@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.5.9 -->
-## [v5.5.9](https://github.com/chef/cookstyle/tree/v5.5.9) (2019-09-10)
+<!-- latest_release 5.6.0 -->
+## [v5.6.0](https://github.com/chef/cookstyle/tree/v5.6.0) (2019-09-10)
 
 #### Merged Pull Requests
-- Add ChefDeprecations/RecipeMetadata cop [#287](https://github.com/chef/cookstyle/pull/287) ([tas50](https://github.com/tas50))
+- Add ChefStyle/UsePlatformHelpers cop [#286](https://github.com/chef/cookstyle/pull/286) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.5.7 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add ChefStyle/UsePlatformHelpers cop [#286](https://github.com/chef/cookstyle/pull/286) ([tas50](https://github.com/tas50)) <!-- 5.6.0 -->
 - Add ChefDeprecations/RecipeMetadata cop [#287](https://github.com/chef/cookstyle/pull/287) ([tas50](https://github.com/tas50)) <!-- 5.5.9 -->
 - Add ChefDeprecations/WindowsTaskChangeAction [#288](https://github.com/chef/cookstyle/pull/288) ([tas50](https://github.com/tas50)) <!-- 5.5.8 -->
 <!-- release_rollup -->
