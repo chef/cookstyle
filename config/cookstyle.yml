@@ -590,6 +590,62 @@ ChefModernize/ShellOutToChocolatey:
   Exclude:
     - '**/metadata.rb'
 
+ChefModernize/CronManageResource:
+  Description: The cron_manage resource was renamed to cron_access in the 6.1 release of the cron cookbook and later shipped in Chef Infra Client 14.4. The new resource name should be used.
+  Enabled: true
+  VersionAdded: '5.6.0'
+  Exclude:
+    - '**/metadata.rb'
+
+ChefModernize/UsesZypperRepo:
+  Description: The zypper_repo resource was renamed zypper_repository when it was added to Chef Infra Client 13.3.
+  Enabled: true
+  VersionAdded: '5.6.0'
+  Exclude:
+    - '**/metadata.rb'
+
+ChefModernize/DependsOnZypperCookbook:
+  Description: Don't include the zypper cookbook as the zypper_repository resource is built into Chef Infra Client 13.3+
+  Enabled: true
+  VersionAdded: '5.6.0'
+  Exclude:
+    - '**/metadata.rb'
+
+ChefModernize/ExecuteTzUtil:
+  Description: Use the timezone resource included in Chef Infra Client 14.6+ instead of shelling out to tzutil
+  Enabled: true
+  VersionAdded: '5.6.0'
+  Exclude:
+    - '**/metadata.rb'
+
+ChefModernize/OpensslRsaKeyResource:
+  Description: The openssl_rsa_key resource was renamed to openssl_rsa_private_key in Chef Infra Client 14.0. The new resource name should be used.
+  Enabled: true
+  VersionAdded: '5.6.0'
+  Exclude:
+    - '**/metadata.rb'
+
+ChefModernize/OpensslX509Resource:
+  Description: The openssl_x509 resource was renamed to openssl_x509_certificate. The new resource name should be used.
+  Enabled: true
+  VersionAdded: '5.6.0'
+  Exclude:
+    - '**/metadata.rb'
+
+ChefModernize/OsxConfigProfileResource:
+  Description: The osx_config_profile resource was renamed to osx_profile. The new resource name should be used.
+  Enabled: true
+  VersionAdded: '5.6.0'
+  Exclude:
+    - '**/metadata.rb'
+
+ChefModernize/SysctlParamResource:
+  Description: The sysctl_param resource was renamed to sysctl when it was added to Chef Infra Client 14.0. The new resource name should be used.
+  Enabled: true
+  VersionAdded: '5.6.0'
+  Exclude:
+    - '**/metadata.rb'
+
 ###############################
 # Migrating to new patterns
 ###############################
