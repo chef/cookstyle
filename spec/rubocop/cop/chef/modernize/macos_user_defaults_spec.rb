@@ -30,8 +30,6 @@ describe RuboCop::Cop::Chef::ChefModernize::MacOsXUserdefaults, :config do
     RUBY
   end
 
-
-
   it "doesn't register an offense when using the macos_userdefaults resource" do
     expect_no_offenses(<<~RUBY)
     macos_userdefaults 'full keyboard access to all controls' do
