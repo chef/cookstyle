@@ -42,6 +42,7 @@
 * [ChefDeprecations/NodeSet](cops_chefdeprecations.md#chefdeprecationsnodeset)
 * [ChefDeprecations/NodeSetUnless](cops_chefdeprecations.md#chefdeprecationsnodesetunless)
 * [ChefDeprecations/ProvidesMetadata](cops_chefdeprecations.md#chefdeprecationsprovidesmetadata)
+* [ChefDeprecations/RecipeMetadata](cops_chefdeprecations.md#chefdeprecationsrecipemetadata)
 * [ChefDeprecations/ReplacesMetadata](cops_chefdeprecations.md#chefdeprecationsreplacesmetadata)
 * [ChefDeprecations/RequireRecipe](cops_chefdeprecations.md#chefdeprecationsrequirerecipe)
 * [ChefDeprecations/SuggestsMetadata](cops_chefdeprecations.md#chefdeprecationssuggestsmetadata)
@@ -49,6 +50,7 @@
 * [ChefDeprecations/UserDeprecatedSupportsProperty](cops_chefdeprecations.md#chefdeprecationsuserdeprecatedsupportsproperty)
 * [ChefDeprecations/UsesChefRESTHelpers](cops_chefdeprecations.md#chefdeprecationsuseschefresthelpers)
 * [ChefDeprecations/UsesDeprecatedMixins](cops_chefdeprecations.md#chefdeprecationsusesdeprecatedmixins)
+* [ChefDeprecations/WindowsTaskChangeAction](cops_chefdeprecations.md#chefdeprecationswindowstaskchangeaction)
 
 #### Department [ChefEffortless](cops_chefeffortless.md)
 
@@ -57,16 +59,23 @@
 
 #### Department [ChefModernize](cops_chefmodernize.md)
 
+* [ChefModernize/CronManageResource](cops_chefmodernize.md#chefmodernizecronmanageresource)
 * [ChefModernize/CustomResourceWithAllowedActions](cops_chefmodernize.md#chefmodernizecustomresourcewithallowedactions)
 * [ChefModernize/CustomResourceWithAttributes](cops_chefmodernize.md#chefmodernizecustomresourcewithattributes)
 * [ChefModernize/DefinesChefSpecMatchers](cops_chefmodernize.md#chefmodernizedefineschefspecmatchers)
+* [ChefModernize/DependsOnZypperCookbook](cops_chefmodernize.md#chefmodernizedependsonzyppercookbook)
 * [ChefModernize/ExecuteAptUpdate](cops_chefmodernize.md#chefmodernizeexecuteaptupdate)
+* [ChefModernize/ExecuteTzUtil](cops_chefmodernize.md#chefmodernizeexecutetzutil)
 * [ChefModernize/IncludingAptDefaultRecipe](cops_chefmodernize.md#chefmodernizeincludingaptdefaultrecipe)
 * [ChefModernize/IncludingMixinShelloutInResources](cops_chefmodernize.md#chefmodernizeincludingmixinshelloutinresources)
 * [ChefModernize/IncludingWindowsDefaultRecipe](cops_chefmodernize.md#chefmodernizeincludingwindowsdefaultrecipe)
 * [ChefModernize/LegacyBerksfileSource](cops_chefmodernize.md#chefmodernizelegacyberksfilesource)
 * [ChefModernize/LibarchiveFileResource](cops_chefmodernize.md#chefmodernizelibarchivefileresource)
+* [ChefModernize/MacOsXUserdefaults](cops_chefmodernize.md#chefmodernizemacosxuserdefaults)
 * [ChefModernize/MinitestHandlerUsage](cops_chefmodernize.md#chefmodernizeminitesthandlerusage)
+* [ChefModernize/OpensslRsaKeyResource](cops_chefmodernize.md#chefmodernizeopensslrsakeyresource)
+* [ChefModernize/OpensslX509Resource](cops_chefmodernize.md#chefmodernizeopensslx509resource)
+* [ChefModernize/OsxConfigProfileResource](cops_chefmodernize.md#chefmodernizeosxconfigprofileresource)
 * [ChefModernize/PowershellInstallPackage](cops_chefmodernize.md#chefmodernizepowershellinstallpackage)
 * [ChefModernize/PowershellInstallWindowsFeature](cops_chefmodernize.md#chefmodernizepowershellinstallwindowsfeature)
 * [ChefModernize/PowershellScriptExpandArchive](cops_chefmodernize.md#chefmodernizepowershellscriptexpandarchive)
@@ -76,8 +85,10 @@
 * [ChefModernize/SetOrReturnInResources](cops_chefmodernize.md#chefmodernizesetorreturninresources)
 * [ChefModernize/SevenZipArchiveResource](cops_chefmodernize.md#chefmodernizesevenziparchiveresource)
 * [ChefModernize/ShellOutToChocolatey](cops_chefmodernize.md#chefmodernizeshellouttochocolatey)
+* [ChefModernize/SysctlParamResource](cops_chefmodernize.md#chefmodernizesysctlparamresource)
 * [ChefModernize/UnnecessaryDependsChef14](cops_chefmodernize.md#chefmodernizeunnecessarydependschef14)
 * [ChefModernize/UseBuildEssentialResource](cops_chefmodernize.md#chefmodernizeusebuildessentialresource)
+* [ChefModernize/UsesZypperRepo](cops_chefmodernize.md#chefmodernizeuseszypperrepo)
 * [ChefModernize/WhyRunSupportedTrue](cops_chefmodernize.md#chefmodernizewhyrunsupportedtrue)
 * [ChefModernize/WindowsVersionHelper](cops_chefmodernize.md#chefmodernizewindowsversionhelper)
 * [ChefModernize/WindowsZipfileUsage](cops_chefmodernize.md#chefmodernizewindowszipfileusage)
@@ -89,5 +100,6 @@
 * [ChefStyle/CommentSentenceSpacing](cops_chefstyle.md#chefstylecommentsentencespacing)
 * [ChefStyle/CopyrightCommentFormat](cops_chefstyle.md#chefstylecopyrightcommentformat)
 * [ChefStyle/FileMode](cops_chefstyle.md#chefstylefilemode)
+* [ChefStyle/UsePlatformHelpers](cops_chefstyle.md#chefstyleuseplatformhelpers)
 
 <!-- END_COP_LIST -->
