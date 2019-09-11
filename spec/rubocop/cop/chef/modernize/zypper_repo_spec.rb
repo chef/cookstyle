@@ -29,6 +29,15 @@ describe RuboCop::Cop::Chef::ChefModernize::UsesZypperRepo, :config do
       priority '100'
     end
     RUBY
+
+    expect_correction(<<~RUBY)
+    zypper_repository 'apache' do
+      baseurl 'http://download.opensuse.org/repositories/Apache'
+      path '/openSUSE_Leap_42.2'
+      type 'rpm-md'
+      priority '100'
+    end
+    RUBY
   end
 
   it "doesn't register an offense when using the zypper_repository resource" do

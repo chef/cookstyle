@@ -44,6 +44,12 @@ module RuboCop
           def on_send(node)
             add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :zypper_repo
           end
+
+          def autocorrect(node)
+            lambda do |corrector|
+              corrector.replace(node.loc.expression, node.source.gsub(/^zypper_repo/, 'zypper_repository'))
+            end
+          end
         end
       end
     end

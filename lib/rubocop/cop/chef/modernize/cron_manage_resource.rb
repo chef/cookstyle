@@ -36,6 +36,12 @@ module RuboCop
           def on_send(node)
             add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :cron_manage
           end
+
+          def autocorrect(node)
+            lambda do |corrector|
+              corrector.replace(node.loc.expression, node.source.gsub(/^cron_manage/, 'cron_access'))
+            end
+          end
         end
       end
     end

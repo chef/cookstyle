@@ -26,6 +26,12 @@ describe RuboCop::Cop::Chef::ChefModernize::OsxConfigProfileResource, :config do
       profile 'screensaver/com.company.screensaver.mobileconfig'
     end
     RUBY
+
+    expect_correction(<<~RUBY)
+    osx_profile 'Install screensaver profile' do
+      profile 'screensaver/com.company.screensaver.mobileconfig'
+    end
+    RUBY
   end
 
   it "doesn't register an offense when using the osx_profile resource" do

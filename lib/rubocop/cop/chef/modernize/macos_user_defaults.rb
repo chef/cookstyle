@@ -43,6 +43,12 @@ module RuboCop
           def on_send(node)
             add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :mac_os_x_userdefaults
           end
+
+          def autocorrect(node)
+            lambda do |corrector|
+              corrector.replace(node.loc.expression, node.source.gsub(/^mac_os_x_userdefaults/, 'macos_userdefaults'))
+            end
+          end
         end
       end
     end

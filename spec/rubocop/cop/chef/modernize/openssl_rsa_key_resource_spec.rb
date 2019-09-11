@@ -26,6 +26,12 @@ describe RuboCop::Cop::Chef::ChefModernize::OpensslRsaKeyResource, :config do
       key_length 2048
     end
     RUBY
+
+    expect_correction(<<~RUBY)
+    openssl_rsa_private_key '/etc/httpd/ssl/server.key' do
+      key_length 2048
+    end
+    RUBY
   end
 
   it "doesn't register an offense when using the openssl_rsa_private_key resource" do

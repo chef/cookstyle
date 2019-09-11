@@ -26,6 +26,12 @@ describe RuboCop::Cop::Chef::ChefModernize::SysctlParamResource, :config do
       value '1048576'
     end
     RUBY
+
+    expect_correction(<<~RUBY)
+    sysctl 'fs.aio-max-nr' do
+      value '1048576'
+    end
+    RUBY
   end
 
   it "doesn't register an offense when using the sysctl resource" do

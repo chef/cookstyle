@@ -45,6 +45,12 @@ module RuboCop
           def on_send(node)
             add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :openssl_x509
           end
+
+          def autocorrect(node)
+            lambda do |corrector|
+              corrector.replace(node.loc.expression, node.source.gsub(/^openssl_x509/, 'openssl_x509_certificate'))
+            end
+          end
         end
       end
     end
