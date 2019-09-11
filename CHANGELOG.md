@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.6.1 -->
-## [v5.6.1](https://github.com/chef/cookstyle/tree/v5.6.1) (2019-09-10)
+<!-- latest_release 5.6.2 -->
+## [v5.6.2](https://github.com/chef/cookstyle/tree/v5.6.2) (2019-09-11)
 
 #### Merged Pull Requests
-- Add 9 new cops for updating to resources in Chef Infra Client  [#289](https://github.com/chef/cookstyle/pull/289) ([tas50](https://github.com/tas50))
+- Add autocorrects to 7 cops [#290](https://github.com/chef/cookstyle/pull/290) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.5.7 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add autocorrects to 7 cops [#290](https://github.com/chef/cookstyle/pull/290) ([tas50](https://github.com/tas50)) <!-- 5.6.2 -->
 - Add 9 new cops for updating to resources in Chef Infra Client  [#289](https://github.com/chef/cookstyle/pull/289) ([tas50](https://github.com/tas50)) <!-- 5.6.1 -->
 - Add ChefStyle/UsePlatformHelpers cop [#286](https://github.com/chef/cookstyle/pull/286) ([tas50](https://github.com/tas50)) <!-- 5.6.0 -->
 - Add ChefDeprecations/RecipeMetadata cop [#287](https://github.com/chef/cookstyle/pull/287) ([tas50](https://github.com/tas50)) <!-- 5.5.9 -->
