@@ -39,6 +39,12 @@ module RuboCop
           def on_send(node)
             add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :openssl_rsa_key
           end
+
+          def autocorrect(node)
+            lambda do |corrector|
+              corrector.replace(node.loc.expression, node.source.gsub(/^openssl_rsa_key/, 'openssl_rsa_private_key'))
+            end
+          end
         end
       end
     end

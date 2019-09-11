@@ -28,6 +28,14 @@ describe RuboCop::Cop::Chef::ChefModernize::MacOsXUserdefaults, :config do
       value '2'
     end
     RUBY
+
+    expect_correction(<<~RUBY)
+    macos_userdefaults 'full keyboard access to all controls' do
+      domain 'AppleKeyboardUIMode'
+      global true
+      value '2'
+    end
+    RUBY
   end
 
   it "doesn't register an offense when using the macos_userdefaults resource" do

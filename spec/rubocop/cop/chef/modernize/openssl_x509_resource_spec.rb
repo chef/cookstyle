@@ -29,6 +29,15 @@ describe RuboCop::Cop::Chef::ChefModernize::OpensslX509Resource, :config do
       country 'US'
     end
     RUBY
+
+    expect_correction(<<~RUBY)
+    openssl_x509_certificate '/etc/httpd/ssl/mycert.pem' do
+      common_name 'www.f00bar.com'
+      org 'Foo Bar'
+      org_unit 'Lab'
+      country 'US'
+    end
+    RUBY
   end
 
   it "doesn't register an offense when using the openssl_x509_certificate resource" do

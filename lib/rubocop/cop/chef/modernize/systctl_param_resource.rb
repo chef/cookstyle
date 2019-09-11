@@ -39,6 +39,12 @@ module RuboCop
           def on_send(node)
             add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :sysctl_param
           end
+
+          def autocorrect(node)
+            lambda do |corrector|
+              corrector.replace(node.loc.expression, node.source.gsub(/^sysctl_param/, 'sysctl'))
+            end
+          end
         end
       end
     end
