@@ -1,3 +1,103 @@
+## Cookstyle 5.6
+
+### 12 New Chef Cops
+
+#### ChefDeprecations/WindowsTaskChangeAction
+
+The `ChefDeprecations/WindowsTaskChangeAction` cop detects the `windows_task` resource used with the legacy `:change` action. When the `windows_task` resource was moved into Chef Infra Client 13, the `:change` action was merged into the `:create` action. Mot users set the `:change` action in conjunction with `:create` and `:change` can now be removed.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefDeprecations/RecipeMetadata
+
+The `ChefDeprecations/RecipeMetadata` cop detects the usage of the `recipe` method in metadata.rb. This method was never used by Chef Infra and it has been deprecated. User facing documentation such as recipe descriptions should instead be placed in the cookbook's README.md file.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefStyle/UsePlatformHelpers
+
+The `ChefStyle/UsePlatformHelpers` cop
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefModernize/CronManageResource
+
+The `ChefModernize/CronManageResource` cop
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefModernize/UsesZypperRepo
+
+The `ChefModernize/UsesZypperRepo` cop
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefModernize/DependsOnZypperCookbook
+
+The `ChefModernize/DependsOnZypperCookbook` cop
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefModernize/ExecuteTzUtil
+
+The `ChefModernize/ExecuteTzUtil` cop
+
+`Enabled by default`: True
+
+`Autocorrects`: No
+
+#### ChefModernize/OpensslRsaKeyResource
+
+The `ChefModernize/OpensslRsaKeyResource` cop
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefModernize/OpensslX509Resource
+
+The `ChefModernize/OpensslX509Resource` cop
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefModernize/OsxConfigProfileResource
+
+The `ChefModernize/OsxConfigProfileResource` cop
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefModernize/SysctlParamResource
+
+The `ChefModernize/SysctlParamResource` cop
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefModernize/MacOsXUserdefaults
+
+The `ChefModernize/MacOsXUserdefaults` cop
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
 ## Cookstyle 5.5
 
 ### Chef Cops Broken Up Into Four Departments
@@ -40,7 +140,7 @@ The `ResourceSetsInternalProperties` cop detects resources that set internal sta
 
 `Examples`
 
-Service resource setting the running property:
+Service resource setting the internal running property:
 
 ```ruby
 service 'foo' do
