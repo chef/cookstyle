@@ -626,7 +626,7 @@ ChefModernize/OpensslRsaKeyResource:
     - '**/metadata.rb'
 
 ChefModernize/OpensslX509Resource:
-  Description: The openssl_x509 resource was renamed to openssl_x509_certificate. The new resource name should be used.
+  Description: The openssl_x509 resource was renamed to openssl_x509_certificate in Chef Infra Client 14.4. The new resource name should be used.
   Enabled: true
   VersionAdded: '5.6.0'
   Exclude:

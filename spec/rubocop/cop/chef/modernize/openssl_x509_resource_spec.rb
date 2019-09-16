@@ -22,7 +22,7 @@ describe RuboCop::Cop::Chef::ChefModernize::OpensslX509Resource, :config do
   it 'registers an offense when using the openssl_x509 resource' do
     expect_offense(<<~RUBY)
     openssl_x509 '/etc/httpd/ssl/mycert.pem' do
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ The openssl_x509 resource was renamed to openssl_x509_certificate. The new resource name should be used.
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ The openssl_x509 resource was renamed to openssl_x509_certificate in Chef Infra Client 14.4. The new resource name should be used.
       common_name 'www.f00bar.com'
       org 'Foo Bar'
       org_unit 'Lab'
