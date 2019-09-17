@@ -1,3 +1,103 @@
+## Cookstyle 5.6
+
+### 12 New Chef Cops
+
+#### ChefDeprecations/WindowsTaskChangeAction
+
+The `ChefDeprecations/WindowsTaskChangeAction` cop detects the `windows_task` resource used with the legacy `:change` action. When the `windows_task` resource was moved into Chef Infra Client 13, the `:change` action was merged into the `:create` action. Most users set the `:change` action in conjunction with `:create`, and `:change` can now be removed.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefDeprecations/RecipeMetadata
+
+The `ChefDeprecations/RecipeMetadata` cop detects the usage of the `recipe` method in metadata.rb. This method was never used by Chef Infra and it has been deprecated. User-facing documentation, such as recipe descriptions, should instead be placed in the cookbook's README.md file.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefStyle/UsePlatformHelpers
+
+The `ChefStyle/UsePlatformHelpers` cop detects the usage of `node['platform] == 'foo'` or `node['platform_family] == 'bar'` and instead suggests using `platform?('foo')` or `platform_family?('bar')`. These platform helpers help simplify platform check logic, especially when checking for multiple platforms as they accept more than one platform: `platform?('foo', 'bar')`
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefModernize/CronManageResource
+
+The `ChefModernize/CronManageResource` cop detects the usage of the `cron_manage` resource, which was renamed to `cron_access` when it was included in Chef Infra Client 14.4.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefModernize/UsesZypperRepo
+
+The `ChefModernize/UsesZypperRepo` cop detects the usage of the `zypper_repo` resource, which was renamed to  `zypper_repository` when it was included in Chef Infra Client 13.3.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefModernize/DependsOnZypperCookbook
+
+The `ChefModernize/DependsOnZypperCookbook` cop detects a cookbook that depends on the `zypper` cookbook. Chef Infra Client 13.3 and later include the `zypper_repository` resource, which was previously only available in the `zypper` cookbook.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefModernize/ExecuteTzUtil
+
+The `ChefModernize/ExecuteTzUtil` cop detects a cookbook that uses an `execute` resource to shell out to the `tzutil.exe` command. Chef Infra Client 14.6 and later ships with the [timezone resource](https://docs.chef.io/resource_timezone.html), which should be used instead of `tzutil`.
+
+`Enabled by default`: True
+
+`Autocorrects`: No
+
+#### ChefModernize/OpensslRsaKeyResource
+
+The `ChefModernize/OpensslRsaKeyResource` cop detects usage of the `openssl_rsa_key` resource, which was renamed to `openssl_rsa_private_key` when it shipped in Chef Infra Client 14.0.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefModernize/OpensslX509Resource
+
+The `ChefModernize/OpensslX509Resource` cop detects usage of the `openssl_x509` resource, which was renamed to `openssl_x509_certificate` when it shipped in Chef Infra Client 14.4.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefModernize/OsxConfigProfileResource
+
+The `ChefModernize/OsxConfigProfileResource` cop detects usage of the `osx_config_profile` resource, which was renamed to `osx_profile`.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefModernize/SysctlParamResource
+
+The `ChefModernize/SysctlParamResource` cop detects usage of the `sysctl_param` resource, which was renamed to `sysctl` when it shipped in Chef Infra Client 14.0.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefModernize/MacOsXUserdefaults
+
+The `ChefModernize/MacOsXUserdefaults` cop detects usage of the `mac_os_x_userdefaults` resource, which was renamed to `macos_userdefaults` when it was added to Chef Infra Client 14.0.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
 ## Cookstyle 5.5
 
 ### Chef Cops Broken Up Into Four Departments
@@ -40,7 +140,7 @@ The `ResourceSetsInternalProperties` cop detects resources that set internal sta
 
 `Examples`
 
-Service resource setting the running property:
+Service resource setting the internal running property:
 
 ```ruby
 service 'foo' do
