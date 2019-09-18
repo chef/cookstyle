@@ -412,6 +412,50 @@ ChefDeprecations/WindowsTaskChangeAction:
   Exclude:
     - '**/metadata.rb'
 
+ChefDeprecations/ResourceOverridesProvidesMethod:
+  Description: Don't override the provides? method in a resource provider without also calling provides :SOME_PROVIDER_NAME. This will cause failures in Chef Infra Client 13 and later.
+  Enabled: true
+  VersionAdded: '5.7.0'
+  Include:
+    - '**/libraries/*.rb'
+    - '**/providers/*.rb'
+    - '**/resources/*.rb'
+
+ChefDeprecations/ResourceUsesDslNameMethod:
+  Description: Use resource_name instead of the dsl_name method in resources. This will cause failures in Chef Infra Client 13 and later.
+  Enabled: true
+  VersionAdded: '5.7.0'
+  Include:
+    - '**/libraries/*.rb'
+    - '**/providers/*.rb'
+    - '**/resources/*.rb'
+
+ChefDeprecations/ResourceUsesUpdatedMethod:
+  Description: Don't use updated = true/false to update resource state. This will cause failures in Chef Infra Client 13 and later.
+  Enabled: true
+  VersionAdded: '5.7.0'
+  Include:
+    - '**/libraries/*.rb'
+    - '**/providers/*.rb'
+    - '**/resources/*.rb'
+
+ChefDeprecations/NamePropertyWithDefaultValue:
+  Description: A resource property can't be marked as a name_property and also have a default value. This will fail in Chef Infra Client 13 or later.
+  Enabled: true
+  VersionAdded: '5.7.0'
+  Include:
+    - '**/libraries/*.rb'
+    - '**/providers/*.rb'
+    - '**/resources/*.rb'
+
+ChefDeprecations/ResourceUsesProviderBaseMethod:
+  Description: Don't use the deprecated provider_base method in a resource to specify the provider module to use. Instead, the provider should call provides to register itself, or the resource should call provider to specify the provider to use. This will cause failures in Chef Infra Client 13 and later.
+  Enabled: true
+  VersionAdded: '5.7.0'
+  Include:
+    - '**/libraries/*.rb'
+    - '**/resources/*.rb'
+
 ###############################
 # ChefModernize: Cleaning up legacy code and using new built-in resources
 ###############################
