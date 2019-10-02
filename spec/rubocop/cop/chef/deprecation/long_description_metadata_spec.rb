@@ -21,11 +21,13 @@ describe RuboCop::Cop::Chef::ChefDeprecations::LongDescriptionMetadata, :config 
 
   it 'registers an offense when metadata used "conflicts"' do
     expect_offense(<<~RUBY)
+      description 'foo'
       long_description 'foo'
       ^^^^^^^^^^^^^^^^^^^^^^ The long_description metadata.rb method is not used and is unnecessary in cookbooks
+      version '1.0.0'
     RUBY
 
-    expect_correction("\n")
+    expect_correction("description 'foo'\nversion '1.0.0'\n")
   end
 
   it "doesn't register an offense on normal metadata" do
