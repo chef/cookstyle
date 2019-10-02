@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.6.3 -->
-## [v5.6.3](https://github.com/chef/cookstyle/tree/v5.6.3) (2019-09-17)
+<!-- latest_release 5.6.4 -->
+## [v5.6.4](https://github.com/chef/cookstyle/tree/v5.6.4) (2019-10-02)
 
 #### Merged Pull Requests
-- Add release notes for 5.6 [#293](https://github.com/chef/cookstyle/pull/293) ([tas50](https://github.com/tas50))
+- Fix autocorrection of multiple platform helpers in a recipe [#303](https://github.com/chef/cookstyle/pull/303) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.6.2 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Fix autocorrection of multiple platform helpers in a recipe [#303](https://github.com/chef/cookstyle/pull/303) ([tas50](https://github.com/tas50)) <!-- 5.6.4 -->
 - Add release notes for 5.6 [#293](https://github.com/chef/cookstyle/pull/293) ([tas50](https://github.com/tas50)) <!-- 5.6.3 -->
 <!-- release_rollup -->
 
