@@ -38,18 +38,16 @@ module RuboCop
           PATTERN
 
           def on_send(node)
-            platform_check?(node) do |type, plat|
-              # set these so we can use them in the auto_correct method
-              @type = type
-              @plat = plat
-
+            platform_check?(node) do
               add_offense(node, location: :expression, message: MSG, severity: :refactor)
             end
           end
 
           def autocorrect(node)
             lambda do |corrector|
-              corrector.replace(node.loc.expression, "#{@type.value}?('#{@plat.value}')")
+              platform_check?(node) do |type, plat|
+                corrector.replace(node.loc.expression, "#{type.value}?('#{plat.value}')")
+              end
             end
           end
         end
