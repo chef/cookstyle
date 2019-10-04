@@ -19,7 +19,7 @@ require 'spec_helper'
 describe RuboCop::Cop::Chef::ChefDeprecations::SuggestsMetadata, :config do
   subject(:cop) { described_class.new(config) }
 
-  it 'registers an offense when metadata used "suggests"' do
+  it 'registers an offense when metadata uses "suggests"' do
     expect_offense(<<~RUBY)
       suggests 'foo'
       ^^^^^^^^^^^^^^ Don't use the deprecated 'suggests' metadata value

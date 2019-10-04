@@ -32,7 +32,7 @@ module RuboCop
         #   require 'chef/mixin/language'
         #   require 'chef/mixin/language_include_attribute'
         #   require 'chef/mixin/language_include_recipe'
-
+        #
         class UsesDeprecatedMixins < Cop
           MSG = "Don't use deprecated Mixins no longer included in Chef Infra Client 14 and later.".freeze
 

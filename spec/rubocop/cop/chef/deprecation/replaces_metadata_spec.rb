@@ -19,7 +19,7 @@ require 'spec_helper'
 describe RuboCop::Cop::Chef::ChefDeprecations::ReplacesMetadata, :config do
   subject(:cop) { described_class.new(config) }
 
-  it 'registers an offense when metadata used "replaces"' do
+  it 'registers an offense when metadata uses "replaces"' do
     expect_offense(<<~RUBY)
       replaces 'foo'
       ^^^^^^^^^^^^^^ Don't use the deprecated 'replaces' metadata value

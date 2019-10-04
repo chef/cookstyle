@@ -19,7 +19,7 @@ require 'spec_helper'
 describe RuboCop::Cop::Chef::ChefDeprecations::LongDescriptionMetadata, :config do
   subject(:cop) { described_class.new(config) }
 
-  it 'registers an offense when metadata used "conflicts"' do
+  it 'registers an offense when metadata uses "long_description"' do
     expect_offense(<<~RUBY)
       description 'foo'
       long_description 'foo'

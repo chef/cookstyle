@@ -31,6 +31,7 @@ module RuboCop
         #              type: 'string',
         #              required: 'optional',
         #              default: '"127.0.0.1:2181"'
+        #
         class AttributeMetadata < Cop
           MSG = "Don't use the deprecated 'attribute' metadata value".freeze
 
