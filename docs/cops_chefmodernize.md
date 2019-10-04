@@ -4,7 +4,7 @@
 
 Enabled by default | Supports autocorrection
 --- | ---
-Enabled | No
+Enabled | Yes
 
 The cron_manage resource was renamed to cron_access in the 6.1 release of the cron
 cookbook, and later shipped in Chef Infra Client 14.4. The new resource name should
@@ -335,7 +335,7 @@ Exclude | `**/metadata.rb` | Array
 
 Enabled by default | Supports autocorrection
 --- | ---
-Enabled | No
+Enabled | Yes
 
 The mac_os_x_userdefaults resource was renamed to macos_userdefaults when it was added to Chef Infra Client
 14.0. The new resource name should be used.
@@ -387,7 +387,7 @@ Include | `**/metadata.rb` | Array
 
 Enabled by default | Supports autocorrection
 --- | ---
-Enabled | No
+Enabled | Yes
 
 The openssl_rsa_key resource was renamed to openssl_rsa_private_key in Chef
 Infra Client 14.0. The new resource name should be used.
@@ -413,9 +413,9 @@ Exclude | `**/metadata.rb` | Array
 
 Enabled by default | Supports autocorrection
 --- | ---
-Enabled | No
+Enabled | Yes
 
-The openssl_x509 resource was renamed to openssl_x509_certificate.
+The openssl_x509 resource was renamed to openssl_x509_certificate in Chef Infra Client 14.4.
 The new resource name should be used.
 
   # bad
@@ -445,7 +445,7 @@ Exclude | `**/metadata.rb` | Array
 
 Enabled by default | Supports autocorrection
 --- | ---
-Enabled | No
+Enabled | Yes
 
 The osx_config_profile resource was renamed to osx_profile.
 The new resource name should be used.
@@ -720,7 +720,7 @@ Exclude | `**/metadata.rb` | Array
 
 Enabled by default | Supports autocorrection
 --- | ---
-Enabled | No
+Enabled | Yes
 
 The sysctl_param resource was renamed to sysctl when it was added to Chef Infra Client
 14.0. The new resource name should be used.
@@ -801,7 +801,7 @@ Exclude | `**/metadata.rb` | Array
 
 Enabled by default | Supports autocorrection
 --- | ---
-Enabled | No
+Enabled | Yes
 
 The zypper_repo resource was renamed zypper_repository when it was added to Chef Infra Client 13.3.
 
