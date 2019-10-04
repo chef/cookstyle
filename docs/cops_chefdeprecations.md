@@ -51,6 +51,41 @@ Name | Default value | Configurable values
 VersionAdded | `5.8.0` | String
 Include | `**/spec/*.rb` | Array
 
+## ChefDeprecations/ChefSpecLegacyRunner
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+Use ChefSpec::SoloRunner or ChefSpec::ServerRunner instead of the deprecated ChefSpec::Runner. These new runners were introduced in ChefSpec 4.1 (Oct 2014).
+
+### Examples
+
+```ruby
+# bad
+
+describe 'foo::default' do
+  subject { ChefSpec::Runner.new.converge(described_recipe) }
+
+  # some spec code
+end
+
+# good
+
+describe 'foo::default' do
+  subject { ChefSpec::ServerRunner.new.converge(described_recipe) }
+
+  # some spec code
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.8.0` | String
+Include | `**/spec/*.rb` | Array
+
 ## ChefDeprecations/ChocolateyPackageUninstallAction
 
 Enabled by default | Supports autocorrection

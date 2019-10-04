@@ -463,6 +463,13 @@ ChefDeprecations/ChefSpecCoverageReport:
   Include:
     - '**/spec/*.rb'
 
+ChefDeprecations/ChefSpecLegacyRunner:
+  Description: Use ChefSpec::SoloRunner or ChefSpec::ServerRunner instead of the deprecated ChefSpec::Runner.
+  Enabled: true
+  VersionAdded: '5.8.0'
+  Include:
+    - '**/spec/*.rb'
+
 ###############################
 # ChefModernize: Cleaning up legacy code and using new built-in resources
 ###############################
