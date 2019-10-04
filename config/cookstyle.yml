@@ -413,7 +413,7 @@ ChefDeprecations/WindowsTaskChangeAction:
     - '**/metadata.rb'
 
 ChefDeprecations/ResourceOverridesProvidesMethod:
-  Description: Don't override the provides? method in a resource provider without also calling provides :SOME_PROVIDER_NAME. This will cause failures in Chef Infra Client 13 and later.
+  Description: Don't override the provides? method in a resource provider. Use provides :SOME_PROVIDER_NAME instead. This will cause failures in Chef Infra Client 13 and later.
   Enabled: true
   VersionAdded: '5.7.0'
   Include:

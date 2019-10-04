@@ -18,7 +18,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefDeprecations
-        # Some providers in resources override the provides? method, used to check whether they are a valid provider on the current platform. In Chef Infra Client 13, this will cause an error. Instead use the 'provides' method to register the provider.
+        # Some providers in resources override the provides? method, used to check whether they are a valid provider on the current platform. In Chef Infra Client 13, this will cause an error. Instead use `provides :SOME_PROVIDER_NAME` to register the provider.
         #
         # @example
         #
@@ -31,7 +31,7 @@ module RuboCop
         #   provides :SOME_PROVIDER_NAME
         #
         class ResourceOverridesProvidesMethod < Cop
-          MSG = "Don't override the provides? method in a resource provider without also calling provides :SOME_PROVIDER_NAME. This will cause failures in Chef Infra Client 13 and later.".freeze
+          MSG = "Don't override the provides? method in a resource provider. Use provides :SOME_PROVIDER_NAME instead. This will cause failures in Chef Infra Client 13 and later.".freeze
 
           def_node_search :provides, '(send nil? :provides ...)'
 
