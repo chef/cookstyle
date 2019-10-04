@@ -18,8 +18,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefCorrectness
-        # A resource guard (not_if/only_if) that is a string should not be wrapped in {}.
-        # Wrapping a guard string in {} causes it be executed as Ruby code which will always returns true instead of a shell command that will actually run.
+        # A resource guard (not_if/only_if) that is a string should not be wrapped in {}. Wrapping a guard string in {} causes it be executed as Ruby code which will always returns true instead of a shell command that will actually run.
         #
         # @example
         #

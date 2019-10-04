@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      # metadata.rb needs to include the name method
+      # metadata.rb needs to include the name method or it will fail on Chef Infra Client 12 and later.
       #
       # @example
       #
@@ -29,7 +29,7 @@ module RuboCop
         class MetadataMissingName < Cop
           include RangeHelp
 
-          MSG = 'metadata.rb needs to include the name method'.freeze
+          MSG = 'metadata.rb needs to include the name method or it will fail on Chef Infra Client 12 and later.'.freeze
 
           def investigate(processed_source)
             return if processed_source.blank?
