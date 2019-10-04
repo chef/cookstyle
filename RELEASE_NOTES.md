@@ -36,7 +36,7 @@ The `ChefDeprecations/NamePropertyWithDefaultValue` cop detects resource propert
 
 #### ChefDeprecations/ResourceUsesProviderBaseMethod
 
-The `ChefDeprecations/ResourceUsesProviderBaseMethod` cop detects the provider_base method being in a resource to specify the provider module to use. Instead, the provider should call provides to register itself, or the resource should call provider to specify the provider to use. This will cause failures in Chef Infra Client 13 and later.
+The `ChefDeprecations/ResourceUsesProviderBaseMethod` cop detects the provider_base method being in a resource to specify the provider module to use. Instead, the provider should call `provides` to register itself, or the resource should call `provider` to specify the provider to use. This will cause failures in Chef Infra Client 13 and later.
 
 `Enabled by default`: True
 
