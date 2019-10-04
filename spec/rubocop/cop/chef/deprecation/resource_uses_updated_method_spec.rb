@@ -23,7 +23,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ResourceUsesUpdatedMethod, :confi
     expect_offense(<<~RUBY)
       action :foo do
         updated = true
-        ^^^^^^^^^^^^^^ Don't use the deprecated provider_base method in a resource to specify the provider module to use. Instead, the provider should call provides to register itself, or the resource should call provider to specify the provider to use. This will cause failures in Chef Infra Client 13 and later.
+        ^^^^^^^^^^^^^^ Don't use updated = true/false to update resource state. This will cause failures in Chef Infra Client 13 and later.
       end
     RUBY
   end

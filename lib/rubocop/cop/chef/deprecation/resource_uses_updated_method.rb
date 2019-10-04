@@ -18,7 +18,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefDeprecations
-        # Make sure ignore_failure is used instead of epic_fail
+        # Don't call the deprecated updated= method in a resource to set the resource to updated. This resource was removed from Chef Infra Client 13 and this will now cause an error. Instead wrap code that updated the state of the node in a converge_by block. Documentation on using the converge_by block can be found at https://docs.chef.io/custom_resources.html.
         #
         # @example
         #
@@ -29,14 +29,15 @@ module RuboCop
         #
         #   # good
         #   action :foo do
-        #     new_resource.updated_by_last_action true
-        #   end
+        #     converge_by('resource did something) do
+        #       # code that causes the resource to converge
+        #     end
         #
         class ResourceUsesUpdatedMethod < Cop
           MSG = "Don't use updated = true/false to update resource state. This will cause failures in Chef Infra Client 13 and later.".freeze
 
-          def on_send(node)
-            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :updated=
+          def on_lvasgn(node)
+            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.node_parts.first == :updated
           end
 
           # potential autocorrect is new_resource.updated_by_last_action true, but we need to actually see what class we were called from
