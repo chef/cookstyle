@@ -6,8 +6,7 @@ Enabled by default | Supports autocorrection
 --- | ---
 Enabled | Yes
 
-A resource guard (not_if/only_if) that is a string should not be wrapped in {}.
-Wrapping a guard string in {} causes it be executed as Ruby code which will always returns true instead of a shell command that will actually run.
+A resource guard (not_if/only_if) that is a string should not be wrapped in {}. Wrapping a guard string in {} causes it be executed as Ruby code which will always returns true instead of a shell command that will actually run.
 
 ### Examples
 
@@ -79,8 +78,7 @@ Enabled by default | Supports autocorrection
 --- | ---
 Enabled | No
 
-Metadata contains default maintainer information from the `chef generate cookbook`
-command. This should be updated to reflect that actual maintainer of the cookbook.
+Metadata contains default maintainer information from the `chef generate cookbook` command. This should be updated to reflect that actual maintainer of the cookbook.
 
 ### Examples
 
@@ -162,8 +160,7 @@ Enabled by default | Supports autocorrection
 --- | ---
 Enabled | Yes
 
-metadata.rb license field should include a SPDX compliant string
-or "all right reserved" (not case sensitive)
+metadata.rb license field should include a SPDX compliant string or "all right reserved" (not case sensitive)
 
 list of valid SPDX.org license strings. To build an array run this:
 require 'json'
