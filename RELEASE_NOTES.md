@@ -28,7 +28,7 @@ The `ChefDeprecations/ResourceUsesUpdatedMethod` cop detects resources that upda
 
 #### ChefDeprecations/NamePropertyWithDefaultValue
 
-The `ChefDeprecations/NamePropertyWithDefaultValue` cop detects resource properties that are marked as a name_property and also have a default value. This will fail in Chef Infra Client 13 or later.
+The `ChefDeprecations/NamePropertyWithDefaultValue` cop detects resource properties that are marked as a name_property while also having a default value. This will fail in Chef Infra Client 13 or later.
 
 `Enabled by default`: True
 
