@@ -1,27 +1,24 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.7.0 -->
+<!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v5.7.0](https://github.com/chef/cookstyle/tree/v5.7.0) (2019-10-04)
 
 #### Merged Pull Requests
 - Add 5 more cops for LWRP deprecations in Chef 13 [#296](https://github.com/chef/cookstyle/pull/296) ([tas50](https://github.com/tas50))
-<!-- latest_release -->
-
-<!-- release_rollup since=5.6.5 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Add 5 more cops for LWRP deprecations in Chef 13 [#296](https://github.com/chef/cookstyle/pull/296) ([tas50](https://github.com/tas50)) <!-- 5.7.0 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v5.6.5](https://github.com/chef/cookstyle/tree/v5.6.5) (2019-10-02)
 
 #### Merged Pull Requests
 - Add release notes for 5.6 [#293](https://github.com/chef/cookstyle/pull/293) ([tas50](https://github.com/tas50))
 - Fix autocorrection of multiple platform helpers in a recipe [#303](https://github.com/chef/cookstyle/pull/303) ([tas50](https://github.com/tas50))
 - Remove the newline when autocorrecting long_description in metadata [#304](https://github.com/chef/cookstyle/pull/304) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v5.6.2](https://github.com/chef/cookstyle/tree/v5.6.2) (2019-09-16)
 
