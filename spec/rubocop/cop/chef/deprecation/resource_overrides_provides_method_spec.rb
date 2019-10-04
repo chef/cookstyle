@@ -22,7 +22,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ResourceOverridesProvidesMethod, 
   it 'registers an offense when a resource overrides provides? w/o using provides' do
     expect_offense(<<~RUBY)
       def provides?
-      ^^^^^^^^^^^^^ Don't override the provides? method in a resource provider without also calling provides :SOME_PROVIDER_NAME. This will cause failures in Chef Infra Client 13 and later.
+      ^^^^^^^^^^^^^ Don't override the provides? method in a resource provider. Use provides :SOME_PROVIDER_NAME instead. This will cause failures in Chef Infra Client 13 and later.
         true
       end
     RUBY
