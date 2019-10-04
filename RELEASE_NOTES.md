@@ -22,7 +22,7 @@ The `ChefDeprecations/ResourceUsesDslNameMethod` cop detects resources that use 
 
 The `ChefDeprecations/ResourceUsesUpdatedMethod` cop detects resources that update resource convergence state by setting `updated = true` (or false). This will cause failures in Chef Infra Client 13 and later.
 
-`Enabled by default`: True
+`Enabled by default`: False (high likelihood of false positives)
 
 `Autocorrects`: No
 

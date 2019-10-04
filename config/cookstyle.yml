@@ -432,7 +432,7 @@ ChefDeprecations/ResourceUsesDslNameMethod:
 
 ChefDeprecations/ResourceUsesUpdatedMethod:
   Description: Don't use updated = true/false to update resource state. This will cause failures in Chef Infra Client 13 and later.
-  Enabled: true
+  Enabled: false # has a high potential for false positives
   VersionAdded: '5.7.0'
   Include:
     - '**/libraries/*.rb'

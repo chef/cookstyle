@@ -134,8 +134,7 @@ Enabled by default | Supports autocorrection
 --- | ---
 Enabled | Yes
 
-Don't depend the zypper cookbook as the zypper_repository resource is built into
-Chef Infra Client 13.3
+Don't depend the zypper cookbook as the zypper_repository resource is built into Chef Infra Client 13.3
 
 ### Examples
 

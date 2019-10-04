@@ -18,8 +18,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefModernize
-        # Don't depend the zypper cookbook as the zypper_repository resource is built into
-        # Chef Infra Client 13.3
+        # Don't depend the zypper cookbook as the zypper_repository resource is built into Chef Infra Client 13.3
         #
         # @example
         #
