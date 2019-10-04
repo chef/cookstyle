@@ -456,6 +456,13 @@ ChefDeprecations/ResourceUsesProviderBaseMethod:
     - '**/libraries/*.rb'
     - '**/resources/*.rb'
 
+ChefDeprecations/ChefSpecCoverageReport:
+  Description: Don't use the deprecated ChefSpec coverage report functionality in your specs.
+  Enabled: true
+  VersionAdded: '5.8.0'
+  Include:
+    - '**/spec/*.rb'
+
 ###############################
 # ChefModernize: Cleaning up legacy code and using new built-in resources
 ###############################

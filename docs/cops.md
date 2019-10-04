@@ -24,6 +24,7 @@
 #### Department [ChefDeprecations](cops_chefdeprecations.md)
 
 * [ChefDeprecations/AttributeMetadata](cops_chefdeprecations.md#chefdeprecationsattributemetadata)
+* [ChefDeprecations/ChefSpecCoverageReport](cops_chefdeprecations.md#chefdeprecationschefspeccoveragereport)
 * [ChefDeprecations/ChocolateyPackageUninstallAction](cops_chefdeprecations.md#chefdeprecationschocolateypackageuninstallaction)
 * [ChefDeprecations/ConflictsMetadata](cops_chefdeprecations.md#chefdeprecationsconflictsmetadata)
 * [ChefDeprecations/CookbookDependsOnCompatResource](cops_chefdeprecations.md#chefdeprecationscookbookdependsoncompatresource)
