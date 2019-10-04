@@ -19,9 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefModernize
-        # In HWRPs and LWRPs it was necessary to define the allowed actions within the resource.
-        # In custom resources this is no longer necessary as Chef will determine it based on the
-        # actions defined in the resource.
+        # In Chef Infra Client releases after 12.5 it is no longer necessary to set `actions` or `allowed_actions` as Chef Infra Client determines these automatically from the set of all actions defined in the resource.
         #
         # @example
         #
@@ -29,39 +27,25 @@ module RuboCop
         #   property :something, String
         #
         #   allowed_actions [:create, :remove]
-        #   action :create do
-        #     # some action code because we're in a custom resource
-        #   end
         #
         #   # also bad
         #   property :something, String
         #
         #   actions [:create, :remove]
-        #   action :create do
-        #     # some action code because we're in a custom resource
-        #   end
         #
         #   # good
         #   property :something, String
         #
-        #   action :create do
-        #     # some action code because we're in a custom resource
-        #   end
-        #
         class CustomResourceWithAllowedActions < Cop
-          MSG = "Custom Resources don't need to define the allowed actions with allowed_actions or actions methods".freeze
+          MSG = 'Resources no longer need to define the allowed actions with allowed_actions or actions methods.'.freeze
 
           def_node_matcher :allowed_actions?, <<-PATTERN
             (send nil? {:allowed_actions :actions} ... )
           PATTERN
 
-          def_node_search :resource_actions?, <<-PATTERN
-            (block (send nil? :action ... ) ... )
-          PATTERN
-
           def on_send(node)
             allowed_actions?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor) if resource_actions?(processed_source.ast)
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
             end
           end
 

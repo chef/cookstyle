@@ -29,9 +29,7 @@ Enabled by default | Supports autocorrection
 --- | ---
 Enabled | Yes
 
-In HWRPs and LWRPs it was necessary to define the allowed actions within the resource.
-In custom resources this is no longer necessary as Chef will determine it based on the
-actions defined in the resource.
+In Chef Infra Client releases after 12.5 it is no longer necessary to set `actions` or `allowed_actions` as Chef Infra Client determines these automatically from the set of all actions defined in the resource.
 
 ### Examples
 
@@ -40,24 +38,14 @@ actions defined in the resource.
 property :something, String
 
 allowed_actions [:create, :remove]
-action :create do
-  # some action code because we're in a custom resource
-end
 
 # also bad
 property :something, String
 
 actions [:create, :remove]
-action :create do
-  # some action code because we're in a custom resource
-end
 
 # good
 property :something, String
-
-action :create do
-  # some action code because we're in a custom resource
-end
 ```
 
 ### Configurable attributes
