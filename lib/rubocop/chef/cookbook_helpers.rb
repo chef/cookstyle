@@ -2,24 +2,22 @@ module RuboCop
   module Chef
     # Common node helpers used for matching against Chef Infra Cookbooks
     module CookbookHelpers
+      def resource_block_name_if_string(node)
+        if looks_like_resource?(node) && node.children.first.arguments.first.respond_to?(:value)
+          node.children.first.arguments.first.value
+        end
+      end
+
       # Match particular properties within a resource
       #
       # @param [String] resource_name The name of the resource to match
       # @param [String] property_name The name of the property to match (or action)
-      # @param [<Type>] node The rubocop ast node to search
+      # @param [RuboCop::AST::Node] node The rubocop ast node to search
       #
       # @yield
       #
       def match_property_in_resource?(resource_name, property_name, node)
-        return unless node.block_type? # resources are blocks if they have properties
-        return unless node.children.first.receiver.nil? # resource blocks don't have a receiver
-        return if node.send_node.arguments.first.is_a?(RuboCop::AST::SymbolNode) # resources have a string name. resource actions have symbols
-
-        # bail if the block doesn't have a name a resource *generally* has a name.
-        # This isn't 100% true with things like apt_update and build_essential, but we'll live
-        # with that for now to avoid the false positives of getting stuck in generic blocks in resources
-        return if node.children.first.arguments.empty?
-
+        return unless looks_like_resource?(node)
         # bail out if we're not in the resource we care about or nil was passed (all resources)
         return unless resource_name.nil? || node.children.first.method?(resource_name.to_sym) # see if we're in the right resource
 
@@ -47,6 +45,27 @@ module RuboCop
       end
 
       private
+
+      #
+      # given a node object does it lookk like a chef resource or not?
+      #
+      # @param [RuboCop::AST::Node] node AST object to test
+      #
+      # @return [boolean]
+      #
+      def looks_like_resource?(node)
+        return false unless node.block_type? # resources are blocks if they have properties
+        return false unless node.children.first.receiver.nil? # resource blocks don't have a receiver
+        return false if node.send_node.arguments.first.is_a?(RuboCop::AST::SymbolNode) # resources have a string name. resource actions have symbols
+
+        # bail if the block doesn't have a name a resource *generally* has a name.
+        # This isn't 100% true with things like apt_update and build_essential, but we'll live
+        # with that for now to avoid the false positives of getting stuck in generic blocks in resources
+        return false if node.children.first.arguments.empty?
+
+        # if we made it this far we're probably in a resource
+        true
+      end
 
       def extract_send_types(node)
         return if node.nil? # there are cases we can be passed an empty node
