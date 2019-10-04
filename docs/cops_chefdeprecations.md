@@ -589,9 +589,7 @@ Enabled by default | Supports autocorrection
 --- | ---
 Enabled | No
 
-Some providers in resources override the provides? method, used to check whether they are a valid
-provider on the current platform. In Chef Infra Client 13, this will cause an error if the provider
-does not also register themselves with the provides call.
+Some providers in resources override the provides? method, used to check whether they are a valid provider on the current platform. In Chef Infra Client 13, this will cause an error. Instead use the 'provides' method to register the provider.
 
 ### Examples
 
@@ -603,10 +601,6 @@ end
 
 # good
 provides :SOME_PROVIDER_NAME
-
-def provides?
- true
-end
 ```
 
 ### Configurable attributes

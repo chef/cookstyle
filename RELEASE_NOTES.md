@@ -4,7 +4,7 @@
 
 #### ChefDeprecations/ResourceOverridesProvidesMethod
 
-The `ChefDeprecations/ResourceOverridesProvidesMethod` cop detects overriding the `provides?` method in a resource's provider without also calling `provides :SOME_PROVIDER_NAME`. This will cause failures in Chef Infra Client 13 and later.
+The `ChefDeprecations/ResourceOverridesProvidesMethod` cop detects overriding the `provides?` method in a resource's provider without also calling `provides :SOME_PROVIDER_NAME`. This will cause failures in Chef Infra Client 13 and later. Instead use the 'provides' method to register the provider.
 
 `Enabled by default`: True
 
