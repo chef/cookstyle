@@ -29,7 +29,7 @@ module RuboCop
           MSG = "Don't depend on the deprecated partial_search cookbook made obsolete by Chef 13".freeze
 
           def_node_matcher :depends_partial_search?, <<-PATTERN
-            (send nil? :depends (str {"partial_search"}))
+            (send nil? :depends (str "partial_search"))
           PATTERN
 
           def on_send(node)

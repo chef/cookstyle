@@ -1,3 +1,47 @@
+## Cookstyle 5.7
+
+### 5 New Chef Cops
+
+#### ChefDeprecations/ResourceOverridesProvidesMethod
+
+The `ChefDeprecations/ResourceOverridesProvidesMethod` cop detects overriding the `provides?` method in a resource's provider. This will cause failures in Chef Infra Client 13 and later. Instead use `provides :SOME_PROVIDER_NAME` to register the provider.
+
+`Enabled by default`: True
+
+`Autocorrects`: No
+
+#### ChefDeprecations/ResourceUsesDslNameMethod
+
+The `ChefDeprecations/ResourceUsesDslNameMethod` cop detects resources that use the `dsl_name` method instead of `resource_name`. This will cause failures in Chef Infra Client 13 and later.
+
+`Enabled by default`: True
+
+`Autocorrects`: No
+
+#### ChefDeprecations/ResourceUsesUpdatedMethod
+
+The `ChefDeprecations/ResourceUsesUpdatedMethod` cop detects resources that update resource convergence state by setting `updated = true` (or false). This will cause failures in Chef Infra Client 13 and later.
+
+`Enabled by default`: False (high likelihood of false positives)
+
+`Autocorrects`: No
+
+#### ChefDeprecations/NamePropertyWithDefaultValue
+
+The `ChefDeprecations/NamePropertyWithDefaultValue` cop detects resource properties that are marked as a name_property while also having a default value. This will fail in Chef Infra Client 13 or later.
+
+`Enabled by default`: True
+
+`Autocorrects`: No
+
+#### ChefDeprecations/ResourceUsesProviderBaseMethod
+
+The `ChefDeprecations/ResourceUsesProviderBaseMethod` cop detects the provider_base method being in a resource to specify the provider module to use. Instead, the provider should call `provides` to register itself, or the resource should call `provider` to specify the provider to use. This will cause failures in Chef Infra Client 13 and later.
+
+`Enabled by default`: True
+
+`Autocorrects`: No
+
 ## Cookstyle 5.6
 
 ### 12 New Chef Cops

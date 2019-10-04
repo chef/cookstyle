@@ -375,6 +375,31 @@ Name | Default value | Configurable values
 VersionAdded | `5.2.0` | String
 Include | `**/metadata.rb` | Array
 
+## ChefDeprecations/NamePropertyWithDefaultValue
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+A custom resource property can't be marked as a name_property and also have a default value. The name property is a special property that is derived from the name of the resource block in and thus always has a value passed to the resource. For example if you define `my_resource 'foo'` in recipe, then the name property of `my_resource` will automatically be set to `foo`. Setting a property to be both a name_property and have a default value will cause Chef Infra Client failures in 13.0 and later releases.
+
+### Examples
+
+```ruby
+# bad
+property :config_file, String, default: 'foo', name_property: true
+
+# good
+property :config_file, String, name_property: true
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.7.0` | String
+Include | `**/libraries/*.rb`, `**/providers/*.rb`, `**/resources/*.rb` | Array
+
 ## ChefDeprecations/NodeMethodsInsteadofAttributes
 
 Enabled by default | Supports autocorrection
@@ -557,6 +582,110 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.2.0` | String
 Exclude | `**/metadata.rb` | Array
+
+## ChefDeprecations/ResourceOverridesProvidesMethod
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+Some providers in resources override the provides? method, used to check whether they are a valid provider on the current platform. In Chef Infra Client 13, this will cause an error. Instead use `provides :SOME_PROVIDER_NAME` to register the provider.
+
+### Examples
+
+```ruby
+# bad
+def provides?
+ true
+end
+
+# good
+provides :SOME_PROVIDER_NAME
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.7.0` | String
+Include | `**/libraries/*.rb`, `**/providers/*.rb`, `**/resources/*.rb` | Array
+
+## ChefDeprecations/ResourceUsesDslNameMethod
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+Don't use the dsl_name method in a resource to find the name of the resource. Use the resource_name method instead. dsl_name was removed in Chef Infra Client 13 and will now result in an error.
+
+### Examples
+
+```ruby
+# bad
+my_resource = MyResource.dsl_name
+
+# good
+my_resource = MyResource.resource_name
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.7.0` | String
+Include | `**/libraries/*.rb`, `**/providers/*.rb`, `**/resources/*.rb` | Array
+
+## ChefDeprecations/ResourceUsesProviderBaseMethod
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+The Resource.provider_base allows the developer to specify within a resource a module to load the resource's provider from. Instead, the provider should call provides to register itself, or the resource should call provider to specify the provider to use.
+
+### Examples
+
+```ruby
+# bad
+provider_base ::Chef::Provider::SomethingSomething
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.7.0` | String
+Include | `**/libraries/*.rb`, `**/resources/*.rb` | Array
+
+## ChefDeprecations/ResourceUsesUpdatedMethod
+
+Enabled by default | Supports autocorrection
+--- | ---
+Disabled | No
+
+Don't call the deprecated updated= method in a resource to set the resource to updated. This method was removed from Chef Infra Client 13 and this will now cause an error. Instead wrap code that updated the state of the node in a converge_by block. Documentation on using the converge_by block can be found at https://docs.chef.io/custom_resources.html.
+
+### Examples
+
+```ruby
+# bad
+action :foo do
+  updated = true
+end
+
+# good
+action :foo do
+  converge_by('resource did something) do
+    # code that causes the resource to converge
+  end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.7.0` | String
+Include | `**/libraries/*.rb`, `**/providers/*.rb`, `**/resources/*.rb` | Array
 
 ## ChefDeprecations/SuggestsMetadata
 
