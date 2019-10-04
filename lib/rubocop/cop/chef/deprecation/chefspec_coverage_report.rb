@@ -30,7 +30,6 @@ module RuboCop
         class ChefSpecCoverageReport < Cop
           MSG = "Don't use the deprecated ChefSpec coverage report functionality in your specs.".freeze
 
-
           def_node_matcher :coverage_reporter?, <<-PATTERN
           (block (send nil? :at_exit ) (args) (send (const (const nil? :ChefSpec) :Coverage) :report!))
           PATTERN

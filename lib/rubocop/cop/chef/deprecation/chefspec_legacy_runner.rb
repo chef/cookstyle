@@ -40,8 +40,7 @@ module RuboCop
         #   end
         #
         class ChefSpecLegacyRunner < Cop
-          MSG = "Use ChefSpec::SoloRunner or ChefSpec::ServerRunner instead of the deprecated ChefSpec::Runner.".freeze
-
+          MSG = 'Use ChefSpec::SoloRunner or ChefSpec::ServerRunner instead of the deprecated ChefSpec::Runner.'.freeze
 
           def_node_matcher :chefspec_runner?, <<-PATTERN
           (const (const nil? :ChefSpec) :Runner)
