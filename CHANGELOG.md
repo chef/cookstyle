@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release -->
+<!-- latest_release 5.7.1 -->
+## [v5.7.1](https://github.com/chef/cookstyle/tree/v5.7.1) (2019-10-04)
+
+#### Merged Pull Requests
+- Update CustomResourceWithAllowedActions to trigger on LWRPs as well [#305](https://github.com/chef/cookstyle/pull/305) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=5.7.0 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Update CustomResourceWithAllowedActions to trigger on LWRPs as well [#305](https://github.com/chef/cookstyle/pull/305) ([tas50](https://github.com/tas50)) <!-- 5.7.1 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
