@@ -208,6 +208,14 @@ ChefCorrectness/IncludingOhaiDefaultRecipe:
   Exclude:
     - '**/metadata.rb'
 
+ChefCorrectness/UnnecessaryNameProperty:
+  Description: There is no need to define a property named :name in a resource as Chef Infra defines that property for all resources out of the box.
+  Enabled: true
+  VersionAdded: '5.8.0'
+  Include:
+    - '**/resources/*.rb'
+    - '**/libraries/*.rb'
+
 ###############################
 # ChefDeprecations: Resolving Deprecations that block upgrading Chef Infra Client
 ###############################
