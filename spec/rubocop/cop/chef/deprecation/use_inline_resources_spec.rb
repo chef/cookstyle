@@ -37,6 +37,15 @@ describe RuboCop::Cop::Chef::ChefDeprecations::UseInlineResourcesDefined, :confi
     expect_correction("\n")
   end
 
+  it 'registers an offense when a resource includes use_inline_resources if respond_to?(:use_inline_resources)' do
+    expect_offense(<<~RUBY)
+      use_inline_resources if respond_to?(:use_inline_resources)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ use_inline_resources is now the default for resources in Chef Infra Client 13+ and does not need to be specified.
+    RUBY
+
+    expect_correction("\n")
+  end
+
   it "doesn't register an offense when a resource calls not_use_inline_resources" do
     expect_no_offenses(<<~RUBY)
       not_use_inline_resources
