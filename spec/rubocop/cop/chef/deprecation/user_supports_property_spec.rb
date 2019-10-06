@@ -29,6 +29,13 @@ describe RuboCop::Cop::Chef::ChefDeprecations::UserDeprecatedSupportsProperty, :
         })
       end
     RUBY
+
+    expect_correction(<<~RUBY)
+      user "betty" do
+        manage_home true
+        non_unique true
+      end
+    RUBY
   end
 
   it "doesn't register an offense when using powershell_script for other things" do
