@@ -38,8 +38,6 @@ module RuboCop
         #   end
         #
         class OpensslX509Resource < Cop
-          include RuboCop::Chef::CookbookHelpers
-
           MSG = 'The openssl_x509 resource was renamed to openssl_x509_certificate in Chef Infra Client 14.4. The new resource name should be used.'.freeze
 
           def on_send(node)

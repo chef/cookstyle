@@ -29,8 +29,6 @@ module RuboCop
         #   cron_access 'mike'
         #
         class CronManageResource < Cop
-          include RuboCop::Chef::CookbookHelpers
-
           MSG = 'The cron_manage resource was renamed to cron_access in the 6.1 release of the cron cookbook and later shipped in Chef Infra Client 14.4. The new resource name should be used.'.freeze
 
           def on_send(node)

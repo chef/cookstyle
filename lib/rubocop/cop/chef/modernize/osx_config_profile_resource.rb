@@ -32,8 +32,6 @@ module RuboCop
         #   end
         #
         class OsxConfigProfileResource < Cop
-          include RuboCop::Chef::CookbookHelpers
-
           MSG = 'The osx_config_profile resource was renamed to osx_profile. The new resource name should be used.'.freeze
 
           def on_send(node)
