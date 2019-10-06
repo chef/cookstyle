@@ -27,6 +27,8 @@ describe RuboCop::Cop::Chef::ChefCorrectness::UnnecessaryNameProperty, :config d
       property :name, String
       ^^^^^^^^^^^^^^^^^^^^^^ There is no need to define a property named :name in a resource as Chef Infra defines that property for all resources out of the box.
     RUBY
+
+    expect_correction("\n")
   end
 
   it 'registers an offense when a resource has a property called name that is a name_property' do
@@ -34,6 +36,8 @@ describe RuboCop::Cop::Chef::ChefCorrectness::UnnecessaryNameProperty, :config d
       property :name, String, name_property: true
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ There is no need to define a property named :name in a resource as Chef Infra defines that property for all resources out of the box.
     RUBY
+
+    expect_correction("\n")
   end
 
   it 'does not register an offense when when a resource defined the name property with a default value' do
