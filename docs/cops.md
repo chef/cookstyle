@@ -20,6 +20,7 @@
 * [ChefCorrectness/ResourceWithNoneAction](cops_chefcorrectness.md#chefcorrectnessresourcewithnoneaction)
 * [ChefCorrectness/ServiceResource](cops_chefcorrectness.md#chefcorrectnessserviceresource)
 * [ChefCorrectness/TmpPath](cops_chefcorrectness.md#chefcorrectnesstmppath)
+* [ChefCorrectness/UnnecessaryNameProperty](cops_chefcorrectness.md#chefcorrectnessunnecessarynameproperty)
 
 #### Department [ChefDeprecations](cops_chefdeprecations.md)
 

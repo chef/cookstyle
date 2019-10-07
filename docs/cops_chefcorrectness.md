@@ -543,3 +543,26 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.0.0` | String
 Exclude | `**/metadata.rb` | Array
+
+## ChefCorrectness/UnnecessaryNameProperty
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+There is no need to define a property named :name in a resource as Chef Infra defines that property for all resources out of the box.
+
+### Examples
+
+```ruby
+# bad
+property :name, String
+property :name, String, name_property: true
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.8.0` | String
+Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
