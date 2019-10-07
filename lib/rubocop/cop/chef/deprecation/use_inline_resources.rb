@@ -26,6 +26,7 @@ module RuboCop
         #   # bad
         #   use_inline_resources
         #   use_inline_resources if defined?(use_inline_resources)
+        #   use_inline_resources if respond_to?(:use_inline_resources)
         #
         class UseInlineResourcesDefined < Cop
           MSG = 'use_inline_resources is now the default for resources in Chef Infra Client 13+ and does not need to be specified.'.freeze
@@ -37,7 +38,7 @@ module RuboCop
               return if node.parent && node.parent.defined_type?
 
               # catch the full offense if the method is gated like this: use_inline_resources if defined?(use_inline_resources)
-              if node.parent && node.parent.if_type? && node.parent.children.first.method_name == :defined?
+              if node.parent && node.parent.if_type? && %i(defined? respond_to?).include?(node.parent.children.first.method_name)
                 node = node.parent
               end
               add_offense(node, location: :expression, message: MSG, severity: :refactor)
