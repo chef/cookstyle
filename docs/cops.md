@@ -5,6 +5,7 @@
 * [ChefCorrectness/CookbookUsesNodeSave](cops_chefcorrectness.md#chefcorrectnesscookbookusesnodesave)
 * [ChefCorrectness/CookbooksDependsOnSelf](cops_chefcorrectness.md#chefcorrectnesscookbooksdependsonself)
 * [ChefCorrectness/DefaultMetadataMaintainer](cops_chefcorrectness.md#chefcorrectnessdefaultmetadatamaintainer)
+* [ChefCorrectness/EmptyMetadataField](cops_chefcorrectness.md#chefcorrectnessemptymetadatafield)
 * [ChefCorrectness/IncludingOhaiDefaultRecipe](cops_chefcorrectness.md#chefcorrectnessincludingohaidefaultrecipe)
 * [ChefCorrectness/InsecureCookbookURL](cops_chefcorrectness.md#chefcorrectnessinsecurecookbookurl)
 * [ChefCorrectness/InvalidLicenseString](cops_chefcorrectness.md#chefcorrectnessinvalidlicensestring)

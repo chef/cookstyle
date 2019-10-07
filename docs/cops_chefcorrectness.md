@@ -100,6 +100,31 @@ Name | Default value | Configurable values
 VersionAdded | `5.4.0` | String
 Include | `**/metadata.rb` | Array
 
+## ChefCorrectness/EmptyMetadataField
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+metadata.rb should not include fields with an empty string. Either don't include the field or add a value.
+
+### Examples
+
+```ruby
+# bad
+license ''
+
+# good
+license 'Apache-2.0'
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.8.0` | String
+Include | `**/metadata.rb` | Array
+
 ## ChefCorrectness/IncludingOhaiDefaultRecipe
 
 Enabled by default | Supports autocorrection
