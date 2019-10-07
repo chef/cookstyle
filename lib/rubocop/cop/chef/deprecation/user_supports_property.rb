@@ -46,6 +46,17 @@ module RuboCop
               add_offense(property, location: :expression, message: MSG, severity: :refactor)
             end
           end
+
+          def autocorrect(node)
+            lambda do |corrector|
+              new_text = []
+              node.arguments.first.each_pair do |k, v|
+                new_text << "#{k.source} #{v.source}"
+              end
+
+              corrector.replace(node.loc.expression, new_text.join("\n  "))
+            end
+          end
         end
       end
     end
