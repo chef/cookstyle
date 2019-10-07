@@ -725,6 +725,7 @@ to be called in resources
 # bad
 use_inline_resources
 use_inline_resources if defined?(use_inline_resources)
+use_inline_resources if respond_to?(:use_inline_resources)
 ```
 
 ### Configurable attributes
