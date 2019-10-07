@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.7.4 -->
-## [v5.7.4](https://github.com/chef/cookstyle/tree/v5.7.4) (2019-10-07)
+<!-- latest_release 5.7.5 -->
+## [v5.7.5](https://github.com/chef/cookstyle/tree/v5.7.5) (2019-10-07)
 
 #### Merged Pull Requests
-- Catch use_inline_resources if respond_to?(:use_inline_resources) [#318](https://github.com/chef/cookstyle/pull/318) ([tas50](https://github.com/tas50))
+- Add autocorrection to ChefDeprecations/UserDeprecatedSupportsProperty [#317](https://github.com/chef/cookstyle/pull/317) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.7.0 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add autocorrection to ChefDeprecations/UserDeprecatedSupportsProperty [#317](https://github.com/chef/cookstyle/pull/317) ([tas50](https://github.com/tas50)) <!-- 5.7.5 -->
 - Catch use_inline_resources if respond_to?(:use_inline_resources) [#318](https://github.com/chef/cookstyle/pull/318) ([tas50](https://github.com/tas50)) <!-- 5.7.4 -->
 - Reformat text comments for better docs [#312](https://github.com/chef/cookstyle/pull/312) ([tas50](https://github.com/tas50)) <!-- 5.7.3 -->
 - Auto generate the docs with expeditor on PR merge [#311](https://github.com/chef/cookstyle/pull/311) ([tas50](https://github.com/tas50)) <!-- 5.7.2 -->

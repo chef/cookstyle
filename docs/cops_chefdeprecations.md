@@ -739,7 +739,7 @@ Include | `**/libraries/*.rb`, `**/providers/*.rb`, `**/resources/*.rb` | Array
 
 Enabled by default | Supports autocorrection
 --- | ---
-Enabled | No
+Enabled | Yes
 
 The supports property was removed in Chef Infra Client 13 in favor of individual 'manage_home' and 'non_unique' properties.
 
