@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.7.6 -->
-## [v5.7.6](https://github.com/chef/cookstyle/tree/v5.7.6) (2019-10-07)
+<!-- latest_release 5.7.7 -->
+## [v5.7.7](https://github.com/chef/cookstyle/tree/v5.7.7) (2019-10-07)
 
 #### Merged Pull Requests
--  Add ChefCorrectness/UnnecessaryNameProperty [#316](https://github.com/chef/cookstyle/pull/316) ([tas50](https://github.com/tas50))
+- Add ChefDeprecations/ChefSpecCoverageReport &amp; ChefDeprecations/ChefSpecLegacyRunner cops [#306](https://github.com/chef/cookstyle/pull/306) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.7.0 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add ChefDeprecations/ChefSpecCoverageReport &amp; ChefDeprecations/ChefSpecLegacyRunner cops [#306](https://github.com/chef/cookstyle/pull/306) ([tas50](https://github.com/tas50)) <!-- 5.7.7 -->
 -  Add ChefCorrectness/UnnecessaryNameProperty [#316](https://github.com/chef/cookstyle/pull/316) ([tas50](https://github.com/tas50)) <!-- 5.7.6 -->
 - Add autocorrection to ChefDeprecations/UserDeprecatedSupportsProperty [#317](https://github.com/chef/cookstyle/pull/317) ([tas50](https://github.com/tas50)) <!-- 5.7.5 -->
 - Catch use_inline_resources if respond_to?(:use_inline_resources) [#318](https://github.com/chef/cookstyle/pull/318) ([tas50](https://github.com/tas50)) <!-- 5.7.4 -->
