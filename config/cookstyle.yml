@@ -71,6 +71,13 @@ ChefStyle/UsePlatformHelpers:
     - '**/metadata.rb'
     - '**/libraries/*'
 
+ChefStyle/SimplifyPlatformMajorVersionCheck:
+  Description: Use node['platform_version'].to_i instead of node['platform_version'].split('.').first or node['platform_version'].split('.')[0]
+  Enabled: true
+  VersionAdded: '5.8.0'
+  Exclude:
+    - '**/metadata.rb'
+
 ###############################
 # ChefCorrectness: Avoiding potential problems
 ###############################
