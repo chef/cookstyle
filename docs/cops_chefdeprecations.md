@@ -28,6 +28,64 @@ Name | Default value | Configurable values
 VersionAdded | `5.1.0` | String
 Include | `**/metadata.rb` | Array
 
+## ChefDeprecations/ChefSpecCoverageReport
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+Don't use the deprecated ChefSpec Coverage report functionality in your specs. This feature has been removed as coverage reports encourage cookbook authors to write ineffective specs. Focus on testing your logic instead of achieving 100% code coverage.
+
+### Examples
+
+```ruby
+# bad
+
+at_exit { ChefSpec::Coverage.report! }
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.8.0` | String
+Include | `**/spec/*.rb` | Array
+
+## ChefDeprecations/ChefSpecLegacyRunner
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+Use ChefSpec::SoloRunner or ChefSpec::ServerRunner instead of the deprecated ChefSpec::Runner. These new runners were introduced in ChefSpec 4.1 (Oct 2014).
+
+### Examples
+
+```ruby
+# bad
+
+describe 'foo::default' do
+  subject { ChefSpec::Runner.new.converge(described_recipe) }
+
+  # some spec code
+end
+
+# good
+
+describe 'foo::default' do
+  subject { ChefSpec::ServerRunner.new.converge(described_recipe) }
+
+  # some spec code
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.8.0` | String
+Include | `**/spec/*.rb` | Array
+
 ## ChefDeprecations/ChocolateyPackageUninstallAction
 
 Enabled by default | Supports autocorrection
