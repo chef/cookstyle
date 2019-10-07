@@ -230,6 +230,13 @@ ChefCorrectness/EmptyMetadataField:
   Include:
     - '**/metadata.rb'
 
+ChefCorrectness/InvalidVersionMetadata:
+  Description: Cookbook metadata.rb version field should follow X.Y.Z version format.
+  Enabled: true
+  VersionAdded: '5.8.0'
+  Include:
+    - '**/metadata.rb'
+
 ###############################
 # ChefDeprecations: Resolving Deprecations that block upgrading Chef Infra Client
 ###############################
