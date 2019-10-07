@@ -108,6 +108,7 @@
 * [ChefStyle/CommentSentenceSpacing](cops_chefstyle.md#chefstylecommentsentencespacing)
 * [ChefStyle/CopyrightCommentFormat](cops_chefstyle.md#chefstylecopyrightcommentformat)
 * [ChefStyle/FileMode](cops_chefstyle.md#chefstylefilemode)
+* [ChefStyle/SimplifyPlatformMajorVersionCheck](cops_chefstyle.md#chefstylesimplifyplatformmajorversioncheck)
 * [ChefStyle/UsePlatformHelpers](cops_chefstyle.md#chefstyleuseplatformhelpers)
 
 <!-- END_COP_LIST -->

@@ -148,6 +148,36 @@ Name | Default value | Configurable values
 VersionAdded | `5.0.0` | String
 Exclude | `**/metadata.rb` | Array
 
+## ChefStyle/SimplifyPlatformMajorVersionCheck
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+When checking the major version number of a platform you can take the node['platform_version'] attribute and transform it to an integer to strip it down to just the major version number. This simple way of determining the major version number of a platform should be used instead of splitting the platform into multiple fields with '.' as the delimiter.
+
+### Examples
+
+```ruby
+# bad
+node['platform_version'].split('.').first
+node['platform_version'].split('.')[0]
+node['platform_version'].split('.').first.to_i
+node['platform_version'].split('.')[0].to_i
+
+# good
+
+# check to see if we're on RHEL 7 on a RHEL 7.6 node where node['platform_version] is 7.6.1810
+if node['platform_version'].to_i == 7
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.8.0` | String
+Exclude | `**/metadata.rb` | Array
+
 ## ChefStyle/UsePlatformHelpers
 
 Enabled by default | Supports autocorrection

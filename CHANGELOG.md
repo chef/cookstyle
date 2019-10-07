@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.7.8 -->
-## [v5.7.8](https://github.com/chef/cookstyle/tree/v5.7.8) (2019-10-07)
+<!-- latest_release 5.7.9 -->
+## [v5.7.9](https://github.com/chef/cookstyle/tree/v5.7.9) (2019-10-07)
 
 #### Merged Pull Requests
-- Simplify ChefDeprecations/LongDescriptionMetadata [#308](https://github.com/chef/cookstyle/pull/308) ([tas50](https://github.com/tas50))
+- Add ChefStyle/SimplifyPlatformMajorVersionCheck [#315](https://github.com/chef/cookstyle/pull/315) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.7.0 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add ChefStyle/SimplifyPlatformMajorVersionCheck [#315](https://github.com/chef/cookstyle/pull/315) ([tas50](https://github.com/tas50)) <!-- 5.7.9 -->
 - Simplify ChefDeprecations/LongDescriptionMetadata [#308](https://github.com/chef/cookstyle/pull/308) ([tas50](https://github.com/tas50)) <!-- 5.7.8 -->
 - Add ChefDeprecations/ChefSpecCoverageReport &amp; ChefDeprecations/ChefSpecLegacyRunner cops [#306](https://github.com/chef/cookstyle/pull/306) ([tas50](https://github.com/tas50)) <!-- 5.7.7 -->
 -  Add ChefCorrectness/UnnecessaryNameProperty [#316](https://github.com/chef/cookstyle/pull/316) ([tas50](https://github.com/tas50)) <!-- 5.7.6 -->
