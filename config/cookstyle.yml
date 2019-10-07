@@ -223,6 +223,13 @@ ChefCorrectness/UnnecessaryNameProperty:
     - '**/resources/*.rb'
     - '**/libraries/*.rb'
 
+ChefCorrectness/EmptyMetadataField:
+  Description: metadata.rb should not include fields with an empty string. Either don't include the field or add a value.
+  Enabled: true
+  VersionAdded: '5.8.0'
+  Include:
+    - '**/metadata.rb'
+
 ###############################
 # ChefDeprecations: Resolving Deprecations that block upgrading Chef Infra Client
 ###############################
