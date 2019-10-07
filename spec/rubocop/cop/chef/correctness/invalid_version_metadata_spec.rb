@@ -26,6 +26,13 @@ describe RuboCop::Cop::Chef::ChefCorrectness::InvalidVersionMetadata, :config do
     RUBY
   end
 
+  it 'registers an offense when a cookbook has a rubygems prerelease style version in metadata.rb' do
+    expect_offense(<<~RUBY)
+      version '1.2.3-alpha'
+              ^^^^^^^^^^^^^ Cookbook metadata.rb version field should follow X.Y.Z version format.
+    RUBY
+  end
+
   it "doesn't register an offense with a valid version in metadata.rb" do
     expect_no_offenses(<<~RUBY)
     version '1.2.3'
