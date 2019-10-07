@@ -10,6 +10,7 @@
 * [ChefCorrectness/InsecureCookbookURL](cops_chefcorrectness.md#chefcorrectnessinsecurecookbookurl)
 * [ChefCorrectness/InvalidLicenseString](cops_chefcorrectness.md#chefcorrectnessinvalidlicensestring)
 * [ChefCorrectness/InvalidPlatformMetadata](cops_chefcorrectness.md#chefcorrectnessinvalidplatformmetadata)
+* [ChefCorrectness/InvalidVersionMetadata](cops_chefcorrectness.md#chefcorrectnessinvalidversionmetadata)
 * [ChefCorrectness/MetadataMissingName](cops_chefcorrectness.md#chefcorrectnessmetadatamissingname)
 * [ChefCorrectness/NamePropertyIsRequired](cops_chefcorrectness.md#chefcorrectnessnamepropertyisrequired)
 * [ChefCorrectness/NodeNormal](cops_chefcorrectness.md#chefcorrectnessnodenormal)

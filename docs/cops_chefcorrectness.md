@@ -238,6 +238,31 @@ Name | Default value | Configurable values
 VersionAdded | `5.2.0` | String
 Include | `**/metadata.rb` | Array
 
+## ChefCorrectness/InvalidVersionMetadata
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+Cookbook metadata.rb version field should follow X.Y.Z version format.
+
+### Examples
+
+```ruby
+# bad
+version '1.2.3.4'
+
+# good
+version '1.2.3'
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.8.0` | String
+Include | `**/metadata.rb` | Array
+
 ## ChefCorrectness/MetadataMissingName
 
 Enabled by default | Supports autocorrection
