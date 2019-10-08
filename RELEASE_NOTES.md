@@ -1,3 +1,44 @@
+## Cookstyle 5.8
+
+### 5 New Chef Cops
+
+#### ChefCorrectness/InvalidVersionMetadata
+
+`Enabled by default`: True
+
+`Autocorrects`: No
+
+#### ChefStyle/SimplifyPlatformMajorVersionCheck
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefDeprecations/ChefSpecCoverageReport
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefDeprecations/ChefSpecLegacyRunner
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefCorrectness/UnnecessaryNameProperty
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+### Other fixes and changes
+
+- `ChefDeprecations/UserDeprecatedSupportsProperty` now supports autocorrect
+- `ChefDeprecations/UseInlineResourcesDefined` now detects `use_inline_resources if respond_to?(:use_inline_resources)`
+- `CustomResourceWithAllowedActions` now detects unnecessary actions in LWRPs as well
+- The docs at https://github.com/chef/cookstyle/blob/master/docs/cops.md are now auto generated on each pull request merge
+
 ## Cookstyle 5.7
 
 ### 5 New Chef Cops
