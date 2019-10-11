@@ -535,7 +535,7 @@ ChefModernize/WhyRunSupportedTrue:
     - '**/libraries/*.rb'
 
 ChefModernize/UnnecessaryDependsChef14:
-  Description: Don't depend on cookbooks made obsolete by Chef 14
+  Description: Don't depend on cookbooks made obsolete by Chef Infra Client 14+. These community cookbooks contain resources that are now included in Chef Infra Client itself.
   Enabled: true
   VersionAdded: '5.1.0'
   Include:

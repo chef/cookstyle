@@ -18,7 +18,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefModernize
-        # Don't depend on cookbooks made obsolete by Chef 14
+        # Don't depend on cookbooks made obsolete by Chef Infra Client 14+. These community cookbooks contain resources that are now included in Chef Infra Client itself.
         #
         # @example
         #
@@ -32,10 +32,10 @@ module RuboCop
         #   depends 'sysctl'
         #
         class UnnecessaryDependsChef14 < Cop
-          MSG = "Don't depend on cookbooks made obsolete by Chef 14".freeze
+          MSG = "Don't depend on cookbooks made obsolete by Chef Infra Client 14+".freeze
 
           def_node_matcher :legacy_depends?, <<-PATTERN
-            (send nil? :depends (str {"build-essential" "chef_handler" "chef_hostname" "dmg" "mac_os_x" "swap" "sysctl"}))
+            (send nil? :depends (str {"build-essential" "chef_handler" "chef_hostname" "dmg" "mac_os_x" "swap" "sysctl"}) ... )
           PATTERN
 
           def on_send(node)
