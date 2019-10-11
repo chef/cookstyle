@@ -29,7 +29,7 @@ These will be autocorrected to `node['platform_version'].to_i`.
 
 #### ChefDeprecations/ChefSpecCoverageReport
 
-Don't use the deprecated ChefSpec coverage report functionality in your specs.
+The `ChefSpecCoverageReport` cop detects the usage of deprecated ChefSpec Coverage report functionality in your specs. This feature has been removed from ChefSpec as coverage reports encourage cookbook authors to write ineffective specs. Instead authors should focus on testing logic instead of achieving 100% code coverage.
 
 `Enabled by default`: True
 
