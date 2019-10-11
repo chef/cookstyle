@@ -4,11 +4,24 @@
 
 #### ChefCorrectness/InvalidVersionMetadata
 
+The `InvalidVersionMetadata` cop detects cookbook metadata that specifies invalid cookbook versions. Chef Infra cookbook versions must be in the `x.y.z` format.
+
 `Enabled by default`: True
 
 `Autocorrects`: No
 
 #### ChefStyle/SimplifyPlatformMajorVersionCheck
+
+The `SimplifyPlatformMajorVersionCheck` cop detects overly complex code for determing the major version of a platform using the `node['platform_version']` attribute. The cop will detect the following methods for selecting the major version from `node['platform_version']`:
+
+```ruby
+node['platform_version'].split('.').first
+node['platform_version'].split('.')[0]
+node['platform_version'].split('.').first.to_i
+node['platform_version'].split('.')[0].to_i
+```
+
+These will be autocorrected to `node['platform_version'].to_i`.
 
 `Enabled by default`: True
 
@@ -16,17 +29,23 @@
 
 #### ChefDeprecations/ChefSpecCoverageReport
 
+Don't use the deprecated ChefSpec coverage report functionality in your specs.
+
 `Enabled by default`: True
 
 `Autocorrects`: Yes
 
 #### ChefDeprecations/ChefSpecLegacyRunner
 
+The `ChefSpecLegacyRunner` cop detects usage of the legacy `ChefSpec::Runner` class in ChefSpec unit tests. ChefSpec 4.1 (Oct 2014) and later require the use of either the `ChefSpec::ServerRunner` or `ChefSpec::SoloRunner` class.
+
 `Enabled by default`: True
 
 `Autocorrects`: Yes
 
 #### ChefCorrectness/UnnecessaryNameProperty
+
+The `UnnecessaryNameProperty` cop detects resources that define a property with the name of :Name. All Chef Infra resources automatically receive a property of :Name so there's no need to define this.
 
 `Enabled by default`: True
 
