@@ -60,6 +60,7 @@
 * [ChefDeprecations/UserDeprecatedSupportsProperty](cops_chefdeprecations.md#chefdeprecationsuserdeprecatedsupportsproperty)
 * [ChefDeprecations/UsesChefRESTHelpers](cops_chefdeprecations.md#chefdeprecationsuseschefresthelpers)
 * [ChefDeprecations/UsesDeprecatedMixins](cops_chefdeprecations.md#chefdeprecationsusesdeprecatedmixins)
+* [ChefDeprecations/UsesRunCommandHelper](cops_chefdeprecations.md#chefdeprecationsusesruncommandhelper)
 * [ChefDeprecations/WindowsTaskChangeAction](cops_chefdeprecations.md#chefdeprecationswindowstaskchangeaction)
 
 #### Department [ChefEffortless](cops_chefeffortless.md)

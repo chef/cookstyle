@@ -878,6 +878,31 @@ Name | Default value | Configurable values
 VersionAdded | `5.4.0` | String
 Include | `**/libraries/*.rb`, `**/providers/*.rb`, `**/resources/*.rb` | Array
 
+## ChefDeprecations/UsesRunCommandHelper
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+Use 'shell_out!' instead of the legacy 'run_command' helper for shelling out. The run_command helper was removed in Chef Infra Client 13.
+
+### Examples
+
+```ruby
+# bad
+run_command('/bin/foo')
+
+# good
+shell_out!('/bin/foo')
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.9.0` | String
+Exclude | `**/metadata.rb`, `Rakefile` | Array
+
 ## ChefDeprecations/WindowsTaskChangeAction
 
 Enabled by default | Supports autocorrection
