@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.8.3 -->
-## [v5.8.3](https://github.com/chef/cookstyle/tree/v5.8.3) (2019-10-12)
+<!-- latest_release 5.9.0 -->
+## [v5.9.0](https://github.com/chef/cookstyle/tree/v5.9.0) (2019-10-12)
 
 #### Merged Pull Requests
-- Add Cookstyle 5.8 release notes [#319](https://github.com/chef/cookstyle/pull/319) ([tas50](https://github.com/tas50))
+- Add a better description to the gem [#328](https://github.com/chef/cookstyle/pull/328) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.8.1 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add a better description to the gem [#328](https://github.com/chef/cookstyle/pull/328) ([tas50](https://github.com/tas50)) <!-- 5.9.0 -->
 - Add ChefDeprecations/UsesRunCommandHelper cop [#327](https://github.com/chef/cookstyle/pull/327) ([tas50](https://github.com/tas50)) <!-- 5.8.2 -->
 - Add Cookstyle 5.8 release notes [#319](https://github.com/chef/cookstyle/pull/319) ([tas50](https://github.com/tas50)) <!-- 5.8.3 -->
 <!-- release_rollup -->
