@@ -8,8 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = Cookstyle::VERSION
   spec.authors       = ['Thom May', 'Tim Smith']
   spec.email         = ['thom@chef.io', 'tsmith@chef.io']
-
-  spec.summary       = 'RuboCop configuration for Chef cookbooks'
+  spec.summary       = 'Cookstyle is a code linting tool that helps you to write better Chef Infra cookbooks by detecting and automatically correcting style, syntax, and logic mistakes in your code.'
   spec.homepage      = 'https://github.com/chef/cookstyle'
   spec.license       = 'Apache-2.0'
   spec.required_ruby_version = '>= 2.4'
