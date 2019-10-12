@@ -499,6 +499,14 @@ ChefDeprecations/ChefSpecLegacyRunner:
   Include:
     - '**/spec/*.rb'
 
+ChefDeprecations/UsesRunCommandHelper:
+  Description: Use 'shell_out!' instead of the legacy 'run_command' helper for shelling out. The run_command helper was removed in Chef Infra Client 13.
+  Enabled: true
+  VersionAdded: '5.9.0'
+  Exclude:
+    - '**/metadata.rb'
+    - 'Rakefile'
+
 ###############################
 # ChefModernize: Cleaning up legacy code and using new built-in resources
 ###############################
