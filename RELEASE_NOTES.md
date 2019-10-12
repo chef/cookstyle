@@ -1,3 +1,63 @@
+## Cookstyle 5.8
+
+### 5 New Chef Cops
+
+#### ChefCorrectness/InvalidVersionMetadata
+
+The `InvalidVersionMetadata` cop detects cookbook metadata that specifies invalid cookbook versions. Chef Infra cookbook versions must be in the `x.y.z` format.
+
+`Enabled by default`: True
+
+`Autocorrects`: No
+
+#### ChefStyle/SimplifyPlatformMajorVersionCheck
+
+The `SimplifyPlatformMajorVersionCheck` cop detects overly complex code for determing the major version of a platform using the `node['platform_version']` attribute. The cop will detect the following methods for selecting the major version from `node['platform_version']`:
+
+```ruby
+node['platform_version'].split('.').first
+node['platform_version'].split('.')[0]
+node['platform_version'].split('.').first.to_i
+node['platform_version'].split('.')[0].to_i
+```
+
+These will be autocorrected to `node['platform_version'].to_i`.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefDeprecations/ChefSpecCoverageReport
+
+The `ChefSpecCoverageReport` cop detects the usage of deprecated ChefSpec Coverage report functionality in your specs. This feature has been removed from ChefSpec as coverage reports encourage cookbook authors to write ineffective specs. Instead authors should focus on testing logic instead of achieving 100% code coverage.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefDeprecations/ChefSpecLegacyRunner
+
+The `ChefSpecLegacyRunner` cop detects usage of the legacy `ChefSpec::Runner` class in ChefSpec unit tests. ChefSpec 4.1 (Oct 2014) and later require the use of either the `ChefSpec::ServerRunner` or `ChefSpec::SoloRunner` class.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefCorrectness/UnnecessaryNameProperty
+
+The `UnnecessaryNameProperty` cop detects resources that define a property with the name of :Name. All Chef Infra resources automatically receive a property of :Name so there's no need to define this.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+### Other fixes and changes
+
+- `ChefDeprecations/UserDeprecatedSupportsProperty` now supports autocorrect
+- `ChefDeprecations/UseInlineResourcesDefined` now detects `use_inline_resources if respond_to?(:use_inline_resources)`
+- `CustomResourceWithAllowedActions` now detects unnecessary actions in LWRPs as well
+- The docs at https://github.com/chef/cookstyle/blob/master/docs/cops.md are now auto generated on each pull request merge
+
 ## Cookstyle 5.7
 
 ### 5 New Chef Cops
