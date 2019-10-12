@@ -748,6 +748,13 @@ ChefModernize/MacOsXUserdefaults:
   Exclude:
     - '**/metadata.rb'
 
+ChefModernize/PowerShellGuardInterpreter:
+  Description: PowerShell is already set as the default guard interpreter for powershell_script resources in Chef Infra Client 13 and later and does not need to be specified.
+  Enabled: true
+  VersionAdded: '5.9.0'
+  Exclude:
+    - '**/metadata.rb'
+
 ###############################
 # Migrating to new patterns
 ###############################
