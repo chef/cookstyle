@@ -7,31 +7,35 @@
 - Add Cookstyle 5.8 release notes [#319](https://github.com/chef/cookstyle/pull/319) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup since=5.7.0 -->
+<!-- release_rollup since=5.8.1 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
-- Add Cookstyle 5.8 release notes [#319](https://github.com/chef/cookstyle/pull/319) ([tas50](https://github.com/tas50)) <!-- 5.8.3 -->
 - Add ChefDeprecations/UsesRunCommandHelper cop [#327](https://github.com/chef/cookstyle/pull/327) ([tas50](https://github.com/tas50)) <!-- 5.8.2 -->
-- Add ChefCorrectness/InvalidVersionMetadata cop [#309](https://github.com/chef/cookstyle/pull/309) ([tas50](https://github.com/tas50)) <!-- 5.8.1 -->
-- Add ChefCorrectness/EmptyMetadataField cop [#313](https://github.com/chef/cookstyle/pull/313) ([tas50](https://github.com/tas50)) <!-- 5.8.0 -->
-- Add ChefStyle/SimplifyPlatformMajorVersionCheck [#315](https://github.com/chef/cookstyle/pull/315) ([tas50](https://github.com/tas50)) <!-- 5.7.9 -->
-- Simplify ChefDeprecations/LongDescriptionMetadata [#308](https://github.com/chef/cookstyle/pull/308) ([tas50](https://github.com/tas50)) <!-- 5.7.8 -->
-- Add ChefDeprecations/ChefSpecCoverageReport &amp; ChefDeprecations/ChefSpecLegacyRunner cops [#306](https://github.com/chef/cookstyle/pull/306) ([tas50](https://github.com/tas50)) <!-- 5.7.7 -->
--  Add ChefCorrectness/UnnecessaryNameProperty [#316](https://github.com/chef/cookstyle/pull/316) ([tas50](https://github.com/tas50)) <!-- 5.7.6 -->
-- Add autocorrection to ChefDeprecations/UserDeprecatedSupportsProperty [#317](https://github.com/chef/cookstyle/pull/317) ([tas50](https://github.com/tas50)) <!-- 5.7.5 -->
-- Catch use_inline_resources if respond_to?(:use_inline_resources) [#318](https://github.com/chef/cookstyle/pull/318) ([tas50](https://github.com/tas50)) <!-- 5.7.4 -->
-- Reformat text comments for better docs [#312](https://github.com/chef/cookstyle/pull/312) ([tas50](https://github.com/tas50)) <!-- 5.7.3 -->
-- Auto generate the docs with expeditor on PR merge [#311](https://github.com/chef/cookstyle/pull/311) ([tas50](https://github.com/tas50)) <!-- 5.7.2 -->
-- Update CustomResourceWithAllowedActions to trigger on LWRPs as well [#305](https://github.com/chef/cookstyle/pull/305) ([tas50](https://github.com/tas50)) <!-- 5.7.1 -->
+- Add Cookstyle 5.8 release notes [#319](https://github.com/chef/cookstyle/pull/319) ([tas50](https://github.com/tas50)) <!-- 5.8.3 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v5.8.1](https://github.com/chef/cookstyle/tree/v5.8.1) (2019-10-12)
+
+#### Merged Pull Requests
+- Update CustomResourceWithAllowedActions to trigger on LWRPs as well [#305](https://github.com/chef/cookstyle/pull/305) ([tas50](https://github.com/tas50))
+- Auto generate the docs with expeditor on PR merge [#311](https://github.com/chef/cookstyle/pull/311) ([tas50](https://github.com/tas50))
+- Reformat text comments for better docs [#312](https://github.com/chef/cookstyle/pull/312) ([tas50](https://github.com/tas50))
+- Catch use_inline_resources if respond_to?(:use_inline_resources) [#318](https://github.com/chef/cookstyle/pull/318) ([tas50](https://github.com/tas50))
+- Add autocorrection to ChefDeprecations/UserDeprecatedSupportsProperty [#317](https://github.com/chef/cookstyle/pull/317) ([tas50](https://github.com/tas50))
+-  Add ChefCorrectness/UnnecessaryNameProperty [#316](https://github.com/chef/cookstyle/pull/316) ([tas50](https://github.com/tas50))
+- Add ChefDeprecations/ChefSpecCoverageReport &amp; ChefDeprecations/ChefSpecLegacyRunner cops [#306](https://github.com/chef/cookstyle/pull/306) ([tas50](https://github.com/tas50))
+- Simplify ChefDeprecations/LongDescriptionMetadata [#308](https://github.com/chef/cookstyle/pull/308) ([tas50](https://github.com/tas50))
+- Add ChefStyle/SimplifyPlatformMajorVersionCheck [#315](https://github.com/chef/cookstyle/pull/315) ([tas50](https://github.com/tas50))
+- Add ChefCorrectness/EmptyMetadataField cop [#313](https://github.com/chef/cookstyle/pull/313) ([tas50](https://github.com/tas50))
+- Add ChefCorrectness/InvalidVersionMetadata cop [#309](https://github.com/chef/cookstyle/pull/309) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v5.7.0](https://github.com/chef/cookstyle/tree/v5.7.0) (2019-10-04)
 
 #### Merged Pull Requests
 - Add 5 more cops for LWRP deprecations in Chef 13 [#296](https://github.com/chef/cookstyle/pull/296) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v5.6.5](https://github.com/chef/cookstyle/tree/v5.6.5) (2019-10-02)
 
