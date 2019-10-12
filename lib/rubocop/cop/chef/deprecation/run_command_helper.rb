@@ -35,7 +35,7 @@ module RuboCop
           def_node_search :defines_run_command?, '(def :run_command ...)'
 
           def on_send(node)
-            calls_run_command?(node) do |call|
+            calls_run_command?(node) do
               add_offense(node, location: :expression, message: MSG, severity: :refactor) unless defines_run_command?(processed_source.ast)
             end
           end
