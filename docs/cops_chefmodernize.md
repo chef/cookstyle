@@ -454,6 +454,36 @@ Name | Default value | Configurable values
 VersionAdded | `5.6.0` | String
 Exclude | `**/metadata.rb` | Array
 
+## ChefModernize/PowerShellGuardInterpreter
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+PowerShell is already set as the default guard interpreter for powershell_script resources in Chef Infra Client 13 and later and does not need to be specified.
+
+### Examples
+
+```ruby
+# bad
+powershell_script 'whatever' do
+  code "mkdir test_dir"
+  guard_interpreter :powershell_script
+end
+
+# good
+powershell_script 'whatever' do
+  code "mkdir test_dir"
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.9.0` | String
+Exclude | `**/metadata.rb` | Array
+
 ## ChefModernize/PowershellInstallPackage
 
 Enabled by default | Supports autocorrection

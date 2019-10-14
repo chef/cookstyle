@@ -87,6 +87,7 @@
 * [ChefModernize/OpensslRsaKeyResource](cops_chefmodernize.md#chefmodernizeopensslrsakeyresource)
 * [ChefModernize/OpensslX509Resource](cops_chefmodernize.md#chefmodernizeopensslx509resource)
 * [ChefModernize/OsxConfigProfileResource](cops_chefmodernize.md#chefmodernizeosxconfigprofileresource)
+* [ChefModernize/PowerShellGuardInterpreter](cops_chefmodernize.md#chefmodernizepowershellguardinterpreter)
 * [ChefModernize/PowershellInstallPackage](cops_chefmodernize.md#chefmodernizepowershellinstallpackage)
 * [ChefModernize/PowershellInstallWindowsFeature](cops_chefmodernize.md#chefmodernizepowershellinstallwindowsfeature)
 * [ChefModernize/PowershellScriptExpandArchive](cops_chefmodernize.md#chefmodernizepowershellscriptexpandarchive)
