@@ -28,6 +28,35 @@ Name | Default value | Configurable values
 VersionAdded | `5.1.0` | String
 Include | `**/metadata.rb` | Array
 
+## ChefDeprecations/ChefHandlerUsesSupports
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+Use the type property instead of the deprecated supports property in the chef_handler resource. The supports property was removed in chef_handler cookbook version 3.0 (June 2017) and Chef Infra Client 14.0.
+
+### Examples
+
+```ruby
+# bad
+chef_handler 'whatever' do
+  supports start: true, report: true, exception: true
+end0
+
+# good
+chef_handler 'whatever' do
+  type start: true, report: true, exception: true
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.9.0` | String
+Exclude | `**/metadata.rb` | Array
+
 ## ChefDeprecations/ChefSpecCoverageReport
 
 Enabled by default | Supports autocorrection

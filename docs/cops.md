@@ -27,6 +27,7 @@
 #### Department [ChefDeprecations](cops_chefdeprecations.md)
 
 * [ChefDeprecations/AttributeMetadata](cops_chefdeprecations.md#chefdeprecationsattributemetadata)
+* [ChefDeprecations/ChefHandlerUsesSupports](cops_chefdeprecations.md#chefdeprecationschefhandlerusessupports)
 * [ChefDeprecations/ChefSpecCoverageReport](cops_chefdeprecations.md#chefdeprecationschefspeccoveragereport)
 * [ChefDeprecations/ChefSpecLegacyRunner](cops_chefdeprecations.md#chefdeprecationschefspeclegacyrunner)
 * [ChefDeprecations/ChocolateyPackageUninstallAction](cops_chefdeprecations.md#chefdeprecationschocolateypackageuninstallaction)
