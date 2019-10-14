@@ -765,7 +765,7 @@ Enabled by default | Supports autocorrection
 --- | ---
 Enabled | Yes
 
-Don't depend on cookbooks made obsolete by Chef 14
+Don't depend on cookbooks made obsolete by Chef Infra Client 14+
 
 ### Examples
 
