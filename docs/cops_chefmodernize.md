@@ -765,7 +765,7 @@ Enabled by default | Supports autocorrection
 --- | ---
 Enabled | Yes
 
-Don't depend on cookbooks made obsolete by Chef Infra Client 14+
+Don't depend on cookbooks made obsolete by Chef Infra Client 14+. These community cookbooks contain resources that are now included in Chef Infra Client itself.
 
 ### Examples
 
