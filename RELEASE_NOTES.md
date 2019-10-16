@@ -12,7 +12,7 @@ The `PowerShellGuardInterpreter` cop detects `powershell_script` resources that 
 
 #### ChefDeprecations/UsesRunCommandHelper
 
-The `UsesRunCommandHelper` cop detects recipes and resources that use the legacy `run_command` helper, which was removed in Chef Infra Client 13. Users should instead use the `shell_out` or `shell_out!` helpers which use the `mixlib-shellout` Ruby gem under the hood.
+The `UsesRunCommandHelper` cop detects recipes and resources that use the legacy `run_command` helper, which was removed in Chef Infra Client 13. Users should instead use the `shell_out` or `shell_out!` helpers, which use the `mixlib-shellout` Ruby gem under the hood.
 
 `Enabled by default`: True
 
