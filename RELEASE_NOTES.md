@@ -4,7 +4,7 @@
 
 #### ChefModernize/PowerShellGuardInterpreter
 
-The `PowerShellGuardInterpreter` cop detects `powershell_script` resources that set the `guard_interpreter` property to `:powershell_script`. In Chef Infra Client 13 and later `:powershell_script` is the default and does not need to be set.
+The `PowerShellGuardInterpreter` cop detects `powershell_script` resources that set the `guard_interpreter` property to `:powershell_script`. In Chef Infra Client 13 and later, `:powershell_script` is the default and does not need to be set.
 
 `Enabled by default`: True
 
