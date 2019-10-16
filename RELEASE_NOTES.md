@@ -1,3 +1,35 @@
+## Cookstyle 5.9
+
+### 3 New Chef Cops
+
+#### ChefModernize/PowerShellGuardInterpreter
+
+The `PowerShellGuardInterpreter` cop detects `powershell_script` resources that set the `guard_interpreter` property to `:powershell_script`. In Chef Infra Client 13 and later `:powershell_script` is the default and does not need to be set.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefDeprecations/UsesRunCommandHelper
+
+The `UsesRunCommandHelper` cop detects recipes and resources that use the legacy `run_command` helper, which was removed in Chef Infra Client 13. Users should instead use the `shell_out` or `shell_out!` helpers which use the `mixlib-shellout` Ruby gem under the hood.
+
+`Enabled by default`: True
+
+`Autocorrects`: No
+
+#### ChefDeprecations/ChefHandlerUsesSupports
+
+The `ChefHandlerUsesSupports` cop detects `handler` resources that use the `supports` property instead of the newer `type` property. The `supports` property was removed in the chef_handler cookbook version 3.0 (June 2017) and Chef Infra Client 14.0.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+### Other fixes and changes
+
+- The `ChefModernize/UnnecessaryDependsChef14` cop will now detect cookbook dependencies that include a version constraint.
+
 ## Cookstyle 5.8
 
 ### 5 New Chef Cops
