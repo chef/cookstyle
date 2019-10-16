@@ -1,25 +1,23 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.9.3 -->
-## [v5.9.3](https://github.com/chef/cookstyle/tree/v5.9.3) (2019-10-14)
-
-#### Merged Pull Requests
-- Fix ChefModernize/UnnecessaryDependsChef14 to detect version constraints [#325](https://github.com/chef/cookstyle/pull/325) ([tas50](https://github.com/tas50))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=5.8.1 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Fix ChefModernize/UnnecessaryDependsChef14 to detect version constraints [#325](https://github.com/chef/cookstyle/pull/325) ([tas50](https://github.com/tas50)) <!-- 5.9.3 -->
-- Add ChefDeprecations/ChefHandlerUsesSupports [#326](https://github.com/chef/cookstyle/pull/326) ([tas50](https://github.com/tas50)) <!-- 5.9.2 -->
-- Add ChefModernize/PowerShellGuardInterpreter cop [#329](https://github.com/chef/cookstyle/pull/329) ([tas50](https://github.com/tas50)) <!-- 5.9.1 -->
-- Add a better description to the gem [#328](https://github.com/chef/cookstyle/pull/328) ([tas50](https://github.com/tas50)) <!-- 5.9.0 -->
-- Add ChefDeprecations/UsesRunCommandHelper cop [#327](https://github.com/chef/cookstyle/pull/327) ([tas50](https://github.com/tas50)) <!-- 5.8.2 -->
-- Add Cookstyle 5.8 release notes [#319](https://github.com/chef/cookstyle/pull/319) ([tas50](https://github.com/tas50)) <!-- 5.8.3 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v5.9.3](https://github.com/chef/cookstyle/tree/v5.9.3) (2019-10-16)
+
+#### Merged Pull Requests
+- Add Cookstyle 5.8 release notes [#319](https://github.com/chef/cookstyle/pull/319) ([tas50](https://github.com/tas50))
+- Add ChefDeprecations/UsesRunCommandHelper cop [#327](https://github.com/chef/cookstyle/pull/327) ([tas50](https://github.com/tas50))
+- Add a better description to the gem [#328](https://github.com/chef/cookstyle/pull/328) ([tas50](https://github.com/tas50))
+- Add ChefModernize/PowerShellGuardInterpreter cop [#329](https://github.com/chef/cookstyle/pull/329) ([tas50](https://github.com/tas50))
+- Add ChefDeprecations/ChefHandlerUsesSupports [#326](https://github.com/chef/cookstyle/pull/326) ([tas50](https://github.com/tas50))
+- Fix ChefModernize/UnnecessaryDependsChef14 to detect version constraints [#325](https://github.com/chef/cookstyle/pull/325) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v5.8.1](https://github.com/chef/cookstyle/tree/v5.8.1) (2019-10-12)
 
 #### Merged Pull Requests
@@ -34,7 +32,6 @@
 - Add ChefStyle/SimplifyPlatformMajorVersionCheck [#315](https://github.com/chef/cookstyle/pull/315) ([tas50](https://github.com/tas50))
 - Add ChefCorrectness/EmptyMetadataField cop [#313](https://github.com/chef/cookstyle/pull/313) ([tas50](https://github.com/tas50))
 - Add ChefCorrectness/InvalidVersionMetadata cop [#309](https://github.com/chef/cookstyle/pull/309) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v5.7.0](https://github.com/chef/cookstyle/tree/v5.7.0) (2019-10-04)
 
