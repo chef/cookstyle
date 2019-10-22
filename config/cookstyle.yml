@@ -244,6 +244,13 @@ ChefCorrectness/NotifiesActionNotSymbol:
   Include:
     - '**/metadata.rb'
 
+ChefCorrectness/IncorrectLibraryInjection:
+  Description: Libraries should be injected into the Chef::DSL::Recipe or Chef::DSL::Resource classes and not Recipe/Resource/Provider classes directly.
+  Enabled: true
+  VersionAdded: '5.10.0'
+  Include:
+    - '**/metadata.rb'
+
 ###############################
 # ChefDeprecations: Resolving Deprecations that block upgrading Chef Infra Client
 ###############################
