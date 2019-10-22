@@ -15,6 +15,7 @@
 * [ChefCorrectness/NamePropertyIsRequired](cops_chefcorrectness.md#chefcorrectnessnamepropertyisrequired)
 * [ChefCorrectness/NodeNormal](cops_chefcorrectness.md#chefcorrectnessnodenormal)
 * [ChefCorrectness/NodeNormalUnless](cops_chefcorrectness.md#chefcorrectnessnodenormalunless)
+* [ChefCorrectness/NotifiesActionNotSymbol](cops_chefcorrectness.md#chefcorrectnessnotifiesactionnotsymbol)
 * [ChefCorrectness/PropertyWithNameAttribute](cops_chefcorrectness.md#chefcorrectnesspropertywithnameattribute)
 * [ChefCorrectness/PropertyWithRequiredAndDefault](cops_chefcorrectness.md#chefcorrectnesspropertywithrequiredanddefault)
 * [ChefCorrectness/ResourceSetsInternalProperties](cops_chefcorrectness.md#chefcorrectnessresourcesetsinternalproperties)

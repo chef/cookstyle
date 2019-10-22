@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release -->
+<!-- latest_release 5.10.0 -->
+## [v5.10.0](https://github.com/chef/cookstyle/tree/v5.10.0) (2019-10-22)
+
+#### Merged Pull Requests
+- Add ChefCorrectness/NotifiesActionNotSymbol cop [#335](https://github.com/chef/cookstyle/pull/335) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=5.9.3 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Add ChefCorrectness/NotifiesActionNotSymbol cop [#335](https://github.com/chef/cookstyle/pull/335) ([tas50](https://github.com/tas50)) <!-- 5.10.0 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->

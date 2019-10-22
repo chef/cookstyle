@@ -397,6 +397,35 @@ Name | Default value | Configurable values
 VersionAdded | `5.1.0` | String
 Exclude | `**/metadata.rb` | Array
 
+## ChefCorrectness/NotifiesActionNotSymbol
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+When notifying an action within a resource the action should always be a symbol. In Chef Infra Client releases before 14.0 this may result in double notification.
+
+### Examples
+
+```ruby
+# bad
+execute 'some commmand' do
+  notifies 'restart', 'service[httpd]', 'delayed'
+end
+
+# good
+execute 'some commmand' do
+  notifies :restart, 'service[httpd]', 'delayed'
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.10.0` | String
+Include | `**/metadata.rb` | Array
+
 ## ChefCorrectness/PropertyWithNameAttribute
 
 Enabled by default | Supports autocorrection
