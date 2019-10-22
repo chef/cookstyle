@@ -19,25 +19,29 @@ module RuboCop
   module Cop
     module Chef
       module ChefModernize
-        # In Chef Infra Client releases after 12.5 it is no longer necessary to set `actions` or `allowed_actions` as Chef Infra Client determines these automatically from the set of all actions defined in the resource.
+        # In Chef Infra Client 12.5 and later it is no longer necessary to set `actions` or `allowed_actions` as Chef Infra Client determines these automatically from the set of all actions defined in the resource.
         #
         # @example
         #
         #   # bad
-        #   property :something, String
-        #
         #   allowed_actions [:create, :remove]
         #
         #   # also bad
-        #   property :something, String
-        #
         #   actions [:create, :remove]
+        #
+        #   # don't do this either
+        #   def initialize(*args)
+        #     super
+        #     @allowed_actions = [:create, :remove]
+        #   end
         #
         #   # good
         #   property :something, String
         #
         class CustomResourceWithAllowedActions < Cop
-          MSG = 'Resources no longer need to define the allowed actions with allowed_actions or actions methods.'.freeze
+          include RangeHelp
+
+          MSG = 'Resources no longer need to define the allowed actions using the allowed_actions / actions helper methods or within an initialize method.'.freeze
 
           def_node_matcher :allowed_actions?, <<-PATTERN
             (send nil? {:allowed_actions :actions} ... )
@@ -49,9 +53,22 @@ module RuboCop
             end
           end
 
+          def on_def(node)
+            if node.method_name == :initialize
+              found_node = nil
+              unless node.body.nil? # empty initialize methods
+                node.body.each_node do |x|
+                  found_node = x if x.assignment? && x.node_parts.first == :@allowed_actions
+                end
+              end
+
+              add_offense(found_node, location: :expression, message: MSG, severity: :refactor) if found_node
+            end
+          end
+
           def autocorrect(node)
             lambda do |corrector|
-              corrector.remove(node.loc.expression)
+              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
             end
           end
         end
