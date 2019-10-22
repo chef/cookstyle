@@ -587,11 +587,12 @@ ChefModernize/CustomResourceWithAttributes:
     - '**/resources/*.rb'
 
 ChefModernize/CustomResourceWithAllowedActions:
-  Description: Custom Resources don't need to define the allowed actions with allowed_actions or actions methods
+  Description: Resources no longer need to define the allowed actions using the allowed_actions / actions helper methods or within an initialize method.
   Enabled: true
   VersionAdded: '5.2.0'
   Include:
     - '**/resources/*.rb'
+    - '**/libraries/*.rb'
 
 ChefModernize/IncludingAptDefaultRecipe:
   Description: Do not include the Apt default recipe to update package cache. Instead use the apt_update resource, which is built into Chef Infra Client 12.7 and later.

@@ -24,19 +24,11 @@ describe RuboCop::Cop::Chef::ChefModernize::CustomResourceWithAllowedActions, :c
       property :something, String
 
       allowed_actions [:create, :remove]
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Resources no longer need to define the allowed actions with allowed_actions or actions methods.
-      action :create do
-        # some action code because we're in a custom resource
-      end
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Resources no longer need to define the allowed actions using the allowed_actions / actions helper methods or within an initialize method.
     RUBY
 
     expect_correction(<<~RUBY)
       property :something, String
-
-
-      action :create do
-        # some action code because we're in a custom resource
-      end
     RUBY
   end
 
@@ -45,19 +37,27 @@ describe RuboCop::Cop::Chef::ChefModernize::CustomResourceWithAllowedActions, :c
       property :something, String
 
       actions [:create, :remove]
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^ Resources no longer need to define the allowed actions with allowed_actions or actions methods.
-      action :create do
-        # some action code because we're in a custom resource
-      end
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^ Resources no longer need to define the allowed actions using the allowed_actions / actions helper methods or within an initialize method.
     RUBY
 
     expect_correction(<<~RUBY)
       property :something, String
+    RUBY
+  end
 
-
-      action :create do
-        # some action code because we're in a custom resource
+  it 'registers an offense with a resource that sets the @allowed_actions variable in an initializer' do
+    expect_offense(<<~RUBY)
+      def initialize(*args)
+        super
+        @allowed_actions = [:create, :remove]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Resources no longer need to define the allowed actions using the allowed_actions / actions helper methods or within an initialize method.
       end
+    RUBY
+
+    expect_correction(<<~RUBY)
+    def initialize(*args)
+      super
+    end
     RUBY
   end
 
@@ -66,8 +66,24 @@ describe RuboCop::Cop::Chef::ChefModernize::CustomResourceWithAllowedActions, :c
       property :something, String
 
       action :create do
-        # some action code because we're in a custom resource
+        # some action code
       end
+    RUBY
+  end
+
+  it 'does not register an offense with when an initializer is empty' do
+    expect_no_offenses(<<~RUBY)
+      def initialize(*args)
+      end
+    RUBY
+  end
+
+  it 'does not register an offense with when an initializer containing other variables' do
+    expect_no_offenses(<<~RUBY)
+    def initialize(*args)
+      super
+      @action = :create
+    end
     RUBY
   end
 end
