@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.10.2 -->
-## [v5.10.2](https://github.com/chef/cookstyle/tree/v5.10.2) (2019-10-22)
+<!-- latest_release 5.10.3 -->
+## [v5.10.3](https://github.com/chef/cookstyle/tree/v5.10.3) (2019-10-22)
 
 #### Merged Pull Requests
-- Add ChefCorrectness/IncorrectLibraryInjection cop [#338](https://github.com/chef/cookstyle/pull/338) ([tas50](https://github.com/tas50))
+- Add 3 new cops for migrating to Effortless [#337](https://github.com/chef/cookstyle/pull/337) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.9.3 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add 3 new cops for migrating to Effortless [#337](https://github.com/chef/cookstyle/pull/337) ([tas50](https://github.com/tas50)) <!-- 5.10.3 -->
 - Add ChefCorrectness/IncorrectLibraryInjection cop [#338](https://github.com/chef/cookstyle/pull/338) ([tas50](https://github.com/tas50)) <!-- 5.10.2 -->
 - Expand ChefModernize/CustomResourceWithAllowedActions to work in HWRPs [#334](https://github.com/chef/cookstyle/pull/334) ([tas50](https://github.com/tas50)) <!-- 5.10.1 -->
 - Add ChefCorrectness/NotifiesActionNotSymbol cop [#335](https://github.com/chef/cookstyle/pull/335) ([tas50](https://github.com/tas50)) <!-- 5.10.0 -->

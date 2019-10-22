@@ -69,6 +69,9 @@
 #### Department [ChefEffortless](cops_chefeffortless.md)
 
 * [ChefEffortless/CookbookUsesDatabags](cops_chefeffortless.md#chefeffortlesscookbookusesdatabags)
+* [ChefEffortless/CookbookUsesEnvironmments](cops_chefeffortless.md#chefeffortlesscookbookusesenvironmments)
+* [ChefEffortless/CookbookUsesPolicygroups](cops_chefeffortless.md#chefeffortlesscookbookusespolicygroups)
+* [ChefEffortless/CookbookUsesRoles](cops_chefeffortless.md#chefeffortlesscookbookusesroles)
 * [ChefEffortless/CookbookUsesSearch](cops_chefeffortless.md#chefeffortlesscookbookusessearch)
 
 #### Department [ChefModernize](cops_chefmodernize.md)
