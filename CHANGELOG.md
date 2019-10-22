@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.10.0 -->
-## [v5.10.0](https://github.com/chef/cookstyle/tree/v5.10.0) (2019-10-22)
+<!-- latest_release 5.10.1 -->
+## [v5.10.1](https://github.com/chef/cookstyle/tree/v5.10.1) (2019-10-22)
 
 #### Merged Pull Requests
-- Add ChefCorrectness/NotifiesActionNotSymbol cop [#335](https://github.com/chef/cookstyle/pull/335) ([tas50](https://github.com/tas50))
+- Expand ChefModernize/CustomResourceWithAllowedActions to work in HWRPs [#334](https://github.com/chef/cookstyle/pull/334) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.9.3 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Expand ChefModernize/CustomResourceWithAllowedActions to work in HWRPs [#334](https://github.com/chef/cookstyle/pull/334) ([tas50](https://github.com/tas50)) <!-- 5.10.1 -->
 - Add ChefCorrectness/NotifiesActionNotSymbol cop [#335](https://github.com/chef/cookstyle/pull/335) ([tas50](https://github.com/tas50)) <!-- 5.10.0 -->
 <!-- release_rollup -->
 

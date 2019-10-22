@@ -29,20 +29,22 @@ Enabled by default | Supports autocorrection
 --- | ---
 Enabled | Yes
 
-In Chef Infra Client releases after 12.5 it is no longer necessary to set `actions` or `allowed_actions` as Chef Infra Client determines these automatically from the set of all actions defined in the resource.
+In Chef Infra Client 12.5 and later it is no longer necessary to set `actions` or `allowed_actions` as Chef Infra Client determines these automatically from the set of all actions defined in the resource.
 
 ### Examples
 
 ```ruby
 # bad
-property :something, String
-
 allowed_actions [:create, :remove]
 
 # also bad
-property :something, String
-
 actions [:create, :remove]
+
+# don't do this either
+def initialize(*args)
+  super
+  @allowed_actions = [:create, :remove]
+end
 
 # good
 property :something, String
@@ -53,7 +55,7 @@ property :something, String
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.2.0` | String
-Include | `**/resources/*.rb` | Array
+Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
 
 ## ChefModernize/CustomResourceWithAttributes
 
