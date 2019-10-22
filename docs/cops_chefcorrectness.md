@@ -150,6 +150,34 @@ Name | Default value | Configurable values
 VersionAdded | `5.4.0` | String
 Exclude | `**/metadata.rb` | Array
 
+## ChefCorrectness/IncorrectLibraryInjection
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+Libraries should be injected into the Chef::DSL::Recipe or Chef::DSL::Resource classes and not Recipe/Resource/Provider classes directly.
+
+### Examples
+
+```ruby
+# bad
+::Chef::Recipe.send(:include, Filebeat::Helpers)
+::Chef::Provider.send(:include, Filebeat::Helpers)
+::Chef::Resource.send(:include, Filebeat::Helpers)
+
+# good
+::Chef::DSL::Recipe.send(:include, Filebeat::Helpers) # covers previous Recipe & Provider classes
+::Chef::DSL::Resource.send(:include, Filebeat::Helpers)
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.10.0` | String
+Include | `**/metadata.rb` | Array
+
 ## ChefCorrectness/InsecureCookbookURL
 
 Enabled by default | Supports autocorrection

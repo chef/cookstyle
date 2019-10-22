@@ -7,6 +7,7 @@
 * [ChefCorrectness/DefaultMetadataMaintainer](cops_chefcorrectness.md#chefcorrectnessdefaultmetadatamaintainer)
 * [ChefCorrectness/EmptyMetadataField](cops_chefcorrectness.md#chefcorrectnessemptymetadatafield)
 * [ChefCorrectness/IncludingOhaiDefaultRecipe](cops_chefcorrectness.md#chefcorrectnessincludingohaidefaultrecipe)
+* [ChefCorrectness/IncorrectLibraryInjection](cops_chefcorrectness.md#chefcorrectnessincorrectlibraryinjection)
 * [ChefCorrectness/InsecureCookbookURL](cops_chefcorrectness.md#chefcorrectnessinsecurecookbookurl)
 * [ChefCorrectness/InvalidLicenseString](cops_chefcorrectness.md#chefcorrectnessinvalidlicensestring)
 * [ChefCorrectness/InvalidPlatformMetadata](cops_chefcorrectness.md#chefcorrectnessinvalidplatformmetadata)
