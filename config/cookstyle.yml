@@ -791,6 +791,21 @@ ChefEffortless/CookbookUsesDatabags:
   Enabled: false
   VersionAdded: '5.1.0'
 
+ChefEffortless/CookbookUsesEnvironmments:
+  Description: Cookbook uses environments, which cannot be used in the Effortless Infra pattern
+  Enabled: false
+  VersionAdded: '5.10.0'
+
+ChefEffortless/CookbookUsesPolicygroups:
+  Description: Cookbook uses Policy Groups, which cannot be used in the Effortless Infra pattern
+  Enabled: false
+  VersionAdded: '5.10.0'
+
+ChefEffortless/CookbookUsesRoles:
+  Description: Cookbook uses Roles, which cannot be used in the Effortless Infra pattern
+  Enabled: false
+  VersionAdded: '5.10.0'
+
 #### The base rubocop 0.37 enabled.yml file we started with ####
 
 Layout/AccessModifierIndentation:
