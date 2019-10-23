@@ -550,7 +550,7 @@ ChefDeprecations/ResourceInheritsFromCompatResource:
     - '**/libraries/*.rb'
 
 ChefDeprecations/VerifyPropertyUsesFileExpansion:
-  Description: Use the 'path' variable in the verify property and not the 'file' property which was removed in Chef Infra Client 13.
+  Description: Use the 'path' variable in the verify property and not the 'file' variable which was removed in Chef Infra Client 13.
   Enabled: true
   VersionAdded: '5.10.0'
   Exclude:

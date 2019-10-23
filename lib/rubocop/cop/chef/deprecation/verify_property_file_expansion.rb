@@ -35,7 +35,7 @@ module RuboCop
         class VerifyPropertyUsesFileExpansion < Cop
           include RuboCop::Chef::CookbookHelpers
 
-          MSG = "Use the 'path' variable in the verify property and not the 'file' property which was removed in Chef Infra Client 13.".freeze
+          MSG = "Use the 'path' variable in the verify property and not the 'file' variable which was removed in Chef Infra Client 13.".freeze
 
           def on_block(node)
             match_property_in_resource?(nil, 'verify', node) do |verify|

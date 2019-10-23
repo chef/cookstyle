@@ -24,7 +24,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::VerifyPropertyUsesFileExpansion, 
     expect_offense(<<~RUBY)
       file '/etc/nginx.conf' do
         verify 'nginx -t -c %{file}'
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the 'path' variable in the verify property and not the 'file' property which was removed in Chef Infra Client 13.
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the 'path' variable in the verify property and not the 'file' variable which was removed in Chef Infra Client 13.
       end
     RUBY
 
