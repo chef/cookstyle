@@ -528,7 +528,7 @@ ChefDeprecations/ChefHandlerUsesSupports:
   Exclude:
     - '**/metadata.rb'
 
-ChefDeprecations/LegacyYumRepositoryProperties:
+ChefDeprecations/DeprecatedYumRepositoryProperties:
   Description: With the release of Chef Infra Client 12.14 and the yum cookbook 3.0 several properties in the yum_repository resource were renamed. url -> baseurl, keyurl -> gpgkey, and mirrorexpire -> mirror_expire.
   Enabled: true
   VersionAdded: '5.10.0'
