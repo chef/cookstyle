@@ -234,6 +234,43 @@ Name | Default value | Configurable values
 VersionAdded | `5.1.0` | String
 Include | `**/metadata.rb` | Array
 
+## ChefDeprecations/DeprecatedYumRepositoryProperties
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+With the release of Chef Infra Client 12.14 and the yum cookbook 3.0 several properties in the yum_repository resource were renamed. url -> baseurl, keyurl -> gpgkey, and mirrorexpire -> mirror_expire.
+
+### Examples
+
+```ruby
+# bad
+yum_repository 'OurCo' do
+  description 'OurCo yum repository'
+  url 'http://artifacts.ourco.org/foo/bar'
+  keyurl 'http://artifacts.ourco.org/pub/yum/RPM-GPG-KEY-OURCO-6'
+  mirrorexpire 1440
+  action :create
+end
+
+# good
+yum_repository 'OurCo' do
+  description 'OurCo yum repository'
+  baseurl 'http://artifacts.ourco.org/foo/bar'
+  gpgkey 'http://artifacts.ourco.org/pub/yum/RPM-GPG-KEY-OURCO-6'
+  mirror_expire 1440
+  action :create
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.10.0` | String
+Exclude | `**/metadata.rb` | Array
+
 ## ChefDeprecations/EasyInstallResource
 
 Enabled by default | Supports autocorrection
