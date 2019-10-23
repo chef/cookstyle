@@ -67,6 +67,7 @@
 * [ChefDeprecations/UsesChefRESTHelpers](cops_chefdeprecations.md#chefdeprecationsuseschefresthelpers)
 * [ChefDeprecations/UsesDeprecatedMixins](cops_chefdeprecations.md#chefdeprecationsusesdeprecatedmixins)
 * [ChefDeprecations/UsesRunCommandHelper](cops_chefdeprecations.md#chefdeprecationsusesruncommandhelper)
+* [ChefDeprecations/VerifyPropertyUsesFileExpansion](cops_chefdeprecations.md#chefdeprecationsverifypropertyusesfileexpansion)
 * [ChefDeprecations/WindowsTaskChangeAction](cops_chefdeprecations.md#chefdeprecationswindowstaskchangeaction)
 
 #### Department [ChefEffortless](cops_chefeffortless.md)

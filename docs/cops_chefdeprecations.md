@@ -1029,6 +1029,35 @@ Name | Default value | Configurable values
 VersionAdded | `5.9.0` | String
 Exclude | `**/metadata.rb`, `Rakefile` | Array
 
+## ChefDeprecations/VerifyPropertyUsesFileExpansion
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+In Chef Infra Client 13 the "file" variable for use within the verify property was replaced with the "path" variable.
+
+### Examples
+
+```ruby
+# bad
+file '/etc/nginx.conf' do
+  verify 'nginx -t -c %{file}'
+end
+
+# good
+file '/etc/nginx.conf' do
+  verify 'nginx -t -c %{path}'
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.10.0` | String
+Exclude | `**/metadata.rb` | Array
+
 ## ChefDeprecations/WindowsTaskChangeAction
 
 Enabled by default | Supports autocorrection
