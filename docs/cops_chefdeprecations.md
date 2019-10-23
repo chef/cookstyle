@@ -271,6 +271,34 @@ Name | Default value | Configurable values
 VersionAdded | `5.10.0` | String
 Exclude | `**/metadata.rb` | Array
 
+## ChefDeprecations/EOLAuditModeUsage
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+The beta Audit Mode for Chef Infra Client was removed in Chef Infra Client 15.0. Users should instead use InSpec and the audit cookbook. See https://www.inspec.io/ for more informmation.
+
+### Examples
+
+```ruby
+# bad
+control_group 'Baseline' do
+  control 'SSH' do
+    it 'should be listening on port 22' do
+      expect(port(22)).to be_listening
+    end
+  end
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.10.0` | String
+Exclude | `**/metadata.rb` | Array
+
 ## ChefDeprecations/EasyInstallResource
 
 Enabled by default | Supports autocorrection

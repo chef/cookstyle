@@ -38,6 +38,7 @@
 * [ChefDeprecations/CookbookDependsOnPartialSearch](cops_chefdeprecations.md#chefdeprecationscookbookdependsonpartialsearch)
 * [ChefDeprecations/CookbookDependsOnPoise](cops_chefdeprecations.md#chefdeprecationscookbookdependsonpoise)
 * [ChefDeprecations/DeprecatedYumRepositoryProperties](cops_chefdeprecations.md#chefdeprecationsdeprecatedyumrepositoryproperties)
+* [ChefDeprecations/EOLAuditModeUsage](cops_chefdeprecations.md#chefdeprecationseolauditmodeusage)
 * [ChefDeprecations/EasyInstallResource](cops_chefdeprecations.md#chefdeprecationseasyinstallresource)
 * [ChefDeprecations/EpicFail](cops_chefdeprecations.md#chefdeprecationsepicfail)
 * [ChefDeprecations/ErlCallResource](cops_chefdeprecations.md#chefdeprecationserlcallresource)
