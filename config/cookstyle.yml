@@ -535,6 +535,13 @@ ChefDeprecations/DeprecatedYumRepositoryProperties:
   Exclude:
     - '**/metadata.rb'
 
+ChefDeprecations/EOLAuditModeUsage:
+  Description: The beta Audit Mode feature in Chef Infra Client was removed in Chef Infra Client 15.0. Users should instead use InSpec and the audit cookbook. See https://www.inspec.io/ for more informmation.
+  Enabled: true
+  VersionAdded: '5.10.0'
+  Exclude:
+    - '**/metadata.rb'
+
 ###############################
 # ChefModernize: Cleaning up legacy code and using new built-in resources
 ###############################
