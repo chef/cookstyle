@@ -735,6 +735,38 @@ Name | Default value | Configurable values
 VersionAdded | `5.2.0` | String
 Exclude | `**/metadata.rb` | Array
 
+## ChefDeprecations/ResourceInheritsFromCompatResource
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+Resources written in the class based HWRP style should inherit from the 'Chef::Resource' class and not the 'ChefCompat::Resource' class from the deprecated compat_resource cookbook.
+
+### Examples
+
+```ruby
+# bad
+class AptUpdate < ChefCompat::Resource
+  # some resource code
+end
+
+# good
+class AptUpdate < Chef::Resource
+  # some resource code
+end
+
+# better
+Write a custom resource using the custom resource DSL and avoid class based HWRPs entirely
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.10.0` | String
+Include | `**/libraries/*.rb` | Array
+
 ## ChefDeprecations/ResourceOverridesProvidesMethod
 
 Enabled by default | Supports autocorrection

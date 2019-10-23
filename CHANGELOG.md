@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.10.5 -->
-## [v5.10.5](https://github.com/chef/cookstyle/tree/v5.10.5) (2019-10-23)
+<!-- latest_release 5.10.6 -->
+## [v5.10.6](https://github.com/chef/cookstyle/tree/v5.10.6) (2019-10-23)
 
 #### Merged Pull Requests
-- Add ChefDeprecations/EOLAuditModeUsage [#344](https://github.com/chef/cookstyle/pull/344) ([tas50](https://github.com/tas50))
+- Add ChefDeprecations/ResourceInheritsFromCompatResource [#340](https://github.com/chef/cookstyle/pull/340) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.9.3 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add ChefDeprecations/ResourceInheritsFromCompatResource [#340](https://github.com/chef/cookstyle/pull/340) ([tas50](https://github.com/tas50)) <!-- 5.10.6 -->
 - Add ChefDeprecations/EOLAuditModeUsage [#344](https://github.com/chef/cookstyle/pull/344) ([tas50](https://github.com/tas50)) <!-- 5.10.5 -->
 - Add ChefDeprecations/LegacyYumRepositoryProperties [#343](https://github.com/chef/cookstyle/pull/343) ([tas50](https://github.com/tas50)) <!-- 5.10.4 -->
 - Add 3 new cops for migrating to Effortless [#337](https://github.com/chef/cookstyle/pull/337) ([tas50](https://github.com/tas50)) <!-- 5.10.3 -->

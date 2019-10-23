@@ -56,6 +56,7 @@
 * [ChefDeprecations/RecipeMetadata](cops_chefdeprecations.md#chefdeprecationsrecipemetadata)
 * [ChefDeprecations/ReplacesMetadata](cops_chefdeprecations.md#chefdeprecationsreplacesmetadata)
 * [ChefDeprecations/RequireRecipe](cops_chefdeprecations.md#chefdeprecationsrequirerecipe)
+* [ChefDeprecations/ResourceInheritsFromCompatResource](cops_chefdeprecations.md#chefdeprecationsresourceinheritsfromcompatresource)
 * [ChefDeprecations/ResourceOverridesProvidesMethod](cops_chefdeprecations.md#chefdeprecationsresourceoverridesprovidesmethod)
 * [ChefDeprecations/ResourceUsesDslNameMethod](cops_chefdeprecations.md#chefdeprecationsresourceusesdslnamemethod)
 * [ChefDeprecations/ResourceUsesProviderBaseMethod](cops_chefdeprecations.md#chefdeprecationsresourceusesproviderbasemethod)
