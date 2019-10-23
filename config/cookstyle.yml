@@ -542,6 +542,13 @@ ChefDeprecations/EOLAuditModeUsage:
   Exclude:
     - '**/metadata.rb'
 
+ChefDeprecations/ResourceInheritsFromCompatResource:
+  Description: HWRP style resource should inherit from the 'Chef::Resource' class and not the 'ChefCompat::Resource' class from the deprecated compat_resource cookbook.
+  Enabled: true
+  VersionAdded: '5.10.0'
+  Include:
+    - '**/libraries/*.rb'
+
 ###############################
 # ChefModernize: Cleaning up legacy code and using new built-in resources
 ###############################
