@@ -805,6 +805,24 @@ ChefModernize/PowerShellGuardInterpreter:
   Exclude:
     - '**/metadata.rb'
 
+ChefModernize/DefaultActionFromInitialize:
+  Description: The default actions can now be specified using the `default_action` helper instead of using the @action variable in the resource provider initialize method.
+  Enabled: true
+  VersionAdded: '5.10.0'
+  Include:
+    - '**/resources/*.rb'
+    - '**/providers/*.rb'
+    - '**/libraries/*.rb'
+
+ChefModernize/ResourceNameFromInitialize:
+  Description: The name of a resource can be set with the "resource_name" helper instead of using the initialize method.
+  Enabled: true
+  VersionAdded: '5.10.0'
+  Include:
+    - '**/resources/*.rb'
+    - '**/providers/*.rb'
+    - '**/libraries/*.rb'
+
 ###############################
 # Migrating to new patterns
 ###############################
