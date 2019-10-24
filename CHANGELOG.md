@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.10.10 -->
-## [v5.10.10](https://github.com/chef/cookstyle/tree/v5.10.10) (2019-10-24)
+<!-- latest_release 5.10.11 -->
+## [v5.10.11](https://github.com/chef/cookstyle/tree/v5.10.11) (2019-10-24)
 
 #### Merged Pull Requests
-- Add ChefModernize/DefaultActionFromInitialize and ChefModernize/ResourceNameFromInitialize: [#348](https://github.com/chef/cookstyle/pull/348) ([tas50](https://github.com/tas50))
+- Expand the detection of node.chef_environment [#349](https://github.com/chef/cookstyle/pull/349) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.9.3 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Expand the detection of node.chef_environment [#349](https://github.com/chef/cookstyle/pull/349) ([tas50](https://github.com/tas50)) <!-- 5.10.11 -->
 - Add ChefModernize/DefaultActionFromInitialize and ChefModernize/ResourceNameFromInitialize: [#348](https://github.com/chef/cookstyle/pull/348) ([tas50](https://github.com/tas50)) <!-- 5.10.10 -->
 - Expand what we detect in ChefModernize/CustomResourceWithAllowedActions [#345](https://github.com/chef/cookstyle/pull/345) ([tas50](https://github.com/tas50)) <!-- 5.10.9 -->
 - Add Cookstyle 5.10 release notes [#347](https://github.com/chef/cookstyle/pull/347) ([tas50](https://github.com/tas50)) <!-- 5.10.8 -->

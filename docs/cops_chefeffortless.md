@@ -35,6 +35,7 @@ Neither Policyfiles or Effortless Infra which is based on Policyfiles supports C
 ```ruby
 # bad
 node.environment == "production"
+node.chef_environment == "production"
 ```
 
 ### Configurable attributes
