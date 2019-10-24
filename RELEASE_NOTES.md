@@ -20,7 +20,7 @@ The `ResourceInheritsFromCompatResource` cop detects legacy HWRPs that inherit f
 
 #### ChefDeprecations/EOLAuditModeUsage
 
-The `EOLAuditModeUsage` cookbook detects the usage of the beta Audit Mode feature that was removed in Chef Infra Client 15.0. Users should instead use Chef InSpec with the audit cookbook, which offers a far more robust framework for system auditing.
+The `EOLAuditModeUsage` cookbook detects the usage of the beta Audit Mode feature that was removed in Chef Infra Client 15.0. Users should instead use Chef InSpec with the `audit` cookbook, which offers a far more robust framework for system auditing.
 
 `Enabled by default`: True
 
