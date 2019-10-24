@@ -89,6 +89,34 @@ Name | Default value | Configurable values
 VersionAdded | `5.2.0` | String
 Include | `**/resources/*.rb` | Array
 
+## ChefModernize/DefaultActionFromInitialize
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+The default actions can now be specified using the `default_action` helper instead of using the @action variable in the resource provider initialize method. In general we recommend against writing HWRPs, but if HWRPs are necessary you should utilize as much of the resource DSL as possible.
+
+ # good
+ default_action :create
+
+### Examples
+
+```ruby
+# bad
+def initialize(*args)
+  super
+  @action = :create
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.10.0` | String
+Include | `**/resources/*.rb`, `**/providers/*.rb`, `**/libraries/*.rb` | Array
+
 ## ChefModernize/DefinesChefSpecMatchers
 
 Enabled by default | Supports autocorrection
@@ -566,6 +594,34 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.5.0` | String
 Exclude | `**/metadata.rb` | Array
+
+## ChefModernize/ResourceNameFromInitialize
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+The resource name can now be specified using the `resource_name` helper instead of using the @resource_name variable in the resource provider initialize method. In general we recommend against writing HWRPs, but if HWRPs are necessary you should utilize as much of the resource DSL as possible.
+
+ # good
+ resource_name :create
+
+### Examples
+
+```ruby
+# bad
+def initialize(*args)
+  super
+  @resource_name = :foo
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.10.0` | String
+Include | `**/resources/*.rb`, `**/providers/*.rb`, `**/libraries/*.rb` | Array
 
 ## ChefModernize/RespondToInMetadata
 
