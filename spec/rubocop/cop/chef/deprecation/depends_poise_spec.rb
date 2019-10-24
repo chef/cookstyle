@@ -26,6 +26,13 @@ describe RuboCop::Cop::Chef::ChefDeprecations::CookbookDependsOnPoise, :config d
     RUBY
   end
 
+  it 'registers an offense when a cookbook depends on "poise-service"' do
+    expect_offense(<<~RUBY)
+      depends 'poise-service'
+      ^^^^^^^^^^^^^^^^^^^^^^^ Cookbooks should not depend on the deprecated Poise framework
+    RUBY
+  end
+
   it "doesn't register an offense when depending on any old cookbook" do
     expect_no_offenses(<<~RUBY)
       depends 'poise-ish'
