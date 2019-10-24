@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.10.7 -->
-## [v5.10.7](https://github.com/chef/cookstyle/tree/v5.10.7) (2019-10-23)
+<!-- latest_release 5.10.8 -->
+## [v5.10.8](https://github.com/chef/cookstyle/tree/v5.10.8) (2019-10-24)
 
 #### Merged Pull Requests
-- Add ChefDeprecations/VerifyPropertyUsesFileExpansion cop [#339](https://github.com/chef/cookstyle/pull/339) ([tas50](https://github.com/tas50))
+- Add Cookstyle 5.10 release notes [#347](https://github.com/chef/cookstyle/pull/347) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.9.3 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add Cookstyle 5.10 release notes [#347](https://github.com/chef/cookstyle/pull/347) ([tas50](https://github.com/tas50)) <!-- 5.10.8 -->
 - Add ChefDeprecations/VerifyPropertyUsesFileExpansion cop [#339](https://github.com/chef/cookstyle/pull/339) ([tas50](https://github.com/tas50)) <!-- 5.10.7 -->
 - Add ChefDeprecations/ResourceInheritsFromCompatResource [#340](https://github.com/chef/cookstyle/pull/340) ([tas50](https://github.com/tas50)) <!-- 5.10.6 -->
 - Add ChefDeprecations/EOLAuditModeUsage [#344](https://github.com/chef/cookstyle/pull/344) ([tas50](https://github.com/tas50)) <!-- 5.10.5 -->
