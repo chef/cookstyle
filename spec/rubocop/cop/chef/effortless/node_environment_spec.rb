@@ -27,7 +27,6 @@ describe RuboCop::Cop::Chef::ChefEffortless::CookbookUsesEnvironmments, :config 
     RUBY
   end
 
-
   it 'registers an offense when node.chef_environment is used' do
     expect_offense(<<~RUBY)
       node.chef_environment == 'production'
