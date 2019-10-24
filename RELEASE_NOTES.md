@@ -72,7 +72,7 @@ The `NotifiesActionNotSymbol` cop detects resources that notify another resource
 
 #### ChefEffortless/CookbookUsesPolicygroups
 
-The `CookbookUsesPolicygroups` is a disabled by default cop that helps users migrating to the Chef Infra Effortless pattern by detecting cookbooks that use Chef Infra Policy Groups.
+`CookbookUsesPolicygroups` is a disabled by default cop that helps users migrating to the Chef Infra Effortless pattern by detecting cookbooks that use Chef Infra Policy Groups.
 
 `Enabled by default`: False
 
@@ -80,7 +80,7 @@ The `CookbookUsesPolicygroups` is a disabled by default cop that helps users mig
 
 #### ChefEffortless/CookbookUsesRoles
 
-The `CookbookUsesRoles` is a disabled by default cop that helps users migrating to the Chef Infra Effortless pattern by detecting cookbooks that use Chef Infra Roles.
+`CookbookUsesRoles` is a disabled by default cop that helps users migrating to the Chef Infra Effortless pattern by detecting cookbooks that use Chef Infra Roles.
 
 `Enabled by default`: False
 
