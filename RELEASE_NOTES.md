@@ -12,7 +12,7 @@ The `VerifyPropertyUsesFileExpansion` cop detects resources using the `verify` p
 
 #### ChefDeprecations/ResourceInheritsFromCompatResource
 
-The `ResourceInheritsFromCompatResource` cop detects legacy HWRPs that inherit from the CompatResource class that shipped in the legacy `compat_resource` cookbook. Ideally these resources are rewritten as standard Custom Resources, but at a minimum they should inherit from the proper class: `Chef::Resource`.
+The `ResourceInheritsFromCompatResource` cop detects legacy Heavy Weight Resource Providers (HWRPs) that inherit from the CompatResource class that shipped in the legacy `compat_resource` cookbook. Ideally these resources are rewritten as standard Custom Resources, but at a minimum they should inherit from the proper class: `Chef::Resource`.
 
 `Enabled by default`: True
 
@@ -72,7 +72,7 @@ The `CookbookUsesEnvironmments` is a disabled by default cop that helps aid user
 
 #### ChefEffortless/CookbookUsesPolicygroups
 
-The `CookbookUsesEnvironmments` is a disabled by default cop that helps aid users in migrated to the Chef Infra Effortless pattern by detecting cookbooks that use Chef Infra Policy Groups.
+The `CookbookUsesPolicygroups` is a disabled by default cop that helps aid users in migrated to the Chef Infra Effortless pattern by detecting cookbooks that use Chef Infra Policy Groups.
 
 `Enabled by default`: False
 
@@ -80,7 +80,7 @@ The `CookbookUsesEnvironmments` is a disabled by default cop that helps aid user
 
 #### ChefEffortless/CookbookUsesRoles
 
-The `CookbookUsesEnvironmments` is a disabled by default cop that helps aid users in migrated to the Chef Infra Effortless pattern by detecting cookbooks that use Chef Infra Roles.
+The `CookbookUsesRoles` is a disabled by default cop that helps aid users in migrated to the Chef Infra Effortless pattern by detecting cookbooks that use Chef Infra Roles.
 
 `Enabled by default`: False
 
