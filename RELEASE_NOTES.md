@@ -4,7 +4,7 @@
 
 #### ChefDeprecations/VerifyPropertyUsesFileExpansion
 
-The `VerifyPropertyUsesFileExpansion` cop detects resources using the verify property to validate file content with the legacy `file` variable instead of the `path` variable required in Chef Infra Client 13 and later.
+The `VerifyPropertyUsesFileExpansion` cop detects resources using the `verify` property to validate file content with the legacy `file` variable instead of the `path` variable required in Chef Infra Client 13 and later.
 
 `Enabled by default`: True
 
