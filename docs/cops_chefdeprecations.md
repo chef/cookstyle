@@ -217,14 +217,14 @@ Enabled by default | Supports autocorrection
 --- | ---
 Enabled | No
 
-Cookbooks should not depend on the deprecated Poise framework. They should instead
-be refactored as standard custom resources.
+Cookbooks should not depend on the deprecated Poise framework cookbooks. They should instead be refactored to use standard Chef Infra custom resources.
 
 ### Examples
 
 ```ruby
 # bad
 depends 'poise'
+depends 'poise-service'
 ```
 
 ### Configurable attributes

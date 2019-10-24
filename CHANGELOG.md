@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release -->
+<!-- latest_release 5.10.12 -->
+## [v5.10.12](https://github.com/chef/cookstyle/tree/v5.10.12) (2019-10-24)
+
+#### Merged Pull Requests
+- Detect poise-service in addition to just poise [#353](https://github.com/chef/cookstyle/pull/353) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=5.10.11 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Detect poise-service in addition to just poise [#353](https://github.com/chef/cookstyle/pull/353) ([tas50](https://github.com/tas50)) <!-- 5.10.12 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
