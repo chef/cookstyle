@@ -12,7 +12,7 @@ The `VerifyPropertyUsesFileExpansion` cop detects resources using the `verify` p
 
 #### ChefDeprecations/ResourceInheritsFromCompatResource
 
-The `ResourceInheritsFromCompatResource` cop detects legacy Heavy Weight Resource Providers (HWRPs) that inherit from the CompatResource class that shipped in the legacy `compat_resource` cookbook. Ideally these resources are rewritten as standard Custom Resources, but at a minimum they should inherit from the proper class: `Chef::Resource`.
+The `ResourceInheritsFromCompatResource` cop detects legacy Heavy Weight Resource Providers (HWRPs) that inherit from the CompatResource class, which shipped in the legacy `compat_resource` cookbook. Ideally, these resources are rewritten as standard Custom Resources, but at a minimum they should inherit from the proper class: `Chef::Resource`.
 
 `Enabled by default`: True
 
