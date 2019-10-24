@@ -64,7 +64,7 @@ The `NotifiesActionNotSymbol` cop detects resources that notify another resource
 
 #### ChefEffortless/CookbookUsesEnvironmments
 
-The `CookbookUsesEnvironmments` is a disabled by default cop that helps users migrating to the Chef Infra Effortless pattern by detecting cookbooks that use Chef Infra Environnments.
+`CookbookUsesEnvironmments` is a disabled by default cop that helps users migrating to the Chef Infra Effortless pattern by detecting cookbooks that use Chef Infra Environnments.
 
 `Enabled by default`: False
 
