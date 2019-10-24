@@ -24,12 +24,13 @@ module RuboCop
         #
         #   # bad
         #   node.environment == "production"
+        #   node.chef_environment == "production"
         #
         class CookbookUsesEnvironmments < Cop
           MSG = 'Cookbook uses environments, which cannot be used in Policyfiles or Effortless Infra'.freeze
 
           def on_send(node)
-            if node.method_name == :environment && node.receiver && node.receiver.send_type? && node.receiver.method_name == :node
+            if %i(environment chef_environment).include?(node.method_name) && node.receiver && node.receiver.send_type? && node.receiver.method_name == :node
               add_offense(node, location: :expression, message: MSG, severity: :refactor)
             end
           end

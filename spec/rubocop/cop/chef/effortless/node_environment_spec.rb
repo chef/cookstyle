@@ -26,4 +26,18 @@ describe RuboCop::Cop::Chef::ChefEffortless::CookbookUsesEnvironmments, :config 
       ^^^^^^^^^^^^^^^^ Cookbook uses environments, which cannot be used in Policyfiles or Effortless Infra
     RUBY
   end
+
+
+  it 'registers an offense when node.chef_environment is used' do
+    expect_offense(<<~RUBY)
+      node.chef_environment == 'production'
+      ^^^^^^^^^^^^^^^^^^^^^ Cookbook uses environments, which cannot be used in Policyfiles or Effortless Infra
+    RUBY
+  end
+
+  it "doesn't register an offense when a cookbook uses another node method" do
+    expect_no_offenses(<<~RUBY)
+    node.save
+    RUBY
+  end
 end
