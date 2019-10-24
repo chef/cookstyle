@@ -1,6 +1,6 @@
 ## Cookstyle 5.10
 
-### 9 New Chef Cops
+### 11 New Chef Cops
 
 #### ChefDeprecations/VerifyPropertyUsesFileExpansion
 
@@ -85,6 +85,22 @@ The `NotifiesActionNotSymbol` cop detects resources that notify another resource
 `Enabled by default`: False
 
 `Autocorrects`: No
+
+#### ChefModernize/DefaultActionFromInitialize
+
+The `DefaultActionFromInitialize` cop detects HWRPs that define a resource's default actions by setting the `@actions` variable within the `initialize` method instead of using the `default_action` method.
+
+`Enabled by default`: Yes
+
+`Autocorrects`: Yes
+
+#### ChefModernize/ResourceNameFromInitialize
+
+The `ResourceNameFromInitialize` cop detects HWRPs that define a resource's name by setting the `@resource_name` variable within the `initialize` method instead of using the `resource_name` method.
+
+`Enabled by default`: Yes
+
+`Autocorrects`: Yes
 
 ### Other fixes and changes
 
@@ -180,7 +196,7 @@ The `UnnecessaryNameProperty` cop detects resources that define a property with 
 - `ChefDeprecations/UserDeprecatedSupportsProperty` now supports autocorrect
 - `ChefDeprecations/UseInlineResourcesDefined` now detects `use_inline_resources if respond_to?(:use_inline_resources)`
 - `CustomResourceWithAllowedActions` now detects unnecessary actions in LWRPs as well
-- The docs at https://github.com/chef/cookstyle/blob/master/docs/cops.md are now auto generated on each pull request merge
+- The docs at [https://github.com/chef/cookstyle/blob/master/docs/cops.md](https://github.com/chef/cookstyle/blob/master/docs/cops.md) are now auto generated on each pull request merge
 
 ## Cookstyle 5.7
 
@@ -384,6 +400,7 @@ The `ResourceSetsNameProperty` cop detects a resource block with the `name` prop
 `Examples`
 
 Service resource incorrectly setting the name property:
+
 ```ruby
 service 'Start the important service' do
   name 'foo'
@@ -392,6 +409,7 @@ end
 ```
 
 Service resource correctly setting the service_name name property:
+
 ```ruby
 service 'Start the important service' do
   service_name 'foo'
@@ -410,6 +428,7 @@ The `ResourceWithNoneAction` cop detects the use of the `:none` action in a reso
 `Examples`
 
 Service resource with the incorrect :none action:
+
 ```ruby
 service 'my_service' do
   action [:none]
