@@ -88,7 +88,7 @@ The `CookbookUsesEnvironmments` is a disabled by default cop that helps aid user
 
 ### Other fixes and changes
 
-- ChefModernize/CustomResourceWithAllowedActions now detects unnecessary allowed_actions in legacy HWRPs
+- The `ChefModernize/CustomResourceWithAllowedActions` cop now detects unnecessary `allowed_actions` in legacy HWRPs.
 
 ## Cookstyle 5.9
 
