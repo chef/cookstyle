@@ -35,9 +35,6 @@ module RuboCop
         #     @allowed_actions = [:create, :remove]
         #   end
         #
-        #   # good
-        #   property :something, String
-        #
         class CustomResourceWithAllowedActions < Cop
           include RangeHelp
 
@@ -54,16 +51,22 @@ module RuboCop
           end
 
           def on_def(node)
-            if node.method_name == :initialize
-              found_node = nil
-              unless node.body.nil? # empty initialize methods
-                node.body.each_node do |x|
-                  found_node = x if x.assignment? && x.node_parts.first == :@allowed_actions
-                end
-              end
+            return unless node.method_name == :initialize
+            return if node.body.nil? # empty initialize methods
 
-              add_offense(found_node, location: :expression, message: MSG, severity: :refactor) if found_node
+            node.body.each_node do |x|
+              if allowed_actions_assignment?(x) || allowed_action_send?(x)
+                add_offense(x, location: :expression, message: MSG, severity: :refactor)
+              end
             end
+          end
+
+          def allowed_actions_assignment?(node)
+            node.assignment? && node.node_parts.first == :@allowed_actions
+          end
+
+          def allowed_action_send?(node)
+            node.send_type? && node.receiver == s(:ivar, :@allowed_actions)
           end
 
           def autocorrect(node)
