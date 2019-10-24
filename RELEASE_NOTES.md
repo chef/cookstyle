@@ -1,3 +1,95 @@
+## Cookstyle 5.10
+
+### 9 New Chef Cops
+
+#### ChefDeprecations/VerifyPropertyUsesFileExpansion
+
+The `VerifyPropertyUsesFileExpansion` cop detects resources using the `verify` property to validate file content with the legacy `file` variable instead of the `path` variable required in Chef Infra Client 13 and later.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefDeprecations/ResourceInheritsFromCompatResource
+
+The `ResourceInheritsFromCompatResource` cop detects legacy Heavy Weight Resource Providers (HWRPs) that inherit from the CompatResource class, which shipped in the legacy `compat_resource` cookbook. Ideally, these resources are rewritten as standard Custom Resources, but at a minimum they should inherit from the proper class: `Chef::Resource`.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefDeprecations/EOLAuditModeUsage
+
+The `EOLAuditModeUsage` cookbook detects the usage of the beta Audit Mode feature that was removed in Chef Infra Client 15.0. Users should instead use Chef InSpec with the `audit` cookbook, which offers a far more robust framework for system auditing.
+
+`Enabled by default`: True
+
+`Autocorrects`: No
+
+#### Add ChefDeprecations/LegacyYumRepositoryProperties
+
+The `LegacyYumRepositoryProperties` cop detects the usage of legacy properties in the `yum_repository` resource. These properties were renamed in the `yum` cookbook 3.0 and shipped in Chef Infra Client 12.14, which included the `yum_repository` resource.
+
+These properties will be updated:
+
+- url -> baseurl
+- keyurl -> gpgkey
+- mirrorexpire -> mirror_expire
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefCorrectness/IncorrectLibraryInjection
+
+The `IncorrectLibraryInjection` cop detects libraries that inject their helpers into Recipe/Resource/Provider classes directly instead of using the `Chef::DSL::Recipe` or `Chef::DSL::Resource` classes.
+
+These calls will be updated:
+
+- ::Chef::Recipe.send(:include, MyCookbook::Helpers) -> ::Chef::DSL::Recipe.send(:include, MyCookbook::Helpers)
+- ::Chef::Provider.send(:include, MyCookbook::Helpers) -> ::Chef::DSL::Recipe.send(:include, MyCookbook::Helpers)
+- ::Chef::Resource.send(:include, MyCookbook::Helpers) -> ::Chef::DSL::Resource.send(:include, MyCookbook::Helpers)
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefCorrectness/NotifiesActionNotSymbol
+
+The `NotifiesActionNotSymbol` cop detects resources that notify another resource to converge an action, but specify the action as a string instead of a symbol.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefEffortless/CookbookUsesEnvironmments
+
+`CookbookUsesEnvironmments` is a disabled by default cop that helps users migrating to the Chef Infra Effortless pattern by detecting cookbooks that use Chef Infra Environnments.
+
+`Enabled by default`: False
+
+`Autocorrects`: No
+
+#### ChefEffortless/CookbookUsesPolicygroups
+
+The `CookbookUsesPolicygroups` is a disabled by default cop that helps users migrating to the Chef Infra Effortless pattern by detecting cookbooks that use Chef Infra Policy Groups.
+
+`Enabled by default`: False
+
+`Autocorrects`: No
+
+#### ChefEffortless/CookbookUsesRoles
+
+The `CookbookUsesRoles` is a disabled by default cop that helps users migrating to the Chef Infra Effortless pattern by detecting cookbooks that use Chef Infra Roles.
+
+`Enabled by default`: False
+
+`Autocorrects`: No
+
+### Other fixes and changes
+
+- The `ChefModernize/CustomResourceWithAllowedActions` cop now detects unnecessary `allowed_actions` in legacy HWRPs.
+
 ## Cookstyle 5.9
 
 ### 3 New Chef Cops
