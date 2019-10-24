@@ -45,9 +45,6 @@ def initialize(*args)
   super
   @allowed_actions = [:create, :remove]
 end
-
-# good
-property :something, String
 ```
 
 ### Configurable attributes
