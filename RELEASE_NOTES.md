@@ -28,7 +28,7 @@ The `EOLAuditModeUsage` cookbook detects the usage of the beta Audit Mode featur
 
 #### Add ChefDeprecations/LegacyYumRepositoryProperties
 
-The `LegacyYumRepositoryProperties` cop detects the usage of legacy properties in the `yum_repository` resource. These properties were renamed in the yum cookbook 3.0 and shipped in Chef Infra Client 12.14, which included the yum_repository resource.
+The `LegacyYumRepositoryProperties` cop detects the usage of legacy properties in the `yum_repository` resource. These properties were renamed in the `yum` cookbook 3.0 and shipped in Chef Infra Client 12.14, which included the `yum_repository` resource.
 
 These properties will be updated:
 
