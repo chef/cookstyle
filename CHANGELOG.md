@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.10.12 -->
-## [v5.10.12](https://github.com/chef/cookstyle/tree/v5.10.12) (2019-10-24)
+<!-- latest_release 5.10.13 -->
+## [v5.10.13](https://github.com/chef/cookstyle/tree/v5.10.13) (2019-10-25)
 
 #### Merged Pull Requests
-- Detect poise-service in addition to just poise [#353](https://github.com/chef/cookstyle/pull/353) ([tas50](https://github.com/tas50))
+- Fix the files we target with NotifiesActionNotSymbol &amp; IncorrectLibraryInjection [#357](https://github.com/chef/cookstyle/pull/357) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.10.11 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Fix the files we target with NotifiesActionNotSymbol &amp; IncorrectLibraryInjection [#357](https://github.com/chef/cookstyle/pull/357) ([tas50](https://github.com/tas50)) <!-- 5.10.13 -->
 - Detect poise-service in addition to just poise [#353](https://github.com/chef/cookstyle/pull/353) ([tas50](https://github.com/tas50)) <!-- 5.10.12 -->
 <!-- release_rollup -->
 

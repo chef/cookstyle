@@ -176,7 +176,7 @@ Libraries should be injected into the Chef::DSL::Recipe or Chef::DSL::Resource c
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.10.0` | String
-Include | `**/metadata.rb` | Array
+Include | `**/libraries/*.rb` | Array
 
 ## ChefCorrectness/InsecureCookbookURL
 
@@ -452,7 +452,7 @@ end
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.10.0` | String
-Include | `**/metadata.rb` | Array
+Exclude | `**/metadata.rb` | Array
 
 ## ChefCorrectness/PropertyWithNameAttribute
 
