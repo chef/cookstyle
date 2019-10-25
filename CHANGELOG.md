@@ -1,21 +1,19 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.10.13 -->
-## [v5.10.13](https://github.com/chef/cookstyle/tree/v5.10.13) (2019-10-25)
-
-#### Merged Pull Requests
-- Fix the files we target with NotifiesActionNotSymbol &amp; IncorrectLibraryInjection [#357](https://github.com/chef/cookstyle/pull/357) ([tas50](https://github.com/tas50))
+<!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=5.10.11 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Fix the files we target with NotifiesActionNotSymbol &amp; IncorrectLibraryInjection [#357](https://github.com/chef/cookstyle/pull/357) ([tas50](https://github.com/tas50)) <!-- 5.10.13 -->
-- Detect poise-service in addition to just poise [#353](https://github.com/chef/cookstyle/pull/353) ([tas50](https://github.com/tas50)) <!-- 5.10.12 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v5.10.13](https://github.com/chef/cookstyle/tree/v5.10.13) (2019-10-25)
+
+#### Merged Pull Requests
+- Detect poise-service in addition to just poise [#353](https://github.com/chef/cookstyle/pull/353) ([tas50](https://github.com/tas50))
+- Fix the files we target with NotifiesActionNotSymbol &amp; IncorrectLibraryInjection [#357](https://github.com/chef/cookstyle/pull/357) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v5.10.11](https://github.com/chef/cookstyle/tree/v5.10.11) (2019-10-24)
 
 #### Merged Pull Requests
@@ -31,7 +29,6 @@
 - Expand what we detect in ChefModernize/CustomResourceWithAllowedActions [#345](https://github.com/chef/cookstyle/pull/345) ([tas50](https://github.com/tas50))
 - Add ChefModernize/DefaultActionFromInitialize and ChefModernize/ResourceNameFromInitialize: [#348](https://github.com/chef/cookstyle/pull/348) ([tas50](https://github.com/tas50))
 - Expand the detection of node.chef_environment [#349](https://github.com/chef/cookstyle/pull/349) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v5.9.3](https://github.com/chef/cookstyle/tree/v5.9.3) (2019-10-16)
 
