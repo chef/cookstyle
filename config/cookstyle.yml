@@ -241,7 +241,7 @@ ChefCorrectness/NotifiesActionNotSymbol:
   Description: When notifying an action within a resource the action should always be a symbol. In Chef Infra Client releases before 14.0 this may result in double notification.
   Enabled: true
   VersionAdded: '5.10.0'
-  Include:
+  Exclude:
     - '**/metadata.rb'
 
 ChefCorrectness/IncorrectLibraryInjection:
@@ -249,7 +249,7 @@ ChefCorrectness/IncorrectLibraryInjection:
   Enabled: true
   VersionAdded: '5.10.0'
   Include:
-    - '**/metadata.rb'
+    - '**/libraries/*.rb'
 
 ###############################
 # ChefDeprecations: Resolving Deprecations that block upgrading Chef Infra Client
