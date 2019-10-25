@@ -105,6 +105,7 @@ The `ResourceNameFromInitialize` cop detects HWRPs that define a resource's name
 ### Other fixes and changes
 
 - The `ChefModernize/CustomResourceWithAllowedActions` cop now detects unnecessary `allowed_actions` in legacy HWRPs.
+- The `ChefDeprecations/CookbookDependsOnPoise` cop now detects the `poise-service` cookbook in addition to the `poise` cookbook.
 
 ## Cookstyle 5.9
 
