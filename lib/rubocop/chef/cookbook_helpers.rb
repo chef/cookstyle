@@ -8,6 +8,19 @@ module RuboCop
         end
       end
 
+      # Match a particular resource
+      #
+      # @param [String] resource_name The name of the resource to match
+      # @param [RuboCop::AST::Node] node The rubocop ast node to search
+      #
+      # @yield
+      #
+      def match_resource_type?(resource_name, node)
+        return unless looks_like_resource?(node)
+        # bail out if we're not in the resource we care about or nil was passed (all resources)
+        yield(node) if node.children.first.method?(resource_name.to_sym)
+      end
+
       # Match particular properties within a resource
       #
       # @param [String] resource_name The name of the resource to match
