@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
-<!-- latest_release -->
+<!-- latest_release 5.10.14 -->
+## [v5.10.14](https://github.com/chef/cookstyle/tree/v5.10.14) (2019-10-30)
+
+#### Merged Pull Requests
+- Add additional helpers for working with resources [#310](https://github.com/chef/cookstyle/pull/310) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=5.10.13 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Add additional helpers for working with resources [#310](https://github.com/chef/cookstyle/pull/310) ([tas50](https://github.com/tas50)) <!-- 5.10.14 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
