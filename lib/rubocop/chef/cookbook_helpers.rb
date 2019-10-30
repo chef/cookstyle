@@ -61,6 +61,7 @@ module RuboCop
 
       #
       # given a node object does it look like a chef resource or not?
+      # warning: currently this requires a resource with properties since we key off blocks and property-less resources look like methods
       #
       # @param [RuboCop::AST::Node] node AST object to test
       #
