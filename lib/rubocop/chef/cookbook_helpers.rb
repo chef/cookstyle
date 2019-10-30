@@ -60,7 +60,7 @@ module RuboCop
       private
 
       #
-      # given a node object does it lookk like a chef resource or not?
+      # given a node object does it look like a chef resource or not?
       #
       # @param [RuboCop::AST::Node] node AST object to test
       #
