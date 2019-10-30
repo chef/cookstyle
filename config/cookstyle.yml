@@ -556,6 +556,11 @@ ChefDeprecations/VerifyPropertyUsesFileExpansion:
   Exclude:
     - '**/metadata.rb'
 
+ChefDeprecations/PoiseArchiveUsage:
+  Description: he poise_archive resource in the deprecated poise-archive should be replaced with the archive_file resource found in Chef Infra Client 15+.
+  Enabled: true
+  VersionAdded: '5.11.0'
+
 ###############################
 # ChefModernize: Cleaning up legacy code and using new built-in resources
 ###############################
@@ -822,6 +827,13 @@ ChefModernize/ResourceNameFromInitialize:
     - '**/resources/*.rb'
     - '**/providers/*.rb'
     - '**/libraries/*.rb'
+
+ChefModernize/Definitions:
+  Description: Legacy Chef Infra definitions should be rewritten as custom resources to take full advantage of the Chef Infra feature set.
+  Enabled: true
+  VersionAdded: '5.11.0'
+  Include:
+    - '**/definitions/*.rb'
 
 ###############################
 # Migrating to new patterns
