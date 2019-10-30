@@ -816,6 +816,8 @@ Layout/LeadingCommentSpace:
   StyleGuide: '#hash-space'
   Enabled: true
   VersionAdded: '0.49'
+  VersionChanged: '0.73'
+  AllowDoxygenCommentStyle: false
 
 Layout/MultilineArrayBraceLayout:
   Description: >-
@@ -1589,6 +1591,11 @@ Lint/ScriptPermission:
   VersionAdded: '0.49'
   VersionChanged: '0.50'
 
+Lint/SendWithMixinArgument:
+  Description: 'Checks for `send` method when using mixin.'
+  Enabled: true
+  VersionAdded: '0.75'
+
 Lint/ShadowedArgument:
   Description: 'Avoid reassigning arguments before they were used.'
   Enabled: true
@@ -1660,6 +1667,7 @@ Lint/UnneededSplatExpansion:
   Description: 'Checks for splat unnecessarily being called on literals.'
   Enabled: true
   VersionAdded: '0.43'
+  VersionChanged: '0.74'
 
 Lint/UnreachableCode:
   Description: 'Unreachable code.'
@@ -1743,7 +1751,7 @@ Metrics/AbcSize:
                  branches, and conditions.
   Reference:
     - http://c2.com/cgi/wiki?AbcMetric
-    - https://en.wikipedia.org/wiki/ABC_Software_Metric'
+    - https://en.wikipedia.org/wiki/ABC_Software_Metric
   Enabled: true
   VersionAdded: '0.27'
   VersionChanged: '0.66'
@@ -1807,7 +1815,7 @@ Metrics/LineLength:
     - https
   # The IgnoreCopDirectives option causes the LineLength rule to ignore cop
   # directives like '# rubocop: enable ...' when calculating a line's length.
-  IgnoreCopDirectives: false
+  IgnoreCopDirectives: true
   # The IgnoredPatterns option is a list of !ruby/regexp and/or string
   # elements. Strings will be converted to Regexp objects. A line that matches
   # any regular expression listed in this option will be ignored by LineLength.
@@ -1845,6 +1853,14 @@ Metrics/PerceivedComplexity:
   Enabled: true
   VersionAdded: '0.25'
   Max: 7
+
+################## Migration #############################
+
+Migration/DepartmentName:
+  Description: >-
+                 Check that cop names in rubocop:disable (etc) comments are
+                 given with department name.
+  Enabled: false
 
 #################### Naming ##############################
 
@@ -1981,6 +1997,13 @@ Naming/MethodName:
   SupportedStyles:
     - snake_case
     - camelCase
+  # Method names matching patterns are always allowed.
+  #
+  #   IgnoredPatterns:
+  #     - '\A\s*onSelectionBulkChange\s*'
+  #     - '\A\s*onSelectionCleared\s*'
+  #
+  IgnoredPatterns: []
 
 Naming/PredicateName:
   Description: 'Check the names of predicate methods.'
@@ -2344,7 +2367,7 @@ Style/ClassAndModuleChildren:
   StyleGuide: '#namespace-definition'
   # Moving from compact to nested children requires knowledge of whether the
   # outer parent is a module or a class. Moving from nested to compact requires
-  # verification that the outer parent is defined elsewhere. RuboCop does not
+  # verification that the outer parent is defined elsewhere. Rubocop does not
   # have the knowledge to perform either operation safely and thus requires
   # manual oversight.
   SafeAutoCorrect: false
@@ -2555,6 +2578,11 @@ Style/DocumentationMethod:
     - 'test/**/*'
   RequireForNonPublicMethods: false
 
+Style/DoubleCopDisableDirective:
+  Description: 'Checks for double rubocop:disable comments on a single line.'
+  Enabled: true
+  VersionAdded: '0.73'
+
 Style/DoubleNegation:
   Description: 'Checks for uses of double negation (!!).'
   StyleGuide: '#no-bang-bang'
@@ -2698,7 +2726,7 @@ Style/FormatStringToken:
     - template
     - unannotated
   VersionAdded: '0.49'
-  VersionChanged: '0.52'
+  VersionChanged: '0.75'
 
 Style/FrozenStringLiteralComment:
   Description: >-
@@ -2891,6 +2919,7 @@ Style/MethodCallWithArgsParentheses:
   VersionChanged: '0.61'
   IgnoreMacros: true
   IgnoredMethods: []
+  IgnoredPatterns: []
   IncludedMacros: []
   AllowParenthesesInMultilineCall: false
   AllowParenthesesInChaining: false
@@ -3040,6 +3069,12 @@ Style/MultilineTernaryOperator:
   StyleGuide: '#no-multiline-ternary'
   Enabled: true
   VersionAdded: '0.9'
+
+Style/MultilineWhenThen:
+  Description: 'Do not use then for multi-line when statement.'
+  StyleGuide: '#no-then'
+  Enabled: true
+  VersionAdded: '0.73'
 
 Style/MultipleComparison:
   Description: >-
@@ -3572,6 +3607,8 @@ Style/StringHashKeys:
   StyleGuide: '#symbols-as-keys'
   Enabled: false
   VersionAdded: '0.52'
+  VersionChanged: '0.75'
+  Safe: false
 
 Style/StringLiterals:
   Description: 'Checks if uses of quotes match the configured preference.'
@@ -3890,8 +3927,9 @@ Style/YodaCondition:
     - require_for_all_comparison_operators
     # enforce yoda only for equality operators: `!=` and `==`
     - require_for_equality_operators_only
+  Safe: false
   VersionAdded: '0.49'
-  VersionChanged: '0.63'
+  VersionChanged: '0.75'
 
 Style/ZeroLengthPredicate:
   Description: 'Use #empty? when testing for objects of length 0.'

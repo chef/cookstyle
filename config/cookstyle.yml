@@ -1288,6 +1288,19 @@ Metrics/CyclomaticComplexity:
 Metrics/PerceivedComplexity:
   Enabled: false
 
+#### COPS FOR THE NEXT MAJOR RELEASE
+
+# This updates how we send helpers into the Chef recipe/resource classes and makes WAY more sense
+# Chef::Recipe.send(:include, ::Apt::Helpers) -> Chef::Recipe.include ::Apt::Helpers
+# Lint/SendWithMixinArgument:
+#   Enabled: true
+
+#### END COPS FOR THE NEXT MAJOR RELEASE
+
+# this migrates old # rubocop: comments to use the latest namespaces, which prevents a ton of spam during cookstyle runs
+Migration/DepartmentName:
+  Enabled: true
+
 # https://github.com/chef/cookstyle/pull/5
 Style/TrailingCommaInHashLiteral:
   Enabled: true
