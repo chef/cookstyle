@@ -1,4 +1,6 @@
 ---
+Migration/DepartmentName:
+  Enabled: false
 Bundler/DuplicatedGem:
   Enabled: false
 Bundler/GemComment:
@@ -303,6 +305,8 @@ Lint/SafeNavigationWithEmpty:
   Enabled: false
 Lint/ScriptPermission:
   Enabled: false
+Lint/SendWithMixinArgument:
+  Enabled: false
 Lint/ShadowedArgument:
   Enabled: false
 Lint/ShadowedException:
@@ -465,6 +469,8 @@ Style/DocumentationMethod:
   Enabled: false
 Style/Documentation:
   Enabled: false
+Style/DoubleCopDisableDirective:
+  Enabled: false
 Style/DoubleNegation:
   Enabled: false
 Style/EachForSimpleLoop:
@@ -568,6 +574,8 @@ Style/MultilineMethodSignature:
 Style/MultilineMemoization:
   Enabled: false
 Style/MultilineTernaryOperator:
+  Enabled: false
+Style/MultilineWhenThen:
   Enabled: false
 Style/MultipleComparison:
   Enabled: false
