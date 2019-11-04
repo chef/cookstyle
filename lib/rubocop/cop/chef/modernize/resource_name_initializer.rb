@@ -53,7 +53,7 @@ module RuboCop
             lambda do |corrector|
               # insert the new resource_name call above the initialize method
               initialize_node = intialize_method(processed_source.ast).first
-              corrector.insert_before(initialize_node.source_range, "resource_name #{node.asgn_rhs.source}\n\n")
+              corrector.insert_before(initialize_node.source_range, "resource_name #{node.descendants.first.source}\n\n")
 
               # remove the variable from the initialize method
               corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
