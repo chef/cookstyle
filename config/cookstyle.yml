@@ -561,6 +561,13 @@ ChefDeprecations/PoiseArchiveUsage:
   Enabled: true
   VersionAdded: '5.11.0'
 
+ChefDeprecations/PartialSearchHelperUsage:
+  Description: Legacy partial_search usage should be updated to use :filter_keys in the search helper instead.
+  Enabled: true
+  VersionAdded: '5.11.0'
+  Exclude:
+    - '**/metadata.rb'
+
 ###############################
 # ChefModernize: Cleaning up legacy code and using new built-in resources
 ###############################
