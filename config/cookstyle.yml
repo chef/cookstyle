@@ -557,7 +557,7 @@ ChefDeprecations/VerifyPropertyUsesFileExpansion:
     - '**/metadata.rb'
 
 ChefDeprecations/PoiseArchiveUsage:
-  Description: he poise_archive resource in the deprecated poise-archive should be replaced with the archive_file resource found in Chef Infra Client 15+.
+  Description: The poise_archive resource in the deprecated poise-archive should be replaced with the archive_file resource found in Chef Infra Client 15+.
   Enabled: true
   VersionAdded: '5.11.0'
 
