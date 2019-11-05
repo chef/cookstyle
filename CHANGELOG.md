@@ -1,10 +1,10 @@
 # Cookstyle Changelog
 
-<!-- latest_release 5.10.15 -->
-## [v5.10.15](https://github.com/chef/cookstyle/tree/v5.10.15) (2019-11-04)
+ <!-- latest_release unreleased -->
+## Unreleased
 
 #### Merged Pull Requests
-- Fix docs updater script to work with Rubocop 0.75+ [#361](https://github.com/chef/cookstyle/pull/361) ([tas50](https://github.com/tas50))
+- Update to Rubocop 0.75.1 [#359](https://github.com/chef/cookstyle/pull/359) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.10.13 -->

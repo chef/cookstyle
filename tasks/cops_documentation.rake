@@ -134,7 +134,6 @@ begin
     end
 
     def references(config, cop)
-      cop_config = config.for_cop(cop)
       urls = RuboCop::Cop::MessageAnnotator.new(config, cop.name, config.for_cop(cop), {}).urls
       return '' if urls.empty?
 
