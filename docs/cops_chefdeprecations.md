@@ -641,6 +641,34 @@ Name | Default value | Configurable values
 VersionAdded | `5.1.0` | String
 Exclude | `**/metadata.rb` | Array
 
+## ChefDeprecations/PoiseArchiveUsage
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+The poise_archive resource in the deprecated poise-archive should be replaced with the archive_file resource found in Chef Infra Client 15+.
+
+### Examples
+
+```ruby
+# bad
+poise_archive 'https://example.com/myapp.tgz' do
+  destination '/opt/myapp'
+end
+
+# good
+archive_file 'https://example.com/myapp.tgz' do
+  destination '/opt/myapp'
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.11.0` | String
+
 ## ChefDeprecations/ProvidesMetadata
 
 Enabled by default | Supports autocorrection

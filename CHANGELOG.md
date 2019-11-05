@@ -1,9 +1,10 @@
 # Cookstyle Changelog
 
- <!-- latest_release unreleased -->
-## Unreleased
+ <!-- latest_release 5.10.16 -->
+## [v5.10.16](https://github.com/chef/cookstyle/tree/v5.10.16) (2019-11-05)
 
 #### Merged Pull Requests
+- Add new poise_archive cop and definition cop [#362](https://github.com/chef/cookstyle/pull/362) ([tas50](https://github.com/tas50))
 - Update to Rubocop 0.75.1 [#359](https://github.com/chef/cookstyle/pull/359) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
@@ -11,6 +12,7 @@
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add new poise_archive cop and definition cop [#362](https://github.com/chef/cookstyle/pull/362) ([tas50](https://github.com/tas50)) <!-- 5.10.16 -->
 - Fix docs updater script to work with Rubocop 0.75+ [#361](https://github.com/chef/cookstyle/pull/361) ([tas50](https://github.com/tas50)) <!-- 5.10.15 -->
 - Add additional helpers for working with resources [#310](https://github.com/chef/cookstyle/pull/310) ([tas50](https://github.com/tas50)) <!-- 5.10.14 -->
 <!-- release_rollup -->

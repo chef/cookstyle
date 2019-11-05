@@ -143,6 +143,21 @@ Name | Default value | Configurable values
 VersionAdded | `5.3.0` | String
 Include | `**/libraries/*.rb` | Array
 
+## ChefModernize/Definitions
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+In 2016 with Chef Infra Client 12.5 Custom Resources were introduced as a way of writing reusable resource code that could be shipped in cookbooks. Custom Resources offer many advantages of legacy Definitions including unit testing with ChefSpec, input validation, actions, commmon properties like not_if/only_if, and resource reporting.
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.11.0` | String
+Include | `**/definitions/*.rb` | Array
+
 ## ChefModernize/DependsOnZypperCookbook
 
 Enabled by default | Supports autocorrection
