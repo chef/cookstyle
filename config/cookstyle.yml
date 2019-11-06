@@ -568,6 +568,13 @@ ChefDeprecations/PartialSearchHelperUsage:
   Exclude:
     - '**/metadata.rb'
 
+ChefDeprecations/SearchUsesPositionalParameters:
+  Description: Don't use deprecated positional parameters in cookbook search queries.
+  Enabled: true
+  VersionAdded: '5.11.0'
+  Exclude:
+    - '**/metadata.rb'
+
 ###############################
 # ChefModernize: Cleaning up legacy code and using new built-in resources
 ###############################
