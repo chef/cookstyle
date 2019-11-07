@@ -18,7 +18,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefDeprecations
-        # Legacy Chef::PartialSearch class usage should be updated to use the `search` helper instead with the `filter_results` key.
+        # Legacy Chef::PartialSearch class usage should be updated to use the `search` helper instead with the `filter_result` key.
         #
         # @example
         #
@@ -47,7 +47,7 @@ module RuboCop
         #   end
         #
         class PartialSearchClassUsage < Cop
-          MSG = 'Legacy Chef::PartialSearch class usage should be updated to use the search helper instead with the filter_results key.'.freeze
+          MSG = 'Legacy Chef::PartialSearch class usage should be updated to use the search helper instead with the filter_result key.'.freeze
 
           def_node_matcher :partial_search_class?, <<-PATTERN
             (send (const (const ... :Chef) :PartialSearch) :new)

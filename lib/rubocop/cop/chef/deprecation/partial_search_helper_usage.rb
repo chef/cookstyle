@@ -18,7 +18,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefDeprecations
-        # Legacy partial_search usage should be updated to use :filter_keys in the search helper instead
+        # Legacy partial_search usage should be updated to use :filter_result in the search helper instead
         #
         # @example
         #
@@ -47,7 +47,7 @@ module RuboCop
         #   end
         #
         class PartialSearchHelperUsage < Cop
-          MSG = 'Legacy partial_search usage should be updated to use :filter_keys in the search helper instead'.freeze
+          MSG = 'Legacy partial_search usage should be updated to use :filter_result in the search helper instead'.freeze
 
           def on_send(node)
             add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :partial_search

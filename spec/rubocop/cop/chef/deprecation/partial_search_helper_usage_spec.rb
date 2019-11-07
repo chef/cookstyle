@@ -23,7 +23,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::PartialSearchHelperUsage, :config
   it 'registers an offense when using the partial_search helper' do
     expect_offense(<<~RUBY)
       partial_search(:node, 'role:web',
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Legacy partial_search usage should be updated to use :filter_keys in the search helper instead
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Legacy partial_search usage should be updated to use :filter_result in the search helper instead
         keys: { 'name' => [ 'name' ],
                 'ip' => [ 'ipaddress' ],
                 'kernel_version' => %w(kernel version),

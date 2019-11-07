@@ -23,7 +23,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::PartialSearchClassUsage, :config 
   it 'registers an offense when using the Chef::PartialSearch class directly' do
     expect_offense(<<~RUBY)
       ::Chef::PartialSearch.new.search(search_key, query, :keys => partial_search_keys, :sort => sort_key) do |config|
-      ^^^^^^^^^^^^^^^^^^^^^^^^^ Legacy Chef::PartialSearch class usage should be updated to use the search helper instead with the filter_results key.
+      ^^^^^^^^^^^^^^^^^^^^^^^^^ Legacy Chef::PartialSearch class usage should be updated to use the search helper instead with the filter_result key.
         puts result['name']
       end
     RUBY
