@@ -21,6 +21,7 @@ data_bag(data_bag_name)
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.1.0` | String
+Exclude | `**/metadata.rb` | Array
 
 ## ChefEffortless/CookbookUsesEnvironmments
 
@@ -43,6 +44,7 @@ node.chef_environment == "production"
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.10.0` | String
+Exclude | `**/metadata.rb` | Array
 
 ## ChefEffortless/CookbookUsesPolicygroups
 
@@ -64,6 +66,7 @@ node.policy_group == "foo"
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.10.0` | String
+Exclude | `**/metadata.rb` | Array
 
 ## ChefEffortless/CookbookUsesRoles
 
@@ -86,6 +89,7 @@ node.roles.include?('webserver')
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.10.0` | String
+Exclude | `**/metadata.rb` | Array
 
 ## ChefEffortless/CookbookUsesSearch
 
@@ -107,3 +111,27 @@ search(:node, 'run_list:recipe\[bacula\:\:server\]')
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.1.0` | String
+Exclude | `**/metadata.rb` | Array
+
+## ChefEffortless/SearchForEnvironmentsOrRoles
+
+Enabled by default | Supports autocorrection
+--- | ---
+Disabled | No
+
+Policyfiles (and Effortless) do not use environments or roles so searching for those will need to be refactored before migrating to Policyfiles and the Effortless pattern.
+
+### Examples
+
+```ruby
+# bad
+search(:node, 'chef_environment:foo')
+search(:node, 'role:bar')
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.11.0` | String
+Exclude | `**/metadata.rb` | Array
