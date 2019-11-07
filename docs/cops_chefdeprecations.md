@@ -641,13 +641,56 @@ Name | Default value | Configurable values
 VersionAdded | `5.1.0` | String
 Exclude | `**/metadata.rb` | Array
 
+## ChefDeprecations/PartialSearchClassUsage
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+Legacy Chef::PartialSearch class usage should be updated to use the `search` helper instead with the `filter_result` key.
+
+### Examples
+
+```ruby
+# bad
+::Chef::PartialSearch.new.search((:node, 'role:web',
+  keys: { 'name' => [ 'name' ],
+          'ip' => [ 'ipaddress' ],
+          'kernel_version' => %w(kernel version),
+            }
+).each do |result|
+  puts result['name']
+  puts result['ip']
+  puts result['kernel_version']
+end
+
+# good
+search(:node, 'role:web',
+  filter_result: { 'name' => [ 'name' ],
+                   'ip' => [ 'ipaddress' ],
+                   'kernel_version' => %w(kernel version),
+            }
+).each do |result|
+  puts result['name']
+  puts result['ip']
+  puts result['kernel_version']
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.11.0` | String
+Exclude | `**/metadata.rb` | Array
+
 ## ChefDeprecations/PartialSearchHelperUsage
 
 Enabled by default | Supports autocorrection
 --- | ---
 Enabled | No
 
-Legacy partial_search usage should be updated to use :filter_keys in the search helper instead
+Legacy partial_search usage should be updated to use :filter_result in the search helper instead
 
 ### Examples
 
