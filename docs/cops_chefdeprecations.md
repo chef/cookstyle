@@ -942,6 +942,26 @@ Name | Default value | Configurable values
 VersionAdded | `5.7.0` | String
 Include | `**/libraries/*.rb`, `**/providers/*.rb`, `**/resources/*.rb` | Array
 
+## ChefDeprecations/SearchUsesPositionalParameters
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+good
+
+query(:node, '*:*')
+ search(:node, '*:*', start: 0, rows: 1000, filter_result: { :ip_address => ["ipaddress"] })
+ search(:node, '*:*', start: 0, rows: 1000)
+ search(:node, '*:*', start: 0)
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.11.0` | String
+Exclude | `**/metadata.rb` | Array
+
 ## ChefDeprecations/SuggestsMetadata
 
 Enabled by default | Supports autocorrection

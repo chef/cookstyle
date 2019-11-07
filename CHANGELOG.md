@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.10.17 -->
-## [v5.10.17](https://github.com/chef/cookstyle/tree/v5.10.17) (2019-11-05)
+ <!-- latest_release 5.10.18 -->
+## [v5.10.18](https://github.com/chef/cookstyle/tree/v5.10.18) (2019-11-07)
 
 #### Merged Pull Requests
-- Add ChefDeprecations/PartialSearchHelperUsage [#363](https://github.com/chef/cookstyle/pull/363) ([tas50](https://github.com/tas50))
+- Add ChefDeprecations/SearchUsesPositionalParameters: [#366](https://github.com/chef/cookstyle/pull/366) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.10.13 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add ChefDeprecations/SearchUsesPositionalParameters: [#366](https://github.com/chef/cookstyle/pull/366) ([tas50](https://github.com/tas50)) <!-- 5.10.18 -->
 - Add ChefDeprecations/PartialSearchHelperUsage [#363](https://github.com/chef/cookstyle/pull/363) ([tas50](https://github.com/tas50)) <!-- 5.10.17 -->
 - Add new poise_archive cop and definition cop [#362](https://github.com/chef/cookstyle/pull/362) ([tas50](https://github.com/tas50)) <!-- 5.10.16 -->
 - Fix docs updater script to work with Rubocop 0.75+ [#361](https://github.com/chef/cookstyle/pull/361) ([tas50](https://github.com/tas50)) <!-- 5.10.15 -->

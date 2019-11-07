@@ -63,6 +63,7 @@
 * [ChefDeprecations/ResourceUsesDslNameMethod](cops_chefdeprecations.md#chefdeprecationsresourceusesdslnamemethod)
 * [ChefDeprecations/ResourceUsesProviderBaseMethod](cops_chefdeprecations.md#chefdeprecationsresourceusesproviderbasemethod)
 * [ChefDeprecations/ResourceUsesUpdatedMethod](cops_chefdeprecations.md#chefdeprecationsresourceusesupdatedmethod)
+* [ChefDeprecations/SearchUsesPositionalParameters](cops_chefdeprecations.md#chefdeprecationssearchusespositionalparameters)
 * [ChefDeprecations/SuggestsMetadata](cops_chefdeprecations.md#chefdeprecationssuggestsmetadata)
 * [ChefDeprecations/UseInlineResourcesDefined](cops_chefdeprecations.md#chefdeprecationsuseinlineresourcesdefined)
 * [ChefDeprecations/UserDeprecatedSupportsProperty](cops_chefdeprecations.md#chefdeprecationsuserdeprecatedsupportsproperty)
