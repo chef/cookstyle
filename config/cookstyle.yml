@@ -864,26 +864,43 @@ ChefEffortless/CookbookUsesSearch:
   Description: Cookbook uses search, which cannot be used in the Effortless Infra pattern
   Enabled: false
   VersionAdded: '5.1.0'
+  Exclude:
+    - '**/metadata.rb'
 
 ChefEffortless/CookbookUsesDatabags:
   Description: Cookbook uses data bags, which cannot be used in the Effortless Infra pattern
   Enabled: false
   VersionAdded: '5.1.0'
+  Exclude:
+    - '**/metadata.rb'
 
 ChefEffortless/CookbookUsesEnvironmments:
   Description: Cookbook uses environments, which cannot be used in the Effortless Infra pattern
   Enabled: false
   VersionAdded: '5.10.0'
+  Exclude:
+    - '**/metadata.rb'
 
 ChefEffortless/CookbookUsesPolicygroups:
   Description: Cookbook uses Policy Groups, which cannot be used in the Effortless Infra pattern
   Enabled: false
   VersionAdded: '5.10.0'
+  Exclude:
+    - '**/metadata.rb'
 
 ChefEffortless/CookbookUsesRoles:
   Description: Cookbook uses Roles, which cannot be used in the Effortless Infra pattern
   Enabled: false
   VersionAdded: '5.10.0'
+  Exclude:
+    - '**/metadata.rb'
+
+ChefEffortless/SearchForEnvironmentsOrRoles:
+  Description: Cookbook uses search with a node query that looks for a role or environment
+  Enabled: false
+  VersionAdded: '5.11.0'
+  Exclude:
+    - '**/metadata.rb'
 
 #### The base rubocop 0.37 enabled.yml file we started with ####
 
