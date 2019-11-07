@@ -57,6 +57,13 @@ module RuboCop
 
           private
 
+          #
+          # Are the arguments in the passed node object positional
+          #
+          # @param [RuboCop::AST::Node] node
+          #
+          # @return [Boolean]
+          #
           def positional_arguments?(node)
             return false if node.arguments.count < 3
             node.arguments[2..-1].each do |arg|
@@ -66,6 +73,13 @@ module RuboCop
             false
           end
 
+          #
+          # Return the corrected search string
+          #
+          # @param [RuboCop::AST::Node] node
+          #
+          # @return [String]
+          #
           def corrected_string(node)
             args = node.arguments
 
@@ -77,8 +91,15 @@ module RuboCop
             "search(#{args.collect.with_index { |arg, i| hashify_argument(arg, i) }.join(', ')})"
           end
 
+          #
           # lookup the position in NAMED_PARAM_LOOKUP_TABLE to create a new
           # hashified version of the query. Also convert Integer like Strings into Integers
+          #
+          # @param [RuboCop::AST::Node] arg
+          # @param [Integer] position
+          #
+          # @return [String]
+          #
           def hashify_argument(arg, position)
             hash_key = NAMED_PARAM_LOOKUP_TABLE[position]
             if hash_key
@@ -96,7 +117,7 @@ module RuboCop
           #
           # Does this value look like an Integer (it's an integer or a string)
           #
-          # @param [<Type>] val
+          # @param [RuboCop::AST::Node] val
           #
           # @return [Boolean]
           #
