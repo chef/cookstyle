@@ -575,6 +575,13 @@ ChefDeprecations/SearchUsesPositionalParameters:
   Exclude:
     - '**/metadata.rb'
 
+ChefDeprecations/PartialSearchClassUsage:
+  Description: Legacy Chef::PartialSearch class usage should be updated to use the search helper instead with the filter_result key.
+  Enabled: true
+  VersionAdded: '5.11.0'
+  Exclude:
+    - '**/metadata.rb'
+
 ###############################
 # ChefModernize: Cleaning up legacy code and using new built-in resources
 ###############################
