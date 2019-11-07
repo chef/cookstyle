@@ -18,12 +18,12 @@ module RuboCop
   module Cop
     module Chef
       module ChefDeprecations
-        # Legacy partial_search usage should be updated to use :filter_result in the search helper instead
+        # Legacy Chef::PartialSearch class usage should be updated to use the `search` helper instead with the `filter_result` key.
         #
         # @example
         #
         #   # bad
-        #   partial_search(:node, 'role:web',
+        #   ::Chef::PartialSearch.new.search((:node, 'role:web',
         #     keys: { 'name' => [ 'name' ],
         #             'ip' => [ 'ipaddress' ],
         #             'kernel_version' => %w(kernel version),
@@ -46,11 +46,17 @@ module RuboCop
         #     puts result['kernel_version']
         #   end
         #
-        class PartialSearchHelperUsage < Cop
-          MSG = 'Legacy partial_search usage should be updated to use :filter_result in the search helper instead'.freeze
+        class PartialSearchClassUsage < Cop
+          MSG = 'Legacy Chef::PartialSearch class usage should be updated to use the search helper instead with the filter_result key.'.freeze
+
+          def_node_matcher :partial_search_class?, <<-PATTERN
+            (send (const (const ... :Chef) :PartialSearch) :new)
+          PATTERN
 
           def on_send(node)
-            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :partial_search
+            partial_search_class?(node) do
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            end
           end
         end
       end

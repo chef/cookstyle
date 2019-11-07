@@ -37,7 +37,7 @@ module RuboCop
         class SearchUsesPositionalParameters < Cop
           MSG = "Don't use deprecated positional parameters in cookbook search queries.".freeze
 
-          NAMED_PARAM_LOOKUP_TABLE = [nil, nil, 'start', 'rows', 'filter_results'].freeze
+          NAMED_PARAM_LOOKUP_TABLE = [nil, nil, 'start', 'rows', 'filter_result'].freeze
 
           def_node_matcher :search_method?, <<-PATTERN
             (send nil? :search ... )

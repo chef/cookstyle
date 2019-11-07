@@ -17,21 +17,14 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefDeprecations::PartialSearchHelperUsage, :config do
+describe RuboCop::Cop::Chef::ChefDeprecations::PartialSearchClassUsage, :config do
   subject(:cop) { described_class.new(config) }
 
-  it 'registers an offense when using the partial_search helper' do
+  it 'registers an offense when using the Chef::PartialSearch class directly' do
     expect_offense(<<~RUBY)
-      partial_search(:node, 'role:web',
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Legacy partial_search usage should be updated to use :filter_result in the search helper instead
-        keys: { 'name' => [ 'name' ],
-                'ip' => [ 'ipaddress' ],
-                'kernel_version' => %w(kernel version),
-                  }
-      ).each do |result|
+      ::Chef::PartialSearch.new.search(search_key, query, :keys => partial_search_keys, :sort => sort_key) do |config|
+      ^^^^^^^^^^^^^^^^^^^^^^^^^ Legacy Chef::PartialSearch class usage should be updated to use the search helper instead with the filter_result key.
         puts result['name']
-        puts result['ip']
-        puts result['kernel_version']
       end
     RUBY
   end

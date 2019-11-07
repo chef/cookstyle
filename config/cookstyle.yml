@@ -562,7 +562,7 @@ ChefDeprecations/PoiseArchiveUsage:
   VersionAdded: '5.11.0'
 
 ChefDeprecations/PartialSearchHelperUsage:
-  Description: Legacy partial_search usage should be updated to use :filter_keys in the search helper instead.
+  Description: Legacy partial_search usage should be updated to use :filter_result in the search helper instead.
   Enabled: true
   VersionAdded: '5.11.0'
   Exclude:
@@ -570,6 +570,13 @@ ChefDeprecations/PartialSearchHelperUsage:
 
 ChefDeprecations/SearchUsesPositionalParameters:
   Description: Don't use deprecated positional parameters in cookbook search queries.
+  Enabled: true
+  VersionAdded: '5.11.0'
+  Exclude:
+    - '**/metadata.rb'
+
+ChefDeprecations/PartialSearchClassUsage:
+  Description: Legacy Chef::PartialSearch class usage should be updated to use the search helper instead with the filter_result key.
   Enabled: true
   VersionAdded: '5.11.0'
   Exclude:
