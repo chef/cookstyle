@@ -7,6 +7,16 @@ begin
     task.options = ['--no-output']
   end
 
+  desc 'Update cop count in the readme'
+  task :update_readme_cop_count do
+    def cop_count
+      Dir.glob('lib/rubocop/cop/**/*.rb').count
+    end
+
+    contents = File.read('README.md').gsub(/ship \*\*\d* Chef/, "ship **#{cop_count} Chef")
+    File.open('README.md', 'w') { |file| file.write(contents) }
+  end
+
   desc 'Generate docs of all cops departments'
   task generate_cops_documentation: :yard_for_generate_documentation do
     def cops_of_department(cops, department)
@@ -252,7 +262,7 @@ begin
         begin
           buffer = Parser::Source::Buffer.new('<code>', 1)
           buffer.source = example.text
-          parser = Parser::Ruby25.new(RuboCop::AST::Builder.new)
+          parser = Parser::Ruby24.new(RuboCop::AST::Builder.new)
           parser.diagnostics.all_errors_are_fatal = true
           parser.parse(buffer)
         rescue Parser::SyntaxError => e
