@@ -122,6 +122,32 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.0.0` | String
 
+## ChefStyle/DefaultCopyrightComments
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+Checks for default copyright comments from the chef generator cookbook command
+
+### Examples
+
+```ruby
+# bad
+Copyright:: 2019 YOUR_NAME
+Copyright:: 2019 YOUR_COMPANY_NAME
+
+# good
+Copyright:: 2019 Tim Smith
+Copyright:: 2019 Chef Software, Inc.
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.12.0` | String
+
 ## ChefStyle/FileMode
 
 Enabled by default | Supports autocorrection

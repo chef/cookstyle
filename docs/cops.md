@@ -130,6 +130,7 @@
 * [ChefStyle/CommentFormat](cops_chefstyle.md#chefstylecommentformat)
 * [ChefStyle/CommentSentenceSpacing](cops_chefstyle.md#chefstylecommentsentencespacing)
 * [ChefStyle/CopyrightCommentFormat](cops_chefstyle.md#chefstylecopyrightcommentformat)
+* [ChefStyle/DefaultCopyrightComments](cops_chefstyle.md#chefstyledefaultcopyrightcomments)
 * [ChefStyle/FileMode](cops_chefstyle.md#chefstylefilemode)
 * [ChefStyle/SimplifyPlatformMajorVersionCheck](cops_chefstyle.md#chefstylesimplifyplatformmajorversioncheck)
 * [ChefStyle/UsePlatformHelpers](cops_chefstyle.md#chefstyleuseplatformhelpers)
