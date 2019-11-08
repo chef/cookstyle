@@ -18,7 +18,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefModernize
-        # Use secure Github and Gitlab URLs for source_url and issues_url
+        # Use the build_essential resource from the build-essential cookbook 5.0+ or Chef Infra Client 14+ instead of using the build-essential::default recipe.
         #
         # @example
         #
@@ -29,6 +29,7 @@ module RuboCop
         #
         #   # good
         #   build_essential 'install compilation tools'
+        #
         class UseBuildEssentialResource < Cop
           MSG = 'Use the build_essential resource instead of the legacy build-essential recipe. This resource ships in the build-essential cookbook v5.0+ and is built into Chef Infra Client 14+'.freeze
 
