@@ -1,3 +1,112 @@
+## Cookstyle 5.11
+
+### 6 New Chef Cops
+
+#### ChefDeprecations/SearchUsesPositionalParameters
+
+The `SearchUsesPositionalParameters` cop will detect if the `search` helper is used with unnamed parameters. In chef-client 12+ the third and later parameters in the search helper must be named hash values. This cop will also search for and remove the legacy `sort` field as that functionality was removed in chef-client 12.
+
+Legacy positional parameter usage in search:
+
+```ruby
+search(:node, '*:*', 0, 1000)
+```
+
+Modern named parameter usage in search:
+
+```ruby
+search(:node, '*:*', start: 0, rows: 1000)
+```
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefDeprecations/PartialSearchHelperUsage
+
+The `PartialSearchHelperUsage` cop detects the `partial_search` helper that was introduced in Chef Client 11.x. This helper was replaced in Chef Client 12 with a built-in partial search and should be replaced with filtering using Chef Infra Client's built-in `search` helper.
+
+Legacy partial_search helper usage:
+
+```ruby
+partial_search(:node, 'role:web',
+               keys: { 'name' => [ 'name' ],
+                       'ip' => [ 'ipaddress' ],
+                       'kernel_version' => %w(kernel version),
+                     })
+```
+
+Modern search usage with filtering:
+
+```ruby
+search(:node, 'role:web',
+       filter_result: { 'name' => [ 'name' ],
+                        'ip' => [ 'ipaddress' ],
+                        'kernel_version' => %w(kernel version),
+                      })
+```
+
+`Enabled by default`: True
+
+`Autocorrects`: No
+
+#### ChefDeprecations/PartialSearchClassUsage
+
+The `PartialSearchClassUsage` cop detects the legacy `partial_search` helper by using the Chef::PartialSearch class. Similar to the `PartialSearchHelperUsage` cop, this functionality should also be replaced with filtering using Chef Infra Client's built-in `search` helper.
+
+Legacy Chef::PartialSearch class usage:
+
+```ruby
+Chef::PartialSearch.new.search(:node, 'role:web',
+     keys: { 'name' => [ 'name' ],
+             'ip' => [ 'ipaddress' ],
+             'kernel_version' => %w(kernel version),
+           })
+```
+
+Modern search usage with filtering:
+
+```ruby
+search(:node, 'role:web',
+       filter_result: { 'name' => [ 'name' ],
+                        'ip' => [ 'ipaddress' ],
+                        'kernel_version' => %w(kernel version),
+                      })
+```
+
+`Enabled by default`: True
+
+`Autocorrects`: No
+
+#### ChefDeprecations/PoiseArchiveUsage
+
+The `PoiseArchiveUsage` cop detects the `poise_archive` resource in cookbooks. Chef Infra Client 15+ ships with the built-in `archive_file` resource which should be used instead.
+
+`Enabled by default`: True
+
+`Autocorrects`: No
+
+#### ChefModernize/Definitions
+
+The `Definitions` cop detects cookbooks that include Definitions. We highly recommend replacing legacy Definitions with Custom Resources. Definitions are not *currently* deprecated, but we do plan to deprecate this functionality in the future. See [Converting Definitions to Custom Resources](https://docs.chef.io/definitions.html) for more information on the benefits of Custom Resources and how to convert legacy Definitions.
+
+`Enabled by default`: True
+
+`Autocorrects`: No
+
+#### ChefEffortless/SearchForEnvironmentsOrRoles
+
+The `SearchForEnvironmentsOrRoles` cop is an optional cop for users who are migrating to Policyfiles or the Effortless pattern. This cop detects searches that find nodes based on their roles and environments. Policyfiles replace roles and environments so these node searches will need to be updated as part of a migration.
+
+`Enabled by default`: False
+
+`Autocorrects`: No
+
+### Other fixes and changes
+
+- The RuboCop engine that powers Cookstyle has been upgraded from 0.72 to 0.75.1. This update includes more than 50 bug fixes that may result in new warnings during your Cookstyle runs. We have also enabled a new `Migration/DepartmentName` cop that will detect and update the names of disabled cops in cookbook code. This will prevent cop name deprecation warnings when you run Cookstyle.
+- The `ChefModernize/RespondToInMetadata` cop will now detect the usage of `if defined?(foo)` in metadata.rb as well.
+
 ## Cookstyle 5.10
 
 ### 11 New Chef Cops
