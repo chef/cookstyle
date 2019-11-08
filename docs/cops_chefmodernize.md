@@ -863,7 +863,7 @@ Enabled by default | Supports autocorrection
 --- | ---
 Enabled | Yes
 
-Use secure Github and Gitlab URLs for source_url and issues_url
+Use the build_essential resource from the build-essential cookbook 5.0+ or Chef Infra Client 14+ instead of using the build-essential::default recipe.
 
 ### Examples
 
