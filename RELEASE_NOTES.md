@@ -52,7 +52,7 @@ search(:node, 'role:web',
 
 #### ChefDeprecations/PartialSearchClassUsage
 
-The `PartialSearchHelperUsage` detects usage of the legacy partial_search helper functionality by using the Chef::PartialSearch class. Similar to the `PartialSearchHelperUsage` cop this functionality should also be replaced with filtering in Chef Infra Client's built-in `search` helper.
+The `PartialSearchClassUsage` cop detects the legacy `partial_search` helper by using the Chef::PartialSearch class. Similar to the `PartialSearchHelperUsage` cop, this functionality should also be replaced with filtering using Chef Infra Client's built-in `search` helper.
 
 Legacy Chef::PartialSearch class usage:
 
