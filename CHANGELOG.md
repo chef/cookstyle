@@ -1,35 +1,32 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.11.0 -->
-## [v5.11.0](https://github.com/chef/cookstyle/tree/v5.11.0) (2019-11-08)
-
-#### Merged Pull Requests
-- Add 5.11 release notes [#384](https://github.com/chef/cookstyle/pull/384) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=5.10.13 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Add 5.11 release notes [#384](https://github.com/chef/cookstyle/pull/384) ([tas50](https://github.com/tas50)) <!-- 5.11.0 -->
-- RespondToInMetadata: Catch if defined in metadata as well [#385](https://github.com/chef/cookstyle/pull/385) ([tas50](https://github.com/tas50)) <!-- 5.10.22 -->
-- Fix the description of ChefModernize/UseBuildEssentialResource [#386](https://github.com/chef/cookstyle/pull/386) ([tas50](https://github.com/tas50)) <!-- 5.10.21 -->
-- Add ChefEffortless/SearchForEnvironmentsOrRoles [#368](https://github.com/chef/cookstyle/pull/368) ([tas50](https://github.com/tas50)) <!-- 5.10.20 -->
-- Add ChefDeprecations/PartialSearchClassUsage [#367](https://github.com/chef/cookstyle/pull/367) ([tas50](https://github.com/tas50)) <!-- 5.10.19 -->
-- Add ChefDeprecations/SearchUsesPositionalParameters: [#366](https://github.com/chef/cookstyle/pull/366) ([tas50](https://github.com/tas50)) <!-- 5.10.18 -->
-- Add ChefDeprecations/PartialSearchHelperUsage [#363](https://github.com/chef/cookstyle/pull/363) ([tas50](https://github.com/tas50)) <!-- 5.10.17 -->
-- Add new poise_archive cop and definition cop [#362](https://github.com/chef/cookstyle/pull/362) ([tas50](https://github.com/tas50)) <!-- 5.10.16 -->
-- Fix docs updater script to work with Rubocop 0.75+ [#361](https://github.com/chef/cookstyle/pull/361) ([tas50](https://github.com/tas50)) <!-- 5.10.15 -->
-- Add additional helpers for working with resources [#310](https://github.com/chef/cookstyle/pull/310) ([tas50](https://github.com/tas50)) <!-- 5.10.14 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v5.11.0](https://github.com/chef/cookstyle/tree/v5.11.0) (2019-11-08)
+
+#### Merged Pull Requests
+- Add additional helpers for working with resources [#310](https://github.com/chef/cookstyle/pull/310) ([tas50](https://github.com/tas50))
+- Fix docs updater script to work with Rubocop 0.75+ [#361](https://github.com/chef/cookstyle/pull/361) ([tas50](https://github.com/tas50))
+- Add new poise_archive cop and definition cop [#362](https://github.com/chef/cookstyle/pull/362) ([tas50](https://github.com/tas50))
+- Add ChefDeprecations/PartialSearchHelperUsage [#363](https://github.com/chef/cookstyle/pull/363) ([tas50](https://github.com/tas50))
+- Add ChefDeprecations/SearchUsesPositionalParameters: [#366](https://github.com/chef/cookstyle/pull/366) ([tas50](https://github.com/tas50))
+- Add ChefDeprecations/PartialSearchClassUsage [#367](https://github.com/chef/cookstyle/pull/367) ([tas50](https://github.com/tas50))
+- Add ChefEffortless/SearchForEnvironmentsOrRoles [#368](https://github.com/chef/cookstyle/pull/368) ([tas50](https://github.com/tas50))
+- Fix the description of ChefModernize/UseBuildEssentialResource [#386](https://github.com/chef/cookstyle/pull/386) ([tas50](https://github.com/tas50))
+- RespondToInMetadata: Catch if defined in metadata as well [#385](https://github.com/chef/cookstyle/pull/385) ([tas50](https://github.com/tas50))
+- Add 5.11 release notes [#384](https://github.com/chef/cookstyle/pull/384) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v5.10.13](https://github.com/chef/cookstyle/tree/v5.10.13) (2019-10-25)
 
 #### Merged Pull Requests
 - Detect poise-service in addition to just poise [#353](https://github.com/chef/cookstyle/pull/353) ([tas50](https://github.com/tas50))
 - Fix the files we target with NotifiesActionNotSymbol &amp; IncorrectLibraryInjection [#357](https://github.com/chef/cookstyle/pull/357) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v5.10.11](https://github.com/chef/cookstyle/tree/v5.10.11) (2019-10-24)
 
