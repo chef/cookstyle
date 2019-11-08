@@ -644,7 +644,7 @@ Enabled by default | Supports autocorrection
 --- | ---
 Enabled | Yes
 
-It is not longer necessary respond_to?(:foo) in metadata. This was used to support new metadata
+It is not longer necessary respond_to?(:foo) or defined?(foo) in metadata. This was used to support new metadata
 methods in Chef 11 and early versions of Chef 12.
 
 ### Examples
@@ -652,6 +652,7 @@ methods in Chef 11 and early versions of Chef 12.
 ```ruby
 # bad
 chef_version '>= 13' if respond_to?(:chef_version)
+chef_version '>= 13' if defined?(chef_version)
 
 # good
 chef_version '>= 13'

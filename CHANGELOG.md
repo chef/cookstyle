@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.10.21 -->
-## [v5.10.21](https://github.com/chef/cookstyle/tree/v5.10.21) (2019-11-08)
+ <!-- latest_release 5.10.22 -->
+## [v5.10.22](https://github.com/chef/cookstyle/tree/v5.10.22) (2019-11-08)
 
 #### Merged Pull Requests
-- Fix the description of ChefModernize/UseBuildEssentialResource [#386](https://github.com/chef/cookstyle/pull/386) ([tas50](https://github.com/tas50))
+- RespondToInMetadata: Catch if defined in metadata as well [#385](https://github.com/chef/cookstyle/pull/385) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.10.13 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- RespondToInMetadata: Catch if defined in metadata as well [#385](https://github.com/chef/cookstyle/pull/385) ([tas50](https://github.com/tas50)) <!-- 5.10.22 -->
 - Fix the description of ChefModernize/UseBuildEssentialResource [#386](https://github.com/chef/cookstyle/pull/386) ([tas50](https://github.com/tas50)) <!-- 5.10.21 -->
 - Add ChefEffortless/SearchForEnvironmentsOrRoles [#368](https://github.com/chef/cookstyle/pull/368) ([tas50](https://github.com/tas50)) <!-- 5.10.20 -->
 - Add ChefDeprecations/PartialSearchClassUsage [#367](https://github.com/chef/cookstyle/pull/367) ([tas50](https://github.com/tas50)) <!-- 5.10.19 -->
