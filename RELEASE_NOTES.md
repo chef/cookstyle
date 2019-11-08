@@ -4,7 +4,7 @@
 
 #### ChefDeprecations/SearchUsesPositionalParameters
 
-The `SearchUsesPositionalParameters` cop detect the usage of the `search` helper with unnamed parameters. In chef-client 12+ the 3rd and later parameters in the search helper must be named hash values. This cop will also remove the legacy `sort` field if found as that functionality was removed in chef-client 12.
+The `SearchUsesPositionalParameters` cop will detect if the `search` helper is used with unnamed parameters. In chef-client 12+ the third and later parameters in the search helper must be named hash values. This cop will also search for and remove the legacy `sort` field as that functionality was removed in chef-client 12.
 
 Legacy positional parameter usage in search
 
