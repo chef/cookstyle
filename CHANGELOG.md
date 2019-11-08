@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.12.1 -->
-## [v5.12.1](https://github.com/chef/cookstyle/tree/v5.12.1) (2019-11-08)
+ <!-- latest_release 5.12.2 -->
+## [v5.12.2](https://github.com/chef/cookstyle/tree/v5.12.2) (2019-11-08)
 
 #### Merged Pull Requests
-- Add ChefStyle/DefaultCopyrightComments [#393](https://github.com/chef/cookstyle/pull/393) ([tas50](https://github.com/tas50))
+- Add ChefModernize/ZipfileResource [#392](https://github.com/chef/cookstyle/pull/392) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.11.0 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add ChefModernize/ZipfileResource [#392](https://github.com/chef/cookstyle/pull/392) ([tas50](https://github.com/tas50)) <!-- 5.12.2 -->
 - Add ChefStyle/DefaultCopyrightComments [#393](https://github.com/chef/cookstyle/pull/393) ([tas50](https://github.com/tas50)) <!-- 5.12.1 -->
 - Add ChefModernize/IfProvidesDefaultAction cop [#389](https://github.com/chef/cookstyle/pull/389) ([tas50](https://github.com/tas50)) <!-- 5.12.0 -->
 - Update the readme cop count on each merge [#388](https://github.com/chef/cookstyle/pull/388) ([tas50](https://github.com/tas50)) <!-- 5.11.1 -->

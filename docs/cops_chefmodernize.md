@@ -1017,3 +1017,26 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.4.0` | String
 Exclude | `**/metadata.rb` | Array
+
+## ChefModernize/ZipfileResource
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+Use the archive_file resource built into Chef Infra Client 15+ instead of the zipfile resource from the zipfile cookbook.
+
+### Examples
+
+```ruby
+# bad
+zipfile "C:\file.zip" do
+  path 'C:\expand_here'
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.12.0` | String

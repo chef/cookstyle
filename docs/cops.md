@@ -123,6 +123,7 @@
 * [ChefModernize/WhyRunSupportedTrue](cops_chefmodernize.md#chefmodernizewhyrunsupportedtrue)
 * [ChefModernize/WindowsVersionHelper](cops_chefmodernize.md#chefmodernizewindowsversionhelper)
 * [ChefModernize/WindowsZipfileUsage](cops_chefmodernize.md#chefmodernizewindowszipfileusage)
+* [ChefModernize/ZipfileResource](cops_chefmodernize.md#chefmodernizezipfileresource)
 
 #### Department [ChefStyle](cops_chefstyle.md)
 
