@@ -94,6 +94,7 @@
 * [ChefModernize/DependsOnZypperCookbook](cops_chefmodernize.md#chefmodernizedependsonzyppercookbook)
 * [ChefModernize/ExecuteAptUpdate](cops_chefmodernize.md#chefmodernizeexecuteaptupdate)
 * [ChefModernize/ExecuteTzUtil](cops_chefmodernize.md#chefmodernizeexecutetzutil)
+* [ChefModernize/IfProvidesDefaultAction](cops_chefmodernize.md#chefmodernizeifprovidesdefaultaction)
 * [ChefModernize/IncludingAptDefaultRecipe](cops_chefmodernize.md#chefmodernizeincludingaptdefaultrecipe)
 * [ChefModernize/IncludingMixinShelloutInResources](cops_chefmodernize.md#chefmodernizeincludingmixinshelloutinresources)
 * [ChefModernize/IncludingWindowsDefaultRecipe](cops_chefmodernize.md#chefmodernizeincludingwindowsdefaultrecipe)

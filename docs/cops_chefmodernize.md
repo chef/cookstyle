@@ -233,6 +233,31 @@ Name | Default value | Configurable values
 VersionAdded | `5.6.0` | String
 Exclude | `**/metadata.rb` | Array
 
+## ChefModernize/IfProvidesDefaultAction
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+if defined?(default_action) is no longer necessary in Chef Resources as default_action shipped in Chef 10.8.
+
+### Examples
+
+```ruby
+# bad
+default_action :foo if defined?(default_action)
+
+# good
+default_action :foo
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.12.0` | String
+Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
+
 ## ChefModernize/IncludingAptDefaultRecipe
 
 Enabled by default | Supports autocorrection
