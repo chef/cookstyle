@@ -10,5 +10,6 @@
 
 bundle install --jobs=7 --retry=3 --without debug
 bundle exec rake generate_cops_documentation
+bundle exec rake update_readme_cop_count
 
 # Once Expeditor finishes executing this script, it will commit the changes and push
