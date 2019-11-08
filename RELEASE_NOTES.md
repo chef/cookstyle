@@ -96,7 +96,7 @@ The `Definitions` cop detects cookbooks that include Definitions. We highly reco
 
 #### ChefEffortless/SearchForEnvironmentsOrRoles
 
-The `SearchForEnvironmentsOrRoles` cop is an optional cop for users migrated to Policyfiles or the Effortless pattern that detects the use of search find nodes based in their roles and environments. Policyfiles replaces roles and environments and these node searches will need to be updated as part of a migration.
+The `SearchForEnvironmentsOrRoles` cop is an optional cop for users who are migrating to Policyfiles or the Effortless pattern. This cop detects searches that find nodes based on their roles and environments. Policyfiles replace roles and environments so these node searches will need to be updated as part of a migration.
 
 `Enabled by default`: False
 
