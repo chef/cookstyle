@@ -18,7 +18,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefModernize
-        # if defined?(default_action) is no longer necessary in Chef Resources has default_action shipped in Chef 10.8.
+        # if defined?(default_action) is no longer necessary in Chef Resources as default_action shipped in Chef 10.8.
         #
         # @example
         #
@@ -29,7 +29,7 @@ module RuboCop
         #   default_action :foo
         #
         class IfProvidesDefaultAction < Cop
-          MSG = 'if defined?(default_action) is no longer necessary in Chef Resources has default_action shipped in Chef 10.8.'.freeze
+          MSG = 'if defined?(default_action) is no longer necessary in Chef Resources as default_action shipped in Chef 10.8.'.freeze
 
           def on_defined?(node)
             return unless node.arguments.first == s(:send, nil, :default_action)

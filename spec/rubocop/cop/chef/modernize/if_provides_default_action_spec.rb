@@ -23,7 +23,7 @@ describe RuboCop::Cop::Chef::ChefModernize::IfProvidesDefaultAction, :config do
   it 'registers an offense with a HWRP specifies the default_action in the initializer' do
     expect_offense(<<~RUBY)
     default_action :foo if defined?(default_action)
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ if defined?(default_action) is no longer necessary in Chef Resources has default_action shipped in Chef 10.8.
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ if defined?(default_action) is no longer necessary in Chef Resources as default_action shipped in Chef 10.8.
     RUBY
 
     expect_correction(<<~RUBY)
