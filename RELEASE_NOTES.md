@@ -88,7 +88,7 @@ The `PoiseArchiveUsage` cop detects the `poise_archive` resource in cookbooks. C
 
 #### ChefModernize/Definitions
 
-The `Definitions` cop detects cookbooks that include Definitions. We highly recommend replacing legacy Definitions with Custom Resource. Definitions are not *currently* deprecated, but we do plan to deprecate this functionality in the future. See [Converting Definitions to Custom Resources](https://docs.chef.io/definitions.html) for more information on the benefits of Custom Resources and how to convert legacy Definitions.
+The `Definitions` cop detects cookbooks that include Definitions. We highly recommend replacing legacy Definitions with Custom Resources. Definitions are not *currently* deprecated, but we do plan to deprecate this functionality in the future. See [Converting Definitions to Custom Resources](https://docs.chef.io/definitions.html) for more information on the benefits of Custom Resources and how to convert legacy Definitions.
 
 `Enabled by default`: True
 
