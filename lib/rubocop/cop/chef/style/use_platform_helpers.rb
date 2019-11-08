@@ -18,23 +18,27 @@ module RuboCop
   module Cop
     module Chef
       module ChefStyle
-        # Use the platform?() and platform_family?() helpers instead of node['platform] == 'foo'
-        # and node['platform_family'] == 'bar'. These helpers are easier to read and can accept multiple
-        # platform arguments, which greatly simplifies complex platform logic.
+        # Use the platform?() and platform_family?() helpers instead of node['platform] == 'foo' and node['platform_family'] == 'bar'. These helpers are easier to read and can accept multiple platform arguments, which greatly simplifies complex platform logic.
         #
         # @example
         #
         #   # bad
         #   node['platform'] == 'ubuntu'
+        #   node['platform_family'] == 'debian'
+        #   node['platform'] != 'ubuntu'
+        #   node['platform_family'] != 'debian'
         #
         #   # good
         #   platform?('ubuntu')
+        #   !platform?('ubuntu')
+        #   platform_family?('debian')
+        #   !platform_family?('debian')
         #
         class UsePlatformHelpers < Cop
-          MSG = 'Use platform? and platform_family? helpers for checking node platform'.freeze
+          MSG = "Use platform? and platform_family? helpers for checking a node's platform".freeze
 
           def_node_matcher :platform_check?, <<-PATTERN
-            ( send (send (send nil? :node) :[] $(str {"platform" "platform_family"}) ) :== $str )
+            ( send (send (send nil? :node) :[] $(str {"platform" "platform_family"}) ) ${:== :!=} $str )
           PATTERN
 
           def on_send(node)
@@ -45,8 +49,10 @@ module RuboCop
 
           def autocorrect(node)
             lambda do |corrector|
-              platform_check?(node) do |type, plat|
-                corrector.replace(node.loc.expression, "#{type.value}?('#{plat.value}')")
+              platform_check?(node) do |type, operator, plat|
+                corrected_string = operator == :!= ? '!' : ''
+                corrected_string << "#{type.value}?('#{plat.value}')"
+                corrector.replace(node.loc.expression, corrected_string)
               end
             end
           end
