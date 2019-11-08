@@ -869,6 +869,11 @@ ChefModernize/IfProvidesDefaultAction:
     - '**/resources/*.rb'
     - '**/libraries/*.rb'
 
+ChefModernize/ZipfileResource:
+  Description: Use the archive_file resource built into Chef Infra Client 15+ instead of the zipfile resource from the zipfile cookbook.
+  Enabled: true
+  VersionAdded: '5.12.0'
+
 ###############################
 # Migrating to new patterns
 ###############################
