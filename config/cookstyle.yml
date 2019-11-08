@@ -856,6 +856,14 @@ ChefModernize/Definitions:
   Include:
     - '**/definitions/*.rb'
 
+ChefModernize/IfProvidesDefaultAction:
+  Description: if defined?(default_action) is no longer necessary in Chef Resources has default_action shipped in Chef 10.8.
+  Enabled: true
+  VersionAdded: '5.12.0'
+  Include:
+    - '**/resources/*.rb'
+    - '**/libraries/*.rb'
+
 ###############################
 # Migrating to new patterns
 ###############################
