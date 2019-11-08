@@ -210,18 +210,22 @@ Enabled by default | Supports autocorrection
 --- | ---
 Enabled | Yes
 
-Use the platform?() and platform_family?() helpers instead of node['platform] == 'foo'
-and node['platform_family'] == 'bar'. These helpers are easier to read and can accept multiple
-platform arguments, which greatly simplifies complex platform logic.
+Use the platform?() and platform_family?() helpers instead of node['platform] == 'foo' and node['platform_family'] == 'bar'. These helpers are easier to read and can accept multiple platform arguments, which greatly simplifies complex platform logic.
 
 ### Examples
 
 ```ruby
 # bad
 node['platform'] == 'ubuntu'
+node['platform_family'] == 'debian'
+node['platform'] != 'ubuntu'
+node['platform_family'] != 'debian'
 
 # good
 platform?('ubuntu')
+!platform?('ubuntu')
+platform_family?('debian')
+!platform_family?('debian')
 ```
 
 ### Configurable attributes
