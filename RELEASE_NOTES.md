@@ -104,7 +104,7 @@ The `SearchForEnvironmentsOrRoles` cop is an optional cop for users migrated to 
 
 ### Other fixes and changes
 
-- The RuboCop engine that powers Cookstyle has been upgraded from 0.72 to 0.75.1. This update includes 50+ bug fixes that may result in new warnings during you Cookstyle runs. We have also enabled a new `Migration/DepartmentName` cop which will update any rubocop disable comments in code to use updated cop names. This prevents cop name deprecation warnings when you run Cookstyle.
+- The RuboCop engine that powers Cookstyle has been upgraded from 0.72 to 0.75.1. This update includes more than 50 bug fixes that may result in new warnings during your Cookstyle runs. We have also enabled a new `Migration/DepartmentName` cop that will detect and update the names of disabled cops in cookbook code. This will prevent cop name deprecation warnings when you run Cookstyle.
 - The `ChefModernize/RespondToInMetadata` cop will now detect the usage of `if defined?(foo)` in metadata.rb as well.
 
 ## Cookstyle 5.10
