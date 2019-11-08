@@ -80,7 +80,7 @@ search(:node, 'role:web',
 
 #### ChefDeprecations/PoiseArchiveUsage
 
-The `PoiseArchiveUsage` cop detects the use of the `poise_archive` resource in cookbooks. Chef Infra Client 15+ ships with the built-in `archive_file` resource which should be used instead.
+The `PoiseArchiveUsage` cop detects the `poise_archive` resource in cookbooks. Chef Infra Client 15+ ships with the built-in `archive_file` resource which should be used instead.
 
 `Enabled by default`: True
 
