@@ -78,6 +78,11 @@ ChefStyle/SimplifyPlatformMajorVersionCheck:
   Exclude:
     - '**/metadata.rb'
 
+ChefStyle/DefaultCopyrightComments:
+  Description: Cookbook copyright comment headers should be updated for a real person or organization.
+  Enabled: true
+  VersionAdded: '5.12.0'
+
 ###############################
 # ChefCorrectness: Avoiding potential problems
 ###############################
