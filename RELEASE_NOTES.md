@@ -24,7 +24,7 @@ search(:node, '*:*', start: 0, rows: 1000)
 
 #### ChefDeprecations/PartialSearchHelperUsage
 
-The `PartialSearchHelperUsage` cop detects the usage of the `partial_search` helper that was introduced in the chef-client 11.x timeframe and was replaced with built-in partial search in chef-client 12. This functionality should be replaced with filtering in Chef Infra Client's built-in `search` helper instead.
+The `PartialSearchHelperUsage` cop detects the `partial_search` helper that was introduced in Chef Client 11.x. This helper was replaced in Chef Client 12 with a built-in partial search and should be replaced with filtering using Chef Infra Client's built-in `search` helper.
 
 Legacy partial_search helper usage:
 
