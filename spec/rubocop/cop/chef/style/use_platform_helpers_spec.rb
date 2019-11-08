@@ -22,7 +22,7 @@ describe RuboCop::Cop::Chef::ChefStyle::UsePlatformHelpers do
   it "registers an offense when checking platform using node['platform']" do
     expect_offense(<<~RUBY)
       if node['platform'] == 'redhat'
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use platform? and platform_family? helpers for checking node platform
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use platform? and platform_family? helpers for checking a node's platform
       end
     RUBY
 
@@ -32,10 +32,23 @@ describe RuboCop::Cop::Chef::ChefStyle::UsePlatformHelpers do
     RUBY
   end
 
+  it "registers an offense when checking platform using node['platform'] for not equals" do
+    expect_offense(<<~RUBY)
+      if node['platform'] != 'redhat'
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use platform? and platform_family? helpers for checking a node's platform
+      end
+    RUBY
+
+    expect_correction(<<~RUBY)
+      if !platform?('redhat')
+      end
+    RUBY
+  end
+
   it "registers an offense when checking platform family using node['platform_family']" do
     expect_offense(<<~RUBY)
       if node['platform_family'] == 'rhel'
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use platform? and platform_family? helpers for checking node platform
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use platform? and platform_family? helpers for checking a node's platform
       end
     RUBY
 
