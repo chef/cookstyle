@@ -53,4 +53,10 @@ describe RuboCop::Cop::Chef::ChefModernize::RespondToInMetadata, :config do
       chef_version '> 13'
     RUBY
   end
+
+  it "doesn't register an offense when just calling the same method" do
+    expect_no_offenses(<<~RUBY)
+      chef_version '> 13'
+    RUBY
+  end
 end
