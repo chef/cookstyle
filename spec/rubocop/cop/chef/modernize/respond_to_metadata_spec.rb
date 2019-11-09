@@ -19,18 +19,18 @@ require 'spec_helper'
 describe RuboCop::Cop::Chef::ChefModernize::RespondToInMetadata, :config do
   subject(:cop) { described_class.new(config) }
 
-  # it "registers an offense when metadata includes the 'if respond_to?(:foo)' gate" do
-  #   expect_offense(<<~RUBY)
-  #     chef_version '> 13' if respond_to?(:chef_version)
-  #     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ It is no longer necessary to use respond_to? or if_defined? in metadata.rb in Chef Infra Client 12.15 and later
-  #   RUBY
+  it "registers an offense when metadata includes the 'if respond_to?(:foo)' modifier" do
+    expect_offense(<<~RUBY)
+      chef_version '> 13' if respond_to?(:chef_version)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ It is no longer necessary to use respond_to? or if_defined? in metadata.rb in Chef Infra Client 12.15 and later
+    RUBY
 
-  #   expect_correction(<<~RUBY)
-  #     chef_version '> 13'
-  #   RUBY
-  # end
+    expect_correction(<<~RUBY)
+      chef_version '> 13'
+    RUBY
+  end
 
-  it "registers an offense when metadata includes the 'if defined?(foo)' gate" do
+  it "registers an offense when metadata includes the 'if defined?(foo)' modifier" do
     expect_offense(<<~RUBY)
       chef_version '> 13' if defined?(chef_version)
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ It is no longer necessary to use respond_to? or if_defined? in metadata.rb in Chef Infra Client 12.15 and later
@@ -41,8 +41,15 @@ describe RuboCop::Cop::Chef::ChefModernize::RespondToInMetadata, :config do
     RUBY
   end
 
-  it "doesn't register an offense when just calling the same method" do
-    expect_no_offenses(<<~RUBY)
+  it "registers an offense when metadata includes the 'if defined?(foo)' as a multi-line conditional" do
+    expect_offense(<<~RUBY)
+      if defined?(chef_version)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^ It is no longer necessary to use respond_to? or if_defined? in metadata.rb in Chef Infra Client 12.15 and later
+        chef_version '> 13'
+      end
+    RUBY
+
+    expect_correction(<<~RUBY)
       chef_version '> 13'
     RUBY
   end
