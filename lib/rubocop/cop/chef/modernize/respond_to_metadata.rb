@@ -26,6 +26,9 @@ module RuboCop
         #   # bad
         #   chef_version '>= 13' if respond_to?(:chef_version)
         #   chef_version '>= 13' if defined?(chef_version)
+        #   if defined(chef_version)
+        #     chef_version '>= 13'
+        #   end
         #
         #   # good
         #   chef_version '>= 13'
@@ -50,7 +53,13 @@ module RuboCop
 
           def autocorrect(node)
             lambda do |corrector|
-              corrector.replace(node.loc.expression, node.children[1].source)
+              # When the if statement is if modifier like `foo if respond_to?(:foo)` then
+              # node.if_branch is the actual method call we want to extract.
+              # If a series of metadata methods are wrapped in an if statement then the content we want
+              # is a block under the if statement and node.parent.if_branch can get us that block
+              node = node.parent unless node.if_type?
+
+              corrector.replace(node.loc.expression, node.if_branch.source)
             end
           end
         end
