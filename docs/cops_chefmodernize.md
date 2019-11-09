@@ -678,6 +678,9 @@ methods in Chef 11 and early versions of Chef 12.
 # bad
 chef_version '>= 13' if respond_to?(:chef_version)
 chef_version '>= 13' if defined?(chef_version)
+if defined(chef_version)
+  chef_version '>= 13'
+end
 
 # good
 chef_version '>= 13'
