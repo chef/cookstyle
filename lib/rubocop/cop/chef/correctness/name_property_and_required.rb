@@ -53,6 +53,7 @@ module RuboCop
         #
         #   # bad
         #   property :config_file, String, required: true, name_property: true
+        #   attribute :config_file, String, required: true, name_attribute: true
         #
         #   # good
         #   property :config_file, String, required: true
@@ -69,10 +70,10 @@ module RuboCop
           private
 
           def property_is_name_property?(node)
-            if node.method_name == :property
+            if %i(property attribute).include?(node.method_name)
               node.arguments.each do |arg|
                 if arg.type == :hash
-                  return true if arg.source.match?(/name_property:\s*true/)
+                  return true if arg.source.match?(/name_(property|attribute):\s*true/)
                 end
               end
               false # no required: true found
@@ -80,7 +81,7 @@ module RuboCop
           end
 
           def required_property?(node)
-            if node.method_name == :property
+            if %i(property attribute).include?(node.method_name)
               node.arguments.each do |arg|
                 if arg.type == :hash
                   return true if arg.source.match?(/required:\s*true/)

@@ -26,6 +26,13 @@ describe RuboCop::Cop::Chef::ChefCorrectness::NamePropertyIsRequired, :config do
     RUBY
   end
 
+  it 'registers an offense when a resource attribute is both a name_attribute and a required attribute' do
+    expect_offense(<<~RUBY)
+      property :foo, String, name_property: true, required: true
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Resource properties marked as name properties should not also be required properties
+    RUBY
+  end
+
   it "doesn't register an offense with a required property that is not a name_property" do
     expect_no_offenses(<<~RUBY)
       property :foo, String, required: true
