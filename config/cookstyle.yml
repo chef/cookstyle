@@ -929,6 +929,13 @@ ChefEffortless/SearchForEnvironmentsOrRoles:
   Exclude:
     - '**/metadata.rb'
 
+ChefEffortless/Berksfile:
+  Description: Policyfiles should be used for cookbook depsolving instead of a Berkshelf Berksfile.
+  Enabled: true
+  VersionAdded: '5.12.0'
+  Include:
+    - '**/Berksfile'
+
 #### The base rubocop 0.37 enabled.yml file we started with ####
 
 Layout/AccessModifierIndentation:
