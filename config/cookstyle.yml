@@ -256,6 +256,15 @@ ChefCorrectness/IncorrectLibraryInjection:
   Include:
     - '**/libraries/*.rb'
 
+ChefCorrectness/ResourceWithNothingAction:
+  Description: There is no need to define a :nothing action in your resource as Chef Infra Client provides the :nothing action out of the box for every resource.
+  Enabled: true
+  VersionAdded: '5.12.0'
+  Include:
+    - '**/libraries/*.rb'
+    - '**/resources/*.rb'
+    - '**/providers/*.rb'
+
 ###############################
 # ChefDeprecations: Resolving Deprecations that block upgrading Chef Infra Client
 ###############################
