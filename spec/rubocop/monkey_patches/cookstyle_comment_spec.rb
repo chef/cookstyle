@@ -24,7 +24,7 @@ RSpec.describe RuboCop::CommentConfig do
     let(:source) do
       [
         'node.normal[:foo] # rubocop: disable ChefCorrectness/Bar',
-        'node.normal[:foo] # cookstyle: disable ChefCorrectness/Foo'
+        'node.normal[:foo] # cookstyle: disable ChefCorrectness/Foo',
       ].join("\n")
     end
 
