@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.12.6 -->
-## [v5.12.6](https://github.com/chef/cookstyle/tree/v5.12.6) (2019-11-12)
+ <!-- latest_release 5.12.7 -->
+## [v5.12.7](https://github.com/chef/cookstyle/tree/v5.12.7) (2019-11-12)
 
 #### Merged Pull Requests
-- Add ChefEffortless/Berksfile [#398](https://github.com/chef/cookstyle/pull/398) ([tas50](https://github.com/tas50))
+- Allow # cookstyle comments in addition to # rubocop comments [#400](https://github.com/chef/cookstyle/pull/400) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.11.0 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Allow # cookstyle comments in addition to # rubocop comments [#400](https://github.com/chef/cookstyle/pull/400) ([tas50](https://github.com/tas50)) <!-- 5.12.7 -->
 - Add ChefEffortless/Berksfile [#398](https://github.com/chef/cookstyle/pull/398) ([tas50](https://github.com/tas50)) <!-- 5.12.6 -->
 - Add ChefCorrectness/ResourceWithNothingAction cop [#399](https://github.com/chef/cookstyle/pull/399) ([tas50](https://github.com/tas50)) <!-- 5.12.5 -->
 - Handle non modifier if statements in ChefModernize/RespondToInMetadata [#396](https://github.com/chef/cookstyle/pull/396) ([tas50](https://github.com/tas50)) <!-- 5.12.4 -->
