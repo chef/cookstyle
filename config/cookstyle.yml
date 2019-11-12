@@ -596,6 +596,13 @@ ChefDeprecations/PartialSearchClassUsage:
   Exclude:
     - '**/metadata.rb'
 
+ChefDeprecations/Cheffile:
+  Description: The Libarian-Chef depsolving project is no longer maintained and should not be used for cookbook depsolving. Consider using Policyfiles instead.
+  Enabled: true
+  VersionAdded: '5.12.0'
+  Include:
+    - '**/Cheffile'
+
 ###############################
 # ChefModernize: Cleaning up legacy code and using new built-in resources
 ###############################
