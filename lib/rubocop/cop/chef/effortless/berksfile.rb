@@ -18,13 +18,13 @@
 module RuboCop
   module Cop
     module Chef
-      # Policyfiles should be used for cookbook depsolving instead of a Berkshelf Berksfile.
+      # Policyfiles should be used for cookbook dependency solving instead of a Berkshelf Berksfile.
       #
       module ChefEffortless
         class Berksfile < Cop
           include RangeHelp
 
-          MSG = 'Policyfiles should be used for cookbook depsolving instead of a Berkshelf Berksfile.'.freeze
+          MSG = 'Policyfiles should be used for cookbook dependency solving instead of a Berkshelf Berksfile.'.freeze
 
           def investigate(processed_source)
             return if processed_source.blank?
