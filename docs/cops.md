@@ -22,6 +22,7 @@
 * [ChefCorrectness/ResourceSetsInternalProperties](cops_chefcorrectness.md#chefcorrectnessresourcesetsinternalproperties)
 * [ChefCorrectness/ResourceSetsNameProperty](cops_chefcorrectness.md#chefcorrectnessresourcesetsnameproperty)
 * [ChefCorrectness/ResourceWithNoneAction](cops_chefcorrectness.md#chefcorrectnessresourcewithnoneaction)
+* [ChefCorrectness/ResourceWithNothingAction](cops_chefcorrectness.md#chefcorrectnessresourcewithnothingaction)
 * [ChefCorrectness/ServiceResource](cops_chefcorrectness.md#chefcorrectnessserviceresource)
 * [ChefCorrectness/TmpPath](cops_chefcorrectness.md#chefcorrectnesstmppath)
 * [ChefCorrectness/UnnecessaryNameProperty](cops_chefcorrectness.md#chefcorrectnessunnecessarynameproperty)
@@ -76,6 +77,7 @@
 
 #### Department [ChefEffortless](cops_chefeffortless.md)
 
+* [ChefEffortless/Berksfile](cops_chefeffortless.md#chefeffortlessberksfile)
 * [ChefEffortless/CookbookUsesDatabags](cops_chefeffortless.md#chefeffortlesscookbookusesdatabags)
 * [ChefEffortless/CookbookUsesEnvironmments](cops_chefeffortless.md#chefeffortlesscookbookusesenvironmments)
 * [ChefEffortless/CookbookUsesPolicygroups](cops_chefeffortless.md#chefeffortlesscookbookusespolicygroups)

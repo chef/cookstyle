@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.12.4 -->
-## [v5.12.4](https://github.com/chef/cookstyle/tree/v5.12.4) (2019-11-09)
+ <!-- latest_release 5.12.5 -->
+## [v5.12.5](https://github.com/chef/cookstyle/tree/v5.12.5) (2019-11-12)
 
 #### Merged Pull Requests
-- Handle non modifier if statements in ChefModernize/RespondToInMetadata [#396](https://github.com/chef/cookstyle/pull/396) ([tas50](https://github.com/tas50))
+- Add ChefCorrectness/ResourceWithNothingAction cop [#399](https://github.com/chef/cookstyle/pull/399) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.11.0 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add ChefCorrectness/ResourceWithNothingAction cop [#399](https://github.com/chef/cookstyle/pull/399) ([tas50](https://github.com/tas50)) <!-- 5.12.5 -->
 - Handle non modifier if statements in ChefModernize/RespondToInMetadata [#396](https://github.com/chef/cookstyle/pull/396) ([tas50](https://github.com/tas50)) <!-- 5.12.4 -->
 - Autocorrect node[&#39;platform&#39;] != to platform?() helpers [#391](https://github.com/chef/cookstyle/pull/391) ([tas50](https://github.com/tas50)) <!-- 5.12.3 -->
 - Add ChefModernize/ZipfileResource [#392](https://github.com/chef/cookstyle/pull/392) ([tas50](https://github.com/tas50)) <!-- 5.12.2 -->

@@ -1,5 +1,20 @@
 # ChefEffortless
 
+## ChefEffortless/Berksfile
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+No documentation
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.12.0` | String
+Include | `**/Berksfile` | Array
+
 ## ChefEffortless/CookbookUsesDatabags
 
 Enabled by default | Supports autocorrection

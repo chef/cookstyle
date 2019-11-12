@@ -346,6 +346,7 @@ then it should just be made a required property and not a name_property.
 ```ruby
 # bad
 property :config_file, String, required: true, name_property: true
+attribute :config_file, String, required: true, name_attribute: true
 
 # good
 property :config_file, String, required: true
@@ -599,6 +600,30 @@ Name | Default value | Configurable values
 VersionAdded | `5.5.0` | String
 Exclude | `**/metadata.rb` | Array
 
+## ChefCorrectness/ResourceWithNothingAction
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+Chef Infra Client provides the :nothing action by default for every resource. There is no need to define a :nothing action in your resource code.
+
+### Examples
+
+```ruby
+# bad
+action :nothing
+  # let's do nothing
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.12.0` | String
+Include | `**/libraries/*.rb`, `**/resources/*.rb`, `**/providers/*.rb` | Array
+
 ## ChefCorrectness/ServiceResource
 
 Enabled by default | Supports autocorrection
@@ -657,7 +682,7 @@ Enabled by default | Supports autocorrection
 --- | ---
 Enabled | Yes
 
-There is no need to define a property named :name in a resource as Chef Infra defines that property for all resources out of the box.
+There is no need to define a property named :name in a resource as Chef Infra defines that property for all resources by default.
 
 ### Examples
 
