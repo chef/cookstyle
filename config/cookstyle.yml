@@ -221,7 +221,7 @@ ChefCorrectness/IncludingOhaiDefaultRecipe:
     - '**/metadata.rb'
 
 ChefCorrectness/UnnecessaryNameProperty:
-  Description: There is no need to define a property named :name in a resource as Chef Infra defines that property for all resources out of the box.
+  Description: There is no need to define a property named :name in a resource as Chef Infra defines that property for all resources by default.
   Enabled: true
   VersionAdded: '5.8.0'
   Include:
@@ -257,7 +257,7 @@ ChefCorrectness/IncorrectLibraryInjection:
     - '**/libraries/*.rb'
 
 ChefCorrectness/ResourceWithNothingAction:
-  Description: There is no need to define a :nothing action in your resource as Chef Infra Client provides the :nothing action out of the box for every resource.
+  Description: There is no need to define a :nothing action in your resource as Chef Infra Client provides the :nothing action by default for every resource.
   Enabled: true
   VersionAdded: '5.12.0'
   Include:

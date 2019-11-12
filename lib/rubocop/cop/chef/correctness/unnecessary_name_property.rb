@@ -18,7 +18,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefCorrectness
-        # There is no need to define a property named :name in a resource as Chef Infra defines that property for all resources out of the box.
+        # There is no need to define a property named :name in a resource as Chef Infra defines that property for all resources by default.
         #
         # @example
         #
@@ -27,7 +27,7 @@ module RuboCop
         #   property :name, String, name_property: true
         #
         class UnnecessaryNameProperty < Cop
-          MSG = 'There is no need to define a property named :name in a resource as Chef Infra defines that property for all resources out of the box.'.freeze
+          MSG = 'There is no need to define a property named :name in a resource as Chef Infra defines that property for all resources by default.'.freeze
 
           def_node_matcher :name_property?, <<-PATTERN
             (send nil? :property (sym :name) (const nil? :String) $...)

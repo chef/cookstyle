@@ -23,7 +23,7 @@ describe RuboCop::Cop::Chef::ChefCorrectness::ResourceWithNothingAction do
   it 'registers an offense with a nothing action in a resource' do
     expect_offense(<<~RUBY)
       action :nothing do
-      ^^^^^^^^^^^^^^^^^^ There is no need to define a :nothing action in your resource as Chef Infra Client provides the :nothing action out of the box for every resource.
+      ^^^^^^^^^^^^^^^^^^ There is no need to define a :nothing action in your resource as Chef Infra Client provides the :nothing action by default for every resource.
         # standard nothing action
       end
     RUBY

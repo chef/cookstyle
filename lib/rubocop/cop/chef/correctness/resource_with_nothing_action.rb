@@ -18,7 +18,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefCorrectness
-        # Chef Infra Client provides the :nothing action out of the box for every resource. There is no need to define a :nothing action in your resource code.
+        # Chef Infra Client provides the :nothing action by default for every resource. There is no need to define a :nothing action in your resource code.
         #
         # @example
         #
@@ -28,7 +28,7 @@ module RuboCop
         #   end
         #
         class ResourceWithNothingAction < Cop
-          MSG = 'There is no need to define a :nothing action in your resource as Chef Infra Client provides the :nothing action out of the box for every resource.'.freeze
+          MSG = 'There is no need to define a :nothing action in your resource as Chef Infra Client provides the :nothing action by default for every resource.'.freeze
 
           def_node_matcher :nothing_action?, <<-PATTERN
             (block (send nil? :action (sym :nothing)) (args) ... )
