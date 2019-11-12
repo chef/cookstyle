@@ -115,6 +115,21 @@ Name | Default value | Configurable values
 VersionAdded | `5.8.0` | String
 Include | `**/spec/*.rb` | Array
 
+## ChefDeprecations/Cheffile
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+No documentation
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.12.0` | String
+Include | `**/Cheffile` | Array
+
 ## ChefDeprecations/ChocolateyPackageUninstallAction
 
 Enabled by default | Supports autocorrection
