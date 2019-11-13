@@ -51,6 +51,7 @@
 * [ChefDeprecations/LocaleDeprecatedLcAllProperty](cops_chefdeprecations.md#chefdeprecationslocaledeprecatedlcallproperty)
 * [ChefDeprecations/LongDescriptionMetadata](cops_chefdeprecations.md#chefdeprecationslongdescriptionmetadata)
 * [ChefDeprecations/NamePropertyWithDefaultValue](cops_chefdeprecations.md#chefdeprecationsnamepropertywithdefaultvalue)
+* [ChefDeprecations/NodeDeepFetch](cops_chefdeprecations.md#chefdeprecationsnodedeepfetch)
 * [ChefDeprecations/NodeMethodsInsteadofAttributes](cops_chefdeprecations.md#chefdeprecationsnodemethodsinsteadofattributes)
 * [ChefDeprecations/NodeSet](cops_chefdeprecations.md#chefdeprecationsnodeset)
 * [ChefDeprecations/NodeSetUnless](cops_chefdeprecations.md#chefdeprecationsnodesetunless)

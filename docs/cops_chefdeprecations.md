@@ -567,6 +567,38 @@ Name | Default value | Configurable values
 VersionAdded | `5.7.0` | String
 Include | `**/libraries/*.rb`, `**/providers/*.rb`, `**/resources/*.rb` | Array
 
+## ChefDeprecations/NodeDeepFetch
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+The node.deep_fetch method has been removed from Chef-Sugar, and must be replaced by
+the node.read API.
+
+### Examples
+
+```ruby
+# bad
+node.deep_fetch("foo")
+
+# good
+node.read("foo")
+
+# bad
+node.deep_fetch!("foo")
+
+# good
+node.read!("foo")
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.12.0` | String
+Exclude | `**/metadata.rb` | Array
+
 ## ChefDeprecations/NodeMethodsInsteadofAttributes
 
 Enabled by default | Supports autocorrection
