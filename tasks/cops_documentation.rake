@@ -73,7 +73,7 @@ begin
     def code_example(ruby_code)
       content = +"```ruby\n"
       content << ruby_code.text
-                          .gsub('@good', '# good')
+                 .gsub('@good', '# good')
                           .gsub('@bad', '# bad').strip
       content << "\n```\n"
       content

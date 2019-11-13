@@ -269,6 +269,13 @@ ChefCorrectness/ResourceWithNothingAction:
 # ChefDeprecations: Resolving Deprecations that block upgrading Chef Infra Client
 ###############################
 
+ChefDeprecations/NodeDeepFetch:
+  Description: Do not use the deprecated chef-sugar node.deep_fetch methods
+  Enabled: true
+  VersionAdded: '5.12.0'
+  Exclude:
+    - '**/metadata.rb'
+
 ChefDeprecations/NodeSet:
   Description: Do not use the deprecated node.set method
   Enabled: true
