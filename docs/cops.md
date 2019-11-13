@@ -122,6 +122,7 @@
 * [ChefModernize/ShellOutToChocolatey](cops_chefmodernize.md#chefmodernizeshellouttochocolatey)
 * [ChefModernize/SysctlParamResource](cops_chefmodernize.md#chefmodernizesysctlparamresource)
 * [ChefModernize/UnnecessaryDependsChef14](cops_chefmodernize.md#chefmodernizeunnecessarydependschef14)
+* [ChefModernize/UnnecessaryMixlibShelloutRequire](cops_chefmodernize.md#chefmodernizeunnecessarymixlibshelloutrequire)
 * [ChefModernize/UseBuildEssentialResource](cops_chefmodernize.md#chefmodernizeusebuildessentialresource)
 * [ChefModernize/UsesZypperRepo](cops_chefmodernize.md#chefmodernizeuseszypperrepo)
 * [ChefModernize/WhyRunSupportedTrue](cops_chefmodernize.md#chefmodernizewhyrunsupportedtrue)

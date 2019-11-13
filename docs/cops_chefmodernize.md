@@ -886,6 +886,28 @@ Name | Default value | Configurable values
 VersionAdded | `5.1.0` | String
 Include | `**/metadata.rb` | Array
 
+## ChefModernize/UnnecessaryMixlibShelloutRequire
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+Chef Infra Client includes mixlib/shellout automatically in resources and providers.
+
+### Examples
+
+```ruby
+# bad
+require 'mixlib/shellout'
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.12.0` | String
+Include | `**/resources/*.rb`, `**/providers/*.rb` | Array
+
 ## ChefModernize/UseBuildEssentialResource
 
 Enabled by default | Supports autocorrection
