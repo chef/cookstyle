@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.12.12 -->
-## [v5.12.12](https://github.com/chef/cookstyle/tree/v5.12.12) (2019-11-14)
+ <!-- latest_release unreleased -->
+## Unreleased
 
 #### Merged Pull Requests
-- Detect run_command_with_systems_locale in ChefDeprecations/UsesRunCommandHelper [#407](https://github.com/chef/cookstyle/pull/407) ([tas50](https://github.com/tas50))
+- Add Cookstyle 5.12 release notes [#404](https://github.com/chef/cookstyle/pull/404) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.11.0 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add Cookstyle 5.12 release notes [#404](https://github.com/chef/cookstyle/pull/404) ([tas50](https://github.com/tas50)) <!-- 5.12.12 -->
 - Detect run_command_with_systems_locale in ChefDeprecations/UsesRunCommandHelper [#407](https://github.com/chef/cookstyle/pull/407) ([tas50](https://github.com/tas50)) <!-- 5.12.12 -->
 - Add ChefModernize/UnnecessaryMixlibShelloutRequire [#403](https://github.com/chef/cookstyle/pull/403) ([tas50](https://github.com/tas50)) <!-- 5.12.11 -->
 - add cops for chef-sugar&#39;s node.deep_fetch [#402](https://github.com/chef/cookstyle/pull/402) ([lamont-granquist](https://github.com/lamont-granquist)) <!-- 5.12.9 -->

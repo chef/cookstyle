@@ -4,7 +4,7 @@
 
 Enabled by default | Supports autocorrection
 --- | ---
-Enabled | No
+Disabled | No
 
 No documentation
 
