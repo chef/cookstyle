@@ -1,6 +1,14 @@
 ## Cookstyle 5.12
 
-### 7 New Chef Cops
+### 8 New Chef Cops
+
+### ChefModernize/UnnecessaryMixlibShelloutRequire
+
+The `ChefModernize/UnnecessaryMixlibShelloutRequire` cop detects providers or resources that include `require 'mixlib/shellout`. Chef Infra Client includes mixlib-shellout automatically, so this require line can be removed.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
 
 #### ChefDeprecations/Cheffile
 
