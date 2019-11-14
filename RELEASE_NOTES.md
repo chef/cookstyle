@@ -12,7 +12,7 @@ The `ChefModernize/UnnecessaryMixlibShelloutRequire` cop detects providers or re
 
 #### ChefDeprecations/Cheffile
 
-The `ChefDeprecations/Cheffile` cop detects a `Cheffile` in cookbooks used for dependency solving with `librarian-chef`. The librarian-chef project is no longer maintained and users should handle dependency solving with Chef Infra Policyfiles or a Berkshelf Berksfile.
+The `ChefDeprecations/Cheffile` cop will detect a `Cheffile` in cookbooks. `librarian-chef` uses this file to solve dependencies, but the librarian-chef project is no longer maintained. Users should handle dependency solving with Chef Infra Policyfiles or a Berkshelf Berksfile.
 
 `Enabled by default`: True
 
