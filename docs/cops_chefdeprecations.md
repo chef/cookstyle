@@ -1191,13 +1191,14 @@ Enabled by default | Supports autocorrection
 --- | ---
 Enabled | No
 
-Use 'shell_out!' instead of the legacy 'run_command' helper for shelling out. The run_command helper was removed in Chef Infra Client 13.
+Use 'shell_out!' instead of the legacy 'run_command' or 'run_command_with_systems_locale' helpers for shelling out. The run_command helper was removed in Chef Infra Client 13.
 
 ### Examples
 
 ```ruby
 # bad
 run_command('/bin/foo')
+run_command_with_systems_locale('/bin/foo')
 
 # good
 shell_out!('/bin/foo')
