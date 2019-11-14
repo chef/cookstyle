@@ -1,3 +1,84 @@
+## Cookstyle 5.12
+
+### 7 New Chef Cops
+
+#### ChefDeprecations/Cheffile
+
+The `ChefDeprecations/Cheffile` cop detects a `Cheffile` in cookbooks used for dependency solving with `librarian-chef`. The librarian-chef project is no longer maintained and user should handle dependency solving with Chef Infra Policyfiles of a Berkshelf Berksfile.
+
+`Enabled by default`: True
+
+`Autocorrects`: No
+
+#### ChefEffortless/Berksfile
+
+The `ChefEffortless/Berksfile` cop is an optional cop for detecting the use of Berkshelf's Berksfiles for cookbook dependency solving. This will help users identify cookbooks that still need to be migrated to Policyfiles before moving to the Effortless pattern.
+
+`Enabled by default`: False
+
+`Autocorrects`: No
+
+#### ChefDeprecations/NodeDeepFetch
+
+The `ChefDeprecations/NodeDeepFetch` cop detects the `node.deep_fetch` method which been deprecated in Chef-Sugar. Chef Infra Client's built-in `node.read` API should be used instead.
+
+`Enabled by default`: True
+
+`Autocorrects`: No
+
+#### ChefModernize/IfProvidesDefaultAction
+
+The `ChefModernize/IfProvidesDefaultAction` cop detects the usage of legacy `if defined?(default_action)` Chef Infra resources. The `default_action` method was added to chef-client in 0.10.8, so it is no longer necessary to conditionally call that method using `if defined?`.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefStyle/DefaultCopyrightComments
+
+The `ChefStyle/DefaultCopyrightComments` cop detects cookbook copyright comment headers that still include the default NAME / ORGANIZATION information that `chef generate cookbook` creates. These headers should be updated with the names of the actual author or organization responsible for the cookbook.
+
+`Enabled by default`: True
+
+`Autocorrects`: No
+
+#### ChefModernize/ZipfileResource
+
+The `ChefModernize/ZipfileResource` cop detects the usage of the zipfile resource from the zipfile cookbook. Use the archive_file resource built into Chef Infra Client 15+ instead.
+
+`Enabled by default`: True
+
+`Autocorrects`: No
+
+#### ChefCorrectness/ResourceWithNothingAction
+
+The `ChefCorrectness/ResourceWithNothingAction` cop detects a resource or provider that defines its own :nothing action. There is no need to define a :nothing action in your resource as Chef Infra Client provides the :nothing action by default for every resource.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+### Cookstyle Comments in Code
+
+You can now use `cookstyle` specific comments in your cookbook code to enable or disable cops instead of the standard `rubocop` comments. We think that it will be easier to understand the cops that you intend to control if you use `cookstyle` comments. You can continue to use the existing `rubocop` comments, if you prefer them, since both types of comments will be honored by Cookstyle.
+
+Rubocop comment to disable a cop:
+
+```ruby
+'node.normal[:foo] # rubocop: disable ChefCorrectness/Bar'
+```
+
+Cookstyle comment to disable a cop:
+
+```ruby
+'node.normal[:foo] # cookstyle: disable ChefCorrectness/Bar'
+```
+
+### Other fixes and changes
+
+- `ChefStyle/UsePlatformHelpers` now detects and autocorrects the use of `!=` with `node['platform']` and `node['platform_family']`. For example, `node['platform'] != 'ubuntu'` will autocorrect to `!platform?('ubuntu)`
+- `ChefModernize/RespondToInMetadata` now detects and autocorrects the usage of `if respond_to?(:chef_version)` in `metadata.rb` and also detects if statements are defined in additional ways.
+
 ## Cookstyle 5.11
 
 ### 6 New Chef Cops
