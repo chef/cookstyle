@@ -1,21 +1,18 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.12.13 -->
+ <!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v5.12.13](https://github.com/chef/cookstyle/tree/v5.12.13) (2019-11-14)
 
 #### Merged Pull Requests
 - Readme updates to trigger a new build [#409](https://github.com/chef/cookstyle/pull/409) ([tas50](https://github.com/tas50))
-- Add Cookstyle 5.12 release notes [#404](https://github.com/chef/cookstyle/pull/404) ([tas50](https://github.com/tas50))
-<!-- latest_release -->
-
-<!-- release_rollup since=5.12.12 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Readme updates to trigger a new build [#409](https://github.com/chef/cookstyle/pull/409) ([tas50](https://github.com/tas50)) <!-- 5.12.13 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v5.12.12](https://github.com/chef/cookstyle/tree/v5.12.12) (2019-11-14)
 
 #### Merged Pull Requests
@@ -33,7 +30,6 @@
 - Add ChefModernize/UnnecessaryMixlibShelloutRequire [#403](https://github.com/chef/cookstyle/pull/403) ([tas50](https://github.com/tas50))
 - Detect run_command_with_systems_locale in ChefDeprecations/UsesRunCommandHelper [#407](https://github.com/chef/cookstyle/pull/407) ([tas50](https://github.com/tas50))
 - Add Cookstyle 5.12 release notes [#404](https://github.com/chef/cookstyle/pull/404) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v5.11.0](https://github.com/chef/cookstyle/tree/v5.11.0) (2019-11-08)
 
