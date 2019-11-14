@@ -44,14 +44,14 @@ gem 'cookstyle'
 
 And then execute:
 
-```
-$ bundle
+```shell
+bundle
 ```
 
 Or install it yourself as:
 
-```
-$ gem install cookstyle
+```shell
+gem install cookstyle
 ```
 
 ## Usage
@@ -60,7 +60,7 @@ $ gem install cookstyle
 
 Use this tool just as you would RuboCop, but invoke the `cookstyle` binary instead, which patches RuboCop to load cops from the cookstyle gem. For example:
 
-```sh
+```shell
 cookstyle -D --format offenses
 ```
 
