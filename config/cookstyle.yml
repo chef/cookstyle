@@ -898,7 +898,7 @@ ChefModernize/ZipfileResource:
   VersionAdded: '5.12.0'
 
 ChefModernize/UnnecessaryMixlibShelloutRequire:
-  Description: Chef Infra Client includes mixlib/shellout automatically in resources and providers.
+  Description: Chef Infra Client 12.4 and later include mixlib/shellout automatically in resources and providers.
   Enabled: true
   VersionAdded: '5.12.0'
   Include:
