@@ -86,6 +86,7 @@ Cookstyle comment to disable a cop:
 
 - `ChefStyle/UsePlatformHelpers` now detects and autocorrects the use of `!=` with `node['platform']` and `node['platform_family']`. For example, `node['platform'] != 'ubuntu'` will autocorrect to `!platform?('ubuntu)`
 - `ChefModernize/RespondToInMetadata` now detects and autocorrects the usage of `if respond_to?(:chef_version)` in `metadata.rb` and also detects if statements are defined in additional ways.
+- `ChefDeprecations/UsesRunCommandHelper` now detects the usage of the `run_command_with_systems_locale` helper method.
 
 ## Cookstyle 5.11
 
