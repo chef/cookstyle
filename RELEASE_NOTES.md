@@ -4,7 +4,7 @@
 
 #### ChefDeprecations/Cheffile
 
-The `ChefDeprecations/Cheffile` cop detects a `Cheffile` in cookbooks used for dependency solving with `librarian-chef`. The librarian-chef project is no longer maintained and user should handle dependency solving with Chef Infra Policyfiles of a Berkshelf Berksfile.
+The `ChefDeprecations/Cheffile` cop detects a `Cheffile` in cookbooks used for dependency solving with `librarian-chef`. The librarian-chef project is no longer maintained and users should handle dependency solving with Chef Infra Policyfiles or a Berkshelf Berksfile.
 
 `Enabled by default`: True
 
