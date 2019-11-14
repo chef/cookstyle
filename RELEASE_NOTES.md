@@ -4,7 +4,7 @@
 
 ### ChefModernize/UnnecessaryMixlibShelloutRequire
 
-The `ChefModernize/UnnecessaryMixlibShelloutRequire` cop detects providers or resources that include `require 'mixlib/shellout`. Chef Infra Client includes mixlib-shellout automatically, so this require line can be removed.
+The `ChefModernize/UnnecessaryMixlibShelloutRequire` cop detects providers or resources that include `require 'mixlib/shellout`. Chef Infra Client automatically includes the mixlib-shellout library so this require line can be removed.
 
 `Enabled by default`: True
 
