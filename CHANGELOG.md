@@ -7,27 +7,30 @@
 - Add Cookstyle 5.12 release notes [#404](https://github.com/chef/cookstyle/pull/404) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup since=5.11.0 -->
+<!-- release_rollup since=5.12.12 -->
 ### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Add Cookstyle 5.12 release notes [#404](https://github.com/chef/cookstyle/pull/404) ([tas50](https://github.com/tas50)) <!-- 5.12.12 -->
-- Detect run_command_with_systems_locale in ChefDeprecations/UsesRunCommandHelper [#407](https://github.com/chef/cookstyle/pull/407) ([tas50](https://github.com/tas50)) <!-- 5.12.12 -->
-- Add ChefModernize/UnnecessaryMixlibShelloutRequire [#403](https://github.com/chef/cookstyle/pull/403) ([tas50](https://github.com/tas50)) <!-- 5.12.11 -->
-- add cops for chef-sugar&#39;s node.deep_fetch [#402](https://github.com/chef/cookstyle/pull/402) ([lamont-granquist](https://github.com/lamont-granquist)) <!-- 5.12.9 -->
-- Add ChefDeprecations/Cheffile [#397](https://github.com/chef/cookstyle/pull/397) ([tas50](https://github.com/tas50)) <!-- 5.12.8 -->
-- Allow # cookstyle comments in addition to # rubocop comments [#400](https://github.com/chef/cookstyle/pull/400) ([tas50](https://github.com/tas50)) <!-- 5.12.7 -->
-- Add ChefEffortless/Berksfile [#398](https://github.com/chef/cookstyle/pull/398) ([tas50](https://github.com/tas50)) <!-- 5.12.6 -->
-- Add ChefCorrectness/ResourceWithNothingAction cop [#399](https://github.com/chef/cookstyle/pull/399) ([tas50](https://github.com/tas50)) <!-- 5.12.5 -->
-- Handle non modifier if statements in ChefModernize/RespondToInMetadata [#396](https://github.com/chef/cookstyle/pull/396) ([tas50](https://github.com/tas50)) <!-- 5.12.4 -->
-- Autocorrect node[&#39;platform&#39;] != to platform?() helpers [#391](https://github.com/chef/cookstyle/pull/391) ([tas50](https://github.com/tas50)) <!-- 5.12.3 -->
-- Add ChefModernize/ZipfileResource [#392](https://github.com/chef/cookstyle/pull/392) ([tas50](https://github.com/tas50)) <!-- 5.12.2 -->
-- Add ChefStyle/DefaultCopyrightComments [#393](https://github.com/chef/cookstyle/pull/393) ([tas50](https://github.com/tas50)) <!-- 5.12.1 -->
-- Add ChefModernize/IfProvidesDefaultAction cop [#389](https://github.com/chef/cookstyle/pull/389) ([tas50](https://github.com/tas50)) <!-- 5.12.0 -->
-- Update the readme cop count on each merge [#388](https://github.com/chef/cookstyle/pull/388) ([tas50](https://github.com/tas50)) <!-- 5.11.1 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v5.12.12](https://github.com/chef/cookstyle/tree/v5.12.12) (2019-11-14)
+
+#### Merged Pull Requests
+- Update the readme cop count on each merge [#388](https://github.com/chef/cookstyle/pull/388) ([tas50](https://github.com/tas50))
+- Add ChefModernize/IfProvidesDefaultAction cop [#389](https://github.com/chef/cookstyle/pull/389) ([tas50](https://github.com/tas50))
+- Add ChefStyle/DefaultCopyrightComments [#393](https://github.com/chef/cookstyle/pull/393) ([tas50](https://github.com/tas50))
+- Add ChefModernize/ZipfileResource [#392](https://github.com/chef/cookstyle/pull/392) ([tas50](https://github.com/tas50))
+- Autocorrect node[&#39;platform&#39;] != to platform?() helpers [#391](https://github.com/chef/cookstyle/pull/391) ([tas50](https://github.com/tas50))
+- Handle non modifier if statements in ChefModernize/RespondToInMetadata [#396](https://github.com/chef/cookstyle/pull/396) ([tas50](https://github.com/tas50))
+- Add ChefCorrectness/ResourceWithNothingAction cop [#399](https://github.com/chef/cookstyle/pull/399) ([tas50](https://github.com/tas50))
+- Add ChefEffortless/Berksfile [#398](https://github.com/chef/cookstyle/pull/398) ([tas50](https://github.com/tas50))
+- Allow # cookstyle comments in addition to # rubocop comments [#400](https://github.com/chef/cookstyle/pull/400) ([tas50](https://github.com/tas50))
+- Add ChefDeprecations/Cheffile [#397](https://github.com/chef/cookstyle/pull/397) ([tas50](https://github.com/tas50))
+- add cops for chef-sugar&#39;s node.deep_fetch [#402](https://github.com/chef/cookstyle/pull/402) ([lamont-granquist](https://github.com/lamont-granquist))
+- Add ChefModernize/UnnecessaryMixlibShelloutRequire [#403](https://github.com/chef/cookstyle/pull/403) ([tas50](https://github.com/tas50))
+- Detect run_command_with_systems_locale in ChefDeprecations/UsesRunCommandHelper [#407](https://github.com/chef/cookstyle/pull/407) ([tas50](https://github.com/tas50))
+- Add Cookstyle 5.12 release notes [#404](https://github.com/chef/cookstyle/pull/404) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v5.11.0](https://github.com/chef/cookstyle/tree/v5.11.0) (2019-11-08)
 
 #### Merged Pull Requests
@@ -41,7 +44,6 @@
 - Fix the description of ChefModernize/UseBuildEssentialResource [#386](https://github.com/chef/cookstyle/pull/386) ([tas50](https://github.com/tas50))
 - RespondToInMetadata: Catch if defined in metadata as well [#385](https://github.com/chef/cookstyle/pull/385) ([tas50](https://github.com/tas50))
 - Add 5.11 release notes [#384](https://github.com/chef/cookstyle/pull/384) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v5.10.13](https://github.com/chef/cookstyle/tree/v5.10.13) (2019-10-25)
 
