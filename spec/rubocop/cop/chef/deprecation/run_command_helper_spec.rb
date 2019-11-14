@@ -22,7 +22,14 @@ describe RuboCop::Cop::Chef::ChefDeprecations::UsesRunCommandHelper, :config do
   it 'registers an offense when a cookbook uses the run_command helper' do
     expect_offense(<<~RUBY)
       run_command(foo)
-      ^^^^^^^^^^^^^^^^ Use 'shell_out!' instead of the legacy 'run_command' helper for shelling out. The run_command helper was removed in Chef Infra Client 13.
+      ^^^^^^^^^^^^^^^^ Use 'shell_out!' instead of the legacy 'run_command' or 'run_command_with_systems_locale' helpers for shelling out. The run_command helper was removed in Chef Infra Client 13.
+    RUBY
+  end
+
+  it 'registers an offense when a cookbook uses the run_command_with_systems_locale helper' do
+    expect_offense(<<~RUBY)
+      run_command_with_systems_locale(foo)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use 'shell_out!' instead of the legacy 'run_command' or 'run_command_with_systems_locale' helpers for shelling out. The run_command helper was removed in Chef Infra Client 13.
     RUBY
   end
 
@@ -31,6 +38,16 @@ describe RuboCop::Cop::Chef::ChefDeprecations::UsesRunCommandHelper, :config do
     run_command(foo)
 
     def run_command(bar)
+      baz(bar)
+    end
+    RUBY
+  end
+
+  it "doesn't register an offense when using the run_command_with_systems_locale helper if it's defined in the same file" do
+    expect_no_offenses(<<~RUBY)
+    run_command_with_systems_locale(foo)
+
+    def run_command_with_systems_locale(bar)
       baz(bar)
     end
     RUBY

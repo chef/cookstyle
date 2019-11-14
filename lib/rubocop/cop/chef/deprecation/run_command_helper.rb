@@ -18,21 +18,22 @@ module RuboCop
   module Cop
     module Chef
       module ChefDeprecations
-        # Use 'shell_out!' instead of the legacy 'run_command' helper for shelling out. The run_command helper was removed in Chef Infra Client 13.
+        # Use 'shell_out!' instead of the legacy 'run_command' or 'run_command_with_systems_locale' helpers for shelling out. The run_command helper was removed in Chef Infra Client 13.
         #
         # @example
         #
         #   # bad
         #   run_command('/bin/foo')
+        #   run_command_with_systems_locale('/bin/foo')
         #
         #   # good
         #   shell_out!('/bin/foo')
         #
         class UsesRunCommandHelper < Cop
-          MSG = "Use 'shell_out!' instead of the legacy 'run_command' helper for shelling out. The run_command helper was removed in Chef Infra Client 13.".freeze
+          MSG = "Use 'shell_out!' instead of the legacy 'run_command' or 'run_command_with_systems_locale' helpers for shelling out. The run_command helper was removed in Chef Infra Client 13.".freeze
 
-          def_node_matcher :calls_run_command?, '(send nil? :run_command ...)'
-          def_node_search :defines_run_command?, '(def :run_command ...)'
+          def_node_matcher :calls_run_command?, '(send nil? {:run_command :run_command_with_systems_locale} ...)'
+          def_node_search :defines_run_command?, '(def {:run_command :run_command_with_systems_locale} ...)'
 
           def on_send(node)
             calls_run_command?(node) do
