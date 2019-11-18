@@ -905,6 +905,14 @@ ChefModernize/UnnecessaryMixlibShelloutRequire:
     - '**/resources/*.rb'
     - '**/providers/*.rb'
 
+ChefModernize/EmptyResourceInitializeMethod:
+  Description: There is no need for an empty initialize method in a resource
+  Enabled: true
+  VersionAdded: '5.13.0'
+  Include:
+    - '**/resources/*.rb'
+    - '**/providers/*.rb'
+
 ###############################
 # Migrating to new patterns
 ###############################
