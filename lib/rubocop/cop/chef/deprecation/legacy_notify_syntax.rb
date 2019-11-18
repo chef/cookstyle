@@ -36,7 +36,7 @@ module RuboCop
           MSG = 'Use the new-style notification syntax which allows you to notify resources defined later in a recipe or resource.'.freeze
 
           def_node_matcher :legacy_notify?, <<-PATTERN
-            (send nil? :notifies $(sym _) (send nil? :resources (hash (pair $(sym _) $(...) ) ) ) ... )
+            (send nil? :notifies $(sym _) (send nil? :resources (hash (pair $(sym _) $(...) ) ) ) $(...) )
           PATTERN
 
           def on_send(node)
@@ -47,7 +47,7 @@ module RuboCop
 
           def autocorrect(node)
             lambda do |corrector|
-              legacy_notify?(node) do |action, type, name|
+              legacy_notify?(node) do |action, type, name, timing|
                 new_val = "notifies #{action.source}, '#{type.source}[#{name.source}]'"
                 corrector.replace(node.loc.expression, new_val)
               end
