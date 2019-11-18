@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 5.12.14 -->
+## [v5.12.14](https://github.com/chef/cookstyle/tree/v5.12.14) (2019-11-18)
+
+#### Merged Pull Requests
+- DefaultActionFromInitialize: don&#39;t insert dupe default_action [#410](https://github.com/chef/cookstyle/pull/410) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=5.12.13 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- DefaultActionFromInitialize: don&#39;t insert dupe default_action [#410](https://github.com/chef/cookstyle/pull/410) ([tas50](https://github.com/tas50)) <!-- 5.12.14 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
