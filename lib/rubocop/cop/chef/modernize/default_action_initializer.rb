@@ -47,13 +47,17 @@ module RuboCop
             end
           end
 
+          def_node_search :default_action_method?, '(send nil? :default_action ... )'
+
           def_node_search :intialize_method, '(def :initialize ... )'
 
           def autocorrect(node)
             lambda do |corrector|
-              # insert the new default_action call above the initialize method
-              initialize_node = intialize_method(processed_source.ast).first
-              corrector.insert_before(initialize_node.source_range, "default_action #{node.descendants.first.source}\n\n")
+              # insert the new default_action call above the initialize method, but not if one already exists (this is sadly common)
+              unless default_action_method?(processed_source.ast)
+                initialize_node = intialize_method(processed_source.ast).first
+                corrector.insert_before(initialize_node.source_range, "default_action #{node.descendants.first.source}\n\n")
+              end
 
               # remove the variable from the initialize method
               corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))

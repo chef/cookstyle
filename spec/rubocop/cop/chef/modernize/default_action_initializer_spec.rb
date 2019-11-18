@@ -38,6 +38,26 @@ describe RuboCop::Cop::Chef::ChefModernize::DefaultActionFromInitialize, :config
     RUBY
   end
 
+  it 'Deletes the intializer usage it if the DSL method already exists' do
+    expect_offense(<<~RUBY)
+      default_action :create
+
+      def initialize(*args)
+        super
+        @action = :create
+        ^^^^^^^^^^^^^^^^^ The default action of a resource can be set with the "default_action" helper instead of using the initialize method.
+      end
+    RUBY
+
+    expect_correction(<<~RUBY)
+      default_action :create
+
+      def initialize(*args)
+        super
+      end
+    RUBY
+  end
+
   it 'does not register an offense with an empty initialize method' do
     expect_no_offenses(<<~RUBY)
     def initialize(*args)
