@@ -610,6 +610,13 @@ ChefDeprecations/Cheffile:
   Include:
     - '**/Cheffile'
 
+ChefDeprecations/LegacyNotifySyntax:
+  Description: Use the new-style notification syntax which allows you to notify resources defined later in a recipe or resource.
+  Enabled: true
+  VersionAdded: '5.13.0'
+  Exclude:
+    - '**/metadata.rb'
+
 ###############################
 # ChefModernize: Cleaning up legacy code and using new built-in resources
 ###############################
