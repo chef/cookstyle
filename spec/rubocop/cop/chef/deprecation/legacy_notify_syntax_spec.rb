@@ -49,6 +49,21 @@ describe RuboCop::Cop::Chef::ChefDeprecations::LegacyNotifySyntax, :config do
     RUBY
   end
 
+  it 'registers an offense when a resource uses the legacy notification syntax with a variable for the resource name' do
+    expect_offense(<<~RUBY)
+    foo 'bar' do
+      notifies :enable, resources(service: service_name + foo), :immediately
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the new-style notification syntax which allows you to notify resources defined later in a recipe or resource.
+    end
+    RUBY
+
+    expect_correction(<<~RUBY)
+    foo 'bar' do
+      notifies :enable, 'service[service_name + foo]', :immediately
+    end
+    RUBY
+  end
+
   it "doesn't register an offense when using the modern notifies syntax" do
     expect_no_offenses(<<~RUBY)
     foo 'bar' do

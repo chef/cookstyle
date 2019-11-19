@@ -56,7 +56,8 @@ module RuboCop
           def autocorrect(node)
             lambda do |corrector|
               legacy_notify?(node) do |action, type, name, timing|
-                new_val = "notifies #{action.source}, '#{type.source}[#{name.source}]'"
+                new_val = "notifies #{action.source}, '#{type.source}[#{name.str_type? ? name.value : name.source}]'"
+                new_val << ", #{timing.source}" if timing
                 corrector.replace(node.loc.expression, new_val)
               end
             end
