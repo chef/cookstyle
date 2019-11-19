@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.12.14 -->
-## [v5.12.14](https://github.com/chef/cookstyle/tree/v5.12.14) (2019-11-18)
+ <!-- latest_release 5.13.0 -->
+## [v5.13.0](https://github.com/chef/cookstyle/tree/v5.13.0) (2019-11-19)
 
 #### Merged Pull Requests
-- DefaultActionFromInitialize: don&#39;t insert dupe default_action [#410](https://github.com/chef/cookstyle/pull/410) ([tas50](https://github.com/tas50))
+- Add ChefModernize/EmptyResourceInitializeMethod cop [#411](https://github.com/chef/cookstyle/pull/411) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.12.13 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add ChefModernize/EmptyResourceInitializeMethod cop [#411](https://github.com/chef/cookstyle/pull/411) ([tas50](https://github.com/tas50)) <!-- 5.13.0 -->
 - DefaultActionFromInitialize: don&#39;t insert dupe default_action [#410](https://github.com/chef/cookstyle/pull/410) ([tas50](https://github.com/tas50)) <!-- 5.12.14 -->
 <!-- release_rollup -->
 

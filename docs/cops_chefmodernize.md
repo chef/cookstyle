@@ -180,6 +180,30 @@ Name | Default value | Configurable values
 VersionAdded | `5.6.0` | String
 Exclude | `**/metadata.rb` | Array
 
+## ChefModernize/EmptyResourceInitializeMethod
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+There is no need for an empty initialize method in a resource
+
+### Examples
+
+```ruby
+# bad
+def initialize(*args)
+  super
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.13.0` | String
+Include | `**/resources/*.rb`, `**/providers/*.rb` | Array
+
 ## ChefModernize/ExecuteAptUpdate
 
 Enabled by default | Supports autocorrection
