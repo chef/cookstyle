@@ -47,6 +47,7 @@
 * [ChefDeprecations/IncludingXMLRubyRecipe](cops_chefdeprecations.md#chefdeprecationsincludingxmlrubyrecipe)
 * [ChefDeprecations/IncludingYumDNFCompatRecipe](cops_chefdeprecations.md#chefdeprecationsincludingyumdnfcompatrecipe)
 * [ChefDeprecations/LaunchdDeprecatedHashProperty](cops_chefdeprecations.md#chefdeprecationslaunchddeprecatedhashproperty)
+* [ChefDeprecations/LegacyNotifySyntax](cops_chefdeprecations.md#chefdeprecationslegacynotifysyntax)
 * [ChefDeprecations/LegacyYumCookbookRecipes](cops_chefdeprecations.md#chefdeprecationslegacyyumcookbookrecipes)
 * [ChefDeprecations/LocaleDeprecatedLcAllProperty](cops_chefdeprecations.md#chefdeprecationslocaledeprecatedlcallproperty)
 * [ChefDeprecations/LongDescriptionMetadata](cops_chefdeprecations.md#chefdeprecationslongdescriptionmetadata)

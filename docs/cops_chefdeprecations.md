@@ -466,6 +466,43 @@ Name | Default value | Configurable values
 VersionAdded | `5.5.0` | String
 Exclude | `**/metadata.rb` | Array
 
+## ChefDeprecations/LegacyNotifySyntax
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+Use the new-style notification syntax which allows you to notify resources defined later in a recipe or resource.
+
+### Examples
+
+```ruby
+# bad
+template '/etc/www/configures-apache.conf' do
+  notifies :restart, resources(service: 'apache')
+end
+
+template '/etc/www/configures-apache.conf' do
+  notifies :restart, resources(service: 'apache'), :immediately
+end
+
+# good
+template '/etc/www/configures-apache.conf' do
+  notifies :restart, 'service[apache]'
+end
+
+template '/etc/www/configures-apache.conf' do
+  notifies :restart, 'service[apache]', :immediately
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.13.0` | String
+Exclude | `**/metadata.rb` | Array
+
 ## ChefDeprecations/LegacyYumCookbookRecipes
 
 Enabled by default | Supports autocorrection
