@@ -26,5 +26,7 @@ describe RuboCop::Cop::Chef::ChefModernize::EmptyResourceInitializeMethod, :conf
       super
     end
     RUBY
+
+    expect_correction("\n")
   end
 end
