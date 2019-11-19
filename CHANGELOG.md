@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.13.1 -->
-## [v5.13.1](https://github.com/chef/cookstyle/tree/v5.13.1) (2019-11-19)
+ <!-- latest_release 5.13.2 -->
+## [v5.13.2](https://github.com/chef/cookstyle/tree/v5.13.2) (2019-11-19)
 
 #### Merged Pull Requests
-- Add ChefDeprecations/LegacyNotifySyntax [#412](https://github.com/chef/cookstyle/pull/412) ([tas50](https://github.com/tas50))
+- Adding correctable info to json formatter [#413](https://github.com/chef/cookstyle/pull/413) ([tyler-ball](https://github.com/tyler-ball))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.12.13 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Adding correctable info to json formatter [#413](https://github.com/chef/cookstyle/pull/413) ([tyler-ball](https://github.com/tyler-ball)) <!-- 5.13.2 -->
 - Add ChefDeprecations/LegacyNotifySyntax [#412](https://github.com/chef/cookstyle/pull/412) ([tas50](https://github.com/tas50)) <!-- 5.13.1 -->
 - Add ChefModernize/EmptyResourceInitializeMethod cop [#411](https://github.com/chef/cookstyle/pull/411) ([tas50](https://github.com/tas50)) <!-- 5.13.0 -->
 - DefaultActionFromInitialize: don&#39;t insert dupe default_action [#410](https://github.com/chef/cookstyle/pull/410) ([tas50](https://github.com/tas50)) <!-- 5.12.14 -->
