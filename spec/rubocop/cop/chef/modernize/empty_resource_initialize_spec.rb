@@ -29,4 +29,13 @@ describe RuboCop::Cop::Chef::ChefModernize::EmptyResourceInitializeMethod, :conf
 
     expect_correction("\n")
   end
+
+  it "doesn't alert if there's an initializer with real content" do
+    expect_no_offenses(<<~RUBY)
+    def initialize(*args)
+      @foo = bar
+      super
+    end
+    RUBY
+  end
 end
