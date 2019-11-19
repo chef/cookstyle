@@ -27,9 +27,17 @@ module RuboCop
         #     notifies :restart, resources(service: 'apache')
         #   end
         #
+        #   template '/etc/www/configures-apache.conf' do
+        #     notifies :restart, resources(service: 'apache'), :immediately
+        #   end
+        #
         #   # good
         #   template '/etc/www/configures-apache.conf' do
         #     notifies :restart, 'service[apache]'
+        #   end
+        #
+        #   template '/etc/www/configures-apache.conf' do
+        #     notifies :restart, 'service[apache]', :immediately
         #   end
         #
         class LegacyNotifySyntax < Cop
