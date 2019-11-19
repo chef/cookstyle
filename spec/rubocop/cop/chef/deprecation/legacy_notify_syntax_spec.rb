@@ -26,6 +26,12 @@ describe RuboCop::Cop::Chef::ChefDeprecations::LegacyNotifySyntax, :config do
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the new-style notification syntax which allows you to notify resources defined later in a recipe or resource.
     end
     RUBY
+
+    expect_correction(<<~RUBY)
+      foo 'bar' do
+        notifies :action, 'service[apache]'
+      end
+    RUBY
   end
 
   it 'registers an offense when a resource uses the legacy notification syntax with the timing' do
@@ -33,6 +39,12 @@ describe RuboCop::Cop::Chef::ChefDeprecations::LegacyNotifySyntax, :config do
     foo 'bar' do
       notifies :restart, resources(service: 'apache'), :immediately
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the new-style notification syntax which allows you to notify resources defined later in a recipe or resource.
+    end
+    RUBY
+
+    expect_correction(<<~RUBY)
+    foo 'bar' do
+      notifies :action, 'service[apache]', :immediately
     end
     RUBY
   end
