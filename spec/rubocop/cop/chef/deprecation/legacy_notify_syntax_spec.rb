@@ -29,7 +29,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::LegacyNotifySyntax, :config do
 
     expect_correction(<<~RUBY)
       foo 'bar' do
-        notifies :action, 'service[apache]'
+        notifies :restart, 'service[apache]'
       end
     RUBY
   end
@@ -44,7 +44,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::LegacyNotifySyntax, :config do
 
     expect_correction(<<~RUBY)
     foo 'bar' do
-      notifies :action, 'service[apache]', :immediately
+      notifies :restart, 'service[apache]', :immediately
     end
     RUBY
   end
