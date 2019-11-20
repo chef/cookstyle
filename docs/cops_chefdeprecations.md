@@ -486,6 +486,10 @@ template '/etc/www/configures-apache.conf' do
   notifies :restart, resources(service: 'apache'), :immediately
 end
 
+template '/etc/www/configures-apache.conf' do
+  notifies :restart, resources(service: service_name_variable), :immediately
+end
+
 # good
 template '/etc/www/configures-apache.conf' do
   notifies :restart, 'service[apache]'
@@ -493,6 +497,10 @@ end
 
 template '/etc/www/configures-apache.conf' do
   notifies :restart, 'service[apache]', :immediately
+end
+
+template '/etc/www/configures-apache.conf' do
+  notifies :restart, "service[#{service_name_variable}]", :immediately
 end
 ```
 

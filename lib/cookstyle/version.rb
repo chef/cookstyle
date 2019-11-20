@@ -1,4 +1,4 @@
 module Cookstyle
-  VERSION = "5.13.2".freeze # rubocop: disable Style/StringLiterals
+  VERSION = "5.13.3".freeze # rubocop: disable Style/StringLiterals
   RUBOCOP_VERSION = '0.75.1'.freeze
 end
