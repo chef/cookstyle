@@ -617,6 +617,13 @@ ChefDeprecations/LegacyNotifySyntax:
   Exclude:
     - '**/metadata.rb'
 
+ChefDeprecations/NodeSetWithoutLevel:
+  Description: When setting a node attribute in Chef Infra Client 11 and later you must specify the precedence level.
+  Enabled: true
+  VersionAdded: '5.13.0'
+  Exclude:
+    - '**/metadata.rb'
+
 ###############################
 # ChefModernize: Cleaning up legacy code and using new built-in resources
 ###############################
