@@ -31,6 +31,10 @@ module RuboCop
         #     notifies :restart, resources(service: 'apache'), :immediately
         #   end
         #
+        #   template '/etc/www/configures-apache.conf' do
+        #     notifies :restart, resources(service: service_name_variable), :immediately
+        #   end
+        #
         #   # good
         #   template '/etc/www/configures-apache.conf' do
         #     notifies :restart, 'service[apache]'
@@ -38,6 +42,10 @@ module RuboCop
         #
         #   template '/etc/www/configures-apache.conf' do
         #     notifies :restart, 'service[apache]', :immediately
+        #   end
+        #
+        #   template '/etc/www/configures-apache.conf' do
+        #     notifies :restart, "service[#{service_name_variable}]", :immediately
         #   end
         #
         class LegacyNotifySyntax < Cop
@@ -56,16 +64,15 @@ module RuboCop
           def autocorrect(node)
             lambda do |corrector|
               legacy_notify?(node) do |action, type, name, timing|
-                name_val_string = case name.type
-                                  when :str
-                                    name.value
-                                  when :dstr
-                                    name.value.source # avoids double quotes around strings
-                                  else
-                                    "\#{#{name.source}}"
-                                  end
-                quote_type = name.str_type? ? "'" : '"'
-                new_val = "notifies #{action.source}, #{quote_type}#{type.source}[#{name_val_string}]#{quote_type}"
+                service_value = case name.type
+                                when :str
+                                  "'#{type.source}[#{name.value}]'"
+                                when :dstr
+                                  "\"#{type.source}[#{name.value.source}]\""
+                                else
+                                  "\"#{type.source}[\#{#{name.source}}]\""
+                                end
+                new_val = "notifies #{action.source}, #{service_value}"
                 new_val << ", #{timing.first.source}" unless timing.empty?
                 corrector.replace(node.loc.expression, new_val)
               end
