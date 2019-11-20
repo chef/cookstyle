@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.13.4 -->
-## [v5.13.4](https://github.com/chef/cookstyle/tree/v5.13.4) (2019-11-20)
+ <!-- latest_release 5.13.5 -->
+## [v5.13.5](https://github.com/chef/cookstyle/tree/v5.13.5) (2019-11-20)
 
 #### Merged Pull Requests
-- Add ChefDeprecations/NodeSetWithoutLevel cop [#416](https://github.com/chef/cookstyle/pull/416) ([tas50](https://github.com/tas50))
+- Add Ruby 2.7 testing in Buildkite [#417](https://github.com/chef/cookstyle/pull/417) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.12.13 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add Ruby 2.7 testing in Buildkite [#417](https://github.com/chef/cookstyle/pull/417) ([tas50](https://github.com/tas50)) <!-- 5.13.5 -->
 - Add ChefDeprecations/NodeSetWithoutLevel cop [#416](https://github.com/chef/cookstyle/pull/416) ([tas50](https://github.com/tas50)) <!-- 5.13.4 -->
 - Improve auto correction in LegacyNotifySyntax [#415](https://github.com/chef/cookstyle/pull/415) ([tas50](https://github.com/tas50)) <!-- 5.13.3 -->
 - Adding correctable info to json formatter [#413](https://github.com/chef/cookstyle/pull/413) ([tyler-ball](https://github.com/tyler-ball)) <!-- 5.13.2 -->
