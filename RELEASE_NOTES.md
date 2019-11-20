@@ -1,3 +1,40 @@
+## Cookstyle 5.13
+
+### 2 New Chef Cops
+
+#### ChefDeprecations/LegacyNotifySyntax
+
+The `ChefDeprecations/LegacyNotifySyntax` cop detects the legacy notification syntax in resources. The newer notification suppports notifying resources that occur later in the recipe and should be used instead.
+
+Legacy notification syntax
+
+```ruby
+notifies :restart, resources(service: 'apache')
+```
+
+New notification syntax
+
+```ruby
+notifies :restart, 'service[apache]'
+```
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefModernize/EmptyResourceInitializeMethod
+
+The `ChefModernize/EmptyResourceInitializeMethod` cop detects empty `initialize` methods in resources and providers. These methods are usually left over from refactoring older HWRP-style resources into simpler custom resources and they can be removed.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+### Other fixes and changes
+
+- The JSON output formatter now exposes offenses that could be auto-corrected with a new `correctable` field in the hash.
+- The `ChefModernize/DefaultActionFromInitialize` cop will no longer insert a `default_action` into the resource if one already exists.
+
 ## Cookstyle 5.12
 
 ### 8 New Chef Cops
