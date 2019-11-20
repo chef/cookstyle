@@ -733,6 +733,37 @@ Name | Default value | Configurable values
 VersionAdded | `5.1.0` | String
 Exclude | `**/metadata.rb` | Array
 
+## ChefDeprecations/NodeSetWithoutLevel
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+When setting a node attribute in Chef Infra Client 11 and later you must specify the precedence level.
+
+### Examples
+
+```ruby
+# bad
+node['foo']['bar'] = 1
+node['foo']['bar'] << 1
+node['foo']['bar'] += 1
+node['foo']['bar'] -= 1
+
+# good
+node.default['foo']['bar'] = 1
+node.default['foo']['bar'] << 1
+node.default['foo']['bar'] += 1
+node.default['foo']['bar'] -= 1
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.13.0` | String
+Exclude | `**/metadata.rb` | Array
+
 ## ChefDeprecations/PartialSearchClassUsage
 
 Enabled by default | Supports autocorrection

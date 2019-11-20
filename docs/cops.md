@@ -56,6 +56,7 @@
 * [ChefDeprecations/NodeMethodsInsteadofAttributes](cops_chefdeprecations.md#chefdeprecationsnodemethodsinsteadofattributes)
 * [ChefDeprecations/NodeSet](cops_chefdeprecations.md#chefdeprecationsnodeset)
 * [ChefDeprecations/NodeSetUnless](cops_chefdeprecations.md#chefdeprecationsnodesetunless)
+* [ChefDeprecations/NodeSetWithoutLevel](cops_chefdeprecations.md#chefdeprecationsnodesetwithoutlevel)
 * [ChefDeprecations/PartialSearchClassUsage](cops_chefdeprecations.md#chefdeprecationspartialsearchclassusage)
 * [ChefDeprecations/PartialSearchHelperUsage](cops_chefdeprecations.md#chefdeprecationspartialsearchhelperusage)
 * [ChefDeprecations/PoiseArchiveUsage](cops_chefdeprecations.md#chefdeprecationspoisearchiveusage)
