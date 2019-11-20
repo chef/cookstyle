@@ -56,7 +56,16 @@ module RuboCop
           def autocorrect(node)
             lambda do |corrector|
               legacy_notify?(node) do |action, type, name, timing|
-                new_val = "notifies #{action.source}, '#{type.source}[#{name.str_type? ? name.value : name.source}]'"
+                name_val_string = case name.type
+                                  when :str
+                                    name.value
+                                  when :dstr
+                                    name.value.source # avoids double quotes around strings
+                                  else
+                                    "\#{#{name.source}}"
+                                  end
+                quote_type = name.str_type? ? "'" : '"'
+                new_val = "notifies #{action.source}, #{quote_type}#{type.source}[#{name_val_string}]#{quote_type}"
                 new_val << ", #{timing.first.source}" unless timing.empty?
                 corrector.replace(node.loc.expression, new_val)
               end
