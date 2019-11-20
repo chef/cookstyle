@@ -623,6 +623,7 @@ ChefDeprecations/NodeSetWithoutLevel:
   VersionAdded: '5.13.0'
   Exclude:
     - '**/metadata.rb'
+    - '**/attributes/*.rb'
 
 ###############################
 # ChefModernize: Cleaning up legacy code and using new built-in resources

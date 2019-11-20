@@ -1,6 +1,6 @@
 ## Cookstyle 5.13
 
-### 2 New Chef Cops
+### 3 New Chef Cops
 
 #### ChefDeprecations/LegacyNotifySyntax
 
@@ -21,6 +21,31 @@ notifies :restart, 'service[apache]'
 `Enabled by default`: True
 
 `Autocorrects`: Yes
+
+#### ChefDeprecations/NodeSetWithoutLevel
+
+The `ChefDeprecations/NodeSetWithoutLevel` cop detects recipes and resources that set node attributes without specifying the precedence level required by Chef Infra Client 11 and later.
+
+Setting node attributes without a precedence level
+
+```ruby
+node['foo']['bar'] = 1
+node['foo']['bar'] << 1
+node['foo']['bar'] += 1
+node['foo']['bar'] -= 1
+```
+
+Setting node attributes with a precedence level of override
+```ruby
+node.override['foo']['bar'] = 1
+node.override['foo']['bar'] << 1
+node.override['foo']['bar'] += 1
+node.override['foo']['bar'] -= 1
+```
+
+`Enabled by default`: True
+
+`Autocorrects`: No
 
 #### ChefModernize/EmptyResourceInitializeMethod
 
