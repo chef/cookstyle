@@ -6,7 +6,7 @@
 
 The `ChefDeprecations/LegacyNotifySyntax` cop detects the legacy notification syntax in resources. The newer notification method supports notifying resources that occur later in the recipe and should be used instead.
 
-Legacy notification syntax
+Legacy notification syntax:
 
 ```ruby
 notifies :restart, resources(service: 'apache')
