@@ -1,33 +1,30 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.13.7 -->
-## [v5.13.7](https://github.com/chef/cookstyle/tree/v5.13.7) (2019-11-21)
-
-#### Merged Pull Requests
-- Add Cookstyle 5.13 notes [#414](https://github.com/chef/cookstyle/pull/414) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=5.12.13 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Add Cookstyle 5.13 notes [#414](https://github.com/chef/cookstyle/pull/414) ([tas50](https://github.com/tas50)) <!-- 5.13.7 -->
-- Cache the bundles in S3 to speed up tests [#418](https://github.com/chef/cookstyle/pull/418) ([tas50](https://github.com/tas50)) <!-- 5.13.6 -->
-- Add Ruby 2.7 testing in Buildkite [#417](https://github.com/chef/cookstyle/pull/417) ([tas50](https://github.com/tas50)) <!-- 5.13.5 -->
-- Add ChefDeprecations/NodeSetWithoutLevel cop [#416](https://github.com/chef/cookstyle/pull/416) ([tas50](https://github.com/tas50)) <!-- 5.13.4 -->
-- Improve auto correction in LegacyNotifySyntax [#415](https://github.com/chef/cookstyle/pull/415) ([tas50](https://github.com/tas50)) <!-- 5.13.3 -->
-- Adding correctable info to json formatter [#413](https://github.com/chef/cookstyle/pull/413) ([tyler-ball](https://github.com/tyler-ball)) <!-- 5.13.2 -->
-- Add ChefDeprecations/LegacyNotifySyntax [#412](https://github.com/chef/cookstyle/pull/412) ([tas50](https://github.com/tas50)) <!-- 5.13.1 -->
-- Add ChefModernize/EmptyResourceInitializeMethod cop [#411](https://github.com/chef/cookstyle/pull/411) ([tas50](https://github.com/tas50)) <!-- 5.13.0 -->
-- DefaultActionFromInitialize: don&#39;t insert dupe default_action [#410](https://github.com/chef/cookstyle/pull/410) ([tas50](https://github.com/tas50)) <!-- 5.12.14 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v5.13.7](https://github.com/chef/cookstyle/tree/v5.13.7) (2019-11-21)
+
+#### Merged Pull Requests
+- DefaultActionFromInitialize: don&#39;t insert dupe default_action [#410](https://github.com/chef/cookstyle/pull/410) ([tas50](https://github.com/tas50))
+- Add ChefModernize/EmptyResourceInitializeMethod cop [#411](https://github.com/chef/cookstyle/pull/411) ([tas50](https://github.com/tas50))
+- Add ChefDeprecations/LegacyNotifySyntax [#412](https://github.com/chef/cookstyle/pull/412) ([tas50](https://github.com/tas50))
+- Adding correctable info to json formatter [#413](https://github.com/chef/cookstyle/pull/413) ([tyler-ball](https://github.com/tyler-ball))
+- Improve auto correction in LegacyNotifySyntax [#415](https://github.com/chef/cookstyle/pull/415) ([tas50](https://github.com/tas50))
+- Add ChefDeprecations/NodeSetWithoutLevel cop [#416](https://github.com/chef/cookstyle/pull/416) ([tas50](https://github.com/tas50))
+- Add Ruby 2.7 testing in Buildkite [#417](https://github.com/chef/cookstyle/pull/417) ([tas50](https://github.com/tas50))
+- Cache the bundles in S3 to speed up tests [#418](https://github.com/chef/cookstyle/pull/418) ([tas50](https://github.com/tas50))
+- Add Cookstyle 5.13 notes [#414](https://github.com/chef/cookstyle/pull/414) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v5.12.13](https://github.com/chef/cookstyle/tree/v5.12.13) (2019-11-14)
 
 #### Merged Pull Requests
 - Readme updates to trigger a new build [#409](https://github.com/chef/cookstyle/pull/409) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v5.12.12](https://github.com/chef/cookstyle/tree/v5.12.12) (2019-11-14)
 
