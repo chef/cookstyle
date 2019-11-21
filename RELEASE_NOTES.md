@@ -12,7 +12,7 @@ Legacy notification syntax
 notifies :restart, resources(service: 'apache')
 ```
 
-New notification syntax
+New notification syntax:
 
 ```ruby
 notifies :restart, 'service[apache]'
