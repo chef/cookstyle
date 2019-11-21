@@ -26,7 +26,7 @@ notifies :restart, 'service[apache]'
 
 The `ChefDeprecations/NodeSetWithoutLevel` cop detects recipes and resources that set node attributes without specifying the precedence level required by Chef Infra Client 11 and later.
 
-Setting node attributes without a precedence level
+Setting node attributes without a precedence level:
 
 ```ruby
 node['foo']['bar'] = 1
