@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.13.6 -->
-## [v5.13.6](https://github.com/chef/cookstyle/tree/v5.13.6) (2019-11-20)
+ <!-- latest_release 5.13.7 -->
+## [v5.13.7](https://github.com/chef/cookstyle/tree/v5.13.7) (2019-11-21)
 
 #### Merged Pull Requests
-- Cache the bundles in S3 to speed up tests [#418](https://github.com/chef/cookstyle/pull/418) ([tas50](https://github.com/tas50))
+- Add Cookstyle 5.13 notes [#414](https://github.com/chef/cookstyle/pull/414) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.12.13 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add Cookstyle 5.13 notes [#414](https://github.com/chef/cookstyle/pull/414) ([tas50](https://github.com/tas50)) <!-- 5.13.7 -->
 - Cache the bundles in S3 to speed up tests [#418](https://github.com/chef/cookstyle/pull/418) ([tas50](https://github.com/tas50)) <!-- 5.13.6 -->
 - Add Ruby 2.7 testing in Buildkite [#417](https://github.com/chef/cookstyle/pull/417) ([tas50](https://github.com/tas50)) <!-- 5.13.5 -->
 - Add ChefDeprecations/NodeSetWithoutLevel cop [#416](https://github.com/chef/cookstyle/pull/416) ([tas50](https://github.com/tas50)) <!-- 5.13.4 -->

@@ -762,7 +762,7 @@ node.default['foo']['bar'] -= 1
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.13.0` | String
-Exclude | `**/metadata.rb` | Array
+Exclude | `**/metadata.rb`, `**/attributes/*.rb` | Array
 
 ## ChefDeprecations/PartialSearchClassUsage
 
