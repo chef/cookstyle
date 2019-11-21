@@ -36,6 +36,7 @@ node['foo']['bar'] -= 1
 ```
 
 Setting node attributes with a precedence level of override
+
 ```ruby
 node.override['foo']['bar'] = 1
 node.override['foo']['bar'] << 1
