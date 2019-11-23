@@ -36,6 +36,9 @@ module RuboCop
         #
         class PowershellInstallWindowsFeature < Cop
           include RuboCop::Chef::CookbookHelpers
+          extend TargetChefVersion
+
+          minimum_target_chef_version 13.0
 
           MSG = 'Use the windows_feature resource built into Chef Infra Client 13+ instead of using Install-WindowsFeature or Add-WindowsFeature in a powershell_script resource'.freeze
 

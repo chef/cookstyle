@@ -26,6 +26,10 @@ module RuboCop
         #   depends 'compat_resource'
         #
         class CookbookDependsOnCompatResource < Cop
+          extend TargetChefVersion
+
+          minimum_target_chef_version 12.19
+
           MSG = "Don't depend on the deprecated compat_resource cookbook made obsolete by Chef 12.19+".freeze
 
           def_node_matcher :depends_compat_resource?, <<-PATTERN

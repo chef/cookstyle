@@ -9,6 +9,11 @@ require 'rubocop'
 require 'rubocop/monkey_patches/comment_config.rb'
 require 'rubocop/monkey_patches/json_formatter.rb'
 
+# monkey patches needed for the TargetChefVersion config option
+require 'rubocop/monkey_patches/config.rb'
+require 'rubocop/monkey_patches/cop.rb'
+require 'rubocop/monkey_patches/commissioner.rb'
+
 module RuboCop
   class ConfigLoader
     RUBOCOP_HOME.gsub!(
@@ -35,6 +40,7 @@ end
 require 'rubocop/chef'
 require 'rubocop/chef/cookbook_helpers'
 require 'rubocop/chef/cookbook_only'
+require 'rubocop/cop/target_chef_version'
 
 # Chef specific cops
 Dir.glob(File.dirname(__FILE__) + '/rubocop/cop/chef/**/*.rb') do |file|

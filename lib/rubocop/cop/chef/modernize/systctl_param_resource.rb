@@ -18,8 +18,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefModernize
-        # The sysctl_param resource was renamed to sysctl when it was added to Chef Infra Client
-        # 14.0. The new resource name should be used.
+        # The sysctl_param resource was renamed to sysctl when it was added to Chef Infra Client 14.0. The new resource name should be used.
         #
         #   # bad
         #   sysctl_param 'fs.aio-max-nr' do
@@ -33,6 +32,9 @@ module RuboCop
         #
         class SysctlParamResource < Cop
           include RuboCop::Chef::CookbookHelpers
+          extend TargetChefVersion
+
+          minimum_target_chef_version 14.0
 
           MSG = 'The sysctl_param resource was renamed to sysctl when it was added to Chef Infra Client 14.0. The new resource name should be used.'.freeze
 

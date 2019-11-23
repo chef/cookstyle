@@ -31,6 +31,10 @@ module RuboCop
         #   build_essential 'install compilation tools'
         #
         class UseBuildEssentialResource < Cop
+          extend TargetChefVersion
+
+          minimum_target_chef_version 14.0
+
           MSG = 'Use the build_essential resource instead of the legacy build-essential recipe. This resource ships in the build-essential cookbook v5.0+ and is built into Chef Infra Client 14+'.freeze
 
           def_node_matcher :build_essential_recipe_usage?, <<-PATTERN

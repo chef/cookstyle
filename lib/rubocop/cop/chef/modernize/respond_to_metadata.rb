@@ -34,6 +34,10 @@ module RuboCop
         #   chef_version '>= 13'
         #
         class RespondToInMetadata < Cop
+          extend TargetChefVersion
+
+          minimum_target_chef_version 12.15
+
           MSG = 'It is no longer necessary to use respond_to? or if_defined? in metadata.rb in Chef Infra Client 12.15 and later'.freeze
 
           def on_if(node)

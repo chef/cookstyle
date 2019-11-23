@@ -29,6 +29,10 @@ module RuboCop
         #   end
         #
         class SevenZipArchiveResource < Cop
+          extend TargetChefVersion
+
+          minimum_target_chef_version 15.0
+
           MSG = 'Use the archive_file resource built into Chef Infra Client 15+ instead of the seven_zip_archive'.freeze
 
           def on_send(node)

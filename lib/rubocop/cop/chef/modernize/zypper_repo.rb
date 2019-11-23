@@ -39,6 +39,10 @@ module RuboCop
         #   end
         #
         class UsesZypperRepo < Cop
+          extend TargetChefVersion
+
+          minimum_target_chef_version 13.3
+
           MSG = 'The zypper_repo resource was renamed zypper_repository when it was added to Chef Infra Client 13.3.'.freeze
 
           def on_send(node)

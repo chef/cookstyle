@@ -32,6 +32,10 @@ module RuboCop
         #   end
         #
         class OpensslRsaKeyResource < Cop
+          extend TargetChefVersion
+
+          minimum_target_chef_version 14.0
+
           MSG = 'The openssl_rsa_key resource was renamed to openssl_rsa_private_key in Chef Infra Client 14.0. The new resource name should be used.'.freeze
 
           def on_send(node)
