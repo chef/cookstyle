@@ -37,6 +37,15 @@ describe RuboCop::Cop::Chef::ChefModernize::ZipfileResource, :config do
     RUBY
   end
 
+  it "doesn't register an offense when using the archive_file resource" do
+    expect_no_offenses(<<~RUBY)
+      archive_file 'Precompiled.zip' do
+        path '/tmp/Precompiled.zip'
+        destination '/srv/files'
+      end
+    RUBY
+  end
+
   context 'with TargetChefVersion set to 14' do
     let(:config) { target_chef_version(14) }
 
