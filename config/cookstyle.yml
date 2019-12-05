@@ -625,6 +625,14 @@ ChefDeprecations/NodeSetWithoutLevel:
     - '**/metadata.rb'
     - '**/attributes/*.rb'
 
+ChefDeprecations/ChefRewind:
+  Description: Use delete_resource / edit_resource instead of functionality in the deprecated chef-rewind gem
+  Enabled: true
+  VersionAdded: '5.14.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/attributes/*.rb'
+
 ###############################
 # ChefModernize: Cleaning up legacy code and using new built-in resources
 ###############################
