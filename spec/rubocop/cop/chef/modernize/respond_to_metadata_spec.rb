@@ -59,4 +59,14 @@ describe RuboCop::Cop::Chef::ChefModernize::RespondToInMetadata, :config do
       chef_version '> 13'
     RUBY
   end
+
+  context 'with TargetChefVersion set to 12.14' do
+    let(:config) { target_chef_version(12.14) }
+
+    it "doesn't register an offense" do
+      expect_no_offenses(<<~RUBY)
+        chef_version '> 13' if defined?(chef_version)
+      RUBY
+    end
+  end
 end

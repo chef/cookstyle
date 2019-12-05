@@ -47,4 +47,18 @@ describe RuboCop::Cop::Chef::ChefModernize::MacOsXUserdefaults, :config do
     end
     RUBY
   end
+
+  context 'with TargetChefVersion set to 13' do
+    let(:config) { target_chef_version(13) }
+
+    it "doesn't register an offense" do
+      expect_no_offenses(<<~RUBY)
+        mac_os_x_userdefaults 'full keyboard access to all controls' do
+          domain 'AppleKeyboardUIMode'
+          global true
+          value '2'
+        end
+      RUBY
+    end
+  end
 end

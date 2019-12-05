@@ -19,7 +19,7 @@ require 'spec_helper'
 describe RuboCop::Cop::Chef::ChefModernize::PowershellInstallPackage, :config do
   subject(:cop) { described_class.new(config) }
 
-  it 'registers an offense when using the libarchive_file resource' do
+  it 'registers an offense when using powershell_script to run Install-Package' do
     expect_offense(<<~RUBY)
       powershell_script 'Expand website' do
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the powershell_package resource built into Chef Infra Client 12.16+ instead of using Install-Package in a powershell_script resource
@@ -34,5 +34,17 @@ describe RuboCop::Cop::Chef::ChefModernize::PowershellInstallPackage, :config do
         code 'Nope nope nope'
       end
     RUBY
+  end
+
+  context 'with TargetChefVersion set to 12.15' do
+    let(:config) { target_chef_version(12.15) }
+
+    it "doesn't register an offense" do
+      expect_no_offenses(<<~RUBY)
+        powershell_script 'Expand website' do
+          code 'Install-Package -Name docker'
+        end
+      RUBY
+    end
   end
 end

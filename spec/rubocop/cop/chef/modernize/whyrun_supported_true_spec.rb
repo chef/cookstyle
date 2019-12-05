@@ -33,4 +33,14 @@ describe RuboCop::Cop::Chef::ChefModernize::WhyRunSupportedTrue, :config do
       def whyrun_supported?; false; end
     RUBY
   end
+
+  context 'with TargetChefVersion set to 12' do
+    let(:config) { target_chef_version(12) }
+
+    it "doesn't register an offense" do
+      expect_no_offenses(<<~RUBY)
+        def whyrun_supported?; true; end
+      RUBY
+    end
+  end
 end

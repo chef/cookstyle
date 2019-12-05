@@ -50,4 +50,19 @@ describe RuboCop::Cop::Chef::ChefModernize::UsesZypperRepo, :config do
     end
     RUBY
   end
+
+  context 'with TargetChefVersion set to 13.2' do
+    let(:config) { target_chef_version(13.2) }
+
+    it "doesn't register an offense" do
+      expect_no_offenses(<<~RUBY)
+        zypper_repo 'apache' do
+          baseurl 'http://download.opensuse.org/repositories/Apache'
+          path '/openSUSE_Leap_42.2'
+          type 'rpm-md'
+          priority '100'
+        end
+      RUBY
+    end
+  end
 end

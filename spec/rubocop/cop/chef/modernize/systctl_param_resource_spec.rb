@@ -41,4 +41,16 @@ describe RuboCop::Cop::Chef::ChefModernize::SysctlParamResource, :config do
     end
     RUBY
   end
+
+  context 'with TargetChefVersion set to 13' do
+    let(:config) { target_chef_version(13) }
+
+    it "doesn't register an offense" do
+      expect_no_offenses(<<~RUBY)
+        sysctl_param 'fs.aio-max-nr' do
+          value '1048576'
+        end
+      RUBY
+    end
+  end
 end

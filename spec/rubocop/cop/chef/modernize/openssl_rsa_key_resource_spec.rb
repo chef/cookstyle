@@ -41,4 +41,16 @@ describe RuboCop::Cop::Chef::ChefModernize::OpensslRsaKeyResource, :config do
     end
     RUBY
   end
+
+  context 'with TargetChefVersion set to 13' do
+    let(:config) { target_chef_version(13) }
+
+    it "doesn't register an offense" do
+      expect_no_offenses(<<~RUBY)
+        openssl_rsa_key '/etc/httpd/ssl/server.key' do
+          key_length 2048
+        end
+      RUBY
+    end
+  end
 end

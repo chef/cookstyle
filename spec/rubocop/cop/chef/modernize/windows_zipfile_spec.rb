@@ -37,4 +37,17 @@ describe RuboCop::Cop::Chef::ChefModernize::WindowsZipfileUsage, :config do
       end
     RUBY
   end
+
+  context 'with TargetChefVersion set to 14' do
+    let(:config) { target_chef_version(14) }
+
+    it "doesn't register an offense" do
+      expect_no_offenses(<<~RUBY)
+        windows_zipfile 'Precompiled.zip' do
+          some_prop 'foo'
+          another_prop 'bar'
+        end
+      RUBY
+    end
+  end
 end

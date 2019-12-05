@@ -44,4 +44,16 @@ describe RuboCop::Cop::Chef::ChefModernize::PowershellInstallWindowsFeature, :co
       end
     RUBY
   end
+
+  context 'with TargetChefVersion set to 12' do
+    let(:config) { target_chef_version(12) }
+
+    it "doesn't register an offense" do
+      expect_no_offenses(<<~RUBY)
+        powershell_script 'Install Feature' do
+          code 'Install-WindowsFeature -Name "Net-framework-Core"'
+        end
+      RUBY
+    end
+  end
 end

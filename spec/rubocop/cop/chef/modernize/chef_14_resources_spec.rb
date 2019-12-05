@@ -80,4 +80,14 @@ describe RuboCop::Cop::Chef::ChefModernize::UnnecessaryDependsChef14, :config do
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Don't depend on cookbooks made obsolete by Chef Infra Client 14+. These community cookbooks contain resources that are now included in Chef Infra Client itself.
     RUBY
   end
+
+  context 'with TargetChefVersion set to 13' do
+    let(:config) { target_chef_version(13) }
+
+    it "doesn't register an offense" do
+      expect_no_offenses(<<~RUBY)
+        depends 'build-essential', '>= 8.0.1'
+      RUBY
+    end
+  end
 end

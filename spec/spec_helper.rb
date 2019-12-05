@@ -20,4 +20,9 @@ end
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 
+# small helper for use in let blocks
+def target_chef_version(version)
+  RuboCop::Config.new('AllCops' => { 'TargetChefVersion' => version })
+end
+
 require 'cookstyle'
