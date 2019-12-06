@@ -1,23 +1,21 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.14.1 -->
-## [v5.14.1](https://github.com/chef/cookstyle/tree/v5.14.1) (2019-12-06)
-
-#### Merged Pull Requests
-- Expand ChefDeprecations/UsesRunCommandHelper to catch more cases [#424](https://github.com/chef/cookstyle/pull/424) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=5.13.7 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Expand ChefDeprecations/UsesRunCommandHelper to catch more cases [#424](https://github.com/chef/cookstyle/pull/424) ([tas50](https://github.com/tas50)) <!-- 5.14.1 -->
-- Improve IncludingMixinShelloutInResources cops message to include Chef Versions [#423](https://github.com/chef/cookstyle/pull/423) ([tas50](https://github.com/tas50)) <!-- 5.14.0 -->
-- Add new ChefModernize/ChefGemNokogiri cop [#421](https://github.com/chef/cookstyle/pull/421) ([tas50](https://github.com/tas50)) <!-- 5.13.9 -->
-- Add new ChefDeprecations/ChefRewind cop [#422](https://github.com/chef/cookstyle/pull/422) ([tas50](https://github.com/tas50)) <!-- 5.13.8 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v5.14.1](https://github.com/chef/cookstyle/tree/v5.14.1) (2019-12-06)
+
+#### Merged Pull Requests
+- Add new ChefDeprecations/ChefRewind cop [#422](https://github.com/chef/cookstyle/pull/422) ([tas50](https://github.com/tas50))
+- Add new ChefModernize/ChefGemNokogiri cop [#421](https://github.com/chef/cookstyle/pull/421) ([tas50](https://github.com/tas50))
+- Improve IncludingMixinShelloutInResources cops message to include Chef Versions [#423](https://github.com/chef/cookstyle/pull/423) ([tas50](https://github.com/tas50))
+- Expand ChefDeprecations/UsesRunCommandHelper to catch more cases [#424](https://github.com/chef/cookstyle/pull/424) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v5.13.7](https://github.com/chef/cookstyle/tree/v5.13.7) (2019-11-21)
 
 #### Merged Pull Requests
@@ -30,7 +28,6 @@
 - Add Ruby 2.7 testing in Buildkite [#417](https://github.com/chef/cookstyle/pull/417) ([tas50](https://github.com/tas50))
 - Cache the bundles in S3 to speed up tests [#418](https://github.com/chef/cookstyle/pull/418) ([tas50](https://github.com/tas50))
 - Add Cookstyle 5.13 notes [#414](https://github.com/chef/cookstyle/pull/414) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v5.12.13](https://github.com/chef/cookstyle/tree/v5.12.13) (2019-11-14)
 
