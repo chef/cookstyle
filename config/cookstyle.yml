@@ -936,6 +936,14 @@ ChefModernize/EmptyResourceInitializeMethod:
     - '**/resources/*.rb'
     - '**/providers/*.rb'
 
+ChefModernize/ChefGemNokogiri:
+  Description: The nokogiri gem ships in Chef Infra Client 12+ and does not need to be installed before being used.
+  Enabled: true
+  VersionAdded: '5.14.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/attributes/*.rb'
+
 ###############################
 # Migrating to new patterns
 ###############################
