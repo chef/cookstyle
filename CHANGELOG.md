@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.14.0 -->
-## [v5.14.0](https://github.com/chef/cookstyle/tree/v5.14.0) (2019-12-06)
+ <!-- latest_release 5.14.1 -->
+## [v5.14.1](https://github.com/chef/cookstyle/tree/v5.14.1) (2019-12-06)
 
 #### Merged Pull Requests
-- Improve IncludingMixinShelloutInResources cops message to include Chef Versions [#423](https://github.com/chef/cookstyle/pull/423) ([tas50](https://github.com/tas50))
+- Expand ChefDeprecations/UsesRunCommandHelper to catch more cases [#424](https://github.com/chef/cookstyle/pull/424) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.13.7 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Expand ChefDeprecations/UsesRunCommandHelper to catch more cases [#424](https://github.com/chef/cookstyle/pull/424) ([tas50](https://github.com/tas50)) <!-- 5.14.1 -->
 - Improve IncludingMixinShelloutInResources cops message to include Chef Versions [#423](https://github.com/chef/cookstyle/pull/423) ([tas50](https://github.com/tas50)) <!-- 5.14.0 -->
 - Add new ChefModernize/ChefGemNokogiri cop [#421](https://github.com/chef/cookstyle/pull/421) ([tas50](https://github.com/tas50)) <!-- 5.13.9 -->
 - Add new ChefDeprecations/ChefRewind cop [#422](https://github.com/chef/cookstyle/pull/422) ([tas50](https://github.com/tas50)) <!-- 5.13.8 -->
