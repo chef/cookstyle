@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 5.14.2 -->
+## [v5.14.2](https://github.com/chef/cookstyle/tree/v5.14.2) (2019-12-06)
+
+#### Merged Pull Requests
+- Add new rubygems metadata [#425](https://github.com/chef/cookstyle/pull/425) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=5.14.1 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Add new rubygems metadata [#425](https://github.com/chef/cookstyle/pull/425) ([tas50](https://github.com/tas50)) <!-- 5.14.2 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
