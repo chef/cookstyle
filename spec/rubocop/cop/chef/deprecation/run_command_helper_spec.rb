@@ -43,6 +43,20 @@ describe RuboCop::Cop::Chef::ChefDeprecations::UsesRunCommandHelper, :config do
     RUBY
   end
 
+  it 'registers an offense when a cookbook requires the Chef::Mixin::Command module' do
+    expect_offense(<<~RUBY)
+      require 'chef/mixin/command'
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use 'shell_out!' instead of the legacy 'run_command' or 'run_command_with_systems_locale' helpers for shelling out. The run_command helper was removed in Chef Infra Client 13.
+    RUBY
+  end
+
+  it 'registers an offense when a cookbook includes the Chef::Mixin::Command module' do
+    expect_offense(<<~RUBY)
+      include Chef::Mixin::Command
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use 'shell_out!' instead of the legacy 'run_command' or 'run_command_with_systems_locale' helpers for shelling out. The run_command helper was removed in Chef Infra Client 13.
+    RUBY
+  end
+
   it "doesn't register an offense when using the run_command_with_systems_locale helper if it's defined in the same file" do
     expect_no_offenses(<<~RUBY)
     run_command_with_systems_locale(foo)
