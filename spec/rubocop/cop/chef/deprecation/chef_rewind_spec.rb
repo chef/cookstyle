@@ -67,12 +67,23 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ChefRewind, :config do
         cookbook 'my-postgresql' # or `cookbook cookbook_name()`
       end
     RUBY
+
+    expect_correction(<<~RUBY)
+    edit_resource 'user[postgres]' do
+      home '/var/lib/pgsql/9.2'
+      cookbook 'my-postgresql' # or `cookbook cookbook_name()`
+    end
+    RUBY
   end
 
   it 'registers an offense when using the unwind resource' do
     expect_offense(<<~RUBY)
       unwind 'user[postgres]'
       ^^^^^^^^^^^^^^^^^^^^^^^ Use delete_resource / edit_resource instead of functionality in the deprecated chef-rewind gem
+    RUBY
+
+    expect_correction(<<~RUBY)
+      delete_resource 'user[postgres]'
     RUBY
   end
 

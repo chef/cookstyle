@@ -37,6 +37,11 @@ module RuboCop
         class ChefRewind < Cop
           include RuboCop::Chef::CookbookHelpers
 
+          MAPPING = {
+            rewind: 'edit_resource',
+            unwind: 'delete_resource',
+          }.freeze
+
           MSG = 'Use delete_resource / edit_resource instead of functionality in the deprecated chef-rewind gem'.freeze
 
           def_node_matcher :rewind_gem_install?, <<-PATTERN
@@ -45,6 +50,10 @@ module RuboCop
 
           def_node_matcher :require_rewind?, <<-PATTERN
             (send nil? :require (str "chef/rewind"))
+          PATTERN
+
+          def_node_matcher :rewind_resources?, <<-PATTERN
+            (send nil? ${:rewind :unwind} ... )
           PATTERN
 
           def on_send(node)
@@ -56,7 +65,9 @@ module RuboCop
               add_offense(node, location: :expression, message: MSG, severity: :refactor)
             end
 
-            add_offense(node, location: :expression, message: MSG, severity: :refactor) if %i(rewind unwind).include?(node.method_name)
+            rewind_resources?(node) do
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            end
           end
 
           def on_block(node)
@@ -70,14 +81,21 @@ module RuboCop
               rewind_gem_install?(node) do
                 node = node.parent if node.parent&.block_type? # make sure we get the whole block not just the method in the block
                 corrector.remove(node.loc.expression)
+                return
               end
 
               require_rewind?(node) do
                 corrector.remove(node.loc.expression)
+                return
               end
 
               match_property_in_resource?(:chef_gem, 'package_name', node) do |pkg_name|
                 corrector.remove(node.loc.expression) if pkg_name.arguments&.first&.str_content == 'chef-rewind'
+                return
+              end
+
+              rewind_resources?(node) do |string|
+                corrector.replace(node.loc.expression, node.source.gsub(string.to_s, MAPPING[string]))
               end
             end
           end
