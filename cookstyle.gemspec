@@ -9,7 +9,6 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Thom May', 'Tim Smith']
   spec.email         = ['thom@chef.io', 'tsmith@chef.io']
   spec.summary       = 'Cookstyle is a code linting tool that helps you to write better Chef Infra cookbooks by detecting and automatically correcting style, syntax, and logic mistakes in your code.'
-  spec.homepage      = 'https://github.com/chef/cookstyle'
   spec.license       = 'Apache-2.0'
   spec.required_ruby_version = '>= 2.4'
 
@@ -19,4 +18,12 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency('rubocop', Cookstyle::RUBOCOP_VERSION)
+
+  spec.metadata = {
+    'homepage_uri' => 'https://github.com/chef/cookstyle',
+    'changelog_uri' => 'https://github.com/chef/cookstyle/blob/master/CHANGELOG.md',
+    'source_code_uri' => 'https://github.com/chef/cookstyle',
+    'documentation_uri' => 'https://docs.chef.io/cookstyle.html',
+    'bug_tracker_uri' => 'https://github.com/chef/cookstyle/issues',
+  }
 end
