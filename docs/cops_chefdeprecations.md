@@ -57,6 +57,36 @@ Name | Default value | Configurable values
 VersionAdded | `5.9.0` | String
 Exclude | `**/metadata.rb` | Array
 
+## ChefDeprecations/ChefRewind
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+Use delete_resource / edit_resource instead of functionality in the deprecated chef-rewind gem
+
+### Examples
+
+```ruby
+chef_gem 'chef-rewind'
+
+require 'chef/rewind'
+
+rewind "user[postgres]" do
+  home '/var/lib/pgsql/9.2'
+  cookbook 'my-postgresql'    # or `cookbook cookbook_name()`
+end
+
+unwind "user[postgres]"
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.14.0` | String
+Exclude | `**/metadata.rb`, `**/attributes/*.rb` | Array
+
 ## ChefDeprecations/ChefSpecCoverageReport
 
 Enabled by default | Supports autocorrection

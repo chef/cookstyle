@@ -31,6 +31,7 @@
 
 * [ChefDeprecations/AttributeMetadata](cops_chefdeprecations.md#chefdeprecationsattributemetadata)
 * [ChefDeprecations/ChefHandlerUsesSupports](cops_chefdeprecations.md#chefdeprecationschefhandlerusessupports)
+* [ChefDeprecations/ChefRewind](cops_chefdeprecations.md#chefdeprecationschefrewind)
 * [ChefDeprecations/ChefSpecCoverageReport](cops_chefdeprecations.md#chefdeprecationschefspeccoveragereport)
 * [ChefDeprecations/ChefSpecLegacyRunner](cops_chefdeprecations.md#chefdeprecationschefspeclegacyrunner)
 * [ChefDeprecations/Cheffile](cops_chefdeprecations.md#chefdeprecationscheffile)
