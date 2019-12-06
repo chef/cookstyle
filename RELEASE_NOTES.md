@@ -1,3 +1,28 @@
+## Cookstyle 5.14
+
+### 2 New Chef Cops
+
+#### ChefModernize/ChefGemNokogiri
+
+The `ChefModernize/ChefGemNokogiri` cop detects cookbooks that use `chef_gem` to install `nokogiri` into the Chef Infra Client's Ruby installation. The nokogiri gem is built into Chef Infra Client 12 and later so this is no longer necessary.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefDeprecations/ChefRewind
+
+The `ChefDeprecations/ChefRewind` cop detects the usage of the deprecated `chef-rewind` gem and updates code to instead use the built-in `edit_resource` and `delete_resource` methods.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+### Other fixes and changes
+
+- The `ChefDeprecations/UsesRunCommandHelper` cop has been improved to detect more cases of legacy run_command usage.
+- The `ChefModernize/UnnecessaryMixlibShelloutRequire` cop has been improved to better describe when this change was made in Chef Infra CLient.
+
 ## Cookstyle 5.13
 
 ### 3 New Chef Cops
