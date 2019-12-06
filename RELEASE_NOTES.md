@@ -21,7 +21,7 @@ The `ChefDeprecations/ChefRewind` cop detects the usage of the deprecated `chef-
 ### Other fixes and changes
 
 - The `ChefDeprecations/UsesRunCommandHelper` cop has been improved to detect more cases of legacy run_command usage.
-- The `ChefModernize/UnnecessaryMixlibShelloutRequire` cop has been improved to better describe when this change was made in Chef Infra CLient.
+- The `ChefModernize/UnnecessaryMixlibShelloutRequire` cop has been improved to better describe when this change was made in Chef Infra Client.
 
 ## Cookstyle 5.13
 
