@@ -23,6 +23,9 @@ module RuboCop
         # @example
         #
         #   # bad
+        #   require 'chef/mixin/command'
+        #   include Chef::Mixin::Command
+        #
         #   run_command('/bin/foo')
         #   run_command_with_systems_locale('/bin/foo')
         #
@@ -33,11 +36,22 @@ module RuboCop
           MSG = "Use 'shell_out!' instead of the legacy 'run_command' or 'run_command_with_systems_locale' helpers for shelling out. The run_command helper was removed in Chef Infra Client 13.".freeze
 
           def_node_matcher :calls_run_command?, '(send nil? {:run_command :run_command_with_systems_locale} ...)'
+          def_node_matcher :require_mixin_command?, '(send nil? :require (str "chef/mixin/command"))'
+          def_node_matcher :include_mixin_command?, '(send nil? :include (const (const (const nil? :Chef) :Mixin) :Command))'
+
           def_node_search :defines_run_command?, '(def {:run_command :run_command_with_systems_locale} ...)'
 
           def on_send(node)
             calls_run_command?(node) do
               add_offense(node, location: :expression, message: MSG, severity: :refactor) unless defines_run_command?(processed_source.ast)
+            end
+
+            require_mixin_command?(node) do
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            end
+
+            include_mixin_command?(node) do
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
             end
           end
         end
