@@ -337,7 +337,7 @@ Enabled by default | Supports autocorrection
 --- | ---
 Enabled | Yes
 
-There is no need to include Chef::Mixin::ShellOut in resources or providers as this is already done by Chef Infra Client.
+There is no need to include Chef::Mixin::ShellOut in resources or providers as this is already done by Chef Infra Client 12.4+.
 
 ### Examples
 
