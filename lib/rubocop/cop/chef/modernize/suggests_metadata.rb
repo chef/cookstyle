@@ -18,20 +18,20 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefDeprecations
-        # Don't use the deprecated 'replaces' metadata value
+      module ChefModernize
+        # The suggests metadata.rb method is not used and is unnecessary in cookbooks.
         #
         # @example
         #
         #   # bad in metadata.rb:
         #
-        #   replaces "another_cookbook"
+        #   suggests "another_cookbook"
         #
-        class ReplacesMetadata < Cop
-          MSG = "Don't use the deprecated 'replaces' metadata value".freeze
+        class SuggestsMetadata < Cop
+          MSG = "The suggests metadata.rb method is not used and is unnecessary in cookbooks.".freeze
 
           def on_send(node)
-            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :replaces
+            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :suggests
           end
 
           def autocorrect(node)

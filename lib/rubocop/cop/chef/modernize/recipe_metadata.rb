@@ -18,27 +18,25 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefDeprecations
-        # The long_description metadata.rb method is not used and is unnecessary in cookbooks
+      module ChefModernize
+        # The recipe metadata.rb method is not used and is unnecessary in cookbooks. Recipes should be documented in the cookbook's README.md file instead.
         #
         # @example
         #
         #   # bad
-        #   long_description 'this is my cookbook and this description will never be seen'
+        #   recipe 'openldap::default', 'Install and configure OpenLDAP'
         #
-
-        class LongDescriptionMetadata < Cop
-          include RangeHelp
-
-          MSG = 'The long_description metadata.rb method is not used and is unnecessary in cookbooks'.freeze
+        #
+        class RecipeMetadata < Cop
+          MSG = "The recipe metadata.rb method is not used and is unnecessary in cookbooks. Recipes should be documented in the cookbook's README.md file instead.".freeze
 
           def on_send(node)
-            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :long_description
+            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :recipe
           end
 
           def autocorrect(node)
             lambda do |corrector|
-              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :right))
+              corrector.remove(node.loc.expression)
             end
           end
         end

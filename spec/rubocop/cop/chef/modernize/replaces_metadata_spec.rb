@@ -16,13 +16,13 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefDeprecations::ProvidesMetadata, :config do
+describe RuboCop::Cop::Chef::ChefModernize::ReplacesMetadata, :config do
   subject(:cop) { described_class.new(config) }
 
-  it 'registers an offense when metadata uses "provides"' do
+  it 'registers an offense when metadata uses "replaces"' do
     expect_offense(<<~RUBY)
-      provides 'foo'
-      ^^^^^^^^^^^^^^ Don't use the deprecated 'provides' metadata value
+      replaces 'foo'
+      ^^^^^^^^^^^^^^ The replaces metadata.rb method is not used and is unnecessary in cookbooks.
     RUBY
 
     expect_correction("\n")

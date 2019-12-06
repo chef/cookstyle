@@ -18,21 +18,20 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefDeprecations
-        # The recipe metadata.rb method is not used and is unnecessary in cookbooks. Recipes should be documented
-        # in the README.md file instead.
+      module ChefModernize
+        # The replaces metadata.rb method is not used and is unnecessary in cookbooks. Replacements for existing cookbooks should be documented in the cookbook's README.md file instead.
         #
         # @example
         #
-        #   # bad
-        #   recipe 'openldap::default', 'Install and configure OpenLDAP'
+        #   # bad in metadata.rb:
         #
+        #   replaces "another_cookbook"
         #
-        class RecipeMetadata < Cop
-          MSG = 'The recipe metadata.rb method is not used and is unnecessary in cookbooks. Recipes should be documented in the README.md file instead.'.freeze
+        class ReplacesMetadata < Cop
+          MSG = "The replaces metadata.rb method is not used and is unnecessary in cookbooks.".freeze
 
           def on_send(node)
-            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :recipe
+            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :replaces
           end
 
           def autocorrect(node)

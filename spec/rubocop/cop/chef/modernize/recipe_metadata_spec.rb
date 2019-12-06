@@ -16,13 +16,13 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefDeprecations::RecipeMetadata, :config do
+describe RuboCop::Cop::Chef::ChefModernize::RecipeMetadata, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when metadata uses "recipe"' do
     expect_offense(<<~RUBY)
       recipe 'chef-client::config', 'Configures the client.rb from a template.'
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ The recipe metadata.rb method is not used and is unnecessary in cookbooks. Recipes should be documented in the README.md file instead.
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ The recipe metadata.rb method is not used and is unnecessary in cookbooks. Recipes should be documented in the cookbook's README.md file instead.
     RUBY
 
     expect_correction("\n")
