@@ -1,5 +1,27 @@
 # ChefModernize
 
+## ChefModernize/ChefGemNokogiri
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+The nokogiri gem ships in Chef Infra Client 12+ and does not need to be installed before being used
+
+### Examples
+
+```ruby
+# bad
+chef_gem 'nokogiri'
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.14.0` | String
+Exclude | `**/metadata.rb`, `**/attributes/*.rb` | Array
+
 ## ChefModernize/CronManageResource
 
 Enabled by default | Supports autocorrection

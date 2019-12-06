@@ -92,6 +92,7 @@
 
 #### Department [ChefModernize](cops_chefmodernize.md)
 
+* [ChefModernize/ChefGemNokogiri](cops_chefmodernize.md#chefmodernizechefgemnokogiri)
 * [ChefModernize/CronManageResource](cops_chefmodernize.md#chefmodernizecronmanageresource)
 * [ChefModernize/CustomResourceWithAllowedActions](cops_chefmodernize.md#chefmodernizecustomresourcewithallowedactions)
 * [ChefModernize/CustomResourceWithAttributes](cops_chefmodernize.md#chefmodernizecustomresourcewithattributes)
