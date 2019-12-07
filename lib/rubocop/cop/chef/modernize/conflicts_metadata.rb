@@ -18,8 +18,8 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefDeprecations
-        # Don't use the deprecated 'conflicts' metadata value
+      module ChefModernize
+        # The conflicts metadata.rb method is not used and is unnecessary in cookbooks.
         #
         # @example
         #
@@ -28,7 +28,7 @@ module RuboCop
         #   conflicts "another_cookbook"
         #
         class ConflictsMetadata < Cop
-          MSG = "Don't use the deprecated 'conflicts' metadata value".freeze
+          MSG = 'The conflicts metadata.rb method is not used and is unnecessary in cookbooks.'.freeze
 
           def on_send(node)
             add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :conflicts

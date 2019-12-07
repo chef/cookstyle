@@ -28,7 +28,7 @@ module RuboCop
         #   suggests "another_cookbook"
         #
         class SuggestsMetadata < Cop
-          MSG = "The suggests metadata.rb method is not used and is unnecessary in cookbooks.".freeze
+          MSG = 'The suggests metadata.rb method is not used and is unnecessary in cookbooks.'.freeze
 
           def on_send(node)
             add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :suggests

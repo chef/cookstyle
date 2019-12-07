@@ -16,13 +16,13 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefDeprecations::ConflictsMetadata, :config do
+describe RuboCop::Cop::Chef::ChefModernize::ConflictsMetadata, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when metadata uses "conflicts"' do
     expect_offense(<<~RUBY)
       conflicts 'foo'
-      ^^^^^^^^^^^^^^^ Don't use the deprecated 'conflicts' metadata value
+      ^^^^^^^^^^^^^^^ The conflicts metadata.rb method is not used and is unnecessary in cookbooks.
     RUBY
 
     expect_correction("\n")
