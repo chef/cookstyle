@@ -16,7 +16,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefCorrectness::InvalidLicenseString, :config do
+describe RuboCop::Cop::Chef::ChefSharing::InvalidLicenseString, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when a cookbook sets its license to a non-standard form of the the Apache 2.0 license' do

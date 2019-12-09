@@ -17,7 +17,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefCorrectness
+      module ChefSharing
         # Use secure Github and Gitlab URLs for source_url and issues_url
         #
         # @example

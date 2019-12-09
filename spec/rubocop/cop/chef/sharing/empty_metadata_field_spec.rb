@@ -16,23 +16,19 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefCorrectness::PropertyWithNameAttribute, :config do
+describe RuboCop::Cop::Chef::ChefSharing::EmptyMetadataField, :config do
   subject(:cop) { described_class.new(config) }
 
-  it 'registers an offense when a property has a name_attribute value' do
+  it 'registers an offense when a metadata.rb contains a field with an empty string' do
     expect_offense(<<~RUBY)
-      property :foo, String, name_attribute: true
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Resource property sets name_attribute not name_property
-    RUBY
-
-    expect_correction(<<~RUBY)
-      property :foo, String, name_property: true
+      license ''
+              ^^ Cookbook metadata.rb contains an field with an empty string.
     RUBY
   end
 
-  it "doesn't register an offense when a property has a name_property value" do
+  it "doesn't register an offense with a field that contains data" do
     expect_no_offenses(<<~RUBY)
-      property :foo, String, name_property: true
+      license 'Apache-2.0'
     RUBY
   end
 end

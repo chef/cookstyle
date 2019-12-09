@@ -115,25 +115,6 @@ ChefCorrectness/TmpPath:
   Exclude:
     - '**/metadata.rb'
 
-ChefCorrectness/InsecureCookbookURL:
-  Description: Insecure http Github or Gitlab URLs for metadata source_url/issues_url fields
-  Enabled: true
-  VersionAdded: '5.1.0'
-  Include:
-    - '**/metadata.rb'
-
-ChefCorrectness/NamePropertyIsRequired:
-  Description: Resource properties marked as name properties should not also be required properties
-  Enabled: true
-  VersionAdded: '5.1.0'
-
-ChefCorrectness/InvalidLicenseString:
-  Description: Cookbook metadata.rb does not use a SPDX compliant license string or "all rights reserved"
-  Enabled: true
-  VersionAdded: '5.2.0'
-  Include:
-    - '**/metadata.rb'
-
 ChefCorrectness/InvalidPlatformMetadata:
   Description: metadata.rb "supports" platform is invalid
   Enabled: true
@@ -147,29 +128,6 @@ ChefCorrectness/CookbookUsesNodeSave:
   VersionAdded: '5.5.0'
   Exclude:
     - '**/metadata.rb'
-
-ChefCorrectness/DefaultMetadataMaintainer:
-  Description: Metadata contains default maintainer information from the cookbook generator. Add actual cookbook maintainer information to the metadata.rb.
-  Enabled: true
-  VersionAdded: '5.4.0'
-  Include:
-    - '**/metadata.rb'
-
-ChefCorrectness/PropertyWithNameAttribute:
-  Description: Resource property sets name_attribute not name_property
-  Enabled: true
-  VersionAdded: '5.1.0'
-  Include:
-    - '**/resources/*.rb'
-    - '**/libraries/*.rb'
-
-ChefCorrectness/PropertyWithRequiredAndDefault:
-  Description: Resource property should not be both required and have a default value
-  Enabled: true
-  VersionAdded: '5.1.0'
-  Include:
-    - '**/resources/*.rb'
-    - '**/libraries/*.rb'
 
 ChefCorrectness/CookbooksDependsOnSelf:
   Description: A cookbook cannot depend on itself
@@ -213,20 +171,6 @@ ChefCorrectness/ResourceWithNoneAction:
   Exclude:
     - '**/metadata.rb'
 
-ChefCorrectness/IncludingOhaiDefaultRecipe:
-  Description: Use the ohai_plugin resource to ship custom Ohai plugins instead of using the ohai::default recipe. If you're not shipping custom Ohai plugins, then you can remove this recipe entirely.
-  Enabled: true
-  VersionAdded: '5.4.0'
-  Exclude:
-    - '**/metadata.rb'
-
-ChefCorrectness/EmptyMetadataField:
-  Description: metadata.rb should not include fields with an empty string. Either don't include the field or add a value.
-  Enabled: true
-  VersionAdded: '5.8.0'
-  Include:
-    - '**/metadata.rb'
-
 ChefCorrectness/InvalidVersionMetadata:
   Description: Cookbook metadata.rb version field should follow X.Y.Z version format.
   Enabled: true
@@ -247,6 +191,42 @@ ChefCorrectness/IncorrectLibraryInjection:
   VersionAdded: '5.10.0'
   Include:
     - '**/libraries/*.rb'
+
+###############################
+# ChefSharing: Issues that prevent sharing code with other teams or with the Chef community in general
+###############################
+
+ChefSharing/InsecureCookbookURL:
+  Description: Insecure http Github or Gitlab URLs for metadata source_url/issues_url fields
+  Enabled: true
+  VersionAdded: '5.1.0'
+  VersionChanged: '5.15.0'
+  Include:
+    - '**/metadata.rb'
+
+ChefSharing/InvalidLicenseString:
+  Description: Cookbook metadata.rb does not use a SPDX compliant license string or "all rights reserved"
+  Enabled: true
+  VersionAdded: '5.2.0'
+  VersionChanged: '5.15.0'
+  Include:
+    - '**/metadata.rb'
+
+ChefSharing/DefaultMetadataMaintainer:
+  Description: Metadata contains default maintainer information from the cookbook generator. Add actual cookbook maintainer information to the metadata.rb.
+  Enabled: true
+  VersionAdded: '5.4.0'
+  VersionChanged: '5.15.0'
+  Include:
+    - '**/metadata.rb'
+
+ChefSharing/EmptyMetadataField:
+  Description: metadata.rb should not include fields with an empty string. Either don't include the field or add a value.
+  Enabled: true
+  VersionAdded: '5.8.0'
+  VersionChanged: '5.15.0'
+  Include:
+    - '**/metadata.rb'
 
 ###############################
 # ChefDeprecations: Resolving Deprecations that block upgrading Chef Infra Client
@@ -878,6 +858,23 @@ ChefModernize/ChefGemNokogiri:
     - '**/metadata.rb'
     - '**/attributes/*.rb'
 
+ChefModernize/PropertyWithNameAttribute:
+  Description: Resource property sets name_attribute not name_property
+  Enabled: true
+  VersionAdded: '5.1.0'
+  VersionChanged: '5.15.0'
+  Include:
+    - '**/resources/*.rb'
+    - '**/libraries/*.rb'
+
+ChefModernize/IncludingOhaiDefaultRecipe:
+  Description: Use the ohai_plugin resource to ship custom Ohai plugins instead of using the ohai::default recipe. If you're not shipping custom Ohai plugins, then you can remove this recipe entirely.
+  Enabled: true
+  VersionAdded: '5.4.0'
+  VersionChanged: '5.15.0'
+  Exclude:
+    - '**/metadata.rb'
+
 ###############################
 # ChefRedundantCode: Cleanup unncessary code in your cookbooks regardless of chef-client release
 ###############################
@@ -952,6 +949,24 @@ ChefRedundantCode/UnnecessaryNameProperty:
   Description: There is no need to define a property named :name in a resource as Chef Infra defines that property for all resources by default.
   Enabled: true
   VersionAdded: '5.8.0'
+  VersionChanged: '5.15.0'
+  Include:
+    - '**/resources/*.rb'
+    - '**/libraries/*.rb'
+
+ChefRedundantCode/PropertyWithRequiredAndDefault:
+  Description: Resource property should not be both required and have a default value
+  Enabled: true
+  VersionAdded: '5.1.0'
+  VersionChanged: '5.15.0'
+  Include:
+    - '**/resources/*.rb'
+    - '**/libraries/*.rb'
+
+ChefCorrectness/NamePropertyIsRequired:
+  Description: Resource properties marked as name properties should not also be required properties
+  Enabled: true
+  VersionAdded: '5.1.0'
   VersionChanged: '5.15.0'
   Include:
     - '**/resources/*.rb'

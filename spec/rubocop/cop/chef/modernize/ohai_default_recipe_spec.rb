@@ -16,7 +16,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefCorrectness::IncludingOhaiDefaultRecipe, :config do
+describe RuboCop::Cop::Chef::ChefModernize::IncludingOhaiDefaultRecipe, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when including the "ohai" recipe' do

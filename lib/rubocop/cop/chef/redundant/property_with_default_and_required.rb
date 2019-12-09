@@ -17,7 +17,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefCorrectness
+      module ChefRedundantCode
         # When using properties in a custom resource you shouldn't set a property to
         # required and then provide a default value. If a property is required the
         # user will always pass in a value and the default will never be used. In Chef

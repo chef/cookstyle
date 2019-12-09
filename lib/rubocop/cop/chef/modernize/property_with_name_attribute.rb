@@ -17,7 +17,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefCorrectness
+      module ChefModernize
         # When using properties in a custom resource you should use name_property not the legacy name_attribute from the days of attributes
         #
         # @example

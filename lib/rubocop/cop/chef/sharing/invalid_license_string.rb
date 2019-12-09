@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefCorrectness
+      module ChefSharing
         # metadata.rb license field should include a SPDX compliant string or "all right reserved" (not case sensitive)
         #
         # @example
