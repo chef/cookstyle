@@ -36,6 +36,9 @@ module RuboCop
         #
         class ChefRewind < Cop
           include RuboCop::Chef::CookbookHelpers
+          extend TargetChefVersion
+
+          minimum_target_chef_version '12.10'
 
           MAPPING = {
             rewind: 'edit_resource',

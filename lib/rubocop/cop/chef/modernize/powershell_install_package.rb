@@ -35,7 +35,7 @@ module RuboCop
           include RuboCop::Chef::CookbookHelpers
           extend TargetChefVersion
 
-          minimum_target_chef_version 12.16
+          minimum_target_chef_version '12.16'
 
           MSG = 'Use the powershell_package resource built into Chef Infra Client 12.16+ instead of using Install-Package in a powershell_script resource'.freeze
 

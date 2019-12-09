@@ -98,4 +98,23 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ChefRewind, :config do
       require 'chef/resource'
     RUBY
   end
+
+  context 'with TargetChefVersion set to 12.9' do
+    let(:config) { target_chef_version(12.9) }
+
+    it "doesn't register an offense" do
+      expect_no_offenses(<<~RUBY)
+        chef_gem 'chef-rewind'
+
+        require 'chef/rewind'
+
+        unwind 'user[postgres]'
+
+        rewind 'user[postgres]' do
+          home '/var/lib/pgsql/9.2'
+          cookbook 'my-postgresql'
+        end
+      RUBY
+    end
+  end
 end

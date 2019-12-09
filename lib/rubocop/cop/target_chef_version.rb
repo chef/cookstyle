@@ -11,7 +11,7 @@ module RuboCop
       end
 
       def support_target_chef_version?(version)
-        @minimum_target_chef_version <= version
+        Gem::Version.new(@minimum_target_chef_version) <= Gem::Version.new(version)
       end
     end
   end

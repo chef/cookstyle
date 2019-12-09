@@ -30,7 +30,7 @@ module RuboCop
         class WhyRunSupportedTrue < Cop
           extend TargetChefVersion
 
-          minimum_target_chef_version 13.0
+          minimum_target_chef_version '13.0'
 
           MSG = 'whyrun_supported? no longer needs to be set to true as it is the default in Chef Infra Client 13+'.freeze
 

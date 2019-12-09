@@ -34,7 +34,7 @@ module RuboCop
           include RuboCop::Chef::CookbookHelpers
           extend TargetChefVersion
 
-          minimum_target_chef_version 14.0
+          minimum_target_chef_version '14.0'
 
           MSG = 'The sysctl_param resource was renamed to sysctl when it was added to Chef Infra Client 14.0. The new resource name should be used.'.freeze
 

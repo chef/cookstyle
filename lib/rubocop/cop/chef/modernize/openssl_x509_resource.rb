@@ -40,7 +40,7 @@ module RuboCop
         class OpensslX509Resource < Cop
           extend TargetChefVersion
 
-          minimum_target_chef_version 14.4
+          minimum_target_chef_version '14.4'
 
           MSG = 'The openssl_x509 resource was renamed to openssl_x509_certificate in Chef Infra Client 14.4. The new resource name should be used.'.freeze
 

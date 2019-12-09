@@ -28,7 +28,7 @@ module RuboCop
         class DependsOnZypperCookbook < Cop
           extend TargetChefVersion
 
-          minimum_target_chef_version 13.3
+          minimum_target_chef_version '13.3'
 
           MSG = "Don't include the zypper cookbook as the zypper_repository resource is built into Chef Infra Client 13.3+".freeze
 

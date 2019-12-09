@@ -33,7 +33,7 @@ module RuboCop
         class IncludingAptDefaultRecipe < Cop
           extend TargetChefVersion
 
-          minimum_target_chef_version 12.7
+          minimum_target_chef_version '12.7'
 
           MSG = 'Do not include the Apt default recipe to update package cache. Instead use the apt_update resource, which is built into Chef Infra Client 12.7 and later.'.freeze
 

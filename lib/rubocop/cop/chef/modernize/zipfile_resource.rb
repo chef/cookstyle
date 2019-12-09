@@ -32,7 +32,7 @@ module RuboCop
           include RuboCop::Chef::CookbookHelpers
           extend TargetChefVersion
 
-          minimum_target_chef_version 15.0
+          minimum_target_chef_version '15.0'
 
           MSG = 'Use the archive_file resource built into Chef Infra Client 15+ instead of the zipfile resource from the zipfile cookbook.'.freeze
 
