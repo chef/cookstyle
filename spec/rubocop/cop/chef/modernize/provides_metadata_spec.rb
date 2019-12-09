@@ -16,13 +16,13 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefDeprecations::AttributeMetadata, :config do
+describe RuboCop::Cop::Chef::ChefModernize::ProvidesMetadata, :config do
   subject(:cop) { described_class.new(config) }
 
-  it 'registers an offense when metadata uses "attribute"' do
+  it 'registers an offense when metadata uses "provides"' do
     expect_offense(<<~RUBY)
-      attribute 'foo'
-      ^^^^^^^^^^^^^^^ Don't use the deprecated 'attribute' metadata value
+      provides 'foo'
+      ^^^^^^^^^^^^^^ The provides metadata.rb method is not used and is unnecessary in cookbooks.
     RUBY
 
     expect_correction("\n")

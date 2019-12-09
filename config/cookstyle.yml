@@ -304,55 +304,6 @@ ChefDeprecations/CookbookDependsOnPoise:
   Include:
     - '**/metadata.rb'
 
-ChefDeprecations/ConflictsMetadata:
-  Description: Don't use the deprecated 'conflicts' metadata value
-  Enabled: true
-  VersionAdded: '5.1.0'
-  Include:
-    - '**/metadata.rb'
-
-ChefDeprecations/SuggestsMetadata:
-  Description: Don't use the deprecated 'suggests' metadata value
-  Enabled: true
-  VersionAdded: '5.1.0'
-  Include:
-    - '**/metadata.rb'
-
-ChefDeprecations/ProvidesMetadata:
-  Description: Don't use the deprecated 'provides' metadata value
-  Enabled: true
-  VersionAdded: '5.1.0'
-  Include:
-    - '**/metadata.rb'
-
-ChefDeprecations/ReplacesMetadata:
-  Description: Don't use the deprecated 'replaces' metadata value
-  Enabled: true
-  VersionAdded: '5.1.0'
-  Include:
-    - '**/metadata.rb'
-
-ChefDeprecations/AttributeMetadata:
-  Description: Don't use the deprecated 'attribute' metadata value
-  Enabled: true
-  VersionAdded: '5.1.0'
-  Include:
-    - '**/metadata.rb'
-
-ChefDeprecations/LongDescriptionMetadata:
-  Description: The long_description metadata.rb method is not used and is unnecessary in cookbooks
-  Enabled: true
-  VersionAdded: '5.2.0'
-  Include:
-    - '**/metadata.rb'
-
-ChefDeprecations/RecipeMetadata:
-  Description: The recipe metadata.rb method is not used and is unnecessary in cookbooks. Recipes should be documented in the README.md file instead.
-  Enabled: true
-  VersionAdded: '5.6.0'
-  Include:
-    - '**/metadata.rb'
-
 ChefDeprecations/CookbookDependsOnCompatResource:
   Description: Don't depend on the deprecated compat_resource cookbook made obsolete by Chef 12.19+
   Enabled: true
@@ -943,6 +894,62 @@ ChefModernize/ChefGemNokogiri:
   Exclude:
     - '**/metadata.rb'
     - '**/attributes/*.rb'
+
+ChefModernize/ConflictsMetadata:
+  Description: Don't use the deprecated 'conflicts' metadata value
+  Enabled: true
+  VersionAdded: '5.1.0'
+  VersionChanged: '5.15.0'
+  Include:
+    - '**/metadata.rb'
+
+ChefModernize/SuggestsMetadata:
+  Description: Don't use the deprecated 'suggests' metadata value
+  Enabled: true
+  VersionAdded: '5.1.0'
+  VersionChanged: '5.15.0'
+  Include:
+    - '**/metadata.rb'
+
+ChefModernize/ProvidesMetadata:
+  Description: Don't use the deprecated 'provides' metadata value
+  Enabled: true
+  VersionAdded: '5.1.0'
+  VersionChanged: '5.15.0'
+  Include:
+    - '**/metadata.rb'
+
+ChefModernize/ReplacesMetadata:
+  Description: Don't use the deprecated 'replaces' metadata value
+  Enabled: true
+  VersionAdded: '5.1.0'
+  VersionChanged: '5.15.0'
+  Include:
+    - '**/metadata.rb'
+
+ChefModernize/AttributeMetadata:
+  Description: Don't use the deprecated 'attribute' metadata value
+  Enabled: true
+  VersionAdded: '5.1.0'
+  VersionChanged: '5.15.0'
+  Include:
+    - '**/metadata.rb'
+
+ChefModernize/LongDescriptionMetadata:
+  Description: The long_description metadata.rb method is not used and is unnecessary in cookbooks
+  Enabled: true
+  VersionAdded: '5.2.0'
+  VersionChanged: '5.15.0'
+  Include:
+    - '**/metadata.rb'
+
+ChefModernize/RecipeMetadata:
+  Description: The recipe metadata.rb method is not used and is unnecessary in cookbooks. Recipes should be documented in the README.md file instead.
+  Enabled: true
+  VersionAdded: '5.6.0'
+  VersionChanged: '5.15.0'
+  Include:
+    - '**/metadata.rb'
 
 ###############################
 # Migrating to new patterns

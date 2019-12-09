@@ -18,8 +18,8 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefDeprecations
-        # Don't use the deprecated 'provides' metadata value
+      module ChefModernize
+        # The provides metadata.rb method is not used and is unnecessary in cookbooks.
         #
         # @example
         #
@@ -28,7 +28,7 @@ module RuboCop
         #   provides "some_thing"
         #
         class ProvidesMetadata < Cop
-          MSG = "Don't use the deprecated 'provides' metadata value".freeze
+          MSG = 'The provides metadata.rb method is not used and is unnecessary in cookbooks.'.freeze
 
           def on_send(node)
             add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :provides

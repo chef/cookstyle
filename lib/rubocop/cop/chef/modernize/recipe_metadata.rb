@@ -18,9 +18,8 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefDeprecations
-        # The recipe metadata.rb method is not used and is unnecessary in cookbooks. Recipes should be documented
-        # in the README.md file instead.
+      module ChefModernize
+        # The recipe metadata.rb method is not used and is unnecessary in cookbooks. Recipes should be documented in the cookbook's README.md file instead.
         #
         # @example
         #
@@ -29,7 +28,7 @@ module RuboCop
         #
         #
         class RecipeMetadata < Cop
-          MSG = 'The recipe metadata.rb method is not used and is unnecessary in cookbooks. Recipes should be documented in the README.md file instead.'.freeze
+          MSG = "The recipe metadata.rb method is not used and is unnecessary in cookbooks. Recipes should be documented in the cookbook's README.md file instead.".freeze
 
           def on_send(node)
             add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :recipe

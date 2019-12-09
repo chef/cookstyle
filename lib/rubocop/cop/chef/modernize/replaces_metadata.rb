@@ -18,20 +18,20 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefDeprecations
-        # Don't use the deprecated 'conflicts' metadata value
+      module ChefModernize
+        # The replaces metadata.rb method is not used and is unnecessary in cookbooks. Replacements for existing cookbooks should be documented in the cookbook's README.md file instead.
         #
         # @example
         #
         #   # bad in metadata.rb:
         #
-        #   conflicts "another_cookbook"
+        #   replaces "another_cookbook"
         #
-        class ConflictsMetadata < Cop
-          MSG = "Don't use the deprecated 'conflicts' metadata value".freeze
+        class ReplacesMetadata < Cop
+          MSG = 'The replaces metadata.rb method is not used and is unnecessary in cookbooks.'.freeze
 
           def on_send(node)
-            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :conflicts
+            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :replaces
           end
 
           def autocorrect(node)
