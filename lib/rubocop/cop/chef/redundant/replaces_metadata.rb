@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefModernize
+      module ChefRedundantCode
         # The replaces metadata.rb method is not used and is unnecessary in cookbooks. Replacements for existing cookbooks should be documented in the cookbook's README.md file instead.
         #
         # @example

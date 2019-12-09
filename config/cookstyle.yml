@@ -220,14 +220,6 @@ ChefCorrectness/IncludingOhaiDefaultRecipe:
   Exclude:
     - '**/metadata.rb'
 
-ChefCorrectness/UnnecessaryNameProperty:
-  Description: There is no need to define a property named :name in a resource as Chef Infra defines that property for all resources by default.
-  Enabled: true
-  VersionAdded: '5.8.0'
-  Include:
-    - '**/resources/*.rb'
-    - '**/libraries/*.rb'
-
 ChefCorrectness/EmptyMetadataField:
   Description: metadata.rb should not include fields with an empty string. Either don't include the field or add a value.
   Enabled: true
@@ -255,15 +247,6 @@ ChefCorrectness/IncorrectLibraryInjection:
   VersionAdded: '5.10.0'
   Include:
     - '**/libraries/*.rb'
-
-ChefCorrectness/ResourceWithNothingAction:
-  Description: There is no need to define a :nothing action in your resource as Chef Infra Client provides the :nothing action by default for every resource.
-  Enabled: true
-  VersionAdded: '5.12.0'
-  Include:
-    - '**/libraries/*.rb'
-    - '**/resources/*.rb'
-    - '**/providers/*.rb'
 
 ###############################
 # ChefDeprecations: Resolving Deprecations that block upgrading Chef Infra Client
@@ -895,7 +878,11 @@ ChefModernize/ChefGemNokogiri:
     - '**/metadata.rb'
     - '**/attributes/*.rb'
 
-ChefModernize/ConflictsMetadata:
+###############################
+# ChefRedundantCode: Cleanup unncessary code in your cookbooks regardless of chef-client release
+###############################
+
+ChefRedundantCode/ConflictsMetadata:
   Description: Don't use the deprecated 'conflicts' metadata value
   Enabled: true
   VersionAdded: '5.1.0'
@@ -903,7 +890,7 @@ ChefModernize/ConflictsMetadata:
   Include:
     - '**/metadata.rb'
 
-ChefModernize/SuggestsMetadata:
+ChefRedundantCode/SuggestsMetadata:
   Description: Don't use the deprecated 'suggests' metadata value
   Enabled: true
   VersionAdded: '5.1.0'
@@ -911,7 +898,7 @@ ChefModernize/SuggestsMetadata:
   Include:
     - '**/metadata.rb'
 
-ChefModernize/ProvidesMetadata:
+ChefRedundantCode/ProvidesMetadata:
   Description: Don't use the deprecated 'provides' metadata value
   Enabled: true
   VersionAdded: '5.1.0'
@@ -919,7 +906,7 @@ ChefModernize/ProvidesMetadata:
   Include:
     - '**/metadata.rb'
 
-ChefModernize/ReplacesMetadata:
+ChefRedundantCode/ReplacesMetadata:
   Description: Don't use the deprecated 'replaces' metadata value
   Enabled: true
   VersionAdded: '5.1.0'
@@ -927,7 +914,7 @@ ChefModernize/ReplacesMetadata:
   Include:
     - '**/metadata.rb'
 
-ChefModernize/AttributeMetadata:
+ChefRedundantCode/AttributeMetadata:
   Description: Don't use the deprecated 'attribute' metadata value
   Enabled: true
   VersionAdded: '5.1.0'
@@ -935,7 +922,7 @@ ChefModernize/AttributeMetadata:
   Include:
     - '**/metadata.rb'
 
-ChefModernize/LongDescriptionMetadata:
+ChefRedundantCode/LongDescriptionMetadata:
   Description: The long_description metadata.rb method is not used and is unnecessary in cookbooks
   Enabled: true
   VersionAdded: '5.2.0'
@@ -943,13 +930,32 @@ ChefModernize/LongDescriptionMetadata:
   Include:
     - '**/metadata.rb'
 
-ChefModernize/RecipeMetadata:
+ChefRedundantCode/RecipeMetadata:
   Description: The recipe metadata.rb method is not used and is unnecessary in cookbooks. Recipes should be documented in the README.md file instead.
   Enabled: true
   VersionAdded: '5.6.0'
   VersionChanged: '5.15.0'
   Include:
     - '**/metadata.rb'
+
+ChefRedundantCode/ResourceWithNothingAction:
+  Description: There is no need to define a :nothing action in your resource as Chef Infra Client provides the :nothing action by default for every resource.
+  Enabled: true
+  VersionAdded: '5.12.0'
+  VersionChanged: '5.15.0'
+  Include:
+    - '**/libraries/*.rb'
+    - '**/resources/*.rb'
+    - '**/providers/*.rb'
+
+ChefRedundantCode/UnnecessaryNameProperty:
+  Description: There is no need to define a property named :name in a resource as Chef Infra defines that property for all resources by default.
+  Enabled: true
+  VersionAdded: '5.8.0'
+  VersionChanged: '5.15.0'
+  Include:
+    - '**/resources/*.rb'
+    - '**/libraries/*.rb'
 
 ###############################
 # Migrating to new patterns

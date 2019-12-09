@@ -1,5 +1,6 @@
 #
-# Copyright:: 2019, Chef Software, Inc.
+# Copyright:: Copyright 2019, Chef Software Inc.
+# Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,21 +17,25 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefModernize::SuggestsMetadata, :config do
-  subject(:cop) { described_class.new(config) }
+describe RuboCop::Cop::Chef::ChefRedundantCode::ResourceWithNothingAction do
+  subject(:cop) { described_class.new }
 
-  it 'registers an offense when metadata uses "suggests"' do
+  it 'registers an offense with a nothing action in a resource' do
     expect_offense(<<~RUBY)
-      suggests 'foo'
-      ^^^^^^^^^^^^^^ The suggests metadata.rb method is not used and is unnecessary in cookbooks.
+      action :nothing do
+      ^^^^^^^^^^^^^^^^^^ There is no need to define a :nothing action in your resource as Chef Infra Client provides the :nothing action by default for every resource.
+        # standard nothing action
+      end
     RUBY
 
     expect_correction("\n")
   end
 
-  it "doesn't register an offense on normal metadata" do
+  it 'does not register an offense with other actions' do
     expect_no_offenses(<<~RUBY)
-      depends 'foo'
+      action :create do
+        # stuff
+      end
     RUBY
   end
 end

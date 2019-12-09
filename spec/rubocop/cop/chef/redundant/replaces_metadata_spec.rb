@@ -16,18 +16,16 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefModernize::LongDescriptionMetadata, :config do
+describe RuboCop::Cop::Chef::ChefRedundantCode::ReplacesMetadata, :config do
   subject(:cop) { described_class.new(config) }
 
-  it 'registers an offense when metadata uses "long_description"' do
+  it 'registers an offense when metadata uses "replaces"' do
     expect_offense(<<~RUBY)
-      description 'foo'
-      long_description 'foo'
-      ^^^^^^^^^^^^^^^^^^^^^^ The long_description metadata.rb method is not used and is unnecessary in cookbooks.
-      version '1.0.0'
+      replaces 'foo'
+      ^^^^^^^^^^^^^^ The replaces metadata.rb method is not used and is unnecessary in cookbooks.
     RUBY
 
-    expect_correction("description 'foo'\nversion '1.0.0'\n")
+    expect_correction("\n")
   end
 
   it "doesn't register an offense on normal metadata" do

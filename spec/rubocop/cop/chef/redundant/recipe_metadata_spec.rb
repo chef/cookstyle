@@ -16,13 +16,13 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefModernize::ReplacesMetadata, :config do
+describe RuboCop::Cop::Chef::ChefRedundantCode::RecipeMetadata, :config do
   subject(:cop) { described_class.new(config) }
 
-  it 'registers an offense when metadata uses "replaces"' do
+  it 'registers an offense when metadata uses "recipe"' do
     expect_offense(<<~RUBY)
-      replaces 'foo'
-      ^^^^^^^^^^^^^^ The replaces metadata.rb method is not used and is unnecessary in cookbooks.
+      recipe 'chef-client::config', 'Configures the client.rb from a template.'
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ The recipe metadata.rb method is not used and is unnecessary in cookbooks. Recipes should be documented in the cookbook's README.md file instead.
     RUBY
 
     expect_correction("\n")

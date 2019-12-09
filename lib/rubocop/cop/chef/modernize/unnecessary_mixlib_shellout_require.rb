@@ -19,7 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefModernize
-        # Chef Infra Client includes mixlib/shellout automatically in resources and providers.
+        # Chef Infra Client 12.4+ includes mixlib/shellout automatically in resources and providers.
         #
         # @example
         #
@@ -27,7 +27,7 @@ module RuboCop
         #   require 'mixlib/shellout'
         #
         class UnnecessaryMixlibShelloutRequire < Cop
-          MSG = 'Chef Infra Client includes mixlib/shellout automatically in resources and providers.'.freeze
+          MSG = 'Chef Infra Client 12.4+ includes mixlib/shellout automatically in resources and providers.'.freeze
 
           def_node_matcher :require_mixlibshellout?, <<-PATTERN
           (send nil? :require ( str "mixlib/shellout"))

@@ -16,7 +16,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefCorrectness::UnnecessaryNameProperty, :config do
+describe RuboCop::Cop::Chef::ChefRedundantCode::UnnecessaryNameProperty, :config do
   subject(:cop) { described_class.new(config) }
 
   #   property :name, String

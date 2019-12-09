@@ -16,7 +16,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefModernize::ProvidesMetadata, :config do
+describe RuboCop::Cop::Chef::ChefRedundantCode::ProvidesMetadata, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when metadata uses "provides"' do

@@ -17,26 +17,27 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefCorrectness
-        # Chef Infra Client provides the :nothing action by default for every resource. There is no need to define a :nothing action in your resource code.
+      module ChefRedundantCode
+        # There is no need to define a property named :name in a resource as Chef Infra defines that property for all resources by default.
         #
         # @example
         #
         #   # bad
-        #   action :nothing
-        #     # let's do nothing
-        #   end
+        #   property :name, String
+        #   property :name, String, name_property: true
         #
-        class ResourceWithNothingAction < Cop
-          MSG = 'There is no need to define a :nothing action in your resource as Chef Infra Client provides the :nothing action by default for every resource.'.freeze
+        class UnnecessaryNameProperty < Cop
+          MSG = 'There is no need to define a property named :name in a resource as Chef Infra defines that property for all resources by default.'.freeze
 
-          def_node_matcher :nothing_action?, <<-PATTERN
-            (block (send nil? :action (sym :nothing)) (args) ... )
+          def_node_matcher :name_property?, <<-PATTERN
+            (send nil? :property (sym :name) (const nil? :String) $...)
           PATTERN
 
-          def on_block(node)
-            nothing_action?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+          def on_send(node)
+            name_property?(node) do |hash_vals|
+              if hash_vals.empty? || (hash_vals.first.keys.count == 1 && hash_vals.first.keys.first.source == 'name_property')
+                add_offense(node, location: :expression, message: MSG, severity: :refactor)
+              end
             end
           end
 

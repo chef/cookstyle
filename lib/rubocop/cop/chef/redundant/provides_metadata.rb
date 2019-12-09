@@ -18,20 +18,20 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefModernize
-        # The suggests metadata.rb method is not used and is unnecessary in cookbooks.
+      module ChefRedundantCode
+        # The provides metadata.rb method is not used and is unnecessary in cookbooks.
         #
         # @example
         #
         #   # bad in metadata.rb:
         #
-        #   suggests "another_cookbook"
+        #   provides "some_thing"
         #
-        class SuggestsMetadata < Cop
-          MSG = 'The suggests metadata.rb method is not used and is unnecessary in cookbooks.'.freeze
+        class ProvidesMetadata < Cop
+          MSG = 'The provides metadata.rb method is not used and is unnecessary in cookbooks.'.freeze
 
           def on_send(node)
-            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :suggests
+            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :provides
           end
 
           def autocorrect(node)

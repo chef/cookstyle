@@ -23,7 +23,7 @@ describe RuboCop::Cop::Chef::ChefModernize::UnnecessaryMixlibShelloutRequire, :c
   it 'registers an offense when a resource / provider requires mixlib/shellout' do
     expect_offense(<<~RUBY)
       require 'mixlib/shellout'
-      ^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client includes mixlib/shellout automatically in resources and providers.
+      ^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 12.4+ includes mixlib/shellout automatically in resources and providers.
     RUBY
 
     expect_correction("\n")

@@ -18,25 +18,20 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefModernize
-        # The attribute metadata.rb method is not used and is unnecessary in cookbooks.
+      module ChefRedundantCode
+        # The suggests metadata.rb method is not used and is unnecessary in cookbooks.
         #
         # @example
         #
         #   # bad in metadata.rb:
         #
-        #    attribute 'zookeeper_bridge/server',
-        #              display_name: 'zookeeper server',
-        #              description: 'Zookeeper server address.',
-        #              type: 'string',
-        #              required: 'optional',
-        #              default: '"127.0.0.1:2181"'
+        #   suggests "another_cookbook"
         #
-        class AttributeMetadata < Cop
-          MSG = 'The attribute metadata.rb method is not used and is unnecessary in cookbooks.'.freeze
+        class SuggestsMetadata < Cop
+          MSG = 'The suggests metadata.rb method is not used and is unnecessary in cookbooks.'.freeze
 
           def on_send(node)
-            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :attribute
+            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :suggests
           end
 
           def autocorrect(node)

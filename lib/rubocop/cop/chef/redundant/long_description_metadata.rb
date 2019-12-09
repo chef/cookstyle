@@ -18,25 +18,27 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefModernize
-        # The conflicts metadata.rb method is not used and is unnecessary in cookbooks.
+      module ChefRedundantCode
+        # The long_description metadata.rb method is not used and is unnecessary in cookbooks.
         #
         # @example
         #
-        #   # bad in metadata.rb:
+        #   # bad
+        #   long_description 'this is my cookbook and this description will never be seen'
         #
-        #   conflicts "another_cookbook"
-        #
-        class ConflictsMetadata < Cop
-          MSG = 'The conflicts metadata.rb method is not used and is unnecessary in cookbooks.'.freeze
+
+        class LongDescriptionMetadata < Cop
+          include RangeHelp
+
+          MSG = 'The long_description metadata.rb method is not used and is unnecessary in cookbooks.'.freeze
 
           def on_send(node)
-            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :conflicts
+            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :long_description
           end
 
           def autocorrect(node)
             lambda do |corrector|
-              corrector.remove(node.loc.expression)
+              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :right))
             end
           end
         end

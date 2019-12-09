@@ -1,6 +1,5 @@
 #
-# Copyright:: Copyright 2019, Chef Software Inc.
-# Author:: Tim Smith (<tsmith@chef.io>)
+# Copyright:: 2019, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,25 +16,21 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefCorrectness::ResourceWithNothingAction do
-  subject(:cop) { described_class.new }
+describe RuboCop::Cop::Chef::ChefRedundantCode::ConflictsMetadata, :config do
+  subject(:cop) { described_class.new(config) }
 
-  it 'registers an offense with a nothing action in a resource' do
+  it 'registers an offense when metadata uses "conflicts"' do
     expect_offense(<<~RUBY)
-      action :nothing do
-      ^^^^^^^^^^^^^^^^^^ There is no need to define a :nothing action in your resource as Chef Infra Client provides the :nothing action by default for every resource.
-        # standard nothing action
-      end
+      conflicts 'foo'
+      ^^^^^^^^^^^^^^^ The conflicts metadata.rb method is not used and is unnecessary in cookbooks.
     RUBY
 
     expect_correction("\n")
   end
 
-  it 'does not register an offense with other actions' do
+  it "doesn't register an offense on normal metadata" do
     expect_no_offenses(<<~RUBY)
-      action :create do
-        # stuff
-      end
+      depends 'foo'
     RUBY
   end
 end
