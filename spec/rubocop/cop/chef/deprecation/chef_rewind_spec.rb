@@ -64,14 +64,14 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ChefRewind, :config do
       rewind 'user[postgres]' do
       ^^^^^^^^^^^^^^^^^^^^^^^ Use delete_resource / edit_resource introduced in Chef Infra Client 12.10 instead of functionality in the deprecated chef-rewind gem
         home '/var/lib/pgsql/9.2'
-        cookbook 'my-postgresql' # or `cookbook cookbook_name()`
+        cookbook 'my-postgresql'
       end
     RUBY
 
     expect_correction(<<~RUBY)
     edit_resource 'user[postgres]' do
       home '/var/lib/pgsql/9.2'
-      cookbook 'my-postgresql' # or `cookbook cookbook_name()`
+      cookbook 'my-postgresql'
     end
     RUBY
   end

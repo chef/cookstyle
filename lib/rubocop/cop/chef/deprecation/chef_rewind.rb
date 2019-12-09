@@ -29,7 +29,7 @@ module RuboCop
         #
         #   rewind "user[postgres]" do
         #     home '/var/lib/pgsql/9.2'
-        #     cookbook 'my-postgresql'    # or `cookbook cookbook_name()`
+        #     cookbook 'my-postgresql'
         #   end
         #
         #   unwind "user[postgres]"
