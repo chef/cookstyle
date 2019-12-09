@@ -1,33 +1,5 @@
 # ChefDeprecations
 
-## ChefDeprecations/AttributeMetadata
-
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
-
-Don't use the deprecated 'attribute' metadata value
-
-### Examples
-
-```ruby
-# bad in metadata.rb:
-
- attribute 'zookeeper_bridge/server',
-           display_name: 'zookeeper server',
-           description: 'Zookeeper server address.',
-           type: 'string',
-           required: 'optional',
-           default: '"127.0.0.1:2181"'
-```
-
-### Configurable attributes
-
-Name | Default value | Configurable values
---- | --- | ---
-VersionAdded | `5.1.0` | String
-Include | `**/metadata.rb` | Array
-
 ## ChefDeprecations/ChefHandlerUsesSupports
 
 Enabled by default | Supports autocorrection
@@ -188,29 +160,6 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.5.0` | String
 Exclude | `**/metadata.rb` | Array
-
-## ChefDeprecations/ConflictsMetadata
-
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
-
-Don't use the deprecated 'conflicts' metadata value
-
-### Examples
-
-```ruby
-# bad in metadata.rb:
-
-conflicts "another_cookbook"
-```
-
-### Configurable attributes
-
-Name | Default value | Configurable values
---- | --- | ---
-VersionAdded | `5.1.0` | String
-Include | `**/metadata.rb` | Array
 
 ## ChefDeprecations/CookbookDependsOnCompatResource
 
@@ -595,28 +544,6 @@ Name | Default value | Configurable values
 VersionAdded | `5.5.0` | String
 Exclude | `**/metadata.rb` | Array
 
-## ChefDeprecations/LongDescriptionMetadata
-
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
-
-The long_description metadata.rb method is not used and is unnecessary in cookbooks
-
-### Examples
-
-```ruby
-# bad
-long_description 'this is my cookbook and this description will never be seen'
-```
-
-### Configurable attributes
-
-Name | Default value | Configurable values
---- | --- | ---
-VersionAdded | `5.2.0` | String
-Include | `**/metadata.rb` | Array
-
 ## ChefDeprecations/NamePropertyWithDefaultValue
 
 Enabled by default | Supports autocorrection
@@ -908,75 +835,6 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.11.0` | String
 
-## ChefDeprecations/ProvidesMetadata
-
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
-
-Don't use the deprecated 'provides' metadata value
-
-### Examples
-
-```ruby
-# bad in metadata.rb:
-
-provides "some_thing"
-```
-
-### Configurable attributes
-
-Name | Default value | Configurable values
---- | --- | ---
-VersionAdded | `5.1.0` | String
-Include | `**/metadata.rb` | Array
-
-## ChefDeprecations/RecipeMetadata
-
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
-
-The recipe metadata.rb method is not used and is unnecessary in cookbooks. Recipes should be documented
-in the README.md file instead.
-
-### Examples
-
-```ruby
-# bad
-recipe 'openldap::default', 'Install and configure OpenLDAP'
-```
-
-### Configurable attributes
-
-Name | Default value | Configurable values
---- | --- | ---
-VersionAdded | `5.6.0` | String
-Include | `**/metadata.rb` | Array
-
-## ChefDeprecations/ReplacesMetadata
-
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
-
-Don't use the deprecated 'replaces' metadata value
-
-### Examples
-
-```ruby
-# bad in metadata.rb:
-
-replaces "another_cookbook"
-```
-
-### Configurable attributes
-
-Name | Default value | Configurable values
---- | --- | ---
-VersionAdded | `5.1.0` | String
-Include | `**/metadata.rb` | Array
-
 ## ChefDeprecations/RequireRecipe
 
 Enabled by default | Supports autocorrection
@@ -1157,29 +1015,6 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.11.0` | String
 Exclude | `**/metadata.rb` | Array
-
-## ChefDeprecations/SuggestsMetadata
-
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
-
-Don't use the deprecated 'suggests' metadata value
-
-### Examples
-
-```ruby
-# bad in metadata.rb:
-
-suggests "another_cookbook"
-```
-
-### Configurable attributes
-
-Name | Default value | Configurable values
---- | --- | ---
-VersionAdded | `5.1.0` | String
-Include | `**/metadata.rb` | Array
 
 ## ChefDeprecations/UseInlineResourcesDefined
 

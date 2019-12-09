@@ -1,5 +1,34 @@
 # ChefModernize
 
+## ChefModernize/AttributeMetadata
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+The attribute metadata.rb method is not used and is unnecessary in cookbooks.
+
+### Examples
+
+```ruby
+# bad in metadata.rb:
+
+ attribute 'zookeeper_bridge/server',
+           display_name: 'zookeeper server',
+           description: 'Zookeeper server address.',
+           type: 'string',
+           required: 'optional',
+           default: '"127.0.0.1:2181"'
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.1.0` | String
+VersionChanged | `5.15.0` | String
+Include | `**/metadata.rb` | Array
+
 ## ChefModernize/ChefGemNokogiri
 
 Enabled by default | Supports autocorrection
@@ -21,6 +50,30 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.14.0` | String
 Exclude | `**/metadata.rb`, `**/attributes/*.rb` | Array
+
+## ChefModernize/ConflictsMetadata
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+The conflicts metadata.rb method is not used and is unnecessary in cookbooks.
+
+### Examples
+
+```ruby
+# bad in metadata.rb:
+
+conflicts "another_cookbook"
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.1.0` | String
+VersionChanged | `5.15.0` | String
+Include | `**/metadata.rb` | Array
 
 ## ChefModernize/CronManageResource
 
@@ -431,6 +484,29 @@ Name | Default value | Configurable values
 VersionAdded | `5.5.0` | String
 Exclude | `**/metadata.rb` | Array
 
+## ChefModernize/LongDescriptionMetadata
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+The long_description metadata.rb method is not used and is unnecessary in cookbooks.
+
+### Examples
+
+```ruby
+# bad
+long_description 'this is my cookbook and this description will never be seen'
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.2.0` | String
+VersionChanged | `5.15.0` | String
+Include | `**/metadata.rb` | Array
+
 ## ChefModernize/MacOsXUserdefaults
 
 Enabled by default | Supports autocorrection
@@ -681,6 +757,77 @@ Name | Default value | Configurable values
 VersionAdded | `5.5.0` | String
 Exclude | `**/metadata.rb` | Array
 
+## ChefModernize/ProvidesMetadata
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+The provides metadata.rb method is not used and is unnecessary in cookbooks.
+
+### Examples
+
+```ruby
+# bad in metadata.rb:
+
+provides "some_thing"
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.1.0` | String
+VersionChanged | `5.15.0` | String
+Include | `**/metadata.rb` | Array
+
+## ChefModernize/RecipeMetadata
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+The recipe metadata.rb method is not used and is unnecessary in cookbooks. Recipes should be documented in the cookbook's README.md file instead.
+
+### Examples
+
+```ruby
+# bad
+recipe 'openldap::default', 'Install and configure OpenLDAP'
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.6.0` | String
+VersionChanged | `5.15.0` | String
+Include | `**/metadata.rb` | Array
+
+## ChefModernize/ReplacesMetadata
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+The replaces metadata.rb method is not used and is unnecessary in cookbooks. Replacements for existing cookbooks should be documented in the cookbook's README.md file instead.
+
+### Examples
+
+```ruby
+# bad in metadata.rb:
+
+replaces "another_cookbook"
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.1.0` | String
+VersionChanged | `5.15.0` | String
+Include | `**/metadata.rb` | Array
+
 ## ChefModernize/ResourceNameFromInitialize
 
 Enabled by default | Supports autocorrection
@@ -771,9 +918,7 @@ Enabled by default | Supports autocorrection
 --- | ---
 Enabled | Yes
 
-Chef 12.5 introduced the resource_name method for resources. Many cookbooks used
-respond_to?(:resource_name) to provide backwards compatibility with older chef-client
-releases. This backwards compatibility is no longer necessary.
+Chef Infra Client 12.5 introduced the resource_name method for resources. Many cookbooks used respond_to?(:resource_name) to provide backwards compatibility with older chef-client releases. This backwards compatibility is no longer necessary.
 
 ### Examples
 
@@ -877,6 +1022,30 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.5.0` | String
 Exclude | `**/metadata.rb` | Array
+
+## ChefModernize/SuggestsMetadata
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+The suggests metadata.rb method is not used and is unnecessary in cookbooks.
+
+### Examples
+
+```ruby
+# bad in metadata.rb:
+
+suggests "another_cookbook"
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.1.0` | String
+VersionChanged | `5.15.0` | String
+Include | `**/metadata.rb` | Array
 
 ## ChefModernize/SysctlParamResource
 
