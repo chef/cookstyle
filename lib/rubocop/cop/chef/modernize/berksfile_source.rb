@@ -28,12 +28,17 @@ module RuboCop
         #   source 'http://community.opscode.com/api/v3'
         #   source 'https://supermarket.getchef.com'
         #   source 'https://api.berkshelf.com'
+        #   site :opscode
         #
         #   # good
         #   source 'https://supermarket.chef.io'
         #
         class LegacyBerksfileSource < Cop
           MSG = 'Do not use legacy Berksfile community sources. Use Chef Supermarket instead.'.freeze
+
+          def_node_matcher :berksfile_site?, <<-PATTERN
+            (send nil? :site (:sym _))
+          PATTERN
 
           def_node_matcher :berksfile_source?, <<-PATTERN
             (send nil? :source (str #old_berkshelf_url?))
@@ -45,6 +50,10 @@ module RuboCop
 
           def on_send(node)
             berksfile_source?(node) do
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            end
+
+            berksfile_site?(node) do
               add_offense(node, location: :expression, message: MSG, severity: :refactor)
             end
           end
