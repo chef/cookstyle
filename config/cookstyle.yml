@@ -963,7 +963,7 @@ ChefRedundantCode/PropertyWithRequiredAndDefault:
     - '**/resources/*.rb'
     - '**/libraries/*.rb'
 
-ChefCorrectness/NamePropertyIsRequired:
+ChefRedundantCode/NamePropertyIsRequired:
   Description: Resource properties marked as name properties should not also be required properties
   Enabled: true
   VersionAdded: '5.1.0'
