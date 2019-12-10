@@ -421,6 +421,7 @@ but should be updated to point to the latest Supermarket URL.
 source 'http://community.opscode.com/api/v3'
 source 'https://supermarket.getchef.com'
 source 'https://api.berkshelf.com'
+site :opscode
 
 # good
 source 'https://supermarket.chef.io'
