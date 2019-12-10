@@ -411,6 +411,31 @@ Name | Default value | Configurable values
 VersionAdded | `5.5.0` | String
 Exclude | `**/metadata.rb` | Array
 
+## ChefCorrectness/ScopedFileExist
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+Scope file exist to access the correct File class by using ::File.exist? not File.exist?.
+
+### Examples
+
+```ruby
+# bad
+not_if { File.exist?('/etc/foo/bar') }
+
+# good
+not_if { ::File.exist?('/etc/foo/bar') }
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.15.0` | String
+Exclude | `**/metadata.rb` | Array
+
 ## ChefCorrectness/ServiceResource
 
 Enabled by default | Supports autocorrection

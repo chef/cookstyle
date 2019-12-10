@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.14.5 -->
-## [v5.14.5](https://github.com/chef/cookstyle/tree/v5.14.5) (2019-12-10)
+ <!-- latest_release 5.15.0 -->
+## [v5.15.0](https://github.com/chef/cookstyle/tree/v5.15.0) (2019-12-10)
 
 #### Merged Pull Requests
-- Add ChefCorrectness/InvalidPlatformHelper and ChefCorrectness/InvalidPlatformFamilyHelper [#430](https://github.com/chef/cookstyle/pull/430) ([tas50](https://github.com/tas50))
+- Add ChefCorrectness/ScopedFileExist cop [#432](https://github.com/chef/cookstyle/pull/432) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.14.1 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add ChefCorrectness/ScopedFileExist cop [#432](https://github.com/chef/cookstyle/pull/432) ([tas50](https://github.com/tas50)) <!-- 5.15.0 -->
 - Add ChefCorrectness/InvalidPlatformHelper and ChefCorrectness/InvalidPlatformFamilyHelper [#430](https://github.com/chef/cookstyle/pull/430) ([tas50](https://github.com/tas50)) <!-- 5.14.5 -->
 - Add a new ChefRedundantCode and ChefSharing cop groups [#428](https://github.com/chef/cookstyle/pull/428) ([tas50](https://github.com/tas50)) <!-- 5.14.4 -->
 - Move the metadata cops to ChefModernize [#426](https://github.com/chef/cookstyle/pull/426) ([tas50](https://github.com/tas50)) <!-- 5.14.3 -->

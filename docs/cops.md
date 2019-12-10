@@ -16,6 +16,7 @@
 * [ChefCorrectness/ResourceSetsInternalProperties](cops_chefcorrectness.md#chefcorrectnessresourcesetsinternalproperties)
 * [ChefCorrectness/ResourceSetsNameProperty](cops_chefcorrectness.md#chefcorrectnessresourcesetsnameproperty)
 * [ChefCorrectness/ResourceWithNoneAction](cops_chefcorrectness.md#chefcorrectnessresourcewithnoneaction)
+* [ChefCorrectness/ScopedFileExist](cops_chefcorrectness.md#chefcorrectnessscopedfileexist)
 * [ChefCorrectness/ServiceResource](cops_chefcorrectness.md#chefcorrectnessserviceresource)
 * [ChefCorrectness/TmpPath](cops_chefcorrectness.md#chefcorrectnesstmppath)
 
