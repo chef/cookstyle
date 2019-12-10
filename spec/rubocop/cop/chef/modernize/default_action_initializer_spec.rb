@@ -38,7 +38,6 @@ describe RuboCop::Cop::Chef::ChefModernize::DefaultActionFromInitialize, :config
     RUBY
   end
 
-
   it 'registers an offense with a HWRP specifies @default_action in the initializer' do
     expect_offense(<<~RUBY)
       def initialize(*args)
