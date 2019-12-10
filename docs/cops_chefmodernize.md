@@ -130,6 +130,12 @@ def initialize(*args)
   super
   @action = :create
 end
+
+# bad
+def initialize(*args)
+  super
+  @default_action = :create
+end
 ```
 
 ### Configurable attributes
