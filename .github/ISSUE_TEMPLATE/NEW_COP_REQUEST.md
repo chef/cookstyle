@@ -8,13 +8,12 @@ labels: "Status: Untriaged"
 
 Please try to select as few as possible.
 
-- [ ] Deprecation - A cop that alerts to a deprecation in the Chef Infra Client
-- [ ] Correctness - A cop that alerts when incorrect coding behavior is being used
-- [ ] Sharing - A cop that alerts to missing functionality necessary for sharing cookboooks with others
-- [ ] Style - A cop that alerts to a style best practice
-- [ ] Simplification - A cop that alerts to ways code can be simplified through refactoring
-- [ ] Effortless - A cop that alerts on code that must be resolved to move to the Effortless pattern
-- [ ] Policyfiles - A cop that alerts on code that must be resolved to move to the Policyfiles pattern
+- [ ] ChefDeprecations - A cop that alerts to a deprecation in the Chef Infra Client
+- [ ] ChefCorrectness - A cop that alerts when incorrect coding behavior is being used
+- [ ] ChefSharing - A cop that alerts to missing functionality necessary for sharing cookboooks with others
+- [ ] ChefStyle - A cop that alerts to a style best practice
+- [ ] ChefModernize - A cop that alerts when a cookbook can be simplify or modernized with new functionality
+- [ ] ChefEffortless - A cop that alerts on code that must be resolved to move to the Effortless pattern
 
 ### Describe the new cop:
 <!---  Why is a new Cookstyle Cop necessary? -->
