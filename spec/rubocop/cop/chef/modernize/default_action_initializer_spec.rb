@@ -20,12 +20,30 @@ require 'spec_helper'
 describe RuboCop::Cop::Chef::ChefModernize::DefaultActionFromInitialize, :config do
   subject(:cop) { described_class.new(config) }
 
-  it 'registers an offense with a HWRP specifies the default_action in the initializer' do
+  it 'registers an offense with a HWRP specifies @action in the initializer' do
     expect_offense(<<~RUBY)
       def initialize(*args)
         super
         @action = :create
         ^^^^^^^^^^^^^^^^^ The default action of a resource can be set with the "default_action" helper instead of using the initialize method.
+      end
+    RUBY
+
+    expect_correction(<<~RUBY)
+      default_action :create
+
+      def initialize(*args)
+        super
+      end
+    RUBY
+  end
+
+  it 'registers an offense with a HWRP specifies @default_action in the initializer' do
+    expect_offense(<<~RUBY)
+      def initialize(*args)
+        super
+        @default_action = :create
+        ^^^^^^^^^^^^^^^^^^^^^^^^^ The default action of a resource can be set with the "default_action" helper instead of using the initialize method.
       end
     RUBY
 

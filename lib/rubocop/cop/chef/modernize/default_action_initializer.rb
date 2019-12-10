@@ -28,6 +28,12 @@ module RuboCop
         #     @action = :create
         #   end
         #
+        #   # bad
+        #   def initialize(*args)
+        #     super
+        #     @default_action = :create
+        #   end
+        #
         #  # good
         #  default_action :create
 
@@ -41,7 +47,7 @@ module RuboCop
             return if node.body.nil? # nil body is an empty initialize method
 
             node.body.each_node do |x|
-              if x.assignment? && !x.node_parts.empty? && x.node_parts.first == :@action
+              if x.assignment? && !x.node_parts.empty? && %i(@action @default_action).include?(x.node_parts.first)
                 add_offense(x, location: :expression, message: MSG, severity: :refactor)
               end
             end
