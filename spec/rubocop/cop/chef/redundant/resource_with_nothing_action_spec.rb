@@ -1,5 +1,5 @@
 #
-# Copyright:: 2019, Chef Software, Inc.
+# Copyright:: Copyright 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,15 +17,25 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefModernize::UnnecessaryMixlibShelloutRequire, :config do
-  subject(:cop) { described_class.new(config) }
+describe RuboCop::Cop::Chef::ChefRedundantCode::ResourceWithNothingAction do
+  subject(:cop) { described_class.new }
 
-  it 'registers an offense when a resource / provider requires mixlib/shellout' do
+  it 'registers an offense with a nothing action in a resource' do
     expect_offense(<<~RUBY)
-      require 'mixlib/shellout'
-      ^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 12.4+ includes mixlib/shellout automatically in resources and providers.
+      action :nothing do
+      ^^^^^^^^^^^^^^^^^^ There is no need to define a :nothing action in your resource as Chef Infra Client provides the :nothing action by default for every resource.
+        # standard nothing action
+      end
     RUBY
 
     expect_correction("\n")
+  end
+
+  it 'does not register an offense with other actions' do
+    expect_no_offenses(<<~RUBY)
+      action :create do
+        # stuff
+      end
+    RUBY
   end
 end

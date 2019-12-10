@@ -1,6 +1,5 @@
 #
 # Copyright:: 2019, Chef Software, Inc.
-# Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,15 +16,19 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefModernize::UnnecessaryMixlibShelloutRequire, :config do
+describe RuboCop::Cop::Chef::ChefSharing::EmptyMetadataField, :config do
   subject(:cop) { described_class.new(config) }
 
-  it 'registers an offense when a resource / provider requires mixlib/shellout' do
+  it 'registers an offense when a metadata.rb contains a field with an empty string' do
     expect_offense(<<~RUBY)
-      require 'mixlib/shellout'
-      ^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 12.4+ includes mixlib/shellout automatically in resources and providers.
+      license ''
+              ^^ Cookbook metadata.rb contains an field with an empty string.
     RUBY
+  end
 
-    expect_correction("\n")
+  it "doesn't register an offense with a field that contains data" do
+    expect_no_offenses(<<~RUBY)
+      license 'Apache-2.0'
+    RUBY
   end
 end

@@ -18,30 +18,27 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefModernize
-        # Chef Infra Client 12.4+ includes mixlib/shellout automatically in resources and providers.
+      module ChefRedundantCode
+        # The long_description metadata.rb method is not used and is unnecessary in cookbooks.
         #
         # @example
         #
         #   # bad
-        #   require 'mixlib/shellout'
+        #   long_description 'this is my cookbook and this description will never be seen'
         #
-        class UnnecessaryMixlibShelloutRequire < Cop
-          MSG = 'Chef Infra Client 12.4+ includes mixlib/shellout automatically in resources and providers.'.freeze
 
-          def_node_matcher :require_mixlibshellout?, <<-PATTERN
-          (send nil? :require ( str "mixlib/shellout"))
-          PATTERN
+        class LongDescriptionMetadata < Cop
+          include RangeHelp
+
+          MSG = 'The long_description metadata.rb method is not used and is unnecessary in cookbooks.'.freeze
 
           def on_send(node)
-            require_mixlibshellout?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
-            end
+            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :long_description
           end
 
           def autocorrect(node)
             lambda do |corrector|
-              corrector.remove(node.loc.expression)
+              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :right))
             end
           end
         end

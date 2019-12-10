@@ -1,6 +1,5 @@
 #
 # Copyright:: 2019, Chef Software, Inc.
-# Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,15 +16,23 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefModernize::UnnecessaryMixlibShelloutRequire, :config do
+describe RuboCop::Cop::Chef::ChefModernize::PropertyWithNameAttribute, :config do
   subject(:cop) { described_class.new(config) }
 
-  it 'registers an offense when a resource / provider requires mixlib/shellout' do
+  it 'registers an offense when a property has a name_attribute value' do
     expect_offense(<<~RUBY)
-      require 'mixlib/shellout'
-      ^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 12.4+ includes mixlib/shellout automatically in resources and providers.
+      property :foo, String, name_attribute: true
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Resource property sets name_attribute not name_property
     RUBY
 
-    expect_correction("\n")
+    expect_correction(<<~RUBY)
+      property :foo, String, name_property: true
+    RUBY
+  end
+
+  it "doesn't register an offense when a property has a name_property value" do
+    expect_no_offenses(<<~RUBY)
+      property :foo, String, name_property: true
+    RUBY
   end
 end

@@ -18,30 +18,25 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefModernize
-        # Chef Infra Client 12.4+ includes mixlib/shellout automatically in resources and providers.
+      module ChefSharing
+        # metadata.rb should not include fields with an empty string. Either don't include the field or add a value.
         #
         # @example
         #
         #   # bad
-        #   require 'mixlib/shellout'
+        #   license ''
         #
-        class UnnecessaryMixlibShelloutRequire < Cop
-          MSG = 'Chef Infra Client 12.4+ includes mixlib/shellout automatically in resources and providers.'.freeze
+        #   # good
+        #   license 'Apache-2.0'
+        #
+        class EmptyMetadataField < Cop
+          MSG = 'Cookbook metadata.rb contains an field with an empty string.'.freeze
 
-          def_node_matcher :require_mixlibshellout?, <<-PATTERN
-          (send nil? :require ( str "mixlib/shellout"))
-          PATTERN
+          def_node_matcher :field?, '(send nil? _ $str ...)'
 
           def on_send(node)
-            require_mixlibshellout?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.remove(node.loc.expression)
+            field?(node) do |str|
+              add_offense(str, location: :expression, message: MSG, severity: :refactor) if str.value.empty?
             end
           end
         end

@@ -1,5 +1,5 @@
 #
-# Copyright:: 2019, Chef Software Inc.
+# Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,34 +14,30 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 module RuboCop
   module Cop
     module Chef
       module ChefModernize
-        # Chef Infra Client 12.4+ includes mixlib/shellout automatically in resources and providers.
+        # The Ohai default recipe previously allowed a user to ship custom Ohai plugins to a system by including them
+        # in a directory in the Ohai cookbook. This functionality was replaced with the ohai_plugin resource, which
+        # should be used instead as it doesn't require forking the ohai cookbook.
         #
         # @example
         #
         #   # bad
-        #   require 'mixlib/shellout'
+        #   include_recipe 'ohai::default'
+        #   include_recipe 'ohai'
         #
-        class UnnecessaryMixlibShelloutRequire < Cop
-          MSG = 'Chef Infra Client 12.4+ includes mixlib/shellout automatically in resources and providers.'.freeze
+        class IncludingOhaiDefaultRecipe < Cop
+          MSG = "Use the ohai_plugin resource to ship custom Ohai plugins instead of using the ohai::default recipe. If you're not shipping custom Ohai plugins, then you can remove this recipe entirely".freeze
 
-          def_node_matcher :require_mixlibshellout?, <<-PATTERN
-          (send nil? :require ( str "mixlib/shellout"))
+          def_node_matcher :ohai_recipe_usage?, <<-PATTERN
+            (send nil? :include_recipe (str {"ohai" "ohai::default"}))
           PATTERN
 
           def on_send(node)
-            require_mixlibshellout?(node) do
+            ohai_recipe_usage?(node) do
               add_offense(node, location: :expression, message: MSG, severity: :refactor)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.remove(node.loc.expression)
             end
           end
         end

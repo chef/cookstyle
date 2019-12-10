@@ -18,25 +18,20 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefModernize
-        # Chef Infra Client 12.4+ includes mixlib/shellout automatically in resources and providers.
+      module ChefRedundantCode
+        # The recipe metadata.rb method is not used and is unnecessary in cookbooks. Recipes should be documented in the cookbook's README.md file instead.
         #
         # @example
         #
         #   # bad
-        #   require 'mixlib/shellout'
+        #   recipe 'openldap::default', 'Install and configure OpenLDAP'
         #
-        class UnnecessaryMixlibShelloutRequire < Cop
-          MSG = 'Chef Infra Client 12.4+ includes mixlib/shellout automatically in resources and providers.'.freeze
-
-          def_node_matcher :require_mixlibshellout?, <<-PATTERN
-          (send nil? :require ( str "mixlib/shellout"))
-          PATTERN
+        #
+        class RecipeMetadata < Cop
+          MSG = "The recipe metadata.rb method is not used and is unnecessary in cookbooks. Recipes should be documented in the cookbook's README.md file instead.".freeze
 
           def on_send(node)
-            require_mixlibshellout?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
-            end
+            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :recipe
           end
 
           def autocorrect(node)

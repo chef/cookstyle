@@ -1,6 +1,5 @@
 #
 # Copyright:: 2019, Chef Software, Inc.
-# Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,15 +16,23 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefModernize::UnnecessaryMixlibShelloutRequire, :config do
+describe RuboCop::Cop::Chef::ChefRedundantCode::LongDescriptionMetadata, :config do
   subject(:cop) { described_class.new(config) }
 
-  it 'registers an offense when a resource / provider requires mixlib/shellout' do
+  it 'registers an offense when metadata uses "long_description"' do
     expect_offense(<<~RUBY)
-      require 'mixlib/shellout'
-      ^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 12.4+ includes mixlib/shellout automatically in resources and providers.
+      description 'foo'
+      long_description 'foo'
+      ^^^^^^^^^^^^^^^^^^^^^^ The long_description metadata.rb method is not used and is unnecessary in cookbooks.
+      version '1.0.0'
     RUBY
 
-    expect_correction("\n")
+    expect_correction("description 'foo'\nversion '1.0.0'\n")
+  end
+
+  it "doesn't register an offense on normal metadata" do
+    expect_no_offenses(<<~RUBY)
+      depends 'foo'
+    RUBY
   end
 end
