@@ -33,7 +33,7 @@ module RuboCop
         class InvalidPlatformFamilyHelper < Cop
           MSG = 'Pass valid platform families to the platform_family? helper.'.freeze
 
-          INVALID_PLATFORM_FAMILIES = %w(sles redhat centos scientific ubuntu opensuse opensuseleap).freeze
+          INVALID_PLATFORM_FAMILIES = %w(sles redhat centos scientific ubuntu opensuse opensuseleap mac_os_x_server).freeze
 
           def_node_matcher :incorrect_platform_family?, <<-PATTERN
             (send nil? :platform_family? $str*)
