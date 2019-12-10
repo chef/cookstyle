@@ -52,6 +52,17 @@ describe RuboCop::Cop::Chef::ChefModernize::LegacyBerksfileSource, :config do
     RUBY
   end
 
+  it 'registers an offense when using site :opscode' do
+    expect_offense(<<~RUBY)
+      site :opscode
+      ^^^^^^^^^^^^^ Do not use legacy Berksfile community sources. Use Chef Supermarket instead.
+    RUBY
+
+    expect_correction(<<~RUBY)
+      source 'https://supermarket.chef.io'
+    RUBY
+  end
+
   it "doesn't register an offense when using supermarket.chef.io" do
     expect_no_offenses(<<~RUBY)
       source 'https://supermarket.chef.io'
