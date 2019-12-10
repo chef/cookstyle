@@ -18,8 +18,8 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefModernize
-        # In Chef Infra Client 12.5 and later it is no longer necessary to set `actions` or `allowed_actions` as Chef Infra Client determines these automatically from the set of all actions defined in the resource.
+      module ChefRedundant
+        # It is not necessary to set `actions` or `allowed_actions` in custom resources as Chef Infra Client determines these automatically from the set of all actions defined in the resource.
         #
         # @example
         #
@@ -29,16 +29,10 @@ module RuboCop
         #   # also bad
         #   actions [:create, :remove]
         #
-        #   # don't do this either
-        #   def initialize(*args)
-        #     super
-        #     @allowed_actions = [:create, :remove]
-        #   end
-        #
         class CustomResourceWithAllowedActions < Cop
           include RangeHelp
 
-          MSG = 'Resources no longer need to define the allowed actions using the allowed_actions / actions helper methods or within an initialize method.'.freeze
+          MSG = 'It is not necessary to set `actions` or `allowed_actions` in custom resources as Chef Infra Client determines these automatically from the set of all actions defined in the resource'.freeze
 
           def_node_matcher :allowed_actions?, <<-PATTERN
             (send nil? {:allowed_actions :actions} ... )
@@ -46,32 +40,17 @@ module RuboCop
 
           def_node_search :poise_require, '(send nil? :require (str "poise"))'
 
+          def_node_search :resource_actions?, <<-PATTERN
+            (block (send nil? :action ... ) ... )
+          PATTERN
+
           def on_send(node)
             # if the resource requires poise then bail out since we're in a poise resource where @allowed_actions is legit
             return if poise_require(processed_source.ast).any?
 
             allowed_actions?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+              add_offense(node, location: :expression, message: MSG, severity: :refactor) if resource_actions?(processed_source.ast)
             end
-          end
-
-          def on_def(node)
-            return unless node.method_name == :initialize
-            return if node.body.nil? # empty initialize methods
-
-            node.body.each_node do |x|
-              if allowed_actions_assignment?(x) || allowed_action_send?(x)
-                add_offense(x, location: :expression, message: MSG, severity: :refactor)
-              end
-            end
-          end
-
-          def allowed_actions_assignment?(node)
-            node.assignment? && node.node_parts.first == :@allowed_actions
-          end
-
-          def allowed_action_send?(node)
-            node.send_type? && node.receiver == s(:ivar, :@allowed_actions)
           end
 
           def autocorrect(node)
