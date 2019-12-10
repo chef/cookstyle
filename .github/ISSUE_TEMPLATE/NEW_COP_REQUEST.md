@@ -8,11 +8,11 @@ labels: "Status: Untriaged"
 
 Please try to select as few as possible.
 
-- [ ] ChefDeprecations - A cop that alerts to a deprecation in the Chef Infra Client
+- [ ] ChefDeprecations - A cop that alerts on a deprecation in the Chef Infra Client
 - [ ] ChefCorrectness - A cop that alerts when incorrect coding behavior is being used
-- [ ] ChefSharing - A cop that alerts to missing functionality necessary for sharing cookboooks with others
+- [ ] ChefSharing - A cop that alerts to missing functionality necessary for sharing cookbooks with others
 - [ ] ChefStyle - A cop that alerts to a style best practice
-- [ ] ChefModernize - A cop that alerts when a cookbook can be simplify or modernized with new functionality
+- [ ] ChefModernize - A cop that alerts when a cookbook can be simplified or modernized with new functionality
 - [ ] ChefEffortless - A cop that alerts on code that must be resolved to move to the Effortless pattern
 
 ### Describe the new cop:
