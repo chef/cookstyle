@@ -72,7 +72,7 @@ module RuboCop
           end
 
           def autocorrect(node)
-            correct_string = autocorrect_license_string(node.str_content)
+            correct_string = autocorrect_platform_string(node.str_content)
             if correct_string
               lambda do |corrector|
                 corrector.replace(node.loc.expression, "'#{correct_string}'")
@@ -82,7 +82,7 @@ module RuboCop
 
           # private
 
-          def autocorrect_license_string(bad_string)
+          def autocorrect_platform_string(bad_string)
             COMMON_TYPOS[bad_string.delete(',').downcase.to_sym]
           end
         end

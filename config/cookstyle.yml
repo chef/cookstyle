@@ -192,6 +192,20 @@ ChefCorrectness/IncorrectLibraryInjection:
   Include:
     - '**/libraries/*.rb'
 
+ChefCorrectness/InvalidPlatformHelper:
+  Description: Pass valid platforms to the platform? helper.
+  Enabled: true
+  VersionAdded: '5.15.0'
+  Exclude:
+    - '**/metadata.rb'
+
+ChefCorrectness/InvalidPlatformFamilyHelper:
+  Description: Pass valid platform families to the platform_family? helper.
+  Enabled: true
+  VersionAdded: '5.15.0'
+  Exclude:
+    - '**/metadata.rb'
+
 ###############################
 # ChefSharing: Issues that prevent sharing code with other teams or with the Chef community in general
 ###############################
