@@ -100,6 +100,62 @@ Name | Default value | Configurable values
 VersionAdded | `5.10.0` | String
 Include | `**/libraries/*.rb` | Array
 
+## ChefCorrectness/InvalidPlatformFamilyHelper
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+Pass valid platform families to the platform_family? helper.
+
+### Examples
+
+```ruby
+# bad
+platform_family?('redhat')
+platform_family?('sles')
+
+# bad
+platform_family?('rhel')
+platform_family?('suse')
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.15.0` | String
+Exclude | `**/metadata.rb` | Array
+
+## ChefCorrectness/InvalidPlatformHelper
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+Pass valid platforms to the platform? helper.
+
+### Examples
+
+```ruby
+# bad
+platform?('darwin')
+platform?('rhel)
+platform?('sles')
+
+# good
+platform?('mac_os_x')
+platform?('redhat)
+platform?('suse')
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.15.0` | String
+Exclude | `**/metadata.rb` | Array
+
 ## ChefCorrectness/InvalidPlatformMetadata
 
 Enabled by default | Supports autocorrection

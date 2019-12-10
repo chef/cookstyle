@@ -5,6 +5,8 @@
 * [ChefCorrectness/CookbookUsesNodeSave](cops_chefcorrectness.md#chefcorrectnesscookbookusesnodesave)
 * [ChefCorrectness/CookbooksDependsOnSelf](cops_chefcorrectness.md#chefcorrectnesscookbooksdependsonself)
 * [ChefCorrectness/IncorrectLibraryInjection](cops_chefcorrectness.md#chefcorrectnessincorrectlibraryinjection)
+* [ChefCorrectness/InvalidPlatformFamilyHelper](cops_chefcorrectness.md#chefcorrectnessinvalidplatformfamilyhelper)
+* [ChefCorrectness/InvalidPlatformHelper](cops_chefcorrectness.md#chefcorrectnessinvalidplatformhelper)
 * [ChefCorrectness/InvalidPlatformMetadata](cops_chefcorrectness.md#chefcorrectnessinvalidplatformmetadata)
 * [ChefCorrectness/InvalidVersionMetadata](cops_chefcorrectness.md#chefcorrectnessinvalidversionmetadata)
 * [ChefCorrectness/MetadataMissingName](cops_chefcorrectness.md#chefcorrectnessmetadatamissingname)
