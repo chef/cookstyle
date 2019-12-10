@@ -1,34 +1,5 @@
 # ChefModernize
 
-## ChefModernize/AttributeMetadata
-
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
-
-The attribute metadata.rb method is not used and is unnecessary in cookbooks.
-
-### Examples
-
-```ruby
-# bad in metadata.rb:
-
- attribute 'zookeeper_bridge/server',
-           display_name: 'zookeeper server',
-           description: 'Zookeeper server address.',
-           type: 'string',
-           required: 'optional',
-           default: '"127.0.0.1:2181"'
-```
-
-### Configurable attributes
-
-Name | Default value | Configurable values
---- | --- | ---
-VersionAdded | `5.1.0` | String
-VersionChanged | `5.15.0` | String
-Include | `**/metadata.rb` | Array
-
 ## ChefModernize/ChefGemNokogiri
 
 Enabled by default | Supports autocorrection
@@ -50,30 +21,6 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.14.0` | String
 Exclude | `**/metadata.rb`, `**/attributes/*.rb` | Array
-
-## ChefModernize/ConflictsMetadata
-
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
-
-The conflicts metadata.rb method is not used and is unnecessary in cookbooks.
-
-### Examples
-
-```ruby
-# bad in metadata.rb:
-
-conflicts "another_cookbook"
-```
-
-### Configurable attributes
-
-Name | Default value | Configurable values
---- | --- | ---
-VersionAdded | `5.1.0` | String
-VersionChanged | `5.15.0` | String
-Include | `**/metadata.rb` | Array
 
 ## ChefModernize/CronManageResource
 
@@ -407,6 +354,32 @@ Name | Default value | Configurable values
 VersionAdded | `5.4.0` | String
 Include | `**/resources/*.rb`, `**/providers/*.rb` | Array
 
+## ChefModernize/IncludingOhaiDefaultRecipe
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+The Ohai default recipe previously allowed a user to ship custom Ohai plugins to a system by including them
+in a directory in the Ohai cookbook. This functionality was replaced with the ohai_plugin resource, which
+should be used instead as it doesn't require forking the ohai cookbook.
+
+### Examples
+
+```ruby
+# bad
+include_recipe 'ohai::default'
+include_recipe 'ohai'
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.4.0` | String
+VersionChanged | `5.15.0` | String
+Exclude | `**/metadata.rb` | Array
+
 ## ChefModernize/IncludingWindowsDefaultRecipe
 
 Enabled by default | Supports autocorrection
@@ -483,29 +456,6 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.5.0` | String
 Exclude | `**/metadata.rb` | Array
-
-## ChefModernize/LongDescriptionMetadata
-
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
-
-The long_description metadata.rb method is not used and is unnecessary in cookbooks.
-
-### Examples
-
-```ruby
-# bad
-long_description 'this is my cookbook and this description will never be seen'
-```
-
-### Configurable attributes
-
-Name | Default value | Configurable values
---- | --- | ---
-VersionAdded | `5.2.0` | String
-VersionChanged | `5.15.0` | String
-Include | `**/metadata.rb` | Array
 
 ## ChefModernize/MacOsXUserdefaults
 
@@ -757,67 +707,22 @@ Name | Default value | Configurable values
 VersionAdded | `5.5.0` | String
 Exclude | `**/metadata.rb` | Array
 
-## ChefModernize/ProvidesMetadata
+## ChefModernize/PropertyWithNameAttribute
 
 Enabled by default | Supports autocorrection
 --- | ---
 Enabled | Yes
 
-The provides metadata.rb method is not used and is unnecessary in cookbooks.
-
-### Examples
-
-```ruby
-# bad in metadata.rb:
-
-provides "some_thing"
-```
-
-### Configurable attributes
-
-Name | Default value | Configurable values
---- | --- | ---
-VersionAdded | `5.1.0` | String
-VersionChanged | `5.15.0` | String
-Include | `**/metadata.rb` | Array
-
-## ChefModernize/RecipeMetadata
-
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
-
-The recipe metadata.rb method is not used and is unnecessary in cookbooks. Recipes should be documented in the cookbook's README.md file instead.
+When using properties in a custom resource you should use name_property not the legacy name_attribute from the days of attributes
 
 ### Examples
 
 ```ruby
 # bad
-recipe 'openldap::default', 'Install and configure OpenLDAP'
-```
+property :bob, String, name_attribute: true
 
-### Configurable attributes
-
-Name | Default value | Configurable values
---- | --- | ---
-VersionAdded | `5.6.0` | String
-VersionChanged | `5.15.0` | String
-Include | `**/metadata.rb` | Array
-
-## ChefModernize/ReplacesMetadata
-
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
-
-The replaces metadata.rb method is not used and is unnecessary in cookbooks. Replacements for existing cookbooks should be documented in the cookbook's README.md file instead.
-
-### Examples
-
-```ruby
-# bad in metadata.rb:
-
-replaces "another_cookbook"
+# good
+property :bob, String, name_property: true
 ```
 
 ### Configurable attributes
@@ -826,7 +731,7 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.1.0` | String
 VersionChanged | `5.15.0` | String
-Include | `**/metadata.rb` | Array
+Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
 
 ## ChefModernize/ResourceNameFromInitialize
 
@@ -1023,30 +928,6 @@ Name | Default value | Configurable values
 VersionAdded | `5.5.0` | String
 Exclude | `**/metadata.rb` | Array
 
-## ChefModernize/SuggestsMetadata
-
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
-
-The suggests metadata.rb method is not used and is unnecessary in cookbooks.
-
-### Examples
-
-```ruby
-# bad in metadata.rb:
-
-suggests "another_cookbook"
-```
-
-### Configurable attributes
-
-Name | Default value | Configurable values
---- | --- | ---
-VersionAdded | `5.1.0` | String
-VersionChanged | `5.15.0` | String
-Include | `**/metadata.rb` | Array
-
 ## ChefModernize/SysctlParamResource
 
 Enabled by default | Supports autocorrection
@@ -1107,7 +988,7 @@ Enabled by default | Supports autocorrection
 --- | ---
 Enabled | Yes
 
-Chef Infra Client includes mixlib/shellout automatically in resources and providers.
+Chef Infra Client 12.4+ includes mixlib/shellout automatically in resources and providers.
 
 ### Examples
 
