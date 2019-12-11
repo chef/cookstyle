@@ -32,32 +32,7 @@ module RuboCop
         #   supports 'windows'
         #
         class InvalidPlatformMetadata < Cop
-          COMMON_TYPOS = {
-            "aws": nil,
-            "archlinux": 'arch',
-            "amazonlinux": 'amazon',
-            "darwin": 'mac_os_x',
-            "debuan": nil,
-            "mingw32": 'windows',
-            "mswin": 'windows',
-            "macos": 'mac_os_x',
-            "macosx": 'mac_os_x',
-            "mac_os_x_server": 'mac_os_x',
-            "mint": 'linuxmint',
-            "linux": nil,
-            "oel": 'oracle',
-            "oraclelinux": 'oracle',
-            "rhel": 'redhat',
-            "schientific": 'scientific',
-            "scientificlinux": 'scientific',
-            "sles": 'suse',
-            "solaris": 'solaris2',
-            "ubundu": 'ubuntu',
-            "ubunth": 'ubuntu',
-            "ubunutu": 'ubuntu',
-            "windwos": 'windows',
-            "xcp": nil,
-          }.freeze
+          include ::RuboCop::Chef::PlatformHelpers
 
           MSG = 'metadata.rb "supports" platform is invalid'.freeze
 
@@ -65,7 +40,7 @@ module RuboCop
 
           def on_send(node)
             supports?(node) do |plat|
-              if COMMON_TYPOS[plat.str_content.to_sym]
+              if INVALID_PLATFORMS[plat.str_content]
                 add_offense(plat, location: :expression, message: MSG, severity: :refactor)
               end
             end
@@ -83,7 +58,7 @@ module RuboCop
           # private
 
           def autocorrect_platform_string(bad_string)
-            COMMON_TYPOS[bad_string.delete(',').downcase.to_sym]
+            INVALID_PLATFORMS[bad_string.delete(',').downcase]
           end
         end
       end
