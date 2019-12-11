@@ -8,6 +8,8 @@
 * [ChefCorrectness/InvalidPlatformFamilyHelper](cops_chefcorrectness.md#chefcorrectnessinvalidplatformfamilyhelper)
 * [ChefCorrectness/InvalidPlatformHelper](cops_chefcorrectness.md#chefcorrectnessinvalidplatformhelper)
 * [ChefCorrectness/InvalidPlatformMetadata](cops_chefcorrectness.md#chefcorrectnessinvalidplatformmetadata)
+* [ChefCorrectness/InvalidPlatformValueForPlatformFamilyHelper](cops_chefcorrectness.md#chefcorrectnessinvalidplatformvalueforplatformfamilyhelper)
+* [ChefCorrectness/InvalidPlatformValueForPlatformHelper](cops_chefcorrectness.md#chefcorrectnessinvalidplatformvalueforplatformhelper)
 * [ChefCorrectness/InvalidVersionMetadata](cops_chefcorrectness.md#chefcorrectnessinvalidversionmetadata)
 * [ChefCorrectness/MetadataMissingName](cops_chefcorrectness.md#chefcorrectnessmetadatamissingname)
 * [ChefCorrectness/NodeNormal](cops_chefcorrectness.md#chefcorrectnessnodenormal)

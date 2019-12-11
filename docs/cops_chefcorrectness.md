@@ -183,6 +183,67 @@ Name | Default value | Configurable values
 VersionAdded | `5.2.0` | String
 Include | `**/metadata.rb` | Array
 
+## ChefCorrectness/InvalidPlatformValueForPlatformFamilyHelper
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+Pass valid platforms families to the value_for_platform_family helper.
+
+### Examples
+
+```ruby
+# bad
+value_for_platform_family(
+  %w(rhel sles) => 'foo',
+  %w(mac) => 'foo'
+)
+
+# good
+value_for_platform_family(
+  %w(rhel suse) => 'foo',
+  %w(mac_os_x) => 'foo'
+)
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.15.0` | String
+Exclude | `**/metadata.rb` | Array
+
+## ChefCorrectness/InvalidPlatformValueForPlatformHelper
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+Pass valid platforms to the value_for_platform helper.
+
+### Examples
+
+```ruby
+# bad
+value_for_platform(
+  %w(rhel mac_os_x_server) => { 'default' => 'foo' },
+  %w(sles) => { 'default' => 'bar' }
+)
+# good
+value_for_platform(
+  %w(redhat mac_os_x) => { 'default' => 'foo' },
+  %w(opensuseleap) => { 'default' => 'bar' }
+)
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.15.0` | String
+Exclude | `**/metadata.rb` | Array
+
 ## ChefCorrectness/InvalidVersionMetadata
 
 Enabled by default | Supports autocorrection
