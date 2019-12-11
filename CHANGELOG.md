@@ -1,31 +1,29 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.15.7 -->
-## [v5.15.7](https://github.com/chef/cookstyle/tree/v5.15.7) (2019-12-11)
-
-#### Merged Pull Requests
-- Add new platform cops for the value_for_platform / value_for_platform_family helpers [#445](https://github.com/chef/cookstyle/pull/445) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=5.14.1 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Add new platform cops for the value_for_platform / value_for_platform_family helpers [#445](https://github.com/chef/cookstyle/pull/445) ([tas50](https://github.com/tas50)) <!-- 5.15.7 -->
-- Add more invalid platform families to our helper [#444](https://github.com/chef/cookstyle/pull/444) ([tas50](https://github.com/tas50)) <!-- 5.15.6 -->
-- Move invalid platform constants into a single helper [#440](https://github.com/chef/cookstyle/pull/440) ([tas50](https://github.com/tas50)) <!-- 5.15.5 -->
-- Rework how we autocorrect allowed actions [#436](https://github.com/chef/cookstyle/pull/436) ([tas50](https://github.com/tas50)) <!-- 5.15.4 -->
-- Don&#39;t detect poise resources in CustomResourceWithAllowedActions [#439](https://github.com/chef/cookstyle/pull/439) ([tas50](https://github.com/tas50)) <!-- 5.15.3 -->
-- Detect @default_action in the initializer as well [#435](https://github.com/chef/cookstyle/pull/435) ([tas50](https://github.com/tas50)) <!-- 5.15.2 -->
-- Update ChefModernize/LegacyBerksfileSource to detect REALLY old configs [#434](https://github.com/chef/cookstyle/pull/434) ([tas50](https://github.com/tas50)) <!-- 5.15.1 -->
-- Add ChefCorrectness/ScopedFileExist cop [#432](https://github.com/chef/cookstyle/pull/432) ([tas50](https://github.com/tas50)) <!-- 5.15.0 -->
-- Add ChefCorrectness/InvalidPlatformHelper and ChefCorrectness/InvalidPlatformFamilyHelper [#430](https://github.com/chef/cookstyle/pull/430) ([tas50](https://github.com/tas50)) <!-- 5.14.5 -->
-- Add a new ChefRedundantCode and ChefSharing cop groups [#428](https://github.com/chef/cookstyle/pull/428) ([tas50](https://github.com/tas50)) <!-- 5.14.4 -->
-- Move the metadata cops to ChefModernize [#426](https://github.com/chef/cookstyle/pull/426) ([tas50](https://github.com/tas50)) <!-- 5.14.3 -->
-- Add new rubygems metadata [#425](https://github.com/chef/cookstyle/pull/425) ([tas50](https://github.com/tas50)) <!-- 5.14.2 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v5.15.7](https://github.com/chef/cookstyle/tree/v5.15.7) (2019-12-11)
+
+#### Merged Pull Requests
+- Add new rubygems metadata [#425](https://github.com/chef/cookstyle/pull/425) ([tas50](https://github.com/tas50))
+- Move the metadata cops to ChefModernize [#426](https://github.com/chef/cookstyle/pull/426) ([tas50](https://github.com/tas50))
+- Add a new ChefRedundantCode and ChefSharing cop groups [#428](https://github.com/chef/cookstyle/pull/428) ([tas50](https://github.com/tas50))
+- Add ChefCorrectness/InvalidPlatformHelper and ChefCorrectness/InvalidPlatformFamilyHelper [#430](https://github.com/chef/cookstyle/pull/430) ([tas50](https://github.com/tas50))
+- Add ChefCorrectness/ScopedFileExist cop [#432](https://github.com/chef/cookstyle/pull/432) ([tas50](https://github.com/tas50))
+- Update ChefModernize/LegacyBerksfileSource to detect REALLY old configs [#434](https://github.com/chef/cookstyle/pull/434) ([tas50](https://github.com/tas50))
+- Detect @default_action in the initializer as well [#435](https://github.com/chef/cookstyle/pull/435) ([tas50](https://github.com/tas50))
+- Don&#39;t detect poise resources in CustomResourceWithAllowedActions [#439](https://github.com/chef/cookstyle/pull/439) ([tas50](https://github.com/tas50))
+- Rework how we autocorrect allowed actions [#436](https://github.com/chef/cookstyle/pull/436) ([tas50](https://github.com/tas50))
+- Move invalid platform constants into a single helper [#440](https://github.com/chef/cookstyle/pull/440) ([tas50](https://github.com/tas50))
+- Add more invalid platform families to our helper [#444](https://github.com/chef/cookstyle/pull/444) ([tas50](https://github.com/tas50))
+- Add new platform cops for the value_for_platform / value_for_platform_family helpers [#445](https://github.com/chef/cookstyle/pull/445) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v5.14.1](https://github.com/chef/cookstyle/tree/v5.14.1) (2019-12-06)
 
 #### Merged Pull Requests
@@ -33,7 +31,6 @@
 - Add new ChefModernize/ChefGemNokogiri cop [#421](https://github.com/chef/cookstyle/pull/421) ([tas50](https://github.com/tas50))
 - Improve IncludingMixinShelloutInResources cops message to include Chef Versions [#423](https://github.com/chef/cookstyle/pull/423) ([tas50](https://github.com/tas50))
 - Expand ChefDeprecations/UsesRunCommandHelper to catch more cases [#424](https://github.com/chef/cookstyle/pull/424) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v5.13.7](https://github.com/chef/cookstyle/tree/v5.13.7) (2019-11-21)
 
