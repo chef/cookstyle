@@ -1,3 +1,71 @@
+## Cookstyle 5.15
+
+### New ChefStyle and ChefRedundant Departments
+
+Cookstyle 5.15 adds two new Chef cop departments and moves a large number of existing cops into more apppropriate departments. Our goal is to have clearly defined cop departments that can be enabled or disabled to detect particular conditions in your cookbooks. Cops in the new ChefSharing deparment are focused around sharing cookbooks internally or on the public Supermarket. This includes things like ensuring proper license strings and complete metadata. Cops in the ChefRedundant category detect and correct unnecessary cookbook code. Anything detected by ChefRedundant cops can be removed regardless of the Chef Infra Client release you run in your infrastructure, so these are always safe to run.
+
+With the addition of these new departments, we've moved many cops out of the ChefCorrectness department. Going forward only cops that detect code that may fail a Chef Infra Client run or cause it to behave incorrectly will be included in this category. We hope that ChefCorrectness along with ChefDeprecations are used in most cookbook CI pipelines.
+
+#### Moved Cops
+
+- ChefModernize/CustomResourceWithAllowedActions -> ChefRedundant/CustomResourceWithAllowedActions
+- ChefCorrectness/InsecureCookbookURL -> ChefSharing/InsecureCookbookURL
+- ChefCorrectness/InvalidLicenseString -> ChefSharing/InvalidLicenseString
+- ChefCorrectness/DefaultMetadataMaintainer -> ChefSharing/DefaultMetadataMaintainer
+- ChefCorrectness/EmptyMetadataField -> ChefSharing/EmptyMetadataField
+- ChefCorrectness/PropertyWithRequiredAndDefault -> ChefRedundantCode/PropertyWithRequiredAndDefault
+- ChefCorrectness/NamePropertyIsRequired -> ChefRedundantCode/NamePropertyIsRequired
+- ChefCorrectness/UnnecessaryNameProperty -> ChefRedundantCode/UnnecessaryNameProperty
+- ChefCorrectness/ResourceWithNothingAction -> ChefRedundantCode/ResourceWithNothingAction
+- ChefCorrectness/IncludingOhaiDefaultRecipe -> ChefModernize/IncludingOhaiDefaultRecipe
+- ChefCorrectness/PropertyWithNameAttribute -> ChefModernize/ PropertyWithNameAttribute
+- ChefDeprecations/RecipeMetadata -> ChefRedundantCode/RecipeMetadata
+- ChefDeprecations/LongDescriptionMetadata  -> ChefRedundantCode/LongDescriptionMetadata
+- ChefDeprecations/AttributeMetadata -> ChefRedundantCode/AttributeMetadata
+- ChefDeprecations/ReplacesMetadata -> ChefRedundantCode/ReplacesMetadata
+- ChefDeprecations/ProvidesMetadata -> ChefRedundantCode/ProvidesMetadata
+- ChefDeprecations/SuggestsMetadata -> ChefRedundantCode/SuggestsMetadata
+- ChefDeprecations/ConflictsMetadata -> ChefRedundantCode/ConflictsMetadata
+
+### 4 New Chef Cops
+
+#### ChefModernize/AllowedActionsFromInitialize
+
+The `ChefModernize/AllowedActionsFromInitialize` cop detects cookbooks that set either `@allowed_actions` or `@actions` variables in the initialize method of legacy `HWRP` style resources. This cop updates those resources to use the `allowed_actions` method instead.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefCorrectness/InvalidPlatformHelper
+
+The `ChefCorrectness/InvalidPlatformHelper` cop detects invalid platforms passed to the `platform?` helper.
+
+`Enabled by default`: True
+
+`Autocorrects`: No
+
+#### ChefCorrectness/InvalidPlatformFamilyHelper
+
+The `ChefCorrectness/InvalidPlatformFamilyHelper` cop detects invalid platform families passed to the `platform_family?` helper.
+
+`Enabled by default`: True
+
+`Autocorrects`: No
+
+#### ChefCorrectness/ScopedFileExist
+
+The `ChefCorrectness/ScopedFileExist` cop detects when using `File.exist?` in a resource conditional instead of `::File.exist?`.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+### Other fixes and changes
+
+- ChefModernize/LegacyBerksfileSource now detects the usage of `site :opscode` in a `Berksfile`
+- ChefModernize/DefaultActionFromInitialize now detects `@default_action` in the `initialize` method
+
 ## Cookstyle 5.14
 
 ### 2 New Chef Cops
