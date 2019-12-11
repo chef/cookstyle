@@ -44,7 +44,12 @@ module RuboCop
             (send nil? {:allowed_actions :actions} ... )
           PATTERN
 
+          def_node_search :poise_require, '(send nil? :require (str "poise"))'
+
           def on_send(node)
+            # if the resource requires poise then bail out since we're in a poise resource where @allowed_actions is legit
+            return if poise_require(processed_source.ast).any?
+
             allowed_actions?(node) do
               add_offense(node, location: :expression, message: MSG, severity: :refactor)
             end
