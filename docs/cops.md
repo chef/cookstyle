@@ -78,9 +78,9 @@
 
 #### Department [ChefModernize](cops_chefmodernize.md)
 
+* [ChefModernize/AllowedActionsFromInitialize](cops_chefmodernize.md#chefmodernizeallowedactionsfrominitialize)
 * [ChefModernize/ChefGemNokogiri](cops_chefmodernize.md#chefmodernizechefgemnokogiri)
 * [ChefModernize/CronManageResource](cops_chefmodernize.md#chefmodernizecronmanageresource)
-* [ChefModernize/CustomResourceWithAllowedActions](cops_chefmodernize.md#chefmodernizecustomresourcewithallowedactions)
 * [ChefModernize/CustomResourceWithAttributes](cops_chefmodernize.md#chefmodernizecustomresourcewithattributes)
 * [ChefModernize/DefaultActionFromInitialize](cops_chefmodernize.md#chefmodernizedefaultactionfrominitialize)
 * [ChefModernize/DefinesChefSpecMatchers](cops_chefmodernize.md#chefmodernizedefineschefspecmatchers)
@@ -122,6 +122,10 @@
 * [ChefModernize/WindowsVersionHelper](cops_chefmodernize.md#chefmodernizewindowsversionhelper)
 * [ChefModernize/WindowsZipfileUsage](cops_chefmodernize.md#chefmodernizewindowszipfileusage)
 * [ChefModernize/ZipfileResource](cops_chefmodernize.md#chefmodernizezipfileresource)
+
+#### Department [ChefRedundant](cops_chefredundant.md)
+
+* [ChefRedundant/CustomResourceWithAllowedActions](cops_chefredundant.md#chefredundantcustomresourcewithallowedactions)
 
 #### Department [ChefRedundantCode](cops_chefredundantcode.md)
 

@@ -1,5 +1,39 @@
 # ChefModernize
 
+## ChefModernize/AllowedActionsFromInitialize
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+The allowed actions can now be specified using the `allowed_actions` helper instead of using the @actions or @allowed_actions variables in the resource's initialize method. In general we recommend against writing HWRPs, but if HWRPs are necessary you should utilize as much of the resource DSL as possible.
+
+### Examples
+
+```ruby
+# bad
+def initialize(*args)
+  super
+  @actions = [ :create, :add ]
+end
+
+# also bad
+def initialize(*args)
+  super
+  @allowed_actions = [ :create, :add ]
+end
+
+# good
+allowed_actions [ :create, :add ]
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.15.0` | String
+Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
+
 ## ChefModernize/ChefGemNokogiri
 
 Enabled by default | Supports autocorrection
@@ -44,37 +78,6 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.6.0` | String
 Exclude | `**/metadata.rb` | Array
-
-## ChefModernize/CustomResourceWithAllowedActions
-
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
-
-In Chef Infra Client 12.5 and later it is no longer necessary to set `actions` or `allowed_actions` as Chef Infra Client determines these automatically from the set of all actions defined in the resource.
-
-### Examples
-
-```ruby
-# bad
-allowed_actions [:create, :remove]
-
-# also bad
-actions [:create, :remove]
-
-# don't do this either
-def initialize(*args)
-  super
-  @allowed_actions = [:create, :remove]
-end
-```
-
-### Configurable attributes
-
-Name | Default value | Configurable values
---- | --- | ---
-VersionAdded | `5.2.0` | String
-Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
 
 ## ChefModernize/CustomResourceWithAttributes
 
