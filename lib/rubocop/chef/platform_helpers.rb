@@ -20,16 +20,22 @@ module RuboCop
     module PlatformHelpers
       # a mapping of invalid platform family values to valid platform family
       INVALID_PLATFORM_FAMILIES = {
-        'sles' => 'suse',
-        'redhat' => 'rhel',
+        'archlinux' => 'arch',
         'centos' => 'rhel',
-        'scientific' => 'rhel',
-        'ubuntu' => 'debian',
+        'darwin' => 'mac_os_x',
+        'debuan' => 'debian',
+        'linux' => nil,
+        'mac_os_x_server' => 'mac_os_x',
+        'macos' => 'mac_os_x',
+        'macosx' => 'mac_os_x',
+        'mingw32' => 'windows',
+        'mswin' => 'windows',
         'opensuse' => 'suse',
         'opensuseleap' => 'suse',
-        'mac_os_x_server' => 'mac_os_x',
-        'darwin' => 'mac_os_x',
-        'linux' => nil,
+        'redhat' => 'rhel',
+        'scientific' => 'rhel',
+        'sles' => 'suse',
+        'ubuntu' => 'debian',
       }.freeze
 
       # a mapping of invalid platforms values to valid platforms
