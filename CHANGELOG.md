@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.15.2 -->
-## [v5.15.2](https://github.com/chef/cookstyle/tree/v5.15.2) (2019-12-10)
+ <!-- latest_release 5.15.3 -->
+## [v5.15.3](https://github.com/chef/cookstyle/tree/v5.15.3) (2019-12-11)
 
 #### Merged Pull Requests
-- Detect @default_action in the initializer as well [#435](https://github.com/chef/cookstyle/pull/435) ([tas50](https://github.com/tas50))
+- Don&#39;t detect poise resources in CustomResourceWithAllowedActions [#439](https://github.com/chef/cookstyle/pull/439) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.14.1 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Don&#39;t detect poise resources in CustomResourceWithAllowedActions [#439](https://github.com/chef/cookstyle/pull/439) ([tas50](https://github.com/tas50)) <!-- 5.15.3 -->
 - Detect @default_action in the initializer as well [#435](https://github.com/chef/cookstyle/pull/435) ([tas50](https://github.com/tas50)) <!-- 5.15.2 -->
 - Update ChefModernize/LegacyBerksfileSource to detect REALLY old configs [#434](https://github.com/chef/cookstyle/pull/434) ([tas50](https://github.com/tas50)) <!-- 5.15.1 -->
 - Add ChefCorrectness/ScopedFileExist cop [#432](https://github.com/chef/cookstyle/pull/432) ([tas50](https://github.com/tas50)) <!-- 5.15.0 -->
