@@ -27,7 +27,7 @@ With the addition of these new departments, we've moved many cops out of the Che
 - ChefDeprecations/SuggestsMetadata -> ChefRedundantCode/SuggestsMetadata
 - ChefDeprecations/ConflictsMetadata -> ChefRedundantCode/ConflictsMetadata
 
-### 4 New Chef Cops
+### 6 New Chef Cops
 
 #### ChefModernize/AllowedActionsFromInitialize
 
@@ -60,6 +60,22 @@ The `ChefCorrectness/ScopedFileExist` cop detects when using `File.exist?` in a 
 `Enabled by default`: True
 
 `Autocorrects`: Yes
+
+#### ChefCorrectness/InvalidPlatformValueForPlatformFamilyHelper
+
+The `ChefCorrectness/InvalidPlatformValueForPlatformFamilyHelper` cop detects when invalid platform families are passed to the `value_for_platform_family` helper.
+
+`Enabled by default`: True
+
+`Autocorrects`: No
+
+#### ChefCorrectness/InvalidPlatformValueForPlatformHelper
+
+The `ChefCorrectness/InvalidPlatformValueForPlatformHelper` cop detects when invalid platforms are passed to the `value_for_platform` helper.
+
+`Enabled by default`: True
+
+`Autocorrects`: No
 
 ### Other fixes and changes
 
