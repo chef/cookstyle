@@ -28,6 +28,8 @@ module RuboCop
         'opensuse' => 'suse',
         'opensuseleap' => 'suse',
         'mac_os_x_server' => 'mac_os_x',
+        'darwin' => 'mac_os_x',
+        'linux' => nil,
       }.freeze
 
       # a mapping of invalid platforms values to valid platforms
