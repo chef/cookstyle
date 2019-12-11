@@ -633,14 +633,6 @@ ChefModernize/CustomResourceWithAttributes:
   Include:
     - '**/resources/*.rb'
 
-ChefModernize/CustomResourceWithAllowedActions:
-  Description: Resources no longer need to define the allowed actions using the allowed_actions / actions helper methods or within an initialize method.
-  Enabled: true
-  VersionAdded: '5.2.0'
-  Include:
-    - '**/resources/*.rb'
-    - '**/libraries/*.rb'
-
 ChefModernize/IncludingAptDefaultRecipe:
   Description: Do not include the Apt default recipe to update package cache. Instead use the apt_update resource, which is built into Chef Infra Client 12.7 and later.
   Enabled: true
@@ -896,6 +888,14 @@ ChefModernize/IncludingOhaiDefaultRecipe:
   Exclude:
     - '**/metadata.rb'
 
+ChefModernize/AllowedActionsFromInitialize:
+  Description: The allowed actions of a resource can be set with the "allowed_actions" helper instead of using the initialize method.
+  Enabled: true
+  VersionAdded: '5.15.0'
+  Include:
+    - '**/resources/*.rb'
+    - '**/libraries/*.rb'
+
 ###############################
 # ChefRedundantCode: Cleanup unncessary code in your cookbooks regardless of chef-client release
 ###############################
@@ -992,6 +992,14 @@ ChefRedundantCode/NamePropertyIsRequired:
   Include:
     - '**/resources/*.rb'
     - '**/libraries/*.rb'
+
+ChefRedundant/CustomResourceWithAllowedActions:
+  Description: It is not necessary to set `actions` or `allowed_actions` in custom resources as Chef Infra Client determines these automatically from the set of all actions defined in the resource.
+  Enabled: true
+  VersionAdded: '5.2.0'
+  VersionChanged: '5.15.0'
+  Include:
+    - '**/resources/*.rb'
 
 ###############################
 # Migrating to new patterns

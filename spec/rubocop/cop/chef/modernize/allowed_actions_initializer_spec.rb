@@ -1,5 +1,6 @@
 #
 # Copyright:: 2019, Chef Software, Inc.
+# Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,61 +17,39 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefModernize::CustomResourceWithAllowedActions, :config do
+describe RuboCop::Cop::Chef::ChefModernize::AllowedActionsFromInitialize, :config do
   subject(:cop) { described_class.new(config) }
-
-  it 'registers an offense with a resource that uses allowed_actions method' do
-    expect_offense(<<~RUBY)
-      property :something, String
-
-      allowed_actions [:create, :remove]
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Resources no longer need to define the allowed actions using the allowed_actions / actions helper methods or within an initialize method.
-    RUBY
-
-    expect_correction(<<~RUBY)
-      property :something, String
-    RUBY
-  end
-
-  it 'registers an offense with a resource that uses actions method' do
-    expect_offense(<<~RUBY)
-      property :something, String
-
-      actions [:create, :remove]
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^ Resources no longer need to define the allowed actions using the allowed_actions / actions helper methods or within an initialize method.
-    RUBY
-
-    expect_correction(<<~RUBY)
-      property :something, String
-    RUBY
-  end
 
   it 'registers an offense with a resource that sets the @allowed_actions variable in an initializer' do
     expect_offense(<<~RUBY)
       def initialize(*args)
         super
         @allowed_actions = [:create, :remove]
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Resources no longer need to define the allowed actions using the allowed_actions / actions helper methods or within an initialize method.
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ The allowed actions of a resource can be set with the "allowed_actions" helper instead of using the initialize method.
       end
     RUBY
 
     expect_correction(<<~RUBY)
+    allowed_actions [:create, :remove]
+
     def initialize(*args)
       super
     end
     RUBY
   end
 
-  it 'registers an offense with a resource that pushes to the @allowed_actions variable in an initializer' do
+  it 'registers an offense with a resource that sets the @actions variable in an initializer' do
     expect_offense(<<~RUBY)
       def initialize(*args)
         super
-        @allowed_actions.push(:create, :remove)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Resources no longer need to define the allowed actions using the allowed_actions / actions helper methods or within an initialize method.
+        @actions = [:create, :remove]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ The allowed actions of a resource can be set with the "allowed_actions" helper instead of using the initialize method.
       end
     RUBY
 
     expect_correction(<<~RUBY)
+    allowed_actions [:create, :remove]
+
     def initialize(*args)
       super
     end
@@ -93,7 +72,7 @@ describe RuboCop::Cop::Chef::ChefModernize::CustomResourceWithAllowedActions, :c
     RUBY
   end
 
-  it 'does not register an offense with a resource that does not use allowed_actions or actions methods' do
+  it 'does not register an offense with a resource that does not have an initialize method' do
     expect_no_offenses(<<~RUBY)
       property :something, String
 
