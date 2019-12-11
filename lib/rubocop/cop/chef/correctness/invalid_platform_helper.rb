@@ -32,18 +32,18 @@ module RuboCop
         #   platform?('redhat)
         #   platform?('suse')
         class InvalidPlatformHelper < Cop
+          include ::RuboCop::Chef::PlatformHelpers
+
           MSG = 'Pass valid platforms to the platform? helper.'.freeze
 
-          INVALID_PLATFORMS = %w(darwin sles rhel macos mac_os).freeze
-
-          def_node_matcher :incorrect_platform?, <<-PATTERN
+          def_node_matcher :platform_helper?, <<-PATTERN
             (send nil? :platform? $str*)
           PATTERN
 
           def on_send(node)
-            incorrect_platform?(node) do |plat|
+            platform_helper?(node) do |plat|
               plat.to_a.each do |p|
-                add_offense(p, location: :expression, message: MSG, severity: :refactor) if INVALID_PLATFORMS.include?(p.value)
+                add_offense(p, location: :expression, message: MSG, severity: :refactor) if INVALID_PLATFORMS.key?(p.value)
               end
             end
           end

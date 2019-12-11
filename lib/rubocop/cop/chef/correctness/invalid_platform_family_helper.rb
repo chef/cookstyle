@@ -31,18 +31,18 @@ module RuboCop
         #   platform_family?('suse')
         #
         class InvalidPlatformFamilyHelper < Cop
+          include ::RuboCop::Chef::PlatformHelpers
+
           MSG = 'Pass valid platform families to the platform_family? helper.'.freeze
 
-          INVALID_PLATFORM_FAMILIES = %w(sles redhat centos scientific ubuntu opensuse opensuseleap mac_os_x_server).freeze
-
-          def_node_matcher :incorrect_platform_family?, <<-PATTERN
+          def_node_matcher :platform_family_helper?, <<-PATTERN
             (send nil? :platform_family? $str*)
           PATTERN
 
           def on_send(node)
-            incorrect_platform_family?(node) do |plat|
+            platform_family_helper?(node) do |plat|
               plat.to_a.each do |p|
-                add_offense(p, location: :expression, message: MSG, severity: :refactor) if INVALID_PLATFORM_FAMILIES.include?(p.value)
+                add_offense(p, location: :expression, message: MSG, severity: :refactor) if INVALID_PLATFORM_FAMILIES.key?(p.value)
               end
             end
           end
