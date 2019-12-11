@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.15.4 -->
-## [v5.15.4](https://github.com/chef/cookstyle/tree/v5.15.4) (2019-12-11)
+ <!-- latest_release 5.15.5 -->
+## [v5.15.5](https://github.com/chef/cookstyle/tree/v5.15.5) (2019-12-11)
 
 #### Merged Pull Requests
-- Rework how we autocorrect allowed actions [#436](https://github.com/chef/cookstyle/pull/436) ([tas50](https://github.com/tas50))
+- Move invalid platform constants into a single helper [#440](https://github.com/chef/cookstyle/pull/440) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.14.1 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Move invalid platform constants into a single helper [#440](https://github.com/chef/cookstyle/pull/440) ([tas50](https://github.com/tas50)) <!-- 5.15.5 -->
 - Rework how we autocorrect allowed actions [#436](https://github.com/chef/cookstyle/pull/436) ([tas50](https://github.com/tas50)) <!-- 5.15.4 -->
 - Don&#39;t detect poise resources in CustomResourceWithAllowedActions [#439](https://github.com/chef/cookstyle/pull/439) ([tas50](https://github.com/tas50)) <!-- 5.15.3 -->
 - Detect @default_action in the initializer as well [#435](https://github.com/chef/cookstyle/pull/435) ([tas50](https://github.com/tas50)) <!-- 5.15.2 -->
