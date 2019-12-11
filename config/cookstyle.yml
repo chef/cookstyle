@@ -213,6 +213,20 @@ ChefCorrectness/ScopedFileExist:
   Exclude:
     - '**/metadata.rb'
 
+ChefCorrectness/InvalidPlatformValueForPlatformFamilyHelper:
+  Description: Pass valid platforms families to the value_for_platform_family helper.
+  Enabled: true
+  VersionAdded: '5.15.0'
+  Exclude:
+    - '**/metadata.rb'
+
+ChefCorrectness/InvalidPlatformValueForPlatformHelper:
+  Description: Pass valid platforms to the value_for_platform helper.
+  Enabled: true
+  VersionAdded: '5.15.0'
+  Exclude:
+    - '**/metadata.rb'
+
 ###############################
 # ChefSharing: Issues that prevent sharing code with other teams or with the Chef community in general
 ###############################
