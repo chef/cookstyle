@@ -77,6 +77,22 @@ describe RuboCop::Cop::Chef::ChefModernize::CustomResourceWithAllowedActions, :c
     RUBY
   end
 
+  it 'does not register an offense with a poise resource' do
+    expect_no_offenses(<<~RUBY)
+    require 'poise'
+
+    module MyCookbook
+      module Resource
+        class MyResource < Chef::Resource
+          include Poise(inversion: true)
+          provides(:consul_installation)
+          actions(:create, :remove)
+        end
+      end
+    end
+    RUBY
+  end
+
   it 'does not register an offense with a resource that does not use allowed_actions or actions methods' do
     expect_no_offenses(<<~RUBY)
       property :something, String
