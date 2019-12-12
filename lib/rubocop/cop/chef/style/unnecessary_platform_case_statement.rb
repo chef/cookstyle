@@ -29,11 +29,18 @@ module RuboCop
         #     apt_update
         #   end
         #
+        #   case node['platform_family']
+        #   when 'rhel'
+        #     include_recipe 'yum'
+        #   end
+        #
         #   # good
         #   if platform?('ubuntu')
         #     log "We're on Ubuntu"
         #     apt_update
         #   end
+        #
+        #   include_recipe 'yum' if platform_family?('rhel')
         #
         class UnnecessaryPlatformCaseStatement < Cop
           include RangeHelp
