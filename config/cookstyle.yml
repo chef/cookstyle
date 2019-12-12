@@ -84,6 +84,14 @@ ChefStyle/DefaultCopyrightComments:
   Enabled: true
   VersionAdded: '5.12.0'
 
+ChefStyle/UnnecessaryPlatformCaseStatements:
+  Description: Use the platform?() and platform_family?() helpers instead of a case statement that only includes a single when statement.
+  Enabled: true
+  VersionAdded: '5.16.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/Berksfile'
+
 ###############################
 # ChefCorrectness: Avoiding potential problems
 ###############################
