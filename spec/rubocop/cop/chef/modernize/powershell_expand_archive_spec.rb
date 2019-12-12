@@ -35,4 +35,16 @@ describe RuboCop::Cop::Chef::ChefModernize::PowershellScriptExpandArchive, :conf
       end
     RUBY
   end
+
+  context 'with TargetChefVersion set to 14' do
+    let(:config) { target_chef_version(14) }
+
+    it "doesn't register an offense" do
+      expect_no_offenses(<<~RUBY)
+        powershell_script 'Expand website' do
+          code 'Expand-Archive "C:\\file.zip" -DestinationPath "C:\\inetpub\\wwwroot\\" -Force'
+        end
+      RUBY
+    end
+  end
 end

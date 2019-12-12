@@ -32,6 +32,10 @@ module RuboCop
         #   depends 'sysctl'
         #
         class UnnecessaryDependsChef14 < Cop
+          extend TargetChefVersion
+
+          minimum_target_chef_version '14.0'
+
           MSG = "Don't depend on cookbooks made obsolete by Chef Infra Client 14+. These community cookbooks contain resources that are now included in Chef Infra Client itself.".freeze
 
           def_node_matcher :legacy_depends?, <<-PATTERN

@@ -50,4 +50,19 @@ describe RuboCop::Cop::Chef::ChefModernize::OpensslX509Resource, :config do
     end
     RUBY
   end
+
+  context 'with TargetChefVersion set to 14.3' do
+    let(:config) { target_chef_version(14.3) }
+
+    it "doesn't register an offense" do
+      expect_no_offenses(<<~RUBY)
+        openssl_x509 '/etc/httpd/ssl/mycert.pem' do
+          common_name 'www.f00bar.com'
+          org 'Foo Bar'
+          org_unit 'Lab'
+          country 'US'
+        end
+      RUBY
+    end
+  end
 end

@@ -38,6 +38,9 @@ module RuboCop
         #
         class ExecuteTzUtil < Cop
           include RuboCop::Chef::CookbookHelpers
+          extend TargetChefVersion
+
+          minimum_target_chef_version '14.6'
 
           MSG = 'Use the timezone resource included in Chef Infra Client 14.6+ instead of shelling out to tzutil'.freeze
 

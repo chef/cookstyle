@@ -19,7 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefDeprecations
-        # Use delete_resource / edit_resource instead of functionality in the deprecated chef-rewind gem
+        # Use delete_resource / edit_resource introduced in Chef Infra Client 12.10 instead of functionality in the deprecated chef-rewind gem
         #
         # @example
         #
@@ -29,20 +29,23 @@ module RuboCop
         #
         #   rewind "user[postgres]" do
         #     home '/var/lib/pgsql/9.2'
-        #     cookbook 'my-postgresql'    # or `cookbook cookbook_name()`
+        #     cookbook 'my-postgresql'
         #   end
         #
         #   unwind "user[postgres]"
         #
         class ChefRewind < Cop
           include RuboCop::Chef::CookbookHelpers
+          extend TargetChefVersion
+
+          minimum_target_chef_version '12.10'
 
           MAPPING = {
             rewind: 'edit_resource',
             unwind: 'delete_resource',
           }.freeze
 
-          MSG = 'Use delete_resource / edit_resource instead of functionality in the deprecated chef-rewind gem'.freeze
+          MSG = 'Use delete_resource / edit_resource introduced in Chef Infra Client 12.10 instead of functionality in the deprecated chef-rewind gem'.freeze
 
           def_node_matcher :rewind_gem_install?, <<-PATTERN
             (send nil? :chef_gem (str "chef-rewind"))

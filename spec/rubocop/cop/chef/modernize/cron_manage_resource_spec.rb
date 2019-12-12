@@ -35,4 +35,14 @@ describe RuboCop::Cop::Chef::ChefModernize::CronManageResource, :config do
     cron_access 'mike'
     RUBY
   end
+
+  context 'with TargetChefVersion set to 14.3' do
+    let(:config) { target_chef_version(14.3) }
+
+    it "doesn't register an offense" do
+      expect_no_offenses(<<~RUBY)
+        cron_manage 'mike'
+      RUBY
+    end
+  end
 end

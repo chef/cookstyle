@@ -31,4 +31,14 @@ describe RuboCop::Cop::Chef::ChefModernize::DependsOnZypperCookbook, :config do
       depends 'foo'
     RUBY
   end
+
+  context 'with TargetChefVersion set to 13.2' do
+    let(:config) { target_chef_version(13.2) }
+
+    it "doesn't register an offense" do
+      expect_no_offenses(<<~RUBY)
+        depends 'zypper'
+      RUBY
+    end
+  end
 end

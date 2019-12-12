@@ -38,4 +38,14 @@ describe RuboCop::Cop::Chef::ChefModernize::IncludingAptDefaultRecipe, :config d
       include_recipe 'foo'
     RUBY
   end
+
+  context 'with TargetChefVersion set to 12' do
+    let(:config) { target_chef_version(12) }
+
+    it "doesn't register an offense" do
+      expect_no_offenses(<<~RUBY)
+      include_recipe 'apt::default'
+      RUBY
+    end
+  end
 end

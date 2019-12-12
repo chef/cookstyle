@@ -50,4 +50,16 @@ describe RuboCop::Cop::Chef::ChefModernize::ExecuteTzUtil, :config do
     timezone 'UTC'
     RUBY
   end
+
+  context 'with TargetChefVersion set to 14.5' do
+    let(:config) { target_chef_version(14.5) }
+
+    it "doesn't register an offense" do
+      expect_no_offenses(<<~RUBY)
+        execute 'set tz' do
+          command 'tzutil.exe /s UTC'
+        end
+      RUBY
+    end
+  end
 end

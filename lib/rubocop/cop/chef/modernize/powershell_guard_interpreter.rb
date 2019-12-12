@@ -36,6 +36,9 @@ module RuboCop
         class PowerShellGuardInterpreter < Cop
           include RuboCop::Chef::CookbookHelpers
           include RangeHelp
+          extend TargetChefVersion
+
+          minimum_target_chef_version '13.0'
 
           MSG = 'PowerShell is already set as the default guard interpreter for powershell_script resources in Chef Infra Client 13 and later and does not need to be specified.'.freeze
 

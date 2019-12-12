@@ -37,4 +37,17 @@ describe RuboCop::Cop::Chef::ChefModernize::LibarchiveFileResource, :config do
       end
     RUBY
   end
+
+  context 'with TargetChefVersion set to 14' do
+    let(:config) { target_chef_version(14) }
+
+    it "doesn't register an offense" do
+      expect_no_offenses(<<~RUBY)
+        libarchive_file 'Precompiled.zip' do
+          path "foo/bar.zip"
+          extract_to "/foo/bar"
+        end
+      RUBY
+    end
+  end
 end

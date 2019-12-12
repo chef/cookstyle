@@ -26,7 +26,6 @@ module RuboCop
         #   # bad
         #   long_description 'this is my cookbook and this description will never be seen'
         #
-
         class LongDescriptionMetadata < Cop
           include RangeHelp
 

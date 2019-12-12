@@ -33,4 +33,14 @@ describe RuboCop::Cop::Chef::ChefDeprecations::CookbookDependsOnCompatResource, 
       depends 'foo'
     RUBY
   end
+
+  context 'with TargetChefVersion set to 12' do
+    let(:config) { target_chef_version(12) }
+
+    it "doesn't register an offense" do
+      expect_no_offenses(<<~RUBY)
+        depends 'compat_resource'
+      RUBY
+    end
+  end
 end

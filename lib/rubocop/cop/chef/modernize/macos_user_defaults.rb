@@ -36,6 +36,10 @@ module RuboCop
         #   end
         #
         class MacOsXUserdefaults < Cop
+          extend TargetChefVersion
+
+          minimum_target_chef_version '14.0'
+
           MSG = 'The mac_os_x_userdefaults resource was renamed to macos_userdefaults when it was added to Chef Infra Client 14.0. The new resource name should be used.'.freeze
 
           def on_send(node)
