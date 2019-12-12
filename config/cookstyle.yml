@@ -910,6 +910,13 @@ ChefModernize/AllowedActionsFromInitialize:
     - '**/resources/*.rb'
     - '**/libraries/*.rb'
 
+ChefModernize/FoodcriticFile:
+  Description: Remove any legacy .foodcritic files in your cookbooks that are no longer necessary if you're using Cookstyle for cookbook linting.
+  Enabled: false
+  VersionAdded: '5.16.0'
+  Include:
+    - '**/.foodcritic'
+
 ###############################
 # ChefRedundantCode: Cleanup unncessary code in your cookbooks regardless of chef-client release
 ###############################
