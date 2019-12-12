@@ -395,8 +395,7 @@ Enabled by default | Supports autocorrection
 --- | ---
 Enabled | Yes
 
-Don't include the windows default recipe that is either full of gem install that are part
-of the Chef Infra Client, or empty (depends on version).
+Don't include the windows default recipe that is either full of gem install that are part of the Chef Infra Client, or empty (depends on version).
 
 ### Examples
 
@@ -944,8 +943,7 @@ Enabled by default | Supports autocorrection
 --- | ---
 Enabled | Yes
 
-The sysctl_param resource was renamed to sysctl when it was added to Chef Infra Client
-14.0. The new resource name should be used.
+The sysctl_param resource was renamed to sysctl when it was added to Chef Infra Client 14.0. The new resource name should be used.
 
   # bad
   sysctl_param 'fs.aio-max-nr' do

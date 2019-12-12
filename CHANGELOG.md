@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 5.15.8 -->
+## [v5.15.8](https://github.com/chef/cookstyle/tree/v5.15.8) (2019-12-12)
+
+#### Merged Pull Requests
+- Add new TargetChefVersion config option [#419](https://github.com/chef/cookstyle/pull/419) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=5.15.7 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Add new TargetChefVersion config option [#419](https://github.com/chef/cookstyle/pull/419) ([tas50](https://github.com/tas50)) <!-- 5.15.8 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
