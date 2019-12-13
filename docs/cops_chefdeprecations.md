@@ -996,6 +996,41 @@ Name | Default value | Configurable values
 VersionAdded | `5.7.0` | String
 Include | `**/libraries/*.rb`, `**/providers/*.rb`, `**/resources/*.rb` | Array
 
+## ChefDeprecations/RubyBlockCreateAction
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+Use the :run action in the ruby_block resource instead of the deprecated :create action
+
+### Examples
+
+```ruby
+# bad
+ruby_block 'my special ruby block' do
+  block do
+    puts 'running'
+  end
+  action :create
+end
+
+# good
+ruby_block 'my special ruby block' do
+  block do
+    puts 'running'
+  end
+  action :run
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.16.0` | String
+Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
+
 ## ChefDeprecations/SearchUsesPositionalParameters
 
 Enabled by default | Supports autocorrection
