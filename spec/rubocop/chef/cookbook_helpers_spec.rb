@@ -79,7 +79,7 @@ RSpec.describe RuboCop::Chef::CookbookHelpers do
       end
     end
 
-    describe 'matchesd on multiple properties in a resource as an array' do
+    describe 'matches on multiple properties in a resource as an array' do
       let(:resource_source) do
         <<~RUBY
         service 'if statement' do
