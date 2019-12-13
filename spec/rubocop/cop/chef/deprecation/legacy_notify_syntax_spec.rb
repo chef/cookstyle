@@ -64,6 +64,21 @@ describe RuboCop::Cop::Chef::ChefDeprecations::LegacyNotifySyntax, :config do
     RUBY
   end
 
+  it 'detects and autocorrections legacy subscription syntax' do
+    expect_offense(<<~'RUBY')
+    foo 'bar' do
+      subscribes :enable, resources(service: service_name), :immediately
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the new-style notification syntax which allows you to notify resources defined later in a recipe or resource.
+    end
+    RUBY
+
+    expect_correction(<<~'RUBY')
+    foo 'bar' do
+      subscribes :enable, "service[#{service_name}]", :immediately
+    end
+    RUBY
+  end
+
   it 'properly autocorrects legacy notification syntax with string interpolation in the resource name' do
     expect_offense(<<~'RUBY')
     foo 'bar' do

@@ -19,7 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefCorrectness
-        # When notifying an action within a resource the action should always be a symbol. In Chef Infra Client releases before 14.0 this may result in double notification.
+        # When notifying or subscribing an action within a resource the action should always be a symbol. In Chef Infra Client releases before 14.0 this may result in double notification.
         #
         # @example
         #
@@ -36,10 +36,10 @@ module RuboCop
         class NotifiesActionNotSymbol < Cop
           include RuboCop::Chef::CookbookHelpers
 
-          MSG = 'Resource notifcation actions should be symbols not strings.'.freeze
+          MSG = 'Resource notification and subscription actions should be symbols not strings.'.freeze
 
           def on_block(node)
-            match_property_in_resource?(nil, 'notifies', node) do |notifies_property|
+            match_property_in_resource?(nil, %w(notifies subscribes), node) do |notifies_property|
               add_offense(notifies_property, location: :expression, message: MSG, severity: :refactor) if notifies_property.node_parts[2].str_type?
             end
           end

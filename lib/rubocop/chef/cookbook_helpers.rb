@@ -80,8 +80,7 @@ module RuboCop
       #
       # @return [Array]
       def symbolized_property_types(property)
-        Array(property
-        ).map{|x| x.to_sym}
+        Array(property).map(&:to_sym)
       end
 
       #
