@@ -91,6 +91,7 @@
 * [ChefModernize/EmptyResourceInitializeMethod](cops_chefmodernize.md#chefmodernizeemptyresourceinitializemethod)
 * [ChefModernize/ExecuteAptUpdate](cops_chefmodernize.md#chefmodernizeexecuteaptupdate)
 * [ChefModernize/ExecuteTzUtil](cops_chefmodernize.md#chefmodernizeexecutetzutil)
+* [ChefModernize/FoodcriticComments](cops_chefmodernize.md#chefmodernizefoodcriticcomments)
 * [ChefModernize/IfProvidesDefaultAction](cops_chefmodernize.md#chefmodernizeifprovidesdefaultaction)
 * [ChefModernize/IncludingAptDefaultRecipe](cops_chefmodernize.md#chefmodernizeincludingaptdefaultrecipe)
 * [ChefModernize/IncludingMixinShelloutInResources](cops_chefmodernize.md#chefmodernizeincludingmixinshelloutinresources)

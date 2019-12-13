@@ -288,6 +288,27 @@ Name | Default value | Configurable values
 VersionAdded | `5.6.0` | String
 Exclude | `**/metadata.rb` | Array
 
+## ChefModernize/FoodcriticComments
+
+Enabled by default | Supports autocorrection
+--- | ---
+Disabled | Yes
+
+Remove legacy code comments that disable Foodcritic rules. These comments are no longer necessary if you've migrated from Foodcritic to Cookstyle for cookbook linting.
+
+### Examples
+
+```ruby
+# bad
+# ~FC013
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.16.0` | String
+
 ## ChefModernize/IfProvidesDefaultAction
 
 Enabled by default | Supports autocorrection
