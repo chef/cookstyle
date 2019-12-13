@@ -228,6 +228,39 @@ Name | Default value | Configurable values
 VersionAdded | `5.1.0` | String
 Include | `**/metadata.rb` | Array
 
+## ChefDeprecations/DeprecatedPlatformMethods
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+Use provider_for_action instead of the deprecated Chef::Platform methods in resources.
+
+### Examples
+
+```ruby
+# bad
+resource = Chef::Resource::File.new("/tmp/foo.xyz", run_context)
+provider = Chef::Platform.provider_for_resource(resource, :create)
+
+resource = Chef::Resource::File.new("/tmp/foo.xyz", run_context)
+provider = Chef::Platform.find_provider("ubuntu", "16.04", resource)
+
+resource = Chef::Resource::File.new("/tmp/foo.xyz", run_context)
+provider = Chef::Platform.find_provider_for_node(node, resource)
+
+# good
+resource = Chef::Resource::File.new("/tmp/foo.xyz", run_context)
+provider = resource.provider_for_action(:create)
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.16.0` | String
+Include | `**/libraries/*.rb`, `**/resources/*.rb`, `**/providers/*.rb` | Array
+
 ## ChefDeprecations/DeprecatedYumRepositoryProperties
 
 Enabled by default | Supports autocorrection
