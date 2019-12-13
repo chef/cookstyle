@@ -28,9 +28,17 @@ module RuboCop
         #     notifies 'restart', 'service[httpd]', 'delayed'
         #   end
         #
+        #   execute 'some commmand' do
+        #     subscribes 'restart', 'service[httpd]', 'delayed'
+        #   end
+        #
         #   # good
         #   execute 'some commmand' do
         #     notifies :restart, 'service[httpd]', 'delayed'
+        #   end
+        #
+        #   execute 'some commmand' do
+        #     subscribes :restart, 'service[httpd]', 'delayed'
         #   end
         #
         class NotifiesActionNotSymbol < Cop

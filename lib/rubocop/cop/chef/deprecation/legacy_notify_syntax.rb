@@ -35,6 +35,10 @@ module RuboCop
         #     notifies :restart, resources(service: service_name_variable), :immediately
         #   end
         #
+        #   template '/etc/www/configures-apache.conf' do
+        #     subscribes :restart, resources(service: service_name_variable), :immediately
+        #   end
+        #
         #   # good
         #   template '/etc/www/configures-apache.conf' do
         #     notifies :restart, 'service[apache]'
@@ -46,6 +50,10 @@ module RuboCop
         #
         #   template '/etc/www/configures-apache.conf' do
         #     notifies :restart, "service[#{service_name_variable}]", :immediately
+        #   end
+        #
+        #   template '/etc/www/configures-apache.conf' do
+        #     subscribes :restart, "service[#{service_name_variable}]", :immediately
         #   end
         #
         class LegacyNotifySyntax < Cop
