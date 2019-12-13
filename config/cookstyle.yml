@@ -600,6 +600,15 @@ ChefDeprecations/RubyBlockCreateAction:
     - '**/attributes/*.rb'
     - '**/Berksfile'
 
+ChefDeprecations/DeprecatedPlatformMethods:
+  Description: Use provider_for_action instead of the deprecated Chef::Platform methods in resources.
+  Enabled: true
+  VersionAdded: '5.16.0'
+  Include:
+    - '**/libraries/*.rb'
+    - '**/resources/*.rb'
+    - '**/providers/*.rb'
+
 ###############################
 # ChefModernize: Cleaning up legacy code and using new built-in resources
 ###############################
