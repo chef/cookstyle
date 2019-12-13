@@ -204,6 +204,45 @@ Name | Default value | Configurable values
 VersionAdded | `5.8.0` | String
 Exclude | `**/metadata.rb` | Array
 
+## ChefStyle/UnnecessaryPlatformCaseStatement
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+Use the platform?() and platform_family?() helpers instead of a case statement that only includes a single when statement.
+
+### Examples
+
+```ruby
+# bad
+case node['platform']
+when 'ubuntu'
+  log "We're on Ubuntu"
+  apt_update
+end
+
+case node['platform_family']
+when 'rhel'
+  include_recipe 'yum'
+end
+
+# good
+if platform?('ubuntu')
+  log "We're on Ubuntu"
+  apt_update
+end
+
+include_recipe 'yum' if platform_family?('rhel')
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.16.0` | String
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
+
 ## ChefStyle/UsePlatformHelpers
 
 Enabled by default | Supports autocorrection

@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.15.10 -->
-## [v5.15.10](https://github.com/chef/cookstyle/tree/v5.15.10) (2019-12-13)
+ <!-- latest_release 5.15.11 -->
+## [v5.15.11](https://github.com/chef/cookstyle/tree/v5.15.11) (2019-12-13)
 
 #### Merged Pull Requests
-- Add ChefDeprecations/RubyBlockCreateAction cop [#449](https://github.com/chef/cookstyle/pull/449) ([tas50](https://github.com/tas50))
+- Add ChefStyle/UnnecessaryPlatformCaseStatements [#448](https://github.com/chef/cookstyle/pull/448) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.15.7 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add ChefStyle/UnnecessaryPlatformCaseStatements [#448](https://github.com/chef/cookstyle/pull/448) ([tas50](https://github.com/tas50)) <!-- 5.15.11 -->
 - Add ChefDeprecations/RubyBlockCreateAction cop [#449](https://github.com/chef/cookstyle/pull/449) ([tas50](https://github.com/tas50)) <!-- 5.15.10 -->
 - Add a cop for removing legacy Foodcritic comments [#446](https://github.com/chef/cookstyle/pull/446) ([tas50](https://github.com/tas50)) <!-- 5.15.9 -->
 - Add new TargetChefVersion config option [#419](https://github.com/chef/cookstyle/pull/419) ([tas50](https://github.com/tas50)) <!-- 5.15.8 -->

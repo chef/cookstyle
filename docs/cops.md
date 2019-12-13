@@ -161,6 +161,7 @@
 * [ChefStyle/DefaultCopyrightComments](cops_chefstyle.md#chefstyledefaultcopyrightcomments)
 * [ChefStyle/FileMode](cops_chefstyle.md#chefstylefilemode)
 * [ChefStyle/SimplifyPlatformMajorVersionCheck](cops_chefstyle.md#chefstylesimplifyplatformmajorversioncheck)
+* [ChefStyle/UnnecessaryPlatformCaseStatement](cops_chefstyle.md#chefstyleunnecessaryplatformcasestatement)
 * [ChefStyle/UsePlatformHelpers](cops_chefstyle.md#chefstyleuseplatformhelpers)
 
 <!-- END_COP_LIST -->
