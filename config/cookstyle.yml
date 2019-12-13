@@ -583,6 +583,15 @@ ChefDeprecations/ChefRewind:
     - '**/metadata.rb'
     - '**/attributes/*.rb'
 
+ChefDeprecations/RubyBlockCreateAction:
+  Description: Use the :run action in the ruby_block resource instead of the deprecated :create action
+  Enabled: true
+  VersionAdded: '5.16.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/attributes/*.rb'
+    - '**/Berksfile'
+
 ###############################
 # ChefModernize: Cleaning up legacy code and using new built-in resources
 ###############################
