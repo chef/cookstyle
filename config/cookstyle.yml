@@ -1039,13 +1039,21 @@ ChefRedundantCode/NamePropertyIsRequired:
     - '**/resources/*.rb'
     - '**/libraries/*.rb'
 
-ChefRedundant/CustomResourceWithAllowedActions:
+ChefRedundantCode/CustomResourceWithAllowedActions:
   Description: It is not necessary to set `actions` or `allowed_actions` in custom resources as Chef Infra Client determines these automatically from the set of all actions defined in the resource.
   Enabled: true
   VersionAdded: '5.2.0'
   VersionChanged: '5.15.0'
   Include:
     - '**/resources/*.rb'
+
+ChefRedundantCode/SensitivePropertyInResource:
+  Description: Every Chef Infra resources already include a sensitive property with a default value of false.
+  Enabled: true
+  VersionAdded: '5.16.0'
+  Include:
+    - '**/resources/*.rb'
+    - '**/libraries/*.rb'
 
 ###############################
 # Migrating to new patterns
