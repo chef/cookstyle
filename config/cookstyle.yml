@@ -218,6 +218,7 @@ ChefCorrectness/InvalidPlatformHelper:
   VersionAdded: '5.15.0'
   Exclude:
     - '**/metadata.rb'
+    - '**/Berksfile'
 
 ChefCorrectness/InvalidPlatformFamilyHelper:
   Description: Pass valid platform families to the platform_family? helper.
@@ -225,6 +226,7 @@ ChefCorrectness/InvalidPlatformFamilyHelper:
   VersionAdded: '5.15.0'
   Exclude:
     - '**/metadata.rb'
+    - '**/Berksfile'
 
 ChefCorrectness/ScopedFileExist:
   Description: Scope file exist to access the correct File class by using ::File.exist? not File.exist?.
@@ -232,6 +234,7 @@ ChefCorrectness/ScopedFileExist:
   VersionAdded: '5.15.0'
   Exclude:
     - '**/metadata.rb'
+    - '**/Berksfile'
 
 ChefCorrectness/InvalidPlatformValueForPlatformFamilyHelper:
   Description: Pass valid platforms families to the value_for_platform_family helper.
@@ -239,6 +242,7 @@ ChefCorrectness/InvalidPlatformValueForPlatformFamilyHelper:
   VersionAdded: '5.15.0'
   Exclude:
     - '**/metadata.rb'
+    - '**/Berksfile'
 
 ChefCorrectness/InvalidPlatformValueForPlatformHelper:
   Description: Pass valid platforms to the value_for_platform helper.
@@ -246,6 +250,7 @@ ChefCorrectness/InvalidPlatformValueForPlatformHelper:
   VersionAdded: '5.15.0'
   Exclude:
     - '**/metadata.rb'
+    - '**/Berksfile'
 
 ChefCorrectness/InvalidNotificationTiming:
   Description: Valid notification timings are :immediately, :immediate (alias for :immediately), :delayed, and :before.
@@ -261,6 +266,15 @@ ChefCorrectness/MalformedPlatformValueForPlatformHelper:
   Enabled: true
   VersionAdded: '5.16.0'
   Exclude:
+    - '**/metadata.rb'
+    - '**/Berksfile'
+
+ChefCorrectness/DnfPackageAllowDowngrades:
+  Description: dnf_package does not support the allow_downgrades property
+  Enabled: true
+  VersionAdded: '5.16.0'
+  Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
     - '**/Berksfile'
 
