@@ -27,31 +27,46 @@ module RuboCop
         #   node['platform_family'] == 'debian'
         #   node['platform'] != 'ubuntu'
         #   node['platform_family'] != 'debian'
+        #   %w(rhel suse).include?(node['platform_family'])
         #
         #   # good
         #   platform?('ubuntu')
         #   !platform?('ubuntu')
         #   platform_family?('debian')
         #   !platform_family?('debian')
+        #   platform_family?('rhel', 'suse')
         #
         class UsePlatformHelpers < Cop
-          MSG = "Use platform? and platform_family? helpers for checking a node's platform".freeze
+          MSG = "Use platform? and platform_family? helpers to check a node's platform".freeze
 
-          def_node_matcher :platform_check?, <<-PATTERN
-            ( send (send (send nil? :node) :[] $(str {"platform" "platform_family"}) ) ${:== :!=} $str )
+          def_node_matcher :platform_equals?, <<-PATTERN
+            (send (send (send nil? :node) :[] $(str {"platform" "platform_family"}) ) ${:== :!=} $str )
+          PATTERN
+
+          def_node_matcher :platform_include?, <<-PATTERN
+            (send $(array ...) :include? (send (send nil? :node) :[] $(str {"platform" "platform_family"})))
           PATTERN
 
           def on_send(node)
-            platform_check?(node) do
+            platform_equals?(node) do
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            end
+
+            platform_include?(node) do
               add_offense(node, location: :expression, message: MSG, severity: :refactor)
             end
           end
 
           def autocorrect(node)
             lambda do |corrector|
-              platform_check?(node) do |type, operator, plat|
+              platform_equals?(node) do |type, operator, plat|
                 corrected_string = operator == :!= ? '!' : ''
                 corrected_string << "#{type.value}?('#{plat.value}')"
+                corrector.replace(node.loc.expression, corrected_string)
+              end
+
+              platform_include?(node) do |plats, type|
+                corrected_string = "#{type.value}?('#{plats.values.map(&:source).join("', '")}')"
                 corrector.replace(node.loc.expression, corrected_string)
               end
             end
