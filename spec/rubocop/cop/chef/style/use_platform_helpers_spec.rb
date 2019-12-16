@@ -70,4 +70,17 @@ describe RuboCop::Cop::Chef::ChefStyle::UsePlatformHelpers do
       end
     RUBY
   end
+
+  it 'registers an offense when checking platform family with include? and a quoted array of values' do
+    expect_offense(<<~RUBY)
+      if ['rhel', some_variable].include?(node['platform_family'])
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use platform? and platform_family? helpers to check a node's platform
+      end
+    RUBY
+
+    expect_correction(<<~RUBY)
+      if platform_family?('rhel', some_variable)
+      end
+    RUBY
+  end
 end
