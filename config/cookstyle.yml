@@ -467,7 +467,6 @@ ChefDeprecations/NamePropertyWithDefaultValue:
   VersionAdded: '5.7.0'
   Include:
     - '**/libraries/*.rb'
-    - '**/providers/*.rb'
     - '**/resources/*.rb'
 
 ChefDeprecations/ResourceUsesProviderBaseMethod:

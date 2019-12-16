@@ -19,13 +19,19 @@ require 'spec_helper'
 describe RuboCop::Cop::Chef::ChefRedundantCode::UnnecessaryNameProperty, :config do
   subject(:cop) { described_class.new(config) }
 
-  #   property :name, String
-  #   property :name, String, name_property: true
-
   it 'registers an offense when a resource has a property called name' do
     expect_offense(<<~RUBY)
       property :name, String
-      ^^^^^^^^^^^^^^^^^^^^^^ There is no need to define a property named :name in a resource as Chef Infra defines that property for all resources by default.
+      ^^^^^^^^^^^^^^^^^^^^^^ There is no need to define a property or attribute named :name in a resource as Chef Infra defines this all resources by default.
+    RUBY
+
+    expect_correction("\n")
+  end
+
+  it 'registers an offense when a resource has an attribute called name' do
+    expect_offense(<<~RUBY)
+      attribute :name, String
+      ^^^^^^^^^^^^^^^^^^^^^^^ There is no need to define a property or attribute named :name in a resource as Chef Infra defines this all resources by default.
     RUBY
 
     expect_correction("\n")
@@ -34,7 +40,16 @@ describe RuboCop::Cop::Chef::ChefRedundantCode::UnnecessaryNameProperty, :config
   it 'registers an offense when a resource has a property called name that is a name_property' do
     expect_offense(<<~RUBY)
       property :name, String, name_property: true
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ There is no need to define a property named :name in a resource as Chef Infra defines that property for all resources by default.
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ There is no need to define a property or attribute named :name in a resource as Chef Infra defines this all resources by default.
+    RUBY
+
+    expect_correction("\n")
+  end
+
+  it 'registers an offense when a resource has a attribute called name that is a name_attribute' do
+    expect_offense(<<~RUBY)
+      attribute :name, String, name_attribute: true
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ There is no need to define a property or attribute named :name in a resource as Chef Infra defines this all resources by default.
     RUBY
 
     expect_correction("\n")

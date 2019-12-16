@@ -18,26 +18,29 @@ module RuboCop
   module Cop
     module Chef
       module ChefRedundantCode
-        # There is no need to define a property named :name in a resource as Chef Infra defines that property for all resources by default.
+        # There is no need to define a property or attribute named :name in a resource as Chef Infra defines this for all resources by default.
         #
         # @example
         #
         #   # bad
         #   property :name, String
         #   property :name, String, name_property: true
+        #   attribute :name, String
+        #   attribute :name, String, name_attribute: true
         #
         class UnnecessaryNameProperty < Cop
-          MSG = 'There is no need to define a property named :name in a resource as Chef Infra defines that property for all resources by default.'.freeze
+          MSG = 'There is no need to define a property or attribute named :name in a resource as Chef Infra defines this all resources by default.'.freeze
 
+          # match on a property/attribute named :name that's a string. The property/attribute optionally
+          # set name_property/name_attribute true, but nothing else is allowed. If you're doing that it's
+          # no longer the default and your usage is fine.
           def_node_matcher :name_property?, <<-PATTERN
-            (send nil? :property (sym :name) (const nil? :String) $...)
+            (send nil? {:property :attribute} (sym :name) (const nil? :String) (hash (pair (sym {:name_attribute :name_property}) (true)))?)
           PATTERN
 
           def on_send(node)
-            name_property?(node) do |hash_vals|
-              if hash_vals.empty? || (hash_vals.first.keys.count == 1 && hash_vals.first.keys.first.source == 'name_property')
-                add_offense(node, location: :expression, message: MSG, severity: :refactor)
-              end
+            name_property?(node) do
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
             end
           end
 

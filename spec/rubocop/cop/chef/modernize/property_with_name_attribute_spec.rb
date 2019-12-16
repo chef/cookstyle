@@ -1,5 +1,6 @@
 #
 # Copyright:: 2019, Chef Software, Inc.
+# Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -22,7 +23,7 @@ describe RuboCop::Cop::Chef::ChefModernize::PropertyWithNameAttribute, :config d
   it 'registers an offense when a property has a name_attribute value' do
     expect_offense(<<~RUBY)
       property :foo, String, name_attribute: true
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Resource property sets name_attribute not name_property
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Resource property sets name_attribute instead of name_property
     RUBY
 
     expect_correction(<<~RUBY)

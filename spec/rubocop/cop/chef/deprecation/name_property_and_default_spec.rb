@@ -1,5 +1,6 @@
 #
 # Copyright:: 2019, Chef Software, Inc.
+# Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -23,6 +24,21 @@ describe RuboCop::Cop::Chef::ChefDeprecations::NamePropertyWithDefaultValue, :co
     expect_offense(<<~RUBY)
       property :foo, String, name_property: true, default: 'foo'
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ A resource property can't be marked as a name_property and also have a default value. This will fail in Chef Infra Client 13 or later.
+    RUBY
+
+    expect_correction(<<~RUBY)
+    property :foo, String, name_property: true
+    RUBY
+  end
+
+  it 'registers an offense when a resource attribute is both a name_attribute and has a default' do
+    expect_offense(<<~RUBY)
+      attribute :foo, String, name_attribute: true, default: 'foo'
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ A resource property can't be marked as a name_property and also have a default value. This will fail in Chef Infra Client 13 or later.
+    RUBY
+
+    expect_correction(<<~RUBY)
+    attribute :foo, String, name_attribute: true
     RUBY
   end
 
