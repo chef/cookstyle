@@ -329,7 +329,7 @@ Enabled by default | Supports autocorrection
 --- | ---
 Enabled | Yes
 
-There is no need to define a property named :name in a resource as Chef Infra defines that property for all resources by default.
+There is no need to define a property or attribute named :name in a resource as Chef Infra defines this on all resources by default.
 
 ### Examples
 
@@ -337,6 +337,8 @@ There is no need to define a property named :name in a resource as Chef Infra de
 # bad
 property :name, String
 property :name, String, name_property: true
+attribute :name, String
+attribute :name, String, name_attribute: true
 ```
 
 ### Configurable attributes

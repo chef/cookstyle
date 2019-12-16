@@ -589,18 +589,20 @@ Exclude | `**/metadata.rb` | Array
 
 Enabled by default | Supports autocorrection
 --- | ---
-Enabled | No
+Enabled | Yes
 
-A custom resource property can't be marked as a name_property and also have a default value. The name property is a special property that is derived from the name of the resource block in and thus always has a value passed to the resource. For example if you define `my_resource 'foo'` in recipe, then the name property of `my_resource` will automatically be set to `foo`. Setting a property to be both a name_property and have a default value will cause Chef Infra Client failures in 13.0 and later releases.
+A resource property (or attribute) can't be marked as a name_property (or name_attribute) and also have a default value. The name property is a special property that is derived from the name of the resource block in and thus always has a value passed to the resource. For example if you define `my_resource 'foo'` in recipe, then the name property of `my_resource` will automatically be set to `foo`. Setting a property to be both a name_property and have a default value will cause Chef Infra Client failures in 13.0 and later releases.
 
 ### Examples
 
 ```ruby
 # bad
 property :config_file, String, default: 'foo', name_property: true
+attribute :config_file, String, default: 'foo', name_attribute: true
 
 # good
 property :config_file, String, name_property: true
+attribute :config_file, String, name_attribute: true
 ```
 
 ### Configurable attributes
@@ -608,7 +610,7 @@ property :config_file, String, name_property: true
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.7.0` | String
-Include | `**/libraries/*.rb`, `**/providers/*.rb`, `**/resources/*.rb` | Array
+Include | `**/libraries/*.rb`, `**/resources/*.rb` | Array
 
 ## ChefDeprecations/NodeDeepFetch
 
