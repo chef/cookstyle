@@ -1,14 +1,14 @@
 ## Cookstyle 5.15
 
-### New ChefStyle and ChefRedundant Departments
+### New ChefSharing and ChefRedundantCode Departments
 
-Cookstyle 5.15 adds two new Chef cop departments and moves a large number of existing cops into more appropriate departments. Our goal is to have clearly defined cop departments that can be enabled or disabled to detect particular conditions in your cookbooks. Cops in the new ChefSharing department are focused around sharing cookbooks internally or on the public Supermarket. This includes things like ensuring proper license strings and complete metadata. Cops in the ChefRedundant category detect and correct unnecessary cookbook code. Anything detected by ChefRedundant cops can be removed regardless of the Chef Infra Client release you run in your infrastructure, so these are always safe to run.
+Cookstyle 5.15 adds two new Chef cop departments and moves a large number of existing cops into more appropriate departments. Our goal is to have clearly defined cop departments that can be enabled or disabled to detect particular conditions in your cookbooks. Cops in the new ChefSharing department are focused around sharing cookbooks internally or on the public Supermarket. This includes things like ensuring proper license strings and complete metadata. Cops in the ChefRedundantCode category detect and correct unnecessary cookbook code. Anything detected by ChefRedundantCode cops can be removed regardless of the Chef Infra Client release you run in your infrastructure, so these are always safe to run.
 
 With the addition of these new departments, we've moved many cops out of the ChefCorrectness department. Going forward only cops that detect code that may fail a Chef Infra Client run or cause it to behave incorrectly will be included in this category. We hope that ChefCorrectness along with ChefDeprecations are used in most cookbook CI pipelines.
 
 #### Moved Cops
 
-- ChefModernize/CustomResourceWithAllowedActions -> ChefRedundant/CustomResourceWithAllowedActions
+- ChefModernize/CustomResourceWithAllowedActions -> ChefRedundantCode/CustomResourceWithAllowedActions
 - ChefCorrectness/InsecureCookbookURL -> ChefSharing/InsecureCookbookURL
 - ChefCorrectness/InvalidLicenseString -> ChefSharing/InvalidLicenseString
 - ChefCorrectness/DefaultMetadataMaintainer -> ChefSharing/DefaultMetadataMaintainer
