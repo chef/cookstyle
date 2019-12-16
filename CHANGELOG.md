@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.15.13 -->
-## [v5.15.13](https://github.com/chef/cookstyle/tree/v5.15.13) (2019-12-16)
+ <!-- latest_release 5.16.0 -->
+## [v5.16.0](https://github.com/chef/cookstyle/tree/v5.16.0) (2019-12-16)
 
 #### Merged Pull Requests
-- Support checking both notifies and subscribes properties in cops [#451](https://github.com/chef/cookstyle/pull/451) ([tas50](https://github.com/tas50))
+- Add ChefCorrectness/InvalidNotificationTiming cop [#454](https://github.com/chef/cookstyle/pull/454) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.15.7 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add ChefCorrectness/InvalidNotificationTiming cop [#454](https://github.com/chef/cookstyle/pull/454) ([tas50](https://github.com/tas50)) <!-- 5.16.0 -->
 - Support checking both notifies and subscribes properties in cops [#451](https://github.com/chef/cookstyle/pull/451) ([tas50](https://github.com/tas50)) <!-- 5.15.13 -->
 - Add ChefDeprecations/DeprecatedPlatformMethods [#450](https://github.com/chef/cookstyle/pull/450) ([tas50](https://github.com/tas50)) <!-- 5.15.12 -->
 - Add ChefStyle/UnnecessaryPlatformCaseStatements [#448](https://github.com/chef/cookstyle/pull/448) ([tas50](https://github.com/tas50)) <!-- 5.15.11 -->

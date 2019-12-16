@@ -100,6 +100,37 @@ Name | Default value | Configurable values
 VersionAdded | `5.10.0` | String
 Include | `**/libraries/*.rb` | Array
 
+## ChefCorrectness/InvalidNotificationTiming
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+Valid notification timings are :immediately, :immediate (alias for :immediately), :delayed, and :before.
+
+### Examples
+
+```ruby
+# bad
+
+template '/etc/www/configures-apache.conf' do
+  notifies :restart, 'service[apache]', :nope
+end
+
+# good
+
+template '/etc/www/configures-apache.conf' do
+  notifies :restart, 'service[apache]', :immediately
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.16.0` | String
+Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
+
 ## ChefCorrectness/InvalidPlatformFamilyHelper
 
 Enabled by default | Supports autocorrection
@@ -387,7 +418,7 @@ end
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.10.0` | String
-Exclude | `**/metadata.rb` | Array
+Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefCorrectness/ResourceSetsInternalProperties
 
