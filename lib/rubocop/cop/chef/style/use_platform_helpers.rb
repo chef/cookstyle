@@ -66,7 +66,8 @@ module RuboCop
               end
 
               platform_include?(node) do |plats, type|
-                corrected_string = "#{type.value}?('#{plats.values.map(&:source).join("', '")}')"
+                platforms = plats.values.map { |x| x.str_type? ? "'#{x.value}'" : x.source }
+                corrected_string = "#{type.value}?(#{platforms.join(', ')})"
                 corrector.replace(node.loc.expression, corrected_string)
               end
             end
