@@ -107,6 +107,14 @@ ChefStyle/ImmediateNotificationTiming:
     - '**/metadata.rb'
     - '**/Berksfile'
 
+ChefStyle/TrueFalseResourceProperties:
+  Description: When setting the allowed types for a resource to accept either true or false you should use the actual class names of TrueClass and FalseClass instead of true and false.
+  Enabled: true
+  VersionAdded: '5.16.0'
+  Include:
+    - '**/libraries/*.rb'
+    - '**/resources/*.rb'
+
 ###############################
 # ChefCorrectness: Avoiding potential problems
 ###############################
@@ -1021,6 +1029,33 @@ ChefModernize/FoodcriticComments:
   Exclude:
     - '**/Berksfile'
 
+ChefModernize/ExecuteScExe:
+  Description: Chef Infra Client 14.0 and later includes :create, :delete, and :configure actions with the full idempotency of the windows_service resource. See the windows_service documentation at https://docs.chef.io/resource_windows_service.html for additional details on creating services with the windows_service resource
+  Enabled: false
+  VersionAdded: '5.16.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/attributes/*.rb'
+    - '**/Berksfile'
+
+ChefModernize/WindowsScResource:
+  Description: Chef Infra Client 14.0 and later includes :create, :delete, and :configure actions without the need for the sc cookbook dependency. See the windows_service documentation at https://docs.chef.io/resource_windows_service.html for additional details.
+  Enabled: false
+  VersionAdded: '5.16.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/attributes/*.rb'
+    - '**/Berksfile'
+
+ChefModernize/ExecuteSleep:
+  Description: Chef Infra Client 15.5 and later include a chef_sleep resource that should be used to sleep between executing resources if necessary instead of using the bash or execute resources to run the sleep command.
+  Enabled: false
+  VersionAdded: '5.16.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/attributes/*.rb'
+    - '**/Berksfile'
+
 ###############################
 # ChefRedundantCode: Cleanup unncessary code in your cookbooks regardless of chef-client release
 ###############################
@@ -1128,6 +1163,14 @@ ChefRedundantCode/CustomResourceWithAllowedActions:
 
 ChefRedundantCode/SensitivePropertyInResource:
   Description: Every Chef Infra resources already include a sensitive property with a default value of false.
+  Enabled: true
+  VersionAdded: '5.16.0'
+  Include:
+    - '**/resources/*.rb'
+    - '**/libraries/*.rb'
+
+ChefRedundantCode/UnnecessaryDesiredState:
+  Description: 'There is no need to set a property to desired_state: true as all properties have a desired_state of true by default.'
   Enabled: true
   VersionAdded: '5.16.0'
   Include:
