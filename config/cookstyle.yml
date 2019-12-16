@@ -256,6 +256,14 @@ ChefCorrectness/InvalidNotificationTiming:
     - '**/metadata.rb'
     - '**/Berksfile'
 
+ChefCorrectness/MalformedPlatformValueForPlatformHelper:
+  Description: When using the value_for_platform helper you must include a hash of possible platforms where each platform contains a hash of versions and potential values. If you don't wish to match on a particular version you can instead use the key 'default'.
+  Enabled: true
+  VersionAdded: '5.16.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/Berksfile'
+
 ###############################
 # ChefSharing: Issues that prevent sharing code with other teams or with the Chef community in general
 ###############################
