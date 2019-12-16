@@ -56,13 +56,17 @@ ChefStyle/CommentFormat:
   Description: Use Chef's unique format for comment headers
   Enabled: true
   VersionAdded: '5.0.0'
+  Exclude:
+    - '**/Berksfile'
 
 ChefStyle/FileMode:
   Description: Use strings to represent file modes in Chef resources
   Enabled: true
   VersionAdded: '5.0.0'
   Exclude:
+    - '**/attributes/*'
     - '**/metadata.rb'
+    - '**/Berksfile'
 
 ChefStyle/UsePlatformHelpers:
   Description: Use platform? and platform_family? helpers to check node platform in resources and recipes
@@ -71,6 +75,7 @@ ChefStyle/UsePlatformHelpers:
   Exclude:
     - '**/metadata.rb'
     - '**/libraries/*'
+    - '**/Berksfile'
 
 ChefStyle/SimplifyPlatformMajorVersionCheck:
   Description: Use node['platform_version'].to_i instead of node['platform_version'].split('.').first or node['platform_version'].split('.')[0]
@@ -78,6 +83,7 @@ ChefStyle/SimplifyPlatformMajorVersionCheck:
   VersionAdded: '5.8.0'
   Exclude:
     - '**/metadata.rb'
+    - '**/Berksfile'
 
 ChefStyle/DefaultCopyrightComments:
   Description: Cookbook copyright comment headers should be updated for a real person or organization.
@@ -110,7 +116,9 @@ ChefCorrectness/ServiceResource:
   Enabled: true
   VersionAdded: '5.0.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
 
 ChefCorrectness/NodeNormal:
   Description: Do not use the node.normal method
@@ -118,6 +126,7 @@ ChefCorrectness/NodeNormal:
   VersionAdded: '5.1.0'
   Exclude:
     - '**/metadata.rb'
+    - '**/Berksfile'
 
 ChefCorrectness/NodeNormalUnless:
   Description: Do not use the node.normal_unless method
@@ -125,6 +134,7 @@ ChefCorrectness/NodeNormalUnless:
   VersionAdded: '5.1.0'
   Exclude:
     - '**/metadata.rb'
+    - '**/Berksfile'
 
 ChefCorrectness/TmpPath:
   Description: Use file_cache_path rather than hard-coding tmp paths
@@ -132,6 +142,7 @@ ChefCorrectness/TmpPath:
   VersionAdded: '5.0.0'
   Exclude:
     - '**/metadata.rb'
+    - '**/Berksfile'
 
 ChefCorrectness/InvalidPlatformMetadata:
   Description: metadata.rb "supports" platform is invalid
@@ -146,6 +157,7 @@ ChefCorrectness/CookbookUsesNodeSave:
   VersionAdded: '5.5.0'
   Exclude:
     - '**/metadata.rb'
+    - '**/Berksfile'
 
 ChefCorrectness/CookbooksDependsOnSelf:
   Description: A cookbook cannot depend on itself
@@ -166,28 +178,36 @@ ChefCorrectness/BlockGuardWithOnlyString:
   Enabled: true
   VersionAdded: '5.2.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
 
 ChefCorrectness/ResourceSetsInternalProperties:
   Description: Do not set properties used internally by Chef Infra Client to track the system state.
   Enabled: true
   VersionAdded: '5.5.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
 
 ChefCorrectness/ResourceSetsNameProperty:
   Description: Resource sets the name property in the resource instead of using a name_property.
   Enabled: true
   VersionAdded: '5.5.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
 
 ChefCorrectness/ResourceWithNoneAction:
   Description: Resource uses the nonexistent :none action instead of the :nothing action
   Enabled: true
   VersionAdded: '5.5.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
 
 ChefCorrectness/InvalidVersionMetadata:
   Description: Cookbook metadata.rb version field should follow X.Y.Z version format.
@@ -233,6 +253,7 @@ ChefCorrectness/ScopedFileExist:
   Enabled: true
   VersionAdded: '5.15.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
     - '**/Berksfile'
 
@@ -324,6 +345,7 @@ ChefDeprecations/NodeDeepFetch:
   VersionAdded: '5.12.0'
   Exclude:
     - '**/metadata.rb'
+    - '**/Berksfile'
 
 ChefDeprecations/NodeSet:
   Description: Do not use the deprecated node.set method
@@ -331,6 +353,7 @@ ChefDeprecations/NodeSet:
   VersionAdded: '5.0.0'
   Exclude:
     - '**/metadata.rb'
+    - '**/Berksfile'
 
 ChefDeprecations/NodeSetUnless:
   Description: Do not use the deprecated node.set_unless method
@@ -338,13 +361,16 @@ ChefDeprecations/NodeSetUnless:
   VersionAdded: '5.1.0'
   Exclude:
     - '**/metadata.rb'
+    - '**/Berksfile'
 
 ChefDeprecations/EpicFail:
   Description: Use ignore_failure method instead of the deprecated epic_fail method
   Enabled: true
   VersionAdded: '5.1.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
 
 ChefDeprecations/CookbookDependsOnPoise:
   Description: Cookbooks should not depend on the deprecated Poise framework
@@ -372,21 +398,27 @@ ChefDeprecations/EasyInstallResource:
   Enabled: true
   VersionAdded: '5.1.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
 
 ChefDeprecations/ErlCallResource:
   Description: Don't use the deprecated erl_call resource removed in Chef 13
   Enabled: true
   VersionAdded: '5.1.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
 
 ChefDeprecations/RequireRecipe:
   Description: Use include_recipe instead of the require_recipe method
   Enabled: true
   VersionAdded: '5.2.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
 
 ChefDeprecations/NodeMethodsInsteadofAttributes:
   Description: Use node attributes to access Ohai data instead of node methods, which were deprecated in Chef Infra Client 13.
@@ -394,6 +426,7 @@ ChefDeprecations/NodeMethodsInsteadofAttributes:
   VersionAdded: '5.4.0'
   Exclude:
     - '**/metadata.rb'
+    - '**/Berksfile'
 
 ChefDeprecations/UsesDeprecatedMixins:
   Description: Don't use deprecated Mixins no longer included in Chef Infra Client 14 and later.
@@ -409,7 +442,9 @@ ChefDeprecations/IncludingXMLRubyRecipe:
   Enabled: true
   VersionAdded: '5.4.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
 
 ChefDeprecations/LegacyYumCookbookRecipes:
   Description: The elrepo, epel, ius, remi, and repoforge recipes were split into their own cookbooks and the yum recipe was renamed to be default with the release of yum cookbook 3.0 (Dec 2013).
@@ -969,6 +1004,7 @@ ChefModernize/IncludingOhaiDefaultRecipe:
   VersionChanged: '5.15.0'
   Exclude:
     - '**/metadata.rb'
+    - '**/Berksfile'
 
 ChefModernize/AllowedActionsFromInitialize:
   Description: The allowed actions of a resource can be set with the "allowed_actions" helper instead of using the initialize method.
@@ -982,6 +1018,8 @@ ChefModernize/FoodcriticComments:
   Description: Remove legacy code comments that disable Foodcritic rules. These comments are no longer necessary if you've migrated from Foodcritic to Cookstyle for cookbook linting.
   Enabled: false
   VersionAdded: '5.16.0'
+  Exclude:
+    - '**/Berksfile'
 
 ###############################
 # ChefRedundantCode: Cleanup unncessary code in your cookbooks regardless of chef-client release
@@ -1106,6 +1144,7 @@ ChefEffortless/CookbookUsesSearch:
   VersionAdded: '5.1.0'
   Exclude:
     - '**/metadata.rb'
+    - '**/Berksfile'
 
 ChefEffortless/CookbookUsesDatabags:
   Description: Cookbook uses data bags, which cannot be used in the Effortless Infra pattern
@@ -1113,6 +1152,7 @@ ChefEffortless/CookbookUsesDatabags:
   VersionAdded: '5.1.0'
   Exclude:
     - '**/metadata.rb'
+    - '**/Berksfile'
 
 ChefEffortless/CookbookUsesEnvironmments:
   Description: Cookbook uses environments, which cannot be used in the Effortless Infra pattern
@@ -1120,6 +1160,7 @@ ChefEffortless/CookbookUsesEnvironmments:
   VersionAdded: '5.10.0'
   Exclude:
     - '**/metadata.rb'
+    - '**/Berksfile'
 
 ChefEffortless/CookbookUsesPolicygroups:
   Description: Cookbook uses Policy Groups, which cannot be used in the Effortless Infra pattern
@@ -1127,6 +1168,7 @@ ChefEffortless/CookbookUsesPolicygroups:
   VersionAdded: '5.10.0'
   Exclude:
     - '**/metadata.rb'
+    - '**/Berksfile'
 
 ChefEffortless/CookbookUsesRoles:
   Description: Cookbook uses Roles, which cannot be used in the Effortless Infra pattern
@@ -1134,6 +1176,7 @@ ChefEffortless/CookbookUsesRoles:
   VersionAdded: '5.10.0'
   Exclude:
     - '**/metadata.rb'
+    - '**/Berksfile'
 
 ChefEffortless/SearchForEnvironmentsOrRoles:
   Description: Cookbook uses search with a node query that looks for a role or environment
@@ -1141,6 +1184,7 @@ ChefEffortless/SearchForEnvironmentsOrRoles:
   VersionAdded: '5.11.0'
   Exclude:
     - '**/metadata.rb'
+    - '**/Berksfile'
 
 ChefEffortless/Berksfile:
   Description: Policyfiles should be used for cookbook dependency solving instead of a Berkshelf Berksfile.
