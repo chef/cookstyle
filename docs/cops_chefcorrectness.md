@@ -358,7 +358,7 @@ Enabled by default | Supports autocorrection
 --- | ---
 Enabled | Yes
 
-When notifying an action within a resource the action should always be a symbol. In Chef Infra Client releases before 14.0 this may result in double notification.
+When notifying or subscribing an action within a resource the action should always be a symbol. In Chef Infra Client releases before 14.0 this may result in double notification.
 
 ### Examples
 
@@ -368,9 +368,17 @@ execute 'some commmand' do
   notifies 'restart', 'service[httpd]', 'delayed'
 end
 
+execute 'some commmand' do
+  subscribes 'restart', 'service[httpd]', 'delayed'
+end
+
 # good
 execute 'some commmand' do
   notifies :restart, 'service[httpd]', 'delayed'
+end
+
+execute 'some commmand' do
+  subscribes :restart, 'service[httpd]', 'delayed'
 end
 ```
 
