@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.16.5 -->
-## [v5.16.5](https://github.com/chef/cookstyle/tree/v5.16.5) (2019-12-16)
+ <!-- latest_release 5.16.6 -->
+## [v5.16.6](https://github.com/chef/cookstyle/tree/v5.16.6) (2019-12-16)
 
 #### Merged Pull Requests
-- Add ChefCorrectness/MalformedPlatformValueForPlatformHelper cop [#459](https://github.com/chef/cookstyle/pull/459) ([tas50](https://github.com/tas50))
+- Add ChefCorrectness/DnfPackageAllowDowngrades [#452](https://github.com/chef/cookstyle/pull/452) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.15.7 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add ChefCorrectness/DnfPackageAllowDowngrades [#452](https://github.com/chef/cookstyle/pull/452) ([tas50](https://github.com/tas50)) <!-- 5.16.6 -->
 - Add ChefCorrectness/MalformedPlatformValueForPlatformHelper cop [#459](https://github.com/chef/cookstyle/pull/459) ([tas50](https://github.com/tas50)) <!-- 5.16.5 -->
 - Detect additional ways of checking platform / platform_family with node data [#456](https://github.com/chef/cookstyle/pull/456) ([tas50](https://github.com/tas50)) <!-- 5.16.4 -->
 - Improve the cops that check properties / attributes [#458](https://github.com/chef/cookstyle/pull/458) ([tas50](https://github.com/tas50)) <!-- 5.16.3 -->

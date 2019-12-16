@@ -4,6 +4,7 @@
 * [ChefCorrectness/BlockGuardWithOnlyString](cops_chefcorrectness.md#chefcorrectnessblockguardwithonlystring)
 * [ChefCorrectness/CookbookUsesNodeSave](cops_chefcorrectness.md#chefcorrectnesscookbookusesnodesave)
 * [ChefCorrectness/CookbooksDependsOnSelf](cops_chefcorrectness.md#chefcorrectnesscookbooksdependsonself)
+* [ChefCorrectness/DnfPackageAllowDowngrades](cops_chefcorrectness.md#chefcorrectnessdnfpackageallowdowngrades)
 * [ChefCorrectness/IncorrectLibraryInjection](cops_chefcorrectness.md#chefcorrectnessincorrectlibraryinjection)
 * [ChefCorrectness/InvalidNotificationTiming](cops_chefcorrectness.md#chefcorrectnessinvalidnotificationtiming)
 * [ChefCorrectness/InvalidPlatformFamilyHelper](cops_chefcorrectness.md#chefcorrectnessinvalidplatformfamilyhelper)

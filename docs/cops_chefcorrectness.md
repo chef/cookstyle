@@ -72,6 +72,36 @@ Name | Default value | Configurable values
 VersionAdded | `5.2.0` | String
 Include | `**/metadata.rb` | Array
 
+## ChefCorrectness/DnfPackageAllowDowngrades
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+dnf_package does not support the allow_downgrades property
+
+### Examples
+
+```ruby
+# bad
+dnf_package 'nginx' do
+  version '1.2.3'
+  allow_downgrades true
+end
+
+# good
+dnf_package 'nginx' do
+  version '1.2.3'
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.16.0` | String
+Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
+
 ## ChefCorrectness/IncorrectLibraryInjection
 
 Enabled by default | Supports autocorrection
@@ -156,7 +186,7 @@ platform_family?('suse')
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.15.0` | String
-Exclude | `**/metadata.rb` | Array
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefCorrectness/InvalidPlatformHelper
 
@@ -185,7 +215,7 @@ platform?('suse')
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.15.0` | String
-Exclude | `**/metadata.rb` | Array
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefCorrectness/InvalidPlatformMetadata
 
@@ -243,7 +273,7 @@ value_for_platform_family(
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.15.0` | String
-Exclude | `**/metadata.rb` | Array
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefCorrectness/InvalidPlatformValueForPlatformHelper
 
@@ -273,7 +303,7 @@ value_for_platform(
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.15.0` | String
-Exclude | `**/metadata.rb` | Array
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefCorrectness/InvalidVersionMetadata
 
@@ -574,7 +604,7 @@ not_if { ::File.exist?('/etc/foo/bar') }
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.15.0` | String
-Exclude | `**/metadata.rb` | Array
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefCorrectness/ServiceResource
 
