@@ -257,6 +257,62 @@ Name | Default value | Configurable values
 VersionAdded | `5.3.0` | String
 Exclude | `**/metadata.rb` | Array
 
+## ChefModernize/ExecuteScExe
+
+Enabled by default | Supports autocorrection
+--- | ---
+Disabled | No
+
+Chef Infra Client 14.0 and later includes :create, :delete, and :configure actions with the full idempotency of the windows_service resource. See the windows_service documentation at https://docs.chef.io/resource_windows_service.html for additional details on creating services with the windows_service resource.
+
+  # bad
+  execute "Delete chef-client service" do
+    command "sc.exe delete chef-client"
+    action :run
+  end
+
+  # good
+  windows_service 'chef-client' do
+    action :delete
+  end
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.16.0` | String
+Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
+
+## ChefModernize/ExecuteSleep
+
+Enabled by default | Supports autocorrection
+--- | ---
+Disabled | No
+
+Chef Infra Client 15.5 and later include a chef_sleep resource that should be used to sleep between executing resources if necessary instead of using the bash or execute resources to run the sleep command.
+
+  # bad
+  execute "sleep 60" do
+    command "sleep 60"
+    action :run
+  end
+
+  bash 'sleep' do
+    user 'root'
+    cwd '/tmp'
+    code 'sleep 60'
+  end
+
+  # good
+  chef_sleep '60'
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.16.0` | String
+Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
+
 ## ChefModernize/ExecuteTzUtil
 
 Enabled by default | Supports autocorrection
@@ -341,8 +397,7 @@ Enabled by default | Supports autocorrection
 --- | ---
 Enabled | No
 
-Don't include the apt default recipe to update apt's package cache when you can
-use the apt_update resource built into Chef Infra Client 12.7 and later.
+For many users the apt::default cookbook is used only to update apt's package cache. Chef Infra Client 12.7 and later include an apt_update resource which should be used to perform this instead. Keep in mind that some users will want to stick with the apt::default recipe as it also installs packages necessary for using https repositories on Debian systems and manages some configuration files.
 
 ### Examples
 
@@ -1119,6 +1174,33 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.1.0` | String
 Include | `**/resources/*.rb`, `**/providers/*.rb`, `**/libraries/*.rb` | Array
+
+## ChefModernize/WindowsScResource
+
+Enabled by default | Supports autocorrection
+--- | ---
+Disabled | No
+
+The sc_windows resource from the sc cookbook allowed for the creation of windows services on legacy Chef Infra Client releases. Chef Infra Client 14.0 and later includes :create, :delete, and :configure actions without the need for additional cookbook dependencies. See the windows_service documentation at https://docs.chef.io/resource_windows_service.html for additional details on creating services with the windows_service resource.
+
+  # bad
+  sc_windows 'chef-client' do
+    path "C:\\opscode\\chef\\bin"
+    action :create
+  end
+
+  # good
+  windows_service 'chef-client' do
+    action :create
+    binary_path_name "C:\\opscode\\chef\\bin"
+  end
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.16.0` | String
+Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
 ## ChefModernize/WindowsVersionHelper
 

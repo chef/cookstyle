@@ -95,6 +95,8 @@
 * [ChefModernize/DependsOnZypperCookbook](cops_chefmodernize.md#chefmodernizedependsonzyppercookbook)
 * [ChefModernize/EmptyResourceInitializeMethod](cops_chefmodernize.md#chefmodernizeemptyresourceinitializemethod)
 * [ChefModernize/ExecuteAptUpdate](cops_chefmodernize.md#chefmodernizeexecuteaptupdate)
+* [ChefModernize/ExecuteScExe](cops_chefmodernize.md#chefmodernizeexecutescexe)
+* [ChefModernize/ExecuteSleep](cops_chefmodernize.md#chefmodernizeexecutesleep)
 * [ChefModernize/ExecuteTzUtil](cops_chefmodernize.md#chefmodernizeexecutetzutil)
 * [ChefModernize/FoodcriticComments](cops_chefmodernize.md#chefmodernizefoodcriticcomments)
 * [ChefModernize/IfProvidesDefaultAction](cops_chefmodernize.md#chefmodernizeifprovidesdefaultaction)
@@ -127,6 +129,7 @@
 * [ChefModernize/UseBuildEssentialResource](cops_chefmodernize.md#chefmodernizeusebuildessentialresource)
 * [ChefModernize/UsesZypperRepo](cops_chefmodernize.md#chefmodernizeuseszypperrepo)
 * [ChefModernize/WhyRunSupportedTrue](cops_chefmodernize.md#chefmodernizewhyrunsupportedtrue)
+* [ChefModernize/WindowsScResource](cops_chefmodernize.md#chefmodernizewindowsscresource)
 * [ChefModernize/WindowsVersionHelper](cops_chefmodernize.md#chefmodernizewindowsversionhelper)
 * [ChefModernize/WindowsZipfileUsage](cops_chefmodernize.md#chefmodernizewindowszipfileusage)
 * [ChefModernize/ZipfileResource](cops_chefmodernize.md#chefmodernizezipfileresource)
@@ -145,6 +148,7 @@
 * [ChefRedundantCode/ResourceWithNothingAction](cops_chefredundantcode.md#chefredundantcoderesourcewithnothingaction)
 * [ChefRedundantCode/SensitivePropertyInResource](cops_chefredundantcode.md#chefredundantcodesensitivepropertyinresource)
 * [ChefRedundantCode/SuggestsMetadata](cops_chefredundantcode.md#chefredundantcodesuggestsmetadata)
+* [ChefRedundantCode/UnnecessaryDesiredState](cops_chefredundantcode.md#chefredundantcodeunnecessarydesiredstate)
 * [ChefRedundantCode/UnnecessaryNameProperty](cops_chefredundantcode.md#chefredundantcodeunnecessarynameproperty)
 
 #### Department [ChefSharing](cops_chefsharing.md)
@@ -164,6 +168,7 @@
 * [ChefStyle/FileMode](cops_chefstyle.md#chefstylefilemode)
 * [ChefStyle/ImmediateNotificationTiming](cops_chefstyle.md#chefstyleimmediatenotificationtiming)
 * [ChefStyle/SimplifyPlatformMajorVersionCheck](cops_chefstyle.md#chefstylesimplifyplatformmajorversioncheck)
+* [ChefStyle/TrueClassFalseClassResourceProperties](cops_chefstyle.md#chefstyletrueclassfalseclassresourceproperties)
 * [ChefStyle/UnnecessaryPlatformCaseStatement](cops_chefstyle.md#chefstyleunnecessaryplatformcasestatement)
 * [ChefStyle/UsePlatformHelpers](cops_chefstyle.md#chefstyleuseplatformhelpers)
 

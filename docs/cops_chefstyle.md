@@ -236,6 +236,31 @@ Name | Default value | Configurable values
 VersionAdded | `5.8.0` | String
 Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
+## ChefStyle/TrueClassFalseClassResourceProperties
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+When setting the allowed types for a resource to accept either true or false values it's much simpler to use true and false instead of TrueClass and FalseClass.
+
+### Examples
+
+```ruby
+# bad
+property :foo, [TrueClass, FalseClass]
+
+# good
+property :foo, [true, false]
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.16.0` | String
+Include | `**/libraries/*.rb`, `**/resources/*.rb` | Array
+
 ## ChefStyle/UnnecessaryPlatformCaseStatement
 
 Enabled by default | Supports autocorrection

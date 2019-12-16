@@ -290,7 +290,7 @@ Enabled | Yes
 Every Chef Infra resources already include a sensitive property with a default value of false.
 
 # bad
-property :sensitive, [TrueClass, FalseClass], default: false
+property :sensitive, [true, false], default: false
 
 ### Configurable attributes
 
@@ -322,6 +322,28 @@ Name | Default value | Configurable values
 VersionAdded | `5.1.0` | String
 VersionChanged | `5.15.0` | String
 Include | `**/metadata.rb` | Array
+
+## ChefRedundantCode/UnnecessaryDesiredState
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+There is no need to set a property to desired_state: true as all properties have a desired_state of true by default.
+
+### Examples
+
+```ruby
+# bad
+property :foo, String, desired_state: true
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.16.0` | String
+Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
 
 ## ChefRedundantCode/UnnecessaryNameProperty
 

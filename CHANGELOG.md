@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.16.7 -->
-## [v5.16.7](https://github.com/chef/cookstyle/tree/v5.16.7) (2019-12-16)
+ <!-- latest_release 5.16.8 -->
+## [v5.16.8](https://github.com/chef/cookstyle/tree/v5.16.8) (2019-12-16)
 
 #### Merged Pull Requests
-- Speed up Cookstyle by excluding more files [#460](https://github.com/chef/cookstyle/pull/460) ([tas50](https://github.com/tas50))
+- Add 5 new cops for the 5.16 release [#462](https://github.com/chef/cookstyle/pull/462) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.15.7 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add 5 new cops for the 5.16 release [#462](https://github.com/chef/cookstyle/pull/462) ([tas50](https://github.com/tas50)) <!-- 5.16.8 -->
 - Speed up Cookstyle by excluding more files [#460](https://github.com/chef/cookstyle/pull/460) ([tas50](https://github.com/tas50)) <!-- 5.16.7 -->
 - Add ChefCorrectness/DnfPackageAllowDowngrades [#452](https://github.com/chef/cookstyle/pull/452) ([tas50](https://github.com/tas50)) <!-- 5.16.6 -->
 - Add ChefCorrectness/MalformedPlatformValueForPlatformHelper cop [#459](https://github.com/chef/cookstyle/pull/459) ([tas50](https://github.com/tas50)) <!-- 5.16.5 -->
