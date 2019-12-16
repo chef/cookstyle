@@ -192,7 +192,9 @@ ChefCorrectness/NotifiesActionNotSymbol:
   Enabled: true
   VersionAdded: '5.10.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
 
 ChefCorrectness/IncorrectLibraryInjection:
   Description: Libraries should be injected into the Chef::DSL::Recipe or Chef::DSL::Resource classes and not Recipe/Resource/Provider classes directly.
@@ -235,6 +237,15 @@ ChefCorrectness/InvalidPlatformValueForPlatformHelper:
   VersionAdded: '5.15.0'
   Exclude:
     - '**/metadata.rb'
+
+ChefCorrectness/InvalidNotificationTiming:
+  Description: Valid notification timings are :immediately, :immediate (alias for :immediately), :delayed, and :before.
+  Enabled: true
+  VersionAdded: '5.16.0'
+  Exclude:
+    - '**/attributes/*.rb'
+    - '**/metadata.rb'
+    - '**/Berksfile'
 
 ###############################
 # ChefSharing: Issues that prevent sharing code with other teams or with the Chef community in general
