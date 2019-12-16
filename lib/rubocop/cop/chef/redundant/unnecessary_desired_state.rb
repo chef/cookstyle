@@ -37,7 +37,7 @@ module RuboCop
           def on_send(node)
             property?(node) do |hash_vals|
               hash_vals.each_pair do |k, v|
-                if k == s(:sym, :desired_state) && v == s(:true)
+                if k == s(:sym, :desired_state) && v == s(:true) # cookstyle: disable Lint/BooleanSymbol
                   add_offense(v.parent, location: :expression, message: MSG, severity: :refactor)
                 end
               end
