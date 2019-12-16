@@ -29,28 +29,26 @@ module RuboCop
         #   property :bob, String, name_property: true
         #
         class PropertyWithNameAttribute < Cop
-          MSG = 'Resource property sets name_attribute not name_property'.freeze
+          MSG = 'Resource property sets name_attribute instead of name_property'.freeze
+
+          # match on a property that has any name and any type and a hash that
+          # contains name_attribute true. The hash pairs are wrapped in
+          # <> which means the order doesn't matter in the hash.
+          def_node_matcher :property_with_name_attribute?, <<-PATTERN
+            (send nil? :property (sym _) ... (hash <$(pair (sym :name_attribute) (true)) ...>))
+          PATTERN
 
           def on_send(node)
-            add_offense(node, location: :expression, message: MSG, severity: :refactor) if attribute_method_mix?(node)
+            property_with_name_attribute?(node) do
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            end
           end
 
           def autocorrect(node)
             lambda do |corrector|
-              corrector.replace(node.loc.expression, node.source.gsub('name_attribute', 'name_property'))
-            end
-          end
-
-          private
-
-          def attribute_method_mix?(node)
-            if node.method_name == :property
-              node.arguments.each do |arg|
-                if arg.type == :hash
-                  return true if arg.source.match?(/name_attribute:/)
-                end
+              property_with_name_attribute?(node) do |name_attribute|
+                corrector.replace(name_attribute.loc.expression, 'name_property: true')
               end
-              false # no name_attribute found
             end
           end
         end
