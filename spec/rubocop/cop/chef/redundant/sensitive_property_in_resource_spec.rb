@@ -21,8 +21,8 @@ describe RuboCop::Cop::Chef::ChefRedundantCode::SensitivePropertyInResource, :co
 
   it 'registers an offense when a resource has a sensitive property with a default of false' do
     expect_offense(<<~RUBY)
-    property :sensitive, [TrueClass, FalseClass], default: false
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Every Chef Infra resources already include a sensitive property with a default value of false.
+    property :sensitive, [true, false], default: false
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Every Chef Infra resources already include a sensitive property with a default value of false.
     RUBY
 
     expect_correction("\n")
@@ -30,8 +30,8 @@ describe RuboCop::Cop::Chef::ChefRedundantCode::SensitivePropertyInResource, :co
 
   it 'registers an offense when a resource has a sensitive attribute with a default of false' do
     expect_offense(<<~RUBY)
-    attribute :sensitive, [TrueClass, FalseClass], default: false
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Every Chef Infra resources already include a sensitive property with a default value of false.
+    attribute :sensitive, [true, false], default: false
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Every Chef Infra resources already include a sensitive property with a default value of false.
     RUBY
 
     expect_correction("\n")
@@ -39,7 +39,7 @@ describe RuboCop::Cop::Chef::ChefRedundantCode::SensitivePropertyInResource, :co
 
   it "doesn't register an offense when a resource has a sensitive property that defaults to true" do
     expect_no_offenses(<<~RUBY)
-    property :sensitive, [TrueClass, FalseClass], default: true
+    property :sensitive, [true, false], default: true
     RUBY
   end
 end
