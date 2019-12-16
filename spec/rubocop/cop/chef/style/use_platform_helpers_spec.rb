@@ -22,7 +22,7 @@ describe RuboCop::Cop::Chef::ChefStyle::UsePlatformHelpers do
   it "registers an offense when checking platform using node['platform']" do
     expect_offense(<<~RUBY)
       if node['platform'] == 'redhat'
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use platform? and platform_family? helpers for checking a node's platform
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use platform? and platform_family? helpers to check a node's platform
       end
     RUBY
 
@@ -35,7 +35,7 @@ describe RuboCop::Cop::Chef::ChefStyle::UsePlatformHelpers do
   it "registers an offense when checking platform using node['platform'] for not equals" do
     expect_offense(<<~RUBY)
       if node['platform'] != 'redhat'
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use platform? and platform_family? helpers for checking a node's platform
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use platform? and platform_family? helpers to check a node's platform
       end
     RUBY
 
@@ -48,12 +48,25 @@ describe RuboCop::Cop::Chef::ChefStyle::UsePlatformHelpers do
   it "registers an offense when checking platform family using node['platform_family']" do
     expect_offense(<<~RUBY)
       if node['platform_family'] == 'rhel'
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use platform? and platform_family? helpers for checking a node's platform
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use platform? and platform_family? helpers to check a node's platform
       end
     RUBY
 
     expect_correction(<<~RUBY)
       if platform_family?('rhel')
+      end
+    RUBY
+  end
+
+  it 'registers an offense when checking platform family with include? and an array of values' do
+    expect_offense(<<~RUBY)
+      if %w(rhel suse).include?(node['platform_family'])
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use platform? and platform_family? helpers to check a node's platform
+      end
+    RUBY
+
+    expect_correction(<<~RUBY)
+      if platform_family?('rhel', 'suse')
       end
     RUBY
   end
