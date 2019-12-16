@@ -129,14 +129,11 @@
 * [ChefModernize/WindowsZipfileUsage](cops_chefmodernize.md#chefmodernizewindowszipfileusage)
 * [ChefModernize/ZipfileResource](cops_chefmodernize.md#chefmodernizezipfileresource)
 
-#### Department [ChefRedundant](cops_chefredundant.md)
-
-* [ChefRedundant/CustomResourceWithAllowedActions](cops_chefredundant.md#chefredundantcustomresourcewithallowedactions)
-
 #### Department [ChefRedundantCode](cops_chefredundantcode.md)
 
 * [ChefRedundantCode/AttributeMetadata](cops_chefredundantcode.md#chefredundantcodeattributemetadata)
 * [ChefRedundantCode/ConflictsMetadata](cops_chefredundantcode.md#chefredundantcodeconflictsmetadata)
+* [ChefRedundantCode/CustomResourceWithAllowedActions](cops_chefredundantcode.md#chefredundantcodecustomresourcewithallowedactions)
 * [ChefRedundantCode/LongDescriptionMetadata](cops_chefredundantcode.md#chefredundantcodelongdescriptionmetadata)
 * [ChefRedundantCode/NamePropertyIsRequired](cops_chefredundantcode.md#chefredundantcodenamepropertyisrequired)
 * [ChefRedundantCode/PropertyWithRequiredAndDefault](cops_chefredundantcode.md#chefredundantcodepropertywithrequiredanddefault)
@@ -144,6 +141,7 @@
 * [ChefRedundantCode/RecipeMetadata](cops_chefredundantcode.md#chefredundantcoderecipemetadata)
 * [ChefRedundantCode/ReplacesMetadata](cops_chefredundantcode.md#chefredundantcodereplacesmetadata)
 * [ChefRedundantCode/ResourceWithNothingAction](cops_chefredundantcode.md#chefredundantcoderesourcewithnothingaction)
+* [ChefRedundantCode/SensitivePropertyInResource](cops_chefredundantcode.md#chefredundantcodesensitivepropertyinresource)
 * [ChefRedundantCode/SuggestsMetadata](cops_chefredundantcode.md#chefredundantcodesuggestsmetadata)
 * [ChefRedundantCode/UnnecessaryNameProperty](cops_chefredundantcode.md#chefredundantcodeunnecessarynameproperty)
 
@@ -162,6 +160,7 @@
 * [ChefStyle/CopyrightCommentFormat](cops_chefstyle.md#chefstylecopyrightcommentformat)
 * [ChefStyle/DefaultCopyrightComments](cops_chefstyle.md#chefstyledefaultcopyrightcomments)
 * [ChefStyle/FileMode](cops_chefstyle.md#chefstylefilemode)
+* [ChefStyle/ImmediateNotificationTiming](cops_chefstyle.md#chefstyleimmediatenotificationtiming)
 * [ChefStyle/SimplifyPlatformMajorVersionCheck](cops_chefstyle.md#chefstylesimplifyplatformmajorversioncheck)
 * [ChefStyle/UnnecessaryPlatformCaseStatement](cops_chefstyle.md#chefstyleunnecessaryplatformcasestatement)
 * [ChefStyle/UsePlatformHelpers](cops_chefstyle.md#chefstyleuseplatformhelpers)

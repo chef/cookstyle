@@ -174,6 +174,37 @@ Name | Default value | Configurable values
 VersionAdded | `5.0.0` | String
 Exclude | `**/metadata.rb` | Array
 
+## ChefStyle/ImmediateNotificationTiming
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+Use :immediately instead of :immediate for resource notification timing
+
+### Examples
+
+```ruby
+# bad
+
+template '/etc/www/configures-apache.conf' do
+  notifies :restart, 'service[apache]', :immediate
+end
+
+# good
+
+template '/etc/www/configures-apache.conf' do
+  notifies :restart, 'service[apache]', :immediately
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.16.0` | String
+Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
+
 ## ChefStyle/SimplifyPlatformMajorVersionCheck
 
 Enabled by default | Supports autocorrection
