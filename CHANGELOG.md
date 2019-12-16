@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.16.3 -->
-## [v5.16.3](https://github.com/chef/cookstyle/tree/v5.16.3) (2019-12-16)
+ <!-- latest_release 5.16.4 -->
+## [v5.16.4](https://github.com/chef/cookstyle/tree/v5.16.4) (2019-12-16)
 
 #### Merged Pull Requests
-- Improve the cops that check properties / attributes [#458](https://github.com/chef/cookstyle/pull/458) ([tas50](https://github.com/tas50))
+- Detect additional ways of checking platform / platform_family with node data [#456](https://github.com/chef/cookstyle/pull/456) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.15.7 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Detect additional ways of checking platform / platform_family with node data [#456](https://github.com/chef/cookstyle/pull/456) ([tas50](https://github.com/tas50)) <!-- 5.16.4 -->
 - Improve the cops that check properties / attributes [#458](https://github.com/chef/cookstyle/pull/458) ([tas50](https://github.com/tas50)) <!-- 5.16.3 -->
 - Add ChefRedundantCode/SensitivePropertyInResource cop [#457](https://github.com/chef/cookstyle/pull/457) ([tas50](https://github.com/tas50)) <!-- 5.16.2 -->
 - Add ChefStyle/ImmediateNotificationTiming cop [#453](https://github.com/chef/cookstyle/pull/453) ([tas50](https://github.com/tas50)) <!-- 5.16.1 -->

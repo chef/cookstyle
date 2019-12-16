@@ -290,12 +290,14 @@ node['platform'] == 'ubuntu'
 node['platform_family'] == 'debian'
 node['platform'] != 'ubuntu'
 node['platform_family'] != 'debian'
+%w(rhel suse).include?(node['platform_family'])
 
 # good
 platform?('ubuntu')
 !platform?('ubuntu')
 platform_family?('debian')
 !platform_family?('debian')
+platform_family?('rhel', 'suse')
 ```
 
 ### Configurable attributes
