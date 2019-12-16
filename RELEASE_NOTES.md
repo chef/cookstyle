@@ -1,3 +1,150 @@
+## Cookstyle 5.16
+
+### New TargetChefVersion Configuration
+
+Cookstyle now includes a new top-level configuration option `TargetChefVersion`. This new configuration option works similar to RuboCop's `TargetRubyVersion` config option and allows you to specify a Chef Infra version that you want to target in your Cookstyle analysis. This prevents Cookstyle from autocorrecting cookbook code in a way that would make your cookbook incompatible with your desired Chef Infra Client version. It also makes it easier to perform staged upgrades of the Chef Infra Client by allowing you to step the `TargetChefVersion` one major version at a time.
+
+Example .rubocop.yml config specifying a TargetChefVersion of 14.0:
+
+```yaml
+AllCops:
+  TargetChefVersion: 14.0
+```
+
+### 9 New Cops
+
+#### ChefStyle/UnnecessaryPlatformCaseStatement
+
+The `ChefStyle/UnnecessaryPlatformCaseStatement` cop detects a case statement against the value `node['platform']` or `node['platform_family']` that includes just a single when condition. Instead of using a case statement in this scenario the simpler `platform?` or `platform_family?` helpers should be used. Additionally, if this cop detects a when condition that has just a single line, it will autocorrect the case statement to be an inline conditional. See the examples below for a sample:
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+***Single condition case statement:***
+
+```ruby
+case node['platform']
+when 'ubuntu'
+  log "We're on Ubuntu"
+  apt_update
+end
+```
+
+Autocorrected code:
+
+```ruby
+include_recipe 'yum' if platform_family?('rhel)
+end
+```
+
+***Single condition case statement with a single line:***
+
+```ruby
+if platform?('ubuntu')
+  log "We're on Ubuntu"
+  apt_update
+end
+```
+
+Autocorrected code:
+
+```ruby
+include_recipe 'yum' if platform_family?('rhel)
+end
+```
+
+#### ChefStyle/ImmediateNotificationTiming
+
+The `ChefStyle/ImmediateNotificationTiming` cop detects the usage of the `:immediate` notification timing instead of `:immediately`. The two values result in the same notification, but `:immediately` is the documented form and should be used for consistency.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefCorrectness/InvalidNotificationTiming
+
+The `ChefCorrectness/InvalidNotificationTiming` cop will detect a resource that notifies with timing other than `:before`, `:immediate`, `:immediately`, or ``:delayed``.
+
+`Enabled by default`: True
+
+`Autocorrects`: No
+
+#### ChefCorrectness/MalformedPlatformValueForPlatformHelper
+
+The `ChefCorrectness/MalformedPlatformValueForPlatformHelper` detects incorrect usage of the `value_for_platform()` helper. The `value_for_platform()` helper requires that additional information is passed that is not required by the `value_for_platform_family()` helper. These two formats are often confused. The `value_for_platform()` helper takes a hash of platforms where each platform has a hash of potential platform values or a `default` key. This cop detects if a hash of platforms is passed incorrectly or if a hash of platform versions or a default value is not included.
+
+`Enabled by default`: True
+
+`Autocorrects`: No
+
+***Helper usage without the platform version hash***
+
+```ruby
+value_for_platform(
+  %w(redhat oracle) => 'baz'
+)
+```
+
+***Helper usage with the platform version hash***
+
+```ruby
+value_for_platform(
+  %w(redhat oracle) => {
+    '5' => 'foo',
+    '6' => 'bar',
+    'default' => 'baz',
+  }
+)
+```
+
+#### ChefCorrectness/DnfPackageAllowDowngrades
+
+The `ChefCorrectness/DnfPackageAllowDowngrades` cop detects the usage of the `dnf_package` resource with the unsupported `allow_downgrades` property set.
+
+`Enabled by default`: True
+
+`Autocorrects`: No
+
+#### ChefDeprecations/RubyBlockCreateAction
+
+The `ChefRedundantCode/RubyBlockCreateAction` cop detects `ruby_block` resources that use the legacy `:create` action instead of the newer `:run` action.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefDeprecations/DeprecatedPlatformMethods
+
+`Enabled by default`: True
+
+`Autocorrects`: No
+
+#### ChefRedundantCode/SensitivePropertyInResource
+
+The `ChefRedundantCode/SensitivePropertyInResource` cop detects resources that default a `sensitive` property with a default value of `false`. Chef Infra defines this same property / default combination on all resources, so this code is not necessary.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefModernize/FoodcriticComments
+
+The `ChefModernize/FoodcriticComments` cop will remove any # ~FCXXX code comments in your cookbook. These comments were used to disable Foodcritic rules from alerting and are no longer necessary if you rely on Cookstyle for all cookbook linting. This cop is currently disabled by default, but will be enabled by default at a future date.
+
+`Enabled by default`: False
+
+`Autocorrects`: Yes
+
+### Other fixes and changes
+
+- The list of files that Cookstyle checks for offenses has been updated to improve the time it takes to scan a large repository.
+- The `ChefCorrectness/NotifiesActionNotSymbol`, `ChefCorrectness/ScopedFileExist`, and `ChefDeprecations/LegacyNotifySyntax` cops will now also check subscriptions in resources.
+- The `match_property_in_resource?` helper now accepts an array of properties to return from a resource.
+- The `ChefDeprecations/NamePropertyWithDefaultValue` cop now autocorrects offenses by removing the unused `default` value.
+- All existing cops that checked properties within resources have been updated to also check `attributes` in LWRP style resources.
+- The `ChefStyle/UsePlatformHelpers` cop now detects and autocorrects platform checks in the form of `%w(rhel suse).include?(node['platform_family'])` or `%w(ubuntu amazon).include?(node['platform'])`
+
 ## Cookstyle 5.15
 
 ### New ChefSharing and ChefRedundantCode Departments
