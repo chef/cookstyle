@@ -18,7 +18,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefRedundantCode
-        # There is no need to define a property or attribute named :name in a resource as Chef Infra defines this for all resources by default.
+        # There is no need to define a property or attribute named :name in a resource as Chef Infra defines this on all resources by default.
         #
         # @example
         #
@@ -29,7 +29,7 @@ module RuboCop
         #   attribute :name, String, name_attribute: true
         #
         class UnnecessaryNameProperty < Cop
-          MSG = 'There is no need to define a property or attribute named :name in a resource as Chef Infra defines this all resources by default.'.freeze
+          MSG = 'There is no need to define a property or attribute named :name in a resource as Chef Infra defines this on all resources by default.'.freeze
 
           # match on a property/attribute named :name that's a string. The property/attribute optionally
           # set name_property/name_attribute true, but nothing else is allowed. If you're doing that it's
