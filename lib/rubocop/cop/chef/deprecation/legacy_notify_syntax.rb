@@ -35,6 +35,10 @@ module RuboCop
         #     notifies :restart, resources(service: service_name_variable), :immediately
         #   end
         #
+        #   template '/etc/www/configures-apache.conf' do
+        #     subscribes :restart, resources(service: service_name_variable), :immediately
+        #   end
+        #
         #   # good
         #   template '/etc/www/configures-apache.conf' do
         #     notifies :restart, 'service[apache]'
@@ -48,11 +52,15 @@ module RuboCop
         #     notifies :restart, "service[#{service_name_variable}]", :immediately
         #   end
         #
+        #   template '/etc/www/configures-apache.conf' do
+        #     subscribes :restart, "service[#{service_name_variable}]", :immediately
+        #   end
+        #
         class LegacyNotifySyntax < Cop
           MSG = 'Use the new-style notification syntax which allows you to notify resources defined later in a recipe or resource.'.freeze
 
           def_node_matcher :legacy_notify?, <<-PATTERN
-            (send nil? :notifies $(sym _) (send nil? :resources (hash (pair $(sym _) $(...) ) ) ) $... )
+            (send nil? ${:notifies :subscribes} $(sym _) (send nil? :resources (hash (pair $(sym _) $(...) ) ) ) $... )
           PATTERN
 
           def on_send(node)
@@ -63,7 +71,7 @@ module RuboCop
 
           def autocorrect(node)
             lambda do |corrector|
-              legacy_notify?(node) do |action, type, name, timing|
+              legacy_notify?(node) do |notify_type, action, type, name, timing|
                 service_value = case name.type
                                 when :str
                                   "'#{type.source}[#{name.value}]'"
@@ -72,7 +80,7 @@ module RuboCop
                                 else
                                   "\"#{type.source}[\#{#{name.source}}]\""
                                 end
-                new_val = "notifies #{action.source}, #{service_value}"
+                new_val = "#{notify_type} #{action.source}, #{service_value}"
                 new_val << ", #{timing.first.source}" unless timing.empty?
                 corrector.replace(node.loc.expression, new_val)
               end

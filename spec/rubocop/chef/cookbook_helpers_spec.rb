@@ -79,6 +79,22 @@ RSpec.describe RuboCop::Chef::CookbookHelpers do
       end
     end
 
+    describe 'matches on multiple properties in a resource as an array' do
+      let(:resource_source) do
+        <<~RUBY
+        service 'if statement' do
+          if platform?('mac_os_x')
+            running true
+          end
+        end
+        RUBY
+      end
+
+      it "should yield a single 'running' property ast objects" do
+        expect { |b| match_property_in_resource?(:service, %w(running verify), parse_source(resource_source).ast, &b) }.to yield_successive_args(running_true_ast)
+      end
+    end
+
     describe 'extracts a property from a resource with an if statement' do
       let(:resource_source) do
         <<~RUBY
