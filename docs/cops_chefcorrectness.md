@@ -300,6 +300,46 @@ Name | Default value | Configurable values
 VersionAdded | `5.8.0` | String
 Include | `**/metadata.rb` | Array
 
+## ChefCorrectness/MalformedPlatformValueForPlatformHelper
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+When using the value_for_platform helper you must include a hash of possible platforms where each platform contains a hash of versions and potential values. If you don't wish to match on a particular version you can instead use the key 'default'.
+
+### Examples
+
+```ruby
+# bad
+value_for_platform(
+  %w(redhat oracle) => 'baz'
+)
+
+# good
+value_for_platform(
+  %w(redhat oracle) => {
+    '5' => 'foo',
+    '6' => 'bar',
+    'default'd => 'baz',
+  }
+)
+
+value_for_platform(
+  %w(redhat oracle) => {
+    'default' => 'foo',
+  },
+  'default' => 'bar'
+)
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.16.0` | String
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
+
 ## ChefCorrectness/MetadataMissingName
 
 Enabled by default | Supports autocorrection
