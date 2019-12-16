@@ -31,7 +31,7 @@ end
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.2.0` | String
-Exclude | `**/metadata.rb` | Array
+Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefCorrectness/CookbookUsesNodeSave
 
@@ -55,7 +55,7 @@ node.save
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.5.0` | String
-Exclude | `**/metadata.rb` | Array
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefCorrectness/CookbooksDependsOnSelf
 
@@ -417,7 +417,7 @@ node.force_override['foo'] = true
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.1.0` | String
-Exclude | `**/metadata.rb` | Array
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefCorrectness/NodeNormalUnless
 
@@ -451,7 +451,7 @@ node.force_override_unless['foo'] = true
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.1.0` | String
-Exclude | `**/metadata.rb` | Array
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefCorrectness/NotifiesActionNotSymbol
 
@@ -520,7 +520,7 @@ end
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.5.0` | String
-Exclude | `**/metadata.rb` | Array
+Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefCorrectness/ResourceSetsNameProperty
 
@@ -550,7 +550,7 @@ end
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.5.0` | String
-Exclude | `**/metadata.rb` | Array
+Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefCorrectness/ResourceWithNoneAction
 
@@ -579,7 +579,7 @@ end
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.5.0` | String
-Exclude | `**/metadata.rb` | Array
+Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefCorrectness/ScopedFileExist
 
@@ -604,7 +604,7 @@ not_if { ::File.exist?('/etc/foo/bar') }
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.15.0` | String
-Exclude | `**/metadata.rb`, `**/Berksfile` | Array
+Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefCorrectness/ServiceResource
 
@@ -629,7 +629,7 @@ command "/sbin/service/memcached start"
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.0.0` | String
-Exclude | `**/metadata.rb` | Array
+Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefCorrectness/TmpPath
 
@@ -656,4 +656,4 @@ remote_file "#{Chef::Config[:file_cache_path]}/large-file.tar.gz" do
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.0.0` | String
-Exclude | `**/metadata.rb` | Array
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array

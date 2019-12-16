@@ -308,6 +308,7 @@ Remove legacy code comments that disable Foodcritic rules. These comments are no
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.16.0` | String
+Exclude | `**/Berksfile` | Array
 
 ## ChefModernize/IfProvidesDefaultAction
 
@@ -408,7 +409,7 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.4.0` | String
 VersionChanged | `5.15.0` | String
-Exclude | `**/metadata.rb` | Array
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefModernize/IncludingWindowsDefaultRecipe
 

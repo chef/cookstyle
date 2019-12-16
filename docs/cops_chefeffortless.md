@@ -36,7 +36,7 @@ data_bag(data_bag_name)
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.1.0` | String
-Exclude | `**/metadata.rb` | Array
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefEffortless/CookbookUsesEnvironmments
 
@@ -59,7 +59,7 @@ node.chef_environment == "production"
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.10.0` | String
-Exclude | `**/metadata.rb` | Array
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefEffortless/CookbookUsesPolicygroups
 
@@ -81,7 +81,7 @@ node.policy_group == "foo"
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.10.0` | String
-Exclude | `**/metadata.rb` | Array
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefEffortless/CookbookUsesRoles
 
@@ -104,7 +104,7 @@ node.roles.include?('webserver')
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.10.0` | String
-Exclude | `**/metadata.rb` | Array
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefEffortless/CookbookUsesSearch
 
@@ -126,7 +126,7 @@ search(:node, 'run_list:recipe\[bacula\:\:server\]')
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.1.0` | String
-Exclude | `**/metadata.rb` | Array
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefEffortless/SearchForEnvironmentsOrRoles
 
@@ -149,4 +149,4 @@ search(:node, 'role:bar')
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.11.0` | String
-Exclude | `**/metadata.rb` | Array
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array

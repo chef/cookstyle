@@ -348,7 +348,7 @@ end
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.1.0` | String
-Exclude | `**/metadata.rb` | Array
+Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefDeprecations/EpicFail
 
@@ -377,7 +377,7 @@ end
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.1.0` | String
-Exclude | `**/metadata.rb` | Array
+Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefDeprecations/ErlCallResource
 
@@ -401,7 +401,7 @@ end
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.1.0` | String
-Exclude | `**/metadata.rb` | Array
+Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefDeprecations/IncludingXMLRubyRecipe
 
@@ -424,7 +424,7 @@ include_recipe 'xml::ruby'
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.4.0` | String
-Exclude | `**/metadata.rb` | Array
+Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefDeprecations/IncludingYumDNFCompatRecipe
 
@@ -642,7 +642,7 @@ node.read!("foo")
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.12.0` | String
-Exclude | `**/metadata.rb` | Array
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefDeprecations/NodeMethodsInsteadofAttributes
 
@@ -675,7 +675,7 @@ node['hostname']
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.4.0` | String
-Exclude | `**/metadata.rb` | Array
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefDeprecations/NodeSet
 
@@ -703,7 +703,7 @@ node.normal['foo'] = true
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.0.0` | String
-Exclude | `**/metadata.rb` | Array
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefDeprecations/NodeSetUnless
 
@@ -731,7 +731,7 @@ node.normal_unless['foo'] = true
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.1.0` | String
-Exclude | `**/metadata.rb` | Array
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefDeprecations/NodeSetWithoutLevel
 
@@ -901,7 +901,7 @@ include_recipe 'foo'
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.2.0` | String
-Exclude | `**/metadata.rb` | Array
+Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefDeprecations/ResourceInheritsFromCompatResource
 

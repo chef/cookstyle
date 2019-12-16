@@ -74,6 +74,7 @@ Cookbook:: Tomcat
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.0.0` | String
+Exclude | `**/Berksfile` | Array
 
 ## ChefStyle/CommentSentenceSpacing
 
@@ -172,7 +173,7 @@ mode '644'
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.0.0` | String
-Exclude | `**/metadata.rb` | Array
+Exclude | `**/attributes/*`, `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefStyle/ImmediateNotificationTiming
 
@@ -233,7 +234,7 @@ if node['platform_version'].to_i == 7
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.8.0` | String
-Exclude | `**/metadata.rb` | Array
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefStyle/UnnecessaryPlatformCaseStatement
 
@@ -305,4 +306,4 @@ platform_family?('rhel', 'suse')
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.6.0` | String
-Exclude | `**/metadata.rb`, `**/libraries/*` | Array
+Exclude | `**/metadata.rb`, `**/libraries/*`, `**/Berksfile` | Array
