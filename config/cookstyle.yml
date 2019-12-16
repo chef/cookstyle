@@ -92,6 +92,15 @@ ChefStyle/UnnecessaryPlatformCaseStatement:
     - '**/metadata.rb'
     - '**/Berksfile'
 
+ChefStyle/ImmediateNotificationTiming:
+  Description: Use :immediately instead of :immediate for resource notification timing.
+  Enabled: true
+  VersionAdded: '5.16.0'
+  Exclude:
+    - '**/attributes/*.rb'
+    - '**/metadata.rb'
+    - '**/Berksfile'
+
 ###############################
 # ChefCorrectness: Avoiding potential problems
 ###############################
