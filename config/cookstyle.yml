@@ -107,8 +107,8 @@ ChefStyle/ImmediateNotificationTiming:
     - '**/metadata.rb'
     - '**/Berksfile'
 
-ChefStyle/TrueFalseResourceProperties:
-  Description: When setting the allowed types for a resource to accept either true or false you should use the actual class names of TrueClass and FalseClass instead of true and false.
+ChefStyle/TrueClassFalseClassResourceProperties:
+  Description: When setting the allowed types for a resource to accept either true or false values it's much simpler to use true and false instead of TrueClass and FalseClass.
   Enabled: true
   VersionAdded: '5.16.0'
   Include:

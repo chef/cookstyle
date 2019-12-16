@@ -21,7 +21,7 @@ module RuboCop
         # Every Chef Infra resources already include a sensitive property with a default value of false.
         #
         # # bad
-        # property :sensitive, [TrueClass, FalseClass], default: false
+        # property :sensitive, [true, false], default: false
         #
         class SensitivePropertyInResource < Cop
           MSG = 'Every Chef Infra resources already include a sensitive property with a default value of false.'.freeze

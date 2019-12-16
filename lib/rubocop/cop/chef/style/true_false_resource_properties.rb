@@ -18,33 +18,33 @@ module RuboCop
   module Cop
     module Chef
       module ChefStyle
-        # When setting the allowed types for a resource to accept either true or false you should use the actual class names of TrueClass and FalseClass instead of true and false.
+        # When setting the allowed types for a resource to accept either true or false values it's much simpler to use true and false instead of TrueClass and FalseClass.
         #
         # @example
         #
         #   # bad
-        #   property :foo, [true, false]
-        #
-        #   # good
         #   property :foo, [TrueClass, FalseClass]
         #
-        class TrueFalseResourceProperties < Cop
-          MSG = 'Use TrueClass and FalseClass in resource properties not true and false'.freeze
+        #   # good
+        #   property :foo, [true, false]
+        #
+        class TrueClassFalseClassResourceProperties < Cop
+          MSG = "When setting the allowed types for a resource to accept either true or false values it's much simpler to use true and false instead of TrueClass and FalseClass.".freeze
 
-          def_node_matcher :true_false_property?, <<-PATTERN
-            (send nil? {:property :attribute} (sym _) $(array (true) (false)) ... )
+          def_node_matcher :trueclass_falseclass_property?, <<-PATTERN
+            (send nil? {:property :attribute} (sym _) $(array (const nil? :TrueClass) (const nil? :FalseClass)) ... )
           PATTERN
 
           def on_send(node)
-            true_false_property?(node) do
+            trueclass_falseclass_property?(node) do
               add_offense(node, location: :expression, message: MSG, severity: :refactor)
             end
           end
 
           def autocorrect(node)
             lambda do |corrector|
-              true_false_property?(node) do |types|
-                corrector.replace(types.loc.expression, '[TrueClass, FalseClass]')
+              trueclass_falseclass_property?(node) do |types|
+                corrector.replace(types.loc.expression, '[true, false]')
               end
             end
           end

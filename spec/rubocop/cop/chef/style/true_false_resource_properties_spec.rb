@@ -17,19 +17,19 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefStyle::TrueFalseResourceProperties do
+describe RuboCop::Cop::Chef::ChefStyle::TrueClassFalseClassResourceProperties do
   subject(:cop) { described_class.new }
 
-  it 'registers an offense when a resource specifies the type of true, false' do
+  it 'registers an offense when a resource specifies the type of TrueClass, FalseClass' do
     expect_offense(<<~RUBY)
-      property :foo, [true, false]
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use TrueClass and FalseClass in resource properties not true and false
+      property :foo, [TrueClass, FalseClass]
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ When setting the allowed types for a resource to accept either true or false values it's much simpler to use true and false instead of TrueClass and FalseClass.
     RUBY
 
-    expect_correction("property :foo, [TrueClass, FalseClass]\n")
+    expect_correction("property :foo, [true, false]\n")
   end
 
-  it 'does not register an offense when a resource property has a type of TrueClass,FalseClass' do
-    expect_no_offenses('property :foo, [TrueClass, FalseClass]')
+  it 'does not register an offense when a resource property has a type of true, false' do
+    expect_no_offenses('property :foo, [true, false]')
   end
 end
