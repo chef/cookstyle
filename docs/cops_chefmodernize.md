@@ -261,7 +261,7 @@ Exclude | `**/metadata.rb` | Array
 
 Enabled by default | Supports autocorrection
 --- | ---
-Disabled | No
+Enabled | No
 
 Chef Infra Client 14.0 and later includes :create, :delete, and :configure actions with the full idempotency of the windows_service resource. See the windows_service documentation at https://docs.chef.io/resource_windows_service.html for additional details on creating services with the windows_service resource.
 
@@ -287,7 +287,7 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
 Enabled by default | Supports autocorrection
 --- | ---
-Disabled | No
+Enabled | No
 
 Chef Infra Client 15.5 and later include a chef_sleep resource that should be used to sleep between executing resources if necessary instead of using the bash or execute resources to run the sleep command.
 
@@ -1179,7 +1179,7 @@ Include | `**/resources/*.rb`, `**/providers/*.rb`, `**/libraries/*.rb` | Array
 
 Enabled by default | Supports autocorrection
 --- | ---
-Disabled | No
+Enabled | No
 
 The sc_windows resource from the sc cookbook allowed for the creation of windows services on legacy Chef Infra Client releases. Chef Infra Client 14.0 and later includes :create, :delete, and :configure actions without the need for additional cookbook dependencies. See the windows_service documentation at https://docs.chef.io/resource_windows_service.html for additional details on creating services with the windows_service resource.
 

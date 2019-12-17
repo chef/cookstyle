@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 5.16.11 -->
+## [v5.16.11](https://github.com/chef/cookstyle/tree/v5.16.11) (2019-12-17)
+
+#### Merged Pull Requests
+- Enable several cops that were accidently disabled [#468](https://github.com/chef/cookstyle/pull/468) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=5.16.10 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Enable several cops that were accidently disabled [#468](https://github.com/chef/cookstyle/pull/468) ([tas50](https://github.com/tas50)) <!-- 5.16.11 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
