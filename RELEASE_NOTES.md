@@ -11,7 +11,7 @@ AllCops:
   TargetChefVersion: 14.0
 ```
 
-### 9 New Cops
+### 14 New Cops
 
 #### ChefStyle/UnnecessaryPlatformCaseStatement
 
@@ -57,6 +57,14 @@ end
 #### ChefStyle/ImmediateNotificationTiming
 
 The `ChefStyle/ImmediateNotificationTiming` cop detects the usage of the `:immediate` notification timing instead of `:immediately`. The two values result in the same notification, but `:immediately` is the documented form and should be used for consistency.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefStyle/TrueClassFalseClassResourceProperties
+
+The `ChefStyle/TrueClassFalseClassResourceProperties` cop detects resources that set the allowed types to TrueClass and FalseClass instead of the simpler true and false. TrueClass and FalseClass are technically the correct value as they are Ruby types, but we believe using true and false here is significantly simpler for those reading and writing resources.
 
 `Enabled by default`: True
 
@@ -116,13 +124,36 @@ The `ChefRedundantCode/RubyBlockCreateAction` cop detects `ruby_block` resources
 
 #### ChefDeprecations/DeprecatedPlatformMethods
 
+The `ChefDeprecations/DeprecatedPlatformMethods` cop detects the usage of the legacy `Chef::Platform` methods `provider_for_resource`, `find_provider`, and `find_provider_for_node`, which were removed in Chef Infra Client 13.
+
 `Enabled by default`: True
 
 `Autocorrects`: No
 
+***Legacy Chef::Platform methods***
+
+```ruby
+resource = Chef::Resource::File.new("/tmp/foo.xyz", run_context)
+provider = Chef::Platform.provider_for_resource(resource, :create)
+
+resource = Chef::Resource::File.new("/tmp/foo.xyz", run_context)
+provider = Chef::Platform.find_provider("ubuntu", "16.04", resource)
+
+resource = Chef::Resource::File.new("/tmp/foo.xyz", run_context)
+provider = Chef::Platform.find_provider_for_node(node, resource)
+```
+
 #### ChefRedundantCode/SensitivePropertyInResource
 
 The `ChefRedundantCode/SensitivePropertyInResource` cop detects resources that default a `sensitive` property with a default value of `false`. Chef Infra defines this same property / default combination on all resources, so this code is not necessary.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefRedundantCode/UnnecessaryDesiredState
+
+The `ChefRedundantCode/UnnecessaryDesiredState` cop detects resources that set `desired_state: true` on a property. `desired_state: true` is the default for all properties and does not need to be specified.
 
 `Enabled by default`: True
 
@@ -135,6 +166,30 @@ The `ChefModernize/FoodcriticComments` cop will remove any # ~FCXXX code comment
 `Enabled by default`: False
 
 `Autocorrects`: Yes
+
+#### ChefModernize/ExecuteScExe
+
+The `ChefModernize/ExecuteScExe` resource detects cookbooks that use the `execute` resource to run `sc.exe` in order to manage Windows services. Since Chef Infra Client 14.0, the `windows_service` resource has included the `:create`, `:delete`, and `:configure` actions for idempotently managing services.
+
+`Enabled by default`: False
+
+`Autocorrects`: No
+
+#### ChefModernize/WindowsScResource
+
+The `ChefModernize/ExecuteScExe` resource detects cookbooks that use the `sc_windows` resource from the `sc` coookbook in order to manage Windows services. Since Chef Infra Client 14.0, the `windows_service` resource has included the `:create`, `:delete`, and `:configure` actions which manage services without the need for additional dependencies.
+
+`Enabled by default`: False
+
+`Autocorrects`: No
+
+#### ChefModernize/ExecuteSleep
+
+The `ChefModernize/ExecuteSleep` cop detects cookbooks that use either `execute` or `bash` resources to run the sleep command. Chef Infra Client 15.5 and later include the `chef_sleep` resource which should be used to sleep during the Chef Infra Client run without the need for shelling out.
+
+`Enabled by default`: False
+
+`Autocorrects`: No
 
 ### Other fixes and changes
 
