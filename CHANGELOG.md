@@ -1,36 +1,34 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.16.10 -->
-## [v5.16.10](https://github.com/chef/cookstyle/tree/v5.16.10) (2019-12-17)
-
-#### Merged Pull Requests
-- Add additional release notes for 5.16 [#465](https://github.com/chef/cookstyle/pull/465) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=5.15.7 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Add additional release notes for 5.16 [#465](https://github.com/chef/cookstyle/pull/465) ([tas50](https://github.com/tas50)) <!-- 5.16.10 -->
-- Handle additional scenarios of platform checks [#464](https://github.com/chef/cookstyle/pull/464) ([tas50](https://github.com/tas50)) <!-- 5.16.9 -->
-- Add 5 new cops for the 5.16 release [#462](https://github.com/chef/cookstyle/pull/462) ([tas50](https://github.com/tas50)) <!-- 5.16.8 -->
-- Speed up Cookstyle by excluding more files [#460](https://github.com/chef/cookstyle/pull/460) ([tas50](https://github.com/tas50)) <!-- 5.16.7 -->
-- Add ChefCorrectness/DnfPackageAllowDowngrades [#452](https://github.com/chef/cookstyle/pull/452) ([tas50](https://github.com/tas50)) <!-- 5.16.6 -->
-- Add ChefCorrectness/MalformedPlatformValueForPlatformHelper cop [#459](https://github.com/chef/cookstyle/pull/459) ([tas50](https://github.com/tas50)) <!-- 5.16.5 -->
-- Detect additional ways of checking platform / platform_family with node data [#456](https://github.com/chef/cookstyle/pull/456) ([tas50](https://github.com/tas50)) <!-- 5.16.4 -->
-- Improve the cops that check properties / attributes [#458](https://github.com/chef/cookstyle/pull/458) ([tas50](https://github.com/tas50)) <!-- 5.16.3 -->
-- Add ChefRedundantCode/SensitivePropertyInResource cop [#457](https://github.com/chef/cookstyle/pull/457) ([tas50](https://github.com/tas50)) <!-- 5.16.2 -->
-- Add ChefStyle/ImmediateNotificationTiming cop [#453](https://github.com/chef/cookstyle/pull/453) ([tas50](https://github.com/tas50)) <!-- 5.16.1 -->
-- Add ChefCorrectness/InvalidNotificationTiming cop [#454](https://github.com/chef/cookstyle/pull/454) ([tas50](https://github.com/tas50)) <!-- 5.16.0 -->
-- Support checking both notifies and subscribes properties in cops [#451](https://github.com/chef/cookstyle/pull/451) ([tas50](https://github.com/tas50)) <!-- 5.15.13 -->
-- Add ChefDeprecations/DeprecatedPlatformMethods [#450](https://github.com/chef/cookstyle/pull/450) ([tas50](https://github.com/tas50)) <!-- 5.15.12 -->
-- Add ChefStyle/UnnecessaryPlatformCaseStatements [#448](https://github.com/chef/cookstyle/pull/448) ([tas50](https://github.com/tas50)) <!-- 5.15.11 -->
-- Add ChefDeprecations/RubyBlockCreateAction cop [#449](https://github.com/chef/cookstyle/pull/449) ([tas50](https://github.com/tas50)) <!-- 5.15.10 -->
-- Add a cop for removing legacy Foodcritic comments [#446](https://github.com/chef/cookstyle/pull/446) ([tas50](https://github.com/tas50)) <!-- 5.15.9 -->
-- Add new TargetChefVersion config option [#419](https://github.com/chef/cookstyle/pull/419) ([tas50](https://github.com/tas50)) <!-- 5.15.8 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v5.16.10](https://github.com/chef/cookstyle/tree/v5.16.10) (2019-12-17)
+
+#### Merged Pull Requests
+- Add new TargetChefVersion config option [#419](https://github.com/chef/cookstyle/pull/419) ([tas50](https://github.com/tas50))
+- Add a cop for removing legacy Foodcritic comments [#446](https://github.com/chef/cookstyle/pull/446) ([tas50](https://github.com/tas50))
+- Add ChefDeprecations/RubyBlockCreateAction cop [#449](https://github.com/chef/cookstyle/pull/449) ([tas50](https://github.com/tas50))
+- Add ChefStyle/UnnecessaryPlatformCaseStatements [#448](https://github.com/chef/cookstyle/pull/448) ([tas50](https://github.com/tas50))
+- Add ChefDeprecations/DeprecatedPlatformMethods [#450](https://github.com/chef/cookstyle/pull/450) ([tas50](https://github.com/tas50))
+- Support checking both notifies and subscribes properties in cops [#451](https://github.com/chef/cookstyle/pull/451) ([tas50](https://github.com/tas50))
+- Add ChefCorrectness/InvalidNotificationTiming cop [#454](https://github.com/chef/cookstyle/pull/454) ([tas50](https://github.com/tas50))
+- Add ChefStyle/ImmediateNotificationTiming cop [#453](https://github.com/chef/cookstyle/pull/453) ([tas50](https://github.com/tas50))
+- Add ChefRedundantCode/SensitivePropertyInResource cop [#457](https://github.com/chef/cookstyle/pull/457) ([tas50](https://github.com/tas50))
+- Improve the cops that check properties / attributes [#458](https://github.com/chef/cookstyle/pull/458) ([tas50](https://github.com/tas50))
+- Detect additional ways of checking platform / platform_family with node data [#456](https://github.com/chef/cookstyle/pull/456) ([tas50](https://github.com/tas50))
+- Add ChefCorrectness/MalformedPlatformValueForPlatformHelper cop [#459](https://github.com/chef/cookstyle/pull/459) ([tas50](https://github.com/tas50))
+- Add ChefCorrectness/DnfPackageAllowDowngrades [#452](https://github.com/chef/cookstyle/pull/452) ([tas50](https://github.com/tas50))
+- Speed up Cookstyle by excluding more files [#460](https://github.com/chef/cookstyle/pull/460) ([tas50](https://github.com/tas50))
+- Add 5 new cops for the 5.16 release [#462](https://github.com/chef/cookstyle/pull/462) ([tas50](https://github.com/tas50))
+- Handle additional scenarios of platform checks [#464](https://github.com/chef/cookstyle/pull/464) ([tas50](https://github.com/tas50))
+- Add additional release notes for 5.16 [#465](https://github.com/chef/cookstyle/pull/465) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v5.15.7](https://github.com/chef/cookstyle/tree/v5.15.7) (2019-12-11)
 
 #### Merged Pull Requests
@@ -46,7 +44,6 @@
 - Move invalid platform constants into a single helper [#440](https://github.com/chef/cookstyle/pull/440) ([tas50](https://github.com/tas50))
 - Add more invalid platform families to our helper [#444](https://github.com/chef/cookstyle/pull/444) ([tas50](https://github.com/tas50))
 - Add new platform cops for the value_for_platform / value_for_platform_family helpers [#445](https://github.com/chef/cookstyle/pull/445) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v5.14.1](https://github.com/chef/cookstyle/tree/v5.14.1) (2019-12-06)
 
