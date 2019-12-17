@@ -234,7 +234,7 @@ Enabled by default | Supports autocorrection
 --- | ---
 Enabled | No
 
-Use provider_for_action instead of the deprecated Chef::Platform methods in resources.
+Use provider_for_action instead of the deprecated Chef::Platform methods in resources, which were removed in Chef Infra Client 13.
 
 ### Examples
 

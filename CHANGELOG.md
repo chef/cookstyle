@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.16.9 -->
-## [v5.16.9](https://github.com/chef/cookstyle/tree/v5.16.9) (2019-12-16)
+ <!-- latest_release 5.16.10 -->
+## [v5.16.10](https://github.com/chef/cookstyle/tree/v5.16.10) (2019-12-17)
 
 #### Merged Pull Requests
-- Handle additional scenarios of platform checks [#464](https://github.com/chef/cookstyle/pull/464) ([tas50](https://github.com/tas50))
+- Add additional release notes for 5.16 [#465](https://github.com/chef/cookstyle/pull/465) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.15.7 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add additional release notes for 5.16 [#465](https://github.com/chef/cookstyle/pull/465) ([tas50](https://github.com/tas50)) <!-- 5.16.10 -->
 - Handle additional scenarios of platform checks [#464](https://github.com/chef/cookstyle/pull/464) ([tas50](https://github.com/tas50)) <!-- 5.16.9 -->
 - Add 5 new cops for the 5.16 release [#462](https://github.com/chef/cookstyle/pull/462) ([tas50](https://github.com/tas50)) <!-- 5.16.8 -->
 - Speed up Cookstyle by excluding more files [#460](https://github.com/chef/cookstyle/pull/460) ([tas50](https://github.com/tas50)) <!-- 5.16.7 -->
