@@ -19,7 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefDeprecations
-        # Use provider_for_action instead of the deprecated Chef::Platform methods in resources.
+        # Use provider_for_action instead of the deprecated Chef::Platform methods in resources, which were removed in Chef Infra Client 13.
         #
         # @example
         #
@@ -38,7 +38,7 @@ module RuboCop
         #   provider = resource.provider_for_action(:create)
         #
         class DeprecatedPlatformMethods < Cop
-          MSG = 'Use provider_for_action instead of the deprecated Chef::Platform methods in resources.'.freeze
+          MSG = 'Use provider_for_action instead of the deprecated Chef::Platform methods in resources, which were removed in Chef Infra Client 13.'.freeze
 
           def_node_matcher :platform_method?, <<-PATTERN
             (send (const (const nil? :Chef) :Platform) {:provider_for_resource :find_provider :find_provider_for_node} ... )

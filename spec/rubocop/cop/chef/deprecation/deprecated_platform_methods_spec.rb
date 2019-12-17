@@ -24,7 +24,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::DeprecatedPlatformMethods, :confi
     expect_offense(<<~RUBY)
       resource = Chef::Resource::File.new("/tmp/foo.xyz", run_context)
       provider = Chef::Platform.find_provider_for_node(node, resource)
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use provider_for_action instead of the deprecated Chef::Platform methods in resources.
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use provider_for_action instead of the deprecated Chef::Platform methods in resources, which were removed in Chef Infra Client 13.
     RUBY
   end
 
@@ -32,7 +32,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::DeprecatedPlatformMethods, :confi
     expect_offense(<<~RUBY)
       resource = Chef::Resource::File.new("/tmp/foo.xyz", run_context)
       provider = Chef::Platform.find_provider("ubuntu", "16.04", resource)
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use provider_for_action instead of the deprecated Chef::Platform methods in resources.
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use provider_for_action instead of the deprecated Chef::Platform methods in resources, which were removed in Chef Infra Client 13.
     RUBY
   end
 
@@ -40,7 +40,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::DeprecatedPlatformMethods, :confi
     expect_offense(<<~RUBY)
       resource = Chef::Resource::File.new("/tmp/foo.xyz", run_context)
       provider = Chef::Platform.provider_for_resource(resource, :create)
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use provider_for_action instead of the deprecated Chef::Platform methods in resources.
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use provider_for_action instead of the deprecated Chef::Platform methods in resources, which were removed in Chef Infra Client 13.
     RUBY
   end
 
