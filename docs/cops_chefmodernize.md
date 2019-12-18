@@ -211,6 +211,25 @@ Name | Default value | Configurable values
 VersionAdded | `5.6.0` | String
 Exclude | `**/metadata.rb` | Array
 
+## ChefModernize/DslIncludeInResource
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+Chef Infra Client 12.4+ includes the Chef::DSL::Recipe in the resource and provider classed by default so there is no need to include this DSL in your resources or providers.
+
+  # bad
+  include Chef::DSL::Recipe
+  include Chef::DSL::IncludeRecipe
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.17.0` | String
+Include | `**/resources/*.rb`, `**/providers/*.rb` | Array
+
 ## ChefModernize/EmptyResourceInitializeMethod
 
 Enabled by default | Supports autocorrection

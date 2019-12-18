@@ -93,6 +93,7 @@
 * [ChefModernize/DefinesChefSpecMatchers](cops_chefmodernize.md#chefmodernizedefineschefspecmatchers)
 * [ChefModernize/Definitions](cops_chefmodernize.md#chefmodernizedefinitions)
 * [ChefModernize/DependsOnZypperCookbook](cops_chefmodernize.md#chefmodernizedependsonzyppercookbook)
+* [ChefModernize/DslIncludeInResource](cops_chefmodernize.md#chefmodernizedslincludeinresource)
 * [ChefModernize/EmptyResourceInitializeMethod](cops_chefmodernize.md#chefmodernizeemptyresourceinitializemethod)
 * [ChefModernize/ExecuteAptUpdate](cops_chefmodernize.md#chefmodernizeexecuteaptupdate)
 * [ChefModernize/ExecuteScExe](cops_chefmodernize.md#chefmodernizeexecutescexe)
