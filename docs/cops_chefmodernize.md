@@ -442,7 +442,7 @@ Enabled by default | Supports autocorrection
 --- | ---
 Enabled | Yes
 
-There is no need to include Chef::Mixin::ShellOut in resources or providers as this is already done by Chef Infra Client 12.4+.
+There is no need to include Chef::Mixin::ShellOut or Chef::Mixin::PowershellOut in resources or providers as this is already done by Chef Infra Client 12.4+.
 
 ### Examples
 
@@ -450,6 +450,8 @@ There is no need to include Chef::Mixin::ShellOut in resources or providers as t
 # bad
 require 'chef/mixin/shell_out'
 include Chef::Mixin::ShellOut
+require 'chef/mixin/powershell_out'
+include Chef::Mixin::PowershellOut
 ```
 
 ### Configurable attributes
