@@ -19,23 +19,25 @@ module RuboCop
   module Cop
     module Chef
       module ChefModernize
-        # There is no need to include Chef::Mixin::ShellOut in resources or providers as this is already done by Chef Infra Client 12.4+.
+        # There is no need to include Chef::Mixin::ShellOut or Chef::Mixin::PowershellOut in resources or providers as this is already done by Chef Infra Client 12.4+.
         #
         # @example
         #
         #   # bad
         #   require 'chef/mixin/shell_out'
         #   include Chef::Mixin::ShellOut
-
+        #   require 'chef/mixin/powershell_out'
+        #   include Chef::Mixin::PowershellOut
+        #
         class IncludingMixinShelloutInResources < Cop
-          MSG = 'There is no need to include Chef::Mixin::ShellOut in resources or providers as this is already done by Chef Infra Client 12.4+.'.freeze
+          MSG = 'There is no need to include Chef::Mixin::ShellOut or Chef::Mixin::PowershellOut in resources or providers as this is already done by Chef Infra Client 12.4+.'.freeze
 
           def_node_matcher :include_shellout?, <<-PATTERN
-            (send nil? :include (const (const (const nil? :Chef) :Mixin) :ShellOut))
+            (send nil? :include (const (const (const nil? :Chef) :Mixin) {:ShellOut :PowershellOut}))
           PATTERN
 
           def_node_matcher :require_shellout?, <<-PATTERN
-            (send nil? :require ( str "chef/mixin/shell_out"))
+            (send nil? :require ( str {"chef/mixin/shell_out" "chef/mixin/powershell_out"} ))
           PATTERN
 
           def on_send(node)

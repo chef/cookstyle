@@ -801,7 +801,7 @@ ChefModernize/MinitestHandlerUsage:
     - '**/metadata.rb'
 
 ChefModernize/IncludingMixinShelloutInResources:
-  Description: There is no need to include Chef::Mixin::ShellOut in resources or providers as this is already done by Chef Infra Client.
+  Description: There is no need to include Chef::Mixin::ShellOut or Chef::Mixin::PowershellOut in resources or providers as this is already done by Chef Infra Client 12.4+.
   Enabled: true
   VersionAdded: '5.4.0'
   Include:
