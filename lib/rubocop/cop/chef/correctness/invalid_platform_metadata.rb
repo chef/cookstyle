@@ -81,7 +81,7 @@ module RuboCop
             return false unless val
 
             # if the value was previously quoted make sure to quote it again
-            node.source.start_with?(/('|")/) ? "'" + val + "'" : val
+            node.source.match?(/^('|")/) ? "'" + val + "'" : val
           end
         end
       end
