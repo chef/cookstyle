@@ -137,6 +137,8 @@
 
 #### Department [ChefRedundantCode](cops_chefredundantcode.md)
 
+* [ChefRedundantCode/AptRepositoryDistributionDefault](cops_chefredundantcode.md#chefredundantcodeaptrepositorydistributiondefault)
+* [ChefRedundantCode/AptRepositoryNotifiesAptUpdate](cops_chefredundantcode.md#chefredundantcodeaptrepositorynotifiesaptupdate)
 * [ChefRedundantCode/AttributeMetadata](cops_chefredundantcode.md#chefredundantcodeattributemetadata)
 * [ChefRedundantCode/ConflictsMetadata](cops_chefredundantcode.md#chefredundantcodeconflictsmetadata)
 * [ChefRedundantCode/CustomResourceWithAllowedActions](cops_chefredundantcode.md#chefredundantcodecustomresourcewithallowedactions)

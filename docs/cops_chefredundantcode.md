@@ -1,5 +1,65 @@
 # ChefRedundantCode
 
+## ChefRedundantCode/AptRepositoryDistributionDefault
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+There is no need to pass `distribution node['lsb']['codename']` to an apt_repository resource as this is done automatically by the apt_repository resource.
+
+  # bad
+  apt_repository 'my repo' do
+    uri 'http://packages.example.com/debian'
+    components %w(stable main)
+    deb_src false
+    distribution node['lsb']['codename']
+  end
+
+  # good
+  apt_repository 'my repo' do
+    uri 'http://packages.example.com/debian'
+    components %w(stable main)
+    deb_src false
+  end
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.17.0` | String
+Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
+
+## ChefRedundantCode/AptRepositoryNotifiesAptUpdate
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+There is no need to notify an apt-get update when an apt_repository is created as this is done automatically by the apt_repository resource.
+
+  # bad
+  apt_repository 'my repo' do
+    uri 'http://packages.example.com/debian'
+    components %w(stable main)
+    deb_src false
+    notifies :run, 'execute[apt-get update]', :immediately
+  end
+
+  # good
+  apt_repository 'my repo' do
+    uri 'http://packages.example.com/debian'
+    components %w(stable main)
+    deb_src false
+  end
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.17.0` | String
+Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
+
 ## ChefRedundantCode/AttributeMetadata
 
 Enabled by default | Supports autocorrection
