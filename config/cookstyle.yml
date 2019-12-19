@@ -1185,6 +1185,24 @@ ChefRedundantCode/UnnecessaryDesiredState:
     - '**/resources/*.rb'
     - '**/libraries/*.rb'
 
+ChefRedundantCode/AptRepositoryNotifiesAptUpdate:
+  Description: There is no need to notify an apt-get update when an apt_repository is created as this is done automatically by the apt_repository resource.
+  Enabled: true
+  VersionAdded: '5.17.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/attributes/*.rb'
+    - '**/Berksfile'
+
+ChefRedundantCode/AptRepositoryDistributionDefault:
+  Description: There is no need to pass `distribution node['lsb']['codename']` to an apt_repository resource as this is done automatically by the apt_repository resource.
+  Enabled: true
+  VersionAdded: '5.17.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/attributes/*.rb'
+    - '**/Berksfile'
+
 ###############################
 # Migrating to new patterns
 ###############################
