@@ -1,7 +1,7 @@
 ---
 name: 🚀 New Cookstyle Cop Request
 about: I have a suggestion for a new Cookstyle cop(and may want to implement it 🙂)!
-labels: "Status: Untriaged"
+labels: "Status: Untriaged, New Cop Proposal"
 ---
 
 ### What category of cop is this?:
