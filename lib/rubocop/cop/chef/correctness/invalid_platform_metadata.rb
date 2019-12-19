@@ -38,6 +38,15 @@ module RuboCop
 
           def_node_matcher :supports?, '(send nil? :supports $str ...)'
 
+          def_node_matcher :supports_array?, <<-PATTERN
+            (block
+              (send
+                $(array ...) :each)
+              (args
+                (arg _))
+              (send nil? :supports (lvar _)))
+          PATTERN
+
           def on_send(node)
             supports?(node) do |plat|
               if INVALID_PLATFORMS[plat.str_content]
@@ -46,19 +55,33 @@ module RuboCop
             end
           end
 
+          def on_block(node)
+            supports_array?(node) do |plats|
+              plats.values.each do |plat|
+                if INVALID_PLATFORMS[plat.str_content]
+                  add_offense(plat, location: :expression, message: MSG, severity: :refactor)
+                end
+              end
+            end
+          end
+
           def autocorrect(node)
-            correct_string = autocorrect_platform_string(node.str_content)
+            correct_string = corrected_platform_source(node)
             if correct_string
               lambda do |corrector|
-                corrector.replace(node.loc.expression, "'#{correct_string}'")
+                corrector.replace(node.loc.expression, correct_string)
               end
             end
           end
 
           # private
 
-          def autocorrect_platform_string(bad_string)
-            INVALID_PLATFORMS[bad_string.delete(',').downcase]
+          def corrected_platform_source(node)
+            val = INVALID_PLATFORMS[node.str_content.delete(',').downcase]
+            return false unless val
+
+            # if the value was previously quoted make sure to quote it again
+            node.source.start_with?(/('|")/) ? "'" + val + "'" : val
           end
         end
       end
