@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.17.0 -->
-## [v5.17.0](https://github.com/chef/cookstyle/tree/v5.17.0) (2019-12-18)
+ <!-- latest_release 5.17.1 -->
+## [v5.17.1](https://github.com/chef/cookstyle/tree/v5.17.1) (2019-12-19)
 
 #### Merged Pull Requests
-- Add Powershell mixins to ChefModernize/IncludingMixinShelloutInResources [#469](https://github.com/chef/cookstyle/pull/469) ([tas50](https://github.com/tas50))
+- Handle supports metadata in an array [#473](https://github.com/chef/cookstyle/pull/473) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.16.11 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Handle supports metadata in an array [#473](https://github.com/chef/cookstyle/pull/473) ([tas50](https://github.com/tas50)) <!-- 5.17.1 -->
 - Add Powershell mixins to ChefModernize/IncludingMixinShelloutInResources [#469](https://github.com/chef/cookstyle/pull/469) ([tas50](https://github.com/tas50)) <!-- 5.17.0 -->
 - Add ChefModernize/DslIncludeInResource [#470](https://github.com/chef/cookstyle/pull/470) ([tas50](https://github.com/tas50)) <!-- 5.16.12 -->
 <!-- release_rollup -->
