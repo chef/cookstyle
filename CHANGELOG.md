@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.17.3 -->
-## [v5.17.3](https://github.com/chef/cookstyle/tree/v5.17.3) (2019-12-19)
+ <!-- latest_release 5.17.4 -->
+## [v5.17.4](https://github.com/chef/cookstyle/tree/v5.17.4) (2019-12-20)
 
 #### Merged Pull Requests
-- Fix .start_with? errors on Ruby 2.4 [#474](https://github.com/chef/cookstyle/pull/474) ([tas50](https://github.com/tas50))
+- Substitute require for require_relative [#476](https://github.com/chef/cookstyle/pull/476) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.16.11 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Substitute require for require_relative [#476](https://github.com/chef/cookstyle/pull/476) ([tas50](https://github.com/tas50)) <!-- 5.17.4 -->
 - Fix .start_with? errors on Ruby 2.4 [#474](https://github.com/chef/cookstyle/pull/474) ([tas50](https://github.com/tas50)) <!-- 5.17.3 -->
 - Add 2 new cops for removing redundant config in apt_repository [#472](https://github.com/chef/cookstyle/pull/472) ([tas50](https://github.com/tas50)) <!-- 5.17.2 -->
 - Handle supports metadata in an array [#473](https://github.com/chef/cookstyle/pull/473) ([tas50](https://github.com/tas50)) <!-- 5.17.1 -->
