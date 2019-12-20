@@ -1,4 +1,4 @@
-require 'cookstyle/version'
+require_relative 'cookstyle/version'
 
 require 'pathname'
 require 'yaml'
@@ -37,11 +37,11 @@ module Cookstyle
   end
 end
 
-require 'rubocop/chef'
-require 'rubocop/chef/cookbook_helpers'
-require 'rubocop/chef/platform_helpers'
-require 'rubocop/chef/cookbook_only'
-require 'rubocop/cop/target_chef_version'
+require_relative 'rubocop/chef'
+require_relative 'rubocop/chef/cookbook_helpers'
+require_relative 'rubocop/chef/platform_helpers'
+require_relative 'rubocop/chef/cookbook_only'
+require_relative 'rubocop/cop/target_chef_version'
 
 # Chef specific cops
 Dir.glob(File.dirname(__FILE__) + '/rubocop/cop/chef/**/*.rb') do |file|
