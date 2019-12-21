@@ -1,3 +1,24 @@
+## Cookstyle 5.17
+
+### 3 New Cops
+
+#### ChefModernize/DslIncludeInResource
+
+The `ChefModernize/DslIncludeInResource` cop detects resources and providers that include either the `Chef::DSL::Recipe` or `Chef::DSL::IncludeRecipe` classes. Starting with Chef Infra Client 12.4+ this is done automatically for each resource and provider.
+
+#### ChefRedundantCode/AptRepositoryNotifiesAptUpdate
+
+The `ChefRedundantCode/AptRepositoryNotifiesAptUpdate` cop detects `apt_repository` resources that notify an `execute` resource to run `apt-get update`. Updating apt cache is performed automatically when the `apt_repository` makes any updates to the repository config and doesn't need to be performed again afterwards.
+
+#### ChefRedundantCode/AptRepositoryDistributionDefault
+
+The `ChefRedundantCode/AptRepositoryDistributionDefault` cop detects `apt_repository` resources that set the `distribution` property to `node['lsb']['codename']` which is the default and does not need to be set in cookbook code.
+
+### Other fixes and changes
+
+- The `ChefModernize/IncludingMixinShelloutInResources` cop now also detects resources that require `chef/mixin/powershell_out` or include `Chef::Mixin::PowershellOut` as these are both performed by default in Chef Infra Client 12.4+
+- The `ChefCorrectness/InvalidPlatformMetadata` now analyzes `support` metadata that is defined with an array and a loop in `metadata.rb`
+
 ## Cookstyle 5.16
 
 ### New TargetChefVersion Configuration
