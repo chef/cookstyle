@@ -275,5 +275,5 @@ begin
     abort unless ok
   end
 rescue LoadError
-  puts "\n*** yard or chefstyle not available. bundle install to install yard and other dependencies\n\n"
+  puts "\n*** yard or cookstyle not available. bundle install to install yard and other dependencies\n\n"
 end
