@@ -249,9 +249,11 @@ When setting the allowed types for a resource to accept either true or false val
 ```ruby
 # bad
 property :foo, [TrueClass, FalseClass]
+attribute :foo, kind_of: [TrueClass, FalseClass]
 
 # good
 property :foo, [true, false]
+attribute :foo, kind_of: [true, false]
 ```
 
 ### Configurable attributes
