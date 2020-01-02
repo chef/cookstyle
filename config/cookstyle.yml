@@ -2,8 +2,8 @@ AllCops:
   TargetRubyVersion: 2.4
   TargetChefVersion: ~
   Exclude:
-    - files/**/*
-    - vendor/**/*
+    - '**/files/**/*'
+    - '**/vendor/**/*'
     - Guardfile
   ChefAttributes:
     Patterns:
@@ -1892,7 +1892,7 @@ Lint/BigDecimalNew:
 Lint/UnneededCopEnableDirective:
   Enabled: true
 
-# get people on a much simpler ruby 2.4 way of doing things
+# get people on a much simpler ruby 2.4+ way of doing things
 Style/UnpackFirst:
   Enabled: true
 
