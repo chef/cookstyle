@@ -28,4 +28,4 @@ The cookstyle.yml config file is the enabled.yml file from RuboCop 0.37.2 combin
 
 ## Updating the RuboCop Engine
 
-Cookstyle ships with a rake task to aid in updating RuboCop releases. Start by updating the RuboCop version in the [lib/cookstyle/version.rb](https://github.com/chef/cookstyle/blob/master/lib/cookstyle/version.rb) file. Then run `rake vendor` to update the `upstream.yml` and `disable_all.yml` files. You'll want to check the changes in the `upstream.yml` file. Updating this file often requires updating the configs in the cookstyle.yml in order to prevent warnings when running Cookstyle.
+Cookstyle ships with a rake task to aid in updating RuboCop releases. Start by updating the RuboCop version in the [lib/cookstyle/version.rb](https://github.com/chef/cookstyle/blob/master/lib/cookstyle/version.rb) file. Then run `bundle update` and `bundle exec rake vendor` to update the `upstream.yml` and `disable_all.yml` files. You'll want to check the changes in the `upstream.yml` file. Updating this file often requires updating the configs in the cookstyle.yml in order to prevent warnings when running Cookstyle.
