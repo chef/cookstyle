@@ -1,5 +1,5 @@
 #
-# Copyright:: Copyright 2019, Chef Software Inc.
+# Copyright:: Copyright 2019-2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -61,33 +61,16 @@ module RuboCop
         class NamePropertyIsRequired < Cop
           MSG = 'Resource properties marked as name properties should not also be required properties'.freeze
 
+          # match on a property or attribute that has any name and any type and a hash that
+          # contains name_property: true and required: true. These are wrapped in <> which means
+          # the order doesn't matter in the hash.
+          def_node_matcher :name_property_and_required?, <<-PATTERN
+            (send nil? {:property :attribute} (sym _) ... (hash <(pair (sym {:name_property :name_attribute}) (true)) $(pair (sym :required) (true) ) ...>))
+          PATTERN
+
           def on_send(node)
-            if required_property?(node) && property_is_name_property?(node)
+            name_property_and_required?(node) do
               add_offense(node, location: :expression, message: MSG, severity: :refactor)
-            end
-          end
-
-          private
-
-          def property_is_name_property?(node)
-            if %i(property attribute).include?(node.method_name)
-              node.arguments.each do |arg|
-                if arg.type == :hash
-                  return true if arg.source.match?(/name_(property|attribute):\s*true/)
-                end
-              end
-              false # no required: true found
-            end
-          end
-
-          def required_property?(node)
-            if %i(property attribute).include?(node.method_name)
-              node.arguments.each do |arg|
-                if arg.type == :hash
-                  return true if arg.source.match?(/required:\s*true/)
-                end
-              end
-              false # no default: found
             end
           end
         end
