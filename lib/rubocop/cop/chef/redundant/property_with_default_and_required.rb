@@ -1,5 +1,5 @@
 #
-# Copyright:: Copyright 2019, Chef Software Inc.
+# Copyright:: Copyright 2019-2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -32,35 +32,29 @@ module RuboCop
         #   property :bob, String, required: true
         #
         class PropertyWithRequiredAndDefault < Cop
-          MSG = 'Resource property should not be both required and have a default value. This will fail on Chef Infra Client 13+'.freeze
+          include RangeHelp
+
+          MSG = 'Resource properties should not be both required and have a default value. This will fail on Chef Infra Client 13+'.freeze
+
+          # match on a property or attribute that has any name and any type and a hash that
+          # contains default: true and required: true. These are wrapped in <> which means
+          # the order doesn't matter in the hash.
+          def_node_matcher :required_and_default?, <<-PATTERN
+            (send nil? {:property :attribute} (sym _) ... (hash <$(pair (sym :default) ...) (pair (sym :required) true) ...>))
+          PATTERN
 
           def on_send(node)
-            if required_property?(node) && property_has_default?(node)
+            required_and_default?(node) do
               add_offense(node, location: :expression, message: MSG, severity: :refactor)
             end
           end
 
-          private
-
-          def required_property?(node)
-            if node.method_name == :property
-              node.arguments.each do |arg|
-                if arg.type == :hash
-                  return true if arg.source.match?(/required:\s*true/)
-                end
+          def autocorrect(node)
+            lambda do |corrector|
+              required_and_default?(node) do |default|
+                range = range_with_surrounding_comma(range_with_surrounding_space(range: default.loc.expression, side: :left), :left)
+                corrector.remove(range)
               end
-              false # no required: true found
-            end
-          end
-
-          def property_has_default?(node)
-            if node.method_name == :property
-              node.arguments.each do |arg|
-                if arg.type == :hash
-                  return true if arg.source.match?(/default:/)
-                end
-              end
-              false # no default: found
             end
           end
         end
