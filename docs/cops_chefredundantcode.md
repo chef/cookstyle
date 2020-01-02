@@ -220,7 +220,7 @@ Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
 
 Enabled by default | Supports autocorrection
 --- | ---
-Enabled | No
+Enabled | Yes
 
 When using properties in a custom resource you shouldn't set a property to
 required and then provide a default value. If a property is required the

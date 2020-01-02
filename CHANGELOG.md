@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.17.5 -->
-## [v5.17.5](https://github.com/chef/cookstyle/tree/v5.17.5) (2019-12-31)
+ <!-- latest_release 5.17.6 -->
+## [v5.17.6](https://github.com/chef/cookstyle/tree/v5.17.6) (2020-01-02)
 
 #### Merged Pull Requests
-- Test on Ruby 2.7 + other minor testing updates [#477](https://github.com/chef/cookstyle/pull/477) ([tas50](https://github.com/tas50))
+- Improve property cops [#478](https://github.com/chef/cookstyle/pull/478) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.17.4 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Improve property cops [#478](https://github.com/chef/cookstyle/pull/478) ([tas50](https://github.com/tas50)) <!-- 5.17.6 -->
 - Test on Ruby 2.7 + other minor testing updates [#477](https://github.com/chef/cookstyle/pull/477) ([tas50](https://github.com/tas50)) <!-- 5.17.5 -->
 <!-- release_rollup -->
 
