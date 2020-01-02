@@ -54,6 +54,7 @@ AllCops:
     - '**/Puppetfile'
     - '**/Rakefile'
     - '**/Snapfile'
+    - '**/Steepfile'
     - '**/Thorfile'
     - '**/Vagabondfile'
     - '**/Vagrantfile'
@@ -794,6 +795,7 @@ Layout/LeadingCommentSpace:
   VersionAdded: '0.49'
   VersionChanged: '0.73'
   AllowDoxygenCommentStyle: false
+  AllowGemfileRubyComment: false
 
 Layout/LeadingEmptyLines:
   Description: Check for unnecessary blank lines at the beginning of a file.
@@ -1782,6 +1784,8 @@ Lint/UselessSetterCall:
   Description: 'Checks for useless setter call to a local variable.'
   Enabled: true
   VersionAdded: '0.13'
+  VersionChanged: '0.80'
+  Safe: false
 
 Lint/Void:
   Description: 'Possible use of operator/literal/variable in void context.'
@@ -1883,7 +1887,7 @@ Migration/DepartmentName:
   Description: >-
                  Check that cop names in rubocop:disable (etc) comments are
                  given with department name.
-  Enabled: false
+  Enabled: true
 
 #################### Naming ##############################
 
@@ -2065,6 +2069,7 @@ Naming/MethodParameterName:
     - ip
     - db
     - os
+    - pp
   # Forbidden names that will register an offense
   ForbiddenNames: []
 
@@ -2355,24 +2360,12 @@ Style/BlockDelimiters:
   #   # also good
   #   collection.each do |element| puts element end
   AllowBracesOnProceduralOneLiners: false
-
-Style/BracesAroundHashParameters:
-  Description: 'Enforce braces style around hash parameters.'
-  Enabled: true
-  VersionAdded: '0.14.1'
-  VersionChanged: '0.28'
-  EnforcedStyle: no_braces
-  SupportedStyles:
-    # The `braces` style enforces braces around all method parameters that are
-    # hashes.
-    - braces
-    # The `no_braces` style checks that the last parameter doesn't have braces
-    # around it.
-    - no_braces
-    # The `context_dependent` style checks that the last parameter doesn't have
-    # braces around it, but requires braces if the second to last parameter is
-    # also a hash literal.
-    - context_dependent
+  # The BracesRequiredMethods overrides all other configurations except
+  # IgnoredMethods. It can be used to enforce that all blocks for specific
+  # methods use braces. For example, you can use this to enforce Sorbet
+  # signatures use braces even when the rest of your codebase enforces
+  # the `line_count_based` style.
+  BracesRequiredMethods: []
 
 Style/CaseEquality:
   Description: 'Avoid explicit use of the case equality operator(===).'
@@ -2758,7 +2751,7 @@ Style/FrozenStringLiteralComment:
                  to help transition to frozen string literals by default.
   Enabled: true
   VersionAdded: '0.36'
-  VersionChanged: '0.69'
+  VersionChanged: '0.79'
   EnforcedStyle: always
   SupportedStyles:
     # `always` will always add the frozen string literal comment to a file
@@ -2766,9 +2759,14 @@ Style/FrozenStringLiteralComment:
     # string literal. If you run code against multiple versions of Ruby, it is
     # possible that this will create errors in Ruby 2.3.0+.
     - always
+    # `always_true` will add the frozen string literal comment to a file,
+    # similarly to the `always` style, but will also change any disabled
+    # comments (e.g. `# frozen_string_literal: false`) to be enabled.
+    - always_true
     # `never` will enforce that the frozen string literal comment does not
     # exist in a file.
     - never
+  Safe: false
 
 Style/GlobalVars:
   Description: 'Do not introduce global variables.'
@@ -2788,6 +2786,13 @@ Style/GuardClause:
   # `MinBodyLength` defines the number of lines of the a body of an `if` or `unless`
   # needs to have to trigger this cop
   MinBodyLength: 1
+
+Style/HashEachMethods:
+  Description: 'Use Hash#each_key and Hash#each_value.'
+  StyleGuide: '#hash-each'
+  Enabled: pending
+  VersionAdded: '0.80'
+  Safe: false
 
 Style/HashSyntax:
   Description: >-
@@ -2811,6 +2816,18 @@ Style/HashSyntax:
   UseHashRocketsWithSymbolValues: false
   # Do not suggest { a?: 1 } over { :a? => 1 } in ruby19 style
   PreferHashRocketsForNonAlnumEndingSymbols: false
+
+Style/HashTransformKeys:
+  Description: 'Prefer `transform_keys` over `each_with_object` and `map`.'
+  Enabled: 'pending'
+  VersionAdded: '0.80'
+  Safe: false
+
+Style/HashTransformValues:
+  Description: 'Prefer `transform_values` over `each_with_object` and `map`.'
+  Enabled: 'pending'
+  VersionAdded: '0.80'
+  Safe: false
 
 Style/IdenticalConditionalBranches:
   Description: >-

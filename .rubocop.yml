@@ -1,3 +1,8 @@
 ChefStyle/CommentFormat:
   Exclude:
     - 'lib/rubocop/cop/chef/comments_format.rb'
+
+# this breaks cops with this error:
+# undefined method `each_value' for #<RuboCop::AST::ArrayNode:0x00007fb285b2c7c8>
+Style/HashEachMethods:
+  Enabled: false

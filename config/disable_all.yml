@@ -429,8 +429,6 @@ Style/BlockComments:
   Enabled: false
 Style/BlockDelimiters:
   Enabled: false
-Style/BracesAroundHashParameters:
-  Enabled: false
 Style/CaseEquality:
   Enabled: false
 Style/CharacterLiteral:
@@ -515,7 +513,13 @@ Style/GlobalVars:
   Enabled: false
 Style/GuardClause:
   Enabled: false
+Style/HashEachMethods:
+  Enabled: false
 Style/HashSyntax:
+  Enabled: false
+Style/HashTransformKeys:
+  Enabled: false
+Style/HashTransformValues:
   Enabled: false
 Style/IdenticalConditionalBranches:
   Enabled: false
