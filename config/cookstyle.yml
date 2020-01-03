@@ -1064,6 +1064,15 @@ ChefModernize/DslIncludeInResource:
     - '**/resources/*.rb'
     - '**/providers/*.rb'
 
+ChefModernize/ResourceForcingCompileTime:
+  Description: The hostname, build_essential, chef_gem, and ohai_hint resources include 'compile_time' properties, which should be used to force the resources to run at compile time by setting `compile_time true`.
+  Enabled: true
+  VersionAdded: '5.18.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/attributes/*.rb'
+    - '**/Berksfile'
+
 ###############################
 # ChefRedundantCode: Cleanup unncessary code in your cookbooks regardless of chef-client release
 ###############################
