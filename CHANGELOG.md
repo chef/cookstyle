@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.18.5 -->
-## [v5.18.5](https://github.com/chef/cookstyle/tree/v5.18.5) (2020-01-03)
+ <!-- latest_release 5.18.6 -->
+## [v5.18.6](https://github.com/chef/cookstyle/tree/v5.18.6) (2020-01-03)
 
 #### Merged Pull Requests
-- Update metadata.rb cops to not leave empty lines behind [#487](https://github.com/chef/cookstyle/pull/487) ([tas50](https://github.com/tas50))
+- Properly cleanup heredoc long_description metadata [#488](https://github.com/chef/cookstyle/pull/488) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.18.4 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Properly cleanup heredoc long_description metadata [#488](https://github.com/chef/cookstyle/pull/488) ([tas50](https://github.com/tas50)) <!-- 5.18.6 -->
 - Update metadata.rb cops to not leave empty lines behind [#487](https://github.com/chef/cookstyle/pull/487) ([tas50](https://github.com/tas50)) <!-- 5.18.5 -->
 <!-- release_rollup -->
 
