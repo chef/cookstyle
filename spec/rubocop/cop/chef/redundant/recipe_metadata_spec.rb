@@ -25,7 +25,7 @@ describe RuboCop::Cop::Chef::ChefRedundantCode::RecipeMetadata, :config do
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ The recipe metadata.rb method is not used and is unnecessary in cookbooks. Recipes should be documented in the cookbook's README.md file instead.
     RUBY
 
-    expect_correction("\n")
+    expect_correction('')
   end
 
   it "doesn't register an offense on normal metadata" do

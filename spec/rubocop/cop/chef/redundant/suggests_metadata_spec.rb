@@ -25,7 +25,7 @@ describe RuboCop::Cop::Chef::ChefRedundantCode::SuggestsMetadata, :config do
       ^^^^^^^^^^^^^^ The suggests metadata.rb method is not used and is unnecessary in cookbooks.
     RUBY
 
-    expect_correction("\n")
+    expect_correction('')
   end
 
   it "doesn't register an offense on normal metadata" do
