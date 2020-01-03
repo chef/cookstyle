@@ -1221,6 +1221,13 @@ ChefRedundantCode/AptRepositoryDistributionDefault:
     - '**/attributes/*.rb'
     - '**/Berksfile'
 
+ChefRedundantCode/GroupingMetadata:
+  Description: The grouping metadata.rb method is not used and is unnecessary in cookbooks.
+  Enabled: true
+  VersionAdded: '5.19.0'
+  Include:
+    - '**/metadata.rb'
+
 ###############################
 # Migrating to new patterns
 ###############################
