@@ -1,26 +1,24 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.18.4 -->
-## [v5.18.4](https://github.com/chef/cookstyle/tree/v5.18.4) (2020-01-03)
-
-#### Merged Pull Requests
-- Add ChefModernize/ExecuteSysctl cop [#483](https://github.com/chef/cookstyle/pull/483) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=5.17.4 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Add ChefModernize/ExecuteSysctl cop [#483](https://github.com/chef/cookstyle/pull/483) ([tas50](https://github.com/tas50)) <!-- 5.18.4 -->
-- Add 5.18 release notes [#484](https://github.com/chef/cookstyle/pull/484) ([tas50](https://github.com/tas50)) <!-- 5.18.3 -->
-- Add ChefModernize/ResourceForcingCompileTime [#482](https://github.com/chef/cookstyle/pull/482) ([tas50](https://github.com/tas50)) <!-- 5.18.2 -->
-- Better exclude the files / vendor directories [#481](https://github.com/chef/cookstyle/pull/481) ([tas50](https://github.com/tas50)) <!-- 5.18.1 -->
-- Match on attributes in TrueClassFalseClassResourceProperties [#480](https://github.com/chef/cookstyle/pull/480) ([tas50](https://github.com/tas50)) <!-- 5.18.0 -->
-- Improve property cops [#478](https://github.com/chef/cookstyle/pull/478) ([tas50](https://github.com/tas50)) <!-- 5.17.6 -->
-- Test on Ruby 2.7 + other minor testing updates [#477](https://github.com/chef/cookstyle/pull/477) ([tas50](https://github.com/tas50)) <!-- 5.17.5 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v5.18.4](https://github.com/chef/cookstyle/tree/v5.18.4) (2020-01-03)
+
+#### Merged Pull Requests
+- Test on Ruby 2.7 + other minor testing updates [#477](https://github.com/chef/cookstyle/pull/477) ([tas50](https://github.com/tas50))
+- Improve property cops [#478](https://github.com/chef/cookstyle/pull/478) ([tas50](https://github.com/tas50))
+- Match on attributes in TrueClassFalseClassResourceProperties [#480](https://github.com/chef/cookstyle/pull/480) ([tas50](https://github.com/tas50))
+- Better exclude the files / vendor directories [#481](https://github.com/chef/cookstyle/pull/481) ([tas50](https://github.com/tas50))
+- Add ChefModernize/ResourceForcingCompileTime [#482](https://github.com/chef/cookstyle/pull/482) ([tas50](https://github.com/tas50))
+- Add 5.18 release notes [#484](https://github.com/chef/cookstyle/pull/484) ([tas50](https://github.com/tas50))
+- Add ChefModernize/ExecuteSysctl cop [#483](https://github.com/chef/cookstyle/pull/483) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v5.17.4](https://github.com/chef/cookstyle/tree/v5.17.4) (2019-12-21)
 
 #### Merged Pull Requests
@@ -30,7 +28,6 @@
 - Add 2 new cops for removing redundant config in apt_repository [#472](https://github.com/chef/cookstyle/pull/472) ([tas50](https://github.com/tas50))
 - Fix .start_with? errors on Ruby 2.4 [#474](https://github.com/chef/cookstyle/pull/474) ([tas50](https://github.com/tas50))
 - Substitute require for require_relative [#476](https://github.com/chef/cookstyle/pull/476) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v5.16.11](https://github.com/chef/cookstyle/tree/v5.16.11) (2019-12-17)
 
