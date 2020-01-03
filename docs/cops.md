@@ -144,6 +144,7 @@
 * [ChefRedundantCode/AttributeMetadata](cops_chefredundantcode.md#chefredundantcodeattributemetadata)
 * [ChefRedundantCode/ConflictsMetadata](cops_chefredundantcode.md#chefredundantcodeconflictsmetadata)
 * [ChefRedundantCode/CustomResourceWithAllowedActions](cops_chefredundantcode.md#chefredundantcodecustomresourcewithallowedactions)
+* [ChefRedundantCode/GroupingMetadata](cops_chefredundantcode.md#chefredundantcodegroupingmetadata)
 * [ChefRedundantCode/LongDescriptionMetadata](cops_chefredundantcode.md#chefredundantcodelongdescriptionmetadata)
 * [ChefRedundantCode/NamePropertyIsRequired](cops_chefredundantcode.md#chefredundantcodenamepropertyisrequired)
 * [ChefRedundantCode/PropertyWithRequiredAndDefault](cops_chefredundantcode.md#chefredundantcodepropertywithrequiredanddefault)

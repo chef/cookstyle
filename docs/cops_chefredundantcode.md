@@ -139,6 +139,28 @@ VersionAdded | `5.2.0` | String
 VersionChanged | `5.15.0` | String
 Include | `**/resources/*.rb` | Array
 
+## ChefRedundantCode/GroupingMetadata
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+The grouping metadata.rb method is not used and is unnecessary in cookbooks.
+
+### Examples
+
+```ruby
+# bad
+grouping 'windows_log_rotate', title: 'Demonstration cookbook with code to switch loggers'
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.19.0` | String
+Include | `**/metadata.rb` | Array
+
 ## ChefRedundantCode/LongDescriptionMetadata
 
 Enabled by default | Supports autocorrection
