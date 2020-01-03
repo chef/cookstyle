@@ -4,7 +4,7 @@
 
 #### ChefModernize/ResourceForcingCompileTime
 
-The `ChefModernize/ResourceForcingCompileTime` cop detects `hostname`, `build_essential`, `chef_gem`, and `ohai_hint` resources that are being set to run at compile-time by forcing an action on the resource block. These resources include `compile-time` properties, which should be set to force the resources to run at compile-time.
+The `ChefModernize/ResourceForcingCompileTime` cop detects `hostname`, `build_essential`, `chef_gem`, and `ohai_hint` resources that are being set to run at compile-time by forcing an action on the resource block. These resources include `compile-time` properties which should be set to force the resources to run at compile-time.
 
 #### ChefModernize/ExecuteSysctl
 
