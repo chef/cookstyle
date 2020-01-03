@@ -1073,8 +1073,17 @@ ChefModernize/ResourceForcingCompileTime:
     - '**/attributes/*.rb'
     - '**/Berksfile'
 
+ChefModernize/ExecuteSysctl:
+  Description: Chef Infra Client 14.0 and later includes a sysctl resource that should be used to idempotently load sysctl values instead of templating files and using execute to load them.
+  Enabled: true
+  VersionAdded: '5.18.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/attributes/*.rb'
+    - '**/Berksfile'
+
 ###############################
-# ChefRedundantCode: Cleanup unncessary code in your cookbooks regardless of chef-client release
+# ChefRedundantCode: Cleanup unnecessary code in your cookbooks regardless of Chef Infra Client release
 ###############################
 
 ChefRedundantCode/ConflictsMetadata:
