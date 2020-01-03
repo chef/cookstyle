@@ -14,7 +14,7 @@ The `ChefModernize/ExecuteSysctl` detects the usage of execute to load systctl v
 
 - The `vendor` and `files` directories in cookbooks are now better excluded when runnning cookstyle against a mono-repo or other collection of multiple cookbooks.
 - The `ChefRedundantCode/PropertyWithRequiredAndDefault` and `ChefStyle/TrueClassFalseClassResourceProperties` cops now check resource attributes in addition to properties.
-- The `ChefRedundantCode/PropertyWithRequiredAndDefault` cop now supports autocorrection by removing unnecessary default values from the property
+- The `ChefRedundantCode/PropertyWithRequiredAndDefault` cop now supports autocorrection by removing unnecessary default values from the property.
 
 ## Cookstyle 5.17
 
