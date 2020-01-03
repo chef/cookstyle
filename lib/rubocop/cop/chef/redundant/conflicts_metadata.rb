@@ -28,6 +28,8 @@ module RuboCop
         #   conflicts "another_cookbook"
         #
         class ConflictsMetadata < Cop
+          include RangeHelp
+
           MSG = 'The conflicts metadata.rb method is not used and is unnecessary in cookbooks.'.freeze
 
           def on_send(node)
@@ -36,7 +38,7 @@ module RuboCop
 
           def autocorrect(node)
             lambda do |corrector|
-              corrector.remove(node.loc.expression)
+              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :right))
             end
           end
         end
