@@ -8,11 +8,11 @@ The `ChefModernize/ResourceForcingCompileTime` cop detects `hostname`, `build_es
 
 #### ChefModernize/ExecuteSysctl
 
-The `ChefModernize/ExecuteSysctl` detects the usage of execute to load systctl values. Chef Infra Client 14.0+ includes the `sysctl` resource which should be used to idempotently add or remove sysctl values without the need for chaining `file` and ``execute`` resources.
+The `ChefModernize/ExecuteSysctl` detects the usage of `execute` to load sysctl values. Chef Infra Client 14.0+ includes the `sysctl` resource which should be used to idempotently add or remove sysctl values without the need for chaining `file` and ``execute`` resources.
 
 ### Other fixes and changes
 
-- The `vendor` and `files` directories in cookbooks are now better excluded when runnning cookstyle against a mono-repo or other collection of multiple cookbooks.
+- The `vendor` and `files` directories in cookbooks are now better excluded when running cookstyle against a mono-repo or other collection of multiple cookbooks.
 - The `ChefRedundantCode/PropertyWithRequiredAndDefault` and `ChefStyle/TrueClassFalseClassResourceProperties` cops now check resource attributes in addition to properties.
 - The `ChefRedundantCode/PropertyWithRequiredAndDefault` cop now supports autocorrection by removing unnecessary default values from the property.
 
