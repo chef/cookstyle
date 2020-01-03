@@ -8,7 +8,7 @@ The `ChefModernize/ResourceForcingCompileTime` cop detects `hostname`, `build_es
 
 #### ChefModernize/ExecuteSysctl
 
-The `ChefModernize/ExecuteSysctl` detects the usage of execute to load systctl values. Chef Infra Client 14.0+ includes the `sysctl` resource, which should be used to idempotently add or remove sysctl values without the need for chaining `file` and ``execute`` resources.
+The `ChefModernize/ExecuteSysctl` detects the usage of execute to load systctl values. Chef Infra Client 14.0+ includes the `sysctl` resource which should be used to idempotently add or remove sysctl values without the need for chaining `file` and ``execute`` resources.
 
 ### Other fixes and changes
 
