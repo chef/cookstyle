@@ -332,6 +332,39 @@ Name | Default value | Configurable values
 VersionAdded | `5.16.0` | String
 Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
+## ChefModernize/ExecuteSysctl
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+Chef Infra Client 14.0 and later includes a sysctl resource that should be used to idempotently load sysctl values instead of templating files and using execute to load them.
+
+  # bad
+  file '/etc/sysctl.d/ipv4.conf' do
+    owner 'root'
+    group 'root'
+    mode '0755'
+    notifies :run, 'service[sysctl -p /etc/sysctl.d/ipv4.conf]', :immediately
+    content '9000 65500'
+  end
+
+  execute 'sysctl -p /etc/sysctl.d/ipv4.conf' do
+    action :nothing
+  end
+
+  # good
+  sysctl 'net.ipv4.ip_local_port_range' do
+    value '9000 65500'
+  end
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.18.0` | String
+Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
+
 ## ChefModernize/ExecuteTzUtil
 
 Enabled by default | Supports autocorrection

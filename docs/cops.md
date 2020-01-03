@@ -98,6 +98,7 @@
 * [ChefModernize/ExecuteAptUpdate](cops_chefmodernize.md#chefmodernizeexecuteaptupdate)
 * [ChefModernize/ExecuteScExe](cops_chefmodernize.md#chefmodernizeexecutescexe)
 * [ChefModernize/ExecuteSleep](cops_chefmodernize.md#chefmodernizeexecutesleep)
+* [ChefModernize/ExecuteSysctl](cops_chefmodernize.md#chefmodernizeexecutesysctl)
 * [ChefModernize/ExecuteTzUtil](cops_chefmodernize.md#chefmodernizeexecutetzutil)
 * [ChefModernize/FoodcriticComments](cops_chefmodernize.md#chefmodernizefoodcriticcomments)
 * [ChefModernize/IfProvidesDefaultAction](cops_chefmodernize.md#chefmodernizeifprovidesdefaultaction)
