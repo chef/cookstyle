@@ -1095,7 +1095,7 @@ ChefRedundantCode/ConflictsMetadata:
     - '**/metadata.rb'
 
 ChefRedundantCode/SuggestsMetadata:
-  Description: Don't use the deprecated 'suggests' metadata value
+  Description: The suggests metadata.rb method is not used and is unnecessary in cookbooks.
   Enabled: true
   VersionAdded: '5.1.0'
   VersionChanged: '5.15.0'
@@ -1103,7 +1103,7 @@ ChefRedundantCode/SuggestsMetadata:
     - '**/metadata.rb'
 
 ChefRedundantCode/ProvidesMetadata:
-  Description: Don't use the deprecated 'provides' metadata value
+  Description: The provides metadata.rb method is not used and is unnecessary in cookbooks.
   Enabled: true
   VersionAdded: '5.1.0'
   VersionChanged: '5.15.0'
@@ -1111,7 +1111,7 @@ ChefRedundantCode/ProvidesMetadata:
     - '**/metadata.rb'
 
 ChefRedundantCode/ReplacesMetadata:
-  Description: Don't use the deprecated 'replaces' metadata value
+  Description: The replaces metadata.rb method is not used and is unnecessary in cookbooks.
   Enabled: true
   VersionAdded: '5.1.0'
   VersionChanged: '5.15.0'
@@ -1119,7 +1119,7 @@ ChefRedundantCode/ReplacesMetadata:
     - '**/metadata.rb'
 
 ChefRedundantCode/AttributeMetadata:
-  Description: Don't use the deprecated 'attribute' metadata value
+  Description: The attribute metadata.rb method is not used and is unnecessary in cookbooks.
   Enabled: true
   VersionAdded: '5.1.0'
   VersionChanged: '5.15.0'

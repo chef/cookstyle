@@ -21,11 +21,16 @@ describe RuboCop::Cop::Chef::ChefRedundantCode::ConflictsMetadata, :config do
 
   it 'registers an offense when metadata uses "conflicts"' do
     expect_offense(<<~RUBY)
+      name 'foo'
       conflicts 'foo'
       ^^^^^^^^^^^^^^^ The conflicts metadata.rb method is not used and is unnecessary in cookbooks.
+      depends 'bar'
     RUBY
 
-    expect_correction('')
+    expect_correction(<<~RUBY)
+      name 'foo'
+      depends 'bar'
+    RUBY
   end
 
   it "doesn't register an offense on normal metadata" do
