@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.18.2 -->
-## [v5.18.2](https://github.com/chef/cookstyle/tree/v5.18.2) (2020-01-03)
+ <!-- latest_release 5.18.3 -->
+## [v5.18.3](https://github.com/chef/cookstyle/tree/v5.18.3) (2020-01-03)
 
 #### Merged Pull Requests
-- Add ChefModernize/ResourceForcingCompileTime [#482](https://github.com/chef/cookstyle/pull/482) ([tas50](https://github.com/tas50))
+- Add 5.18 release notes [#484](https://github.com/chef/cookstyle/pull/484) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.17.4 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add 5.18 release notes [#484](https://github.com/chef/cookstyle/pull/484) ([tas50](https://github.com/tas50)) <!-- 5.18.3 -->
 - Add ChefModernize/ResourceForcingCompileTime [#482](https://github.com/chef/cookstyle/pull/482) ([tas50](https://github.com/tas50)) <!-- 5.18.2 -->
 - Better exclude the files / vendor directories [#481](https://github.com/chef/cookstyle/pull/481) ([tas50](https://github.com/tas50)) <!-- 5.18.1 -->
 - Match on attributes in TrueClassFalseClassResourceProperties [#480](https://github.com/chef/cookstyle/pull/480) ([tas50](https://github.com/tas50)) <!-- 5.18.0 -->
