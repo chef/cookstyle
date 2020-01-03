@@ -21,11 +21,16 @@ describe RuboCop::Cop::Chef::ChefRedundantCode::AttributeMetadata, :config do
 
   it 'registers an offense when metadata uses "attribute"' do
     expect_offense(<<~RUBY)
+      name 'foo'
       attribute 'foo'
       ^^^^^^^^^^^^^^^ The attribute metadata.rb method is not used and is unnecessary in cookbooks.
+      depends 'bar'
     RUBY
 
-    expect_correction('')
+    expect_correction(<<~RUBY)
+      name 'foo'
+      depends 'bar'
+    RUBY
   end
 
   it "doesn't register an offense on normal metadata" do

@@ -21,11 +21,16 @@ describe RuboCop::Cop::Chef::ChefRedundantCode::RecipeMetadata, :config do
 
   it 'registers an offense when metadata uses "recipe"' do
     expect_offense(<<~RUBY)
+      name 'foo'
       recipe 'chef-client::config', 'Configures the client.rb from a template.'
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ The recipe metadata.rb method is not used and is unnecessary in cookbooks. Recipes should be documented in the cookbook's README.md file instead.
+      depends 'bar'
     RUBY
 
-    expect_correction('')
+    expect_correction(<<~RUBY)
+      name 'foo'
+      depends 'bar'
+    RUBY
   end
 
   it "doesn't register an offense on normal metadata" do

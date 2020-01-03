@@ -21,11 +21,16 @@ describe RuboCop::Cop::Chef::ChefRedundantCode::ReplacesMetadata, :config do
 
   it 'registers an offense when metadata uses "replaces"' do
     expect_offense(<<~RUBY)
+      name 'foo'
       replaces 'foo'
       ^^^^^^^^^^^^^^ The replaces metadata.rb method is not used and is unnecessary in cookbooks.
+      depends 'bar'
     RUBY
 
-    expect_correction('')
+    expect_correction(<<~RUBY)
+      name 'foo'
+      depends 'bar'
+    RUBY
   end
 
   it "doesn't register an offense on normal metadata" do
