@@ -840,6 +840,35 @@ VersionAdded | `5.1.0` | String
 VersionChanged | `5.15.0` | String
 Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
 
+## ChefModernize/ResourceForcingCompileTime
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+The hostname, build_essential, chef_gem, and ohai_hint resources include 'compile_time' properties, which should be used to force the resources to run at compile time by setting `compile_time true`.
+
+### Examples
+
+```ruby
+# bad
+build_essential 'install build tools' do
+ action :nothing
+end.run_action(:install)
+
+# good
+build_essential 'install build tools' do
+ compile_time true
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.18.0` | String
+Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
+
 ## ChefModernize/ResourceNameFromInitialize
 
 Enabled by default | Supports autocorrection

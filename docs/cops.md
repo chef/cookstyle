@@ -117,6 +117,7 @@
 * [ChefModernize/PowershellInstallWindowsFeature](cops_chefmodernize.md#chefmodernizepowershellinstallwindowsfeature)
 * [ChefModernize/PowershellScriptExpandArchive](cops_chefmodernize.md#chefmodernizepowershellscriptexpandarchive)
 * [ChefModernize/PropertyWithNameAttribute](cops_chefmodernize.md#chefmodernizepropertywithnameattribute)
+* [ChefModernize/ResourceForcingCompileTime](cops_chefmodernize.md#chefmodernizeresourceforcingcompiletime)
 * [ChefModernize/ResourceNameFromInitialize](cops_chefmodernize.md#chefmodernizeresourcenamefrominitialize)
 * [ChefModernize/RespondToInMetadata](cops_chefmodernize.md#chefmodernizerespondtoinmetadata)
 * [ChefModernize/RespondToProvides](cops_chefmodernize.md#chefmodernizerespondtoprovides)
