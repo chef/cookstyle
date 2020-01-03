@@ -30,6 +30,25 @@ describe RuboCop::Cop::Chef::ChefRedundantCode::LongDescriptionMetadata, :config
     expect_correction("description 'foo'\nversion '1.0.0'\n")
   end
 
+  it 'properly autocorrects long_description with a heredoc' do
+    expect_offense(<<~RUBY)
+      description 'foo'
+      long_description <<-EOH
+      ^^^^^^^^^^^^^^^^^^^^^^^ The long_description metadata.rb method is not used and is unnecessary in cookbooks.
+      Chef Sugar is a Gem & Chef Recipe that includes series of helpful syntactic
+      sugars on top of the Chef core and other resources to make a cleaner, more lean
+      recipe DSL, enforce DRY principles, and make writing Chef recipes an awesome and
+      fun experience!
+
+      For the most up-to-date information and documentation, please visit the [Chef
+      Sugar project page on GitHub](https://github.com/chef/chef-sugar).
+      EOH
+      version '1.0.0'
+    RUBY
+
+    expect_correction("description 'foo'\nversion '1.0.0'\n")
+  end
+
   it "doesn't register an offense on normal metadata" do
     expect_no_offenses(<<~RUBY)
       depends 'foo'

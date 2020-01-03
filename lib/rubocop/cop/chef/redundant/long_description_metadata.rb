@@ -37,7 +37,12 @@ module RuboCop
 
           def autocorrect(node)
             lambda do |corrector|
-              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :right))
+              if node.arguments.first.respond_to?(:heredoc?) && node.arguments.first.heredoc?
+                total_range = range_with_surrounding_space(range: node.loc.expression.join(node.arguments.first.loc.heredoc_end), side: :left)
+                corrector.remove(total_range)
+              else
+                corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
+              end
             end
           end
         end
