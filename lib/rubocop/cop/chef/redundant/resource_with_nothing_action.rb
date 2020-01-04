@@ -28,6 +28,8 @@ module RuboCop
         #   end
         #
         class ResourceWithNothingAction < Cop
+          include RangeHelp
+
           MSG = 'There is no need to define a :nothing action in your resource as Chef Infra Client provides the :nothing action by default for every resource.'.freeze
 
           def_node_matcher :nothing_action?, <<-PATTERN
@@ -42,7 +44,7 @@ module RuboCop
 
           def autocorrect(node)
             lambda do |corrector|
-              corrector.remove(node.source_range)
+              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
             end
           end
         end

@@ -27,6 +27,7 @@ module RuboCop
         #   chef_gem 'nokogiri'
         #
         class ChefGemNokogiri < Cop
+          include RangeHelp
           include RuboCop::Chef::CookbookHelpers
 
           MSG = 'The nokogiri gem ships in Chef Infra Client 12+ and does not need to be installed before being used.'.freeze
@@ -50,7 +51,7 @@ module RuboCop
           def autocorrect(node)
             lambda do |corrector|
               node = node.parent if node.parent&.block_type? # make sure we get the whole block not just the method in the block
-              corrector.remove(node.loc.expression)
+              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
             end
           end
         end

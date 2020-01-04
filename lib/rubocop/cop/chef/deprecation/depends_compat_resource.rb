@@ -26,6 +26,7 @@ module RuboCop
         #   depends 'compat_resource'
         #
         class CookbookDependsOnCompatResource < Cop
+          include RangeHelp
           extend TargetChefVersion
 
           minimum_target_chef_version '12.19'
@@ -44,7 +45,7 @@ module RuboCop
 
           def autocorrect(node)
             lambda do |corrector|
-              corrector.remove(node.loc.expression)
+              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
             end
           end
         end
