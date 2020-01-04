@@ -38,6 +38,21 @@ describe RuboCop::Cop::Chef::ChefDeprecations::UserDeprecatedSupportsProperty, :
     RUBY
   end
 
+  it 'registers an offense when a user resource includes the supports property with hash rockets' do
+    expect_offense(<<~RUBY)
+      user "betty" do
+        supports :manage_home => true
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ The supports property was removed in Chef Infra Client 13 in favor of individual 'manage_home' and 'non_unique' properties.
+      end
+    RUBY
+
+    expect_correction(<<~RUBY)
+      user "betty" do
+        manage_home true
+      end
+    RUBY
+  end
+
   it "doesn't register an offense when using powershell_script for other things" do
     expect_no_offenses(<<~RUBY)
       powershell_script 'Expand website' do

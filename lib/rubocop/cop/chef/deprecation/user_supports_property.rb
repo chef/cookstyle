@@ -30,6 +30,10 @@ module RuboCop
         #     })
         #   end
         #
+        #   user 'betty' do
+        #     supports :manage_home => true
+        #   end
+        #
         #   # good
         #   user "betty" do
         #     manage_home true
@@ -51,7 +55,8 @@ module RuboCop
             lambda do |corrector|
               new_text = []
               node.arguments.first.each_pair do |k, v|
-                new_text << "#{k.source} #{v.source}"
+                # make sure we strip out leading :s incase what we started with was a hash rocket supports hash
+                new_text << "#{k.source.gsub(/^:/, '')} #{v.source}"
               end
 
               corrector.replace(node.loc.expression, new_text.join("\n  "))
