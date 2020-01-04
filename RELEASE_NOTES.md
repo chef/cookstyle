@@ -26,7 +26,7 @@ The `ChefModernize/DslIncludeInResource` cop detects resources and providers tha
 
 #### ChefRedundantCode/AptRepositoryNotifiesAptUpdate
 
-The `ChefRedundantCode/AptRepositoryNotifiesAptUpdate` cop detects `apt_repository` resources that notify an `execute` resource to run `apt-get update`. Updating apt cache is performed automatically when the `apt_repository` makes any updates to the repository config and doesn't need to be performed again afterwards.
+The `ChefRedundantCode/AptRepositoryNotifiesAptUpdate` cop detects `apt_repository` resources that notify an `execute` resource to run `apt-get update`. Updating apt cache is performed automatically when the `apt_repository` makes any updates to the repository config and doesn't need to be performed again afterward.
 
 #### ChefRedundantCode/AptRepositoryDistributionDefault
 
@@ -208,7 +208,7 @@ The `ChefModernize/FoodcriticComments` cop will remove any # ~FCXXX code comment
 
 #### ChefModernize/ExecuteScExe
 
-The `ChefModernize/ExecuteScExe` resource detects cookbooks that use the `execute` resource to run `sc.exe` in order to manage Windows services. Since Chef Infra Client 14.0, the `windows_service` resource has included the `:create`, `:delete`, and `:configure` actions for idempotently managing services.
+The `ChefModernize/ExecuteScExe` resource detects cookbooks that use the `execute` resource to run `sc.exe` to manage Windows services. Since Chef Infra Client 14.0, the `windows_service` resource has included the `:create`, `:delete`, and `:configure` actions for idempotently managing services.
 
 `Enabled by default`: False
 
@@ -216,7 +216,7 @@ The `ChefModernize/ExecuteScExe` resource detects cookbooks that use the `execut
 
 #### ChefModernize/WindowsScResource
 
-The `ChefModernize/ExecuteScExe` resource detects cookbooks that use the `sc_windows` resource from the `sc` coookbook in order to manage Windows services. Since Chef Infra Client 14.0, the `windows_service` resource has included the `:create`, `:delete`, and `:configure` actions which manage services without the need for additional dependencies.
+The `ChefModernize/ExecuteScExe` resource detects cookbooks that use the `sc_windows` resource from the `sc` cookbook to manage Windows services. Since Chef Infra Client 14.0, the `windows_service` resource has included the `:create`, `:delete`, and `:configure` actions that manage services without the need for additional dependencies.
 
 `Enabled by default`: False
 
@@ -402,7 +402,7 @@ node.override['foo']['bar'] -= 1
 
 #### ChefModernize/EmptyResourceInitializeMethod
 
-The `ChefModernize/EmptyResourceInitializeMethod` cop detects empty `initialize` methods in resources and providers. These methods are usually left over from refactoring older HWRP-style resources into simpler custom resources and they can be removed.
+The `ChefModernize/EmptyResourceInitializeMethod` cop detects empty `initialize` methods in resources and providers. These methods are usually leftover from refactoring older HWRP-style resources into simpler custom resources and they can be removed.
 
 `Enabled by default`: True
 
@@ -419,7 +419,7 @@ The `ChefModernize/EmptyResourceInitializeMethod` cop detects empty `initialize`
 
 ### ChefModernize/UnnecessaryMixlibShelloutRequire
 
-The `ChefModernize/UnnecessaryMixlibShelloutRequire` cop detects providers or resources that include `require 'mixlib/shellout`. Chef Infra Client automatically includes the mixlib-shellout library so this require line can be removed.
+The `ChefModernize/UnnecessaryMixlibShelloutRequire` cop detects providers or resources that include `require 'mixlib/shellout`. Chef Infra Client automatically includes the mixlib-shellout library so this require statement can be removed.
 
 `Enabled by default`: True
 
