@@ -1138,6 +1138,10 @@ user "betty" do
   })
 end
 
+user 'betty' do
+  supports :manage_home => true
+end
+
 # good
 user "betty" do
   manage_home true
