@@ -47,7 +47,10 @@ module RuboCop
               # If it was an octal literal, make sure we write out the right number.
               replacement_base = octal?(node) ? 8 : 10
               replacement_mode = node.children.first.to_s(replacement_base)
-              corrector.replace(node.loc.expression, replacement_mode.inspect)
+
+              # we build our own escaped string instead of using .inspect because that way
+              # we can use single quotes instead of the double quotes that .inspect adds
+              corrector.replace(node.loc.expression, "\'#{replacement_mode}\'")
             end
           end
 
