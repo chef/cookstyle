@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.19.3 -->
-## [v5.19.3](https://github.com/chef/cookstyle/tree/v5.19.3) (2020-01-04)
+ <!-- latest_release 5.19.4 -->
+## [v5.19.4](https://github.com/chef/cookstyle/tree/v5.19.4) (2020-01-04)
 
 #### Merged Pull Requests
-- Handle user resource supports with hash rockets [#493](https://github.com/chef/cookstyle/pull/493) ([tas50](https://github.com/tas50))
+- Fix ChefStyle/FileMode to autocorrect single quotes [#494](https://github.com/chef/cookstyle/pull/494) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.18.4 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Fix ChefStyle/FileMode to autocorrect single quotes [#494](https://github.com/chef/cookstyle/pull/494) ([tas50](https://github.com/tas50)) <!-- 5.19.4 -->
 - Handle user resource supports with hash rockets [#493](https://github.com/chef/cookstyle/pull/493) ([tas50](https://github.com/tas50)) <!-- 5.19.3 -->
 - Remove more empty lines in autocorrection [#491](https://github.com/chef/cookstyle/pull/491) ([tas50](https://github.com/tas50)) <!-- 5.19.2 -->
 - Better trim metadata.rb whitespace [#490](https://github.com/chef/cookstyle/pull/490) ([tas50](https://github.com/tas50)) <!-- 5.19.1 -->
