@@ -34,6 +34,8 @@ module RuboCop
         #   require 'chef/mixin/language_include_recipe'
         #
         class UsesDeprecatedMixins < Cop
+          include RangeHelp
+
           MSG = "Don't use deprecated Mixins no longer included in Chef Infra Client 14 and later.".freeze
 
           def_node_matcher :deprecated_mixin?, <<-PATTERN
@@ -64,7 +66,7 @@ module RuboCop
 
           def autocorrect(node)
             lambda do |corrector|
-              corrector.remove(node.loc.expression)
+              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
             end
           end
         end

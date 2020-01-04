@@ -27,6 +27,8 @@ module RuboCop
         #   include_recipe 'windows'
         #
         class IncludingWindowsDefaultRecipe < Cop
+          include RangeHelp
+
           MSG = 'Do not include the Windows default recipe, which only installs win32 gems already included in Chef Infra Client'.freeze
 
           def_node_matcher :windows_recipe_usage?, <<-PATTERN
@@ -41,7 +43,7 @@ module RuboCop
 
           def autocorrect(node)
             lambda do |corrector|
-              corrector.remove(node.loc.expression)
+              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
             end
           end
         end

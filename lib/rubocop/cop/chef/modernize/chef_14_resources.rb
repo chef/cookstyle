@@ -33,6 +33,7 @@ module RuboCop
         #
         class UnnecessaryDependsChef14 < Cop
           extend TargetChefVersion
+          include RangeHelp
 
           minimum_target_chef_version '14.0'
 
@@ -50,7 +51,7 @@ module RuboCop
 
           def autocorrect(node)
             lambda do |corrector|
-              corrector.remove(node.loc.expression)
+              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
             end
           end
         end

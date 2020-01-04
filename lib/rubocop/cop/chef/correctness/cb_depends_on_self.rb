@@ -31,6 +31,8 @@ module RuboCop
       #
       module ChefCorrectness
         class CookbooksDependsOnSelf < Cop
+          include RangeHelp
+
           MSG = 'A cookbook cannot depend on itself. This will fail on Chef Infra Client 13+'.freeze
 
           def_node_search :dependencies, '(send nil? :depends str ...)'
@@ -49,7 +51,7 @@ module RuboCop
 
           def autocorrect(node)
             lambda do |corrector|
-              corrector.remove(node.source_range)
+              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
             end
           end
         end

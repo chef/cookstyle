@@ -36,6 +36,7 @@ module RuboCop
         #
         class ChefRewind < Cop
           include RuboCop::Chef::CookbookHelpers
+          include RangeHelp
           extend TargetChefVersion
 
           minimum_target_chef_version '12.10'
@@ -83,12 +84,12 @@ module RuboCop
             lambda do |corrector|
               rewind_gem_install?(node) do
                 node = node.parent if node.parent&.block_type? # make sure we get the whole block not just the method in the block
-                corrector.remove(node.loc.expression)
+                corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
                 return
               end
 
               require_rewind?(node) do
-                corrector.remove(node.loc.expression)
+                corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
                 return
               end
 

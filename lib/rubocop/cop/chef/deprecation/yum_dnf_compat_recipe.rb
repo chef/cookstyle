@@ -27,6 +27,8 @@ module RuboCop
         #   include_recipe 'yum::dnf_yum_compat'
         #
         class IncludingYumDNFCompatRecipe < Cop
+          include RangeHelp
+
           MSG = 'Do not include the deprecated yum::dnf_yum_compat default recipe to install yum on dnf systems. Chef Infra Client now includes built in support for DNF packages.'.freeze
 
           def_node_matcher :yum_dnf_compat_recipe_usage?, <<-PATTERN
@@ -41,7 +43,7 @@ module RuboCop
 
           def autocorrect(node)
             lambda do |corrector|
-              corrector.remove(node.loc.expression)
+              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
             end
           end
         end

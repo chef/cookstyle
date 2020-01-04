@@ -30,6 +30,8 @@ module RuboCop
         #   include Chef::Mixin::PowershellOut
         #
         class IncludingMixinShelloutInResources < Cop
+          include RangeHelp
+
           MSG = 'There is no need to include Chef::Mixin::ShellOut or Chef::Mixin::PowershellOut in resources or providers as this is already done by Chef Infra Client 12.4+.'.freeze
 
           def_node_matcher :include_shellout?, <<-PATTERN
@@ -52,7 +54,7 @@ module RuboCop
 
           def autocorrect(node)
             lambda do |corrector|
-              corrector.remove(node.loc.expression)
+              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
             end
           end
         end

@@ -28,6 +28,8 @@ module RuboCop
         #   end
         #
         class EmptyResourceInitializeMethod < Cop
+          include RangeHelp
+
           MSG = 'There is no need for an empty initialize method in a resource'.freeze
 
           def_node_matcher :empty_initialize?, <<-PATTERN
@@ -42,7 +44,7 @@ module RuboCop
 
           def autocorrect(node)
             lambda do |corrector|
-              corrector.remove(node.loc.expression)
+              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
             end
           end
         end
