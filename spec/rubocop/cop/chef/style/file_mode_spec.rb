@@ -31,7 +31,7 @@ describe RuboCop::Cop::Chef::ChefStyle::FileMode do
     expect_correction(<<~RUBY)
       file '/foo' do
         owner 'root'
-        mode "644"
+        mode '644'
       end
     RUBY
   end
@@ -48,7 +48,7 @@ describe RuboCop::Cop::Chef::ChefStyle::FileMode do
     expect_correction(<<~RUBY)
       file '/foo' do
         owner 'root'
-        mode "644"
+        mode '644'
       end
     RUBY
   end
@@ -66,40 +66,40 @@ describe RuboCop::Cop::Chef::ChefStyle::FileMode do
     expect_no_offenses(<<~RUBY)
       file '/foo' do
         owner 'root'
-        mode "644"
+        mode '644'
       end
     RUBY
   end
 
   include_examples 'autocorrect',
                    'mode 644',
-                   'mode "644"'
+                   "mode '644'"
 
   include_examples 'autocorrect',
                    'mode 0644',
-                   'mode "644"'
+                   "mode '644'"
 
   include_examples 'autocorrect',
                    'mode 00644',
-                   'mode "644"'
+                   "mode '644'"
 
   include_examples 'autocorrect',
                    'mode 1644',
-                   'mode "1644"'
+                   "mode '1644'"
 
   include_examples 'autocorrect',
                    'mode 01644',
-                   'mode "1644"'
+                   "mode '1644'"
 
   include_examples 'autocorrect',
                    'mode 0o644',
-                   'mode "644"'
+                   "mode '644'"
 
   include_examples 'autocorrect',
                    'mode 0O644',
-                   'mode "644"'
+                   "mode '644'"
 
   include_examples 'autocorrect',
                    'mode 0x284',
-                   'mode "644"'
+                   "mode '644'"
 end
