@@ -94,10 +94,13 @@ Enabled | Yes
 metadata.rb license field should include a SPDX compliant string or "all right reserved" (not case sensitive)
 
 list of valid SPDX.org license strings. To build an array run this:
+
+```ruby
 require 'json'
 require 'net/http'
 json_data = JSON.parse(Net::HTTP.get(URI('https://raw.githubusercontent.com/spdx/license-list-data/master/json/licenses.json')))
 licenses = json_data['licenses'].map {|l| l['licenseId'] }.sort
+```
 
 ### Examples
 
