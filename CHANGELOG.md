@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.19.7 -->
-## [v5.19.7](https://github.com/chef/cookstyle/tree/v5.19.7) (2020-01-07)
+ <!-- latest_release 5.19.8 -->
+## [v5.19.8](https://github.com/chef/cookstyle/tree/v5.19.8) (2020-01-07)
 
 #### Merged Pull Requests
-- Additional fixes for ChefDeprecations/UserDeprecatedSupportsProperty [#502](https://github.com/chef/cookstyle/pull/502) ([tas50](https://github.com/tas50))
+- Fix false positives in ChefModernize/AllowedActionsFromInitialize [#503](https://github.com/chef/cookstyle/pull/503) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.18.4 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Fix false positives in ChefModernize/AllowedActionsFromInitialize [#503](https://github.com/chef/cookstyle/pull/503) ([tas50](https://github.com/tas50)) <!-- 5.19.8 -->
 - Additional fixes for ChefDeprecations/UserDeprecatedSupportsProperty [#502](https://github.com/chef/cookstyle/pull/502) ([tas50](https://github.com/tas50)) <!-- 5.19.7 -->
 - Add clarity to License Strings [#501](https://github.com/chef/cookstyle/pull/501) ([Xorima](https://github.com/Xorima)) <!-- 5.19.6 -->
 - Add ChefStyle/OverlyComplexSupportsDependsMetadata [#495](https://github.com/chef/cookstyle/pull/495) ([tas50](https://github.com/tas50)) <!-- 5.19.5 -->
