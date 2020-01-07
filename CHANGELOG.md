@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.19.6 -->
-## [v5.19.6](https://github.com/chef/cookstyle/tree/v5.19.6) (2020-01-07)
+ <!-- latest_release 5.19.7 -->
+## [v5.19.7](https://github.com/chef/cookstyle/tree/v5.19.7) (2020-01-07)
 
 #### Merged Pull Requests
-- Add clarity to License Strings [#501](https://github.com/chef/cookstyle/pull/501) ([Xorima](https://github.com/Xorima))
+- Additional fixes for ChefDeprecations/UserDeprecatedSupportsProperty [#502](https://github.com/chef/cookstyle/pull/502) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.18.4 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Additional fixes for ChefDeprecations/UserDeprecatedSupportsProperty [#502](https://github.com/chef/cookstyle/pull/502) ([tas50](https://github.com/tas50)) <!-- 5.19.7 -->
 - Add clarity to License Strings [#501](https://github.com/chef/cookstyle/pull/501) ([Xorima](https://github.com/Xorima)) <!-- 5.19.6 -->
 - Add ChefStyle/OverlyComplexSupportsDependsMetadata [#495](https://github.com/chef/cookstyle/pull/495) ([tas50](https://github.com/tas50)) <!-- 5.19.5 -->
 - Fix ChefStyle/FileMode to autocorrect single quotes [#494](https://github.com/chef/cookstyle/pull/494) ([tas50](https://github.com/tas50)) <!-- 5.19.4 -->
