@@ -82,4 +82,13 @@ describe RuboCop::Cop::Chef::ChefModernize::DefaultActionFromInitialize, :config
     end
     RUBY
   end
+
+  it 'does not register an offense when using ||= on the @action variable' do
+    expect_no_offenses(<<~RUBY)
+    def initialize(*args)
+      @default_action ||= :create
+      super
+    end
+    RUBY
+  end
 end

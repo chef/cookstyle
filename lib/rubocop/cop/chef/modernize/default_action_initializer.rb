@@ -42,20 +42,19 @@ module RuboCop
 
           MSG = 'The default action of a resource can be set with the "default_action" helper instead of using the initialize method.'.freeze
 
-          def on_def(node)
-            return unless node.method_name == :initialize
-            return if node.body.nil? # nil body is an empty initialize method
+          def_node_matcher :action_in_initializer?, <<-PATTERN
+            (def :initialize (args ...) <(begin ... $(ivasgn {:@action :@default_action} $(...)))> )
+          PATTERN
 
-            node.body.each_node do |x|
-              if x.assignment? && !x.node_parts.empty? && %i(@action @default_action).include?(x.node_parts.first)
-                add_offense(x, location: :expression, message: MSG, severity: :refactor)
-              end
-            end
-          end
+          def_node_search :intialize_method, '(def :initialize ... )'
 
           def_node_search :default_action_method?, '(send nil? :default_action ... )'
 
-          def_node_search :intialize_method, '(def :initialize ... )'
+          def on_def(node)
+            action_in_initializer?(node) do |action, _val|
+              add_offense(action, location: :expression, message: MSG, severity: :refactor)
+            end
+          end
 
           def autocorrect(node)
             lambda do |corrector|
