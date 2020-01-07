@@ -115,6 +115,13 @@ ChefStyle/TrueClassFalseClassResourceProperties:
     - '**/libraries/*.rb'
     - '**/resources/*.rb'
 
+ChefStyle/OverlyComplexSupportsDependsMetadata:
+  Description: Don't loop over an array to set cookbook dependencies or supported platforms if you have fewer than three values to set.
+  Enabled: true
+  VersionAdded: '5.19.0'
+  Include:
+    - '**/metadata.rb'
+
 ###############################
 # ChefCorrectness: Avoiding potential problems
 ###############################
