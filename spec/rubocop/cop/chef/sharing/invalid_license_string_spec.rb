@@ -42,4 +42,10 @@ describe RuboCop::Cop::Chef::ChefSharing::InvalidLicenseString, :config do
       license 'Apache-2.0'
     RUBY
   end
+
+  it "doesn't register an offense when set to the all rights reserved license string" do
+    expect_no_offenses(<<~RUBY)
+      license 'all rights reserved'
+    RUBY
+  end
 end

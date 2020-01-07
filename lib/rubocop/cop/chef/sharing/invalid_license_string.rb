@@ -450,6 +450,7 @@ module RuboCop
             'gplv2': 'GPL-2.0',
             'gplv3': 'GPL-3.0',
             'mit license': 'MIT',
+            'UNLICENSED': 'all rights reserved',
           }.freeze
 
           MSG = 'Cookbook metadata.rb does not use a SPDX compliant license string or "all rights reserved". See https://spdx.org/licenses/ for a complete list of license identifiers.'.freeze
