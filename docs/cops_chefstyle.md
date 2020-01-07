@@ -206,6 +206,43 @@ Name | Default value | Configurable values
 VersionAdded | `5.16.0` | String
 Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
+## ChefStyle/OverlyComplexSupportsDependsMetadata
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+Don't loop over an array to set cookbook dependencies or supported platforms if you have fewer than three values to set.  Setting multiple `supports` or `depends` values is simpler and easier to understand for new users.
+
+### Examples
+
+```ruby
+# bad
+
+%w( debian ubuntu ).each do |os|
+  supports os
+end
+
+%w( apt yum ).each do |cb|
+  depends cb
+end
+
+# good
+
+supports 'debian'
+supports 'ubuntu'
+
+depends 'apt'
+depends 'yum'
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.19.0` | String
+Include | `**/metadata.rb` | Array
+
 ## ChefStyle/SimplifyPlatformMajorVersionCheck
 
 Enabled by default | Supports autocorrection

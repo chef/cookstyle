@@ -173,6 +173,7 @@
 * [ChefStyle/DefaultCopyrightComments](cops_chefstyle.md#chefstyledefaultcopyrightcomments)
 * [ChefStyle/FileMode](cops_chefstyle.md#chefstylefilemode)
 * [ChefStyle/ImmediateNotificationTiming](cops_chefstyle.md#chefstyleimmediatenotificationtiming)
+* [ChefStyle/OverlyComplexSupportsDependsMetadata](cops_chefstyle.md#chefstyleoverlycomplexsupportsdependsmetadata)
 * [ChefStyle/SimplifyPlatformMajorVersionCheck](cops_chefstyle.md#chefstylesimplifyplatformmajorversioncheck)
 * [ChefStyle/TrueClassFalseClassResourceProperties](cops_chefstyle.md#chefstyletrueclassfalseclassresourceproperties)
 * [ChefStyle/UnnecessaryPlatformCaseStatement](cops_chefstyle.md#chefstyleunnecessaryplatformcasestatement)
