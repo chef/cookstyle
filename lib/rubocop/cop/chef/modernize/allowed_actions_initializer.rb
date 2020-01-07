@@ -47,7 +47,7 @@ module RuboCop
             return if node.body.nil? # nil body is an empty initialize method
 
             node.body.each_node do |x|
-              if x.assignment? && !x.node_parts.empty? && %i(@actions @allowed_actions).include?(x.node_parts.first)
+              if x.assignment? && !x.parent.op_asgn_type? && !x.node_parts.empty? && %i(@actions @allowed_actions).include?(x.node_parts.first)
                 add_offense(x, location: :expression, message: MSG, severity: :refactor)
               end
             end

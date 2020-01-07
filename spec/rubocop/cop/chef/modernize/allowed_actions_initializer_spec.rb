@@ -72,6 +72,20 @@ describe RuboCop::Cop::Chef::ChefModernize::AllowedActionsFromInitialize, :confi
     RUBY
   end
 
+  it 'does not register an offense when adding actions to the parent class' do
+    expect_no_offenses(<<~RUBY)
+    def initialize(name, run_context=nil)
+      super(name, run_context)
+      @action = :install
+      @allowed_actions += [:install]
+      @resource_name = :chef_bundle
+      @compile_time = Chef::Config[:chef_gem_compile_time]
+      @gemfile = nil
+      @options = []
+    end
+    RUBY
+  end
+
   it 'does not register an offense with a resource that does not have an initialize method' do
     expect_no_offenses(<<~RUBY)
       property :something, String
