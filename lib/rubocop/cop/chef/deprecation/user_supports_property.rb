@@ -1,5 +1,5 @@
 #
-# Copyright:: 2019, Chef Software, Inc.
+# Copyright:: 2019-2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -55,8 +55,7 @@ module RuboCop
             lambda do |corrector|
               new_text = []
               node.arguments.first.each_pair do |k, v|
-                # make sure we strip out leading :s incase what we started with was a hash rocket supports hash
-                new_text << "#{k.source.gsub(/^:/, '')} #{v.source}"
+                new_text << "#{k.value} #{v.source}"
               end
 
               corrector.replace(node.loc.expression, new_text.join("\n  "))
