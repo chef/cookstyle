@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.19.5 -->
-## [v5.19.5](https://github.com/chef/cookstyle/tree/v5.19.5) (2020-01-07)
+ <!-- latest_release 5.19.6 -->
+## [v5.19.6](https://github.com/chef/cookstyle/tree/v5.19.6) (2020-01-07)
 
 #### Merged Pull Requests
-- Add ChefStyle/OverlyComplexSupportsDependsMetadata [#495](https://github.com/chef/cookstyle/pull/495) ([tas50](https://github.com/tas50))
+- Add clarity to License Strings [#501](https://github.com/chef/cookstyle/pull/501) ([Xorima](https://github.com/Xorima))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.18.4 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add clarity to License Strings [#501](https://github.com/chef/cookstyle/pull/501) ([Xorima](https://github.com/Xorima)) <!-- 5.19.6 -->
 - Add ChefStyle/OverlyComplexSupportsDependsMetadata [#495](https://github.com/chef/cookstyle/pull/495) ([tas50](https://github.com/tas50)) <!-- 5.19.5 -->
 - Fix ChefStyle/FileMode to autocorrect single quotes [#494](https://github.com/chef/cookstyle/pull/494) ([tas50](https://github.com/tas50)) <!-- 5.19.4 -->
 - Handle user resource supports with hash rockets [#493](https://github.com/chef/cookstyle/pull/493) ([tas50](https://github.com/tas50)) <!-- 5.19.3 -->
