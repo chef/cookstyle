@@ -8,7 +8,7 @@ The `ChefRedundantCode/GroupingMetadata` cop removes the legacy `grouping` metad
 
 #### ChefStyle/OverlyComplexSupportsDependsMetadata
 
-The `ChefStyle/OverlyComplexSupportsDependsMetadata` cop cleans up overly complex methods of declaring `supports` or `depends` metadata via an array. This rule will detect and correct the array/each form of declaring this metadata when there are fewer than three items.
+The `ChefStyle/OverlyComplexSupportsDependsMetadata` cop cleans up overly complex methods of declaring `supports` or `depends` metadata via an array. This rule will detect and correct the array or each form of declaring this metadata when there are fewer than three items.
 
 **Overly complex metadata:**
 
