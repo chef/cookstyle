@@ -1,3 +1,39 @@
+## Cookstyle 5.19
+
+### 2 New Cops
+
+#### ChefRedundantCode/GroupingMetadata
+
+The `ChefRedundantCode/GroupingMetadata` cop removes the legacy `grouping` metadata from the metadata.rb file. This metadata was never consumed by any Chef Infra services and does not need to be defined.
+
+#### ChefStyle/OverlyComplexSupportsDependsMetadata
+
+The `ChefStyle/OverlyComplexSupportsDependsMetadata` cop cleans up overly complex methods of declaring `supports` or `depends` metadata via an array. This rule will detect and correct the array or each form of declaring this metadata when there are fewer than three items.
+
+**Overly complex metadata:**
+
+```ruby
+%w(windows apt).each |cb|
+  depends cb
+end
+```
+
+**Simpler form:**
+
+```ruby
+depends 'apt'
+depends 'windows'
+```
+
+### Other fixes and changes
+
+- Various cops that remove legacy code no longer leave behind empty lines when autocorrecting.
+- `ChefRedundantCode/LongDescriptionMetadata` now properly autocorrects when `long_description` uses a here document (heredoc).
+- `ChefDeprecations/UserDeprecatedSupportsProperty` no longer fails to autocorrect when the supports hash uses Ruby 1.8 hash rocket syntax.
+- `ChefStyle/FileMode` now autocorrects file modes using single quotes instead of double quotes.
+- `ChefSharing/InvalidLicenseString` now autocorrects `UNLICENSED` to `all rights reserved`.
+- `ChefModernize/AllowedActionsFromInitialize` no longer alerts when appending into an existing `@allowed_actions` variable.
+
 ## Cookstyle 5.18
 
 ### 2 New Cops
