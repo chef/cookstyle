@@ -122,6 +122,11 @@ ChefStyle/OverlyComplexSupportsDependsMetadata:
   Include:
     - '**/metadata.rb'
 
+ChefStyle/ChefWhaaat:
+  Description: Do you mean Chef (the company) or a Chef product (e.g. Chef Infra, Chef InSpec, etc)?
+  Enabled: false
+  VersionAdded: '5.20.0'
+
 ###############################
 # ChefCorrectness: Avoiding potential problems
 ###############################
