@@ -22,10 +22,7 @@ module RuboCop
         #
         #   # bad
         #   file '/etc/sysctl.d/ipv4.conf' do
-        #     owner 'root'
-        #     group 'root'
-        #     mode '0755'
-        #     notifies :run, 'service[sysctl -p /etc/sysctl.d/ipv4.conf]', :immediately
+        #     notifies :run, 'execute[sysctl -p /etc/sysctl.d/ipv4.conf]', :immediately
         #     content '9000 65500'
         #   end
         #
