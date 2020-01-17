@@ -41,6 +41,32 @@ EnforcedStyle | `strings` | `strings`, `symbols`
 VersionAdded | `5.0.0` | String
 Exclude | `**/metadata.rb` | Array
 
+## ChefStyle/ChefWhaaat
+
+Enabled by default | Supports autocorrection
+--- | ---
+Disabled | No
+
+Checks for comments that mention "Chef" without context. Do you mean Chef Infra or Chef Software?
+
+### Examples
+
+```ruby
+# bad
+Chef makes software
+Chef configures your systems
+
+# good
+Chef Software makes software
+Chef Infra configures your systems
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.20.0` | String
+
 ## ChefStyle/CommentFormat
 
 Enabled by default | Supports autocorrection

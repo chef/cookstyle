@@ -167,6 +167,7 @@
 #### Department [ChefStyle](cops_chefstyle.md)
 
 * [ChefStyle/AttributeKeys](cops_chefstyle.md#chefstyleattributekeys)
+* [ChefStyle/ChefWhaaat](cops_chefstyle.md#chefstylechefwhaaat)
 * [ChefStyle/CommentFormat](cops_chefstyle.md#chefstylecommentformat)
 * [ChefStyle/CommentSentenceSpacing](cops_chefstyle.md#chefstylecommentsentencespacing)
 * [ChefStyle/CopyrightCommentFormat](cops_chefstyle.md#chefstylecopyrightcommentformat)
