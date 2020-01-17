@@ -54,6 +54,27 @@ describe RuboCop::Cop::Chef::ChefStyle::UnnecessaryPlatformCaseStatement do
     RUBY
   end
 
+  it "doesn't autocorrect complex case platform checks with no code in any when/else" do
+    expect_offense(<<~RUBY)
+      case node['platform']
+      ^^^^^^^^^^^^^^^^^^^^^ Use the platform?() and platform_family?() helpers instead of a case statement that only includes a single when statement.
+      when 'ubuntu', 'debian'
+        # nothing here
+      else
+        # nothing here
+      end
+    RUBY
+
+    expect_correction(<<~RUBY)
+      case node['platform']
+      when 'ubuntu', 'debian'
+        # nothing here
+      else
+        # nothing here
+      end
+      RUBY
+  end
+
   it 'handles spaces when setting values with case statements' do
     expect_offense(<<~RUBY)
       val = case node['platform_family']
