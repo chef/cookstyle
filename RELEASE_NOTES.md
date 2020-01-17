@@ -13,7 +13,7 @@ The `ChefStyle/OverlyComplexSupportsDependsMetadata` cop cleans up overly comple
 **Overly complex metadata:**
 
 ```ruby
-%w(windows apt).each |cb|
+%w(windows apt).each do |cb|
   depends cb
 end
 ```
