@@ -1,5 +1,6 @@
 #
-# Copyright:: 2019, Chef Software, Inc.
+# Copyright:: 2019-2020, Chef Software, Inc.
+# Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -25,7 +26,31 @@ describe RuboCop::Cop::Chef::ChefModernize::LibarchiveFileResource, :config do
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the archive_file resource built into Chef Infra Client 15+ instead of the libarchive file resource
       path "foo/bar.zip"
       extract_to "/foo/bar"
-      end
+    end
+    RUBY
+
+    expect_correction(<<~RUBY)
+    archive_file 'Precompiled.zip' do
+      path "foo/bar.zip"
+      extract_to "/foo/bar"
+    end
+    RUBY
+  end
+
+  it 'registers an offense when notifying a libarchive_file resource' do
+    expect_offense(<<~RUBY)
+    remote_file archive_path do
+      action :create_if_missing
+      notifies :extract, 'libarchive_file[extract_yajsw]', :immediately
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the archive_file resource built into Chef Infra Client 15+ instead of the libarchive file resource
+    end
+    RUBY
+
+    expect_correction(<<~RUBY)
+    remote_file archive_path do
+      action :create_if_missing
+      notifies :extract, 'archive_file[extract_yajsw]', :immediately
+    end
     RUBY
   end
 

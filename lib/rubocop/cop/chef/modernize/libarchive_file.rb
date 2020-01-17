@@ -1,5 +1,5 @@
 #
-# Copyright:: 2019, Chef Software Inc.
+# Copyright:: 2019-2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,12 +19,17 @@ module RuboCop
   module Cop
     module Chef
       module ChefModernize
-        # Use the archive_file resource built into Chef Infra Client 15+ instead of the libarchive_file resource
+        # Use the archive_file resource built into Chef Infra Client 15+ instead of the libarchive_file resource.
         #
         # @example
         #
         #   # bad
-        #   libarchive "C:\file.zip" do
+        #   libarchive_file "C:\file.zip" do
+        #     path 'C:\expand_here'
+        #   end
+        #
+        #   # good
+        #   archive_file "C:\file.zip" do
         #     path 'C:\expand_here'
         #   end
         #
@@ -35,8 +40,22 @@ module RuboCop
 
           MSG = 'Use the archive_file resource built into Chef Infra Client 15+ instead of the libarchive file resource'.freeze
 
+          def_node_matcher :notification_property?, <<-PATTERN
+            (send nil? {:notifies :subscribes} (sym _) $(...) (sym _))
+          PATTERN
+
           def on_send(node)
             add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :libarchive_file
+
+            notification_property?(node) do |val|
+              add_offense(val, location: :expression, message: MSG, severity: :refactor) if val.str_content&.start_with?('libarchive_file')
+            end
+          end
+
+          def autocorrect(node)
+            lambda do |corrector|
+              corrector.replace(node.loc.expression, node.source.gsub('libarchive_file', 'archive_file'))
+            end
           end
         end
       end
