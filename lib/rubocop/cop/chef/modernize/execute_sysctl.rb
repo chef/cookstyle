@@ -58,7 +58,7 @@ module RuboCop
           def on_block(node)
             match_property_in_resource?(:execute, 'command', node) do |code_property|
               property_data = method_arg_ast_to_string(code_property)
-              if property_data && property_data.match?(/^sysctl -p/i)
+              if property_data && property_data.match?(%r{^(/sbin/)?sysctl -p}i)
                 add_offense(node, location: :expression, message: MSG, severity: :refactor)
               end
             end
