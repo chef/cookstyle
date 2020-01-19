@@ -342,10 +342,7 @@ Chef Infra Client 14.0 and later includes a sysctl resource that should be used 
 
   # bad
   file '/etc/sysctl.d/ipv4.conf' do
-    owner 'root'
-    group 'root'
-    mode '0755'
-    notifies :run, 'service[sysctl -p /etc/sysctl.d/ipv4.conf]', :immediately
+    notifies :run, 'execute[sysctl -p /etc/sysctl.d/ipv4.conf]', :immediately
     content '9000 65500'
   end
 
@@ -577,15 +574,20 @@ Include | `**/Berksfile` | Array
 
 Enabled by default | Supports autocorrection
 --- | ---
-Enabled | No
+Enabled | Yes
 
-Use the archive_file resource built into Chef Infra Client 15+ instead of the libarchive_file resource
+Use the archive_file resource built into Chef Infra Client 15+ instead of the libarchive_file resource.
 
 ### Examples
 
 ```ruby
 # bad
-libarchive "C:\file.zip" do
+libarchive_file "C:\file.zip" do
+  path 'C:\expand_here'
+end
+
+# good
+archive_file "C:\file.zip" do
   path 'C:\expand_here'
 end
 ```
