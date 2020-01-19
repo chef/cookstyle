@@ -39,6 +39,16 @@ describe RuboCop::Cop::Chef::ChefModernize::ExecuteSysctl, :config do
     RUBY
   end
 
+  it 'registers an offense when loading a sysctl config with an execute resource with a command property using /sbin/sysctl' do
+    expect_offense(<<~RUBY)
+      execute 'Set IPV6 sysctl vals' do
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 14.0 and later includes a sysctl resource that should be used to idempotently load sysctl values instead of templating files and using execute to load them.
+        command '/sbin/sysctl -p /etc/sysctl.d/ipv6.conf'
+        action :run
+      end
+    RUBY
+  end
+
   it "doesn't register an offense when using the sysctl resource" do
     expect_no_offenses(<<~RUBY)
       sysctl 'net.ipv4.ip_local_port_range' do
