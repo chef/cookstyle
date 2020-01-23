@@ -43,7 +43,7 @@ require_relative 'rubocop/chef/platform_helpers'
 require_relative 'rubocop/chef/cookbook_only'
 require_relative 'rubocop/cop/target_chef_version'
 
-# Chef specific cops
+# Chef Infra specific cops
 Dir.glob(File.dirname(__FILE__) + '/rubocop/cop/chef/**/*.rb') do |file|
   next if File.directory?(file)
 
