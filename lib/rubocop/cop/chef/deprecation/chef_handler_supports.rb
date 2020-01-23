@@ -46,7 +46,9 @@ module RuboCop
 
           def autocorrect(node)
             lambda do |corrector|
-              corrector.replace(node.loc.expression, "type #{node.arguments.first.source}")
+              # make sure to delete leading and trailing {}s that would create invalid ruby syntax
+              extracted_val = node.arguments.first.source.gsub(/{|}/, '')
+              corrector.replace(node.loc.expression, "type #{extracted_val}")
             end
           end
         end
