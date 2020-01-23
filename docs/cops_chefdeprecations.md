@@ -228,6 +228,27 @@ Name | Default value | Configurable values
 VersionAdded | `5.1.0` | String
 Include | `**/metadata.rb` | Array
 
+## ChefDeprecations/DeprecatedChefSpecPlatform
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+Use currently supported platforms in ChefSpec listed at https://github.com/chefspec/fauxhai/blob/master/PLATFORMS.md. Fauxhai / ChefSpec will perform fuzzy matching on platform version so it's always best to be less specific ie. 10 instead of 10.3
+
+### Examples
+
+```ruby
+let(:chef_run) { ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '14.04') }
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.20.0` | String
+Include | `**/spec/**/*.rb` | Array
+
 ## ChefDeprecations/DeprecatedPlatformMethods
 
 Enabled by default | Supports autocorrection
