@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.19.13 -->
-## [v5.19.13](https://github.com/chef/cookstyle/tree/v5.19.13) (2020-01-23)
+ <!-- latest_release 5.20.0 -->
+## [v5.20.0](https://github.com/chef/cookstyle/tree/v5.20.0) (2020-01-23)
 
 #### Merged Pull Requests
-- Add ChefDeprecations/DeprecatedChefSpecPlatform [#511](https://github.com/chef/cookstyle/pull/511) ([tas50](https://github.com/tas50))
+- Fix autocorrection failures in ChefDeprecations/ChefHandlerUsesSupports [#508](https://github.com/chef/cookstyle/pull/508) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.19.9 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Fix autocorrection failures in ChefDeprecations/ChefHandlerUsesSupports [#508](https://github.com/chef/cookstyle/pull/508) ([tas50](https://github.com/tas50)) <!-- 5.20.0 -->
 - Add ChefDeprecations/DeprecatedChefSpecPlatform [#511](https://github.com/chef/cookstyle/pull/511) ([tas50](https://github.com/tas50)) <!-- 5.19.13 -->
 - Catch shelling out to sysctl when using the full path [#510](https://github.com/chef/cookstyle/pull/510) ([tas50](https://github.com/tas50)) <!-- 5.19.12 -->
 - Add autocorrect to libarchive_file resources [#509](https://github.com/chef/cookstyle/pull/509) ([tas50](https://github.com/tas50)) <!-- 5.19.11 -->
