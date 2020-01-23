@@ -705,6 +705,13 @@ ChefDeprecations/DeprecatedPlatformMethods:
     - '**/resources/*.rb'
     - '**/providers/*.rb'
 
+ChefDeprecations/DeprecatedChefSpecPlatform:
+  Description: Use currently supported platforms in ChefSpec listed at https://github.com/chefspec/fauxhai/blob/master/PLATFORMS.md. Fauxhai / ChefSpec will perform fuzzy matching on platform version so it's always best to be less specific ie. 10 instead of 10.3
+  Enabled: true
+  VersionAdded: '5.20.0'
+  Include:
+    - '**/spec/**/*.rb'
+
 ###############################
 # ChefModernize: Cleaning up legacy code and using new built-in resources
 ###############################
