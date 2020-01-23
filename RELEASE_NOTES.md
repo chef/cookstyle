@@ -6,7 +6,7 @@
 
 The `ChefDeprecations/DeprecatedChefSpecPlatform` cop detects the usage of platforms in ChefSpec tests that have been deprecated in the Fauxhai / ChefSpec projects. Using these older platforms will cause you specs to error as mock Ohai data cannot be loaded to emulate a full Chef Infra Client run.
 
-These deprecations occur as the Fauxhai project, which provides the mock Ohai data, has to be pruned from time to time in order to avoid the package size from becoming too large. The solution to avoid this problem in your specs is to utilize the newer platform matching functionality in ChefSpec. Previously when writing specs you needed to specify the exact platform release, but now you can skip the version to let ChefSpec load the latest or you can provide just the major release and let ChefSpec do the rest.
+These deprecations occur as the Fauxhai project, which provides the mock Ohai data, has to be pruned from time to time to avoid the package size from becoming too large. The solution to avoid this problem in your specs is to utilize the newer platform matching functionality in ChefSpec. Previously when writing specs you needed to specify the exact platform release, but now you can skip the version to let ChefSpec load the latest or you can provide just the major release and let ChefSpec do the rest.
 
 `Examples`
 
@@ -66,7 +66,7 @@ depends 'windows'
 - Various cops that remove legacy code no longer leave behind empty lines when autocorrecting.
 - `ChefRedundantCode/LongDescriptionMetadata` now properly autocorrects when `long_description` uses a here document (heredoc).
 - `ChefDeprecations/UserDeprecatedSupportsProperty` no longer fails to autocorrect when the supports hash uses Ruby 1.8 hash rocket syntax.
-- `ChefStyle/FileMode` now autocorrects file modes using single quotes instead of double quotes.
+- `ChefStyle/FileMode` now autocorrects file modes using single quotes instead of double-quotes.
 - `ChefSharing/InvalidLicenseString` now autocorrects `UNLICENSED` to `all rights reserved`.
 - `ChefModernize/AllowedActionsFromInitialize` no longer alerts when appending into an existing `@allowed_actions` variable.
 
@@ -113,7 +113,7 @@ The `ChefRedundantCode/AptRepositoryDistributionDefault` cop detects `apt_reposi
 
 ### New TargetChefVersion Configuration
 
-Cookstyle now includes a new top-level configuration option `TargetChefVersion`. This new configuration option works similar to RuboCop's `TargetRubyVersion` config option and allows you to specify a Chef Infra version that you want to target in your Cookstyle analysis. This prevents Cookstyle from autocorrecting cookbook code in a way that would make your cookbook incompatible with your desired Chef Infra Client version. It also makes it easier to perform staged upgrades of the Chef Infra Client by allowing you to step the `TargetChefVersion` one major version at a time.
+Cookstyle now includes a new top-level configuration option `TargetChefVersion`. This new configuration option works similarly to RuboCop's `TargetRubyVersion` config option and allows you to specify a Chef Infra version that you want to target in your Cookstyle analysis. This prevents Cookstyle from autocorrecting cookbook code in a way that would make your cookbook incompatible with your desired Chef Infra Client version. It also makes it easier to perform staged upgrades of the Chef Infra Client by allowing you to step the `TargetChefVersion` one major version at a time.
 
 Example .rubocop.yml config specifying a TargetChefVersion of 14.0:
 
@@ -256,7 +256,7 @@ provider = Chef::Platform.find_provider_for_node(node, resource)
 
 #### ChefRedundantCode/SensitivePropertyInResource
 
-The `ChefRedundantCode/SensitivePropertyInResource` cop detects resources that default a `sensitive` property with a default value of `false`. Chef Infra defines this same property / default combination on all resources, so this code is not necessary.
+The `ChefRedundantCode/SensitivePropertyInResource` cop detects resources that default a `sensitive` property with a default value of `false`. Chef Infra defines this same property/default combination on all resources, so this code is not necessary.
 
 `Enabled by default`: True
 
