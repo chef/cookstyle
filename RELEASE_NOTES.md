@@ -1,3 +1,39 @@
+## Cookstyle 5.20
+
+### 1 New Cop
+
+#### ChefDeprecations/DeprecatedChefSpecPlatform
+
+The `ChefDeprecations/DeprecatedChefSpecPlatform` cop detects the usage of platforms in ChefSpec tests that have been deprecated in the Fauxhai / ChefSpec projects. Using these older platforms will cause you specs to error as mock Ohai data cannot be loaded to emulate a full Chef Infra Client run.
+
+These deprecations occur as the Fauxhai project, which provides the mock Ohai data, has to be pruned from time to time in order to avoid the package size from becoming too large. The solution to avoid this problem in your specs is to utilize the newer platform matching functionality in ChefSpec. Previously when writing specs you needed to specify the exact platform release, but now you can skip the version to let ChefSpec load the latest or you can provide just the major release and let ChefSpec do the rest.
+
+`Examples`
+
+ChefSpec calling a deprecated release of Debian 8:
+
+```ruby
+let(:chef_run) { ChefSpec::ServerRunner.new(platform: 'debian', version: '8.2') }
+```
+
+ChefSpec calling using the latest minor version of Debian 8 instead:
+
+```ruby
+let(:chef_run) { ChefSpec::ServerRunner.new(platform: 'debian', version: '8') }
+```
+
+ChefSpec calling using the latest major.minor version of Debian instead:
+
+```ruby
+let(:chef_run) { ChefSpec::ServerRunner.new(platform: 'debian') }
+```
+
+### Other fixes and changes
+
+- The `ChefModernize/ExecuteSysctl` cop will now detect `execute` resources that call systctl using the full path to the binary.
+- The `ChefModernize/LibarchiveFileResource` resource will now autocorrect usage of the `libarchive_file` resource to use Chef Infra Client's built-in `archive_file` resource.
+- The `ChefStyle/UnnecessaryPlatformCaseStatement` cop will no longer attempt to autocorrect empty case statements.
+
 ## Cookstyle 5.19
 
 ### 2 New Cops
