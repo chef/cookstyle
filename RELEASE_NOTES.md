@@ -66,7 +66,7 @@ depends 'windows'
 - Various cops that remove legacy code no longer leave behind empty lines when autocorrecting.
 - `ChefRedundantCode/LongDescriptionMetadata` now properly autocorrects when `long_description` uses a here document (heredoc).
 - `ChefDeprecations/UserDeprecatedSupportsProperty` no longer fails to autocorrect when the supports hash uses Ruby 1.8 hash rocket syntax.
-- `ChefStyle/FileMode` now autocorrects file modes using single quotes instead of double-quotes.
+- `ChefStyle/FileMode` now autocorrects file modes using single quotes instead of double quotes.
 - `ChefSharing/InvalidLicenseString` now autocorrects `UNLICENSED` to `all rights reserved`.
 - `ChefModernize/AllowedActionsFromInitialize` no longer alerts when appending into an existing `@allowed_actions` variable.
 
