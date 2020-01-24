@@ -1,3 +1,39 @@
+## Cookstyle 5.20
+
+### 1 New Cop
+
+#### ChefDeprecations/DeprecatedChefSpecPlatform
+
+The `ChefDeprecations/DeprecatedChefSpecPlatform` cop detects platforms in ChefSpec tests that have been deprecated in the Fauxhai / ChefSpec projects. Specifying deprecated platforms will create errors in ChefSpec because the mock Ohai data cannot be loaded to emulate a full Chef Infra Client run.
+
+Platforms are deprecated from the Fauxhai project from time to time to prevent the Fauxhai package size from becoming too large. To avoid specifying deprecated platforms, use the newer platform matching functionality in ChefSpec. Previously you needed to specify the exact platform release when writing specs, but now ChefSpec will load the latest version if you skip the version number, or you can provide the major release and let ChefSpec do the rest.
+
+`Examples`
+
+ChefSpec calling a deprecated release of Debian 8:
+
+```ruby
+let(:chef_run) { ChefSpec::ServerRunner.new(platform: 'debian', version: '8.2') }
+```
+
+ChefSpec calling the latest minor version of Debian 8 instead:
+
+```ruby
+let(:chef_run) { ChefSpec::ServerRunner.new(platform: 'debian', version: '8') }
+```
+
+ChefSpec calling using the latest major.minor version of Debian instead:
+
+```ruby
+let(:chef_run) { ChefSpec::ServerRunner.new(platform: 'debian') }
+```
+
+### Other fixes and changes
+
+- The `ChefModernize/ExecuteSysctl` cop will now detect `execute` resources that call systctl using the full path to the binary.
+- The `ChefModernize/LibarchiveFileResource` resource will now replace the `libarchive_file` resource with Chef Infra Client's built-in `archive_file` resource.
+- The `ChefStyle/UnnecessaryPlatformCaseStatement` cop will no longer attempt to autocorrect empty case statements.
+
 ## Cookstyle 5.19
 
 ### 2 New Cops
@@ -77,7 +113,7 @@ The `ChefRedundantCode/AptRepositoryDistributionDefault` cop detects `apt_reposi
 
 ### New TargetChefVersion Configuration
 
-Cookstyle now includes a new top-level configuration option `TargetChefVersion`. This new configuration option works similar to RuboCop's `TargetRubyVersion` config option and allows you to specify a Chef Infra version that you want to target in your Cookstyle analysis. This prevents Cookstyle from autocorrecting cookbook code in a way that would make your cookbook incompatible with your desired Chef Infra Client version. It also makes it easier to perform staged upgrades of the Chef Infra Client by allowing you to step the `TargetChefVersion` one major version at a time.
+Cookstyle now includes a new top-level configuration option `TargetChefVersion`. This new configuration option works similarly to RuboCop's `TargetRubyVersion` config option and allows you to specify a Chef Infra version that you want to target in your Cookstyle analysis. This prevents Cookstyle from autocorrecting cookbook code in a way that would make your cookbook incompatible with your desired Chef Infra Client version. It also makes it easier to perform staged upgrades of the Chef Infra Client by allowing you to step the `TargetChefVersion` one major version at a time.
 
 Example .rubocop.yml config specifying a TargetChefVersion of 14.0:
 
@@ -220,7 +256,7 @@ provider = Chef::Platform.find_provider_for_node(node, resource)
 
 #### ChefRedundantCode/SensitivePropertyInResource
 
-The `ChefRedundantCode/SensitivePropertyInResource` cop detects resources that default a `sensitive` property with a default value of `false`. Chef Infra defines this same property / default combination on all resources, so this code is not necessary.
+The `ChefRedundantCode/SensitivePropertyInResource` cop detects resources that default a `sensitive` property with a default value of `false`. Chef Infra defines this same property/default combination on all resources, so this code is not necessary.
 
 `Enabled by default`: True
 
