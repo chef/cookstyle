@@ -31,7 +31,7 @@ let(:chef_run) { ChefSpec::ServerRunner.new(platform: 'debian') }
 ### Other fixes and changes
 
 - The `ChefModernize/ExecuteSysctl` cop will now detect `execute` resources that call systctl using the full path to the binary.
-- The `ChefModernize/LibarchiveFileResource` resource will now autocorrect usage of the `libarchive_file` resource to use Chef Infra Client's built-in `archive_file` resource.
+- The `ChefModernize/LibarchiveFileResource` resource will now replace the `libarchive_file` resource with Chef Infra Client's built-in `archive_file` resource.
 - The `ChefStyle/UnnecessaryPlatformCaseStatement` cop will no longer attempt to autocorrect empty case statements.
 
 ## Cookstyle 5.19
