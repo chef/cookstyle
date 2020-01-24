@@ -4,7 +4,7 @@
 
 #### ChefDeprecations/DeprecatedChefSpecPlatform
 
-The `ChefDeprecations/DeprecatedChefSpecPlatform` cop detects the usage of platforms in ChefSpec tests that have been deprecated in the Fauxhai / ChefSpec projects. Using these older platforms will cause you specs to error as mock Ohai data cannot be loaded to emulate a full Chef Infra Client run.
+The `ChefDeprecations/DeprecatedChefSpecPlatform` cop detects platforms in ChefSpec tests that have been deprecated in the Fauxhai / ChefSpec projects. Specifying deprecated platforms will create errors in ChefSpec because the mock Ohai data cannot be loaded to emulate a full Chef Infra Client run.
 
 These deprecations occur as the Fauxhai project, which provides the mock Ohai data, has to be pruned from time to time to avoid the package size from becoming too large. The solution to avoid this problem in your specs is to utilize the newer platform matching functionality in ChefSpec. Previously when writing specs you needed to specify the exact platform release, but now you can skip the version to let ChefSpec load the latest or you can provide just the major release and let ChefSpec do the rest.
 
