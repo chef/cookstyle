@@ -16,7 +16,7 @@ ChefSpec calling a deprecated release of Debian 8:
 let(:chef_run) { ChefSpec::ServerRunner.new(platform: 'debian', version: '8.2') }
 ```
 
-ChefSpec calling using the latest minor version of Debian 8 instead:
+ChefSpec calling the latest minor version of Debian 8 instead:
 
 ```ruby
 let(:chef_run) { ChefSpec::ServerRunner.new(platform: 'debian', version: '8') }
