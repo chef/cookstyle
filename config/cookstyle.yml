@@ -1958,3 +1958,8 @@ Style/IfUnlessModifier:
 # in general cookbooks shouldn't include a gemfile, but if they do they can do with it as they wish
 Bundler/OrderedGems:
   Enabled: false
+
+# extend self and module_function are not the same. module_function makes all the methods private
+# and this rule will break any library that worked with extend self.
+Style/ModuleFunction:
+  Enabled: false
