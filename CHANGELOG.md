@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 5.20.1 -->
+## [v5.20.1](https://github.com/chef/cookstyle/tree/v5.20.1) (2020-02-04)
+
+#### Merged Pull Requests
+- Disable Style/ModuleFunction [#517](https://github.com/chef/cookstyle/pull/517) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=5.20.0 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Disable Style/ModuleFunction [#517](https://github.com/chef/cookstyle/pull/517) ([tas50](https://github.com/tas50)) <!-- 5.20.1 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
