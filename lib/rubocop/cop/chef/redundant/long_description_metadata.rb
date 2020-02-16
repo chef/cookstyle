@@ -28,6 +28,7 @@ module RuboCop
         #
         class LongDescriptionMetadata < Cop
           include RangeHelp
+          include RuboCop::Chef::AutocorrectHelpers
 
           MSG = 'The long_description metadata.rb method is not used and is unnecessary in cookbooks.'.freeze
 
@@ -37,12 +38,7 @@ module RuboCop
 
           def autocorrect(node)
             lambda do |corrector|
-              if node.arguments.first.respond_to?(:heredoc?) && node.arguments.first.heredoc?
-                total_range = range_with_surrounding_space(range: node.loc.expression.join(node.arguments.first.loc.heredoc_end), side: :left)
-                corrector.remove(total_range)
-              else
-                corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
-              end
+              corrector.remove(range_with_surrounding_space(range: expression_including_heredocs(node), side: :left))
             end
           end
         end

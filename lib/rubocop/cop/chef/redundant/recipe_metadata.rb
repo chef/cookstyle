@@ -29,6 +29,7 @@ module RuboCop
         #
         class RecipeMetadata < Cop
           include RangeHelp
+          include RuboCop::Chef::AutocorrectHelpers
 
           MSG = "The recipe metadata.rb method is not used and is unnecessary in cookbooks. Recipes should be documented in the cookbook's README.md file instead.".freeze
 
@@ -38,7 +39,7 @@ module RuboCop
 
           def autocorrect(node)
             lambda do |corrector|
-              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
+              corrector.remove(range_with_surrounding_space(range: expression_including_heredocs(node), side: :left))
             end
           end
         end
