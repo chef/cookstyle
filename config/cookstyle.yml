@@ -1444,8 +1444,6 @@ Style/MethodDefParentheses:
   Enabled: true
 Naming/MethodName:
   Enabled: true
-Style/ModuleFunction:
-  Enabled: true
 Style/MultilineBlockChain:
   Enabled: true
 Layout/MultilineBlockLayout:
