@@ -38,6 +38,7 @@ module Cookstyle
 end
 
 require_relative 'rubocop/chef'
+require_relative 'rubocop/chef/autocorrect_helpers'
 require_relative 'rubocop/chef/cookbook_helpers'
 require_relative 'rubocop/chef/platform_helpers'
 require_relative 'rubocop/chef/cookbook_only'

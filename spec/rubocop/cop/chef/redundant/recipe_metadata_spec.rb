@@ -33,6 +33,24 @@ describe RuboCop::Cop::Chef::ChefRedundantCode::RecipeMetadata, :config do
     RUBY
   end
 
+  it 'properly autocorrects metadata using "recipe" with a heredoc' do
+    expect_offense(<<~RUBY)
+      name 'foo'
+      recipe 'foo::bar', <<-EOH
+      ^^^^^^^^^^^^^^^^^^^^^^^^^ The recipe metadata.rb method is not used and is unnecessary in cookbooks. Recipes should be documented in the cookbook's README.md file instead.
+      Stuff!!
+      More Stuff!!
+      Even More Stuff!!
+      EOH
+      depends 'bar'
+    RUBY
+
+    expect_correction(<<~RUBY)
+      name 'foo'
+      depends 'bar'
+    RUBY
+  end
+
   it "doesn't register an offense on normal metadata" do
     expect_no_offenses(<<~RUBY)
       depends 'foo'

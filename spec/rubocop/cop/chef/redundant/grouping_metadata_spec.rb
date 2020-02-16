@@ -34,6 +34,24 @@ describe RuboCop::Cop::Chef::ChefRedundantCode::GroupingMetadata, :config do
     RUBY
   end
 
+  it 'properly autocorrects metadata using "grouping" with a heredoc' do
+    expect_offense(<<~RUBY)
+      name 'foo'
+      grouping 'foo', <<-EOH
+      ^^^^^^^^^^^^^^^^^^^^^^ The grouping metadata.rb method is not used and is unnecessary in cookbooks.
+      Stuff!!
+      More Stuff!!
+      Even More Stuff!!
+      EOH
+      depends 'bar'
+    RUBY
+
+    expect_correction(<<~RUBY)
+      name 'foo'
+      depends 'bar'
+    RUBY
+  end
+
   it "doesn't register an offense on normal metadata" do
     expect_no_offenses(<<~RUBY)
       depends 'foo'

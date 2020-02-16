@@ -34,6 +34,7 @@ module RuboCop
         #
         class AttributeMetadata < Cop
           include RangeHelp
+          include RuboCop::Chef::AutocorrectHelpers
 
           MSG = 'The attribute metadata.rb method is not used and is unnecessary in cookbooks.'.freeze
 
@@ -43,7 +44,7 @@ module RuboCop
 
           def autocorrect(node)
             lambda do |corrector|
-              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :right))
+              corrector.remove(range_with_surrounding_space(range: expression_including_heredocs(node), side: :left))
             end
           end
         end
