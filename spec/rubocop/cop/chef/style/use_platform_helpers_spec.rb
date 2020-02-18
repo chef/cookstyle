@@ -83,4 +83,17 @@ describe RuboCop::Cop::Chef::ChefStyle::UsePlatformHelpers do
       end
     RUBY
   end
+
+  it "registers an offense when checking platform using node['platform'].eql?()" do
+    expect_offense(<<~RUBY)
+      if node['platform'].eql?('ubuntu')
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use platform? and platform_family? helpers to check a node's platform
+      end
+    RUBY
+
+    expect_correction(<<~RUBY)
+      if platform?('ubuntu')
+      end
+    RUBY
+  end
 end

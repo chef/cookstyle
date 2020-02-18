@@ -28,6 +28,7 @@ module RuboCop
         #   node['platform'] != 'ubuntu'
         #   node['platform_family'] != 'debian'
         #   %w(rhel suse).include?(node['platform_family'])
+        #   node['platform'].eql?('ubuntu')
         #
         #   # good
         #   platform?('ubuntu')
@@ -47,12 +48,20 @@ module RuboCop
             (send $(array ...) :include? (send (send nil? :node) :[] $(str {"platform" "platform_family"})))
           PATTERN
 
+          def_node_matcher :platform_eql?, <<-PATTERN
+          (send (send (send nil? :node) :[] $(str {"platform" "platform_family"}) ) :eql? $str )
+          PATTERN
+
           def on_send(node)
             platform_equals?(node) do
               add_offense(node, location: :expression, message: MSG, severity: :refactor)
             end
 
             platform_include?(node) do
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            end
+
+            platform_eql?(node) do
               add_offense(node, location: :expression, message: MSG, severity: :refactor)
             end
           end
@@ -68,6 +77,11 @@ module RuboCop
               platform_include?(node) do |plats, type|
                 platforms = plats.values.map { |x| x.str_type? ? "'#{x.value}'" : x.source }
                 corrected_string = "#{type.value}?(#{platforms.join(', ')})"
+                corrector.replace(node.loc.expression, corrected_string)
+              end
+
+              platform_eql?(node) do |type, plat|
+                corrected_string = "#{type.value}?('#{plat.value}')"
                 corrector.replace(node.loc.expression, corrected_string)
               end
             end
