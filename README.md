@@ -110,6 +110,19 @@ end
 
 As with RuboCop, any custom settings can still be placed in a `.rubocop.yml` file in the root of your project.
 
+### Testing Against Specific Chef Versions
+
+Many of the cops included in Cookstyle will autocorrect Chef Infra cookbook code in ways that will require fairly recent releases of Chef Infra Client in order to run those cookbooks. For example the `Chef/UnnecessaryDependsChef14` cop will remove cookbook dependencies from your `metadata.rb`, which are no longer necessary with Chef Infra Client 14+. This cop would be problematic if you ran it against your cookbooks, and had yet to upgrade your fleet of systems to Chef Infra Client 14+. For this reason you may want to configure Cookstyle to skip cops that would be destructive on older version of Chef Infra Client by setting.
+
+Cookstyle now includes a new top-level configuration option TargetChefVersion. This new configuration option works similarly to RuboCop's TargetRubyVersion config option and allows you to specify a Chef Infra version that you want to target in your Cookstyle analysis. By setting the target version you disable incompatible cops and autocorrect from running. This allows you to gradually update your target version to allow stepped upgrades of Chef Infra Client such as 12.something -> 12.latest -> 13.latest -> 14.lastest -> 15.latest.
+
+Example .rubocop.yml config specifying a TargetChefVersion of 14.0:
+
+```yaml
+AllCops:
+  TargetChefVersion: 14.0
+```
+
 ## Getting Involved
 
 We'd love to have your help in developing Cookstyle. See our [Contributing Guide](https://github.com/chef/chef/blob/master/CONTRIBUTING.md) for more information on contributing to Chef projects. There's also a [Developer Guide](./DEVELOPER_GUIDE.md) for Cookstyle that outlines how the configs work and how you can upgrade the RuboCop engine.
