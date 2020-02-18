@@ -382,6 +382,7 @@ node['platform_family'] == 'debian'
 node['platform'] != 'ubuntu'
 node['platform_family'] != 'debian'
 %w(rhel suse).include?(node['platform_family'])
+node['platform'].eql?('ubuntu')
 
 # good
 platform?('ubuntu')

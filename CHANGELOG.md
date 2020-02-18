@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.21.2 -->
-## [v5.21.2](https://github.com/chef/cookstyle/tree/v5.21.2) (2020-02-16)
+ <!-- latest_release 5.21.3 -->
+## [v5.21.3](https://github.com/chef/cookstyle/tree/v5.21.3) (2020-02-18)
 
 #### Merged Pull Requests
-- Remove the duplicate Style/ModuleFunction config [#521](https://github.com/chef/cookstyle/pull/521) ([tas50](https://github.com/tas50))
+- Expand ChefStyle/UsePlatformHelpers to also detect node[&#39;platform&#39;].eql? [#523](https://github.com/chef/cookstyle/pull/523) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.20.0 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Expand ChefStyle/UsePlatformHelpers to also detect node[&#39;platform&#39;].eql? [#523](https://github.com/chef/cookstyle/pull/523) ([tas50](https://github.com/tas50)) <!-- 5.21.3 -->
 - Remove the duplicate Style/ModuleFunction config [#521](https://github.com/chef/cookstyle/pull/521) ([tas50](https://github.com/tas50)) <!-- 5.21.2 -->
 - Make sure metadata cops properly autocorrect heredocs [#520](https://github.com/chef/cookstyle/pull/520) ([tas50](https://github.com/tas50)) <!-- 5.21.1 -->
 - Set the target ruby version to 2.3 to support Chef 12 [#518](https://github.com/chef/cookstyle/pull/518) ([tas50](https://github.com/tas50)) <!-- 5.21.0 -->
