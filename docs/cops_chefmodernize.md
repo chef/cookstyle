@@ -1099,6 +1099,41 @@ Name | Default value | Configurable values
 VersionAdded | `5.5.0` | String
 Exclude | `**/metadata.rb` | Array
 
+## ChefModernize/SimplifyAptPpaSetup
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+The apt_repository resource allows setting up PPAs without using the full URL to ppa.launchpad.net, which should be used to simplify the resource code in your cookbooks.
+
+### Examples
+
+```ruby
+# bad
+  apt_repository 'atom-ppa' do
+    uri 'http://ppa.launchpad.net/webupd8team/atom/ubuntu'
+    components ['main']
+    keyserver 'keyserver.ubuntu.com'
+    key 'C2518248EEA14886'
+  end
+
+# good
+  apt_repository 'atom-ppa' do
+    uri 'ppa:webupd8team/atom'
+    components ['main']
+    keyserver 'keyserver.ubuntu.com'
+    key 'C2518248EEA14886'
+  end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.21.0` | String
+Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
+
 ## ChefModernize/SysctlParamResource
 
 Enabled by default | Supports autocorrection

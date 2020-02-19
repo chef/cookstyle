@@ -238,6 +238,33 @@ VersionAdded | `5.1.0` | String
 VersionChanged | `5.15.0` | String
 Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
 
+## ChefRedundantCode/PropertySplatRegex
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+When a property has a type of String it can accept any string. There is no need to also validate string inputs against a regex that accept all values.
+
+### Examples
+
+```ruby
+# bad
+property :config_file, String, regex: /.*/
+attribute :config_file, String, regex: /.*/
+
+# good
+property :config_file, String
+attribute :config_file, String
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.21.0` | String
+Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
+
 ## ChefRedundantCode/PropertyWithRequiredAndDefault
 
 Enabled by default | Supports autocorrection
@@ -379,6 +406,33 @@ property :sensitive, [true, false], default: false
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.16.0` | String
+Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
+
+## ChefRedundantCode/StringPropertyWithNilDefault
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+Properties have a nil value by default so there is no need to set the default value to nil.
+
+### Examples
+
+```ruby
+# bad
+property :config_file, String, default: nil
+property :config_file, [String, NilClass], default: nil
+
+# good
+property :config_file, String
+property :config_file, [String, NilClass]
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.21.0` | String
 Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
 
 ## ChefRedundantCode/SuggestsMetadata
