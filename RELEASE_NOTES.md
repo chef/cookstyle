@@ -8,7 +8,7 @@ The `ChefStyle/UnnecessaryOSCheck` cop checks cookbooks that use `node['os']` to
 
 #### ChefModernize/SimplifyAptPpaSetup
 
-The `ChefModernize/SimplifyAptPpaSetup` cop detects `apt_repository` resources that setup Ubuntu PPAs by using their full URL such as `http://ppa.launchpad.net/webupd8team/atom/ubuntu`, which can be simplified to just `ppa:webupd8team/atom` instead.
+The `ChefModernize/SimplifyAptPpaSetup` cop detects `apt_repository` resources that setup Ubuntu PPAs by using their full URL. For example, `http://ppa.launchpad.net/webupd8team/atom/ubuntu` can be simplified to just `ppa:webupd8team/atom`.
 
 #### ChefRedundantCode/StringPropertyWithNilDefault
 
