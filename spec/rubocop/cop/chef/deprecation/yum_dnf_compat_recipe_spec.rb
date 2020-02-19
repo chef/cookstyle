@@ -21,8 +21,25 @@ describe RuboCop::Cop::Chef::ChefDeprecations::IncludingYumDNFCompatRecipe, :con
 
   it 'registers an offense when including the "yum::dnf_yum_compat" recipe' do
     expect_offense(<<~RUBY)
-      include_recipe 'yum::dnf_yum_compat'
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Do not include the deprecated yum::dnf_yum_compat default recipe to install yum on dnf systems. Chef Infra Client now includes built in support for DNF packages.
+      if platform?('fedora')
+        log "on fedora"
+
+        include_recipe 'yum::dnf_yum_compat'
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Do not include the deprecated yum::dnf_yum_compat default recipe to install yum on dnf systems. Chef Infra Client now includes built in support for DNF packages.
+      end
+    RUBY
+
+    expect_correction(<<~RUBY)
+      if platform?('fedora')
+        log "on fedora"
+      end
+    RUBY
+  end
+
+  it 'autocorrection removes any inline if statements gating the include_recipe' do
+    expect_offense(<<~RUBY)
+      include_recipe 'yum::dnf_yum_compat' if platform?('fedora')
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Do not include the deprecated yum::dnf_yum_compat default recipe to install yum on dnf systems. Chef Infra Client now includes built in support for DNF packages.
     RUBY
 
     expect_correction("\n")
