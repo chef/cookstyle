@@ -4,7 +4,7 @@
 
 #### ChefStyle/UnnecessaryOSCheck
 
-The `ChefStyle/UnnecessaryOSCheck` cop checks cookbooks that use `node['os']` to check the operating system of a node, when they could instead use the `platform_family?()` helper. All values of `os` from Ohai match 1:1 with `platform_family` values except for `linux`, which has no single equivelant `plaform_family`.
+The `ChefStyle/UnnecessaryOSCheck` cop checks cookbooks that use `node['os']` to check the operating system of a node, when they could instead use the `platform_family?()` helper. All values of `os` from Ohai match one-to-one with `platform_family` values, except for `linux` which has no single equivalent `plaform_family`.
 
 #### ChefModernize/SimplifyAptPpaSetup
 
