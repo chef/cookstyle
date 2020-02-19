@@ -71,4 +71,15 @@ describe RuboCop::Cop::Chef::ChefDeprecations::WindowsTaskChangeAction, :config 
       end
     RUBY
   end
+
+  it "doesn't register an offense when windows_task uses a variable or method for the action" do
+    expect_no_offenses(<<~RUBY)
+      windows_task 'chef ad-join leave start time' do
+        task_name 'chef ad-join leave'
+        start_day '06/09/2016'
+        start_time '01:00'
+        action foo
+      end
+    RUBY
+  end
 end
