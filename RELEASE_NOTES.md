@@ -1,3 +1,34 @@
+## Cookstyle 5.21
+
+### 4 New Cops
+
+#### ChefStyle/UnnecessaryOSCheck
+
+The `ChefStyle/UnnecessaryOSCheck` cop checks cookbooks that use `node['os']` to check the operating system of a node, when they could instead use the `platform_family?()` helper. All values of `os` from Ohai match 1:1 with `platform_family` values except for `linux`, which has no single equivelant `plaform_family`.
+
+#### ChefModernize/SimplifyAptPpaSetup
+
+The `ChefModernize/SimplifyAptPpaSetup` cop detects `apt_repository` resources that setup Ubuntu PPAs by using their full URL such as `http://ppa.launchpad.net/webupd8team/atom/ubuntu`, which can be simplified to just `ppa:webupd8team/atom` instead.
+
+#### ChefRedundantCode/StringPropertyWithNilDefault
+
+The `ChefRedundantCode/StringPropertyWithNilDefault` cop detects String type resource properties that set their default value to `nil`. All String type properties default to `nil` so this does not need to be set.
+
+#### ChefRedundantCode/PropertySplatRegex
+
+The `ChefRedundantCode/PropertySplatRegex` cop detects String type resource that validate their input with a regex of `/.*/`. This regex will match on any String value and is not necessary.
+
+### Other fixes and changes
+
+- `ChefDeprecations/IncludingYumDNFCompatRecipe` will now remove any inline conditionals around the `include_recipe` statement during autocorrection so that it does not leave behind invalid Ruby.
+- `ChefDeprecations/WindowsTaskChangeAction` will no longer fail when the action value is not a String type value.
+- `ChefSharing/InvalidLicenseString` will not autocorrect `apache v2` to `Apache-2.0`.
+- `Layout/EndAlignment` and `Layout/DefEndAlignment` now have autocorrection enabled to eliminate the need for manually fixing indentation in cookbooks.
+- `ChefStyle/UsePlatformHelpers` now detects and autocorrects `node['platform'].eql?()` usage.
+- `Style/ModuleFunction` cop has been disabled as this caused libraries helpers to fail to load.
+- All metadata cops now properly autocorrect legacy metadata that included HEREDOCs.
+- The `TargetRubyVersion` is now set to 2.3 to match that Ruby that shipped in Chef Infra Client 12. This config value is used to enable/disable cops and autocorrection that may break Ruby code in these older Chef Infra Client releases. If you're on a later release of Chef Infra Client you can set this value to Ruby 2.6 to enable additional cops and autocorrection.
+
 ## Cookstyle 5.20
 
 ### 1 New Cop

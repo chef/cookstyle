@@ -18,7 +18,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefStyle
-        # Use the platform_family?() helpers instead of node['os] == 'foo' for platform_families that match 1:1 with OS values. These helpers are easier to read and can accept multiple platform arguments, which greatly simplifies complex platform logic.
+        # Use the platform_family?() helpers instead of node['os] == 'foo' for platform_families that match 1:1 with OS values. These helpers are easier to read and can accept multiple platform arguments, which greatly simplifies complex platform logic. All values of `os` from Ohai match 1:1 with `platform_family` values except for `linux`, which has no single equivelant `plaform_family`.
         #
         # @example
         #
