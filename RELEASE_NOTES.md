@@ -25,7 +25,7 @@ The `ChefRedundantCode/PropertySplatRegex` cop detects String type resource that
 - `ChefSharing/InvalidLicenseString` will not autocorrect `apache v2` to `Apache-2.0`.
 - `Layout/EndAlignment` and `Layout/DefEndAlignment` now have autocorrection enabled to eliminate the need for manually fixing indentation in cookbooks.
 - `ChefStyle/UsePlatformHelpers` now detects and autocorrects `node['platform'].eql?()` usage.
-- `Style/ModuleFunction` cop has been disabled as this caused libraries helpers to fail to load.
+- `Style/ModuleFunction` cop has been disabled because this caused library helpers to fail to load.
 - All metadata cops now properly autocorrect legacy metadata that included HEREDOCs.
 - The `TargetRubyVersion` is now set to 2.3 to match that Ruby that shipped in Chef Infra Client 12. This config value is used to enable/disable cops and autocorrection that may break Ruby code in these older Chef Infra Client releases. If you're on a later release of Chef Infra Client you can set this value to Ruby 2.6 to enable additional cops and autocorrection.
 
