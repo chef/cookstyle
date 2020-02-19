@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.21.5 -->
-## [v5.21.5](https://github.com/chef/cookstyle/tree/v5.21.5) (2020-02-19)
+ <!-- latest_release 5.21.6 -->
+## [v5.21.6](https://github.com/chef/cookstyle/tree/v5.21.6) (2020-02-19)
 
 #### Merged Pull Requests
-- Autocorrect &#39;apache v2&#39; to &#39;Apache-2.0&#39; [#530](https://github.com/chef/cookstyle/pull/530) ([tas50](https://github.com/tas50))
+- Don&#39;t fail ChefDeprecations/WindowsTaskChangeAction with a non-string action [#531](https://github.com/chef/cookstyle/pull/531) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.20.0 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Don&#39;t fail ChefDeprecations/WindowsTaskChangeAction with a non-string action [#531](https://github.com/chef/cookstyle/pull/531) ([tas50](https://github.com/tas50)) <!-- 5.21.6 -->
 - Autocorrect &#39;apache v2&#39; to &#39;Apache-2.0&#39; [#530](https://github.com/chef/cookstyle/pull/530) ([tas50](https://github.com/tas50)) <!-- 5.21.5 -->
 - Autocorrect Layout/EndAlignment and Layout/DefEndAlignment [#529](https://github.com/chef/cookstyle/pull/529) ([tas50](https://github.com/tas50)) <!-- 5.21.4 -->
 - Expand ChefStyle/UsePlatformHelpers to also detect node[&#39;platform&#39;].eql? [#523](https://github.com/chef/cookstyle/pull/523) ([tas50](https://github.com/tas50)) <!-- 5.21.3 -->
