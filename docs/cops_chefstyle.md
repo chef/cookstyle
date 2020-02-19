@@ -326,6 +326,36 @@ Name | Default value | Configurable values
 VersionAdded | `5.16.0` | String
 Include | `**/libraries/*.rb`, `**/resources/*.rb` | Array
 
+## ChefStyle/UnnecessaryOSCheck
+
+Enabled by default | Supports autocorrection
+--- | ---
+Disabled | Yes
+
+Use the platform_family?() helpers instead of node['os] == 'foo' for platform_families that match 1:1 with OS values. These helpers are easier to read and can accept multiple platform arguments, which greatly simplifies complex platform logic.
+
+### Examples
+
+```ruby
+# bad
+node['os'] == 'darwin'
+node['os'] == 'windows'
+node['os'].eql?('aix')
+%w(netbsd openbsd freebsd).include?(node['os'])
+
+# good
+platform_family?('mac_os_x')
+platform_family?('windows')
+platform_family?('aix')
+platform_family?('netbsd', 'openbsd', 'freebsd)
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.21.0` | String
+
 ## ChefStyle/UnnecessaryPlatformCaseStatement
 
 Enabled by default | Supports autocorrection

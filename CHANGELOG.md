@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.21.8 -->
-## [v5.21.8](https://github.com/chef/cookstyle/tree/v5.21.8) (2020-02-19)
+ <!-- latest_release 5.21.9 -->
+## [v5.21.9](https://github.com/chef/cookstyle/tree/v5.21.9) (2020-02-19)
 
 #### Merged Pull Requests
-- Add 3 new cops [#522](https://github.com/chef/cookstyle/pull/522) ([tas50](https://github.com/tas50))
+- Add new ChefStyle/UnnecessaryOSCheck cop [#524](https://github.com/chef/cookstyle/pull/524) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.20.0 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add new ChefStyle/UnnecessaryOSCheck cop [#524](https://github.com/chef/cookstyle/pull/524) ([tas50](https://github.com/tas50)) <!-- 5.21.9 -->
 - Add 3 new cops [#522](https://github.com/chef/cookstyle/pull/522) ([tas50](https://github.com/tas50)) <!-- 5.21.8 -->
 - Fix IncludingYumDNFCompatRecipe to not break with inline conditionals [#532](https://github.com/chef/cookstyle/pull/532) ([tas50](https://github.com/tas50)) <!-- 5.21.7 -->
 - Don&#39;t fail ChefDeprecations/WindowsTaskChangeAction with a non-string action [#531](https://github.com/chef/cookstyle/pull/531) ([tas50](https://github.com/tas50)) <!-- 5.21.6 -->

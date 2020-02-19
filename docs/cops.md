@@ -181,6 +181,7 @@
 * [ChefStyle/OverlyComplexSupportsDependsMetadata](cops_chefstyle.md#chefstyleoverlycomplexsupportsdependsmetadata)
 * [ChefStyle/SimplifyPlatformMajorVersionCheck](cops_chefstyle.md#chefstylesimplifyplatformmajorversioncheck)
 * [ChefStyle/TrueClassFalseClassResourceProperties](cops_chefstyle.md#chefstyletrueclassfalseclassresourceproperties)
+* [ChefStyle/UnnecessaryOSCheck](cops_chefstyle.md#chefstyleunnecessaryoscheck)
 * [ChefStyle/UnnecessaryPlatformCaseStatement](cops_chefstyle.md#chefstyleunnecessaryplatformcasestatement)
 * [ChefStyle/UsePlatformHelpers](cops_chefstyle.md#chefstyleuseplatformhelpers)
 
