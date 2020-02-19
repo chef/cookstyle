@@ -4,6 +4,7 @@ AllCops:
   Exclude:
     - '**/files/**/*'
     - '**/vendor/**/*'
+    - '**/LICENSE'
     - Guardfile
   ChefAttributes:
     Patterns:
@@ -41,6 +42,10 @@ ChefStyle/AttributeKeys:
   - symbols
   Exclude:
     - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefStyle/CopyrightCommentFormat:
   Description: Properly format copyright dates in comment blocks and ensure dates are up to date
@@ -58,6 +63,9 @@ ChefStyle/CommentFormat:
   VersionAdded: '5.0.0'
   Exclude:
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefStyle/FileMode:
   Description: Use strings to represent file modes in Chef resources
@@ -67,6 +75,9 @@ ChefStyle/FileMode:
     - '**/attributes/*'
     - '**/metadata.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefStyle/UsePlatformHelpers:
   Description: Use platform? and platform_family? helpers to check node platform in resources and recipes
@@ -76,6 +87,9 @@ ChefStyle/UsePlatformHelpers:
     - '**/metadata.rb'
     - '**/libraries/*'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefStyle/SimplifyPlatformMajorVersionCheck:
   Description: Use node['platform_version'].to_i instead of node['platform_version'].split('.').first or node['platform_version'].split('.')[0]
@@ -84,6 +98,9 @@ ChefStyle/SimplifyPlatformMajorVersionCheck:
   Exclude:
     - '**/metadata.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefStyle/DefaultCopyrightComments:
   Description: Cookbook copyright comment headers should be updated for a real person or organization.
@@ -97,6 +114,9 @@ ChefStyle/UnnecessaryPlatformCaseStatement:
   Exclude:
     - '**/metadata.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefStyle/ImmediateNotificationTiming:
   Description: Use :immediately instead of :immediate for resource notification timing.
@@ -106,6 +126,9 @@ ChefStyle/ImmediateNotificationTiming:
     - '**/attributes/*.rb'
     - '**/metadata.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefStyle/TrueClassFalseClassResourceProperties:
   Description: When setting the allowed types for a resource to accept either true or false values it's much simpler to use true and false instead of TrueClass and FalseClass.
@@ -155,6 +178,9 @@ ChefCorrectness/ServiceResource:
     - '**/attributes/*.rb'
     - '**/metadata.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefCorrectness/NodeNormal:
   Description: Do not use the node.normal method
@@ -163,6 +189,9 @@ ChefCorrectness/NodeNormal:
   Exclude:
     - '**/metadata.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefCorrectness/NodeNormalUnless:
   Description: Do not use the node.normal_unless method
@@ -171,6 +200,9 @@ ChefCorrectness/NodeNormalUnless:
   Exclude:
     - '**/metadata.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefCorrectness/TmpPath:
   Description: Use file_cache_path rather than hard-coding tmp paths
@@ -179,6 +211,9 @@ ChefCorrectness/TmpPath:
   Exclude:
     - '**/metadata.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefCorrectness/InvalidPlatformMetadata:
   Description: metadata.rb "supports" platform is invalid
@@ -194,6 +229,9 @@ ChefCorrectness/CookbookUsesNodeSave:
   Exclude:
     - '**/metadata.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefCorrectness/CookbooksDependsOnSelf:
   Description: A cookbook cannot depend on itself
@@ -217,6 +255,9 @@ ChefCorrectness/BlockGuardWithOnlyString:
     - '**/attributes/*.rb'
     - '**/metadata.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefCorrectness/ResourceSetsInternalProperties:
   Description: Do not set properties used internally by Chef Infra Client to track the system state.
@@ -235,6 +276,9 @@ ChefCorrectness/ResourceSetsNameProperty:
     - '**/attributes/*.rb'
     - '**/metadata.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefCorrectness/ResourceWithNoneAction:
   Description: Resource uses the nonexistent :none action instead of the :nothing action
@@ -244,6 +288,9 @@ ChefCorrectness/ResourceWithNoneAction:
     - '**/attributes/*.rb'
     - '**/metadata.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefCorrectness/InvalidVersionMetadata:
   Description: Cookbook metadata.rb version field should follow X.Y.Z version format.
@@ -260,6 +307,9 @@ ChefCorrectness/NotifiesActionNotSymbol:
     - '**/attributes/*.rb'
     - '**/metadata.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefCorrectness/IncorrectLibraryInjection:
   Description: Libraries should be injected into the Chef::DSL::Recipe or Chef::DSL::Resource classes and not Recipe/Resource/Provider classes directly.
@@ -275,6 +325,9 @@ ChefCorrectness/InvalidPlatformHelper:
   Exclude:
     - '**/metadata.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefCorrectness/InvalidPlatformFamilyHelper:
   Description: Pass valid platform families to the platform_family? helper.
@@ -283,6 +336,9 @@ ChefCorrectness/InvalidPlatformFamilyHelper:
   Exclude:
     - '**/metadata.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefCorrectness/ScopedFileExist:
   Description: Scope file exist to access the correct File class by using ::File.exist? not File.exist?.
@@ -292,6 +348,9 @@ ChefCorrectness/ScopedFileExist:
     - '**/attributes/*.rb'
     - '**/metadata.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefCorrectness/InvalidPlatformValueForPlatformFamilyHelper:
   Description: Pass valid platforms families to the value_for_platform_family helper.
@@ -300,6 +359,9 @@ ChefCorrectness/InvalidPlatformValueForPlatformFamilyHelper:
   Exclude:
     - '**/metadata.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefCorrectness/InvalidPlatformValueForPlatformHelper:
   Description: Pass valid platforms to the value_for_platform helper.
@@ -308,6 +370,9 @@ ChefCorrectness/InvalidPlatformValueForPlatformHelper:
   Exclude:
     - '**/metadata.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefCorrectness/InvalidNotificationTiming:
   Description: Valid notification timings are :immediately, :immediate (alias for :immediately), :delayed, and :before.
@@ -317,6 +382,9 @@ ChefCorrectness/InvalidNotificationTiming:
     - '**/attributes/*.rb'
     - '**/metadata.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefCorrectness/MalformedPlatformValueForPlatformHelper:
   Description: When using the value_for_platform helper you must include a hash of possible platforms where each platform contains a hash of versions and potential values. If you don't wish to match on a particular version you can instead use the key 'default'.
@@ -325,6 +393,9 @@ ChefCorrectness/MalformedPlatformValueForPlatformHelper:
   Exclude:
     - '**/metadata.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefCorrectness/DnfPackageAllowDowngrades:
   Description: dnf_package does not support the allow_downgrades property
@@ -334,6 +405,9 @@ ChefCorrectness/DnfPackageAllowDowngrades:
     - '**/attributes/*.rb'
     - '**/metadata.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefCorrectness/ChefApplicationFatal:
   Description: Use raise to force Chef Infra Client to fail instead of using Chef::Application.fatal
@@ -423,6 +497,9 @@ ChefDeprecations/NodeDeepFetch:
   Exclude:
     - '**/metadata.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefDeprecations/NodeSet:
   Description: Do not use the deprecated node.set method
@@ -431,6 +508,9 @@ ChefDeprecations/NodeSet:
   Exclude:
     - '**/metadata.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefDeprecations/NodeSetUnless:
   Description: Do not use the deprecated node.set_unless method
@@ -439,6 +519,9 @@ ChefDeprecations/NodeSetUnless:
   Exclude:
     - '**/metadata.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefDeprecations/EpicFail:
   Description: Use ignore_failure method instead of the deprecated epic_fail method
@@ -448,6 +531,9 @@ ChefDeprecations/EpicFail:
     - '**/attributes/*.rb'
     - '**/metadata.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefDeprecations/CookbookDependsOnPoise:
   Description: Cookbooks should not depend on the deprecated Poise framework
@@ -478,6 +564,9 @@ ChefDeprecations/EasyInstallResource:
     - '**/attributes/*.rb'
     - '**/metadata.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefDeprecations/ErlCallResource:
   Description: Don't use the deprecated erl_call resource removed in Chef 13
@@ -487,6 +576,9 @@ ChefDeprecations/ErlCallResource:
     - '**/attributes/*.rb'
     - '**/metadata.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefDeprecations/RequireRecipe:
   Description: Use include_recipe instead of the require_recipe method
@@ -496,6 +588,9 @@ ChefDeprecations/RequireRecipe:
     - '**/attributes/*.rb'
     - '**/metadata.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefDeprecations/NodeMethodsInsteadofAttributes:
   Description: Use node attributes to access Ohai data instead of node methods, which were deprecated in Chef Infra Client 13.
@@ -504,6 +599,9 @@ ChefDeprecations/NodeMethodsInsteadofAttributes:
   Exclude:
     - '**/metadata.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefDeprecations/UsesDeprecatedMixins:
   Description: Don't use deprecated Mixins no longer included in Chef Infra Client 14 and later.
@@ -522,13 +620,21 @@ ChefDeprecations/IncludingXMLRubyRecipe:
     - '**/attributes/*.rb'
     - '**/metadata.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefDeprecations/LegacyYumCookbookRecipes:
   Description: The elrepo, epel, ius, remi, and repoforge recipes were split into their own cookbooks and the yum recipe was renamed to be default with the release of yum cookbook 3.0 (Dec 2013).
   Enabled: true
   VersionAdded: '5.4.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefDeprecations/UsesChefRESTHelpers:
   Description: Don't use the helpers in Chef::REST which were removed in Chef Infra Client 13
@@ -536,34 +642,58 @@ ChefDeprecations/UsesChefRESTHelpers:
   VersionAdded: '5.5.0'
   Exclude:
     - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefDeprecations/ChocolateyPackageUninstallAction:
   Description: Use the :remove action in the chocolatey_package resource instead of :uninstall which was removed in Chef Infra Client 14+
   Enabled: true
   VersionAdded: '5.5.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefDeprecations/LaunchdDeprecatedHashProperty:
   Description: The launchd resource's hash property was renamed to plist_hash in Chef Infra Client 13+ to avoid conflicts with Ruby's hash class.
   Enabled: true
   VersionAdded: '5.5.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefDeprecations/LocaleDeprecatedLcAllProperty:
   Description: The local resource's lc_all property has been deprecated and will be removed in Chef Infra Client 16
   Enabled: true
   VersionAdded: '5.5.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefDeprecations/UserDeprecatedSupportsProperty:
   Description: The supports property was removed in Chef Infra Client 13 in favor of individual 'manage_home' and 'non_unique' properties.
   Enabled: true
   VersionAdded: '5.5.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefDeprecations/UseInlineResourcesDefined:
   Description: use_inline_resources is now the default for resources in Chef Infra Client 13+ and does not need to be specified.
@@ -579,14 +709,24 @@ ChefDeprecations/IncludingYumDNFCompatRecipe:
   Enabled: true
   VersionAdded: '5.3.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefDeprecations/WindowsTaskChangeAction:
   Description: The :change action in the windows_task resource was removed when windows_task was added to Chef Infra Client 13+. The default action of :create should can now be used to create an update tasks.
   Enabled: true
   VersionAdded: '5.6.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefDeprecations/ResourceOverridesProvidesMethod:
   Description: Don't override the provides? method in a resource provider. Use provides :SOME_PROVIDER_NAME instead. This will cause failures in Chef Infra Client 13 and later.
@@ -651,28 +791,46 @@ ChefDeprecations/UsesRunCommandHelper:
   VersionAdded: '5.9.0'
   Exclude:
     - '**/metadata.rb'
-    - 'Rakefile'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefDeprecations/ChefHandlerUsesSupports:
   Description: Use the type property instead of the deprecated supports property in the chef_handler resource. The supports property was removed in chef_handler cookbook version 3.0 (June 2017) and Chef Infra Client 14.0.
   Enabled: true
   VersionAdded: '5.9.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefDeprecations/DeprecatedYumRepositoryProperties:
   Description: With the release of Chef Infra Client 12.14 and the yum cookbook 3.0 several properties in the yum_repository resource were renamed. url -> baseurl, keyurl -> gpgkey, and mirrorexpire -> mirror_expire.
   Enabled: true
   VersionAdded: '5.10.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefDeprecations/EOLAuditModeUsage:
   Description: The beta Audit Mode feature in Chef Infra Client was removed in Chef Infra Client 15.0. Users should instead use InSpec and the audit cookbook. See https://www.inspec.io/ for more informmation.
   Enabled: true
   VersionAdded: '5.10.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefDeprecations/ResourceInheritsFromCompatResource:
   Description: HWRP style resource should inherit from the 'Chef::Resource' class and not the 'ChefCompat::Resource' class from the deprecated compat_resource cookbook.
@@ -686,12 +844,24 @@ ChefDeprecations/VerifyPropertyUsesFileExpansion:
   Enabled: true
   VersionAdded: '5.10.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefDeprecations/PoiseArchiveUsage:
   Description: The poise_archive resource in the deprecated poise-archive should be replaced with the archive_file resource found in Chef Infra Client 15+.
   Enabled: true
   VersionAdded: '5.11.0'
+  Exclude:
+    - '**/attributes/*.rb'
+    - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefDeprecations/PartialSearchHelperUsage:
   Description: Legacy partial_search usage should be updated to use :filter_result in the search helper instead.
@@ -699,6 +869,10 @@ ChefDeprecations/PartialSearchHelperUsage:
   VersionAdded: '5.11.0'
   Exclude:
     - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefDeprecations/SearchUsesPositionalParameters:
   Description: Don't use deprecated positional parameters in cookbook search queries.
@@ -706,6 +880,10 @@ ChefDeprecations/SearchUsesPositionalParameters:
   VersionAdded: '5.11.0'
   Exclude:
     - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefDeprecations/PartialSearchClassUsage:
   Description: Legacy Chef::PartialSearch class usage should be updated to use the search helper instead with the filter_result key.
@@ -713,6 +891,10 @@ ChefDeprecations/PartialSearchClassUsage:
   VersionAdded: '5.11.0'
   Exclude:
     - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefDeprecations/Cheffile:
   Description: The Libarian-Chef depsolving project is no longer maintained and should not be used for cookbook depsolving. Consider using Policyfiles instead.
@@ -727,6 +909,10 @@ ChefDeprecations/LegacyNotifySyntax:
   VersionAdded: '5.13.0'
   Exclude:
     - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefDeprecations/NodeSetWithoutLevel:
   Description: When setting a node attribute in Chef Infra Client 11 and later you must specify the precedence level.
@@ -735,6 +921,10 @@ ChefDeprecations/NodeSetWithoutLevel:
   Exclude:
     - '**/metadata.rb'
     - '**/attributes/*.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefDeprecations/ChefRewind:
   Description: Use delete_resource / edit_resource instead of functionality in the deprecated chef-rewind gem
@@ -743,6 +933,10 @@ ChefDeprecations/ChefRewind:
   Exclude:
     - '**/metadata.rb'
     - '**/attributes/*.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefDeprecations/RubyBlockCreateAction:
   Description: Use the :run action in the ruby_block resource instead of the deprecated :create action
@@ -752,6 +946,9 @@ ChefDeprecations/RubyBlockCreateAction:
     - '**/metadata.rb'
     - '**/attributes/*.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefDeprecations/DeprecatedPlatformMethods:
   Description: Use provider_for_action instead of the deprecated Chef::Platform methods in resources.
@@ -895,14 +1092,24 @@ ChefModernize/IncludingAptDefaultRecipe:
   Enabled: true
   VersionAdded: '5.3.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefModernize/IncludingWindowsDefaultRecipe:
   Description: Do not include the Windows default recipe, which only installs win32 gems already included in Chef Infra Client
   Enabled: true
   VersionAdded: '5.3.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefModernize/DefinesChefSpecMatchers:
   Description: ChefSpec matchers are now auto generated by ChefSpec 7.1+ and do not need to be defined in a cookbook
@@ -916,7 +1123,12 @@ ChefModernize/ExecuteAptUpdate:
   Enabled: true
   VersionAdded: '5.3.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefModernize/MinitestHandlerUsage:
   Description: Use Chef InSpec for testing instead of the Minitest Handler cookbook pattern.
@@ -938,126 +1150,216 @@ ChefModernize/UseBuildEssentialResource:
   Enabled: true
   VersionAdded: '5.1.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefModernize/WindowsZipfileUsage:
   Description: Use the archive_file resource built into Chef Infra Client 15+ instead of the windows_zipfile from the Windows cookbook
   Enabled: true
   VersionAdded: '5.4.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefModernize/SevenZipArchiveResource:
   Description: Use the archive_file resource built into Chef Infra Client 15+ instead of the seven_zip_archive
   Enabled: true
   VersionAdded: '5.5.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefModernize/LibarchiveFileResource:
   Description: Use the archive_file resource built into Chef Infra Client 15+ instead of the libarchive file resource
   Enabled: true
   VersionAdded: '5.5.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefModernize/PowershellScriptExpandArchive:
   Description: Use the archive_file resource built into Chef Infra Client 15+ instead of using Expand-Archive in a powershell_script resource
   Enabled: true
   VersionAdded: '5.5.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefModernize/PowershellInstallPackage:
   Description: Use the package resource built into Chef Infra Client instead of using Install-Package in a powershell_script resource
   Enabled: true
   VersionAdded: '5.5.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefModernize/PowershellInstallWindowsFeature:
   Description: Use the windows_feature resource built into Chef Infra Client 13+ instead of using Install-WindowsFeature or Add-WindowsFeature in a powershell_script resource
   Enabled: true
   VersionAdded: '5.5.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefModernize/ShellOutToChocolatey:
   Description: Use the Chocolatey resources built into Chef Infra Client instead of shelling out to the choco command
   Enabled: true
   VersionAdded: '5.5.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefModernize/CronManageResource:
   Description: The cron_manage resource was renamed to cron_access in the 6.1 release of the cron cookbook and later shipped in Chef Infra Client 14.4. The new resource name should be used.
   Enabled: true
   VersionAdded: '5.6.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefModernize/UsesZypperRepo:
   Description: The zypper_repo resource was renamed zypper_repository when it was added to Chef Infra Client 13.3.
   Enabled: true
   VersionAdded: '5.6.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefModernize/DependsOnZypperCookbook:
   Description: Don't include the zypper cookbook as the zypper_repository resource is built into Chef Infra Client 13.3+
   Enabled: true
   VersionAdded: '5.6.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefModernize/ExecuteTzUtil:
   Description: Use the timezone resource included in Chef Infra Client 14.6+ instead of shelling out to tzutil
   Enabled: true
   VersionAdded: '5.6.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefModernize/OpensslRsaKeyResource:
   Description: The openssl_rsa_key resource was renamed to openssl_rsa_private_key in Chef Infra Client 14.0. The new resource name should be used.
   Enabled: true
   VersionAdded: '5.6.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefModernize/OpensslX509Resource:
   Description: The openssl_x509 resource was renamed to openssl_x509_certificate in Chef Infra Client 14.4. The new resource name should be used.
   Enabled: true
   VersionAdded: '5.6.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefModernize/OsxConfigProfileResource:
   Description: The osx_config_profile resource was renamed to osx_profile. The new resource name should be used.
   Enabled: true
   VersionAdded: '5.6.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefModernize/SysctlParamResource:
   Description: The sysctl_param resource was renamed to sysctl when it was added to Chef Infra Client 14.0. The new resource name should be used.
   Enabled: true
   VersionAdded: '5.6.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefModernize/MacOsXUserdefaults:
   Description: The mac_os_x_userdefaults resource was renamed to macos_userdefaults when it was added to Chef Infra Client 14.0. The new resource name should be used.
   Enabled: true
   VersionAdded: '5.6.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefModernize/PowerShellGuardInterpreter:
   Description: PowerShell is already set as the default guard interpreter for powershell_script resources in Chef Infra Client 13 and later and does not need to be specified.
   Enabled: true
   VersionAdded: '5.9.0'
   Exclude:
+    - '**/attributes/*.rb'
     - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefModernize/DefaultActionFromInitialize:
   Description: The default actions can now be specified using the `default_action` helper instead of using the @action variable in the resource provider initialize method.
@@ -1096,6 +1398,12 @@ ChefModernize/ZipfileResource:
   Description: Use the archive_file resource built into Chef Infra Client 15+ instead of the zipfile resource from the zipfile cookbook.
   Enabled: true
   VersionAdded: '5.12.0'
+  Exclude:
+    - '**/attributes/*.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefModernize/UnnecessaryMixlibShelloutRequire:
   Description: Chef Infra Client 12.4 and later include mixlib/shellout automatically in resources and providers.
@@ -1120,6 +1428,10 @@ ChefModernize/ChefGemNokogiri:
   Exclude:
     - '**/metadata.rb'
     - '**/attributes/*.rb'
+    - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefModernize/PropertyWithNameAttribute:
   Description: Resource property sets name_attribute not name_property
@@ -1137,7 +1449,12 @@ ChefModernize/IncludingOhaiDefaultRecipe:
   VersionChanged: '5.15.0'
   Exclude:
     - '**/metadata.rb'
+    - '**/attributes/*.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
+
 
 ChefModernize/AllowedActionsFromInitialize:
   Description: The allowed actions of a resource can be set with the "allowed_actions" helper instead of using the initialize method.
@@ -1153,6 +1470,9 @@ ChefModernize/FoodcriticComments:
   VersionAdded: '5.16.0'
   Exclude:
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefModernize/ExecuteScExe:
   Description: Chef Infra Client 14.0 and later includes :create, :delete, and :configure actions with the full idempotency of the windows_service resource. See the windows_service documentation at https://docs.chef.io/resource_windows_service.html for additional details on creating services with the windows_service resource
@@ -1162,6 +1482,9 @@ ChefModernize/ExecuteScExe:
     - '**/metadata.rb'
     - '**/attributes/*.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefModernize/WindowsScResource:
   Description: Chef Infra Client 14.0 and later includes :create, :delete, and :configure actions without the need for the sc cookbook dependency. See the windows_service documentation at https://docs.chef.io/resource_windows_service.html for additional details.
@@ -1171,6 +1494,9 @@ ChefModernize/WindowsScResource:
     - '**/metadata.rb'
     - '**/attributes/*.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefModernize/ExecuteSleep:
   Description: Chef Infra Client 15.5 and later include a chef_sleep resource that should be used to sleep between executing resources if necessary instead of using the bash or execute resources to run the sleep command.
@@ -1180,6 +1506,9 @@ ChefModernize/ExecuteSleep:
     - '**/metadata.rb'
     - '**/attributes/*.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefModernize/DslIncludeInResource:
   Description: 'There is no need to include Chef::DSL::Recipe or Chef::DSL::IncludeRecipe classes in resources or providers as this is done automatically.'
@@ -1197,6 +1526,9 @@ ChefModernize/ResourceForcingCompileTime:
     - '**/metadata.rb'
     - '**/attributes/*.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefModernize/ExecuteSysctl:
   Description: Chef Infra Client 14.0 and later includes a sysctl resource that should be used to idempotently load sysctl values instead of templating files and using execute to load them.
@@ -1206,6 +1538,9 @@ ChefModernize/ExecuteSysctl:
     - '**/metadata.rb'
     - '**/attributes/*.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefModernize/SimplifyAptPpaSetup:
   Description: The apt_repository resource allows setting up PPAs without using the full URL to ppa.launchpad.net.
@@ -1414,6 +1749,9 @@ ChefRedundantCode/AptRepositoryDistributionDefault:
     - '**/metadata.rb'
     - '**/attributes/*.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefRedundantCode/GroupingMetadata:
   Description: The grouping metadata.rb method is not used and is unnecessary in cookbooks.
@@ -1458,6 +1796,10 @@ ChefEffortless/CookbookUsesSearch:
   Exclude:
     - '**/metadata.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
+
 
 ChefEffortless/CookbookUsesDatabags:
   Description: Cookbook uses data bags, which cannot be used in the Effortless Infra pattern
@@ -1466,6 +1808,9 @@ ChefEffortless/CookbookUsesDatabags:
   Exclude:
     - '**/metadata.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefEffortless/CookbookUsesEnvironmments:
   Description: Cookbook uses environments, which cannot be used in the Effortless Infra pattern
@@ -1474,6 +1819,9 @@ ChefEffortless/CookbookUsesEnvironmments:
   Exclude:
     - '**/metadata.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefEffortless/CookbookUsesPolicygroups:
   Description: Cookbook uses Policy Groups, which cannot be used in the Effortless Infra pattern
@@ -1482,6 +1830,9 @@ ChefEffortless/CookbookUsesPolicygroups:
   Exclude:
     - '**/metadata.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefEffortless/CookbookUsesRoles:
   Description: Cookbook uses Roles, which cannot be used in the Effortless Infra pattern
@@ -1490,6 +1841,9 @@ ChefEffortless/CookbookUsesRoles:
   Exclude:
     - '**/metadata.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefEffortless/SearchForEnvironmentsOrRoles:
   Description: Cookbook uses search with a node query that looks for a role or environment
@@ -1498,6 +1852,9 @@ ChefEffortless/SearchForEnvironmentsOrRoles:
   Exclude:
     - '**/metadata.rb'
     - '**/Berksfile'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - '**/Rakefile'
 
 ChefEffortless/Berksfile:
   Description: Policyfiles should be used for cookbook dependency solving instead of a Berkshelf Berksfile.
