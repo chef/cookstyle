@@ -1,30 +1,28 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.21.9 -->
-## [v5.21.9](https://github.com/chef/cookstyle/tree/v5.21.9) (2020-02-19)
-
-#### Merged Pull Requests
-- Add new ChefStyle/UnnecessaryOSCheck cop [#524](https://github.com/chef/cookstyle/pull/524) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=5.20.0 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Add new ChefStyle/UnnecessaryOSCheck cop [#524](https://github.com/chef/cookstyle/pull/524) ([tas50](https://github.com/tas50)) <!-- 5.21.9 -->
-- Add 3 new cops [#522](https://github.com/chef/cookstyle/pull/522) ([tas50](https://github.com/tas50)) <!-- 5.21.8 -->
-- Fix IncludingYumDNFCompatRecipe to not break with inline conditionals [#532](https://github.com/chef/cookstyle/pull/532) ([tas50](https://github.com/tas50)) <!-- 5.21.7 -->
-- Don&#39;t fail ChefDeprecations/WindowsTaskChangeAction with a non-string action [#531](https://github.com/chef/cookstyle/pull/531) ([tas50](https://github.com/tas50)) <!-- 5.21.6 -->
-- Autocorrect &#39;apache v2&#39; to &#39;Apache-2.0&#39; [#530](https://github.com/chef/cookstyle/pull/530) ([tas50](https://github.com/tas50)) <!-- 5.21.5 -->
-- Autocorrect Layout/EndAlignment and Layout/DefEndAlignment [#529](https://github.com/chef/cookstyle/pull/529) ([tas50](https://github.com/tas50)) <!-- 5.21.4 -->
-- Expand ChefStyle/UsePlatformHelpers to also detect node[&#39;platform&#39;].eql? [#523](https://github.com/chef/cookstyle/pull/523) ([tas50](https://github.com/tas50)) <!-- 5.21.3 -->
-- Remove the duplicate Style/ModuleFunction config [#521](https://github.com/chef/cookstyle/pull/521) ([tas50](https://github.com/tas50)) <!-- 5.21.2 -->
-- Make sure metadata cops properly autocorrect heredocs [#520](https://github.com/chef/cookstyle/pull/520) ([tas50](https://github.com/tas50)) <!-- 5.21.1 -->
-- Set the target ruby version to 2.3 to support Chef 12 [#518](https://github.com/chef/cookstyle/pull/518) ([tas50](https://github.com/tas50)) <!-- 5.21.0 -->
-- Disable Style/ModuleFunction [#517](https://github.com/chef/cookstyle/pull/517) ([tas50](https://github.com/tas50)) <!-- 5.20.1 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v5.21.9](https://github.com/chef/cookstyle/tree/v5.21.9) (2020-02-19)
+
+#### Merged Pull Requests
+- Disable Style/ModuleFunction [#517](https://github.com/chef/cookstyle/pull/517) ([tas50](https://github.com/tas50))
+- Set the target ruby version to 2.3 to support Chef 12 [#518](https://github.com/chef/cookstyle/pull/518) ([tas50](https://github.com/tas50))
+- Make sure metadata cops properly autocorrect heredocs [#520](https://github.com/chef/cookstyle/pull/520) ([tas50](https://github.com/tas50))
+- Remove the duplicate Style/ModuleFunction config [#521](https://github.com/chef/cookstyle/pull/521) ([tas50](https://github.com/tas50))
+- Expand ChefStyle/UsePlatformHelpers to also detect node[&#39;platform&#39;].eql? [#523](https://github.com/chef/cookstyle/pull/523) ([tas50](https://github.com/tas50))
+- Autocorrect Layout/EndAlignment and Layout/DefEndAlignment [#529](https://github.com/chef/cookstyle/pull/529) ([tas50](https://github.com/tas50))
+- Autocorrect &#39;apache v2&#39; to &#39;Apache-2.0&#39; [#530](https://github.com/chef/cookstyle/pull/530) ([tas50](https://github.com/tas50))
+- Don&#39;t fail ChefDeprecations/WindowsTaskChangeAction with a non-string action [#531](https://github.com/chef/cookstyle/pull/531) ([tas50](https://github.com/tas50))
+- Fix IncludingYumDNFCompatRecipe to not break with inline conditionals [#532](https://github.com/chef/cookstyle/pull/532) ([tas50](https://github.com/tas50))
+- Add 3 new cops [#522](https://github.com/chef/cookstyle/pull/522) ([tas50](https://github.com/tas50))
+- Add new ChefStyle/UnnecessaryOSCheck cop [#524](https://github.com/chef/cookstyle/pull/524) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v5.20.0](https://github.com/chef/cookstyle/tree/v5.20.0) (2020-01-24)
 
 #### Merged Pull Requests
@@ -33,7 +31,6 @@
 - Catch shelling out to sysctl when using the full path [#510](https://github.com/chef/cookstyle/pull/510) ([tas50](https://github.com/tas50))
 - Add ChefDeprecations/DeprecatedChefSpecPlatform [#511](https://github.com/chef/cookstyle/pull/511) ([tas50](https://github.com/tas50))
 - Fix autocorrection failures in ChefDeprecations/ChefHandlerUsesSupports [#508](https://github.com/chef/cookstyle/pull/508) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v5.19.9](https://github.com/chef/cookstyle/tree/v5.19.9) (2020-01-13)
 
