@@ -1115,6 +1115,16 @@ ChefModernize/SimplifyAptPpaSetup:
     - '**/attributes/*.rb'
     - '**/Berksfile'
 
+
+ChefModernize/UseRequireRelative:
+  Description: Instead of using require with a File.expand_path and __FILE__ use the simpler require_relative method.
+  Enabled: true
+  VersionAdded: '5.22.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/attributes/*.rb'
+    - '**/Berksfile'
+
 ###############################
 # ChefRedundantCode: Cleanup unnecessary code in your cookbooks regardless of Chef Infra Client release
 ###############################
