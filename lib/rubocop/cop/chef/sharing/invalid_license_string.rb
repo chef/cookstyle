@@ -439,6 +439,7 @@ module RuboCop
           COMMON_TYPOS = {
             "all_rights": 'all rights reserved',
             "apache 2.0": 'Apache-2.0',
+            "apache v2": 'Apache-2.0',
             "apache v2.0": 'Apache-2.0',
             "apache license version 2.0": 'Apache-2.0',
             "apache2": 'Apache-2.0',
