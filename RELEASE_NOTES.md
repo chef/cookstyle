@@ -16,7 +16,7 @@ The `ChefRedundantCode/StringPropertyWithNilDefault` cop detects String type res
 
 #### ChefRedundantCode/PropertySplatRegex
 
-The `ChefRedundantCode/PropertySplatRegex` cop detects String type resource that validate their input with a regex of `/.*/`. This regex will match on any String value and is not necessary.
+The `ChefRedundantCode/PropertySplatRegex` cop detects String type resources that validate their input with a regex of `/.*/`. This regex will match on any String value and is not necessary.
 
 ### Other fixes and changes
 
