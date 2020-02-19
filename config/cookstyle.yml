@@ -1101,6 +1101,15 @@ ChefModernize/ExecuteSysctl:
     - '**/attributes/*.rb'
     - '**/Berksfile'
 
+ChefModernize/SimplifyAptPpaSetup:
+  Description: The apt_repository resource allows setting up PPAs without using the full URL to ppa.launchpad.net.
+  Enabled: true
+  VersionAdded: '5.21.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/attributes/*.rb'
+    - '**/Berksfile'
+
 ###############################
 # ChefRedundantCode: Cleanup unnecessary code in your cookbooks regardless of Chef Infra Client release
 ###############################
@@ -1246,6 +1255,22 @@ ChefRedundantCode/GroupingMetadata:
   VersionAdded: '5.19.0'
   Include:
     - '**/metadata.rb'
+
+ChefRedundantCode/StringPropertyWithNilDefault:
+  Description: 'Properties have a nil value by default so there is no need to set the default value to nil.'
+  Enabled: true
+  VersionAdded: '5.21.0'
+  Include:
+    - '**/resources/*.rb'
+    - '**/libraries/*.rb'
+
+ChefRedundantCode/PropertySplatRegex:
+  Description: 'There is no need to validate the input of properties in resources using a regex value that will always pass.'
+  Enabled: true
+  VersionAdded: '5.21.0'
+  Include:
+    - '**/resources/*.rb'
+    - '**/libraries/*.rb'
 
 ###############################
 # Migrating to new patterns
