@@ -73,7 +73,9 @@ module RuboCop
           private
 
           def check_action(ast_obj)
-            add_offense(ast_obj, location: :expression, message: MSG, severity: :refactor) if ast_obj.value == :change
+            if ast_obj.respond_to?(:value) && ast_obj.value == :change
+              add_offense(ast_obj, location: :expression, message: MSG, severity: :refactor)
+            end
           end
         end
       end
