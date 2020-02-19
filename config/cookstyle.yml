@@ -1623,6 +1623,7 @@ Layout/ConditionPosition:
 Lint/Debugger:
   Enabled: true
 Layout/DefEndAlignment:
+  AutoCorrect: true
   Enabled: true
 Lint/DeprecatedClassMethods:
   Enabled: true
@@ -1640,6 +1641,7 @@ Lint/EmptyInterpolation:
   Enabled: true
 Layout/EndAlignment:
   Enabled: true
+  AutoCorrect: true
 Lint/EndInMethod:
   Enabled: true
 Lint/EnsureReturn:
