@@ -1236,6 +1236,31 @@ Name | Default value | Configurable values
 VersionAdded | `5.1.0` | String
 Exclude | `**/metadata.rb` | Array
 
+## ChefModernize/UseRequireRelative
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+Instead of using require with a File.expand_path and __FILE__ use the simpler require_relative method.
+
+### Examples
+
+```ruby
+# bad
+require File.expand_path('../../libraries/helpers', __FILE__)
+
+# good
+require_relative '../libraries/helpers'
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.22.0` | String
+Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
+
 ## ChefModernize/UsesZypperRepo
 
 Enabled by default | Supports autocorrection

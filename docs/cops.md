@@ -132,6 +132,7 @@
 * [ChefModernize/UnnecessaryDependsChef14](cops_chefmodernize.md#chefmodernizeunnecessarydependschef14)
 * [ChefModernize/UnnecessaryMixlibShelloutRequire](cops_chefmodernize.md#chefmodernizeunnecessarymixlibshelloutrequire)
 * [ChefModernize/UseBuildEssentialResource](cops_chefmodernize.md#chefmodernizeusebuildessentialresource)
+* [ChefModernize/UseRequireRelative](cops_chefmodernize.md#chefmodernizeuserequirerelative)
 * [ChefModernize/UsesZypperRepo](cops_chefmodernize.md#chefmodernizeuseszypperrepo)
 * [ChefModernize/WhyRunSupportedTrue](cops_chefmodernize.md#chefmodernizewhyrunsupportedtrue)
 * [ChefModernize/WindowsScResource](cops_chefmodernize.md#chefmodernizewindowsscresource)
