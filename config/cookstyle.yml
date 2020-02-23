@@ -131,6 +131,17 @@ ChefStyle/UnnecessaryOSCheck:
   Description: Use the platform_family?() helpers instead of node['os] == 'foo' for platform_families that match 1:1 with OS values. These helpers are easier to read and can accept multiple platform arguments, which greatly simplifies complex platform logic.
   Enabled: true
   VersionAdded: '5.21.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/Berksfile'
+
+ChefStyle/NegatingOnlyIf:
+  Description: Use not_if instead of only_if that negates the Ruby statement with a !
+  VersionAdded: '6.2.0'
+  Enabled: true
+  Exclude:
+    - '**/metadata.rb'
+    - '**/Berksfile'
 
 ###############################
 # ChefCorrectness: Avoiding potential problems
