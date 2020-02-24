@@ -3,7 +3,7 @@
 [![Build status](https://badge.buildkite.com/c086ffe05e32e4d61282b91ead96b3721590a59ed4360cf7ac.svg?branch=master)](https://buildkite.com/chef-oss/chef-cookstyle-master-verify)
 [![Gem Version](https://badge.fury.io/rb/cookstyle.svg)](https://badge.fury.io/rb/cookstyle)
 
-* **Umbrella Project**: [Workstation](https://github.com/chef/chef-oss-practices/blob/master/projects/chef-workstation.md)
+* **Umbrella Project**: [Chef Infra](https://github.com/chef/chef-oss-practices/blob/master/projects/chef-infra.md)
 * **[Project State](https://github.com/chef/chef-oss-practices/blob/master/repo-management/repo-states.md):** Active
 * **Issues [Response Time Maximum](https://github.com/chef/chef-oss-practices/blob/master/repo-management/repo-states.md):** 14 days
 * **Pull Request [Response Time Maximum](https://github.com/chef/chef-oss-practices/blob/master/repo-management/repo-states.md):** 14 days
@@ -30,7 +30,7 @@ RuboCop is an incredibly active project with new cops being introduced monthly. 
 
 ## Cookstyle vs. Foodcritic
 
-Cookstyle is the replacement for Foodcritic. For more information on why we made the decision to replace Foodcritic see our blog post [Goodbye Foodcritic](https://blog.chef.io/goodbye-foodcritic/)
+Cookstyle is the replacement for Foodcritic. For more information on why we decided to replace Foodcritic see our blog post [Goodbye Foodcritic](https://blog.chef.io/goodbye-foodcritic/)
 
 ## Installation
 
