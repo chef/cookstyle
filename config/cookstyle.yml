@@ -1115,7 +1115,6 @@ ChefModernize/SimplifyAptPpaSetup:
     - '**/attributes/*.rb'
     - '**/Berksfile'
 
-
 ChefModernize/UseRequireRelative:
   Description: Instead of using require with a File.expand_path and __FILE__ use the simpler require_relative method.
   Enabled: true
@@ -1123,6 +1122,14 @@ ChefModernize/UseRequireRelative:
   Exclude:
     - '**/metadata.rb'
     - '**/attributes/*.rb'
+    - '**/Berksfile'
+
+ChefModernize/NodeInitPackage:
+  Description: Use node['init_package'] to check for systemd instead of reading the contents of '/proc/1/comm'
+  Enabled: true
+  VersionAdded: '5.22.0'
+  Exclude:
+    - '**/metadata.rb'
     - '**/Berksfile'
 
 ###############################
