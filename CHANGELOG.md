@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.22.0 -->
-## [v5.22.0](https://github.com/chef/cookstyle/tree/v5.22.0) (2020-02-22)
+ <!-- latest_release 5.22.1 -->
+## [v5.22.1](https://github.com/chef/cookstyle/tree/v5.22.1) (2020-02-24)
 
 #### Merged Pull Requests
-- Add ChefModernize/UseRequireRelative [#535](https://github.com/chef/cookstyle/pull/535) ([tas50](https://github.com/tas50))
+- Use node[&#39;init_package&#39;] to detect systemd [#536](https://github.com/chef/cookstyle/pull/536) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.21.9 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Use node[&#39;init_package&#39;] to detect systemd [#536](https://github.com/chef/cookstyle/pull/536) ([tas50](https://github.com/tas50)) <!-- 5.22.1 -->
 - Add ChefModernize/UseRequireRelative [#535](https://github.com/chef/cookstyle/pull/535) ([tas50](https://github.com/tas50)) <!-- 5.22.0 -->
 <!-- release_rollup -->
 

@@ -111,6 +111,7 @@
 * [ChefModernize/LibarchiveFileResource](cops_chefmodernize.md#chefmodernizelibarchivefileresource)
 * [ChefModernize/MacOsXUserdefaults](cops_chefmodernize.md#chefmodernizemacosxuserdefaults)
 * [ChefModernize/MinitestHandlerUsage](cops_chefmodernize.md#chefmodernizeminitesthandlerusage)
+* [ChefModernize/NodeInitPackage](cops_chefmodernize.md#chefmodernizenodeinitpackage)
 * [ChefModernize/OpensslRsaKeyResource](cops_chefmodernize.md#chefmodernizeopensslrsakeyresource)
 * [ChefModernize/OpensslX509Resource](cops_chefmodernize.md#chefmodernizeopensslx509resource)
 * [ChefModernize/OsxConfigProfileResource](cops_chefmodernize.md#chefmodernizeosxconfigprofileresource)

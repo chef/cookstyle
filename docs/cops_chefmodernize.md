@@ -651,6 +651,41 @@ Name | Default value | Configurable values
 VersionAdded | `5.4.0` | String
 Include | `**/metadata.rb` | Array
 
+## ChefModernize/NodeInitPackage
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+Use node['init_package'] to check for systemd instead of reading the contents of '/proc/1/comm'
+
+### Examples
+
+```ruby
+# bad
+::File.open('/proc/1/comm').gets.chomp == 'systemd'
+::File.open('/proc/1/comm').chomp == 'systemd'
+File.open('/proc/1/comm').gets.chomp == 'systemd'
+File.open('/proc/1/comm').chomp == 'systemd'
+File.exist?('/proc/1/comm') && File.open('/proc/1/comm').chomp == 'systemd'
+
+IO.read('/proc/1/comm').chomp == 'systemd'
+IO.read('/proc/1/comm').gets.chomp == 'systemd'
+::IO.read('/proc/1/comm').chomp == 'systemd'
+::IO.read('/proc/1/comm').gets.chomp == 'systemd'
+File.exist?('/proc/1/comm') && File.open('/proc/1/comm').chomp == 'systemd'
+
+# good
+node['init_package'] == 'systemd'
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.22.0` | String
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
+
 ## ChefModernize/OpensslRsaKeyResource
 
 Enabled by default | Supports autocorrection
