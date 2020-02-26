@@ -24,39 +24,28 @@ module RuboCop
         #
         #   # bad
         #   property :foo, [TrueClass, FalseClass]
-        #   attribute :foo, kind_of: [TrueClass, FalseClass]
         #
         #   # good
         #   property :foo, [true, false]
-        #   attribute :foo, kind_of: [true, false]
         #
         class TrueClassFalseClassResourceProperties < Cop
           MSG = "When setting the allowed types for a resource to accept either true or false values it's much simpler to use true and false instead of TrueClass and FalseClass.".freeze
 
-          def_node_matcher :trueclass_falseclass_array?, <<-PATTERN
-             (array (const nil? :TrueClass) (const nil? :FalseClass))
-          PATTERN
-
-          def_node_matcher :tf_in_kind_of_hash?, <<-PATTERN
-            (hash (pair (sym :kind_of) #trueclass_falseclass_array? ))
-          PATTERN
-
           def_node_matcher :trueclass_falseclass_property?, <<-PATTERN
-            (send nil? {:property :attribute} (sym _)
-
-            ${#tf_in_kind_of_hash? #trueclass_falseclass_array? } ... )
+            (send nil? {:property :attribute} (sym _) $(array (const nil? :TrueClass) (const nil? :FalseClass)) ... )
           PATTERN
 
           def on_send(node)
-            trueclass_falseclass_property?(node) do |tf_match|
-              add_offense(tf_match, location: :expression, message: MSG, severity: :refactor)
+            trueclass_falseclass_property?(node) do
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
             end
           end
 
           def autocorrect(node)
             lambda do |corrector|
-              replacement_text = node.hash_type? ? 'kind_of: [true, false]' : '[true, false]'
-              corrector.replace(node.loc.expression, replacement_text)
+              trueclass_falseclass_property?(node) do |types|
+                corrector.replace(types.loc.expression, '[true, false]')
+              end
             end
           end
         end
