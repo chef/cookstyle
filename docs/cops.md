@@ -137,6 +137,7 @@
 * [ChefModernize/UseRequireRelative](cops_chefmodernize.md#chefmodernizeuserequirerelative)
 * [ChefModernize/UsesZypperRepo](cops_chefmodernize.md#chefmodernizeuseszypperrepo)
 * [ChefModernize/WhyRunSupportedTrue](cops_chefmodernize.md#chefmodernizewhyrunsupportedtrue)
+* [ChefModernize/WindowsRegistryUAC](cops_chefmodernize.md#chefmodernizewindowsregistryuac)
 * [ChefModernize/WindowsScResource](cops_chefmodernize.md#chefmodernizewindowsscresource)
 * [ChefModernize/WindowsVersionHelper](cops_chefmodernize.md#chefmodernizewindowsversionhelper)
 * [ChefModernize/WindowsZipfileUsage](cops_chefmodernize.md#chefmodernizewindowszipfileusage)

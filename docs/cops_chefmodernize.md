@@ -1355,6 +1355,37 @@ Name | Default value | Configurable values
 VersionAdded | `5.1.0` | String
 Include | `**/resources/*.rb`, `**/providers/*.rb`, `**/libraries/*.rb` | Array
 
+## ChefModernize/WindowsRegistryUAC
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+Chef Infra Client 15.0 and later includes a windows_uac resource that should be used to set Windows UAC values instead of setting registry keys directly.
+
+  # bad
+  registry_key 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System' do
+    values [{ name: 'EnableLUA', type: :dword, data: 0 },
+            { name: 'PromptOnSecureDesktop', type: :dword, data: 0 },
+            { name: 'ConsentPromptBehaviorAdmin', type: :dword, data: 0 },
+           ]
+    action :create
+  end
+
+ # good
+ windows_uac 'Set Windows UAC settings' do
+   enable_uac false
+   prompt_on_secure_desktop true
+   consent_behavior_admins :no_prompt
+ end
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.22.0` | String
+Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
+
 ## ChefModernize/WindowsScResource
 
 Enabled by default | Supports autocorrection

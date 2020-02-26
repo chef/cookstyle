@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.22.3 -->
-## [v5.22.3](https://github.com/chef/cookstyle/tree/v5.22.3) (2020-02-26)
+ <!-- latest_release 5.22.4 -->
+## [v5.22.4](https://github.com/chef/cookstyle/tree/v5.22.4) (2020-02-26)
 
 #### Merged Pull Requests
-- Revert &quot;Match on attributes in TrueClassFalseClassResourceProperties&quot; [#542](https://github.com/chef/cookstyle/pull/542) ([tas50](https://github.com/tas50))
+- Add ChefModernize/WindowsRegistryUAC cop [#540](https://github.com/chef/cookstyle/pull/540) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.21.9 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add ChefModernize/WindowsRegistryUAC cop [#540](https://github.com/chef/cookstyle/pull/540) ([tas50](https://github.com/tas50)) <!-- 5.22.4 -->
 - Revert &quot;Match on attributes in TrueClassFalseClassResourceProperties&quot; [#542](https://github.com/chef/cookstyle/pull/542) ([tas50](https://github.com/tas50)) <!-- 5.22.3 -->
 - Add ChefDeprecations/WindowsFeatureServermanagercmd [#541](https://github.com/chef/cookstyle/pull/541) ([tas50](https://github.com/tas50)) <!-- 5.22.2 -->
 - Use node[&#39;init_package&#39;] to detect systemd [#536](https://github.com/chef/cookstyle/pull/536) ([tas50](https://github.com/tas50)) <!-- 5.22.1 -->
