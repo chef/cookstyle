@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.22.1 -->
-## [v5.22.1](https://github.com/chef/cookstyle/tree/v5.22.1) (2020-02-24)
+ <!-- latest_release 5.22.2 -->
+## [v5.22.2](https://github.com/chef/cookstyle/tree/v5.22.2) (2020-02-26)
 
 #### Merged Pull Requests
-- Use node[&#39;init_package&#39;] to detect systemd [#536](https://github.com/chef/cookstyle/pull/536) ([tas50](https://github.com/tas50))
+- Add ChefDeprecations/WindowsFeatureServermanagercmd [#541](https://github.com/chef/cookstyle/pull/541) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.21.9 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add ChefDeprecations/WindowsFeatureServermanagercmd [#541](https://github.com/chef/cookstyle/pull/541) ([tas50](https://github.com/tas50)) <!-- 5.22.2 -->
 - Use node[&#39;init_package&#39;] to detect systemd [#536](https://github.com/chef/cookstyle/pull/536) ([tas50](https://github.com/tas50)) <!-- 5.22.1 -->
 - Add ChefModernize/UseRequireRelative [#535](https://github.com/chef/cookstyle/pull/535) ([tas50](https://github.com/tas50)) <!-- 5.22.0 -->
 <!-- release_rollup -->

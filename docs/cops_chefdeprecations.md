@@ -1287,6 +1287,43 @@ Name | Default value | Configurable values
 VersionAdded | `5.10.0` | String
 Exclude | `**/metadata.rb` | Array
 
+## ChefDeprecations/WindowsFeatureServermanagercmd
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+The `windows_feature` resource no longer supports setting the `install_method` to `:servermanagercmd`. `:windows_feature_dism` or `:windows_feature_powershell` should be used instead.
+
+### Examples
+
+```ruby
+# bad
+windows_feature 'DHCP' do
+  install_method :servermanagercmd
+end
+
+# good
+windows_feature 'DHCP' do
+  install_method :windows_feature_dism
+end
+
+windows_feature 'DHCP' do
+  install_method :windows_feature_powershell
+end
+
+windows_feature_dism 'DHCP'
+
+windows_feature_powershell 'DHCP'
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.22.0` | String
+Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
+
 ## ChefDeprecations/WindowsTaskChangeAction
 
 Enabled by default | Supports autocorrection
