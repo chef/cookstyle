@@ -1141,6 +1141,15 @@ ChefModernize/NodeInitPackage:
     - '**/metadata.rb'
     - '**/Berksfile'
 
+ChefModernize/WindowsRegistryUAC:
+  Description: Chef Infra Client 15.0 and later includes a windows_uac resource that should be used to set Windows UAC values instead of setting registry keys directly.
+  Enabled: true
+  VersionAdded: '5.22.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/attributes/*.rb'
+    - '**/Berksfile'
+
 ###############################
 # ChefRedundantCode: Cleanup unnecessary code in your cookbooks regardless of Chef Infra Client release
 ###############################
