@@ -717,6 +717,15 @@ ChefDeprecations/DeprecatedChefSpecPlatform:
   Include:
     - '**/spec/**/*.rb'
 
+ChefDeprecations/WindowsFeatureServermanagercmd:
+  Description: The `windows_feature` resource no longer supports setting the `install_method` to `:servermanagercmd`. `:windows_feature_dism` or `:windows_feature_powershell` should be used instead.
+  Enabled: true
+  VersionAdded: '5.22.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/attributes/*.rb'
+    - '**/Berksfile'
+
 ###############################
 # ChefModernize: Cleaning up legacy code and using new built-in resources
 ###############################
