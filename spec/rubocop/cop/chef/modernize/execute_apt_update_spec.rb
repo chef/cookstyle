@@ -1,5 +1,6 @@
 #
-# Copyright:: 2019, Chef Software, Inc.
+# Copyright:: 2019-2020, Chef Software, Inc.
+# Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -21,19 +22,28 @@ describe RuboCop::Cop::Chef::ChefModernize::ExecuteAptUpdate, :config do
 
   it 'registers an offense when using execute to run apt-get update' do
     expect_offense(<<~RUBY)
-    execute 'apt-get update' do
-    ^^^^^^^^^^^^^^^^^^^^^^^^ Use the apt_update resource instead of the execute resource to run an apt-get update package cache update
-      command 'apt-get update'
-    end
+      execute 'apt-get update' do
+      ^^^^^^^^^^^^^^^^^^^^^^^^ Use the apt_update resource instead of the execute resource to run an apt-get update package cache update
+        action :nothing
+      end
     RUBY
   end
 
   it "registers an offense when a resource notifies 'execute[apt-get update]'" do
     expect_offense(<<~RUBY)
-    execute 'some execute resource' do
-      notifies :run, 'execute[apt-get update]', :immediately
-                     ^^^^^^^^^^^^^^^^^^^^^^^^^ Use the apt_update resource instead of the execute resource to run an apt-get update package cache update
-    end
+      execute 'some execute resource' do
+        notifies :run, 'execute[apt-get update]', :immediately
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^ Use the apt_update resource instead of the execute resource to run an apt-get update package cache update
+      end
+    RUBY
+  end
+
+  it "registers an offense when an execute resource's command property run's apt-get update" do
+    expect_offense(<<~RUBY)
+      execute 'some execute resource' do
+        command 'apt-get update'
+        ^^^^^^^^^^^^^^^^^^^^^^^^ Use the apt_update resource instead of the execute resource to run an apt-get update package cache update
+      end
     RUBY
   end
 
