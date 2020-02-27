@@ -63,7 +63,7 @@ module RuboCop
       extend ClassMethods
     end
 
-    def self.CookbookOnly(segments) # rubocop: disable Naming/MethodName
+    def self.CookbookOnly(segments)
       Module.new do |mod|
         mod.define_singleton_method(:included) do |klass|
           super(klass)
