@@ -1507,8 +1507,6 @@ Style/MethodCallParentheses:
   Enabled: true
 Style/MethodDefParentheses:
   Enabled: true
-Naming/MethodName:
-  Enabled: true
 Style/MultilineBlockChain:
   Enabled: true
 Layout/MultilineBlockLayout:
@@ -1658,8 +1656,6 @@ Style/UnneededPercentQ:
 Style/TrailingUnderscoreVariable:
   Enabled: true
 Style/VariableInterpolation:
-  Enabled: true
-Naming/VariableName:
   Enabled: true
 Style/WhenThen:
   Enabled: true
