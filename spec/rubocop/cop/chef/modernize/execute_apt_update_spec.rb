@@ -28,10 +28,27 @@ describe RuboCop::Cop::Chef::ChefModernize::ExecuteAptUpdate, :config do
     RUBY
   end
 
+  it "registers an offense when a resource notifies 'execute[apt-get update]'" do
+    expect_offense(<<~RUBY)
+    execute 'some execute resource' do
+      notifies :run, 'execute[apt-get update]', :immediately
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^ Use the apt_update resource instead of the execute resource to run an apt-get update package cache update
+    end
+    RUBY
+  end
+
   it "doesn't register an offense when running another command in an execute resource" do
     expect_no_offenses(<<~RUBY)
       execute 'foo' do
         command 'bar'
+      end
+    RUBY
+  end
+
+  it "doesn't register an offense when a resource notifies any old resource" do
+    expect_no_offenses(<<~RUBY)
+      execute 'some execute resource' do
+        notifies :run, 'execute[foo]', :immediately
       end
     RUBY
   end
