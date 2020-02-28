@@ -1,26 +1,24 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.22.6 -->
-## [v5.22.6](https://github.com/chef/cookstyle/tree/v5.22.6) (2020-02-28)
-
-#### Merged Pull Requests
-- Disable Naming/MethodName and Naming/VariableName [#545](https://github.com/chef/cookstyle/pull/545) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=5.21.9 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Disable Naming/MethodName and Naming/VariableName [#545](https://github.com/chef/cookstyle/pull/545) ([tas50](https://github.com/tas50)) <!-- 5.22.6 -->
-- Detect more apt-get update scenarios [#546](https://github.com/chef/cookstyle/pull/546) ([tas50](https://github.com/tas50)) <!-- 5.22.5 -->
-- Add ChefModernize/WindowsRegistryUAC cop [#540](https://github.com/chef/cookstyle/pull/540) ([tas50](https://github.com/tas50)) <!-- 5.22.4 -->
-- Revert &quot;Match on attributes in TrueClassFalseClassResourceProperties&quot; [#542](https://github.com/chef/cookstyle/pull/542) ([tas50](https://github.com/tas50)) <!-- 5.22.3 -->
-- Add ChefDeprecations/WindowsFeatureServermanagercmd [#541](https://github.com/chef/cookstyle/pull/541) ([tas50](https://github.com/tas50)) <!-- 5.22.2 -->
-- Use node[&#39;init_package&#39;] to detect systemd [#536](https://github.com/chef/cookstyle/pull/536) ([tas50](https://github.com/tas50)) <!-- 5.22.1 -->
-- Add ChefModernize/UseRequireRelative [#535](https://github.com/chef/cookstyle/pull/535) ([tas50](https://github.com/tas50)) <!-- 5.22.0 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v5.22.6](https://github.com/chef/cookstyle/tree/v5.22.6) (2020-02-28)
+
+#### Merged Pull Requests
+- Add ChefModernize/UseRequireRelative [#535](https://github.com/chef/cookstyle/pull/535) ([tas50](https://github.com/tas50))
+- Use node[&#39;init_package&#39;] to detect systemd [#536](https://github.com/chef/cookstyle/pull/536) ([tas50](https://github.com/tas50))
+- Add ChefDeprecations/WindowsFeatureServermanagercmd [#541](https://github.com/chef/cookstyle/pull/541) ([tas50](https://github.com/tas50))
+- Revert &quot;Match on attributes in TrueClassFalseClassResourceProperties&quot; [#542](https://github.com/chef/cookstyle/pull/542) ([tas50](https://github.com/tas50))
+- Add ChefModernize/WindowsRegistryUAC cop [#540](https://github.com/chef/cookstyle/pull/540) ([tas50](https://github.com/tas50))
+- Detect more apt-get update scenarios [#546](https://github.com/chef/cookstyle/pull/546) ([tas50](https://github.com/tas50))
+- Disable Naming/MethodName and Naming/VariableName [#545](https://github.com/chef/cookstyle/pull/545) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v5.21.9](https://github.com/chef/cookstyle/tree/v5.21.9) (2020-02-19)
 
 #### Merged Pull Requests
@@ -35,7 +33,6 @@
 - Fix IncludingYumDNFCompatRecipe to not break with inline conditionals [#532](https://github.com/chef/cookstyle/pull/532) ([tas50](https://github.com/tas50))
 - Add 3 new cops [#522](https://github.com/chef/cookstyle/pull/522) ([tas50](https://github.com/tas50))
 - Add new ChefStyle/UnnecessaryOSCheck cop [#524](https://github.com/chef/cookstyle/pull/524) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v5.20.0](https://github.com/chef/cookstyle/tree/v5.20.0) (2020-01-24)
 
