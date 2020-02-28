@@ -266,8 +266,22 @@ apt_update resource which is available in Chef Infra Client 12.7 and later.
   # bad
   execute 'apt-get update'
 
+  execute 'Apt all the apt cache' do
+    command 'apt-get update'
+  end
+
+  execute 'some execute resource' do
+    notifies :run, 'execute[apt-get update]', :immediately
+  end
+
   # good
   apt_update
+
+  apt_update 'update apt cache'
+
+  execute 'some execute resource' do
+    notifies :update, 'apt_update[update apt cache]', :immediately
+  end
 
 ### Configurable attributes
 
