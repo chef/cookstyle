@@ -1,5 +1,5 @@
 #
-# Copyright:: 2019, Chef Software, Inc.
+# Copyright:: 2019-2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,8 +24,22 @@ module RuboCop
         #   # bad
         #   execute 'apt-get update'
         #
+        #   execute 'Apt all the apt cache' do
+        #     command 'apt-get update'
+        #   end
+        #
+        #   execute 'some execute resource' do
+        #     notifies :run, 'execute[apt-get update]', :immediately
+        #   end
+        #
         #   # good
         #   apt_update
+        #
+        #   apt_update 'update apt cache'
+        #
+        #   execute 'some execute resource' do
+        #     notifies :update, 'apt_update[update apt cache]', :immediately
+        #   end
         #
         class ExecuteAptUpdate < Cop
           MSG = 'Use the apt_update resource instead of the execute resource to run an apt-get update package cache update'.freeze
@@ -34,9 +48,25 @@ module RuboCop
             (send nil? :execute (str "apt-get update"))
           PATTERN
 
+          def_node_matcher :notification_property?, <<-PATTERN
+            (send nil? {:notifies :subscribes} (sym _) $(...) (sym _))
+          PATTERN
+
+          def_node_matcher :execute_command?, <<-PATTERN
+            (send nil? :command $str)
+          PATTERN
+
           def on_send(node)
             execute_apt_update?(node) do
               add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            end
+
+            notification_property?(node) do |val|
+              add_offense(val, location: :expression, message: MSG, severity: :refactor) if val.str_content&.start_with?('execute[apt-get update]')
+            end
+
+            execute_command?(node) do |val|
+              add_offense(node, location: :expression, message: MSG, severity: :refactor) if val.str_content == 'apt-get update'
             end
           end
         end
