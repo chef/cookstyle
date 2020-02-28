@@ -1,3 +1,29 @@
+## Cookstyle 5.22
+
+### 4 New Cops
+
+#### ChefModernize/NodeInitPackage
+
+The `ChefModernize/NodeInitPackage` cop detects cookbooks that detect the `systemd` init system by parsing the content of `/proc/1/comm`. Chef Infra Client 12.0 and later include a `node['init_package']` attribute, which should be used instead.
+
+#### ChefDeprecations/WindowsFeatureServermanagercmd
+
+The `ChefDeprecations/WindowsFeatureServermanagercmd` cop detects `windows_feature` resources that set the `install_method` property to `:servermanagercmd`. The [windows_feature](https://docs.chef.io/resources/windows_feature/) resource no longer supports the legacy `Server Manager` command in Windows. Use `:windows_feature_dism` or `:windows_feature_powershell` instead.
+
+#### ChefModernize/WindowsRegistryUAC
+
+The `ChefModernize/WindowsRegistryUAC` resource detects the usage of the `registry_key` resource to set values in the `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System` key in order to control UAC behavior in Windows. Chef Infra Client 15.0+ ships with a [windows_uac](https://docs.chef.io/resources/windows_uac/) resource that should be used instead.
+
+#### ChefModernize/UseRequireRelative
+
+The `ChefModernize/UseRequireRelative` cop detects cookbooks that use overly complex `require` statements with `File.expand_path` and `__FILE__`. These can be simplified by using `require_relative` instead.
+
+### Other fixes and changes
+
+- Updated `ChefStyle/TrueClassFalseClassResourceProperties` to no longer detect `TrueClass`/`FalseClass` in resource attributes where these are required.
+- Updated `ChefModernize/ExecuteAptUpdate` to detect additional execute resources running `apt-get update` as well as resources notifying one of these execute resources.
+- Disabled RuboCop's `Naming/MethodName` and `Naming/VariableName` cops since these can't be autocorrected and don't impact Chef Infra Client.
+
 ## Cookstyle 5.21
 
 ### 4 New Cops
