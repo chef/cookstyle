@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.22.5 -->
-## [v5.22.5](https://github.com/chef/cookstyle/tree/v5.22.5) (2020-02-28)
+ <!-- latest_release 5.22.6 -->
+## [v5.22.6](https://github.com/chef/cookstyle/tree/v5.22.6) (2020-02-28)
 
 #### Merged Pull Requests
-- Detect more apt-get update scenarios [#546](https://github.com/chef/cookstyle/pull/546) ([tas50](https://github.com/tas50))
+- Disable Naming/MethodName and Naming/VariableName [#545](https://github.com/chef/cookstyle/pull/545) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.21.9 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Disable Naming/MethodName and Naming/VariableName [#545](https://github.com/chef/cookstyle/pull/545) ([tas50](https://github.com/tas50)) <!-- 5.22.6 -->
 - Detect more apt-get update scenarios [#546](https://github.com/chef/cookstyle/pull/546) ([tas50](https://github.com/tas50)) <!-- 5.22.5 -->
 - Add ChefModernize/WindowsRegistryUAC cop [#540](https://github.com/chef/cookstyle/pull/540) ([tas50](https://github.com/tas50)) <!-- 5.22.4 -->
 - Revert &quot;Match on attributes in TrueClassFalseClassResourceProperties&quot; [#542](https://github.com/chef/cookstyle/pull/542) ([tas50](https://github.com/tas50)) <!-- 5.22.3 -->
