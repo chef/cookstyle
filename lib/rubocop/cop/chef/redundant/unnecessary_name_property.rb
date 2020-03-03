@@ -1,5 +1,5 @@
 #
-# Copyright:: Copyright 2019, Chef Software Inc.
+# Copyright:: Copyright 2019-2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -25,21 +25,40 @@ module RuboCop
         #   # bad
         #   property :name, String
         #   property :name, String, name_property: true
-        #   attribute :name, String
-        #   attribute :name, String, name_attribute: true
+        #   attribute :name, kind_of: String
+        #   attribute :name, kind_of: String, name_attribute: true
         #
         class UnnecessaryNameProperty < Cop
           MSG = 'There is no need to define a property or attribute named :name in a resource as Chef Infra defines this on all resources by default.'.freeze
 
-          # match on a property/attribute named :name that's a string. The property/attribute optionally
-          # set name_property/name_attribute true, but nothing else is allowed. If you're doing that it's
-          # no longer the default and your usage is fine.
+          def_node_matcher :name_attribute?, <<-PATTERN
+          (send nil? :attribute
+            (sym :name)
+            (hash
+              (pair
+                (sym :kind_of)
+                (const nil? :String))
+              (pair
+                (sym :name_attribute)
+                (true))?))
+          PATTERN
+
           def_node_matcher :name_property?, <<-PATTERN
-            (send nil? {:property :attribute} (sym :name) (const nil? :String) (hash (pair (sym {:name_attribute :name_property}) (true)))?)
+            (send nil? :property
+              (sym :name)
+              (const nil? :String)
+              (hash
+                (pair
+                  (sym :name_property)
+                  (true)))?)
           PATTERN
 
           def on_send(node)
             name_property?(node) do
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            end
+
+            name_attribute?(node) do
               add_offense(node, location: :expression, message: MSG, severity: :refactor)
             end
           end
