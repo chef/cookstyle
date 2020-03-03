@@ -1553,8 +1553,6 @@ Style/PercentQLiterals:
   Enabled: true
 Style/PerlBackrefs:
   Enabled: true
-Naming/PredicateName:
-  Enabled: true
 Style/Proc:
   Enabled: true
 Style/RaiseArgs:
