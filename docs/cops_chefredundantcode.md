@@ -495,8 +495,8 @@ There is no need to define a property or attribute named :name in a resource as 
 # bad
 property :name, String
 property :name, String, name_property: true
-attribute :name, String
-attribute :name, String, name_attribute: true
+attribute :name, kind_of: String
+attribute :name, kind_of: String, name_attribute: true
 ```
 
 ### Configurable attributes
