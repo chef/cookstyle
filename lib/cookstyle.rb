@@ -7,7 +7,6 @@ require 'yaml'
 gem 'rubocop', "= #{Cookstyle::RUBOCOP_VERSION}"
 require 'rubocop'
 require 'rubocop/monkey_patches/comment_config.rb'
-require 'rubocop/monkey_patches/json_formatter.rb'
 
 # monkey patches needed for the TargetChefVersion config option
 require 'rubocop/monkey_patches/config.rb'

@@ -19,13 +19,11 @@ Gemspec/RubyVersionGlobalsUsage:
   Enabled: false
 Layout/AccessModifierIndentation:
   Enabled: false
-Layout/AlignArguments:
+Layout/ArgumentAlignment:
   Enabled: false
-Layout/AlignArray:
+Layout/ArrayAlignment:
   Enabled: false
-Layout/AlignHash:
-  Enabled: false
-Layout/AlignParameters:
+Layout/AssignmentIndentation:
   Enabled: false
 Layout/BlockAlignment:
   Enabled: false
@@ -81,7 +79,13 @@ Layout/EndOfLine:
   Enabled: false
 Layout/ExtraSpacing:
   Enabled: false
+Layout/FirstArgumentIndentation:
+  Enabled: false
+Layout/FirstArrayElementIndentation:
+  Enabled: false
 Layout/FirstArrayElementLineBreak:
+  Enabled: false
+Layout/FirstHashElementIndentation:
   Enabled: false
 Layout/FirstHashElementLineBreak:
   Enabled: false
@@ -89,29 +93,25 @@ Layout/FirstMethodArgumentLineBreak:
   Enabled: false
 Layout/FirstMethodParameterLineBreak:
   Enabled: false
+Layout/FirstParameterIndentation:
+  Enabled: false
+Layout/HashAlignment:
+  Enabled: false
 Layout/HeredocArgumentClosingParenthesis:
   Enabled: false
-Layout/IndentAssignment:
+Layout/HeredocIndentation:
   Enabled: false
 Layout/IndentationConsistency:
   Enabled: false
 Layout/IndentationWidth:
   Enabled: false
-Layout/IndentFirstArgument:
-  Enabled: false
-Layout/IndentFirstArrayElement:
-  Enabled: false
-Layout/IndentFirstHashElement:
-  Enabled: false
-Layout/IndentFirstParameter:
-  Enabled: false
-Layout/IndentHeredoc:
-  Enabled: false
 Layout/InitialIndentation:
   Enabled: false
-Layout/LeadingBlankLines:
-  Enabled: false
 Layout/LeadingCommentSpace:
+  Enabled: false
+Layout/LeadingEmptyLines:
+  Enabled: false
+Layout/LineLength:
   Enabled: false
 Layout/MultilineArrayBraceLayout:
   Enabled: false
@@ -134,6 +134,8 @@ Layout/MultilineMethodCallIndentation:
 Layout/MultilineMethodDefinitionBraceLayout:
   Enabled: false
 Layout/MultilineOperationIndentation:
+  Enabled: false
+Layout/ParameterAlignment:
   Enabled: false
 Layout/RescueEnsureAlignment:
   Enabled: false
@@ -187,7 +189,7 @@ Layout/SpaceInsideStringInterpolation:
   Enabled: false
 Layout/Tab:
   Enabled: false
-Layout/TrailingBlankLines:
+Layout/TrailingEmptyLines:
   Enabled: false
 Layout/TrailingWhitespace:
   Enabled: false
@@ -213,9 +215,9 @@ Lint/DisjunctiveAssignmentInConstructor:
   Enabled: false
 Lint/DuplicateCaseCondition:
   Enabled: false
-Lint/DuplicateMethods:
+Lint/DuplicateHashKey:
   Enabled: false
-Lint/DuplicatedKey:
+Lint/DuplicateMethods:
   Enabled: false
 Lint/EachWithObjectArgument:
   Enabled: false
@@ -241,8 +243,6 @@ Lint/FloatOutOfRange:
   Enabled: false
 Lint/FormatParameterMismatch:
   Enabled: false
-Lint/HandleExceptions:
-  Enabled: false
 Lint/HeredocMethodCallPosition:
   Enabled: false
 Lint/ImplicitStringConcatenation:
@@ -261,13 +261,15 @@ Lint/Loop:
   Enabled: false
 Lint/MissingCopEnableDirective:
   Enabled: false
-Lint/MultipleCompare:
+Lint/MultipleComparison:
   Enabled: false
 Lint/NestedMethodDefinition:
   Enabled: false
 Lint/NestedPercentLiteral:
   Enabled: false
 Lint/NextWithoutAccumulator:
+  Enabled: false
+Lint/NonDeterministicRequireOrder:
   Enabled: false
 Lint/NonLocalExitFromIterator:
   Enabled: false
@@ -282,6 +284,16 @@ Lint/PercentStringArray:
 Lint/PercentSymbolArray:
   Enabled: false
 Lint/RandOne:
+  Enabled: false
+Lint/RedundantCopDisableDirective:
+  Enabled: false
+Lint/RedundantCopEnableDirective:
+  Enabled: false
+Lint/RedundantRequireStatement:
+  Enabled: false
+Lint/RedundantSplatExpansion:
+  Enabled: false
+Lint/RedundantStringCoercion:
   Enabled: false
 Lint/RedundantWithIndex:
   Enabled: false
@@ -313,7 +325,7 @@ Lint/ShadowedException:
   Enabled: false
 Lint/ShadowingOuterLocalVariable:
   Enabled: false
-Lint/StringConversionInInterpolation:
+Lint/SuppressedException:
   Enabled: false
 Lint/Syntax:
   Enabled: false
@@ -322,14 +334,6 @@ Lint/ToJSON:
 Lint/UnderscorePrefixedVariableName:
   Enabled: false
 Lint/UnifiedInteger:
-  Enabled: false
-Lint/UnneededCopDisableDirective:
-  Enabled: false
-Lint/UnneededCopEnableDirective:
-  Enabled: false
-Lint/UnneededRequireStatement:
-  Enabled: false
-Lint/UnneededSplatExpansion:
   Enabled: false
 Lint/UnreachableCode:
   Enabled: false
@@ -363,8 +367,6 @@ Metrics/BlockNesting:
   Enabled: false
 Metrics/ClassLength:
   Enabled: false
-Metrics/LineLength:
-  Enabled: false
 Metrics/MethodLength:
   Enabled: false
 Metrics/ModuleLength:
@@ -376,6 +378,8 @@ Metrics/PerceivedComplexity:
 Naming/AccessorMethodName:
   Enabled: false
 Naming/AsciiIdentifiers:
+  Enabled: false
+Naming/BlockParameterName:
   Enabled: false
 Naming/ClassAndModuleCamelCase:
   Enabled: false
@@ -391,15 +395,13 @@ Naming/MemoizedInstanceVariableName:
   Enabled: false
 Naming/MethodName:
   Enabled: false
+Naming/MethodParameterName:
+  Enabled: false
 Naming/BinaryOperatorParameterName:
   Enabled: false
 Naming/PredicateName:
   Enabled: false
 Naming/RescuedExceptionsVariableName:
-  Enabled: false
-Naming/UncommunicativeBlockParamName:
-  Enabled: false
-Naming/UncommunicativeMethodParamName:
   Enabled: false
 Naming/VariableName:
   Enabled: false
@@ -426,8 +428,6 @@ Style/BeginBlock:
 Style/BlockComments:
   Enabled: false
 Style/BlockDelimiters:
-  Enabled: false
-Style/BracesAroundHashParameters:
   Enabled: false
 Style/CaseEquality:
   Enabled: false
@@ -513,7 +513,13 @@ Style/GlobalVars:
   Enabled: false
 Style/GuardClause:
   Enabled: false
+Style/HashEachMethods:
+  Enabled: false
 Style/HashSyntax:
+  Enabled: false
+Style/HashTransformKeys:
+  Enabled: false
+Style/HashTransformValues:
   Enabled: false
 Style/IdenticalConditionalBranches:
   Enabled: false
@@ -635,17 +641,27 @@ Style/RandomWithOffset:
   Enabled: false
 Style/RedundantBegin:
   Enabled: false
+Style/RedundantCapitalW:
+  Enabled: false
+Style/RedundantCondition:
+  Enabled: false
 Style/RedundantConditional:
   Enabled: false
 Style/RedundantException:
   Enabled: false
 Style/RedundantFreeze:
   Enabled: false
+Style/RedundantInterpolation:
+  Enabled: false
 Style/RedundantParentheses:
+  Enabled: false
+Style/RedundantPercentQ:
   Enabled: false
 Style/RedundantReturn:
   Enabled: false
 Style/RedundantSelf:
+  Enabled: false
+Style/RedundantSort:
   Enabled: false
 Style/RedundantSortBy:
   Enabled: false
@@ -718,16 +734,6 @@ Style/TrailingUnderscoreVariable:
 Style/TrivialAccessors:
   Enabled: false
 Style/UnlessElse:
-  Enabled: false
-Style/UnneededCapitalW:
-  Enabled: false
-Style/UnneededCondition:
-  Enabled: false
-Style/UnneededInterpolation:
-  Enabled: false
-Style/UnneededPercentQ:
-  Enabled: false
-Style/UnneededSort:
   Enabled: false
 Style/UnpackFirst:
   Enabled: false

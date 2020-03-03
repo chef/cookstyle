@@ -1786,7 +1786,7 @@ Naming/FileName:
   Enabled: false
 
 # disable all the length cops as they're not appropriate for cookbooks
-Metrics/LineLength:
+Layout/LineLength:
   Enabled: false
 Metrics/MethodLength:
   Enabled: false
@@ -1807,8 +1807,8 @@ Metrics/PerceivedComplexity:
 
 # This updates how we send helpers into the Chef recipe/resource classes and makes WAY more sense
 # Chef::Recipe.send(:include, ::Apt::Helpers) -> Chef::Recipe.include ::Apt::Helpers
-# Lint/SendWithMixinArgument:
-#   Enabled: true
+Lint/SendWithMixinArgument:
+  Enabled: true
 
 #### END COPS FOR THE NEXT MAJOR RELEASE
 
@@ -2024,3 +2024,11 @@ Bundler/OrderedGems:
 # and this rule will break any library that worked with extend self.
 Style/ModuleFunction:
   Enabled: false
+
+# Avoid using extra then statements in a multiline case
+Style/MultilineWhenThen:
+  Enabled: true
+
+# .each_key is a lot more clear that .keys.each
+Style/HashEachMethods:
+  Enabled: true
