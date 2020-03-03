@@ -1,5 +1,5 @@
 #
-# Copyright:: 2019, Chef Software Inc.
+# Copyright:: 2019-2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -42,17 +42,17 @@ module RuboCop
 
           MSG = 'The default action of a resource can be set with the "default_action" helper instead of using the initialize method.'.freeze
 
-          def_node_matcher :action_in_initializer?, <<-PATTERN
-            (def :initialize (args ...) <(begin ... $(ivasgn {:@action :@default_action} $(...)))> )
+          def_node_matcher :action_variable_assignment?, <<-PATTERN
+            (ivasgn {:@action :@default_action} $(...))
           PATTERN
 
           def_node_search :intialize_method, '(def :initialize ... )'
 
           def_node_search :default_action_method?, '(send nil? :default_action ... )'
 
-          def on_def(node)
-            action_in_initializer?(node) do |action, _val|
-              add_offense(action, location: :expression, message: MSG, severity: :refactor)
+          def on_ivasgn(node)
+            action_variable_assignment?(node) do
+              add_offense(node, location: :expression, message: MSG, severity: :refactor) if intialize_method(node.parent.parent)
             end
           end
 

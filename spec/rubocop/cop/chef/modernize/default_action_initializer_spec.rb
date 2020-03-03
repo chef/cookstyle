@@ -1,5 +1,5 @@
 #
-# Copyright:: 2019, Chef Software, Inc.
+# Copyright:: 2019-2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -52,6 +52,19 @@ describe RuboCop::Cop::Chef::ChefModernize::DefaultActionFromInitialize, :config
 
       def initialize(*args)
         super
+      end
+    RUBY
+  end
+
+  it 'Detects @action in the initializer regardless of the order of other variables' do
+    expect_offense(<<~RUBY)
+      default_action :create
+
+      def initialize(*args)
+        super
+        @action = :create
+        ^^^^^^^^^^^^^^^^^ The default action of a resource can be set with the "default_action" helper instead of using the initialize method.
+        @foo ||= name
       end
     RUBY
   end
