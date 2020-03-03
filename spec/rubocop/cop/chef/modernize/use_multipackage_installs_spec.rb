@@ -1,0 +1,86 @@
+#
+# Copyright:: 2019, Chef Software, Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+require 'spec_helper'
+
+describe RuboCop::Cop::Chef::ChefModernize::UseMultipackageInstalls, :config do
+  subject(:cop) { described_class.new(config) }
+
+  it 'registers an offense when iterating over an array of packages in a case statement' do
+    expect_offense(<<~RUBY)
+      case node['platform']
+      when 'ubuntu'
+        %w(bmon htop vim curl).each do |pkg|
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Pass an array of packages to package resources instead of interating over an array of packages when using multi-package capable package subystem such as apt, yum, chocolatey, dnf, or zypper. Multipackage installs are faster and simplify logs.
+          package pkg do
+            action :install
+          end
+        end
+      end
+    RUBY
+
+    expect_correction(<<~RUBY)
+      case node['platform']
+      when 'ubuntu'
+        package %w(bmon htop vim curl)
+      end
+    RUBY
+  end
+
+  it 'registers an offense when iterating over an array of packages in a platform? check' do
+    expect_offense(<<~RUBY)
+      if platform?('ubuntu')
+        %w(bmon htop vim curl).each do |pkg|
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Pass an array of packages to package resources instead of interating over an array of packages when using multi-package capable package subystem such as apt, yum, chocolatey, dnf, or zypper. Multipackage installs are faster and simplify logs.
+          package pkg do
+            action :install
+          end
+        end
+      end
+    RUBY
+
+    expect_correction(<<~RUBY)
+      if platform?('ubuntu')
+        package %w(bmon htop vim curl)
+      end
+    RUBY
+  end
+
+  it "doesn't register an offense when iterating over packages in a case statement on a non-multipackage platform" do
+    expect_no_offenses(<<~RUBY)
+      case node['platform']
+      when 'mac_os_x'
+        %w(bmon htop vim curl).each do |pkg|
+          package pkg do
+            action :install
+          end
+        end
+      end
+    RUBY
+  end
+
+  it "doesn't register an offense when iterating over packages in a platform? check on a non-multipackage platform" do
+    expect_no_offenses(<<~RUBY)
+      if platform?('mac_os_x')
+        %w(bmon htop vim curl).each do |pkg|
+          package pkg do
+            action :install
+          end
+        end
+      end
+    RUBY
+  end
+end
