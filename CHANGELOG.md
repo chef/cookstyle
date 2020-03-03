@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.0.0 -->
-## [v6.0.0](https://github.com/chef/cookstyle/tree/v6.0.0) (2020-03-03)
+ <!-- latest_release 6.0.1 -->
+## [v6.0.1](https://github.com/chef/cookstyle/tree/v6.0.1) (2020-03-03)
 
 #### Merged Pull Requests
-- Update RuboCop engine to 0.80.1 [#479](https://github.com/chef/cookstyle/pull/479) ([tas50](https://github.com/tas50))
+- Disable the Naming/PredicateName [#552](https://github.com/chef/cookstyle/pull/552) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.22.6 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Disable the Naming/PredicateName [#552](https://github.com/chef/cookstyle/pull/552) ([tas50](https://github.com/tas50)) <!-- 6.0.1 -->
 - Update RuboCop engine to 0.80.1 [#479](https://github.com/chef/cookstyle/pull/479) ([tas50](https://github.com/tas50)) <!-- 6.0.0 -->
 - Move Cookstyle to the Chef Infra project [#538](https://github.com/chef/cookstyle/pull/538) ([tas50](https://github.com/tas50)) <!-- 5.22.7 -->
 <!-- release_rollup -->
