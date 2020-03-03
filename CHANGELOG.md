@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 5.22.7 -->
-## [v5.22.7](https://github.com/chef/cookstyle/tree/v5.22.7) (2020-03-02)
+ <!-- latest_release 6.0.0 -->
+## [v6.0.0](https://github.com/chef/cookstyle/tree/v6.0.0) (2020-03-03)
 
 #### Merged Pull Requests
-- Move Cookstyle to the Chef Infra project [#538](https://github.com/chef/cookstyle/pull/538) ([tas50](https://github.com/tas50))
+- Update RuboCop engine to 0.80.1 [#479](https://github.com/chef/cookstyle/pull/479) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.22.6 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Update RuboCop engine to 0.80.1 [#479](https://github.com/chef/cookstyle/pull/479) ([tas50](https://github.com/tas50)) <!-- 6.0.0 -->
 - Move Cookstyle to the Chef Infra project [#538](https://github.com/chef/cookstyle/pull/538) ([tas50](https://github.com/tas50)) <!-- 5.22.7 -->
 <!-- release_rollup -->
 
