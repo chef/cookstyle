@@ -135,6 +135,7 @@
 * [ChefModernize/UnnecessaryDependsChef14](cops_chefmodernize.md#chefmodernizeunnecessarydependschef14)
 * [ChefModernize/UnnecessaryMixlibShelloutRequire](cops_chefmodernize.md#chefmodernizeunnecessarymixlibshelloutrequire)
 * [ChefModernize/UseBuildEssentialResource](cops_chefmodernize.md#chefmodernizeusebuildessentialresource)
+* [ChefModernize/UseMultipackageInstalls](cops_chefmodernize.md#chefmodernizeusemultipackageinstalls)
 * [ChefModernize/UseRequireRelative](cops_chefmodernize.md#chefmodernizeuserequirerelative)
 * [ChefModernize/UsesZypperRepo](cops_chefmodernize.md#chefmodernizeuseszypperrepo)
 * [ChefModernize/WhyRunSupportedTrue](cops_chefmodernize.md#chefmodernizewhyrunsupportedtrue)

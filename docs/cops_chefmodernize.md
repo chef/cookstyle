@@ -1285,6 +1285,35 @@ Name | Default value | Configurable values
 VersionAdded | `5.1.0` | String
 Exclude | `**/metadata.rb` | Array
 
+## ChefModernize/UseMultipackageInstalls
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+Pass an array of packages to package resources instead of interating over an array of packages when using multi-package capable package subystem such as apt, yum, chocolatey, dnf, or zypper. Multipackage installs are faster and simplify logs.
+
+### Examples
+
+```ruby
+# bad
+%w(bmon htop vim curl).each do |pkg|
+  package pkg do
+    action :install
+  end
+end
+
+# good
+package %w(bmon htop vim curl)
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.0.0` | String
+Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
+
 ## ChefModernize/UseRequireRelative
 
 Enabled by default | Supports autocorrection
