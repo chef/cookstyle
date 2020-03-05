@@ -33,6 +33,31 @@ Name | Default value | Configurable values
 VersionAdded | `5.2.0` | String
 Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
+## ChefCorrectness/ChefApplicationFatal
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+Use raise to force Chef Infra Client to fail instead of using Chef::Application.fatal, which masks the full stack trace of the failure and makes debugging difficult.
+
+### Examples
+
+```ruby
+# bad
+Chef::Application.fatal!('Something horrible happened!')
+
+# good
+raise "Something horrible happened!"
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.0.0` | String
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
+
 ## ChefCorrectness/CookbookUsesNodeSave
 
 Enabled by default | Supports autocorrection
