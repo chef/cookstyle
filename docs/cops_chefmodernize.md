@@ -790,7 +790,7 @@ Enabled by default | Supports autocorrection
 --- | ---
 Enabled | Yes
 
-PowerShell is already set as the default guard interpreter for powershell_script resources in Chef Infra Client 13 and later and does not need to be specified.
+PowerShell is already set as the default guard interpreter for resources in Chef Infra Client 13 and later and does not need to be specified.
 
 ### Examples
 
