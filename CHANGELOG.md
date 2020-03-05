@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.0.8 -->
-## [v6.0.8](https://github.com/chef/cookstyle/tree/v6.0.8) (2020-03-05)
+ <!-- latest_release 6.0.9 -->
+## [v6.0.9](https://github.com/chef/cookstyle/tree/v6.0.9) (2020-03-05)
 
 #### Merged Pull Requests
-- Add new cop ChefModernize/UseMultipackageInstalls [#553](https://github.com/chef/cookstyle/pull/553) ([tas50](https://github.com/tas50))
+- Detect the short form the of registry key in ChefModernize/WindowsRegistryUAC [#575](https://github.com/chef/cookstyle/pull/575) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.22.6 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Detect the short form the of registry key in ChefModernize/WindowsRegistryUAC [#575](https://github.com/chef/cookstyle/pull/575) ([tas50](https://github.com/tas50)) <!-- 6.0.9 -->
 - Add new cop ChefModernize/UseMultipackageInstalls [#553](https://github.com/chef/cookstyle/pull/553) ([tas50](https://github.com/tas50)) <!-- 6.0.8 -->
 - Add ChefCorrectness/ChefApplicationFatal cop [#570](https://github.com/chef/cookstyle/pull/570) ([tas50](https://github.com/tas50)) <!-- 6.0.7 -->
 - Update ChefModernize/PowerShellGuardInterpreter to look at all resources [#572](https://github.com/chef/cookstyle/pull/572) ([tas50](https://github.com/tas50)) <!-- 6.0.6 -->
