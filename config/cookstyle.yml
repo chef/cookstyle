@@ -324,6 +324,14 @@ ChefCorrectness/DnfPackageAllowDowngrades:
     - '**/metadata.rb'
     - '**/Berksfile'
 
+ChefCorrectness/ChefApplicationFatal:
+  Description: Use raise to force Chef Infra Client to fail instead of using Chef::Application.fatal
+  Enabled: true
+  VersionAdded: '6.0.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/Berksfile'
+
 ###############################
 # ChefSharing: Issues that prevent sharing code with other teams or with the Chef community in general
 ###############################
