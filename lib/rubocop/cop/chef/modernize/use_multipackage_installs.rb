@@ -1,5 +1,5 @@
 #
-# Copyright:: 2019, Chef Software, Inc.
+# Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -70,11 +70,9 @@ module RuboCop
 
           # see if all platforms in the when condition are multipackage compliant
           def multipackage_platforms?(condition_obj)
-            condition_obj.each do |p|
-              return false unless MULTIPACKAGE_PLATS.include?(p.value)
+            condition_obj.all? do |p|
+              MULTIPACKAGE_PLATS.include?(p.value)
             end
-
-            true
           end
 
           def on_when(node)
