@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.0.4 -->
-## [v6.0.4](https://github.com/chef/cookstyle/tree/v6.0.4) (2020-03-05)
+ <!-- latest_release 6.0.5 -->
+## [v6.0.5](https://github.com/chef/cookstyle/tree/v6.0.5) (2020-03-05)
 
 #### Merged Pull Requests
-- Enable ChefStyle/UnnecessaryOSCheck [#573](https://github.com/chef/cookstyle/pull/573) ([tas50](https://github.com/tas50))
+- Add autocorrection to ChefCorrectness/DnfPackageAllowDowngrades [#571](https://github.com/chef/cookstyle/pull/571) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.22.6 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add autocorrection to ChefCorrectness/DnfPackageAllowDowngrades [#571](https://github.com/chef/cookstyle/pull/571) ([tas50](https://github.com/tas50)) <!-- 6.0.5 -->
 - Enable ChefStyle/UnnecessaryOSCheck [#573](https://github.com/chef/cookstyle/pull/573) ([tas50](https://github.com/tas50)) <!-- 6.0.4 -->
 - Update DefaultActionFromInitialize to not care about variable order [#555](https://github.com/chef/cookstyle/pull/555) ([tas50](https://github.com/tas50)) <!-- 6.0.3 -->
 - Update ChefRedundant/UnnecessaryNameProperty to detect attributes [#551](https://github.com/chef/cookstyle/pull/551) ([tas50](https://github.com/tas50)) <!-- 6.0.2 -->

@@ -76,7 +76,7 @@ Include | `**/metadata.rb` | Array
 
 Enabled by default | Supports autocorrection
 --- | ---
-Enabled | No
+Enabled | Yes
 
 dnf_package does not support the allow_downgrades property
 
