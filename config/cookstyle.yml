@@ -1158,6 +1158,15 @@ ChefModernize/WindowsRegistryUAC:
     - '**/attributes/*.rb'
     - '**/Berksfile'
 
+ChefModernize/UseMultipackageInstalls:
+  Description: Pass an array of packages to package resources instead of interating over an array of packages when using multi-package capable package subystem such as apt, yum, chocolatey, dnf, or zypper. Multipackage installs are faster and simplify logs.
+  Enabled: true
+  VersionAdded: '6.0.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/attributes/*.rb'
+    - '**/Berksfile'
+
 ###############################
 # ChefRedundantCode: Cleanup unnecessary code in your cookbooks regardless of Chef Infra Client release
 ###############################
