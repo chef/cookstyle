@@ -1,5 +1,5 @@
 #
-# Copyright:: 2019, Chef Software, Inc.
+# Copyright:: 2019-2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,7 +18,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefModernize
-        # PowerShell is already set as the default guard interpreter for powershell_script resources in Chef Infra Client 13 and later and does not need to be specified.
+        # PowerShell is already set as the default guard interpreter for resources in Chef Infra Client 13 and later and does not need to be specified.
         #
         # @example
         #
@@ -43,7 +43,7 @@ module RuboCop
           MSG = 'PowerShell is already set as the default guard interpreter for powershell_script resources in Chef Infra Client 13 and later and does not need to be specified.'.freeze
 
           def on_block(node)
-            match_property_in_resource?(:powershell_script, 'guard_interpreter', node) do |interpreter|
+            match_property_in_resource?(nil, 'guard_interpreter', node) do |interpreter|
               if interpreter.arguments.first.source == ':powershell_script'
                 add_offense(interpreter, location: :expression, message: MSG, severity: :refactor)
               end
