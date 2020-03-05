@@ -71,6 +71,19 @@ describe RuboCop::Cop::Chef::ChefModernize::WindowsRegistryUAC, :config do
     RUBY
   end
 
+  it 'does not register on registry_key within an inspec control' do
+    expect_no_offenses(<<~RUBY)
+      control 'windows-cis-2.3.17.8' do
+        impact 1.0
+        title "2.3.17.8 Ensure 'User Account Control: Switch to the secure desktop when prompting for elevation' is set to 'Enabled'"
+        desc "Ensure 'User Account Control: Switch to the secure desktop when prompting for elevation' is set to 'Enabled'"
+        describe registry_key('HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System') do
+          its('PromptOnSecureDesktop') { should eq 1 }
+        end
+      end
+    RUBY
+  end
+
   context 'with TargetChefVersion set to 14' do
     let(:config) { target_chef_version(14) }
 

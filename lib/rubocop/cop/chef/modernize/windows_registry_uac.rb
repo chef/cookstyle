@@ -50,7 +50,7 @@ module RuboCop
 
             # use source instead of .value in case there's string interpolation which adds a complex dstr type
             # with a nested string and a begin. Source allows us to avoid a lot of defensive programming here
-            if node&.arguments.first&.source.match?(/(HKLM|HKEY_LOCAL_MACHINE)\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System/i)
+            if node&.arguments.first&.source.match?(/(HKLM|HKEY_LOCAL_MACHINE)\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System/i) && node.parent&.method_name != :describe
               add_offense(node, location: :expression, message: MSG, severity: :refactor)
             end
           end
