@@ -1,5 +1,5 @@
 #
-# Copyright:: Copyright 2019, Chef Software Inc.
+# Copyright:: Copyright 2019-2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -34,6 +34,7 @@ module RuboCop
         #   end
         #
         class DnfPackageAllowDowngrades < Cop
+          include RangeHelp
           include RuboCop::Chef::CookbookHelpers
 
           MSG = 'dnf_package does not support the allow_downgrades property'.freeze
@@ -41,6 +42,12 @@ module RuboCop
           def on_block(node)
             match_property_in_resource?(:dnf_package, :allow_downgrades, node) do |prop|
               add_offense(prop, location: :expression, message: MSG, severity: :refactor)
+            end
+          end
+
+          def autocorrect(node)
+            lambda do |corrector|
+              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
             end
           end
         end
