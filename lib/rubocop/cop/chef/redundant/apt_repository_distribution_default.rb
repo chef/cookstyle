@@ -47,7 +47,6 @@ module RuboCop
 
           def on_block(node)
             match_property_in_resource?(:apt_repository, 'distribution', node) do |dist|
-              ## require 'pry'; binding.pry
               default_dist?(dist) do
                 add_offense(dist, location: :expression, message: MSG, severity: :refactor)
               end

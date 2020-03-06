@@ -39,16 +39,16 @@ module RuboCop
 
       # Match particular properties within a resource
       #
-      # @param [String] resource_name The name of the resource to match
+      # @param [Symbol, Array<Symbol>] resource_names The name of the resources to match
       # @param [String] property_names The name of the property to match (or action)
       # @param [RuboCop::AST::Node] node The rubocop ast node to search
       #
       # @yield
       #
-      def match_property_in_resource?(resource_name, property_names, node)
+      def match_property_in_resource?(resource_names, property_names, node)
         return unless looks_like_resource?(node)
         # bail out if we're not in the resource we care about or nil was passed (all resources)
-        return unless resource_name.nil? || node.children.first.method?(resource_name.to_sym) # see if we're in the right resource
+        return unless resource_names.nil? || Array(resource_names).include?(node.children.first.method_name) # see if we're in the right resource
 
         resource_block = node.children[2] # the 3rd child is the actual block in the resource
         return unless resource_block # nil would be an empty block

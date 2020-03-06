@@ -18,19 +18,28 @@ module RuboCop
   module Cop
     module Chef
       module ChefModernize
-        # PowerShell is already set as the default guard interpreter for resources in Chef Infra Client 13 and later and does not need to be specified.
+        # PowerShell is already set as the default guard interpreter for `powershell_script` and `batch` resources in Chef Infra Client 13 and later and does not need to be specified.
         #
         # @example
         #
         #   # bad
-        #   powershell_script 'whatever' do
-        #     code "mkdir test_dir"
+        #   powershell_script 'Create Directory' do
+        #     code "New-Item -ItemType Directory -Force -Path C:\mydir"
+        #     guard_interpreter :powershell_script
+        #   end
+        #
+        #   batch 'Create Directory' do
+        #     code "mkdir C:\mydir"
         #     guard_interpreter :powershell_script
         #   end
         #
         #   # good
-        #   powershell_script 'whatever' do
-        #     code "mkdir test_dir"
+        #   powershell_script 'Create Directory' do
+        #     code "New-Item -ItemType Directory -Force -Path C:\mydir"
+        #   end
+        #
+        #   batch 'Create Directory' do
+        #     code "mkdir C:\mydir"
         #   end
         #
         class PowerShellGuardInterpreter < Cop
@@ -40,10 +49,10 @@ module RuboCop
 
           minimum_target_chef_version '13.0'
 
-          MSG = 'PowerShell is already set as the default guard interpreter for powershell_script resources in Chef Infra Client 13 and later and does not need to be specified.'.freeze
+          MSG = 'PowerShell is already set as the default guard interpreter for `powershell_script` and `batch` resources in Chef Infra Client 13 and later and does not need to be specified.'.freeze
 
           def on_block(node)
-            match_property_in_resource?(nil, 'guard_interpreter', node) do |interpreter|
+            match_property_in_resource?(%i(powershell_script batch), 'guard_interpreter', node) do |interpreter|
               if interpreter.arguments.first.source == ':powershell_script'
                 add_offense(interpreter, location: :expression, message: MSG, severity: :refactor)
               end
