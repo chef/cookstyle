@@ -69,6 +69,10 @@ RSpec.describe RuboCop::Chef::CookbookHelpers do
       it "should yield a single 'running' property ast objects" do
         expect { |b| match_property_in_resource?(:service, 'running', parse_source(resource_source).ast, &b) }.to yield_successive_args(running_true_ast)
       end
+
+      it "should yield a single 'running' property ast objects when passed an array" do
+        expect { |b| match_property_in_resource?(%i(service file), 'running', parse_source(resource_source).ast, &b) }.to yield_successive_args(running_true_ast)
+      end
     end
 
     describe 'multiple properties in a resource' do

@@ -1,5 +1,5 @@
 #
-# Copyright:: 2019, Chef Software, Inc.
+# Copyright:: 2019-2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -39,7 +39,7 @@ module RuboCop
           MSG = 'Use the type property instead of the deprecated supports property in the chef_handler resource. The supports property was removed in chef_handler cookbook version 3.0 (June 2017) and Chef Infra Client 14.0.'.freeze
 
           def on_block(node)
-            match_property_in_resource?('chef_handler', 'supports', node) do |prop_node|
+            match_property_in_resource?(:chef_handler, 'supports', node) do |prop_node|
               add_offense(prop_node, location: :expression, message: MSG, severity: :refactor)
             end
           end
