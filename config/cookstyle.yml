@@ -1185,6 +1185,14 @@ ChefModernize/ProvidesFromInitialize:
     - '**/providers/*.rb'
     - '**/libraries/*.rb'
 
+ChefModernize/DatabagHelpers:
+  Description: Use the `data_bag_item` helper instead of `Chef::DataBagItem.load` or `Chef::EncryptedDataBagItem.load`.
+  Enabled: true
+  VersionAdded: '6.0.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/Berksfile'
+
 ###############################
 # ChefRedundantCode: Cleanup unnecessary code in your cookbooks regardless of Chef Infra Client release
 ###############################
