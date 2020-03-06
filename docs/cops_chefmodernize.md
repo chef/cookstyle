@@ -114,6 +114,33 @@ Name | Default value | Configurable values
 VersionAdded | `5.2.0` | String
 Include | `**/resources/*.rb` | Array
 
+## ChefModernize/DatabagHelpers
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+Use the `data_bag_item` helper instead of `Chef::DataBagItem.load` or `Chef::EncryptedDataBagItem.load`.
+
+### Examples
+
+```ruby
+# bad
+plain_text_data = Chef::DataBagItem.load('foo', 'bar')
+encrypted_data = Chef::EncryptedDataBagItem.load('foo2', 'bar2')
+
+# good
+plain_text_data = data_bag_item('foo', 'bar')
+encrypted_data = data_bag_item('foo2', 'bar2')
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.0.0` | String
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
+
 ## ChefModernize/DefaultActionFromInitialize
 
 Enabled by default | Supports autocorrection

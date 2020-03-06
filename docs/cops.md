@@ -93,6 +93,7 @@
 * [ChefModernize/ChefGemNokogiri](cops_chefmodernize.md#chefmodernizechefgemnokogiri)
 * [ChefModernize/CronManageResource](cops_chefmodernize.md#chefmodernizecronmanageresource)
 * [ChefModernize/CustomResourceWithAttributes](cops_chefmodernize.md#chefmodernizecustomresourcewithattributes)
+* [ChefModernize/DatabagHelpers](cops_chefmodernize.md#chefmodernizedatabaghelpers)
 * [ChefModernize/DefaultActionFromInitialize](cops_chefmodernize.md#chefmodernizedefaultactionfrominitialize)
 * [ChefModernize/DefinesChefSpecMatchers](cops_chefmodernize.md#chefmodernizedefineschefspecmatchers)
 * [ChefModernize/Definitions](cops_chefmodernize.md#chefmodernizedefinitions)
