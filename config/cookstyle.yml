@@ -1176,6 +1176,15 @@ ChefModernize/UseMultipackageInstalls:
     - '**/attributes/*.rb'
     - '**/Berksfile'
 
+ChefModernize/ProvidesFromInitialize:
+  Description: Provides should be set using the `provides` resource DSL method instead of instead of setting @provides in the initialize method.
+  Enabled: true
+  VersionAdded: '6.0.0'
+  Include:
+    - '**/resources/*.rb'
+    - '**/providers/*.rb'
+    - '**/libraries/*.rb'
+
 ###############################
 # ChefRedundantCode: Cleanup unnecessary code in your cookbooks regardless of Chef Infra Client release
 ###############################
