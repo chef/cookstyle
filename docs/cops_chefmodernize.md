@@ -924,6 +924,34 @@ VersionAdded | `5.1.0` | String
 VersionChanged | `5.15.0` | String
 Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
 
+## ChefModernize/ProvidesFromInitialize
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+Provides should be set using the `provides` resource DSL method instead of instead of setting @provides in the initialize method.
+
+### Examples
+
+```ruby
+# bad
+def initialize(*args)
+  super
+  @provides = :foo
+end
+
+# good
+provides :foo
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.0.0` | String
+Include | `**/resources/*.rb`, `**/providers/*.rb`, `**/libraries/*.rb` | Array
+
 ## ChefModernize/ResourceForcingCompileTime
 
 Enabled by default | Supports autocorrection

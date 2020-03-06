@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.0.10 -->
-## [v6.0.10](https://github.com/chef/cookstyle/tree/v6.0.10) (2020-03-06)
+ <!-- latest_release 6.0.11 -->
+## [v6.0.11](https://github.com/chef/cookstyle/tree/v6.0.11) (2020-03-06)
 
 #### Merged Pull Requests
-- Add ChefCorrectness/PowershellScriptDeleteFile [#576](https://github.com/chef/cookstyle/pull/576) ([tas50](https://github.com/tas50))
+- Add ChefModernize/ProvidesFromInitialize cop [#574](https://github.com/chef/cookstyle/pull/574) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.22.6 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add ChefModernize/ProvidesFromInitialize cop [#574](https://github.com/chef/cookstyle/pull/574) ([tas50](https://github.com/tas50)) <!-- 6.0.11 -->
 - Add ChefCorrectness/PowershellScriptDeleteFile [#576](https://github.com/chef/cookstyle/pull/576) ([tas50](https://github.com/tas50)) <!-- 6.0.10 -->
 - Detect the short form the of registry key in ChefModernize/WindowsRegistryUAC [#575](https://github.com/chef/cookstyle/pull/575) ([tas50](https://github.com/tas50)) <!-- 6.0.9 -->
 - Add new cop ChefModernize/UseMultipackageInstalls [#553](https://github.com/chef/cookstyle/pull/553) ([tas50](https://github.com/tas50)) <!-- 6.0.8 -->
