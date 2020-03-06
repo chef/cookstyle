@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.0.12 -->
-## [v6.0.12](https://github.com/chef/cookstyle/tree/v6.0.12) (2020-03-06)
+ <!-- latest_release 6.0.13 -->
+## [v6.0.13](https://github.com/chef/cookstyle/tree/v6.0.13) (2020-03-06)
 
 #### Merged Pull Requests
-- Add ChefModernize/DatabagHelpers [#577](https://github.com/chef/cookstyle/pull/577) ([tas50](https://github.com/tas50))
+- Allow arrays in match_property_in_resource and fix powershell interp cop [#578](https://github.com/chef/cookstyle/pull/578) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.22.6 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Allow arrays in match_property_in_resource and fix powershell interp cop [#578](https://github.com/chef/cookstyle/pull/578) ([tas50](https://github.com/tas50)) <!-- 6.0.13 -->
 - Add ChefModernize/DatabagHelpers [#577](https://github.com/chef/cookstyle/pull/577) ([tas50](https://github.com/tas50)) <!-- 6.0.12 -->
 - Add ChefModernize/ProvidesFromInitialize cop [#574](https://github.com/chef/cookstyle/pull/574) ([tas50](https://github.com/tas50)) <!-- 6.0.11 -->
 - Add ChefCorrectness/PowershellScriptDeleteFile [#576](https://github.com/chef/cookstyle/pull/576) ([tas50](https://github.com/tas50)) <!-- 6.0.10 -->

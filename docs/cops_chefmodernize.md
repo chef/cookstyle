@@ -817,20 +817,29 @@ Enabled by default | Supports autocorrection
 --- | ---
 Enabled | Yes
 
-PowerShell is already set as the default guard interpreter for resources in Chef Infra Client 13 and later and does not need to be specified.
+PowerShell is already set as the default guard interpreter for `powershell_script` and `batch` resources in Chef Infra Client 13 and later and does not need to be specified.
 
 ### Examples
 
 ```ruby
 # bad
-powershell_script 'whatever' do
-  code "mkdir test_dir"
+powershell_script 'Create Directory' do
+  code "New-Item -ItemType Directory -Force -Path C:\mydir"
+  guard_interpreter :powershell_script
+end
+
+batch 'Create Directory' do
+  code "mkdir C:\mydir"
   guard_interpreter :powershell_script
 end
 
 # good
-powershell_script 'whatever' do
-  code "mkdir test_dir"
+powershell_script 'Create Directory' do
+  code "New-Item -ItemType Directory -Force -Path C:\mydir"
+end
+
+batch 'Create Directory' do
+  code "mkdir C:\mydir"
 end
 ```
 
