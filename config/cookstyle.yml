@@ -332,6 +332,15 @@ ChefCorrectness/ChefApplicationFatal:
     - '**/metadata.rb'
     - '**/Berksfile'
 
+ChefCorrectness/PowershellScriptDeleteFile:
+  Description: Use the `file` or `directory` resources built into Chef Infra Client with the :delete action to remove files/directories instead of using Remove-Item in a powershell_script resource
+  Enabled: true
+  VersionAdded: '6.0.0'
+  Exclude:
+    - '**/attributes/*.rb'
+    - '**/metadata.rb'
+    - '**/Berksfile'
+
 ###############################
 # ChefSharing: Issues that prevent sharing code with other teams or with the Chef community in general
 ###############################
