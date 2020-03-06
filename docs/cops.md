@@ -19,6 +19,7 @@
 * [ChefCorrectness/NodeNormal](cops_chefcorrectness.md#chefcorrectnessnodenormal)
 * [ChefCorrectness/NodeNormalUnless](cops_chefcorrectness.md#chefcorrectnessnodenormalunless)
 * [ChefCorrectness/NotifiesActionNotSymbol](cops_chefcorrectness.md#chefcorrectnessnotifiesactionnotsymbol)
+* [ChefCorrectness/PowershellScriptDeleteFile](cops_chefcorrectness.md#chefcorrectnesspowershellscriptdeletefile)
 * [ChefCorrectness/ResourceSetsInternalProperties](cops_chefcorrectness.md#chefcorrectnessresourcesetsinternalproperties)
 * [ChefCorrectness/ResourceSetsNameProperty](cops_chefcorrectness.md#chefcorrectnessresourcesetsnameproperty)
 * [ChefCorrectness/ResourceWithNoneAction](cops_chefcorrectness.md#chefcorrectnessresourcewithnoneaction)

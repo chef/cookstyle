@@ -515,6 +515,36 @@ Name | Default value | Configurable values
 VersionAdded | `5.10.0` | String
 Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
+## ChefCorrectness/PowershellScriptDeleteFile
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+Use the `file` or `directory` resources built into Chef Infra Client with the :delete action to remove files/directories instead of using Remove-Item in a powershell_script resource
+
+ # good
+ file 'C:\Windows\foo\bar.txt' do
+   action :delete
+ end
+
+### Examples
+
+```ruby
+# bad
+powershell_script 'Cleanup old files' do
+  code 'Remove-Item C:\Windows\foo\bar.txt'
+  only_if { ::File.exist?('C:\\Windows\\foo\\bar.txt') }
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.0.0` | String
+Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
+
 ## ChefCorrectness/ResourceSetsInternalProperties
 
 Enabled by default | Supports autocorrection
