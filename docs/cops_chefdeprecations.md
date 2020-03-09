@@ -117,6 +117,32 @@ Name | Default value | Configurable values
 VersionAdded | `5.8.0` | String
 Include | `**/spec/*.rb` | Array
 
+## ChefDeprecations/ChefWindowsPlatformHelper
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+Use `platform?('windows')` instead of the legacy `Chef::Platform.windows?` helper
+
+### Examples
+
+```ruby
+# bad
+Chef::Platform.windows?
+
+# good
+platform?('windows')
+platform_family?('windows')
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.0.0` | String
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
+
 ## ChefDeprecations/Cheffile
 
 Enabled by default | Supports autocorrection

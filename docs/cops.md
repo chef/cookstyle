@@ -33,6 +33,7 @@
 * [ChefDeprecations/ChefRewind](cops_chefdeprecations.md#chefdeprecationschefrewind)
 * [ChefDeprecations/ChefSpecCoverageReport](cops_chefdeprecations.md#chefdeprecationschefspeccoveragereport)
 * [ChefDeprecations/ChefSpecLegacyRunner](cops_chefdeprecations.md#chefdeprecationschefspeclegacyrunner)
+* [ChefDeprecations/ChefWindowsPlatformHelper](cops_chefdeprecations.md#chefdeprecationschefwindowsplatformhelper)
 * [ChefDeprecations/Cheffile](cops_chefdeprecations.md#chefdeprecationscheffile)
 * [ChefDeprecations/ChocolateyPackageUninstallAction](cops_chefdeprecations.md#chefdeprecationschocolateypackageuninstallaction)
 * [ChefDeprecations/CookbookDependsOnCompatResource](cops_chefdeprecations.md#chefdeprecationscookbookdependsoncompatresource)
