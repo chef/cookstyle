@@ -743,6 +743,14 @@ ChefDeprecations/WindowsFeatureServermanagercmd:
     - '**/attributes/*.rb'
     - '**/Berksfile'
 
+ChefDeprecations/DeprecatedWindowsVersionCheck:
+  Description: Don't use the deprecated older_than_win_2012_or_8? helper. Windows versions before 2012 and 8 are now end of life and this helper will always return false.
+  Enabled: true
+  VersionAdded: '6.0.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/Berksfile'
+
 ###############################
 # ChefModernize: Cleaning up legacy code and using new built-in resources
 ###############################
