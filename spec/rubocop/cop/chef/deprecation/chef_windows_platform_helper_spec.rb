@@ -19,7 +19,7 @@ require 'spec_helper'
 describe RuboCop::Cop::Chef::ChefDeprecations::ChefWindowsPlatformHelper, :config do
   subject(:cop) { described_class.new(config) }
 
-  it 'registers an offense when a using Chef::Platform.windows?' do
+  it 'registers an offense when using Chef::Platform.windows?' do
     expect_offense(<<~RUBY)
       Chef::Platform.windows?
       ^^^^^^^^^^^^^^^^^^^^^^^ Use `platform?('windows')` instead of the legacy `Chef::Platform.windows?` helper.
