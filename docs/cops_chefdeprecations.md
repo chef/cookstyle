@@ -282,6 +282,30 @@ Name | Default value | Configurable values
 VersionAdded | `5.16.0` | String
 Include | `**/libraries/*.rb`, `**/resources/*.rb`, `**/providers/*.rb` | Array
 
+## ChefDeprecations/DeprecatedWindowsVersionCheck
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+Don't use the deprecated older_than_win_2012_or_8? helper. Windows versions before 2012 and 8 are now end of life and this helper will always return false.
+
+### Examples
+
+```ruby
+# bad
+if older_than_win_2012_or_8?
+  # do some legacy things
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.0.0` | String
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
+
 ## ChefDeprecations/DeprecatedYumRepositoryProperties
 
 Enabled by default | Supports autocorrection
