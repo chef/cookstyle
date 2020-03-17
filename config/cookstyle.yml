@@ -759,6 +759,14 @@ ChefDeprecations/ChefWindowsPlatformHelper:
     - '**/metadata.rb'
     - '**/Berksfile'
 
+ChefDeprecations/LogResourceNotifications:
+  Description: In Chef Infra Client 16 the log resource no longer notifies when logging so notifications should not be triggered from log resources. Use the notify_group resource instead to aggregate notifications.
+  Enabled: true
+  VersionAdded: '6.0.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/Berksfile'
+
 ###############################
 # ChefModernize: Cleaning up legacy code and using new built-in resources
 ###############################
