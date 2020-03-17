@@ -656,6 +656,45 @@ Name | Default value | Configurable values
 VersionAdded | `5.5.0` | String
 Exclude | `**/metadata.rb` | Array
 
+## ChefDeprecations/LogResourceNotifications
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+In Chef Infra Client 16 the log resource no longer notifies when logging so notifications should not be triggered from log resources. See the notify_group functionality for a potential replacement.
+
+### Examples
+
+```ruby
+# bad
+template '/etc/foo' do
+  source 'bar.erb'
+  notifies :write, 'log[Aggregate notifications using a single log resource]', :immediately
+end
+
+log 'Aggregate notifications using a single log resource' do
+  notifies :restart, 'service[foo]', :delayed
+end
+
+# good
+template '/etc/foo' do
+  source 'bar.erb'
+  notifies :run, 'notify_group[Aggregate notifications using a single notify_group resource]', :immediately
+end
+
+notify_group 'Aggregate notifications using a single notify_group resource' do
+  notifies :restart, 'service[foo]', :delayed
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.0.0` | String
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
+
 ## ChefDeprecations/NamePropertyWithDefaultValue
 
 Enabled by default | Supports autocorrection

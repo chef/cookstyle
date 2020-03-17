@@ -53,6 +53,7 @@
 * [ChefDeprecations/LegacyNotifySyntax](cops_chefdeprecations.md#chefdeprecationslegacynotifysyntax)
 * [ChefDeprecations/LegacyYumCookbookRecipes](cops_chefdeprecations.md#chefdeprecationslegacyyumcookbookrecipes)
 * [ChefDeprecations/LocaleDeprecatedLcAllProperty](cops_chefdeprecations.md#chefdeprecationslocaledeprecatedlcallproperty)
+* [ChefDeprecations/LogResourceNotifications](cops_chefdeprecations.md#chefdeprecationslogresourcenotifications)
 * [ChefDeprecations/NamePropertyWithDefaultValue](cops_chefdeprecations.md#chefdeprecationsnamepropertywithdefaultvalue)
 * [ChefDeprecations/NodeDeepFetch](cops_chefdeprecations.md#chefdeprecationsnodedeepfetch)
 * [ChefDeprecations/NodeMethodsInsteadofAttributes](cops_chefdeprecations.md#chefdeprecationsnodemethodsinsteadofattributes)

@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.0.15 -->
-## [v6.0.15](https://github.com/chef/cookstyle/tree/v6.0.15) (2020-03-09)
+ <!-- latest_release 6.0.16 -->
+## [v6.0.16](https://github.com/chef/cookstyle/tree/v6.0.16) (2020-03-17)
 
 #### Merged Pull Requests
-- Add ChefDeprecations/ChefWindowsPlatformHelper cop [#581](https://github.com/chef/cookstyle/pull/581) ([tas50](https://github.com/tas50))
+- Add ChefDeprecations/LogResourceNotifications cop [#583](https://github.com/chef/cookstyle/pull/583) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.22.6 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add ChefDeprecations/LogResourceNotifications cop [#583](https://github.com/chef/cookstyle/pull/583) ([tas50](https://github.com/tas50)) <!-- 6.0.16 -->
 - Add ChefDeprecations/ChefWindowsPlatformHelper cop [#581](https://github.com/chef/cookstyle/pull/581) ([tas50](https://github.com/tas50)) <!-- 6.0.15 -->
 - Add ChefDeprecations/DeprecatedWindowsVersionCheck check [#580](https://github.com/chef/cookstyle/pull/580) ([tas50](https://github.com/tas50)) <!-- 6.0.14 -->
 - Allow arrays in match_property_in_resource and fix powershell interp cop [#578](https://github.com/chef/cookstyle/pull/578) ([tas50](https://github.com/tas50)) <!-- 6.0.13 -->
