@@ -48,11 +48,11 @@ module RuboCop
 
           def on_send(node)
             node_deep_fetch?(node) do
-              add_offense(node, location: :selector, message: MSG, severity: :refactor)
+              add_offense(node, location: :selector, message: MSG, severity: :warning)
             end
 
             node_deep_fetch_bang?(node) do
-              add_offense(node, location: :selector, message: MSG2, severity: :refactor)
+              add_offense(node, location: :selector, message: MSG2, severity: :warning)
             end
           end
 

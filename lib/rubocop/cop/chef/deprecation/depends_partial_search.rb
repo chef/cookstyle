@@ -34,7 +34,7 @@ module RuboCop
 
           def on_send(node)
             depends_partial_search?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+              add_offense(node, location: :expression, message: MSG, severity: :warning)
             end
           end
         end

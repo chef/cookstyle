@@ -38,7 +38,7 @@ module RuboCop
           def on_send(node)
             yum_dnf_compat_recipe_usage?(node) do
               node = node.parent if node.parent&.conditional? && node.parent&.single_line?
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+              add_offense(node, location: :expression, message: MSG, severity: :warning)
             end
           end
 

@@ -37,7 +37,7 @@ module RuboCop
 
           def on_def(node)
             if node.method_name == :provides?
-              add_offense(node, location: :expression, message: MSG, severity: :refactor) if provides(processed_source.ast).count == 0
+              add_offense(node, location: :expression, message: MSG, severity: :warning) if provides(processed_source.ast).count == 0
             end
           end
         end

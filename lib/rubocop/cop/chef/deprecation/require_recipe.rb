@@ -37,7 +37,7 @@ module RuboCop
           PATTERN
 
           def on_send(node)
-            require_recipe?(node) { add_offense(node, location: :selector, message: MSG, severity: :refactor) }
+            require_recipe?(node) { add_offense(node, location: :selector, message: MSG, severity: :warning) }
           end
 
           def autocorrect(node)

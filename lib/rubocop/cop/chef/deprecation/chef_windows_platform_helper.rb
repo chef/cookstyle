@@ -40,7 +40,7 @@ module RuboCop
 
           def on_send(node)
             chef_platform_windows?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+              add_offense(node, location: :expression, message: MSG, severity: :warning)
             end
           end
 

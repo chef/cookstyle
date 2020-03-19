@@ -35,7 +35,7 @@ module RuboCop
 
           def on_send(node)
             depends_method?(node) do |arg|
-              add_offense(node, location: :expression, message: MSG, severity: :refactor) if %w(poise poise-service).include?(arg.value)
+              add_offense(node, location: :expression, message: MSG, severity: :warning) if %w(poise poise-service).include?(arg.value)
             end
           end
         end

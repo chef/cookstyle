@@ -32,7 +32,7 @@ module RuboCop
           MSG = "Don't use the deprecated easy_install resource removed in Chef 13".freeze
 
           def on_send(node)
-            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :easy_install
+            add_offense(node, location: :expression, message: MSG, severity: :warning) if node.method_name == :easy_install
           end
         end
       end

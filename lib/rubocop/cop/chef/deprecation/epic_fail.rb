@@ -37,7 +37,7 @@ module RuboCop
           MSG = 'Use ignore_failure method instead of the deprecated epic_fail method'.freeze
 
           def on_send(node)
-            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :epic_fail
+            add_offense(node, location: :expression, message: MSG, severity: :warning) if node.method_name == :epic_fail
           end
 
           def autocorrect(node)

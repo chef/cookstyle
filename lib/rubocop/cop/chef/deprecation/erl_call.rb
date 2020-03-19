@@ -32,7 +32,7 @@ module RuboCop
           MSG = "Don't use the deprecated erl_call resource removed in Chef 13".freeze
 
           def on_send(node)
-            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :erl_call
+            add_offense(node, location: :expression, message: MSG, severity: :warning) if node.method_name == :erl_call
           end
         end
       end
