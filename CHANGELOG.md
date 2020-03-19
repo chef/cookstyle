@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.0.16 -->
-## [v6.0.16](https://github.com/chef/cookstyle/tree/v6.0.16) (2020-03-17)
+ <!-- latest_release 6.0.17 -->
+## [v6.0.17](https://github.com/chef/cookstyle/tree/v6.0.17) (2020-03-19)
 
 #### Merged Pull Requests
-- Add ChefDeprecations/LogResourceNotifications cop [#583](https://github.com/chef/cookstyle/pull/583) ([tas50](https://github.com/tas50))
+- Add ChefDeprecations/ResourceWithoutNameOrProvides cop [#584](https://github.com/chef/cookstyle/pull/584) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.22.6 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add ChefDeprecations/ResourceWithoutNameOrProvides cop [#584](https://github.com/chef/cookstyle/pull/584) ([tas50](https://github.com/tas50)) <!-- 6.0.17 -->
 - Add ChefDeprecations/LogResourceNotifications cop [#583](https://github.com/chef/cookstyle/pull/583) ([tas50](https://github.com/tas50)) <!-- 6.0.16 -->
 - Add ChefDeprecations/ChefWindowsPlatformHelper cop [#581](https://github.com/chef/cookstyle/pull/581) ([tas50](https://github.com/tas50)) <!-- 6.0.15 -->
 - Add ChefDeprecations/DeprecatedWindowsVersionCheck check [#580](https://github.com/chef/cookstyle/pull/580) ([tas50](https://github.com/tas50)) <!-- 6.0.14 -->

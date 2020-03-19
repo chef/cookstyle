@@ -69,6 +69,7 @@
 * [ChefDeprecations/ResourceUsesDslNameMethod](cops_chefdeprecations.md#chefdeprecationsresourceusesdslnamemethod)
 * [ChefDeprecations/ResourceUsesProviderBaseMethod](cops_chefdeprecations.md#chefdeprecationsresourceusesproviderbasemethod)
 * [ChefDeprecations/ResourceUsesUpdatedMethod](cops_chefdeprecations.md#chefdeprecationsresourceusesupdatedmethod)
+* [ChefDeprecations/ResourceWithoutNameOrProvides](cops_chefdeprecations.md#chefdeprecationsresourcewithoutnameorprovides)
 * [ChefDeprecations/RubyBlockCreateAction](cops_chefdeprecations.md#chefdeprecationsrubyblockcreateaction)
 * [ChefDeprecations/SearchUsesPositionalParameters](cops_chefdeprecations.md#chefdeprecationssearchusespositionalparameters)
 * [ChefDeprecations/UseInlineResourcesDefined](cops_chefdeprecations.md#chefdeprecationsuseinlineresourcesdefined)

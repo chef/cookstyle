@@ -1149,6 +1149,54 @@ Name | Default value | Configurable values
 VersionAdded | `5.7.0` | String
 Include | `**/libraries/*.rb`, `**/providers/*.rb`, `**/resources/*.rb` | Array
 
+## ChefDeprecations/ResourceWithoutNameOrProvides
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+In Chef Infra Client 16 and later a legacy HWRP resource must use either `resource_name` or `provides` to define the resource name.
+
+ # good
+  class Chef
+    class Resource
+      class UlimitRule < Chef::Resource
+        resource_name :ulimit_rule
+
+        property :type, [Symbol, String], required: true
+        property :item, [Symbol, String], required: true
+
+        # additional resource code
+      end
+    end
+  end
+
+ # better
+ Convert your legacy HWRPs to custom resources
+
+### Examples
+
+```ruby
+# bad
+class Chef
+  class Resource
+    class UlimitRule < Chef::Resource
+      property :type, [Symbol, String], required: true
+      property :item, [Symbol, String], required: true
+
+      # additional resource code
+    end
+  end
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.0.0` | String
+Include | `**/libraries/*.rb` | Array
+
 ## ChefDeprecations/RubyBlockCreateAction
 
 Enabled by default | Supports autocorrection
