@@ -54,7 +54,7 @@ The `ChefCorrectness/ChefApplicationFatal` cop detects cookbooks that use `Chef:
 
 #### ChefCorrectness/PowershellScriptDeleteFile
 
-The `ChefCorrectness/PowershellScriptDeleteFile` cop detect using a `powershell_script` resource to delete a file. This should be accomplished by using the `file` resource with the `:delete` action instead. The `file` resource offers a simpler syntax and full idempotency.
+The `ChefCorrectness/PowershellScriptDeleteFile` cop detects using a `powershell_script` resource to delete a file. This should be accomplished by using the `file` resource with the `:delete` action instead. The `file` resource offers a simpler syntax and full idempotency.
 
 #### ChefModernize/UseMultipackageInstalls
 
