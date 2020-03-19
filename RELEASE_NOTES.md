@@ -62,7 +62,7 @@ The `ChefModernize/UseMultipackageInstalls` cop detects cookbooks that use Ruby 
 
 #### ChefModernize/ProvidesFromInitialize
 
-The `ChefModernize/ProvidesFromInitialize` cop detects legacy HWRP-style resources that set the provides name in an `intialize` method instead of using the `provides` method in the resource DSL.
+The `ChefModernize/ProvidesFromInitialize` cop detects legacy HWRP-style resources that set the `provides` name in an `intialize` method instead of using the `provides` method in the resource DSL.
 
 #### ChefModernize/DatabagHelpers
 
