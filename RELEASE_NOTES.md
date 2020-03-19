@@ -1,6 +1,6 @@
 ## Cookstyle 6.0
 
-### Rubocop 0.80.1 Engine
+### RuboCop 0.80.1 Engine
 
 The RuboCop engine that powers Cookstyle has been updated from 0.75.1 to 0.80.1. This new engine includes hundreds of bug fixes and new features that will allow us to write even more advanced Cookstyle rules in the future. This release also renames many of RuboCop's built-in cops so if you have a complex rubocop.yml file that disables or enables rules you may see warnings instructing you to update your config.
 
@@ -697,7 +697,7 @@ The `ChefCorrectness/ResourceWithNothingAction` cop detects a resource or provid
 
 You can now use `cookstyle` specific comments in your cookbook code to enable or disable cops instead of the standard `rubocop` comments. We think that it will be easier to understand the cops that you intend to control if you use `cookstyle` comments. You can continue to use the existing `rubocop` comments, if you prefer them, since both types of comments will be honored by Cookstyle.
 
-Rubocop comment to disable a cop:
+RuboCop comment to disable a cop:
 
 ```ruby
 'node.normal[:foo] # rubocop: disable ChefCorrectness/Bar'

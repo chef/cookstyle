@@ -2,7 +2,7 @@
 
 Parser library's list of node types: https://github.com/marcandre/parser/blob/master/lib/parser/meta.rb
 
-Rubocop's Creating a New Cop documentation (rubocop specific, but useful): https://docs.rubocop.org/en/latest/development/#add-a-new-cop
+RuboCop's Creating a New Cop documentation (rubocop specific, but useful): https://docs.rubocop.org/en/latest/development/#add-a-new-cop
 
 RuboCop Node Pattern documentation: https://docs.rubocop.org/en/latest/node_pattern/
 
