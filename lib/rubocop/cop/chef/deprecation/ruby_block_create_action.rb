@@ -47,7 +47,7 @@ module RuboCop
           def on_block(node)
             match_property_in_resource?(:ruby_block, 'action', node) do |ruby_action|
               ruby_action.arguments.each do |action|
-                add_offense(action, location: :expression, message: MSG, severity: :refactor) if action.source == ':create'
+                add_offense(action, location: :expression, message: MSG, severity: :warning) if action.source == ':create'
               end
             end
           end

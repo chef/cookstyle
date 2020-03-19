@@ -41,7 +41,7 @@ module RuboCop
           def on_block(node)
             match_property_in_resource?(:chocolatey_package, 'action', node) do |choco_action|
               choco_action.arguments.each do |action|
-                add_offense(action, location: :expression, message: MSG, severity: :refactor) if action.source == ':uninstall'
+                add_offense(action, location: :expression, message: MSG, severity: :warning) if action.source == ':uninstall'
               end
             end
           end

@@ -31,7 +31,7 @@ module RuboCop
           MSG = "Don't use the deprecated older_than_win_2012_or_8? helper. Windows versions before 2012 and 8 are now end of life and this helper will always return false.".freeze
 
           def on_send(node)
-            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :older_than_win_2012_or_8?
+            add_offense(node, location: :expression, message: MSG, severity: :warning) if node.method_name == :older_than_win_2012_or_8?
           end
         end
       end

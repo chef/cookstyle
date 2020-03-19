@@ -32,7 +32,7 @@ module RuboCop
             # Using range similar to RuboCop::Cop::Naming::Filename (file_name.rb)
             range = source_range(processed_source.buffer, 1, 0)
 
-            add_offense(nil, location: range, message: MSG, severity: :refactor)
+            add_offense(nil, location: range, message: MSG, severity: :warning)
           end
         end
       end

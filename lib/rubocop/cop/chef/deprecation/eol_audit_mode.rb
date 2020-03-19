@@ -38,7 +38,7 @@ module RuboCop
 
           def on_send(node)
             control_group?(node) do
-              add_offense(node, location: :selector, message: MSG, severity: :refactor)
+              add_offense(node, location: :selector, message: MSG, severity: :warning)
             end
           end
         end

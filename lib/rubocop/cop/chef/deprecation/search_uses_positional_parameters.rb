@@ -45,7 +45,7 @@ module RuboCop
 
           def on_send(node)
             search_method?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor) if positional_arguments?(node)
+              add_offense(node, location: :expression, message: MSG, severity: :warning) if positional_arguments?(node)
             end
           end
 

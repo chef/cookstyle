@@ -40,7 +40,7 @@ module RuboCop
 
           def on_block(node)
             match_property_in_resource?(:chef_handler, 'supports', node) do |prop_node|
-              add_offense(prop_node, location: :expression, message: MSG, severity: :refactor)
+              add_offense(prop_node, location: :expression, message: MSG, severity: :warning)
             end
           end
 

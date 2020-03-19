@@ -39,7 +39,7 @@ module RuboCop
 
           def on_block(node)
             match_property_in_resource?(nil, 'verify', node) do |verify|
-              add_offense(verify, location: :expression, message: MSG, severity: :refactor) if verify.source.match?(/%{file}/)
+              add_offense(verify, location: :expression, message: MSG, severity: :warning) if verify.source.match?(/%{file}/)
             end
           end
 

@@ -45,7 +45,7 @@ module RuboCop
 
           def on_class(node)
             inherits_from_compat_resource?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+              add_offense(node, location: :expression, message: MSG, severity: :warning)
             end
           end
 

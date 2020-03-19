@@ -45,7 +45,7 @@ module RuboCop
 
           def on_send(node)
             node_ohai_methods?(node) do
-              add_offense(node, location: :selector, message: MSG, severity: :refactor)
+              add_offense(node, location: :selector, message: MSG, severity: :warning)
             end
           end
 

@@ -35,7 +35,7 @@ module RuboCop
 
           def on_send(node)
             xml_ruby_recipe?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+              add_offense(node, location: :expression, message: MSG, severity: :warning)
             end
           end
 

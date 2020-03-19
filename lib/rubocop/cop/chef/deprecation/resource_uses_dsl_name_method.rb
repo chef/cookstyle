@@ -32,7 +32,7 @@ module RuboCop
           MSG = 'Use resource_name instead of the dsl_name method in resources. This will cause failures in Chef Infra Client 13 and later.'.freeze
 
           def on_send(node)
-            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :dsl_name
+            add_offense(node, location: :expression, message: MSG, severity: :warning) if node.method_name == :dsl_name
           end
 
           # potential autocorrect is new_resource.updated_by_last_action true, but we need to actually see what class we were called from

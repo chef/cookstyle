@@ -62,21 +62,21 @@ module RuboCop
 
           def on_send(node)
             rewind_gem_install?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+              add_offense(node, location: :expression, message: MSG, severity: :warning)
             end
 
             require_rewind?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+              add_offense(node, location: :expression, message: MSG, severity: :warning)
             end
 
             rewind_resources?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+              add_offense(node, location: :expression, message: MSG, severity: :warning)
             end
           end
 
           def on_block(node)
             match_property_in_resource?(:chef_gem, 'package_name', node) do |pkg_name|
-              add_offense(node, location: :expression, message: MSG, severity: :refactor) if pkg_name.arguments&.first&.str_content == 'chef-rewind'
+              add_offense(node, location: :expression, message: MSG, severity: :warning) if pkg_name.arguments&.first&.str_content == 'chef-rewind'
             end
           end
 

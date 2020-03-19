@@ -71,7 +71,7 @@ module RuboCop
 
           def on_class(node)
             HWRP?(node) do |inherit|
-              add_offense(inherit, location: :expression, message: MSG, severity: :refactor) if provides_or_resource_name?(processed_source.ast).nil?
+              add_offense(inherit, location: :expression, message: MSG, severity: :warning) if provides_or_resource_name?(processed_source.ast).nil?
             end
           end
         end

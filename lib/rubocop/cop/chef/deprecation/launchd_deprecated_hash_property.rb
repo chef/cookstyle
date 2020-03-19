@@ -39,7 +39,7 @@ module RuboCop
 
           def on_block(node)
             match_property_in_resource?(:launchd, 'hash', node) do |hash_prop|
-              add_offense(hash_prop, location: :expression, message: MSG, severity: :refactor)
+              add_offense(hash_prop, location: :expression, message: MSG, severity: :warning)
             end
           end
 

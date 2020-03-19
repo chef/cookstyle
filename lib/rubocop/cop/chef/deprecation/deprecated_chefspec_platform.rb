@@ -108,7 +108,7 @@ module RuboCop
 
           def on_send(node)
             chefspec_definition?(node) do |plat, ver|
-              add_offense(node, location: :expression, message: MSG, severity: :refactor) if legacy_chefspec_platform(plat.value, ver.value)
+              add_offense(node, location: :expression, message: MSG, severity: :warning) if legacy_chefspec_platform(plat.value, ver.value)
             end
           end
 

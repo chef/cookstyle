@@ -47,7 +47,7 @@ module RuboCop
 
           def on_block(node)
             match_property_in_resource?(:user, 'supports', node) do |property|
-              add_offense(property, location: :expression, message: MSG, severity: :refactor)
+              add_offense(property, location: :expression, message: MSG, severity: :warning)
             end
           end
 
