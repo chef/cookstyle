@@ -66,7 +66,7 @@ The `ChefModernize/ProvidesFromInitialize` cop detects legacy HWRP-style resourc
 
 #### ChefModernize/DatabagHelpers
 
-The `ChefModernize/DatabagHelpers` cop detects cookbooks that load data bags `Chef::DataBagItem.load` or `Chef::EncryptedDataBagItem.load` instead of the simpler `data_bag_item` helper.
+The `ChefModernize/DatabagHelpers` cop detects cookbooks that load data bags with `Chef::DataBagItem.load` or `Chef::EncryptedDataBagItem.load` instead of the simpler `data_bag_item` helper.
 
 ### Other Changes
 
