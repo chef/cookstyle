@@ -50,7 +50,7 @@ The `ChefDeprecations/ResourceWithoutNameOrProvides` cop checks for legacy HWRP-
 
 #### ChefCorrectness/ChefApplicationFatal
 
-The `ChefCorrectness/ChefApplicationFatal` cop detects cookbooks that use `Chef::Application.fatal!` to raise a failure during a Chef Infra Client run. When an error needs to be presented to a user `raise` should be used instead as it provides the full stack trace to make debugging significantly easier.
+The `ChefCorrectness/ChefApplicationFatal` cop detects cookbooks that use `Chef::Application.fatal!` to raise a failure during a Chef Infra Client run. When an error needs to be presented to a user, `raise` should be used instead as it provides the full stack trace to make debugging significantly easier.
 
 #### ChefCorrectness/PowershellScriptDeleteFile
 
