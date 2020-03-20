@@ -4,6 +4,10 @@
 
 The RuboCop engine that powers Cookstyle has been updated from 0.75.1 to 0.80.1. This new engine includes hundreds of bug fixes and new features that will allow us to write even more advanced Cookstyle rules in the future. This release also renames many of RuboCop's built-in cops so if you have a complex rubocop.yml file that disables or enables rules, you may see warnings instructing you to update your config.
 
+### ChefDeprecation Cops At Warning Level
+
+All ChefDeprecation department cops now alert at `Warning` level instead of `Refactor`. This means that these cops will now result in Cookstyle exiting with a -1 exit code, which will cause failures in CI tests. ChefDeprecation cops are important to resolve and we believe this will encourage cookbook authors to use the latest Chef Infra coding standards.
+
 ### 9 New Cops
 
 #### ChefDeprecations/DeprecatedWindowsVersionCheck
