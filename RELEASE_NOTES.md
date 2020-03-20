@@ -16,7 +16,7 @@ The `ChefDeprecations/ChefWindowsPlatformHelper` cop detects cookbooks that use 
 
 #### ChefDeprecations/LogResourceNotifications
 
-The `ChefDeprecations/LogResourceNotifications` cop detects notifications in the `log` resource. In Chef Infra Client 16 and later the log resource will no longer trigger an update, so these notifications will never fire. Often users utilize notifications from multiple resources to a single log resource as a means of aggregating notifications to only fire a single time. For instance, many resource updates in your cookbook may require a service to restart, but you only want to trigger that service to restart one time. Chef Infra Client 15.8 and later ship with a `notify_group` resource specifically for aggregating notifications in this way, which should be used instead.
+The `ChefDeprecations/LogResourceNotifications` cop detects notifications in the `log` resource. Beginning in Chef Infra Client 16, the log resource will no longer trigger an update, so these notifications will never fire. This will create problems for users who concatenate notifications from multiple resources into a single log resource so that those notifications only fire a single time. For example, many resource updates in your cookbook may require a service to restart, but a user may only want to trigger that service to restart once. Chef Infra Client 15.8 and later ships with a `notify_group` resource specifically for aggregating notifications in this way. This resource should be used instead.
 
 ##### Aggregating Notifications with a log resource
 
