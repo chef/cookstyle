@@ -2,7 +2,7 @@
 
 ### RuboCop 0.80.1 Engine
 
-The RuboCop engine that powers Cookstyle has been updated from 0.75.1 to 0.80.1. This new engine includes hundreds of bug fixes and new features that will allow us to write even more advanced Cookstyle rules in the future. This release also renames many of RuboCop's built-in cops so if you have a complex rubocop.yml file that disables or enables rules you may see warnings instructing you to update your config.
+The RuboCop engine that powers Cookstyle has been updated from 0.75.1 to 0.80.1. This new engine includes hundreds of bug fixes and new features that will allow us to write even more advanced Cookstyle rules in the future. This release also renames many of RuboCop's built-in cops so if you have a complex rubocop.yml file that disables or enables rules, you may see warnings instructing you to update your config.
 
 ### 9 New Cops
 
