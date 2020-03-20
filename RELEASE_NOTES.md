@@ -58,7 +58,7 @@ The `ChefCorrectness/PowershellScriptDeleteFile` cop detects using a `powershell
 
 #### ChefModernize/UseMultipackageInstalls
 
-The `ChefModernize/UseMultipackageInstalls` cop detects cookbooks that use Ruby loops to install multiple packages using multiple package resources. When using a package provider that supports multi-package installs you can pass an array of packages to install to a single package resource. Passing multiple packages to a single package resource greatly simplifies log output and is significantly faster. Multi-package installs are available for package installs using apt, dnf, yum, snap, dpkg, deb, and Chocolatey package management systems.
+The `ChefModernize/UseMultipackageInstalls` cop detects cookbooks that use Ruby loops to install multiple packages using multiple package resources. When using a package provider that supports multi-package installs you can pass an array of packages to install to a single package resource. Passing multiple packages to a single package resource greatly simplifies the log output and is significantly faster. Multi-package installs are available for package installs using apt, dnf, yum, snap, dpkg, deb, and Chocolatey package management systems.
 
 #### ChefModernize/ProvidesFromInitialize
 
