@@ -46,7 +46,7 @@ end
 
 #### ChefDeprecations/ResourceWithoutNameOrProvides
 
-The `ChefDeprecations/ResourceWithoutNameOrProvides` cop checks for legacy HWRP-style resources that do not set either `resource_name` or `provides`, which are required by Chef Infra Client 16 and later.
+The `ChefDeprecations/ResourceWithoutNameOrProvides` cop checks for legacy HWRP-style resources that do not set either `resource_name` or `provides`. These attributes are required by Chef Infra Client 16 and later.
 
 #### ChefCorrectness/ChefApplicationFatal
 
