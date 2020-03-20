@@ -6,7 +6,7 @@ The RuboCop engine that powers Cookstyle has been updated from 0.75.1 to 0.80.1.
 
 ### ChefDeprecation Cops At Warning Level
 
-All ChefDeprecation department cops now alert at `Warning` level instead of `Refactor`. This means that these cops will now result in Cookstyle exiting with a -1 exit code, which will cause failures in CI tests. ChefDeprecation cops are important to resolve and we believe this will encourage cookbook authors to use the latest Chef Infra coding standards.
+All ChefDeprecation department cops now alert at `Warning` level instead of `Refactor`. This means that these cops will now result in Cookstyle exiting with a -1 exit code, which will cause failures in CI tests. ChefDeprecation cops are important to resolve and we believe this will the use of the latest Chef Infra coding standards.
 
 ### 9 New Cops
 
