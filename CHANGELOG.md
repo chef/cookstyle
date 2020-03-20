@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.0.18 -->
-## [v6.0.18](https://github.com/chef/cookstyle/tree/v6.0.18) (2020-03-19)
+ <!-- latest_release 6.0.19 -->
+## [v6.0.19](https://github.com/chef/cookstyle/tree/v6.0.19) (2020-03-20)
 
 #### Merged Pull Requests
-- Update the severity for all deprecation cops to be :warning [#585](https://github.com/chef/cookstyle/pull/585) ([tas50](https://github.com/tas50))
+- Add release notes for Cookstyle 6 [#582](https://github.com/chef/cookstyle/pull/582) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.22.6 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add release notes for Cookstyle 6 [#582](https://github.com/chef/cookstyle/pull/582) ([tas50](https://github.com/tas50)) <!-- 6.0.19 -->
 - Update the severity for all deprecation cops to be :warning [#585](https://github.com/chef/cookstyle/pull/585) ([tas50](https://github.com/tas50)) <!-- 6.0.18 -->
 - Add ChefDeprecations/ResourceWithoutNameOrProvides cop [#584](https://github.com/chef/cookstyle/pull/584) ([tas50](https://github.com/tas50)) <!-- 6.0.17 -->
 - Add ChefDeprecations/LogResourceNotifications cop [#583](https://github.com/chef/cookstyle/pull/583) ([tas50](https://github.com/tas50)) <!-- 6.0.16 -->
