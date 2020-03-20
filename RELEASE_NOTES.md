@@ -79,7 +79,7 @@ The `ChefModernize/DatabagHelpers` cop detects cookbooks that load data bags wit
 - `ChefModernize/DefaultActionFromInitialize` has been improved to detect more forms of default actions set in intializers.
 - `ChefCorrectness/DnfPackageAllowDowngrades` now supports autocorrection.
 - `ChefModernize/WindowsRegistryUAC` now detects additional registry key forms used to set UAC settings.
-- `ChefModernize/PowerShellGuardInterpreter` now also detects setting the PowerShell guard in `batch` resources.
+- `ChefModernize/PowerShellGuardInterpreter` now also detects if the PowerShell guard is set in `batch` resources
 
 ## Cookstyle 5.22
 
