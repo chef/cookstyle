@@ -8,7 +8,7 @@ The RuboCop engine that powers Cookstyle has been updated from 0.75.1 to 0.80.1.
 
 #### ChefDeprecations/DeprecatedWindowsVersionCheck
 
-The `ChefDeprecations/DeprecatedWindowsVersionCheck` cop detects cookbooks that use the legacy `older_than_win_2012_or_8?` helper method. Chef Infra Client no longer supports Windows releases before 8 / 2012 as those are end of life, so this check can be removed from cookbooks.
+The `ChefDeprecations/DeprecatedWindowsVersionCheck` cop detects cookbooks that use the legacy `older_than_win_2012_or_8?` helper method. Chef Infra Client no longer supports Windows releases before 8 / 2012. Those releases are end of life so this check can be removed from cookbooks.
 
 #### ChefDeprecations/ChefWindowsPlatformHelper
 
