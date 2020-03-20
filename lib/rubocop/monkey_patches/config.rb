@@ -2,7 +2,7 @@
 
 module RuboCop
   class Config
-    # This is a copy of the #target_rails_version method from Rubocop
+    # This is a copy of the #target_rails_version method from RuboCop
     def target_chef_version
       @target_chef_version ||=
         if for_all_cops['TargetChefVersion']

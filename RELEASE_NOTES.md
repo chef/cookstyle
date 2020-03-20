@@ -1,3 +1,86 @@
+## Cookstyle 6.0
+
+### RuboCop 0.80.1 Engine
+
+The RuboCop engine that powers Cookstyle has been updated from 0.75.1 to 0.80.1. This new engine includes hundreds of bug fixes and new features that will allow us to write even more advanced Cookstyle rules in the future. This release also renames many of RuboCop's built-in cops so if you have a complex rubocop.yml file that disables or enables rules, you may see warnings instructing you to update your config.
+
+### 9 New Cops
+
+#### ChefDeprecations/DeprecatedWindowsVersionCheck
+
+The `ChefDeprecations/DeprecatedWindowsVersionCheck` cop detects cookbooks that use the legacy `older_than_win_2012_or_8?` helper method. Chef Infra Client no longer supports Windows releases before 8 / 2012. Those releases are end of life so this check can be removed from cookbooks.
+
+#### ChefDeprecations/ChefWindowsPlatformHelper
+
+The `ChefDeprecations/ChefWindowsPlatformHelper` cop detects cookbooks that use the deprecated helper `Chef::Platform.windows?` to see if a system is running on Windows instead of using `platform?('windows')` or the new `windows?` helper.
+
+#### ChefDeprecations/LogResourceNotifications
+
+The `ChefDeprecations/LogResourceNotifications` cop detects notifications in the `log` resource. Beginning in Chef Infra Client 16, the log resource will no longer trigger an update, so these notifications will never fire. This will create problems for users who concatenate notifications from multiple resources into a single log resource so that those notifications only fire a single time. For example, many resource updates in your cookbook may require a service to restart, but a user may only want to trigger that service to restart once. Chef Infra Client 15.8 and later ships with a `notify_group` resource specifically for aggregating notifications in this way. This resource should be used instead.
+
+##### Aggregating Notifications with a log resource
+
+```ruby
+template '/etc/foo' do
+  source 'bar.erb'
+  notifies :write, 'log[Aggregate notifications using a single log resource]', :immediately
+end
+
+log 'Aggregate notifications using a single log resource' do
+  notifies :restart, 'service[foo]', :delayed
+end
+```
+
+##### Aggregating Notifications with a notify_group resource
+
+```ruby
+template '/etc/foo' do
+  source 'bar.erb'
+  notifies :run, 'notify_group[Aggregate notifications using a single notify_group resource]', :immediately
+end
+
+notify_group 'Aggregate notifications using a single notify_group resource' do
+  notifies :restart, 'service[foo]', :delayed
+end
+```
+
+#### ChefDeprecations/ResourceWithoutNameOrProvides
+
+The `ChefDeprecations/ResourceWithoutNameOrProvides` cop checks for legacy HWRP-style resources that do not set either `resource_name` or `provides`. These attributes are required by Chef Infra Client 16 and later.
+
+#### ChefCorrectness/ChefApplicationFatal
+
+The `ChefCorrectness/ChefApplicationFatal` cop detects cookbooks that use `Chef::Application.fatal!` to raise a failure during a Chef Infra Client run. When an error needs to be presented to a user, `raise` should be used instead as it provides the full stack trace to make debugging significantly easier.
+
+#### ChefCorrectness/PowershellScriptDeleteFile
+
+The `ChefCorrectness/PowershellScriptDeleteFile` cop detects using a `powershell_script` resource to delete a file. This should be accomplished by using the `file` resource with the `:delete` action instead. The `file` resource offers a simpler syntax and full idempotency.
+
+#### ChefModernize/UseMultipackageInstalls
+
+The `ChefModernize/UseMultipackageInstalls` cop detects cookbooks that use Ruby loops to install multiple packages using multiple package resources. When using a package provider that supports multi-package installs you can pass an array of packages to install to a single package resource. Passing multiple packages to a single package resource greatly simplifies the log output and is significantly faster. Multi-package installs are available for package installs using apt, dnf, yum, snap, dpkg, deb, and Chocolatey package management systems.
+
+#### ChefModernize/ProvidesFromInitialize
+
+The `ChefModernize/ProvidesFromInitialize` cop detects legacy HWRP-style resources that set the `provides` name in an `intialize` method instead of using the `provides` method in the resource DSL.
+
+#### ChefModernize/DatabagHelpers
+
+The `ChefModernize/DatabagHelpers` cop detects cookbooks that load data bags with `Chef::DataBagItem.load` or `Chef::EncryptedDataBagItem.load` instead of the simpler `data_bag_item` helper.
+
+### Other Changes
+
+- `ChefStyle/UnnecessaryOSCheck` is now enabled by default. This was disabled by mistake previously.
+- `Lint/SendWithMixinArgument` is now enabled by default. This code simplifies how libraries are included in recipes and resources.
+- `Naming/PredicateName` is no longer enabled by default. The naming of methods and names doesn't impact the execution of the code, and without autocorrection any warnings required significant effort to resolve.
+- `Style/MultilineWhenThen` is now enabled by default. This cop simplifies case statements.
+- `Style/HashEachMethod` is now enabled by default. This cop detects and autocorrects overly complex code against hashes that can be simplified.
+- `ChefRedundant/UnnecessaryNameProperty` now detects unnecessary :Name attributes as well as properties.
+- `ChefModernize/DefaultActionFromInitialize` has been improved to detect more forms of default actions set in intializers.
+- `ChefCorrectness/DnfPackageAllowDowngrades` now supports autocorrection.
+- `ChefModernize/WindowsRegistryUAC` now detects additional registry key forms used to set UAC settings.
+- `ChefModernize/PowerShellGuardInterpreter` now also detects if the PowerShell guard is set in `batch` resources
+
 ## Cookstyle 5.22
 
 ### 4 New Cops
@@ -614,7 +697,7 @@ The `ChefCorrectness/ResourceWithNothingAction` cop detects a resource or provid
 
 You can now use `cookstyle` specific comments in your cookbook code to enable or disable cops instead of the standard `rubocop` comments. We think that it will be easier to understand the cops that you intend to control if you use `cookstyle` comments. You can continue to use the existing `rubocop` comments, if you prefer them, since both types of comments will be honored by Cookstyle.
 
-Rubocop comment to disable a cop:
+RuboCop comment to disable a cop:
 
 ```ruby
 'node.normal[:foo] # rubocop: disable ChefCorrectness/Bar'
