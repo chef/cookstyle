@@ -72,7 +72,7 @@ The `ChefModernize/DatabagHelpers` cop detects cookbooks that load data bags wit
 
 - `ChefStyle/UnnecessaryOSCheck` is now enabled by default. This was disabled by mistake previously.
 - `Lint/SendWithMixinArgument` is now enabled by default. This code simplifies how libraries are included in recipes and resources.
-- `Naming/PredicateName` is no longer enabled by default. The naming of methods and names doesn't impact the execution of the code and without autocorrection any warnings required significant effort to resolve.
+- `Naming/PredicateName` is no longer enabled by default. The naming of methods and names doesn't impact the execution of the code, and without autocorrection any warnings required significant effort to resolve.
 - `Style/MultilineWhenThen` is now enabled by default. This cop simplifies case statements.
 - `Style/HashEachMethod` is now enabled by default. This cop detects and autocorrects overly complex code against hashes that can be simplified.
 - `ChefRedundant/UnnecessaryNameProperty` now detects unnecessary :Name attributes as well as properties.
