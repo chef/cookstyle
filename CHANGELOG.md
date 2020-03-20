@@ -1,40 +1,38 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.0.19 -->
-## [v6.0.19](https://github.com/chef/cookstyle/tree/v6.0.19) (2020-03-20)
-
-#### Merged Pull Requests
-- Add release notes for Cookstyle 6 [#582](https://github.com/chef/cookstyle/pull/582) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=5.22.6 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Add release notes for Cookstyle 6 [#582](https://github.com/chef/cookstyle/pull/582) ([tas50](https://github.com/tas50)) <!-- 6.0.19 -->
-- Update the severity for all deprecation cops to be :warning [#585](https://github.com/chef/cookstyle/pull/585) ([tas50](https://github.com/tas50)) <!-- 6.0.18 -->
-- Add ChefDeprecations/ResourceWithoutNameOrProvides cop [#584](https://github.com/chef/cookstyle/pull/584) ([tas50](https://github.com/tas50)) <!-- 6.0.17 -->
-- Add ChefDeprecations/LogResourceNotifications cop [#583](https://github.com/chef/cookstyle/pull/583) ([tas50](https://github.com/tas50)) <!-- 6.0.16 -->
-- Add ChefDeprecations/ChefWindowsPlatformHelper cop [#581](https://github.com/chef/cookstyle/pull/581) ([tas50](https://github.com/tas50)) <!-- 6.0.15 -->
-- Add ChefDeprecations/DeprecatedWindowsVersionCheck check [#580](https://github.com/chef/cookstyle/pull/580) ([tas50](https://github.com/tas50)) <!-- 6.0.14 -->
-- Allow arrays in match_property_in_resource and fix powershell interp cop [#578](https://github.com/chef/cookstyle/pull/578) ([tas50](https://github.com/tas50)) <!-- 6.0.13 -->
-- Add ChefModernize/DatabagHelpers [#577](https://github.com/chef/cookstyle/pull/577) ([tas50](https://github.com/tas50)) <!-- 6.0.12 -->
-- Add ChefModernize/ProvidesFromInitialize cop [#574](https://github.com/chef/cookstyle/pull/574) ([tas50](https://github.com/tas50)) <!-- 6.0.11 -->
-- Add ChefCorrectness/PowershellScriptDeleteFile [#576](https://github.com/chef/cookstyle/pull/576) ([tas50](https://github.com/tas50)) <!-- 6.0.10 -->
-- Detect the short form the of registry key in ChefModernize/WindowsRegistryUAC [#575](https://github.com/chef/cookstyle/pull/575) ([tas50](https://github.com/tas50)) <!-- 6.0.9 -->
-- Add new cop ChefModernize/UseMultipackageInstalls [#553](https://github.com/chef/cookstyle/pull/553) ([tas50](https://github.com/tas50)) <!-- 6.0.8 -->
-- Add ChefCorrectness/ChefApplicationFatal cop [#570](https://github.com/chef/cookstyle/pull/570) ([tas50](https://github.com/tas50)) <!-- 6.0.7 -->
-- Update ChefModernize/PowerShellGuardInterpreter to look at all resources [#572](https://github.com/chef/cookstyle/pull/572) ([tas50](https://github.com/tas50)) <!-- 6.0.6 -->
-- Add autocorrection to ChefCorrectness/DnfPackageAllowDowngrades [#571](https://github.com/chef/cookstyle/pull/571) ([tas50](https://github.com/tas50)) <!-- 6.0.5 -->
-- Enable ChefStyle/UnnecessaryOSCheck [#573](https://github.com/chef/cookstyle/pull/573) ([tas50](https://github.com/tas50)) <!-- 6.0.4 -->
-- Update DefaultActionFromInitialize to not care about variable order [#555](https://github.com/chef/cookstyle/pull/555) ([tas50](https://github.com/tas50)) <!-- 6.0.3 -->
-- Update ChefRedundant/UnnecessaryNameProperty to detect attributes [#551](https://github.com/chef/cookstyle/pull/551) ([tas50](https://github.com/tas50)) <!-- 6.0.2 -->
-- Disable the Naming/PredicateName [#552](https://github.com/chef/cookstyle/pull/552) ([tas50](https://github.com/tas50)) <!-- 6.0.1 -->
-- Update RuboCop engine to 0.80.1 [#479](https://github.com/chef/cookstyle/pull/479) ([tas50](https://github.com/tas50)) <!-- 6.0.0 -->
-- Move Cookstyle to the Chef Infra project [#538](https://github.com/chef/cookstyle/pull/538) ([tas50](https://github.com/tas50)) <!-- 5.22.7 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v6.0.19](https://github.com/chef/cookstyle/tree/v6.0.19) (2020-03-20)
+
+#### Merged Pull Requests
+- Move Cookstyle to the Chef Infra project [#538](https://github.com/chef/cookstyle/pull/538) ([tas50](https://github.com/tas50))
+- Update RuboCop engine to 0.80.1 [#479](https://github.com/chef/cookstyle/pull/479) ([tas50](https://github.com/tas50))
+- Disable the Naming/PredicateName [#552](https://github.com/chef/cookstyle/pull/552) ([tas50](https://github.com/tas50))
+- Update ChefRedundant/UnnecessaryNameProperty to detect attributes [#551](https://github.com/chef/cookstyle/pull/551) ([tas50](https://github.com/tas50))
+- Update DefaultActionFromInitialize to not care about variable order [#555](https://github.com/chef/cookstyle/pull/555) ([tas50](https://github.com/tas50))
+- Enable ChefStyle/UnnecessaryOSCheck [#573](https://github.com/chef/cookstyle/pull/573) ([tas50](https://github.com/tas50))
+- Add autocorrection to ChefCorrectness/DnfPackageAllowDowngrades [#571](https://github.com/chef/cookstyle/pull/571) ([tas50](https://github.com/tas50))
+- Update ChefModernize/PowerShellGuardInterpreter to look at all resources [#572](https://github.com/chef/cookstyle/pull/572) ([tas50](https://github.com/tas50))
+- Add ChefCorrectness/ChefApplicationFatal cop [#570](https://github.com/chef/cookstyle/pull/570) ([tas50](https://github.com/tas50))
+- Add new cop ChefModernize/UseMultipackageInstalls [#553](https://github.com/chef/cookstyle/pull/553) ([tas50](https://github.com/tas50))
+- Detect the short form the of registry key in ChefModernize/WindowsRegistryUAC [#575](https://github.com/chef/cookstyle/pull/575) ([tas50](https://github.com/tas50))
+- Add ChefCorrectness/PowershellScriptDeleteFile [#576](https://github.com/chef/cookstyle/pull/576) ([tas50](https://github.com/tas50))
+- Add ChefModernize/ProvidesFromInitialize cop [#574](https://github.com/chef/cookstyle/pull/574) ([tas50](https://github.com/tas50))
+- Add ChefModernize/DatabagHelpers [#577](https://github.com/chef/cookstyle/pull/577) ([tas50](https://github.com/tas50))
+- Allow arrays in match_property_in_resource and fix powershell interp cop [#578](https://github.com/chef/cookstyle/pull/578) ([tas50](https://github.com/tas50))
+- Add ChefDeprecations/DeprecatedWindowsVersionCheck check [#580](https://github.com/chef/cookstyle/pull/580) ([tas50](https://github.com/tas50))
+- Add ChefDeprecations/ChefWindowsPlatformHelper cop [#581](https://github.com/chef/cookstyle/pull/581) ([tas50](https://github.com/tas50))
+- Add ChefDeprecations/LogResourceNotifications cop [#583](https://github.com/chef/cookstyle/pull/583) ([tas50](https://github.com/tas50))
+- Add ChefDeprecations/ResourceWithoutNameOrProvides cop [#584](https://github.com/chef/cookstyle/pull/584) ([tas50](https://github.com/tas50))
+- Update the severity for all deprecation cops to be :warning [#585](https://github.com/chef/cookstyle/pull/585) ([tas50](https://github.com/tas50))
+- Add release notes for Cookstyle 6 [#582](https://github.com/chef/cookstyle/pull/582) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v5.22.6](https://github.com/chef/cookstyle/tree/v5.22.6) (2020-02-28)
 
 #### Merged Pull Requests
@@ -45,7 +43,6 @@
 - Add ChefModernize/WindowsRegistryUAC cop [#540](https://github.com/chef/cookstyle/pull/540) ([tas50](https://github.com/tas50))
 - Detect more apt-get update scenarios [#546](https://github.com/chef/cookstyle/pull/546) ([tas50](https://github.com/tas50))
 - Disable Naming/MethodName and Naming/VariableName [#545](https://github.com/chef/cookstyle/pull/545) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v5.21.9](https://github.com/chef/cookstyle/tree/v5.21.9) (2020-02-19)
 
