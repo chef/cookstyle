@@ -23,6 +23,7 @@ task :vendor do
 end
 
 require 'cookstyle'
+desc 'Run cookstyle against cookstyle'
 task :style do
   sh('bundle exec cookstyle')
 end
