@@ -3,6 +3,7 @@
 
 * [ChefCorrectness/BlockGuardWithOnlyString](cops_chefcorrectness.md#chefcorrectnessblockguardwithonlystring)
 * [ChefCorrectness/ChefApplicationFatal](cops_chefcorrectness.md#chefcorrectnesschefapplicationfatal)
+* [ChefCorrectness/ConditionalRubyShellout](cops_chefcorrectness.md#chefcorrectnessconditionalrubyshellout)
 * [ChefCorrectness/CookbookUsesNodeSave](cops_chefcorrectness.md#chefcorrectnesscookbookusesnodesave)
 * [ChefCorrectness/CookbooksDependsOnSelf](cops_chefcorrectness.md#chefcorrectnesscookbooksdependsonself)
 * [ChefCorrectness/DnfPackageAllowDowngrades](cops_chefcorrectness.md#chefcorrectnessdnfpackageallowdowngrades)

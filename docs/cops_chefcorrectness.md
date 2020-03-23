@@ -58,6 +58,42 @@ Name | Default value | Configurable values
 VersionAdded | `6.0.0` | String
 Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
+## ChefCorrectness/ConditionalRubyShellout
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+Don't use Ruby to shellout in a only_if / not_if conditional when you can just shellout directly. Any string value used with only_if / not_if is executed in your system's shell and the return code of the command is the result for the not_if / only_if determination.
+
+### Examples
+
+```ruby
+# bad
+cookbook_file '/logs/foo/error.log' do
+  source 'error.log'
+  only_if { system('wget https://www.bar.com/foobar.txt -O /dev/null') }
+end
+
+cookbook_file '/logs/foo/error.log' do
+  source 'error.log'
+  only_if { shell_out('wget https://www.bar.com/foobar.txt -O /dev/null').exitstatus == 0 }
+end
+
+# good
+cookbook_file '/logs/foo/error.log' do
+  source 'error.log'
+  only_if 'wget https://www.bar.com/foobar.txt -O /dev/null'
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.1.0` | String
+Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
+
 ## ChefCorrectness/CookbookUsesNodeSave
 
 Enabled by default | Supports autocorrection

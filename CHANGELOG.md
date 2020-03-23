@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 6.1.0 -->
+## [v6.1.0](https://github.com/chef/cookstyle/tree/v6.1.0) (2020-03-23)
+
+#### Merged Pull Requests
+- Add ChefCorrectness/ConditionalRubyShellout cop [#586](https://github.com/chef/cookstyle/pull/586) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=6.0.19 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Add ChefCorrectness/ConditionalRubyShellout cop [#586](https://github.com/chef/cookstyle/pull/586) ([tas50](https://github.com/tas50)) <!-- 6.1.0 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
