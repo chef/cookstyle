@@ -25,7 +25,7 @@ describe RuboCop::Cop::Chef::ChefCorrectness::ConditionalRubyShellout do
       cookbook_file '/logs/foo/error.log' do
         source 'error.log'
         not_if { system('wget https://www.bar.com/foobar.txt -O /dev/null') }
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Don't use Ruby to shellout in a only_if / not_if conditional when you can just shellout directly by wrapping the command in quotes.
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Don't use Ruby to shellout in an only_if / not_if conditional when you can shellout directly by wrapping the command in quotes.
       end
     RUBY
 
@@ -42,7 +42,7 @@ describe RuboCop::Cop::Chef::ChefCorrectness::ConditionalRubyShellout do
       cookbook_file '/logs/foo/error.log' do
         source 'error.log'
         only_if { shell_out('wget https://www.bar.com/foobar.txt -O /dev/null').exitstatus == 0 }
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Don't use Ruby to shellout in a only_if / not_if conditional when you can just shellout directly by wrapping the command in quotes.
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Don't use Ruby to shellout in an only_if / not_if conditional when you can shellout directly by wrapping the command in quotes.
       end
     RUBY
 
