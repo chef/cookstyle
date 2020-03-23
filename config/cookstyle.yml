@@ -341,6 +341,15 @@ ChefCorrectness/PowershellScriptDeleteFile:
     - '**/metadata.rb'
     - '**/Berksfile'
 
+ChefCorrectness/ConditionalRubyShellout:
+  Description: Don't use Ruby to shellout in an only_if / not_if conditional when you can shellout directly by wrapping the command in quotes.
+  Enabled: true
+  VersionAdded: '6.1.0'
+  Exclude:
+    - '**/attributes/*.rb'
+    - '**/metadata.rb'
+    - '**/Berksfile'
+
 ###############################
 # ChefSharing: Issues that prevent sharing code with other teams or with the Chef community in general
 ###############################
