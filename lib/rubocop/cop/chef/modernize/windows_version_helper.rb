@@ -18,7 +18,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefModernize
-        # Use node['platform_version] data instead of the Windows::VersionHelper helper from the Windows cookbook.
+        # Use node['platform_version'] data instead of the Windows::VersionHelper helper from the Windows cookbook.
         #
         # @example
         #
@@ -26,7 +26,7 @@ module RuboCop
         #   Windows::VersionHelper.nt_version
         #
         #   # good
-        #   node['platform_version].to_i
+        #   node['platform_version'].to_i
         #
         class WindowsVersionHelper < Cop
           MSG = "Use node['platform_version'] data instead of the Windows::VersionHelper helper from the Windows cookbook.".freeze
