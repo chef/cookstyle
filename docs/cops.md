@@ -81,6 +81,7 @@
 * [ChefDeprecations/VerifyPropertyUsesFileExpansion](cops_chefdeprecations.md#chefdeprecationsverifypropertyusesfileexpansion)
 * [ChefDeprecations/WindowsFeatureServermanagercmd](cops_chefdeprecations.md#chefdeprecationswindowsfeatureservermanagercmd)
 * [ChefDeprecations/WindowsTaskChangeAction](cops_chefdeprecations.md#chefdeprecationswindowstaskchangeaction)
+* [ChefDeprecations/WindowsVersionHelpers](cops_chefdeprecations.md#chefdeprecationswindowsversionhelpers)
 
 #### Department [ChefEffortless](cops_chefeffortless.md)
 
@@ -149,7 +150,6 @@
 * [ChefModernize/WhyRunSupportedTrue](cops_chefmodernize.md#chefmodernizewhyrunsupportedtrue)
 * [ChefModernize/WindowsRegistryUAC](cops_chefmodernize.md#chefmodernizewindowsregistryuac)
 * [ChefModernize/WindowsScResource](cops_chefmodernize.md#chefmodernizewindowsscresource)
-* [ChefModernize/WindowsVersionHelper](cops_chefmodernize.md#chefmodernizewindowsversionhelper)
 * [ChefModernize/WindowsZipfileUsage](cops_chefmodernize.md#chefmodernizewindowszipfileusage)
 * [ChefModernize/ZipfileResource](cops_chefmodernize.md#chefmodernizezipfileresource)
 

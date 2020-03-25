@@ -1520,31 +1520,6 @@ Name | Default value | Configurable values
 VersionAdded | `5.16.0` | String
 Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
-## ChefModernize/WindowsVersionHelper
-
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
-
-Use node['platform_version] data instead of the Windows::VersionHelper helper from the Windows cookbook.
-
-### Examples
-
-```ruby
-# bad
-Windows::VersionHelper.nt_version
-
-# good
-node['platform_version].to_i
-```
-
-### Configurable attributes
-
-Name | Default value | Configurable values
---- | --- | ---
-VersionAdded | `5.4.0` | String
-Exclude | `**/metadata.rb` | Array
-
 ## ChefModernize/WindowsZipfileUsage
 
 Enabled by default | Supports autocorrection

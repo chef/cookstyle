@@ -1496,3 +1496,34 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.6.0` | String
 Exclude | `**/metadata.rb` | Array
+
+## ChefDeprecations/WindowsVersionHelpers
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+Use node['platform_version'] and node['kernel'] data instead of the deprecated Windows::VersionHelper helpers from the Windows cookbook.
+
+### Examples
+
+```ruby
+# bad
+Windows::VersionHelper.nt_version
+Windows::VersionHelper.server_version?
+Windows::VersionHelper.core_version?
+Windows::VersionHelper.workstation_version?
+
+# good
+node['platform_version'].to_f
+node['kernel']['product_type'] == 'Server'
+node['kernel']['server_core']
+node['kernel']['product_type'] == 'Workstation'
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.4.0` | String
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
