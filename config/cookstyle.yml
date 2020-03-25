@@ -783,6 +783,14 @@ ChefDeprecations/ResourceWithoutNameOrProvides:
   Include:
     - '**/libraries/*.rb'
 
+ChefDeprecations/WindowsVersionHelpers:
+  Description: Use node['platform_version'] data instead of the Windows::VersionHelper helper from the Windows cookbook.
+  Enabled: true
+  VersionAdded: '5.4.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/Berksfile'
+
 ###############################
 # ChefModernize: Cleaning up legacy code and using new built-in resources
 ###############################
@@ -873,13 +881,6 @@ ChefModernize/ExecuteAptUpdate:
   Description: Use the apt_update resource instead of the execute resource to run an apt-get update package cache update
   Enabled: true
   VersionAdded: '5.3.0'
-  Exclude:
-    - '**/metadata.rb'
-
-ChefModernize/WindowsVersionHelper:
-  Description: Use node['platform_version'] data instead of the Windows::VersionHelper helper from the Windows cookbook.
-  Enabled: true
-  VersionAdded: '5.4.0'
   Exclude:
     - '**/metadata.rb'
 
