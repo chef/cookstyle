@@ -791,6 +791,14 @@ ChefDeprecations/WindowsVersionHelpers:
     - '**/metadata.rb'
     - '**/Berksfile'
 
+ChefDeprecations/PowershellCookbookHelpers:
+  Description: Use node['powershell']['version'] or the new powershell_version helper available in Chef Infra Client 16+ instead of the deprecated PowerShell cookbook helpers helpers.
+  Enabled: true
+  VersionAdded: '6.1.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/Berksfile'
+
 ###############################
 # ChefModernize: Cleaning up legacy code and using new built-in resources
 ###############################
