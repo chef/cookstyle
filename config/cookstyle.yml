@@ -1242,6 +1242,14 @@ ChefModernize/DatabagHelpers:
     - '**/metadata.rb'
     - '**/Berksfile'
 
+ChefModernize/NodeRolesInclude:
+  Description: Use `node.role?('foo')` to check if a node includes a role instead of `node['roles'].include?('foo')`.
+  Enabled: true
+  VersionAdded: '6.1.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/Berksfile'
+
 ###############################
 # ChefRedundantCode: Cleanup unnecessary code in your cookbooks regardless of Chef Infra Client release
 ###############################
