@@ -181,6 +181,8 @@
 
 * [ChefSharing/DefaultMetadataMaintainer](cops_chefsharing.md#chefsharingdefaultmetadatamaintainer)
 * [ChefSharing/EmptyMetadataField](cops_chefsharing.md#chefsharingemptymetadatafield)
+* [ChefSharing/IncludePropertyDescriptions](cops_chefsharing.md#chefsharingincludepropertydescriptions)
+* [ChefSharing/IncludeResourceDescriptions](cops_chefsharing.md#chefsharingincluderesourcedescriptions)
 * [ChefSharing/InsecureCookbookURL](cops_chefsharing.md#chefsharinginsecurecookbookurl)
 * [ChefSharing/InvalidLicenseString](cops_chefsharing.md#chefsharinginvalidlicensestring)
 

@@ -55,6 +55,54 @@ VersionAdded | `5.8.0` | String
 VersionChanged | `5.15.0` | String
 Include | `**/metadata.rb` | Array
 
+## ChefSharing/IncludePropertyDescriptions
+
+Enabled by default | Supports autocorrection
+--- | ---
+Disabled | No
+
+Resource properties should include description fields to allow automated documention. Requires Chef Infra Client 13.9 or later.
+
+### Examples
+
+```ruby
+# bad
+property :foo, String
+
+# good
+property :foo, String, description: "Set the important thing to..."
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.1.0` | String
+Include | `**/libraries/*.rb`, `**/resources/*.rb` | Array
+
+## ChefSharing/IncludeResourceDescriptions
+
+Enabled by default | Supports autocorrection
+--- | ---
+Disabled | No
+
+Resources should include description fields to allow automated documention. Requires Chef Infra Client 13.9 or later.
+
+### Examples
+
+```ruby
+# good
+resource_name :foo
+description "The foo resource is used to do..."
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.1.0` | String
+Include | `**/resources/*.rb` | Array
+
 ## ChefSharing/InsecureCookbookURL
 
 Enabled by default | Supports autocorrection
