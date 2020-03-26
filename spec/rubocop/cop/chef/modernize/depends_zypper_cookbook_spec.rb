@@ -1,5 +1,6 @@
 #
-# Copyright:: 2019, Chef Software, Inc.
+# Copyright:: 2019-2020, Chef Software, Inc.
+# Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -22,8 +23,10 @@ describe RuboCop::Cop::Chef::ChefModernize::DependsOnZypperCookbook, :config do
   it 'registers an offense when depending on the zypper cookbook' do
     expect_offense(<<~RUBY)
     depends 'zypper'
-    ^^^^^^^^^^^^^^^^ Don't include the zypper cookbook as the zypper_repository resource is built into Chef Infra Client 13.3+
+    ^^^^^^^^^^^^^^^^ Don't depend on the zypper cookbook as the zypper_repository resource is built into Chef Infra Client 13.3+
     RUBY
+
+    expect_correction("\n")
   end
 
   it "doesn't register an offense when depending on other cookbooks" do

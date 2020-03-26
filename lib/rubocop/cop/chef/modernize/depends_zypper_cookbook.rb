@@ -1,5 +1,5 @@
 #
-# Copyright:: 2019, Chef Software, Inc.
+# Copyright:: 2019-2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,7 +18,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefModernize
-        # Don't depend the zypper cookbook as the zypper_repository resource is built into Chef Infra Client 13.3
+        # Don't depend on the zypper cookbook as the zypper_repository resource is built into Chef Infra Client 13.3+
         #
         # @example
         #
@@ -31,7 +31,7 @@ module RuboCop
 
           minimum_target_chef_version '13.3'
 
-          MSG = "Don't include the zypper cookbook as the zypper_repository resource is built into Chef Infra Client 13.3+".freeze
+          MSG = "Don't depend on the zypper cookbook as the zypper_repository resource is built into Chef Infra Client 13.3+".freeze
 
           def_node_matcher :zypper_depends?, <<-PATTERN
             (send nil? :depends (str "zypper"))
