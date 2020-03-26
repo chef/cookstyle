@@ -64,6 +64,7 @@
 * [ChefDeprecations/PartialSearchClassUsage](cops_chefdeprecations.md#chefdeprecationspartialsearchclassusage)
 * [ChefDeprecations/PartialSearchHelperUsage](cops_chefdeprecations.md#chefdeprecationspartialsearchhelperusage)
 * [ChefDeprecations/PoiseArchiveUsage](cops_chefdeprecations.md#chefdeprecationspoisearchiveusage)
+* [ChefDeprecations/PowershellCookbookHelpers](cops_chefdeprecations.md#chefdeprecationspowershellcookbookhelpers)
 * [ChefDeprecations/RequireRecipe](cops_chefdeprecations.md#chefdeprecationsrequirerecipe)
 * [ChefDeprecations/ResourceInheritsFromCompatResource](cops_chefdeprecations.md#chefdeprecationsresourceinheritsfromcompatresource)
 * [ChefDeprecations/ResourceOverridesProvidesMethod](cops_chefdeprecations.md#chefdeprecationsresourceoverridesprovidesmethod)

@@ -988,6 +988,34 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.11.0` | String
 
+## ChefDeprecations/PowershellCookbookHelpers
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+Use node['powershell']['version'] or the new powershell_version helper available in Chef Infra Client 16+ instead of the deprecated PowerShell cookbook helpers
+
+### Examples
+
+```ruby
+# bad
+Powershell::VersionHelper.powershell_version?('4.0')
+
+# good
+node['powershell']['version'].to_f == 4.0
+
+# good (Chef Infra Client 16+)
+powershell_version == 4.0
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.1.0` | String
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
+
 ## ChefDeprecations/RequireRecipe
 
 Enabled by default | Supports autocorrection
