@@ -222,7 +222,7 @@ Enabled by default | Supports autocorrection
 --- | ---
 Enabled | Yes
 
-Don't depend the zypper cookbook as the zypper_repository resource is built into Chef Infra Client 13.3
+Don't depend on the zypper cookbook as the zypper_repository resource is built into Chef Infra Client 13.3+
 
 ### Examples
 
@@ -909,7 +909,7 @@ Enabled by default | Supports autocorrection
 --- | ---
 Enabled | No
 
-Use the windows_feature resource built into Chef Infra Client 15+ instead of the powershell_script resource
+Use the windows_feature resource built into Chef Infra Client 14+ instead of the powershell_script resource
 to run Install-WindowsFeature or Add-WindowsFeature
 
  # good
