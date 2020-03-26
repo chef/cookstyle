@@ -42,7 +42,7 @@ end
 
 #### ChefSharing/IncludePropertyDescriptions
 
-The `ChefSharing/IncludeResourceDescriptions` cop detects resource properties that don't include a description value. The description in resources properties are used by the `chef-resource-inspector` command and can be used to automatically generate documentation.
+The `ChefSharing/IncludePropertyDescriptions` cop detects resource properties that don't include a description value. These descriptions are used by the `chef-resource-inspector` command and can be used to automatically generate documentation.
 
 `Enabled by default`: False
 
