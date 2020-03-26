@@ -386,6 +386,21 @@ ChefSharing/EmptyMetadataField:
   Include:
     - '**/metadata.rb'
 
+ChefSharing/IncludePropertyDescriptions:
+  Description: Properties should include description fields to allow automated documention. Requires Chef Infra Client 13.9 or later.
+  Enabled: false
+  VersionAdded: '6.1.0'
+  Include:
+    - '**/libraries/*.rb'
+    - '**/resources/*.rb'
+
+ChefSharing/IncludeResourceDescriptions:
+  Description: Resources should include description fields to allow automated documention. Requires Chef Infra Client 13.9 or later.
+  Enabled: false
+  VersionAdded: '6.1.0'
+  Include:
+    - '**/resources/*.rb'
+
 ###############################
 # ChefDeprecations: Resolving Deprecations that block upgrading Chef Infra Client
 ###############################
