@@ -6,7 +6,7 @@ Enabled by default | Supports autocorrection
 --- | ---
 Disabled | No
 
-No documentation
+Policyfiles should be used for cookbook dependency solving instead of a Berkshelf Berksfile.
 
 ### Configurable attributes
 

@@ -727,6 +727,31 @@ Name | Default value | Configurable values
 VersionAdded | `5.22.0` | String
 Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
+## ChefModernize/NodeRolesInclude
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+Use `node.role?('foo')` to check if a node includes a role instead of `node['roles'].include?('foo')`.
+
+### Examples
+
+```ruby
+# bad
+node['roles'].include?('foo')
+
+# good
+node.role?('foo')
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.1.0` | String
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
+
 ## ChefModernize/OpensslRsaKeyResource
 
 Enabled by default | Supports autocorrection
