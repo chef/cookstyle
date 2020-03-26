@@ -12,7 +12,7 @@ The `ChefModernize/NodeRolesInclude` cop detects cookbooks that use `node['roles
 
 #### ChefDeprecations/PowershellCookbookHelpers
 
-The `ChefDeprecations/PowershellCookbookHelpers` cop detects cookbooks that use the deprecated `Powershell::VersionHelper.powershell_version?` helper from the `powershell` cookbook. Chef Infra Client provides information on the installed PowerShell release at `node['powershell']['version']` and Chef Infra Client 15.8 and later includes a new `powershell_version` which should be used when possible.
+The `ChefDeprecations/PowershellCookbookHelpers` cop detects cookbooks that use the deprecated `Powershell::VersionHelper.powershell_version?` helper from the `powershell` cookbook. Chef Infra Client provides information on the installed PowerShell release at `node['powershell']['version']` and Chef Infra Client 15.8 and later includes a new `powershell_version` method which should be used when possible.
 
 `Enabled by default`: True
 
