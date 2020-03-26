@@ -18,7 +18,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefSharing
-        # Resources properties should include description fields to allow automated documention. Requires Chef Infra Client 13.9 or later.
+        # Resource properties should include description fields to allow automated documention. Requires Chef Infra Client 13.9 or later.
         #
         # @example
         #
