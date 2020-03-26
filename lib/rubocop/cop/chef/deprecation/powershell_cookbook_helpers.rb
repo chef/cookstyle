@@ -18,7 +18,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefDeprecations
-        # Use node['powershell']['version'] or the new powershell_version helper available in Chef Infra Client 16+ instead of the deprecated PowerShell cookbook helpers helpers
+        # Use node['powershell']['version'] or the new powershell_version helper available in Chef Infra Client 16+ instead of the deprecated PowerShell cookbook helpers
         #
         # @example
         #
@@ -32,7 +32,7 @@ module RuboCop
         #   powershell_version == 4.0
         #
         class PowershellCookbookHelpers < Cop
-          MSG = "Use node['powershell']['version'] or the new powershell_version helper available in Chef Infra Client 16+ instead of the deprecated PowerShell cookbook helpers helpers.".freeze
+          MSG = "Use node['powershell']['version'] or the new powershell_version helper available in Chef Infra Client 16+ instead of the deprecated PowerShell cookbook helpers.".freeze
 
           def_node_matcher :ps_cb_helper?, <<-PATTERN
           (send
