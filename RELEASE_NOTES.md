@@ -1,3 +1,66 @@
+## Cookstyle 6.1
+
+### 5 New Cops
+
+#### ChefModernize/NodeRolesInclude
+
+The `ChefModernize/NodeRolesInclude` cop detects cookbooks that use `node['roles'].include?('foo')` to see if a particular role has been applied to a node. The simpler `node.role?('foo')` helper should be used instead.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefDeprecations/PowershellCookbookHelpers
+
+The `ChefDeprecations/PowershellCookbookHelpers` cop detects cookbooks that use the deprecated `Powershell::VersionHelper.powershell_version?` helper from the `powershell` cookbook. Chef Infra Client provides information on the installed PowerShell release at `node['powershell']['version']` and Chef Infra Client 15.8 and later includes a new `powershell_version` which should be used when possible.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefCorrectness/ConditionalRubyShellout
+
+The `ChefCorrectness/ConditionalRubyShellout` detects resources that use Ruby code to shellout in not_if and only_if conditionals when they can just shellout without the additional complexity of Ruby.
+
+Shelling out with ruby:
+```ruby
+cookbook_file '/logs/foo/error.log' do
+  only_if { system('wget https://www.bar.com/foobar.txt -O /dev/null') }
+end
+```
+
+Shelling out without Ruby:
+```ruby
+cookbook_file '/logs/foo/error.log' do
+  only_if 'wget https://www.bar.com/foobar.txt -O /dev/null'
+end
+```
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefSharing/IncludePropertyDescriptions
+
+The `ChefSharing/IncludeResourceDescriptions` cop detects resource properties that don't include a description value. The description in resources properties are used by the `chef-resource-inspector` command and can be used to automatically generate documentation.
+
+`Enabled by default`: False
+
+`Autocorrects`: No
+
+#### ChefSharing/IncludeResourceDescriptions
+
+The `ChefSharing/IncludeResourceDescriptions` cop detects resource that don't include a description. The description in resources is used by the `chef-resource-inspector` command and can be used to automatically generate documentation.
+
+`Enabled by default`: False
+
+`Autocorrects`: No
+
+### Other Changes
+
+- `ChefModernize/PowershellInstallWindowsFeature` now correctly identifies the required Chef Infra Client release as 14.0 and later.
+- The `WindowsVersionHelper` cop has been moved to the `ChefDeprecations` department and now includes autocorrection for each of the helpers it identifies.
+
 ## Cookstyle 6.0
 
 ### RuboCop 0.80.1 Engine
