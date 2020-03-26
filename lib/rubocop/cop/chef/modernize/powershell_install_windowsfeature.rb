@@ -18,7 +18,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefModernize
-        # Use the windows_feature resource built into Chef Infra Client 15+ instead of the powershell_script resource
+        # Use the windows_feature resource built into Chef Infra Client 14+ instead of the powershell_script resource
         # to run Install-WindowsFeature or Add-WindowsFeature
         #
         # @example
@@ -38,9 +38,9 @@ module RuboCop
           include RuboCop::Chef::CookbookHelpers
           extend TargetChefVersion
 
-          minimum_target_chef_version '13.0'
+          minimum_target_chef_version '14.0'
 
-          MSG = 'Use the windows_feature resource built into Chef Infra Client 13+ instead of using Install-WindowsFeature or Add-WindowsFeature in a powershell_script resource'.freeze
+          MSG = 'Use the windows_feature resource built into Chef Infra Client 14+ instead of using Install-WindowsFeature or Add-WindowsFeature in a powershell_script resource'.freeze
 
           def on_block(node)
             match_property_in_resource?(:powershell_script, 'code', node) do |code_property|
