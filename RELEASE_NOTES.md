@@ -20,7 +20,7 @@ The `ChefDeprecations/PowershellCookbookHelpers` cop detects cookbooks that use 
 
 #### ChefCorrectness/ConditionalRubyShellout
 
-The `ChefCorrectness/ConditionalRubyShellout` detects resources that use Ruby code to shellout in not_if and only_if conditionals when they can just shellout without the additional complexity of Ruby.
+The `ChefCorrectness/ConditionalRubyShellout` cop detects resources that use unnecessary Ruby code in `not_if` and `only_if` conditionals to shellout when a string can be used to avoid additional complexity.
 
 Shelling out with ruby:
 ```ruby
