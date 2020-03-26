@@ -18,9 +18,9 @@
 module RuboCop
   module Cop
     module Chef
-      # Policyfiles should be used for cookbook dependency solving instead of a Berkshelf Berksfile.
-      #
       module ChefEffortless
+        # Policyfiles should be used for cookbook dependency solving instead of a Berkshelf Berksfile.
+        #
         class Berksfile < Cop
           include RangeHelp
 
