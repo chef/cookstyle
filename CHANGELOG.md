@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.1.5 -->
-## [v6.1.5](https://github.com/chef/cookstyle/tree/v6.1.5) (2020-03-26)
+ <!-- latest_release 6.1.6 -->
+## [v6.1.6](https://github.com/chef/cookstyle/tree/v6.1.6) (2020-03-27)
 
 #### Merged Pull Requests
-- Add cops for resource / property descriptions [#590](https://github.com/chef/cookstyle/pull/590) ([tas50](https://github.com/tas50))
+- Add Cookstyle 6.1 release notes [#593](https://github.com/chef/cookstyle/pull/593) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.0.19 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add Cookstyle 6.1 release notes [#593](https://github.com/chef/cookstyle/pull/593) ([tas50](https://github.com/tas50)) <!-- 6.1.6 -->
 - Add cops for resource / property descriptions [#590](https://github.com/chef/cookstyle/pull/590) ([tas50](https://github.com/tas50)) <!-- 6.1.5 -->
 - Fix chef infra version in PowershellInstallWindowsFeature [#591](https://github.com/chef/cookstyle/pull/591) ([tas50](https://github.com/tas50)) <!-- 6.1.4 -->
 - Add ChefModernize/NodeRolesInclude rule [#589](https://github.com/chef/cookstyle/pull/589) ([tas50](https://github.com/tas50)) <!-- 6.1.3 -->
