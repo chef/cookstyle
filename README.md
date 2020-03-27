@@ -69,10 +69,10 @@ cookstyle -D --format offenses
 In a Rakefile, the setup is similar, except you need to require the cookstyle library first:
 
 ```ruby
-require "cookstyle"
-require "rubocop/rake_task"
-RuboCop::RakeTask.new do |task|
-  task.options << "--display-cop-names"
+require 'cookstyle'
+require 'rubocop/rake_task'
+RuboCop::RakeTask.new(:cookstyle) do |task|
+  task.options << '--display-cop-names'
 end
 ```
 
