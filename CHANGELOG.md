@@ -1,26 +1,24 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.1.6 -->
-## [v6.1.6](https://github.com/chef/cookstyle/tree/v6.1.6) (2020-03-27)
-
-#### Merged Pull Requests
-- Add Cookstyle 6.1 release notes [#593](https://github.com/chef/cookstyle/pull/593) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=6.0.19 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Add Cookstyle 6.1 release notes [#593](https://github.com/chef/cookstyle/pull/593) ([tas50](https://github.com/tas50)) <!-- 6.1.6 -->
-- Add cops for resource / property descriptions [#590](https://github.com/chef/cookstyle/pull/590) ([tas50](https://github.com/tas50)) <!-- 6.1.5 -->
-- Fix chef infra version in PowershellInstallWindowsFeature [#591](https://github.com/chef/cookstyle/pull/591) ([tas50](https://github.com/tas50)) <!-- 6.1.4 -->
-- Add ChefModernize/NodeRolesInclude rule [#589](https://github.com/chef/cookstyle/pull/589) ([tas50](https://github.com/tas50)) <!-- 6.1.3 -->
-- Add ChefDeprecations/PowershellCookbookHelpers [#588](https://github.com/chef/cookstyle/pull/588) ([tas50](https://github.com/tas50)) <!-- 6.1.2 -->
-- Move WindowsVersionHelper to ChefDeprecations &amp; add autocorrect [#587](https://github.com/chef/cookstyle/pull/587) ([tas50](https://github.com/tas50)) <!-- 6.1.1 -->
-- Add ChefCorrectness/ConditionalRubyShellout cop [#586](https://github.com/chef/cookstyle/pull/586) ([tas50](https://github.com/tas50)) <!-- 6.1.0 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v6.1.6](https://github.com/chef/cookstyle/tree/v6.1.6) (2020-03-27)
+
+#### Merged Pull Requests
+- Add ChefCorrectness/ConditionalRubyShellout cop [#586](https://github.com/chef/cookstyle/pull/586) ([tas50](https://github.com/tas50))
+- Move WindowsVersionHelper to ChefDeprecations &amp; add autocorrect [#587](https://github.com/chef/cookstyle/pull/587) ([tas50](https://github.com/tas50))
+- Add ChefDeprecations/PowershellCookbookHelpers [#588](https://github.com/chef/cookstyle/pull/588) ([tas50](https://github.com/tas50))
+- Add ChefModernize/NodeRolesInclude rule [#589](https://github.com/chef/cookstyle/pull/589) ([tas50](https://github.com/tas50))
+- Fix chef infra version in PowershellInstallWindowsFeature [#591](https://github.com/chef/cookstyle/pull/591) ([tas50](https://github.com/tas50))
+- Add cops for resource / property descriptions [#590](https://github.com/chef/cookstyle/pull/590) ([tas50](https://github.com/tas50))
+- Add Cookstyle 6.1 release notes [#593](https://github.com/chef/cookstyle/pull/593) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v6.0.19](https://github.com/chef/cookstyle/tree/v6.0.19) (2020-03-20)
 
 #### Merged Pull Requests
@@ -45,7 +43,6 @@
 - Add ChefDeprecations/ResourceWithoutNameOrProvides cop [#584](https://github.com/chef/cookstyle/pull/584) ([tas50](https://github.com/tas50))
 - Update the severity for all deprecation cops to be :warning [#585](https://github.com/chef/cookstyle/pull/585) ([tas50](https://github.com/tas50))
 - Add release notes for Cookstyle 6 [#582](https://github.com/chef/cookstyle/pull/582) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v5.22.6](https://github.com/chef/cookstyle/tree/v5.22.6) (2020-02-28)
 
