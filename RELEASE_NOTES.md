@@ -4,7 +4,7 @@
 
 #### ChefModernize/NodeRolesInclude
 
-The `ChefModernize/NodeRolesInclude` cop detects cookbooks that use `node['roles'].include?('foo')` to see if a particular role has been applied to a node. The simpler `node.role?('foo')` helper should be used instead.
+The `ChefModernize/NodeRolesInclude` cop detects cookbooks that use `node['roles'].include?('foo')` to see if a particular role has been applied to a node. Use the simpler `node.role?('foo')` helper instead.
 
 `Enabled by default`: True
 
