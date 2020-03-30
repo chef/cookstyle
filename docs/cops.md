@@ -176,6 +176,7 @@
 * [ChefRedundantCode/SuggestsMetadata](cops_chefredundantcode.md#chefredundantcodesuggestsmetadata)
 * [ChefRedundantCode/UnnecessaryDesiredState](cops_chefredundantcode.md#chefredundantcodeunnecessarydesiredstate)
 * [ChefRedundantCode/UnnecessaryNameProperty](cops_chefredundantcode.md#chefredundantcodeunnecessarynameproperty)
+* [ChefRedundantCode/UseCreateIfMissing](cops_chefredundantcode.md#chefredundantcodeusecreateifmissing)
 
 #### Department [ChefSharing](cops_chefsharing.md)
 

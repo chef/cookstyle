@@ -506,3 +506,40 @@ Name | Default value | Configurable values
 VersionAdded | `5.8.0` | String
 VersionChanged | `5.15.0` | String
 Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
+
+## ChefRedundantCode/UseCreateIfMissing
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+Use the :create_if_missing action instead of not_if with a ::File.exist(FOO) check.
+
+### Examples
+
+```ruby
+# bad
+cookbook_file '/logs/foo/error.log' do
+  source 'error.log'
+  owner 'root'
+  group 'root'
+  mode '0644'
+  not_if { ::File.exists?('/logs/foo/error.log') }
+end
+
+# good
+cookbook_file '/logs/foo/error.log' do
+  source 'error.log'
+  owner 'root'
+  group 'root'
+  mode '0644'
+  action :create_if_missing
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.2.0` | String
+Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array

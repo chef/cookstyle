@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 6.2.0 -->
+## [v6.2.0](https://github.com/chef/cookstyle/tree/v6.2.0) (2020-03-30)
+
+#### Merged Pull Requests
+- Add ChefRedundantCode/UseCreateIfMissing cop [#595](https://github.com/chef/cookstyle/pull/595) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=6.1.6 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Add ChefRedundantCode/UseCreateIfMissing cop [#595](https://github.com/chef/cookstyle/pull/595) ([tas50](https://github.com/tas50)) <!-- 6.2.0 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
