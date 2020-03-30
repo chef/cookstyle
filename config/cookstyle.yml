@@ -1412,7 +1412,7 @@ ChefRedundantCode/GroupingMetadata:
     - '**/metadata.rb'
 
 ChefRedundantCode/StringPropertyWithNilDefault:
-  Description: 'Properties have a nil value by default so there is no need to set the default value to nil.'
+  Description: Properties have a nil value by default so there is no need to set the default value to nil.
   Enabled: true
   VersionAdded: '5.21.0'
   Include:
@@ -1420,12 +1420,21 @@ ChefRedundantCode/StringPropertyWithNilDefault:
     - '**/libraries/*.rb'
 
 ChefRedundantCode/PropertySplatRegex:
-  Description: 'There is no need to validate the input of properties in resources using a regex value that will always pass.'
+  Description: There is no need to validate the input of properties in resources using a regex value that will always pass.
   Enabled: true
   VersionAdded: '5.21.0'
   Include:
     - '**/resources/*.rb'
     - '**/libraries/*.rb'
+
+ChefRedundantCode/UseCreateIfMissing:
+  Description: Use the :create_if_missing action instead of not_if with a ::File.exist(FOO) check.
+  Enabled: true
+  VersionAdded: '6.2.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/attributes/*.rb'
+    - '**/Berksfile'
 
 ###############################
 # Migrating to new patterns
