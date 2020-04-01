@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.2.1 -->
-## [v6.2.1](https://github.com/chef/cookstyle/tree/v6.2.1) (2020-04-01)
+ <!-- latest_release 6.2.2 -->
+## [v6.2.2](https://github.com/chef/cookstyle/tree/v6.2.2) (2020-04-01)
 
 #### Merged Pull Requests
-- Update RuboCop to 0.81 [#596](https://github.com/chef/cookstyle/pull/596) ([tas50](https://github.com/tas50))
+- Fix syntax on ChefCorrectness/IncorrectLibraryInjection. [#598](https://github.com/chef/cookstyle/pull/598) ([ncerny](https://github.com/ncerny))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.1.6 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Fix syntax on ChefCorrectness/IncorrectLibraryInjection. [#598](https://github.com/chef/cookstyle/pull/598) ([ncerny](https://github.com/ncerny)) <!-- 6.2.2 -->
 - Update RuboCop to 0.81 [#596](https://github.com/chef/cookstyle/pull/596) ([tas50](https://github.com/tas50)) <!-- 6.2.1 -->
 - Add ChefRedundantCode/UseCreateIfMissing cop [#595](https://github.com/chef/cookstyle/pull/595) ([tas50](https://github.com/tas50)) <!-- 6.2.0 -->
 <!-- release_rollup -->
