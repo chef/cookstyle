@@ -29,10 +29,10 @@ module RuboCop
         #
         #   # good
         #   ::Chef::DSL::Recipe.send(:include, Filebeat::Helpers) # covers previous Recipe & Provider classes
-        #   ::Chef::DSL::Resource.send(:include, Filebeat::Helpers)
+        #   ::Chef::DSL::Resources.send(:include, Filebeat::Helpers)
         #
         class IncorrectLibraryInjection < Cop
-          MSG = 'Libraries should be injected into the Chef::DSL::Recipe or Chef::DSL::Resource classes and not Recipe/Resource/Provider classes directly.'.freeze
+          MSG = 'Libraries should be injected into the Chef::DSL::Recipe or Chef::DSL::Resources classes and not Recipe/Resource/Provider classes directly.'.freeze
 
           def_node_matcher :legacy_class_sends?, <<-PATTERN
             (send (const (const (cbase) :Chef) {:Recipe :Provider :Resource}) :send (sym :include) ... )
@@ -48,7 +48,7 @@ module RuboCop
             lambda do |corrector|
               new_val = node.source
               new_val.gsub!(/Chef::(Provider|Recipe)/, 'Chef::DSL::Recipe')
-              new_val.gsub!(/Chef::Resource/, 'Chef::DSL::Resource')
+              new_val.gsub!(/Chef::Resource/, 'Chef::DSL::Resources')
 
               corrector.replace(node.loc.expression, new_val)
             end
