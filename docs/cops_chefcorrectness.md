@@ -169,7 +169,7 @@ Enabled by default | Supports autocorrection
 --- | ---
 Enabled | Yes
 
-Libraries should be injected into the Chef::DSL::Recipe or Chef::DSL::Resource classes and not Recipe/Resource/Provider classes directly.
+Libraries should be injected into the Chef::DSL::Recipe or Chef::DSL::Resources classes and not Recipe/Resource/Provider classes directly.
 
 ### Examples
 
@@ -181,7 +181,7 @@ Libraries should be injected into the Chef::DSL::Recipe or Chef::DSL::Resource c
 
 # good
 ::Chef::DSL::Recipe.send(:include, Filebeat::Helpers) # covers previous Recipe & Provider classes
-::Chef::DSL::Resource.send(:include, Filebeat::Helpers)
+::Chef::DSL::Resources.send(:include, Filebeat::Helpers)
 ```
 
 ### Configurable attributes

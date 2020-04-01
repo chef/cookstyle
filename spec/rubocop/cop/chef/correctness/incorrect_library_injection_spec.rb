@@ -1,5 +1,5 @@
 #
-# Copyright:: Copyright 2019, Chef Software Inc.
+# Copyright:: Copyright 2019-2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -23,7 +23,7 @@ describe RuboCop::Cop::Chef::ChefCorrectness::IncorrectLibraryInjection do
   it 'registers an offense when calling ::Chef::Recipe.send' do
     expect_offense(<<~RUBY)
       ::Chef::Recipe.send(:include, Foo::Helpers)
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Libraries should be injected into the Chef::DSL::Recipe or Chef::DSL::Resource classes and not Recipe/Resource/Provider classes directly.
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Libraries should be injected into the Chef::DSL::Recipe class and not Chef::Recipe or Chef::Provider classes directly.
     RUBY
 
     expect_correction("::Chef::DSL::Recipe.send(:include, Foo::Helpers)\n")
@@ -32,30 +32,15 @@ describe RuboCop::Cop::Chef::ChefCorrectness::IncorrectLibraryInjection do
   it 'registers an offense when calling ::Chef::Provider.send' do
     expect_offense(<<~RUBY)
       ::Chef::Provider.send(:include, Foo::Helpers)
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Libraries should be injected into the Chef::DSL::Recipe or Chef::DSL::Resource classes and not Recipe/Resource/Provider classes directly.
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Libraries should be injected into the Chef::DSL::Recipe class and not Chef::Recipe or Chef::Provider classes directly.
     RUBY
 
     expect_correction("::Chef::DSL::Recipe.send(:include, Foo::Helpers)\n")
   end
 
-  it 'registers an offense when calling ::Chef::Resource.send' do
-    expect_offense(<<~RUBY)
-      ::Chef::Resource.send(:include, Foo::Helpers)
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Libraries should be injected into the Chef::DSL::Recipe or Chef::DSL::Resource classes and not Recipe/Resource/Provider classes directly.
-    RUBY
-
-    expect_correction("::Chef::DSL::Resource.send(:include, Foo::Helpers)\n")
-  end
-
   it 'does not register an offense when calling ::Chef::DSL::Recipe.send' do
     expect_no_offenses(<<~RUBY)
       ::Chef::DSL::Recipe.send
-    RUBY
-  end
-
-  it 'does not register an offense when calling ::Chef::DSL::Resource.send' do
-    expect_no_offenses(<<~RUBY)
-      ::Chef::DSL::Resource.send
     RUBY
   end
 end
