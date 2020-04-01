@@ -255,10 +255,30 @@ Layout/ArrayAlignment:
   Description: >-
                  Align the elements of an array literal if they span more than
                  one line.
-  StyleGuide: '#align-multiline-arrays'
+  StyleGuide: '#no-double-indent'
   Enabled: true
   VersionAdded: '0.49'
   VersionChanged: '0.77'
+  # Alignment of elements of a multi-line array.
+  #
+  # The `with_first_parameter` style aligns the following lines along the same
+  # column as the first element.
+  #
+  #     array = [1, 2, 3,
+  #              4, 5, 6]
+  #
+  # The `with_fixed_indentation` style aligns the following lines with one
+  # level of indentation relative to the start of the line with start of array.
+  #
+  #     array = [1, 2, 3,
+  #       4, 5, 6]
+  EnforcedStyle: with_first_element
+  SupportedStyles:
+    - with_first_element
+    - with_fixed_indentation
+  # By default, the indentation width from Layout/IndentationWidth is used
+  # But it can be overridden by setting this parameter
+  IndentationWidth: ~
 
 Layout/AssignmentIndentation:
   Description: >-
@@ -1303,6 +1323,7 @@ Lint/BooleanSymbol:
   Description: 'Check for `:true` and `:false` symbols.'
   Enabled: true
   VersionAdded: '0.50'
+  VersionChanged: '0.81'
 
 Lint/CircularArgumentReference:
   Description: "Default values in optional keyword arguments and optional ordinal arguments should not refer back to the name of the argument."
@@ -1374,11 +1395,6 @@ Lint/EmptyWhen:
   Description: 'Checks for `when` branches with empty bodies.'
   Enabled: true
   VersionAdded: '0.45'
-
-Lint/EndInMethod:
-  Description: 'END blocks should not be placed inside method definitions.'
-  Enabled: true
-  VersionAdded: '0.9'
 
 Lint/EnsureReturn:
   Description: 'Do not use return in an ensure block.'
@@ -1546,6 +1562,12 @@ Lint/PercentSymbolArray:
   Enabled: true
   VersionAdded: '0.41'
 
+Lint/RaiseException:
+  Description: Checks for `raise` or `fail` statements which are raising `Exception` class.
+  StyleGuide: '#raise-exception'
+  Enabled: pending
+  VersionAdded: '0.81'
+
 Lint/RandOne:
   Description: >-
                  Checks for `rand(1)` calls. Such calls always return `0`
@@ -1574,7 +1596,7 @@ Lint/RedundantRequireStatement:
 Lint/RedundantSplatExpansion:
   Description: 'Checks for splat unnecessarily being called on literals.'
   Enabled: true
-  VersionChanged: '0.76'
+  VersionAdded: '0.76'
 
 Lint/RedundantStringCoercion:
   Description: 'Checks for Object#to_s usage in string interpolation.'
@@ -1688,13 +1710,18 @@ Lint/ShadowingOuterLocalVariable:
   Enabled: true
   VersionAdded: '0.9'
 
+Lint/StructNewOverride:
+  Description: 'Disallow overriding the `Struct` built-in methods via `Struct.new`.'
+  Enabled: pending
+  VersionAdded: '0.81'
+
 Lint/SuppressedException:
   Description: "Don't suppress exceptions."
   StyleGuide: '#dont-hide-exceptions'
   Enabled: true
-  AllowComments: false
+  AllowComments: true
   VersionAdded: '0.9'
-  VersionChanged: '0.77'
+  VersionChanged: '0.81'
 
 Lint/Syntax:
   Description: 'Checks syntax error.'
@@ -1705,6 +1732,7 @@ Lint/Syntax:
 Lint/ToJSON:
   Description: 'Ensure #to_json includes an optional argument.'
   Enabled: true
+  VersionAdded: '0.66'
 
 Lint/UnderscorePrefixedVariableName:
   Description: 'Do not use prefix `_` for a variable that is used.'
@@ -1736,9 +1764,10 @@ Lint/UnusedMethodArgument:
   StyleGuide: '#underscore-unused-vars'
   Enabled: true
   VersionAdded: '0.21'
-  VersionChanged: '0.35'
+  VersionChanged: '0.81'
   AllowUnusedKeywordArguments: false
   IgnoreEmptyMethods: true
+  IgnoreNotImplementedMethods: true
 
 Lint/UriEscapeUnescape:
   Description: >-
@@ -1804,9 +1833,10 @@ Metrics/AbcSize:
     - https://en.wikipedia.org/wiki/ABC_Software_Metric
   Enabled: true
   VersionAdded: '0.27'
-  VersionChanged: '0.66'
+  VersionChanged: '0.81'
   # The ABC size is a calculated magnitude, so this number can be an Integer or
   # a Float.
+  IgnoredMethods: []
   Max: 15
 
 Metrics/BlockLength:
@@ -1846,6 +1876,8 @@ Metrics/CyclomaticComplexity:
                  of test cases needed to validate a method.
   Enabled: true
   VersionAdded: '0.25'
+  VersionChanged: '0.81'
+  IgnoredMethods: []
   Max: 6
 
 Metrics/MethodLength:
@@ -1879,6 +1911,8 @@ Metrics/PerceivedComplexity:
                  human reader.
   Enabled: true
   VersionAdded: '0.25'
+  VersionChanged: '0.81'
+  IgnoredMethods: []
   Max: 7
 
 ################## Migration #############################
@@ -1888,6 +1922,7 @@ Migration/DepartmentName:
                  Check that cop names in rubocop:disable (etc) comments are
                  given with department name.
   Enabled: true
+  VersionAdded: '0.75'
 
 #################### Naming ##############################
 
@@ -2178,10 +2213,12 @@ Style/AccessModifierDeclarations:
   Description: 'Checks style of how access modifiers are used.'
   Enabled: true
   VersionAdded: '0.57'
+  VersionChanged: '0.81'
   EnforcedStyle: group
   SupportedStyles:
     - inline
     - group
+  AllowModifiersOnSymbols: true
 
 Style/Alias:
   Description: 'Use alias instead of alias_method.'
@@ -2384,7 +2421,7 @@ Style/ClassAndModuleChildren:
   StyleGuide: '#namespace-definition'
   # Moving from compact to nested children requires knowledge of whether the
   # outer parent is a module or a class. Moving from nested to compact requires
-  # verification that the outer parent is defined elsewhere. RuboCop does not
+  # verification that the outer parent is defined elsewhere. Rubocop does not
   # have the knowledge to perform either operation safely and thus requires
   # manual oversight.
   SafeAutoCorrect: false
@@ -2435,7 +2472,7 @@ Style/ClassVars:
 # Align with the style guide.
 Style/CollectionMethods:
   Description: 'Preferred collection methods.'
-  StyleGuide: '#map-find-select-reduce-size'
+  StyleGuide: '#map-find-select-reduce-include-size'
   Enabled: false
   VersionAdded: '0.9'
   VersionChanged: '0.27'
@@ -2452,6 +2489,7 @@ Style/CollectionMethods:
     inject: 'reduce'
     detect: 'find'
     find_all: 'select'
+    member?: 'include?'
 
 Style/ColonMethodCall:
   Description: 'Do not use :: for method call.'
@@ -2677,6 +2715,7 @@ Style/EndBlock:
   StyleGuide: '#no-END-blocks'
   Enabled: true
   VersionAdded: '0.9'
+  VersionChanged: '0.81'
 
 Style/EvalWithLocation:
   Description: 'Pass `__FILE__` and `__LINE__` to `eval` method, as they are used by backtraces.'
@@ -2937,7 +2976,7 @@ Style/LambdaCall:
   Description: 'Use lambda.call(...) instead of lambda.(...).'
   StyleGuide: '#proc-call'
   Enabled: true
-  VersionAdded: '0.13.1'
+  VersionAdded: '0.13'
   VersionChanged: '0.14'
   EnforcedStyle: call
   SupportedStyles:
@@ -3067,6 +3106,7 @@ Style/ModuleFunction:
   SupportedStyles:
     - module_function
     - extend_self
+    - forbidden
   Autocorrect: false
   SafeAutoCorrect: false
 
@@ -3806,14 +3846,21 @@ Style/TrailingCommaInArrayLiteral:
   StyleGuide: '#no-trailing-array-commas'
   Enabled: true
   VersionAdded: '0.53'
+  # If `comma`, the cop requires a comma after the last item in an array,
   # but only when each item is on its own line.
   # If `consistent_comma`, the cop requires a comma after the last item of all
-  # non-empty array literals.
+  # non-empty, multiline array literals.
   EnforcedStyleForMultiline: no_comma
   SupportedStylesForMultiline:
     - comma
     - consistent_comma
     - no_comma
+
+Style/TrailingCommaInBlockArgs:
+  Description: 'Checks for useless trailing commas in block arguments.'
+  Enabled: false
+  Safe: false
+  VersionAdded: '0.81'
 
 Style/TrailingCommaInHashLiteral:
   Description: 'Checks for trailing comma in hash literals.'
@@ -3821,7 +3868,7 @@ Style/TrailingCommaInHashLiteral:
   # If `comma`, the cop requires a comma after the last item in a hash,
   # but only when each item is on its own line.
   # If `consistent_comma`, the cop requires a comma after the last item of all
-  # non-empty hash literals.
+  # non-empty, multiline hash literals.
   EnforcedStyleForMultiline: no_comma
   SupportedStylesForMultiline:
     - comma

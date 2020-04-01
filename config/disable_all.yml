@@ -231,8 +231,6 @@ Lint/EmptyInterpolation:
   Enabled: false
 Lint/EmptyWhen:
   Enabled: false
-Lint/EndInMethod:
-  Enabled: false
 Lint/EnsureReturn:
   Enabled: false
 Lint/ErbNewArguments:
@@ -283,6 +281,8 @@ Lint/PercentStringArray:
   Enabled: false
 Lint/PercentSymbolArray:
   Enabled: false
+Lint/RaiseException:
+  Enabled: false
 Lint/RandOne:
   Enabled: false
 Lint/RedundantCopDisableDirective:
@@ -324,6 +324,8 @@ Lint/ShadowedArgument:
 Lint/ShadowedException:
   Enabled: false
 Lint/ShadowingOuterLocalVariable:
+  Enabled: false
+Lint/StructNewOverride:
   Enabled: false
 Lint/SuppressedException:
   Enabled: false
@@ -724,6 +726,8 @@ Style/TrailingBodyOnModule:
 Style/TrailingCommaInArguments:
   Enabled: false
 Style/TrailingCommaInArrayLiteral:
+  Enabled: false
+Style/TrailingCommaInBlockArgs:
   Enabled: false
 Style/TrailingCommaInHashLiteral:
   Enabled: false
