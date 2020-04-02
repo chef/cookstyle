@@ -41,6 +41,9 @@ module RuboCop
         #
         class WindowsTaskChangeAction < Cop
           include RuboCop::Chef::CookbookHelpers
+          extend TargetChefVersion
+
+          minimum_target_chef_version '13.0'
 
           MSG = 'The :change action in the windows_task resource was removed when windows_task was added to Chef Infra Client 13+. The default action of :create should can now be used to create an update tasks.'.freeze
 
