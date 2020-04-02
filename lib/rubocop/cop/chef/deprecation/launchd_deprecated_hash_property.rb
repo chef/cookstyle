@@ -34,6 +34,9 @@ module RuboCop
         #
         class LaunchdDeprecatedHashProperty < Cop
           include RuboCop::Chef::CookbookHelpers
+          extend TargetChefVersion
+
+          minimum_target_chef_version '12.19'
 
           MSG = "The launchd resource's hash property was renamed to plist_hash in Chef Infra Client 13+ to avoid conflicts with Ruby's hash class.".freeze
 
