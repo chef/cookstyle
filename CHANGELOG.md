@@ -1,25 +1,23 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.2.5 -->
-## [v6.2.5](https://github.com/chef/cookstyle/tree/v6.2.5) (2020-04-03)
-
-#### Merged Pull Requests
-- Add Cookstyle 6.2 notes [#601](https://github.com/chef/cookstyle/pull/601) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=6.1.6 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Add Cookstyle 6.2 notes [#601](https://github.com/chef/cookstyle/pull/601) ([tas50](https://github.com/tas50)) <!-- 6.2.5 -->
-- Detect code that negates an only_if [#537](https://github.com/chef/cookstyle/pull/537) ([tas50](https://github.com/tas50)) <!-- 6.2.4 -->
-- Add Chef version constraints to multiple deprecation cops [#600](https://github.com/chef/cookstyle/pull/600) ([tas50](https://github.com/tas50)) <!-- 6.2.3 -->
-- Fix syntax on ChefCorrectness/IncorrectLibraryInjection. [#598](https://github.com/chef/cookstyle/pull/598) ([ncerny](https://github.com/ncerny)) <!-- 6.2.2 -->
-- Update RuboCop to 0.81 [#596](https://github.com/chef/cookstyle/pull/596) ([tas50](https://github.com/tas50)) <!-- 6.2.1 -->
-- Add ChefRedundantCode/UseCreateIfMissing cop [#595](https://github.com/chef/cookstyle/pull/595) ([tas50](https://github.com/tas50)) <!-- 6.2.0 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v6.2.5](https://github.com/chef/cookstyle/tree/v6.2.5) (2020-04-03)
+
+#### Merged Pull Requests
+- Add ChefRedundantCode/UseCreateIfMissing cop [#595](https://github.com/chef/cookstyle/pull/595) ([tas50](https://github.com/tas50))
+- Update RuboCop to 0.81 [#596](https://github.com/chef/cookstyle/pull/596) ([tas50](https://github.com/tas50))
+- Fix syntax on ChefCorrectness/IncorrectLibraryInjection. [#598](https://github.com/chef/cookstyle/pull/598) ([ncerny](https://github.com/ncerny))
+- Add Chef version constraints to multiple deprecation cops [#600](https://github.com/chef/cookstyle/pull/600) ([tas50](https://github.com/tas50))
+- Detect code that negates an only_if [#537](https://github.com/chef/cookstyle/pull/537) ([tas50](https://github.com/tas50))
+- Add Cookstyle 6.2 notes [#601](https://github.com/chef/cookstyle/pull/601) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v6.1.6](https://github.com/chef/cookstyle/tree/v6.1.6) (2020-03-27)
 
 #### Merged Pull Requests
@@ -30,7 +28,6 @@
 - Fix chef infra version in PowershellInstallWindowsFeature [#591](https://github.com/chef/cookstyle/pull/591) ([tas50](https://github.com/tas50))
 - Add cops for resource / property descriptions [#590](https://github.com/chef/cookstyle/pull/590) ([tas50](https://github.com/tas50))
 - Add Cookstyle 6.1 release notes [#593](https://github.com/chef/cookstyle/pull/593) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v6.0.19](https://github.com/chef/cookstyle/tree/v6.0.19) (2020-03-20)
 
