@@ -54,7 +54,7 @@ end
 
 ### RuboCop 0.81
 
-The RuboCop engine that powers Cookstyle has been updated from 0.80.1 to 0.81.0 which includes a large number of fixes for bugs encountered during cookbook testing. This release also includes support for new Ruby syntax introduced in Ruby 2.7, which will ship in Chef Infra Client 16.
+The RuboCop engine that powers Cookstyle has been updated from 0.80.1 to 0.81.0 which includes a large number of fixes for bugs encountered during cookbook testing. This release also includes support for new Ruby syntax, introduced in Ruby 2.7, which will ship in Chef Infra Client 16.
 
 ### Other Changes
 
