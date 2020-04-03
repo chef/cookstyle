@@ -232,6 +232,35 @@ Name | Default value | Configurable values
 VersionAdded | `5.16.0` | String
 Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
+## ChefStyle/NegatingOnlyIf
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+Use not_if instead of only_if that negates the Ruby statement with a !
+
+### Examples
+
+```ruby
+# bad
+package 'legacy-sysv-deps' do
+  only_if { !systemd }
+end
+
+# good
+package 'legacy-sysv-deps' do
+  not_if { systemd }
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.2.0` | String
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
+
 ## ChefStyle/OverlyComplexSupportsDependsMetadata
 
 Enabled by default | Supports autocorrection
@@ -353,6 +382,7 @@ platform_family?('netbsd', 'openbsd', 'freebsd)
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.21.0` | String
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefStyle/UnnecessaryPlatformCaseStatement
 
