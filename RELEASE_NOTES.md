@@ -1,3 +1,66 @@
+## Cookstyle 6.2
+
+### 2 New Cops
+
+#### ChefRedundantCode/UseCreateIfMissing
+
+The `ChefRedundantCode/UseCreateIfMissing` cop detects file, cookbook_file, template, and remote_file resources that contain a not_if conditional check used to check that the file they manage is already present on disk. These complex conditionals can be removed by changing the action from `:create` to `:create_if_missing`.
+
+Overly complex conditional check:
+
+```ruby
+file '/etc/some/config' do
+  content 'value = true'
+  only_if { ::File.exist?('/etc/some/config') }
+end
+```
+
+:create_if_missing action usage:
+
+```ruby
+file '/etc/some/config' do
+  content 'value = true'
+  action :create_if_missing
+end
+```
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefStyle/NegatingOnlyIf
+
+The `ChefStyle/NegatingOnlyIf` cop detects resources that use an only_if to run Ruby code that is then negated using Ruby's logical NOT operator (!). This conditional will be autocorrected to use not_if without the operator instead.
+
+only_if with negated ruby:
+
+```ruby
+package 'legacy-sysv-deps' do
+  only_if { !is_something_true? }
+end
+```
+
+not_if without the negated ruby:
+
+```ruby
+package 'legacy-sysv-deps' do
+  not_if { is_something_true? }
+end
+```
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+### RuboCop 0.81
+
+The RuboCop engine that powers Cookstyle has been updated from 0.80.1 to 0.81.0 which includes a large number of fixes for bugs encountered during cookbook testing. This release also includes support for new Ruby syntax introduced in Ruby 2.7, which will ship in Chef Infra Client 16.
+
+### Other Changes
+
+- The `ChefCorrectness/IncorrectLibraryInjection` no longer incorrectly autocorrects libraries that send to the `Chef::DSL::Resource` class.
+- `TargetChefVersion` support in the .rubocop.yml config has been added to five of the `ChefDeprecation` cops making it easier to move from legacy versions of Chef Infra Client without jumping right to the latest releases.
+
 ## Cookstyle 6.1
 
 ### 5 New Cops
