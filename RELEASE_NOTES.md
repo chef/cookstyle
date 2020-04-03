@@ -59,7 +59,7 @@ The RuboCop engine that powers Cookstyle has been updated from 0.80.1 to 0.81.0 
 ### Other Changes
 
 - The `ChefCorrectness/IncorrectLibraryInjection` no longer incorrectly autocorrects libraries that send to the `Chef::DSL::Resource` class.
-- `TargetChefVersion` support in the .rubocop.yml config has been added to five of the `ChefDeprecation` cops making it easier to move from legacy versions of Chef Infra Client without jumping right to the latest releases.
+- `TargetChefVersion` support in the .rubocop.yml config has been added to five of the `ChefDeprecation` cops. This will make it easier to move from legacy versions of Chef Infra Client without jumping right to the latest releases.
 
 ## Cookstyle 6.1
 
