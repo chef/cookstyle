@@ -1,5 +1,6 @@
 #
-# Copyright:: 2019, Chef Software, Inc.
+# Copyright:: 2019-2020, Chef Software, Inc.
+# Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -22,7 +23,7 @@ describe RuboCop::Cop::Chef::ChefRedundantCode::SensitivePropertyInResource, :co
   it 'registers an offense when a resource has a sensitive property with a default of false' do
     expect_offense(<<~RUBY)
     property :sensitive, [true, false], default: false
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Every Chef Infra resources already include a sensitive property with a default value of false.
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Every Chef Infra resource already includes a sensitive property with a default value of false.
     RUBY
 
     expect_correction("\n")
@@ -31,7 +32,7 @@ describe RuboCop::Cop::Chef::ChefRedundantCode::SensitivePropertyInResource, :co
   it 'registers an offense when a resource has a sensitive attribute with a default of false' do
     expect_offense(<<~RUBY)
     attribute :sensitive, [true, false], default: false
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Every Chef Infra resources already include a sensitive property with a default value of false.
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Every Chef Infra resource already includes a sensitive property with a default value of false.
     RUBY
 
     expect_correction("\n")
