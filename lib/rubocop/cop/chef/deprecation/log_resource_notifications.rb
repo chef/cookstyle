@@ -19,7 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefDeprecations
-        # In Chef Infra Client 16 the log resource no longer notifies when logging so notifications should not be triggered from log resources. See the notify_group functionality for a potential replacement.
+        # In Chef Infra Client 16 the log resource no longer notifies when logging so notifications should not be triggered from log resources. Use the notify_group resource introduced in Chef Infra Client 15.8 instead to aggregate notifications.
         #
         # @example
         #
@@ -45,8 +45,11 @@ module RuboCop
         #
         class LogResourceNotifications < Cop
           include RuboCop::Chef::CookbookHelpers
+          extend TargetChefVersion
 
-          MSG = 'In Chef Infra Client 16 the log resource no longer notifies when logging so notifications should not be triggered from log resources. Use the notify_group resource instead to aggregate notifications.'.freeze
+          minimum_target_chef_version '15.8'
+
+          MSG = 'In Chef Infra Client 16 the log resource no longer notifies when logging so notifications should not be triggered from log resources. Use the notify_group resource introduced in Chef Infra Client 15.8 instead to aggregate notifications.'.freeze
 
           def on_block(node)
             match_property_in_resource?(:log, 'notifies', node) do |prop_node|
