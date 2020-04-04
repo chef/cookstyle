@@ -26,7 +26,6 @@ module RuboCop
         #   # bad
         #   grouping 'windows_log_rotate', title: 'Demonstration cookbook with code to switch loggers'
         #
-        #
         class GroupingMetadata < Cop
           include RangeHelp
           include RuboCop::Chef::AutocorrectHelpers
