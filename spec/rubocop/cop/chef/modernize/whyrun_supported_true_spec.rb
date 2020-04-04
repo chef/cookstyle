@@ -1,5 +1,6 @@
 #
-# Copyright:: 2019, Chef Software, Inc.
+# Copyright:: 2019-2020, Chef Software Inc.
+# Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,10 +20,19 @@ require 'spec_helper'
 describe RuboCop::Cop::Chef::ChefModernize::WhyRunSupportedTrue, :config do
   subject(:cop) { described_class.new(config) }
 
-  it 'registers an offense when a resource sets why-run to true' do
+  it 'registers an offense when a resource defines whyrun_supported? to return true' do
     expect_offense(<<~RUBY)
       def whyrun_supported?; true; end
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ whyrun_supported? no longer needs to be set to true as it is the default in Chef Infra Client 13+
+    RUBY
+
+    expect_correction("\n")
+  end
+
+  it "registers an offense when a using the typo'd form of the whyrun_supported? method" do
+    expect_offense(<<~RUBY)
+      def why_run_supported?; true; end
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ whyrun_supported? no longer needs to be set to true as it is the default in Chef Infra Client 13+
     RUBY
 
     expect_correction("\n")
