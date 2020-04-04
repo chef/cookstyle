@@ -1,23 +1,21 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.2.9 -->
-## [v6.2.9](https://github.com/chef/cookstyle/tree/v6.2.9) (2020-04-04)
-
-#### Merged Pull Requests
-- Fix typo in ChefRedundantCode/SensitivePropertyInResource warning [#606](https://github.com/chef/cookstyle/pull/606) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=6.2.5 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Fix typo in ChefRedundantCode/SensitivePropertyInResource warning [#606](https://github.com/chef/cookstyle/pull/606) ([tas50](https://github.com/tas50)) <!-- 6.2.9 -->
-- Improve the LogResourceNotifications to tell when notify_group was introduced [#604](https://github.com/chef/cookstyle/pull/604) ([tas50](https://github.com/tas50)) <!-- 6.2.8 -->
-- Improve ChefModernize/WhyRunSupportedTrue to detect a common typo [#603](https://github.com/chef/cookstyle/pull/603) ([tas50](https://github.com/tas50)) <!-- 6.2.7 -->
-- Fix a crash and false positive in ChefStyle/NegatingOnlyIf [#602](https://github.com/chef/cookstyle/pull/602) ([tas50](https://github.com/tas50)) <!-- 6.2.6 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v6.2.9](https://github.com/chef/cookstyle/tree/v6.2.9) (2020-04-04)
+
+#### Merged Pull Requests
+- Fix a crash and false positive in ChefStyle/NegatingOnlyIf [#602](https://github.com/chef/cookstyle/pull/602) ([tas50](https://github.com/tas50))
+- Improve ChefModernize/WhyRunSupportedTrue to detect a common typo [#603](https://github.com/chef/cookstyle/pull/603) ([tas50](https://github.com/tas50))
+- Improve the LogResourceNotifications to tell when notify_group was introduced [#604](https://github.com/chef/cookstyle/pull/604) ([tas50](https://github.com/tas50))
+- Fix typo in ChefRedundantCode/SensitivePropertyInResource warning [#606](https://github.com/chef/cookstyle/pull/606) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v6.2.5](https://github.com/chef/cookstyle/tree/v6.2.5) (2020-04-03)
 
 #### Merged Pull Requests
@@ -27,7 +25,6 @@
 - Add Chef version constraints to multiple deprecation cops [#600](https://github.com/chef/cookstyle/pull/600) ([tas50](https://github.com/tas50))
 - Detect code that negates an only_if [#537](https://github.com/chef/cookstyle/pull/537) ([tas50](https://github.com/tas50))
 - Add Cookstyle 6.2 notes [#601](https://github.com/chef/cookstyle/pull/601) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v6.1.6](https://github.com/chef/cookstyle/tree/v6.1.6) (2020-03-27)
 
