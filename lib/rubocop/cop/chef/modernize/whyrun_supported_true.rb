@@ -1,5 +1,5 @@
 #
-# Copyright:: 2019, Chef Software Inc.
+# Copyright:: 2019-2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -35,8 +35,15 @@ module RuboCop
 
           MSG = 'whyrun_supported? no longer needs to be set to true as it is the default in Chef Infra Client 13+'.freeze
 
+          # match on both whyrun_supported? and the typo form why_run_supported?
+          def_node_matcher :whyrun_true?, <<-PATTERN
+            (def {:whyrun_supported? :why_run_supported?}
+              (args)
+              (true))
+          PATTERN
+
           def on_def(node)
-            if node.method_name == :whyrun_supported? && node.body == s(:true) # rubocop: disable Lint/BooleanSymbol
+            whyrun_true?(node) do
               add_offense(node, location: :expression, message: MSG, severity: :refactor)
             end
           end
