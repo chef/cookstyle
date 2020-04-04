@@ -1,5 +1,5 @@
 #
-# Copyright:: Copyright 2019, Chef Software Inc.
+# Copyright:: Copyright 2019-2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,13 +18,13 @@ module RuboCop
   module Cop
     module Chef
       module ChefRedundantCode
-        # Every Chef Infra resources already include a sensitive property with a default value of false.
+        # Every Chef Infra resource already includes a sensitive property with a default value of false.
         #
         # # bad
         # property :sensitive, [true, false], default: false
         #
         class SensitivePropertyInResource < Cop
-          MSG = 'Every Chef Infra resources already include a sensitive property with a default value of false.'.freeze
+          MSG = 'Every Chef Infra resource already includes a sensitive property with a default value of false.'.freeze
 
           def_node_matcher :sensitive_property?, <<-PATTERN
             (send nil? {:property :attribute} (sym :sensitive) ... (hash (pair (sym :default) (false))))
