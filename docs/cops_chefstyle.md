@@ -238,7 +238,7 @@ Enabled by default | Supports autocorrection
 --- | ---
 Enabled | Yes
 
-Use not_if instead of only_if that negates the Ruby statement with a !
+Instead of using only_if conditionals with ! to negate the returned value, use not_if which is easier to read
 
 ### Examples
 

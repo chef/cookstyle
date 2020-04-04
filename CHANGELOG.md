@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 6.2.6 -->
+## [v6.2.6](https://github.com/chef/cookstyle/tree/v6.2.6) (2020-04-04)
+
+#### Merged Pull Requests
+- Fix a crash and false positive in ChefStyle/NegatingOnlyIf [#602](https://github.com/chef/cookstyle/pull/602) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=6.2.5 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Fix a crash and false positive in ChefStyle/NegatingOnlyIf [#602](https://github.com/chef/cookstyle/pull/602) ([tas50](https://github.com/tas50)) <!-- 6.2.6 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
