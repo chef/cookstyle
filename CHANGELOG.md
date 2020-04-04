@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.2.6 -->
-## [v6.2.6](https://github.com/chef/cookstyle/tree/v6.2.6) (2020-04-04)
+ <!-- latest_release 6.2.7 -->
+## [v6.2.7](https://github.com/chef/cookstyle/tree/v6.2.7) (2020-04-04)
 
 #### Merged Pull Requests
-- Fix a crash and false positive in ChefStyle/NegatingOnlyIf [#602](https://github.com/chef/cookstyle/pull/602) ([tas50](https://github.com/tas50))
+- Improve ChefModernize/WhyRunSupportedTrue to detect a common typo [#603](https://github.com/chef/cookstyle/pull/603) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.2.5 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Improve ChefModernize/WhyRunSupportedTrue to detect a common typo [#603](https://github.com/chef/cookstyle/pull/603) ([tas50](https://github.com/tas50)) <!-- 6.2.7 -->
 - Fix a crash and false positive in ChefStyle/NegatingOnlyIf [#602](https://github.com/chef/cookstyle/pull/602) ([tas50](https://github.com/tas50)) <!-- 6.2.6 -->
 <!-- release_rollup -->
 
