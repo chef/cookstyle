@@ -18,19 +18,20 @@ module RuboCop
   module Cop
     module Chef
       module ChefModernize
-        # It is not longer necessary respond_to?(:foo) in metadata. This was used to support new metadata
-        # methods in Chef 11 and early versions of Chef 12.
+        # In Chef Infra Client 12+ is is no longer necessary to gate the use of the provides methods in resouces by appending either `if respond_to?(:provides)` or `if defined? provides`.
         #
         # @example
         #
         #   # bad
         #   provides :foo if respond_to?(:provides)
         #
+        #   provides :foo if defined? provides
+        #
         #   # good
         #   provides :foo
         #
         class RespondToProvides < Cop
-          MSG = 'respond_to?(:provides) in resources is no longer necessary in Chef Infra Client 12+'.freeze
+          MSG = 'Using `respond_to?(:provides)` or `if defined? provides` in resources is no longer necessary in Chef Infra Client 12+.'.freeze
 
           def on_if(node)
             if_respond_to_provides?(node) do
@@ -39,7 +40,16 @@ module RuboCop
           end
 
           def_node_matcher :if_respond_to_provides?, <<~PATTERN
-          (if (send nil? :respond_to? ( :sym :provides ) ) ... )
+          (if
+            {
+            (send nil? :respond_to?
+              (sym :provides))
+
+            (:defined?
+              (send nil? :provides))
+            }
+            (send nil? :provides
+              (sym _)) ... )
           PATTERN
 
           def autocorrect(node)
