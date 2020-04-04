@@ -46,7 +46,8 @@ module RuboCop
           def on_block(node)
             negated_only_if?(node) do |_only_if, code|
               # the value was double negated to work around types: ex: !!systemd?
-              return if code.descendants.first.negation_method?
+              return if code.descendants.first.send_type? &&
+                        code.descendants.first.negation_method?
 
               add_offense(node, location: :expression, message: MSG, severity: :refactor)
             end

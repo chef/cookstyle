@@ -35,19 +35,36 @@ describe RuboCop::Cop::Chef::ChefStyle::NegatingOnlyIf do
     RUBY
   end
 
-  it 'does not register an offense when an only_if does not negate ruby' do
+  it 'does not register an offense when an only_if double negates a variable' do
     expect_no_offenses(<<~RUBY)
+      foo = true
       package 'legacy-sysv-deps' do
-        only_if { foo }
+        only_if { !!foo }
       end
     RUBY
   end
 
-  it 'does not register an offense when an only_if negates within the ruby' do
+  it 'does not register an offense when an only_if double negates' do
     expect_no_offenses(<<~RUBY)
       package 'legacy-sysv-deps' do
-        only_if { foo && !bar }
+        only_if { !!foo }
       end
     RUBY
+  end
+
+  it 'does not register an offense when an only_if does not negate ruby' do
+    expect_no_offenses(<<~RUBY)
+        package 'legacy-sysv-deps' do
+          only_if { foo }
+        end
+      RUBY
+  end
+
+  it 'does not register an offense when an only_if negates within the ruby' do
+    expect_no_offenses(<<~RUBY)
+        package 'legacy-sysv-deps' do
+          only_if { foo && !bar }
+        end
+      RUBY
   end
 end
