@@ -20,11 +20,11 @@ require 'spec_helper'
 describe RuboCop::Cop::Chef::ChefStyle::NegatingOnlyIf do
   subject(:cop) { described_class.new }
 
-  it 'registers an offense when a not_if negatives ruby' do
+  it 'registers an offense when a only_if conditional negates ruby' do
     expect_offense(<<~RUBY)
       package 'legacy-sysv-deps' do
         only_if { !foo }
-        ^^^^^^^^^^^^^^^^ Use not_if instead of only_if that negates the Ruby statement with a !
+        ^^^^^^^^^^^^^^^^ Instead of using only_if conditionals with ! to negate the returned value, use not_if which is easier to read
       end
     RUBY
 
@@ -35,7 +35,7 @@ describe RuboCop::Cop::Chef::ChefStyle::NegatingOnlyIf do
     RUBY
   end
 
-  it 'does not register an offense when an only_if double negates a variable' do
+  it 'does not register an offense when an only_if condition double negates (!!) a variable' do
     expect_no_offenses(<<~RUBY)
       foo = true
       package 'legacy-sysv-deps' do
@@ -44,7 +44,7 @@ describe RuboCop::Cop::Chef::ChefStyle::NegatingOnlyIf do
     RUBY
   end
 
-  it 'does not register an offense when an only_if double negates' do
+  it 'does not register an offense when an only_if conditional double negates (!!) a non-variable' do
     expect_no_offenses(<<~RUBY)
       package 'legacy-sysv-deps' do
         only_if { !!foo }
@@ -52,7 +52,7 @@ describe RuboCop::Cop::Chef::ChefStyle::NegatingOnlyIf do
     RUBY
   end
 
-  it 'does not register an offense when an only_if does not negate ruby' do
+  it 'does not register an offense when an only_if conditional does not negate ruby' do
     expect_no_offenses(<<~RUBY)
         package 'legacy-sysv-deps' do
           only_if { foo }
@@ -60,11 +60,22 @@ describe RuboCop::Cop::Chef::ChefStyle::NegatingOnlyIf do
       RUBY
   end
 
-  it 'does not register an offense when an only_if negates within the ruby' do
+  it 'does not register an offense when an only_if conditional negates only a portion of the ruby conditional' do
     expect_no_offenses(<<~RUBY)
         package 'legacy-sysv-deps' do
           only_if { foo && !bar }
         end
+      RUBY
+  end
+
+  it 'does not register an offense when an only_if conditional negates within the ruby in an inspec control' do
+    expect_no_offenses(<<~RUBY)
+    control 'nagios-deamon-01' do
+      describe service(svc) do
+        it { should be_running }
+      end
+      only_if { !(os.redhat? && os[:release].start_with?('6')) }
+    end
       RUBY
   end
 end
