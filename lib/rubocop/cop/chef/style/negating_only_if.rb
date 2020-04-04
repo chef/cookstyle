@@ -18,7 +18,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefStyle
-        # Use not_if instead of only_if that negates the Ruby statement with a !
+        # Instead of using only_if conditionals with ! to negate the returned value, use not_if which is easier to read
         #
         # @example
         #
@@ -33,7 +33,7 @@ module RuboCop
         #   end
         #
         class NegatingOnlyIf < Cop
-          MSG = 'Use not_if instead of only_if that negates the Ruby statement with a !'.freeze
+          MSG = 'Instead of using only_if conditionals with ! to negate the returned value, use not_if which is easier to read'.freeze
 
           def_node_matcher :negated_only_if?, <<-PATTERN
             (block
@@ -45,8 +45,13 @@ module RuboCop
 
           def on_block(node)
             negated_only_if?(node) do |_only_if, code|
+              # skip inspec controls where we don't have not_if
+              return if node.parent&.parent&.block_type? &&
+                        node.parent&.parent&.method_name == :control
+
               # the value was double negated to work around types: ex: !!systemd?
-              return if code.descendants.first.negation_method?
+              return if code.descendants.first.send_type? &&
+                        code.descendants.first.negation_method?
 
               add_offense(node, location: :expression, message: MSG, severity: :refactor)
             end
