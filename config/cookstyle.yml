@@ -1276,6 +1276,14 @@ ChefModernize/NodeRolesInclude:
     - '**/metadata.rb'
     - '**/Berksfile'
 
+ChefModernize/RespondToCompileTime:
+  Description: There is no need to check if the chef_gem resource supports compile_time as Chef Infra Client 12.1 and later support the compile_time property.
+  Enabled: true
+  VersionAdded: '6.3.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/Berksfile'
+
 ###############################
 # ChefRedundantCode: Cleanup unnecessary code in your cookbooks regardless of Chef Infra Client release
 ###############################
