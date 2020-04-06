@@ -1070,6 +1070,43 @@ Name | Default value | Configurable values
 VersionAdded | `5.10.0` | String
 Include | `**/resources/*.rb`, `**/providers/*.rb`, `**/libraries/*.rb` | Array
 
+## ChefModernize/RespondToCompileTime
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | Yes
+
+There is no need to check if the chef_gem resource supports compile_time as Chef Infra Client 12.1 and later support the compile_time property.
+
+  # bad
+  chef_gem 'ultradns-sdk' do
+    compile_time true if Chef::Resource::ChefGem.method_defined?(:compile_time)
+    action :nothing
+  end
+
+  chef_gem 'ultradns-sdk' do
+    compile_time true if Chef::Resource::ChefGem.instance_methods(false).include?(:compile_time)
+    action :nothing
+  end
+
+  chef_gem 'ultradns-sdk' do
+    compile_time true if respond_to?(:compile_time)
+    action :nothing
+  end
+
+  # good
+  chef_gem 'ultradns-sdk' do
+    compile_time true
+    action :nothing
+  end
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.3.0` | String
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
+
 ## ChefModernize/RespondToInMetadata
 
 Enabled by default | Supports autocorrection

@@ -135,6 +135,7 @@
 * [ChefModernize/ProvidesFromInitialize](cops_chefmodernize.md#chefmodernizeprovidesfrominitialize)
 * [ChefModernize/ResourceForcingCompileTime](cops_chefmodernize.md#chefmodernizeresourceforcingcompiletime)
 * [ChefModernize/ResourceNameFromInitialize](cops_chefmodernize.md#chefmodernizeresourcenamefrominitialize)
+* [ChefModernize/RespondToCompileTime](cops_chefmodernize.md#chefmodernizerespondtocompiletime)
 * [ChefModernize/RespondToInMetadata](cops_chefmodernize.md#chefmodernizerespondtoinmetadata)
 * [ChefModernize/RespondToProvides](cops_chefmodernize.md#chefmodernizerespondtoprovides)
 * [ChefModernize/RespondToResourceName](cops_chefmodernize.md#chefmodernizerespondtoresourcename)

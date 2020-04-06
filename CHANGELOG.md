@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.2.10 -->
-## [v6.2.10](https://github.com/chef/cookstyle/tree/v6.2.10) (2020-04-06)
+ <!-- latest_release 6.3.0 -->
+## [v6.3.0](https://github.com/chef/cookstyle/tree/v6.3.0) (2020-04-06)
 
 #### Merged Pull Requests
-- Catch more offenses in ChefModernize/RespondToProvides [#605](https://github.com/chef/cookstyle/pull/605) ([tas50](https://github.com/tas50))
+- Add new ChefModernize/RespondToCompileTime cop [#607](https://github.com/chef/cookstyle/pull/607) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.2.9 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add new ChefModernize/RespondToCompileTime cop [#607](https://github.com/chef/cookstyle/pull/607) ([tas50](https://github.com/tas50)) <!-- 6.3.0 -->
 - Catch more offenses in ChefModernize/RespondToProvides [#605](https://github.com/chef/cookstyle/pull/605) ([tas50](https://github.com/tas50)) <!-- 6.2.10 -->
 <!-- release_rollup -->
 
