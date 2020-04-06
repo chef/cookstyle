@@ -18,7 +18,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefModernize
-        # In Chef Infra Client 12+ is is no longer necessary to gate the use of the provides methods in resouces by appending either `if respond_to?(:provides)` or `if defined? provides`.
+        # In Chef Infra Client 12+ is is no longer necessary to gate the use of the provides methods in resources by appending either `if respond_to?(:provides)` or `if defined? provides`.
         #
         # @example
         #
