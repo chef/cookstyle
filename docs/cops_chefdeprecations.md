@@ -326,6 +326,8 @@ shell_out_with_timeout('foo')
 shell_out_with_timeout!('foo')
 shell_out_with_systems_locale('foo')
 shell_out_with_systems_locale!('foo')
+shell_out_compact_timeout('foo')
+shell_out_compact_timeout!('foo')
 
 # good
 shell_out('foo')
