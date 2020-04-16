@@ -12,7 +12,7 @@ The `ChefModernize/RespondToCompileTime` cop detects gating usage of the `compil
 
 #### ChefDeprecations/DeprecatedShelloutMethods
 
-The `ChefDeprecations/DeprecatedShelloutMethods` cop detects the deprecated shell_out helper methods that were removed in Chef Infra Client 15. These helpers were not widely used and were never publically documented, but they are still occasionally found in cookbooks.
+The `ChefDeprecations/DeprecatedShelloutMethods` cop detects deprecated `shell_out` helper methods that were removed in Chef Infra Client 15. These helpers were not widely used and were never publicly documented, but they are still occasionally found in cookbooks.
 
 `Enabled by default`: True
 
