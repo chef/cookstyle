@@ -62,6 +62,20 @@ describe RuboCop::Cop::Chef::ChefDeprecations::DeprecatedShelloutMethods, :confi
     RUBY
   end
 
+  it 'registers an offense when using shell_out_compact_timeout' do
+    expect_offense(<<~RUBY)
+      shell_out_compact_timeout('foo')
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Many legacy specialized shell_out methods were replaced in Chef Infra Client 14.3 and removed in Chef Infra Client 15. Use shell_out and any additional options if necessary.
+    RUBY
+  end
+
+  it 'registers an offense when using shell_out_compact_timeout!' do
+    expect_offense(<<~RUBY)
+      shell_out_compact_timeout!('foo')
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Many legacy specialized shell_out methods were replaced in Chef Infra Client 14.3 and removed in Chef Infra Client 15. Use shell_out and any additional options if necessary.
+    RUBY
+  end
+
   it "doesn't register an offense when using shellout" do
     expect_no_offenses("shellout('foo')")
   end
