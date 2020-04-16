@@ -308,6 +308,38 @@ Name | Default value | Configurable values
 VersionAdded | `5.16.0` | String
 Include | `**/libraries/*.rb`, `**/resources/*.rb`, `**/providers/*.rb` | Array
 
+## ChefDeprecations/DeprecatedShelloutMethods
+
+Enabled by default | Supports autocorrection
+--- | ---
+Enabled | No
+
+The large number of shell_out helper methods in Chef Infra Client has been reduced to just shell_out and shell_out! methods. The legacy methods were removed in Chef Infra Client and cookbooks using these legacy helpers will need to be updated.
+
+### Examples
+
+```ruby
+# bad
+shell_out_compact('foo')
+shell_out_compact!('foo')
+shell_out_with_timeout('foo')
+shell_out_with_timeout!('foo')
+shell_out_with_systems_locale('foo')
+shell_out_with_systems_locale!('foo')
+
+# good
+shell_out('foo')
+shell_out!('foo')
+shell_out!('foo', default_env: false) # replaces shell_out_with_systems_locale
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.3.0` | String
+Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
+
 ## ChefDeprecations/DeprecatedWindowsVersionCheck
 
 Enabled by default | Supports autocorrection

@@ -42,6 +42,7 @@
 * [ChefDeprecations/CookbookDependsOnPoise](cops_chefdeprecations.md#chefdeprecationscookbookdependsonpoise)
 * [ChefDeprecations/DeprecatedChefSpecPlatform](cops_chefdeprecations.md#chefdeprecationsdeprecatedchefspecplatform)
 * [ChefDeprecations/DeprecatedPlatformMethods](cops_chefdeprecations.md#chefdeprecationsdeprecatedplatformmethods)
+* [ChefDeprecations/DeprecatedShelloutMethods](cops_chefdeprecations.md#chefdeprecationsdeprecatedshelloutmethods)
 * [ChefDeprecations/DeprecatedWindowsVersionCheck](cops_chefdeprecations.md#chefdeprecationsdeprecatedwindowsversioncheck)
 * [ChefDeprecations/DeprecatedYumRepositoryProperties](cops_chefdeprecations.md#chefdeprecationsdeprecatedyumrepositoryproperties)
 * [ChefDeprecations/EOLAuditModeUsage](cops_chefdeprecations.md#chefdeprecationseolauditmodeusage)
