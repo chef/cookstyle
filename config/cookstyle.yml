@@ -1,5 +1,5 @@
 AllCops:
-  TargetRubyVersion: 2.3
+  TargetRubyVersion: 2.4
   TargetChefVersion: ~
   Exclude:
     - '**/files/**/*'
@@ -1776,7 +1776,7 @@ Style/StructInheritance:
   Enabled: true
 Style/SymbolLiteral:
   Enabled: true
-Layout/Tab:
+Layout/IndentationStyle:
   Enabled: true
 Layout/TrailingBlankLines:
   Enabled: true

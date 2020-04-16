@@ -103,6 +103,8 @@ Layout/HeredocIndentation:
   Enabled: false
 Layout/IndentationConsistency:
   Enabled: false
+Layout/IndentationStyle:
+  Enabled: false
 Layout/IndentationWidth:
   Enabled: false
 Layout/InitialIndentation:
@@ -155,6 +157,8 @@ Layout/SpaceAroundEqualsInParameterDefault:
   Enabled: false
 Layout/SpaceAroundKeyword:
   Enabled: false
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: false
 Layout/SpaceAroundOperators:
   Enabled: false
 Layout/SpaceBeforeBlockBraces:
@@ -186,8 +190,6 @@ Layout/SpaceInsideRangeLiteral:
 Layout/SpaceInsideReferenceBrackets:
   Enabled: false
 Layout/SpaceInsideStringInterpolation:
-  Enabled: false
-Layout/Tab:
   Enabled: false
 Layout/TrailingEmptyLines:
   Enabled: false
@@ -467,6 +469,8 @@ Style/DefWithParentheses:
   Enabled: false
 Style/Dir:
   Enabled: false
+Style/DisableCopsWithinSourceCodeDirective:
+  Enabled: false
 Style/DocumentationMethod:
   Enabled: false
 Style/Documentation:
@@ -500,6 +504,8 @@ Style/EvalWithLocation:
 Style/EvenOdd:
   Enabled: false
 Style/ExpandPathArguments:
+  Enabled: false
+Style/ExponentialNotation:
   Enabled: false
 Style/FloatDivision:
   Enabled: false
