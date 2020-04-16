@@ -20,7 +20,7 @@ The `ChefDeprecations/DeprecatedShelloutMethods` cop detects deprecated `shell_o
 
 ### RuboCop 0.82
 
-The RuboCop engine that powers Cookstyle has been updated from 0.81.0 to 0.82.0 which includes several important bug fixes that impacted cookbooks.
+The RuboCop engine that powers Cookstyle has been updated from 0.81.0 to 0.82.0. This update includes several important bug fixes that impacted cookbooks.
 
 ### Other Changes
 
