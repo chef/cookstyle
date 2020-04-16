@@ -825,6 +825,15 @@ ChefDeprecations/PowershellCookbookHelpers:
     - '**/metadata.rb'
     - '**/Berksfile'
 
+ChefDeprecations/DeprecatedShelloutMethods:
+  Description: Many legacy specialized shell_out methods were replaced in Chef Infra Client 14.3 and removed in Chef Infra Client 15. Use shell_out and any additional options if necessary.
+  Enabled: true
+  VersionAdded: '6.3.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/attributes/*.rb'
+    - '**/Berksfile'
+
 ###############################
 # ChefModernize: Cleaning up legacy code and using new built-in resources
 ###############################
