@@ -4,7 +4,7 @@
 
 #### ChefModernize/RespondToCompileTime
 
-The `ChefModernize/RespondToCompileTime` cop detects gating usage of the `compile_time` property in the `chef_gem` resource with `if respond_to?(:compile_time)`. The compile_time property was added in Chef Infra Client 12.1 and can safely be used without checking first.
+The `ChefModernize/RespondToCompileTime` cop detects gating usage of the `compile_time` property in the `chef_gem` resource with `if respond_to?(:compile_time)`. The `compile_time` property was added in Chef Infra Client 12.1 and can safely be used without checking first.
 
 `Enabled by default`: True
 
