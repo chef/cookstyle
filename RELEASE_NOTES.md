@@ -1,3 +1,32 @@
+## Cookstyle 6.3
+
+### 2 New Cops
+
+#### ChefModernize/RespondToCompileTime
+
+The `ChefModernize/RespondToCompileTime` detects gating usage of the `compile_time` property in the `chef_gem` resource with `if respond_to?(:compile_time)`. The compile_time property was added in Chef Infra Client 12.1 and can safely be used without checking first.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefDeprecations/DeprecatedShelloutMethods
+
+The `ChefDeprecations/DeprecatedShelloutMethods` cop detects the deprecated shell_out helper methods that were removed in Chef Infra Client 15. These helpers were not widely used and were never publically documented, but they are still occasionally found in cookbooks.
+
+`Enabled by default`: True
+
+`Autocorrects`: No
+
+### RuboCop 0.82
+
+The RuboCop engine that powers Cookstyle has been updated from 0.81.0 to 0.82.0 which includes several important bug fixes that impacted cookbooks.
+
+### Other Changes
+
+- The `ChefModernize/RespondToProvides` cop now detects additional ways of gating the usage of the `provides` method in resources.
+- The `TargetRubyVersion` configuration has been set back to Ruby 2.4 as support for Ruby 2.3 has been removed from RuboCop.
+
 ## Cookstyle 6.2
 
 ### 2 New Cops
