@@ -97,6 +97,14 @@ AllCops:
   # to true in the same configuration.
   EnabledByDefault: false
   DisabledByDefault: false
+  # New cops introduced between major versions are set to a special pending status
+  # and are not enabled by default with warning message.
+  # Change this behavior by overriding either `NewCops: enable` or `NewCops: disable`.
+  # When `NewCops` is `enable`, pending cops are enabled in bulk. Can be overridden by
+  # the `--enable-pending-cops` command-line option.
+  # When `NewCops` is `disable`, pending cops are disabled in bulk. Can be overridden by
+  # the `--disable-pending-cops` command-line option.
+  NewCops: pending
   # Enables the result cache if `true`. Can be overridden by the `--cache` command
   # line option.
   UseCache: true
@@ -125,7 +133,7 @@ AllCops:
   # followed by the Gemfile.lock or gems.locked file. (Although the Ruby version
   # is specified in the Gemfile or gems.rb file, RuboCop reads the final value
   # from the lock file.) If the Ruby version is still unresolved, RuboCop will
-  # use the oldest officially supported Ruby version (currently Ruby 2.3).
+  # use the oldest officially supported Ruby version (currently Ruby 2.4).
   TargetRubyVersion: ~
 
 #################### Bundler ###############################
@@ -793,6 +801,22 @@ Layout/IndentationConsistency:
     # A reference to `EnforcedStyle: indented_internal_methods`.
     - https://edgeguides.rubyonrails.org/contributing_to_ruby_on_rails.html#follow-the-coding-conventions
 
+Layout/IndentationStyle:
+  Description: 'Consistent indentation either with tabs only or spaces only.'
+  StyleGuide: '#spaces-indentation'
+  Enabled: true
+  VersionAdded: '0.49'
+  VersionChanged: '0.82'
+  # By default, the indentation width from Layout/IndentationWidth is used
+  # But it can be overridden by setting this parameter
+  # It is used during auto-correction to determine how many spaces should
+  # replace each tab.
+  IndentationWidth: ~
+  EnforcedStyle: spaces
+  SupportedStyles:
+    - spaces
+    - tabs
+
 Layout/IndentationWidth:
   Description: 'Use 2 spaces for indentation.'
   StyleGuide: '#spaces-indentation'
@@ -1080,6 +1104,11 @@ Layout/SpaceAroundKeyword:
   Enabled: true
   VersionAdded: '0.49'
 
+Layout/SpaceAroundMethodCallOperator:
+  Description: 'Checks method call operators to not have spaces around them.'
+  Enabled: pending
+  VersionAdded: '0.82'
+
 Layout/SpaceAroundOperators:
   Description: 'Use a single space around operators.'
   StyleGuide: '#spaces-operators'
@@ -1249,18 +1278,6 @@ Layout/SpaceInsideStringInterpolation:
   SupportedStyles:
     - space
     - no_space
-
-Layout/Tab:
-  Description: 'No hard tabs.'
-  StyleGuide: '#spaces-indentation'
-  Enabled: true
-  VersionAdded: '0.49'
-  VersionChanged: '0.51'
-  # By default, the indentation width from Layout/IndentationWidth is used
-  # But it can be overridden by setting this parameter
-  # It is used during auto-correction to determine how many spaces should
-  # replace each tab.
-  IndentationWidth: ~
 
 Layout/TrailingEmptyLines:
   Description: 'Checks trailing blank lines and final newline.'
@@ -1567,6 +1584,8 @@ Lint/RaiseException:
   StyleGuide: '#raise-exception'
   Enabled: pending
   VersionAdded: '0.81'
+  AllowedImplicitNamespaces:
+    - 'Gem'
 
 Lint/RandOne:
   Description: >-
@@ -2409,6 +2428,15 @@ Style/CaseEquality:
   StyleGuide: '#no-case-equality'
   Enabled: true
   VersionAdded: '0.9'
+  # If AllowOnConstant is enabled, the cop will ignore violations when the receiver of
+  # the case equality operator is a constant.
+  #
+  #   # bad
+  #   /string/ === "string"
+  #
+  #   # good
+  #   String === "string"
+  AllowOnConstant: false
 
 Style/CharacterLiteral:
   Description: 'Checks for uses of character literals.'
@@ -2449,6 +2477,7 @@ Style/ClassAndModuleChildren:
 
 Style/ClassCheck:
   Description: 'Enforces consistent use of `Object#is_a?` or `Object#kind_of?`.'
+  StyleGuide: '#is-a-vs-kind-of'
   Enabled: true
   VersionAdded: '0.24'
   EnforcedStyle: is_a?
@@ -2616,6 +2645,12 @@ Style/Dir:
   Enabled: true
   VersionAdded: '0.50'
 
+Style/DisableCopsWithinSourceCodeDirective:
+  Description: >-
+                 Forbids disabling/enabling cops within source code.
+  Enabled: false
+  VersionAdded: '0.82'
+
 Style/Documentation:
   Description: 'Document classes and non-namespace modules.'
   Enabled: true
@@ -2733,6 +2768,17 @@ Style/ExpandPathArguments:
   Description: "Use `expand_path(__dir__)` instead of `expand_path('..', __FILE__)`."
   Enabled: true
   VersionAdded: '0.53'
+
+Style/ExponentialNotation:
+  Description: 'When using exponential notation, favor a mantissa between 1 (inclusive) and 10 (exclusive).'
+  StyleGuide: '#exponential-notation'
+  Enabled: pending
+  VersionAdded: '0.82'
+  EnforcedStyle: scientific
+  SupportedStyles:
+    - scientific
+    - engineering
+    - integral
 
 Style/FloatDivision:
   Description: 'For performing float division, coerce one side only.'
