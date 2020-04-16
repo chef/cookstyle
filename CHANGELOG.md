@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.3.2 -->
-## [v6.3.2](https://github.com/chef/cookstyle/tree/v6.3.2) (2020-04-16)
+ <!-- latest_release 6.3.3 -->
+## [v6.3.3](https://github.com/chef/cookstyle/tree/v6.3.3) (2020-04-16)
 
 #### Merged Pull Requests
-- Add ChefDeprecations/DeprecatedShelloutMethods cop [#609](https://github.com/chef/cookstyle/pull/609) ([tas50](https://github.com/tas50))
+- Add Cookstyle 6.3 notes [#610](https://github.com/chef/cookstyle/pull/610) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.2.9 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add Cookstyle 6.3 notes [#610](https://github.com/chef/cookstyle/pull/610) ([tas50](https://github.com/tas50)) <!-- 6.3.3 -->
 - Add ChefDeprecations/DeprecatedShelloutMethods cop [#609](https://github.com/chef/cookstyle/pull/609) ([tas50](https://github.com/tas50)) <!-- 6.3.2 -->
 - Update to RuboCop 0.82 engine [#608](https://github.com/chef/cookstyle/pull/608) ([tas50](https://github.com/tas50)) <!-- 6.3.1 -->
 - Add new ChefModernize/RespondToCompileTime cop [#607](https://github.com/chef/cookstyle/pull/607) ([tas50](https://github.com/tas50)) <!-- 6.3.0 -->
