@@ -1,5 +1,5 @@
 #
-# Copyright:: Copyright 2019, Chef Software Inc.
+# Copyright:: Copyright 2019-2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -26,6 +26,12 @@ describe RuboCop::Cop::Chef::ChefCorrectness::DnfPackageAllowDowngrades do
         version '1.2.3'
         allow_downgrades true
         ^^^^^^^^^^^^^^^^^^^^^ dnf_package does not support the allow_downgrades property
+      end
+    RUBY
+
+    expect_correction(<<~RUBY)
+      dnf_package 'nginx' do
+        version '1.2.3'
       end
     RUBY
   end

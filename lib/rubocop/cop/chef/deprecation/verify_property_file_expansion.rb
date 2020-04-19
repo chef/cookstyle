@@ -34,6 +34,9 @@ module RuboCop
         #
         class VerifyPropertyUsesFileExpansion < Cop
           include RuboCop::Chef::CookbookHelpers
+          extend TargetChefVersion
+
+          minimum_target_chef_version '12.5'
 
           MSG = "Use the 'path' variable in the verify property and not the 'file' variable which was removed in Chef Infra Client 13.".freeze
 

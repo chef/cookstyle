@@ -25,7 +25,7 @@ describe RuboCop::Cop::Chef::ChefModernize::RespondToProvides, :config do
       class Provider
         class Icinga2Environment < Chef::Provider::LWRPBase
           provides :icinga2_environment if respond_to?(:provides)
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ respond_to?(:provides) in resources is no longer necessary in Chef Infra Client 12+
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Using `respond_to?(:provides)` or `if defined? provides` in resources is no longer necessary in Chef Infra Client 12+.
         end
       end
     end
@@ -42,10 +42,21 @@ describe RuboCop::Cop::Chef::ChefModernize::RespondToProvides, :config do
     RUBY
   end
 
-  it 'registers an offense with a LWRP that uses respond_to? with resource_name' do
+  it 'registers an offense with a LWRP that uses defined? with provides' do
+    expect_offense(<<~RUBY)
+    provides :icinga2_environment if defined? provides
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Using `respond_to?(:provides)` or `if defined? provides` in resources is no longer necessary in Chef Infra Client 12+.
+    RUBY
+
+    expect_correction(<<~RUBY)
+    provides :icinga2_environment
+    RUBY
+  end
+
+  it 'registers an offense with a LWRP that uses respond_to? with provides' do
     expect_offense(<<~RUBY)
     provides :icinga2_environment if respond_to?(:provides)
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ respond_to?(:provides) in resources is no longer necessary in Chef Infra Client 12+
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Using `respond_to?(:provides)` or `if defined? provides` in resources is no longer necessary in Chef Infra Client 12+.
     RUBY
 
     expect_correction(<<~RUBY)

@@ -129,7 +129,7 @@ ChefStyle/ChefWhaaat:
 
 ChefStyle/UnnecessaryOSCheck:
   Description: Use the platform_family?() helpers instead of node['os] == 'foo' for platform_families that match 1:1 with OS values. These helpers are easier to read and can accept multiple platform arguments, which greatly simplifies complex platform logic.
-  Enabled: false
+  Enabled: true
   VersionAdded: '5.21.0'
 
 ###############################
@@ -1552,8 +1552,6 @@ Style/ParenthesesAroundCondition:
 Style/PercentQLiterals:
   Enabled: true
 Style/PerlBackrefs:
-  Enabled: true
-Naming/PredicateName:
   Enabled: true
 Style/Proc:
   Enabled: true

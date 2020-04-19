@@ -1,5 +1,6 @@
 #
 # Copyright:: 2016, Chris Henry
+# Copyright:: 2020, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -30,8 +31,8 @@ describe RuboCop::Cop::Chef::ChefRedundantCode::UnnecessaryNameProperty, :config
 
   it 'registers an offense when a resource has an attribute called name' do
     expect_offense(<<~RUBY)
-      attribute :name, String
-      ^^^^^^^^^^^^^^^^^^^^^^^ There is no need to define a property or attribute named :name in a resource as Chef Infra defines this on all resources by default.
+      attribute :name, kind_of: String
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ There is no need to define a property or attribute named :name in a resource as Chef Infra defines this on all resources by default.
     RUBY
 
     expect_correction("\n")
@@ -48,8 +49,8 @@ describe RuboCop::Cop::Chef::ChefRedundantCode::UnnecessaryNameProperty, :config
 
   it 'registers an offense when a resource has a attribute called name that is a name_attribute' do
     expect_offense(<<~RUBY)
-      attribute :name, String, name_attribute: true
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ There is no need to define a property or attribute named :name in a resource as Chef Infra defines this on all resources by default.
+      attribute :name, kind_of: String, name_attribute: true
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ There is no need to define a property or attribute named :name in a resource as Chef Infra defines this on all resources by default.
     RUBY
 
     expect_correction("\n")
