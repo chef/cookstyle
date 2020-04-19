@@ -396,7 +396,7 @@ Enabled by default | Supports autocorrection
 --- | ---
 Enabled | Yes
 
-Every Chef Infra resources already include a sensitive property with a default value of false.
+Every Chef Infra resource already includes a sensitive property with a default value of false.
 
 # bad
 property :sensitive, [true, false], default: false
@@ -495,8 +495,8 @@ There is no need to define a property or attribute named :name in a resource as 
 # bad
 property :name, String
 property :name, String, name_property: true
-attribute :name, String
-attribute :name, String, name_attribute: true
+attribute :name, kind_of: String
+attribute :name, kind_of: String, name_attribute: true
 ```
 
 ### Configurable attributes

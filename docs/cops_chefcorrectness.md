@@ -76,7 +76,7 @@ Include | `**/metadata.rb` | Array
 
 Enabled by default | Supports autocorrection
 --- | ---
-Enabled | No
+Enabled | Yes
 
 dnf_package does not support the allow_downgrades property
 
@@ -108,7 +108,7 @@ Enabled by default | Supports autocorrection
 --- | ---
 Enabled | Yes
 
-Libraries should be injected into the Chef::DSL::Recipe or Chef::DSL::Resources classes and not Recipe/Resource/Provider classes directly.
+Libraries should be injected into the Chef::DSL::Recipe class and not Chef::Recipe or Chef::Provider classes directly.
 
 ### Examples
 
@@ -116,11 +116,9 @@ Libraries should be injected into the Chef::DSL::Recipe or Chef::DSL::Resources 
 # bad
 ::Chef::Recipe.send(:include, Filebeat::Helpers)
 ::Chef::Provider.send(:include, Filebeat::Helpers)
-::Chef::Resource.send(:include, Filebeat::Helpers)
 
 # good
 ::Chef::DSL::Recipe.send(:include, Filebeat::Helpers) # covers previous Recipe & Provider classes
-::Chef::DSL::Resources.send(:include, Filebeat::Helpers)
 ```
 
 ### Configurable attributes

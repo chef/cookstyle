@@ -848,7 +848,7 @@ Enabled by default | Supports autocorrection
 --- | ---
 Enabled | No
 
-Use the windows_feature resource built into Chef Infra Client 15+ instead of the powershell_script resource
+Use the windows_feature resource built into Chef Infra Client 14+ instead of the powershell_script resource
 to run Install-WindowsFeature or Add-WindowsFeature
 
  # good
@@ -1017,14 +1017,15 @@ Enabled by default | Supports autocorrection
 --- | ---
 Enabled | Yes
 
-It is not longer necessary respond_to?(:foo) in metadata. This was used to support new metadata
-methods in Chef 11 and early versions of Chef 12.
+In Chef Infra Client 12+ is is no longer necessary to gate the use of the provides methods in resources with `if respond_to?(:provides)` or `if defined? provides`.
 
 ### Examples
 
 ```ruby
 # bad
 provides :foo if respond_to?(:provides)
+
+provides :foo if defined? provides
 
 # good
 provides :foo
