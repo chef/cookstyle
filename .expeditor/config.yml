@@ -5,7 +5,6 @@
 slack:
   notify_channel: chef-infra-notify
 
-# Which Ruby Gems, built when the Omnibus package is built, to publish to rubygems.org
 # This publish is triggered by the `built_in:publish_rubygems` artifact_action.
 rubygems:
   - cookstyle
@@ -21,6 +20,14 @@ github:
   # allow bumping the major release via label
   major_bump_labels:
     - "Expeditor: Bump Version Major"
+  # Which Github branches to build releases from, and what versions
+  # (as determined by the value in the VERSION file) those branches are responsible
+  # for building.
+  release_branch:
+    - master:
+        version_constraint: 6.*
+    - 5-stable:
+        version_constraint: 5.*
 
 changelog:
   rollup_header: Changes not yet released to rubygems.org
