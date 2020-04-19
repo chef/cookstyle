@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 6.3.5 -->
+## [v6.3.5](https://github.com/chef/cookstyle/tree/v6.3.5) (2020-04-19)
+
+#### Merged Pull Requests
+- Wire up the 5-stable branch [#612](https://github.com/chef/cookstyle/pull/612) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=6.3.4 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Wire up the 5-stable branch [#612](https://github.com/chef/cookstyle/pull/612) ([tas50](https://github.com/tas50)) <!-- 6.3.5 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
