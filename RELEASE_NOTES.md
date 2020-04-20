@@ -1,6 +1,6 @@
 ## Cookstyle 5.23
 
-This release of Cookstyle backports several non-breaking fixes and autocorrection improvements from the Cookstyle 6.x release series. If possible we highly recommend upgrading to the 6.x release, which includes many new Chef Infra cops as well as an upgraded RuboCop engine.
+This release of Cookstyle backports several non-breaking fixes and autocorrection improvements from the Cookstyle 6.x release series. If possible, we highly recommend upgrading to the 6.x release which includes many new Chef Infra cops as well as an upgraded RuboCop engine.
 
 - Improved offense detection in `ChefModernize/DefaultActionFromInitialize`
 - Enable the `ChefStyle/UnnecessaryOSCheck` cop which was incorrectly shipped off by default
