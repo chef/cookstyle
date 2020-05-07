@@ -1881,8 +1881,6 @@ Lint/NextWithoutAccumulator:
   Enabled: true
 Lint/NonLocalExitFromIterator:
   Enabled: true
-Lint/ParenthesesAsGroupedExpression:
-  Enabled: true
 Lint/RandOne:
   Enabled: true
 Lint/RequireParentheses:
@@ -2182,3 +2180,8 @@ Style/MultilineWhenThen:
 # .each_key is a lot more clear that .keys.each
 Style/HashEachMethods:
   Enabled: true
+
+# this is a confusing one to fix when passing variables to templates and often confuses
+# users for a long period of time with little benefit
+Lint/ParenthesesAsGroupedExpression:
+  Enabled: false
