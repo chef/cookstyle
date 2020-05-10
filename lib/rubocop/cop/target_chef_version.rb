@@ -6,6 +6,10 @@ module RuboCop
   module Cop
     # Common functionality for checking target chef version.
     module TargetChefVersion
+      def required_minimum_chef_version
+        @minimum_target_chef_version
+      end
+
       def minimum_target_chef_version(version)
         @minimum_target_chef_version = version
       end

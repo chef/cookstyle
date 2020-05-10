@@ -41,11 +41,12 @@ begin
     end
 
     def properties(config, cop)
-      header = ['Enabled by default', 'Supports autocorrection']
+      header = ['Enabled by default', 'Supports autocorrection', 'Target Chef Version']
       enabled_by_default = config.for_cop(cop).fetch('Enabled')
       content = [[
         enabled_by_default ? 'Enabled' : 'Disabled',
         cop.new.support_autocorrect? ? 'Yes' : 'No',
+        cop.respond_to?(:required_minimum_chef_version) ? "#{cop.required_minimum_chef_version}+" : 'All Versions',
       ]]
       to_table(header, content) + "\n"
     end
