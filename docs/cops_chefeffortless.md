@@ -2,9 +2,9 @@
 
 ## ChefEffortless/Berksfile
 
-Enabled by default | Supports autocorrection
---- | ---
-Disabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Disabled | No | All Versions
 
 Policyfiles should be used for cookbook dependency solving instead of a Berkshelf Berksfile.
 
@@ -17,9 +17,9 @@ Include | `**/Berksfile` | Array
 
 ## ChefEffortless/CookbookUsesDatabags
 
-Enabled by default | Supports autocorrection
---- | ---
-Disabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Disabled | No | All Versions
 
 Data bags cannot be used with the Effortless Infra pattern
 
@@ -40,9 +40,9 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefEffortless/CookbookUsesEnvironmments
 
-Enabled by default | Supports autocorrection
---- | ---
-Disabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Disabled | No | All Versions
 
 Neither Policyfiles or Effortless Infra which is based on Policyfiles supports Chef Environments
 
@@ -63,9 +63,9 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefEffortless/CookbookUsesPolicygroups
 
-Enabled by default | Supports autocorrection
---- | ---
-Disabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Disabled | No | All Versions
 
 Effortless Infra does not support Policyfile's Policygroup feature
 
@@ -85,9 +85,9 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefEffortless/CookbookUsesRoles
 
-Enabled by default | Supports autocorrection
---- | ---
-Disabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Disabled | No | All Versions
 
 Neither Policyfiles or Effortless Infra which is based on Policyfiles supports Chef Roles
 
@@ -108,9 +108,9 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefEffortless/CookbookUsesSearch
 
-Enabled by default | Supports autocorrection
---- | ---
-Disabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Disabled | No | All Versions
 
 Search is not compatible with the Effortless Infra pattern
 
@@ -130,9 +130,9 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefEffortless/SearchForEnvironmentsOrRoles
 
-Enabled by default | Supports autocorrection
---- | ---
-Disabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Disabled | No | All Versions
 
 Policyfiles (and Effortless) do not use environments or roles so searching for those will need to be refactored before migrating to Policyfiles and the Effortless pattern.
 

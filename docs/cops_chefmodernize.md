@@ -2,9 +2,9 @@
 
 ## ChefModernize/AllowedActionsFromInitialize
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 The allowed actions can now be specified using the `allowed_actions` helper instead of using the @actions or @allowed_actions variables in the resource's initialize method. In general we recommend against writing HWRPs, but if HWRPs are necessary you should utilize as much of the resource DSL as possible.
 
@@ -36,9 +36,9 @@ Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
 
 ## ChefModernize/ChefGemNokogiri
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 The nokogiri gem ships in Chef Infra Client 12+ and does not need to be installed before being used
 
@@ -58,9 +58,9 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb` | Array
 
 ## ChefModernize/CronManageResource
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | 14.4+
 
 The cron_manage resource was renamed to cron_access in the 6.1 release of the cron
 cookbook, and later shipped in Chef Infra Client 14.4. The new resource name should
@@ -81,9 +81,9 @@ Exclude | `**/metadata.rb` | Array
 
 ## ChefModernize/CustomResourceWithAttributes
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 In HWRPs and LWRPs you defined attributes, but custom resources changed the name to
 be properties to avoid confusion with chef recipe attributes. When writing a custom resource
@@ -116,9 +116,9 @@ Include | `**/resources/*.rb` | Array
 
 ## ChefModernize/DatabagHelpers
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Use the `data_bag_item` helper instead of `Chef::DataBagItem.load` or `Chef::EncryptedDataBagItem.load`.
 
@@ -143,9 +143,9 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefModernize/DefaultActionFromInitialize
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 The default actions can now be specified using the `default_action` helper instead of using the @action variable in the resource provider initialize method. In general we recommend against writing HWRPs, but if HWRPs are necessary you should utilize as much of the resource DSL as possible.
 
@@ -177,9 +177,9 @@ Include | `**/resources/*.rb`, `**/providers/*.rb`, `**/libraries/*.rb` | Array
 
 ## ChefModernize/DefinesChefSpecMatchers
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 ChefSpec 7.1 and later auto generate ChefSpec matchers. Matchers in cookbooks can now be removed.
 
@@ -203,9 +203,9 @@ Include | `**/libraries/*.rb` | Array
 
 ## ChefModernize/Definitions
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 In 2016 with Chef Infra Client 12.5 Custom Resources were introduced as a way of writing reusable resource code that could be shipped in cookbooks. Custom Resources offer many advantages of legacy Definitions including unit testing with ChefSpec, input validation, actions, commmon properties like not_if/only_if, and resource reporting.
 
@@ -218,9 +218,9 @@ Include | `**/definitions/*.rb` | Array
 
 ## ChefModernize/DependsOnZypperCookbook
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | 13.3+
 
 Don't depend on the zypper cookbook as the zypper_repository resource is built into Chef Infra Client 13.3+
 
@@ -240,9 +240,9 @@ Exclude | `**/metadata.rb` | Array
 
 ## ChefModernize/DslIncludeInResource
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Chef Infra Client 12.4+ includes the Chef::DSL::Recipe in the resource and provider classed by default so there is no need to include this DSL in your resources or providers.
 
@@ -259,9 +259,9 @@ Include | `**/resources/*.rb`, `**/providers/*.rb` | Array
 
 ## ChefModernize/EmptyResourceInitializeMethod
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 There is no need for an empty initialize method in a resource
 
@@ -283,9 +283,9 @@ Include | `**/resources/*.rb`, `**/providers/*.rb` | Array
 
 ## ChefModernize/ExecuteAptUpdate
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 Instead of using the execute resource to to run the `apt-get update` use Chef Infra Client's built-n
 apt_update resource which is available in Chef Infra Client 12.7 and later.
@@ -319,9 +319,9 @@ Exclude | `**/metadata.rb` | Array
 
 ## ChefModernize/ExecuteScExe
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | 14.0+
 
 Chef Infra Client 14.0 and later includes :create, :delete, and :configure actions with the full idempotency of the windows_service resource. See the windows_service documentation at https://docs.chef.io/resource_windows_service.html for additional details on creating services with the windows_service resource.
 
@@ -345,9 +345,9 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
 ## ChefModernize/ExecuteSleep
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | 15.5+
 
 Chef Infra Client 15.5 and later include a chef_sleep resource that should be used to sleep between executing resources if necessary instead of using the bash or execute resources to run the sleep command.
 
@@ -375,9 +375,9 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
 ## ChefModernize/ExecuteSysctl
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | 14.0+
 
 Chef Infra Client 14.0 and later includes a sysctl resource that should be used to idempotently load sysctl values instead of templating files and using execute to load them.
 
@@ -405,9 +405,9 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
 ## ChefModernize/ExecuteTzUtil
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | 14.6+
 
 Instead of using the execute or powershell_script resources to to run the `tzutil` command, use
 Chef Infra Client's built-in timezone resource which is available in Chef Infra Client 14.6 and later.
@@ -436,9 +436,9 @@ Exclude | `**/metadata.rb` | Array
 
 ## ChefModernize/FoodcriticComments
 
-Enabled by default | Supports autocorrection
---- | ---
-Disabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Disabled | Yes | All Versions
 
 Remove legacy code comments that disable Foodcritic rules. These comments are no longer necessary if you've migrated from Foodcritic to Cookstyle for cookbook linting.
 
@@ -458,9 +458,9 @@ Exclude | `**/Berksfile` | Array
 
 ## ChefModernize/IfProvidesDefaultAction
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 if defined?(default_action) is no longer necessary in Chef Resources as default_action shipped in Chef 10.8.
 
@@ -483,9 +483,9 @@ Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
 
 ## ChefModernize/IncludingAptDefaultRecipe
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | 12.7+
 
 For many users the apt::default cookbook is used only to update apt's package cache. Chef Infra Client 12.7 and later include an apt_update resource which should be used to perform this instead. Keep in mind that some users will want to stick with the apt::default recipe as it also installs packages necessary for using https repositories on Debian systems and manages some configuration files.
 
@@ -509,9 +509,9 @@ Exclude | `**/metadata.rb` | Array
 
 ## ChefModernize/IncludingMixinShelloutInResources
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 There is no need to include Chef::Mixin::ShellOut or Chef::Mixin::PowershellOut in resources or providers as this is already done by Chef Infra Client 12.4+.
 
@@ -534,9 +534,9 @@ Include | `**/resources/*.rb`, `**/providers/*.rb` | Array
 
 ## ChefModernize/IncludingOhaiDefaultRecipe
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 The Ohai default recipe previously allowed a user to ship custom Ohai plugins to a system by including them
 in a directory in the Ohai cookbook. This functionality was replaced with the ohai_plugin resource, which
@@ -560,9 +560,9 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefModernize/IncludingWindowsDefaultRecipe
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Don't include the windows default recipe that is either full of gem install that are part of the Chef Infra Client, or empty (depends on version).
 
@@ -583,9 +583,9 @@ Exclude | `**/metadata.rb` | Array
 
 ## ChefModernize/LegacyBerksfileSource
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Over the course of years there have been many different valid community site / Supermarket
 URLs to use in a cookbook's Berksfile. These old URLs continue to function via redirects,
@@ -613,9 +613,9 @@ Include | `**/Berksfile` | Array
 
 ## ChefModernize/LibarchiveFileResource
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | 15.0+
 
 Use the archive_file resource built into Chef Infra Client 15+ instead of the libarchive_file resource.
 
@@ -642,9 +642,9 @@ Exclude | `**/metadata.rb` | Array
 
 ## ChefModernize/MacOsXUserdefaults
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | 14.0+
 
 The mac_os_x_userdefaults resource was renamed to macos_userdefaults when it was added to Chef Infra Client
 14.0. The new resource name should be used.
@@ -672,9 +672,9 @@ Exclude | `**/metadata.rb` | Array
 
 ## ChefModernize/MinitestHandlerUsage
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Use Chef InSpec for testing instead of the Minitest Handler cookbook pattern.
 
@@ -694,9 +694,9 @@ Include | `**/metadata.rb` | Array
 
 ## ChefModernize/NodeInitPackage
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Use node['init_package'] to check for systemd instead of reading the contents of '/proc/1/comm'
 
@@ -729,9 +729,9 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefModernize/NodeRolesInclude
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Use `node.role?('foo')` to check if a node includes a role instead of `node['roles'].include?('foo')`.
 
@@ -754,9 +754,9 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefModernize/OpensslRsaKeyResource
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | 14.0+
 
 The openssl_rsa_key resource was renamed to openssl_rsa_private_key in Chef
 Infra Client 14.0. The new resource name should be used.
@@ -780,9 +780,9 @@ Exclude | `**/metadata.rb` | Array
 
 ## ChefModernize/OpensslX509Resource
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | 14.4+
 
 The openssl_x509 resource was renamed to openssl_x509_certificate in Chef Infra Client 14.4.
 The new resource name should be used.
@@ -812,9 +812,9 @@ Exclude | `**/metadata.rb` | Array
 
 ## ChefModernize/OsxConfigProfileResource
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 The osx_config_profile resource was renamed to osx_profile.
 The new resource name should be used.
@@ -838,9 +838,9 @@ Exclude | `**/metadata.rb` | Array
 
 ## ChefModernize/PowerShellGuardInterpreter
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | 13.0+
 
 PowerShell is already set as the default guard interpreter for `powershell_script` and `batch` resources in Chef Infra Client 13 and later and does not need to be specified.
 
@@ -877,9 +877,9 @@ Exclude | `**/metadata.rb` | Array
 
 ## ChefModernize/PowershellInstallPackage
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | 12.16+
 
 Use the powershell_package resource built into Chef Infra Client instead of the powershell_script
 resource to run Install-Package
@@ -905,9 +905,9 @@ Exclude | `**/metadata.rb` | Array
 
 ## ChefModernize/PowershellInstallWindowsFeature
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | 14.0+
 
 Use the windows_feature resource built into Chef Infra Client 14+ instead of the powershell_script resource
 to run Install-WindowsFeature or Add-WindowsFeature
@@ -936,9 +936,9 @@ Exclude | `**/metadata.rb` | Array
 
 ## ChefModernize/PowershellScriptExpandArchive
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | 15.0+
 
 Use the archive_file resource built into Chef Infra Client 15+ instead of using the powershell_script
 resource to run Expand-Archive
@@ -961,9 +961,9 @@ Exclude | `**/metadata.rb` | Array
 
 ## ChefModernize/PropertyWithNameAttribute
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 When using properties in a custom resource you should use name_property not the legacy name_attribute from the days of attributes
 
@@ -987,9 +987,9 @@ Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
 
 ## ChefModernize/ProvidesFromInitialize
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Provides should be set using the `provides` resource DSL method instead of instead of setting @provides in the initialize method.
 
@@ -1015,9 +1015,9 @@ Include | `**/resources/*.rb`, `**/providers/*.rb`, `**/libraries/*.rb` | Array
 
 ## ChefModernize/ResourceForcingCompileTime
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 The hostname, build_essential, chef_gem, and ohai_hint resources include 'compile_time' properties, which should be used to force the resources to run at compile time by setting `compile_time true`.
 
@@ -1044,9 +1044,9 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
 ## ChefModernize/ResourceNameFromInitialize
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 The resource name can now be specified using the `resource_name` helper instead of using the @resource_name variable in the resource provider initialize method. In general we recommend against writing HWRPs, but if HWRPs are necessary you should utilize as much of the resource DSL as possible.
 
@@ -1072,9 +1072,9 @@ Include | `**/resources/*.rb`, `**/providers/*.rb`, `**/libraries/*.rb` | Array
 
 ## ChefModernize/RespondToCompileTime
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | 12.1+
 
 There is no need to check if the chef_gem resource supports compile_time as Chef Infra Client 12.1 and later support the compile_time property.
 
@@ -1109,9 +1109,9 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefModernize/RespondToInMetadata
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | 12.15+
 
 It is not longer necessary respond_to?(:foo) or defined?(foo) in metadata. This was used to support new metadata
 methods in Chef 11 and early versions of Chef 12.
@@ -1139,9 +1139,9 @@ Include | `**/metadata.rb` | Array
 
 ## ChefModernize/RespondToProvides
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 In Chef Infra Client 12+ is is no longer necessary to gate the use of the provides methods in resources with `if respond_to?(:provides)` or `if defined? provides`.
 
@@ -1166,9 +1166,9 @@ Include | `**/providers/*.rb`, `**/libraries/*.rb` | Array
 
 ## ChefModernize/RespondToResourceName
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Chef Infra Client 12.5 introduced the resource_name method for resources. Many cookbooks used respond_to?(:resource_name) to provide backwards compatibility with older chef-client releases. This backwards compatibility is no longer necessary.
 
@@ -1191,9 +1191,9 @@ Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
 
 ## ChefModernize/SetOrReturnInResources
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 set_or_return within a method should not be used to define property in a resource. Instead use
 the property method which properly validates and defines properties in a way that works with
@@ -1224,9 +1224,9 @@ Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
 
 ## ChefModernize/SevenZipArchiveResource
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | 15.0+
 
 Use the archive_file resource built into Chef Infra Client 15+ instead of the seven_zip_archive
 
@@ -1248,9 +1248,9 @@ Exclude | `**/metadata.rb` | Array
 
 ## ChefModernize/ShellOutToChocolatey
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 Use the Chocolatey resources built into Chef Infra Client instead of shelling out to the choco command
 
@@ -1277,9 +1277,9 @@ Exclude | `**/metadata.rb` | Array
 
 ## ChefModernize/SimplifyAptPpaSetup
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 The apt_repository resource allows setting up PPAs without using the full URL to ppa.launchpad.net, which should be used to simplify the resource code in your cookbooks.
 
@@ -1312,9 +1312,9 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
 ## ChefModernize/SysctlParamResource
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | 14.0+
 
 The sysctl_param resource was renamed to sysctl when it was added to Chef Infra Client 14.0. The new resource name should be used.
 
@@ -1337,9 +1337,9 @@ Exclude | `**/metadata.rb` | Array
 
 ## ChefModernize/UnnecessaryDependsChef14
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | 14.0+
 
 Don't depend on cookbooks made obsolete by Chef Infra Client 14+. These community cookbooks contain resources that are now included in Chef Infra Client itself.
 
@@ -1365,9 +1365,9 @@ Include | `**/metadata.rb` | Array
 
 ## ChefModernize/UnnecessaryMixlibShelloutRequire
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Chef Infra Client 12.4+ includes mixlib/shellout automatically in resources and providers.
 
@@ -1387,9 +1387,9 @@ Include | `**/resources/*.rb`, `**/providers/*.rb` | Array
 
 ## ChefModernize/UseBuildEssentialResource
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Use the build_essential resource from the build-essential cookbook 5.0+ or Chef Infra Client 14+ instead of using the build-essential::default recipe.
 
@@ -1414,9 +1414,9 @@ Exclude | `**/metadata.rb` | Array
 
 ## ChefModernize/UseMultipackageInstalls
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Pass an array of packages to package resources instead of interating over an array of packages when using multi-package capable package subystem such as apt, yum, chocolatey, dnf, or zypper. Multipackage installs are faster and simplify logs.
 
@@ -1443,9 +1443,9 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
 ## ChefModernize/UseRequireRelative
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Instead of using require with a File.expand_path and __FILE__ use the simpler require_relative method.
 
@@ -1468,9 +1468,9 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
 ## ChefModernize/UsesZypperRepo
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | 13.3+
 
 The zypper_repo resource was renamed zypper_repository when it was added to Chef Infra Client 13.3.
 
@@ -1503,9 +1503,9 @@ Exclude | `**/metadata.rb` | Array
 
 ## ChefModernize/WhyRunSupportedTrue
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | 13.0+
 
 whyrun_supported? no longer needs to be set to true as that is the default in Chef Infra Client 13+
 
@@ -1527,9 +1527,9 @@ Include | `**/resources/*.rb`, `**/providers/*.rb`, `**/libraries/*.rb` | Array
 
 ## ChefModernize/WindowsRegistryUAC
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | 15.0+
 
 Chef Infra Client 15.0 and later includes a windows_uac resource that should be used to set Windows UAC values instead of setting registry keys directly.
 
@@ -1558,9 +1558,9 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
 ## ChefModernize/WindowsScResource
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | 14.0+
 
 The sc_windows resource from the sc cookbook allowed for the creation of windows services on legacy Chef Infra Client releases. Chef Infra Client 14.0 and later includes :create, :delete, and :configure actions without the need for additional cookbook dependencies. See the windows_service documentation at https://docs.chef.io/resource_windows_service.html for additional details on creating services with the windows_service resource.
 
@@ -1585,9 +1585,9 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
 ## ChefModernize/WindowsZipfileUsage
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | 15.0+
 
 Use the archive_file resource built into Chef Infra Client 15+ instead of the windows_zipfile from the Windows cookbook
 
@@ -1609,9 +1609,9 @@ Exclude | `**/metadata.rb` | Array
 
 ## ChefModernize/ZipfileResource
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | 15.0+
 
 Use the archive_file resource built into Chef Infra Client 15+ instead of the zipfile resource from the zipfile cookbook.
 

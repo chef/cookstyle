@@ -2,9 +2,9 @@
 
 ## ChefCorrectness/BlockGuardWithOnlyString
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 A resource guard (not_if/only_if) that is a string should not be wrapped in {}. Wrapping a guard string in {} causes it be executed as Ruby code which will always returns true instead of a shell command that will actually run.
 
@@ -35,9 +35,9 @@ Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefCorrectness/ChefApplicationFatal
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Use raise to force Chef Infra Client to fail instead of using Chef::Application.fatal, which masks the full stack trace of the failure and makes debugging difficult.
 
@@ -60,9 +60,9 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefCorrectness/ConditionalRubyShellout
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Don't use Ruby to shellout in a only_if / not_if conditional when you can just shellout directly. Any string value used with only_if / not_if is executed in your system's shell and the return code of the command is the result for the not_if / only_if determination.
 
@@ -96,9 +96,9 @@ Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefCorrectness/CookbookUsesNodeSave
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 Don't use node.save to save partial node data to the Chef Infra Server mid-run unless it's
 absolutely necessary. Node.save can result in failed Chef Infra runs appearing in search and
@@ -120,9 +120,9 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefCorrectness/CookbooksDependsOnSelf
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 No documentation
 
@@ -135,9 +135,9 @@ Include | `**/metadata.rb` | Array
 
 ## ChefCorrectness/DnfPackageAllowDowngrades
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 dnf_package does not support the allow_downgrades property
 
@@ -165,9 +165,9 @@ Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefCorrectness/IncorrectLibraryInjection
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Libraries should be injected into the Chef::DSL::Recipe class and not Chef::Recipe or Chef::Provider classes directly.
 
@@ -191,9 +191,9 @@ Include | `**/libraries/*.rb` | Array
 
 ## ChefCorrectness/InvalidNotificationTiming
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 Valid notification timings are :immediately, :immediate (alias for :immediately), :delayed, and :before.
 
@@ -222,9 +222,9 @@ Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefCorrectness/InvalidPlatformFamilyHelper
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 Pass valid platform families to the platform_family? helper.
 
@@ -249,9 +249,9 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefCorrectness/InvalidPlatformHelper
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 Pass valid platforms to the platform? helper.
 
@@ -278,9 +278,9 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefCorrectness/InvalidPlatformMetadata
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 metadata.rb supports methods should contain valid platforms.
 
@@ -305,9 +305,9 @@ Include | `**/metadata.rb` | Array
 
 ## ChefCorrectness/InvalidPlatformValueForPlatformFamilyHelper
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 Pass valid platforms families to the value_for_platform_family helper.
 
@@ -336,9 +336,9 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefCorrectness/InvalidPlatformValueForPlatformHelper
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 Pass valid platforms to the value_for_platform helper.
 
@@ -366,9 +366,9 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefCorrectness/InvalidVersionMetadata
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 Cookbook metadata.rb version field should follow X.Y.Z version format.
 
@@ -391,9 +391,9 @@ Include | `**/metadata.rb` | Array
 
 ## ChefCorrectness/MalformedPlatformValueForPlatformHelper
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 When using the value_for_platform helper you must include a hash of possible platforms where each platform contains a hash of versions and potential values. If you don't wish to match on a particular version you can instead use the key 'default'.
 
@@ -431,9 +431,9 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefCorrectness/MetadataMissingName
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 No documentation
 
@@ -446,9 +446,9 @@ Include | `**/metadata.rb` | Array
 
 ## ChefCorrectness/NodeNormal
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 Normal attributes are discouraged since their semantics differ importantly from the
 default and override levels.  Their values persist in the node object even after
@@ -480,9 +480,9 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefCorrectness/NodeNormalUnless
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 Normal attributes are discouraged since their semantics differ importantly from the
 default and override levels.  Their values persist in the node object even after
@@ -514,9 +514,9 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefCorrectness/NotifiesActionNotSymbol
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 When notifying or subscribing an action within a resource the action should always be a symbol. In Chef Infra Client releases before 14.0 this may result in double notification.
 
@@ -551,9 +551,9 @@ Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefCorrectness/PowershellScriptDeleteFile
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 Use the `file` or `directory` resources built into Chef Infra Client with the :delete action to remove files/directories instead of using Remove-Item in a powershell_script resource
 
@@ -581,9 +581,9 @@ Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefCorrectness/ResourceSetsInternalProperties
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 Chef Infra Client uses properties in several resources to track state. These
 should not be set in recipes as they break the internal workings of the Chef
@@ -613,9 +613,9 @@ Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefCorrectness/ResourceSetsNameProperty
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 Use name properties instead of setting the name property in a resource. Setting the name property
 directly causes notification and reporting issues.
@@ -643,9 +643,9 @@ Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefCorrectness/ResourceWithNoneAction
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 The :nothing action is often typo'd as :none
 
@@ -672,9 +672,9 @@ Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefCorrectness/ScopedFileExist
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Scope file exist to access the correct File class by using ::File.exist? not File.exist?.
 
@@ -697,9 +697,9 @@ Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefCorrectness/ServiceResource
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 Use a service resource to start and stop services
 
@@ -722,9 +722,9 @@ Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefCorrectness/TmpPath
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 Use file_cache_path rather than hard-coding tmp paths
 

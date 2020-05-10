@@ -2,9 +2,9 @@
 
 ## ChefSharing/DefaultMetadataMaintainer
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 Metadata contains default maintainer information from the `chef generate cookbook` command. This should be updated to reflect that actual maintainer of the cookbook.
 
@@ -31,9 +31,9 @@ Include | `**/metadata.rb` | Array
 
 ## ChefSharing/EmptyMetadataField
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 metadata.rb should not include fields with an empty string. Either don't include the field or add a value.
 
@@ -57,9 +57,9 @@ Include | `**/metadata.rb` | Array
 
 ## ChefSharing/IncludePropertyDescriptions
 
-Enabled by default | Supports autocorrection
---- | ---
-Disabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Disabled | No | 13.9+
 
 Resource properties should include description fields to allow automated documention. Requires Chef Infra Client 13.9 or later.
 
@@ -82,9 +82,9 @@ Include | `**/libraries/*.rb`, `**/resources/*.rb` | Array
 
 ## ChefSharing/IncludeResourceDescriptions
 
-Enabled by default | Supports autocorrection
---- | ---
-Disabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Disabled | No | 13.9+
 
 Resources should include description fields to allow automated documention. Requires Chef Infra Client 13.9 or later.
 
@@ -105,9 +105,9 @@ Include | `**/resources/*.rb` | Array
 
 ## ChefSharing/InsecureCookbookURL
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Use secure Github and Gitlab URLs for source_url and issues_url
 
@@ -135,9 +135,9 @@ Include | `**/metadata.rb` | Array
 
 ## ChefSharing/InvalidLicenseString
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 metadata.rb license field should include a SPDX compliant string or "all right reserved" (not case sensitive)
 

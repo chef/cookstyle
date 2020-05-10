@@ -2,9 +2,9 @@
 
 ## ChefRedundantCode/AptRepositoryDistributionDefault
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 There is no need to pass `distribution node['lsb']['codename']` to an apt_repository resource as this is done automatically by the apt_repository resource.
 
@@ -32,9 +32,9 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
 ## ChefRedundantCode/AptRepositoryNotifiesAptUpdate
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 There is no need to notify an apt-get update when an apt_repository is created as this is done automatically by the apt_repository resource.
 
@@ -62,9 +62,9 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
 ## ChefRedundantCode/AttributeMetadata
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 The attribute metadata.rb method is not used and is unnecessary in cookbooks.
 
@@ -91,9 +91,9 @@ Include | `**/metadata.rb` | Array
 
 ## ChefRedundantCode/ConflictsMetadata
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 The conflicts metadata.rb method is not used and is unnecessary in cookbooks.
 
@@ -115,9 +115,9 @@ Include | `**/metadata.rb` | Array
 
 ## ChefRedundantCode/CustomResourceWithAllowedActions
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 It is not necessary to set `actions` or `allowed_actions` in custom resources as Chef Infra Client determines these automatically from the set of all actions defined in the resource.
 
@@ -141,9 +141,9 @@ Include | `**/resources/*.rb` | Array
 
 ## ChefRedundantCode/GroupingMetadata
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 The grouping metadata.rb method is not used and is unnecessary in cookbooks.
 
@@ -163,9 +163,9 @@ Include | `**/metadata.rb` | Array
 
 ## ChefRedundantCode/LongDescriptionMetadata
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 The long_description metadata.rb method is not used and is unnecessary in cookbooks.
 
@@ -186,9 +186,9 @@ Include | `**/metadata.rb` | Array
 
 ## ChefRedundantCode/NamePropertyIsRequired
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 When using properties in a custom resource you shouldn't set a property to
 be both required and a name_property. Name properties are a way to optionally
@@ -240,9 +240,9 @@ Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
 
 ## ChefRedundantCode/PropertySplatRegex
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 When a property has a type of String it can accept any string. There is no need to also validate string inputs against a regex that accept all values.
 
@@ -267,9 +267,9 @@ Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
 
 ## ChefRedundantCode/PropertyWithRequiredAndDefault
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 When using properties in a custom resource you shouldn't set a property to
 required and then provide a default value. If a property is required the
@@ -296,9 +296,9 @@ Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
 
 ## ChefRedundantCode/ProvidesMetadata
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 The provides metadata.rb method is not used and is unnecessary in cookbooks.
 
@@ -320,9 +320,9 @@ Include | `**/metadata.rb` | Array
 
 ## ChefRedundantCode/RecipeMetadata
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 The recipe metadata.rb method is not used and is unnecessary in cookbooks. Recipes should be documented in the cookbook's README.md file instead.
 
@@ -343,9 +343,9 @@ Include | `**/metadata.rb` | Array
 
 ## ChefRedundantCode/ReplacesMetadata
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 The replaces metadata.rb method is not used and is unnecessary in cookbooks. Replacements for existing cookbooks should be documented in the cookbook's README.md file instead.
 
@@ -367,9 +367,9 @@ Include | `**/metadata.rb` | Array
 
 ## ChefRedundantCode/ResourceWithNothingAction
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Chef Infra Client provides the :nothing action by default for every resource. There is no need to define a :nothing action in your resource code.
 
@@ -392,9 +392,9 @@ Include | `**/libraries/*.rb`, `**/resources/*.rb`, `**/providers/*.rb` | Array
 
 ## ChefRedundantCode/SensitivePropertyInResource
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Every Chef Infra resource already includes a sensitive property with a default value of false.
 
@@ -410,9 +410,9 @@ Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
 
 ## ChefRedundantCode/StringPropertyWithNilDefault
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Properties have a nil value by default so there is no need to set the default value to nil.
 
@@ -437,9 +437,9 @@ Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
 
 ## ChefRedundantCode/SuggestsMetadata
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 The suggests metadata.rb method is not used and is unnecessary in cookbooks.
 
@@ -461,9 +461,9 @@ Include | `**/metadata.rb` | Array
 
 ## ChefRedundantCode/UnnecessaryDesiredState
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 There is no need to set a property to desired_state: true as all properties have a desired_state of true by default.
 
@@ -483,9 +483,9 @@ Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
 
 ## ChefRedundantCode/UnnecessaryNameProperty
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 There is no need to define a property or attribute named :name in a resource as Chef Infra defines this on all resources by default.
 
@@ -509,9 +509,9 @@ Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
 
 ## ChefRedundantCode/UseCreateIfMissing
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Use the :create_if_missing action instead of not_if with a ::File.exist(FOO) check.
 

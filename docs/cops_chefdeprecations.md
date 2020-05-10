@@ -2,9 +2,9 @@
 
 ## ChefDeprecations/ChefHandlerUsesSupports
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Use the type property instead of the deprecated supports property in the chef_handler resource. The supports property was removed in chef_handler cookbook version 3.0 (June 2017) and Chef Infra Client 14.0.
 
@@ -31,9 +31,9 @@ Exclude | `**/metadata.rb` | Array
 
 ## ChefDeprecations/ChefRewind
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | 12.10+
 
 Use delete_resource / edit_resource introduced in Chef Infra Client 12.10 instead of functionality in the deprecated chef-rewind gem
 
@@ -61,9 +61,9 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb` | Array
 
 ## ChefDeprecations/ChefSpecCoverageReport
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Don't use the deprecated ChefSpec Coverage report functionality in your specs. This feature has been removed as coverage reports encourage cookbook authors to write ineffective specs. Focus on testing your logic instead of achieving 100% code coverage.
 
@@ -84,9 +84,9 @@ Include | `**/spec/*.rb` | Array
 
 ## ChefDeprecations/ChefSpecLegacyRunner
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Use ChefSpec::SoloRunner or ChefSpec::ServerRunner instead of the deprecated ChefSpec::Runner. These new runners were introduced in ChefSpec 4.1 (Oct 2014).
 
@@ -119,9 +119,9 @@ Include | `**/spec/*.rb` | Array
 
 ## ChefDeprecations/ChefWindowsPlatformHelper
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Use `platform?('windows')` instead of the legacy `Chef::Platform.windows?` helper
 
@@ -145,9 +145,9 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefDeprecations/Cheffile
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 No documentation
 
@@ -160,9 +160,9 @@ Include | `**/Cheffile` | Array
 
 ## ChefDeprecations/ChocolateyPackageUninstallAction
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Use the :remove action in the chocolatey_package resource instead of :uninstall which was removed in Chef Infra Client 14+
 
@@ -189,9 +189,9 @@ Exclude | `**/metadata.rb` | Array
 
 ## ChefDeprecations/CookbookDependsOnCompatResource
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | 12.19+
 
 Don't depend on the deprecated compat_resource cookbook made obsolete by Chef 12.19+
 
@@ -211,9 +211,9 @@ Include | `**/metadata.rb` | Array
 
 ## ChefDeprecations/CookbookDependsOnPartialSearch
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | 13.0+
 
 Don't depend on the partial_search cookbook made obsolete by Chef 13
 
@@ -233,9 +233,9 @@ Include | `**/metadata.rb` | Array
 
 ## ChefDeprecations/CookbookDependsOnPoise
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 Cookbooks should not depend on the deprecated Poise framework cookbooks. They should instead be refactored to use standard Chef Infra custom resources.
 
@@ -256,9 +256,9 @@ Include | `**/metadata.rb` | Array
 
 ## ChefDeprecations/DeprecatedChefSpecPlatform
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Use currently supported platforms in ChefSpec listed at https://github.com/chefspec/fauxhai/blob/master/PLATFORMS.md. Fauxhai / ChefSpec will perform fuzzy matching on platform version so it's always best to be less specific ie. 10 instead of 10.3
 
@@ -277,9 +277,9 @@ Include | `**/spec/**/*.rb` | Array
 
 ## ChefDeprecations/DeprecatedPlatformMethods
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 Use provider_for_action instead of the deprecated Chef::Platform methods in resources, which were removed in Chef Infra Client 13.
 
@@ -310,9 +310,9 @@ Include | `**/libraries/*.rb`, `**/resources/*.rb`, `**/providers/*.rb` | Array
 
 ## ChefDeprecations/DeprecatedShelloutMethods
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | 14.3+
 
 The large number of shell_out helper methods in Chef Infra Client has been reduced to just shell_out and shell_out! methods. The legacy methods were removed in Chef Infra Client and cookbooks using these legacy helpers will need to be updated.
 
@@ -344,9 +344,9 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
 ## ChefDeprecations/DeprecatedWindowsVersionCheck
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 Don't use the deprecated older_than_win_2012_or_8? helper. Windows versions before 2012 and 8 are now end of life and this helper will always return false.
 
@@ -368,9 +368,9 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefDeprecations/DeprecatedYumRepositoryProperties
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | 12.14+
 
 With the release of Chef Infra Client 12.14 and the yum cookbook 3.0 several properties in the yum_repository resource were renamed. url -> baseurl, keyurl -> gpgkey, and mirrorexpire -> mirror_expire.
 
@@ -405,9 +405,9 @@ Exclude | `**/metadata.rb` | Array
 
 ## ChefDeprecations/EOLAuditModeUsage
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 The beta Audit Mode for Chef Infra Client was removed in Chef Infra Client 15.0. Users should instead use InSpec and the audit cookbook. See https://www.inspec.io/ for more informmation.
 
@@ -433,9 +433,9 @@ Exclude | `**/metadata.rb` | Array
 
 ## ChefDeprecations/EasyInstallResource
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 Don't use the deprecated easy_install resource removed in Chef 13
 
@@ -457,9 +457,9 @@ Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefDeprecations/EpicFail
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Make sure ignore_failure is used instead of epic_fail
 
@@ -486,9 +486,9 @@ Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefDeprecations/ErlCallResource
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 Don't use the deprecated erl_call resource
 
@@ -510,9 +510,9 @@ Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefDeprecations/IncludingXMLRubyRecipe
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Do not include the deprecated xml::ruby recipe to install the nokogiri gem.
 Chef Infra Client 12 and later ships with nokogiri included.
@@ -533,9 +533,9 @@ Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefDeprecations/IncludingYumDNFCompatRecipe
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Don't include the deprecated yum DNF compatibility recipe, which is no longer necessary
 as Chef Infra Client includes DNF package support
@@ -556,9 +556,9 @@ Exclude | `**/metadata.rb` | Array
 
 ## ChefDeprecations/LaunchdDeprecatedHashProperty
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | 12.19+
 
 The launchd resource's hash property was renamed to plist_hash in Chef Infra Client 13+ to avoid conflicts with Ruby's hash class.
 
@@ -585,9 +585,9 @@ Exclude | `**/metadata.rb` | Array
 
 ## ChefDeprecations/LegacyNotifySyntax
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Use the new-style notification syntax which allows you to notify resources defined later in a recipe or resource.
 
@@ -638,9 +638,9 @@ Exclude | `**/metadata.rb` | Array
 
 ## ChefDeprecations/LegacyYumCookbookRecipes
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 The Ohai default recipe previously allowed a user to ship custom Ohai plugins to a system by including them
 in a directory in the Ohai cookbook. This functionality was replaced with the ohai_plugin resource, which
@@ -667,9 +667,9 @@ Exclude | `**/metadata.rb` | Array
 
 ## ChefDeprecations/LocaleDeprecatedLcAllProperty
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 The local resource's lc_all property has been deprecated and will be removed in Chef Infra Client 16
 
@@ -692,9 +692,9 @@ Exclude | `**/metadata.rb` | Array
 
 ## ChefDeprecations/LogResourceNotifications
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | 15.8+
 
 In Chef Infra Client 16 the log resource no longer notifies when logging so notifications should not be triggered from log resources. Use the notify_group resource introduced in Chef Infra Client 15.8 instead to aggregate notifications.
 
@@ -731,9 +731,9 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefDeprecations/NamePropertyWithDefaultValue
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 A resource property (or attribute) can't be marked as a name_property (or name_attribute) and also have a default value. The name property is a special property that is derived from the name of the resource block in and thus always has a value passed to the resource. For example if you define `my_resource 'foo'` in recipe, then the name property of `my_resource` will automatically be set to `foo`. Setting a property to be both a name_property and have a default value will cause Chef Infra Client failures in 13.0 and later releases.
 
@@ -758,9 +758,9 @@ Include | `**/libraries/*.rb`, `**/resources/*.rb` | Array
 
 ## ChefDeprecations/NodeDeepFetch
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 The node.deep_fetch method has been removed from Chef-Sugar, and must be replaced by
 the node.read API.
@@ -790,9 +790,9 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefDeprecations/NodeMethodsInsteadofAttributes
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Incorrectly using node methods for Ohai data when you really want node attributes
 
@@ -823,9 +823,9 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefDeprecations/NodeSet
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 The node.set method has been removed in Chef-13 and must be replaced by node.normal.
 
@@ -851,9 +851,9 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefDeprecations/NodeSetUnless
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 The node.set_unless method has been removed in Chef-13 and must be replaced by node.normal_unless.
 
@@ -879,9 +879,9 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefDeprecations/NodeSetWithoutLevel
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 When setting a node attribute in Chef Infra Client 11 and later you must specify the precedence level.
 
@@ -910,9 +910,9 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb` | Array
 
 ## ChefDeprecations/PartialSearchClassUsage
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 Legacy Chef::PartialSearch class usage should be updated to use the `search` helper instead with the `filter_result` key.
 
@@ -953,9 +953,9 @@ Exclude | `**/metadata.rb` | Array
 
 ## ChefDeprecations/PartialSearchHelperUsage
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 Legacy partial_search usage should be updated to use :filter_result in the search helper instead
 
@@ -996,9 +996,9 @@ Exclude | `**/metadata.rb` | Array
 
 ## ChefDeprecations/PoiseArchiveUsage
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 The poise_archive resource in the deprecated poise-archive should be replaced with the archive_file resource found in Chef Infra Client 15+.
 
@@ -1024,9 +1024,9 @@ VersionAdded | `5.11.0` | String
 
 ## ChefDeprecations/PowershellCookbookHelpers
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Use node['powershell']['version'] or the new powershell_version helper available in Chef Infra Client 16+ instead of the deprecated PowerShell cookbook helpers
 
@@ -1052,9 +1052,9 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefDeprecations/RequireRecipe
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Make sure to use include_recipe instead of require_recipe
 
@@ -1077,9 +1077,9 @@ Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefDeprecations/ResourceInheritsFromCompatResource
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Resources written in the class based HWRP style should inherit from the 'Chef::Resource' class and not the 'ChefCompat::Resource' class from the deprecated compat_resource cookbook.
 
@@ -1109,9 +1109,9 @@ Include | `**/libraries/*.rb` | Array
 
 ## ChefDeprecations/ResourceOverridesProvidesMethod
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 Some providers in resources override the provides? method, used to check whether they are a valid provider on the current platform. In Chef Infra Client 13, this will cause an error. Instead use `provides :SOME_PROVIDER_NAME` to register the provider.
 
@@ -1136,9 +1136,9 @@ Include | `**/libraries/*.rb`, `**/providers/*.rb`, `**/resources/*.rb` | Array
 
 ## ChefDeprecations/ResourceUsesDslNameMethod
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 Don't use the dsl_name method in a resource to find the name of the resource. Use the resource_name method instead. dsl_name was removed in Chef Infra Client 13 and will now result in an error.
 
@@ -1161,9 +1161,9 @@ Include | `**/libraries/*.rb`, `**/providers/*.rb`, `**/resources/*.rb` | Array
 
 ## ChefDeprecations/ResourceUsesProviderBaseMethod
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 The Resource.provider_base allows the developer to specify within a resource a module to load the resource's provider from. Instead, the provider should call provides to register itself, or the resource should call provider to specify the provider to use.
 
@@ -1183,9 +1183,9 @@ Include | `**/libraries/*.rb`, `**/resources/*.rb` | Array
 
 ## ChefDeprecations/ResourceUsesUpdatedMethod
 
-Enabled by default | Supports autocorrection
---- | ---
-Disabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Disabled | No | All Versions
 
 Don't call the deprecated updated= method in a resource to set the resource to updated. This method was removed from Chef Infra Client 13 and this will now cause an error. Instead wrap code that updated the state of the node in a converge_by block. Documentation on using the converge_by block can be found at https://docs.chef.io/custom_resources.html.
 
@@ -1213,9 +1213,9 @@ Include | `**/libraries/*.rb`, `**/providers/*.rb`, `**/resources/*.rb` | Array
 
 ## ChefDeprecations/ResourceWithoutNameOrProvides
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 In Chef Infra Client 16 and later a legacy HWRP resource must use either `resource_name` or `provides` to define the resource name.
 
@@ -1261,9 +1261,9 @@ Include | `**/libraries/*.rb` | Array
 
 ## ChefDeprecations/RubyBlockCreateAction
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Use the :run action in the ruby_block resource instead of the deprecated :create action
 
@@ -1296,9 +1296,9 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
 ## ChefDeprecations/SearchUsesPositionalParameters
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 good
 
@@ -1316,9 +1316,9 @@ Exclude | `**/metadata.rb` | Array
 
 ## ChefDeprecations/UseInlineResourcesDefined
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 use_inline_resources became the default in Chef Infra Client 13+ and no longer needs
 to be called in resources
@@ -1341,9 +1341,9 @@ Include | `**/libraries/*.rb`, `**/providers/*.rb`, `**/resources/*.rb` | Array
 
 ## ChefDeprecations/UserDeprecatedSupportsProperty
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 The supports property was removed in Chef Infra Client 13 in favor of individual 'manage_home' and 'non_unique' properties.
 
@@ -1378,9 +1378,9 @@ Exclude | `**/metadata.rb` | Array
 
 ## ChefDeprecations/UsesChefRESTHelpers
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 Chef::REST was removed in Chef Infra Client 13.
 
@@ -1401,9 +1401,9 @@ Exclude | `**/metadata.rb` | Array
 
 ## ChefDeprecations/UsesDeprecatedMixins
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Don't use deprecated Mixins no longer included in Chef Infra Client 14 and later
 
@@ -1430,9 +1430,9 @@ Include | `**/libraries/*.rb`, `**/providers/*.rb`, `**/resources/*.rb` | Array
 
 ## ChefDeprecations/UsesRunCommandHelper
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 Use 'shell_out!' instead of the legacy 'run_command' or 'run_command_with_systems_locale' helpers for shelling out. The run_command helper was removed in Chef Infra Client 13.
 
@@ -1459,9 +1459,9 @@ Exclude | `**/metadata.rb`, `Rakefile` | Array
 
 ## ChefDeprecations/VerifyPropertyUsesFileExpansion
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | 12.5+
 
 In Chef Infra Client 13 the "file" variable for use within the verify property was replaced with the "path" variable.
 
@@ -1488,9 +1488,9 @@ Exclude | `**/metadata.rb` | Array
 
 ## ChefDeprecations/WindowsFeatureServermanagercmd
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 The `windows_feature` resource no longer supports setting the `install_method` to `:servermanagercmd`. `:windows_feature_dism` or `:windows_feature_powershell` should be used instead.
 
@@ -1525,9 +1525,9 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
 ## ChefDeprecations/WindowsTaskChangeAction
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | 13.0+
 
 The :change action in the windows_task resource was removed when windows_task was added to Chef Infra Client 13+
 The default action of :create should can now be used to create an update tasks.
@@ -1561,9 +1561,9 @@ Exclude | `**/metadata.rb` | Array
 
 ## ChefDeprecations/WindowsVersionHelpers
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | 14.0+
 
 Use node['platform_version'] and node['kernel'] data instead of the deprecated Windows::VersionHelper helpers from the Windows cookbook.
 

@@ -2,9 +2,9 @@
 
 ## ChefStyle/AttributeKeys
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Check which style of keys are used to access node attributes.
 
@@ -43,9 +43,9 @@ Exclude | `**/metadata.rb` | Array
 
 ## ChefStyle/ChefWhaaat
 
-Enabled by default | Supports autocorrection
---- | ---
-Disabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Disabled | No | All Versions
 
 Checks for comments that mention "Chef" without context. Do you mean Chef Infra or Chef Software?
 
@@ -69,9 +69,9 @@ VersionAdded | `5.20.0` | String
 
 ## ChefStyle/CommentFormat
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Checks for incorrectly formatted headers
 
@@ -104,9 +104,9 @@ Exclude | `**/Berksfile` | Array
 
 ## ChefStyle/CommentSentenceSpacing
 
-Enabled by default | Supports autocorrection
---- | ---
-Disabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Disabled | Yes | All Versions
 
 Replaces double spaces between sentences with a single space.
 Note: This is DISABLED by default.
@@ -119,9 +119,9 @@ VersionAdded | `5.1.0` | String
 
 ## ChefStyle/CopyrightCommentFormat
 
-Enabled by default | Supports autocorrection
---- | ---
-Disabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Disabled | Yes | All Versions
 
 Checks for incorrectly formatted copyright comments.
 
@@ -151,9 +151,9 @@ VersionAdded | `5.0.0` | String
 
 ## ChefStyle/DefaultCopyrightComments
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | No
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
 
 Checks for default copyright comments from the chef generator cookbook command
 
@@ -177,9 +177,9 @@ VersionAdded | `5.12.0` | String
 
 ## ChefStyle/FileMode
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Check the file modes are given as strings instead of integers.
 
@@ -203,9 +203,9 @@ Exclude | `**/attributes/*`, `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefStyle/ImmediateNotificationTiming
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Use :immediately instead of :immediate for resource notification timing
 
@@ -234,9 +234,9 @@ Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefStyle/NegatingOnlyIf
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Instead of using only_if conditionals with ! to negate the returned value, use not_if which is easier to read
 
@@ -263,9 +263,9 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefStyle/OverlyComplexSupportsDependsMetadata
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Don't loop over an array to set cookbook dependencies or supported platforms if you have fewer than three values to set.  Setting multiple `supports` or `depends` values is simpler and easier to understand for new users.
 
@@ -300,9 +300,9 @@ Include | `**/metadata.rb` | Array
 
 ## ChefStyle/SimplifyPlatformMajorVersionCheck
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 When checking the major version number of a platform you can take the node['platform_version'] attribute and transform it to an integer to strip it down to just the major version number. This simple way of determining the major version number of a platform should be used instead of splitting the platform into multiple fields with '.' as the delimiter.
 
@@ -330,9 +330,9 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefStyle/TrueClassFalseClassResourceProperties
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 When setting the allowed types for a resource to accept either true or false values it's much simpler to use true and false instead of TrueClass and FalseClass.
 
@@ -355,9 +355,9 @@ Include | `**/libraries/*.rb`, `**/resources/*.rb` | Array
 
 ## ChefStyle/UnnecessaryOSCheck
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Use the platform_family?() helpers instead of node['os] == 'foo' for platform_families that match one-to-one with OS values. These helpers are easier to read and can accept multiple platform arguments, which greatly simplifies complex platform logic. All values of `os` from Ohai match one-to-one with `platform_family` values except for `linux`, which has no single equivalent `plaform_family`.
 
@@ -386,9 +386,9 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefStyle/UnnecessaryPlatformCaseStatement
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Use the platform?() and platform_family?() helpers instead of a case statement that only includes a single when statement.
 
@@ -425,9 +425,9 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefStyle/UsePlatformHelpers
 
-Enabled by default | Supports autocorrection
---- | ---
-Enabled | Yes
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
 
 Use the platform?() and platform_family?() helpers instead of node['platform] == 'foo' and node['platform_family'] == 'bar'. These helpers are easier to read and can accept multiple platform arguments, which greatly simplifies complex platform logic.
 
