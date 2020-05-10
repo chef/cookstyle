@@ -267,7 +267,7 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Enabled | Yes | All Versions
 
-Don't loop over an array to set cookbook dependencies or supported platforms if you have fewer than three values to set.  Setting multiple `supports` or `depends` values is simpler and easier to understand for new users.
+Don't loop over an array to set cookbook dependencies or supported platforms if you have fewer than three values to set. Setting multiple `supports` or `depends` values is simpler and easier to understand for new users.
 
 ### Examples
 

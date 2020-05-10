@@ -451,7 +451,7 @@ Enabled by default | Supports autocorrection | Target Chef Version
 Enabled | No | All Versions
 
 Normal attributes are discouraged since their semantics differ importantly from the
-default and override levels.  Their values persist in the node object even after
+default and override levels. Their values persist in the node object even after
 all code referencing them has been deleted, unlike default and override.
 
 Code should be updated to use default or override levels, but this will change
@@ -485,7 +485,7 @@ Enabled by default | Supports autocorrection | Target Chef Version
 Enabled | No | All Versions
 
 Normal attributes are discouraged since their semantics differ importantly from the
-default and override levels.  Their values persist in the node object even after
+default and override levels. Their values persist in the node object even after
 all code referencing them has been deleted, unlike default and override.
 
 Code should be updated to use default or override levels, but this will change

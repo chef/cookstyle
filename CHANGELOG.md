@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.3.6 -->
-## [v6.3.6](https://github.com/chef/cookstyle/tree/v6.3.6) (2020-05-10)
+ <!-- latest_release 6.3.7 -->
+## [v6.3.7](https://github.com/chef/cookstyle/tree/v6.3.7) (2020-05-10)
 
 #### Merged Pull Requests
-- Document the target chef version of each cop [#617](https://github.com/chef/cookstyle/pull/617) ([tas50](https://github.com/tas50))
+- Remove double spaces after periods in documentation [#618](https://github.com/chef/cookstyle/pull/618) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.3.4 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Remove double spaces after periods in documentation [#618](https://github.com/chef/cookstyle/pull/618) ([tas50](https://github.com/tas50)) <!-- 6.3.7 -->
 - Document the target chef version of each cop [#617](https://github.com/chef/cookstyle/pull/617) ([tas50](https://github.com/tas50)) <!-- 6.3.6 -->
 - Wire up the 5-stable branch [#612](https://github.com/chef/cookstyle/pull/612) ([tas50](https://github.com/tas50)) <!-- 6.3.5 -->
 <!-- release_rollup -->
