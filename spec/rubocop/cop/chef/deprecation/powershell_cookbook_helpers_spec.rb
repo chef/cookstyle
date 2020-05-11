@@ -23,7 +23,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::PowershellCookbookHelpers, :confi
   it 'registers an offense with Powershell::VersionHelper.powershell_version?' do
     expect_offense(<<~RUBY)
       Powershell::VersionHelper.powershell_version?('4.0')
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use node['powershell']['version'] or the new powershell_version helper available in Chef Infra Client 16+ instead of the deprecated PowerShell cookbook helpers.
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use node['powershell']['version'] or the new powershell_version helper available in Chef Infra Client 15.8+ instead of the deprecated PowerShell cookbook helpers.
     RUBY
 
     expect_correction("node['powershell']['version'].to_f == '4.0'\n")

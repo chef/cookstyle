@@ -18,7 +18,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefDeprecations
-        # Don't depend on the partial_search cookbook made obsolete by Chef 13
+        # Don't depend on the partial_search cookbook made obsolete by Chef Infra Client 13
         #
         # @example
         #
