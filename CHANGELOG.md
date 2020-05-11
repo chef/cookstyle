@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.4.1 -->
-## [v6.4.1](https://github.com/chef/cookstyle/tree/v6.4.1) (2020-05-11)
+ <!-- latest_release 6.4.2 -->
+## [v6.4.2](https://github.com/chef/cookstyle/tree/v6.4.2) (2020-05-11)
 
 #### Merged Pull Requests
-- Update RuboCop to 0.83 [#623](https://github.com/chef/cookstyle/pull/623) ([tas50](https://github.com/tas50))
+- Support an edge case where the supports / manage_home value is a method [#624](https://github.com/chef/cookstyle/pull/624) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.3.4 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Support an edge case where the supports / manage_home value is a method [#624](https://github.com/chef/cookstyle/pull/624) ([tas50](https://github.com/tas50)) <!-- 6.4.2 -->
 - Update RuboCop to 0.83 [#623](https://github.com/chef/cookstyle/pull/623) ([tas50](https://github.com/tas50)) <!-- 6.4.1 -->
 - Enable ChefModernize/FoodcriticComments by default [#622](https://github.com/chef/cookstyle/pull/622) ([tas50](https://github.com/tas50)) <!-- 6.4.0 -->
 - Update some descriptions [#619](https://github.com/chef/cookstyle/pull/619) ([tas50](https://github.com/tas50)) <!-- 6.3.8 -->
