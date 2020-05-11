@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.3.8 -->
-## [v6.3.8](https://github.com/chef/cookstyle/tree/v6.3.8) (2020-05-11)
+ <!-- latest_release 6.4.0 -->
+## [v6.4.0](https://github.com/chef/cookstyle/tree/v6.4.0) (2020-05-11)
 
 #### Merged Pull Requests
-- Update some descriptions [#619](https://github.com/chef/cookstyle/pull/619) ([tas50](https://github.com/tas50))
+- Enable ChefModernize/FoodcriticComments by default [#622](https://github.com/chef/cookstyle/pull/622) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.3.4 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Enable ChefModernize/FoodcriticComments by default [#622](https://github.com/chef/cookstyle/pull/622) ([tas50](https://github.com/tas50)) <!-- 6.4.0 -->
 - Update some descriptions [#619](https://github.com/chef/cookstyle/pull/619) ([tas50](https://github.com/tas50)) <!-- 6.3.8 -->
 - Remove double spaces after periods in documentation [#618](https://github.com/chef/cookstyle/pull/618) ([tas50](https://github.com/tas50)) <!-- 6.3.7 -->
 - Document the target chef version of each cop [#617](https://github.com/chef/cookstyle/pull/617) ([tas50](https://github.com/tas50)) <!-- 6.3.6 -->

@@ -438,7 +438,7 @@ Exclude | `**/metadata.rb` | Array
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
-Disabled | Yes | All Versions
+Enabled | Yes | All Versions
 
 Remove legacy code comments that disable Foodcritic rules. These comments are no longer necessary if you've migrated from Foodcritic to Cookstyle for cookbook linting.
 
