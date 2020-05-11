@@ -6,3 +6,7 @@ ChefStyle/CommentFormat:
 # undefined method `each_value' for #<RuboCop::AST::ArrayNode:0x00007fb285b2c7c8>
 Style/HashEachMethods:
   Enabled: false
+
+# ChefModernize/FoodcriticComments itslef include an example Foocritic comment which alerts
+ChefModernize/FoodcriticComments:
+  Enabled: false

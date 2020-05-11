@@ -1,5 +1,5 @@
 #
-# Copyright:: 2019, Chef Software, Inc.
+# Copyright:: Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -34,6 +34,21 @@ describe RuboCop::Cop::Chef::ChefDeprecations::UserDeprecatedSupportsProperty, :
       user "betty" do
         manage_home true
         non_unique true
+      end
+    RUBY
+  end
+
+  it 'properly autocorrects when the value passed to supports is actually a method not a symbols or string' do
+    expect_offense(<<~RUBY)
+      user "betty" do
+        supports manage_home => true
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ The supports property was removed in Chef Infra Client 13 in favor of individual 'manage_home' and 'non_unique' properties.
+      end
+    RUBY
+
+    expect_correction(<<~RUBY)
+      user "betty" do
+        manage_home true
       end
     RUBY
   end
