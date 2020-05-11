@@ -193,7 +193,7 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Enabled | Yes | 12.19+
 
-Don't depend on the deprecated compat_resource cookbook made obsolete by Chef 12.19+
+Don't depend on the deprecated compat_resource cookbook made obsolete by Chef Infra Client 12.19+
 
 ### Examples
 
@@ -215,7 +215,7 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Enabled | No | 13.0+
 
-Don't depend on the partial_search cookbook made obsolete by Chef 13
+Don't depend on the partial_search cookbook made obsolete by Chef Infra Client 13
 
 ### Examples
 
@@ -437,7 +437,7 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Enabled | No | All Versions
 
-Don't use the deprecated easy_install resource removed in Chef 13
+Don't use the deprecated easy_install resource removed in Chef Infra Client 13
 
 ### Examples
 
@@ -671,7 +671,7 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Enabled | No | All Versions
 
-The local resource's lc_all property has been deprecated and will be removed in Chef Infra Client 16
+The local resource's lc_all property has been deprecated and will be removed in Chef Infra Client 17
 
 ### Examples
 
@@ -794,7 +794,7 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Enabled | Yes | All Versions
 
-Incorrectly using node methods for Ohai data when you really want node attributes
+Use node attributes to access data provided by Ohai instead of using node methods to access that data.
 
 ### Examples
 
@@ -827,10 +827,9 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Enabled | Yes | All Versions
 
-The node.set method has been removed in Chef-13 and must be replaced by node.normal.
+The `node.set` method has been removed in Chef Infra Client 13 and usage must be replaced with `node.normal`.
 
-Note that node.normal keeps the semantics identical, but the use of node.normal is
-also discouraged.
+This cop will autocorrect code to use node.normal, which is functionally identical to node.set, but we also discourage the use of that method as normal level attributes persist on the node even if the code setting the attribute is later removed.
 
 ### Examples
 
@@ -855,10 +854,9 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Enabled | Yes | All Versions
 
-The node.set_unless method has been removed in Chef-13 and must be replaced by node.normal_unless.
+The node.set_unless method has been removed in Chef Infra Client 13 and usage must be replaced with node.normal_unless.
 
-Note that node.normal_unless keeps the semantics identical, but the use of node.normal is
-also discouraged.
+This cop will autocorrect code to use node.normal_unless, which is functionally identical to node.set_unless, but we also discourage the use of that method as normal level attributes persist on the node even if the code setting the attribute is later removed.
 
 ### Examples
 
@@ -1028,7 +1026,7 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Enabled | Yes | All Versions
 
-Use node['powershell']['version'] or the new powershell_version helper available in Chef Infra Client 16+ instead of the deprecated PowerShell cookbook helpers
+Use `node['powershell']['version']` or the new `powershell_version` helper available in Chef Infra Client 15.8+ instead of the deprecated PowerShell cookbook helpers
 
 ### Examples
 
@@ -1039,7 +1037,7 @@ Powershell::VersionHelper.powershell_version?('4.0')
 # good
 node['powershell']['version'].to_f == 4.0
 
-# good (Chef Infra Client 16+)
+# better (Chef Infra Client 15.8+)
 powershell_version == 4.0
 ```
 
