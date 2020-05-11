@@ -22,7 +22,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::EasyInstallResource do
   it 'registers an offense when using the easy_install resource' do
     expect_offense(<<~RUBY)
       easy_install "my_thing" do
-      ^^^^^^^^^^^^^^^^^^^^^^^ Don't use the deprecated easy_install resource removed in Chef 13
+      ^^^^^^^^^^^^^^^^^^^^^^^ Don't use the deprecated easy_install resource removed in Chef Infra Client 13
         bar
       end
     RUBY

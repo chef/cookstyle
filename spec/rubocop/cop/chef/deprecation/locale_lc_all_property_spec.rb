@@ -24,7 +24,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::LocaleDeprecatedLcAllProperty, :c
       locale 'set locale' do
         lang 'en_gb.utf-8'
         lc_all 'en_gb.utf-8'
-        ^^^^^^^^^^^^^^^^^^^^ The local resource's lc_all property has been deprecated and will be removed in Chef Infra Client 16
+        ^^^^^^^^^^^^^^^^^^^^ The local resource's lc_all property has been deprecated and will be removed in Chef Infra Client 17
       end
     RUBY
   end

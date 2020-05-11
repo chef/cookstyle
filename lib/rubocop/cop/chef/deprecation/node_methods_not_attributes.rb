@@ -18,7 +18,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefDeprecations
-        # Incorrectly using node methods for Ohai data when you really want node attributes
+        # Use node attributes to access data provided by Ohai instead of using node methods to access that data.
         #
         # @example
         #

@@ -19,7 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefDeprecations
-        # Don't use the deprecated easy_install resource removed in Chef 13
+        # Don't use the deprecated easy_install resource removed in Chef Infra Client 13
         #
         # @example
         #
@@ -29,7 +29,7 @@ module RuboCop
         #   end
         #
         class EasyInstallResource < Cop
-          MSG = "Don't use the deprecated easy_install resource removed in Chef 13".freeze
+          MSG = "Don't use the deprecated easy_install resource removed in Chef Infra Client 13".freeze
 
           def on_send(node)
             add_offense(node, location: :expression, message: MSG, severity: :warning) if node.method_name == :easy_install

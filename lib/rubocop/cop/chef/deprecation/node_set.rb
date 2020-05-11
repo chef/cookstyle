@@ -17,10 +17,9 @@ module RuboCop
   module Cop
     module Chef
       module ChefDeprecations
-        # The node.set method has been removed in Chef-13 and must be replaced by node.normal.
+        # The `node.set` method has been removed in Chef Infra Client 13 and usage must be replaced with `node.normal`.
         #
-        # Note that node.normal keeps the semantics identical, but the use of node.normal is
-        # also discouraged.
+        # This cop will autocorrect code to use node.normal, which is functionally identical to node.set, but we also discourage the use of that method as normal level attributes persist on the node even if the code setting the attribute is later removed.
         #
         # @example
         #
