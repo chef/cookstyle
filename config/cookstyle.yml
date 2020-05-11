@@ -1158,7 +1158,7 @@ ChefModernize/AllowedActionsFromInitialize:
 
 ChefModernize/FoodcriticComments:
   Description: Remove legacy code comments that disable Foodcritic rules. These comments are no longer necessary if you've migrated from Foodcritic to Cookstyle for cookbook linting.
-  Enabled: false
+  Enabled: true
   VersionAdded: '5.16.0'
   Exclude:
     - '**/Berksfile'
