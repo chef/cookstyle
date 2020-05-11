@@ -59,6 +59,8 @@ Layout/EmptyLinesAroundAccessModifier:
   Enabled: false
 Layout/EmptyLinesAroundArguments:
   Enabled: false
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: false
 Layout/EmptyLinesAroundBeginBody:
   Enabled: false
 Layout/EmptyLinesAroundBlockBody:
@@ -696,6 +698,8 @@ Style/SignalException:
 Style/SingleLineBlockParams:
   Enabled: false
 Style/SingleLineMethods:
+  Enabled: false
+Style/SlicingWithRange:
   Enabled: false
 Style/SpecialGlobalVars:
   Enabled: false
