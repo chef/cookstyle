@@ -54,8 +54,13 @@ module RuboCop
           def autocorrect(node)
             lambda do |corrector|
               new_text = []
+
               node.arguments.first.each_pair do |k, v|
-                new_text << "#{k.value} #{v.source}"
+                # account for a strange edge case where the person incorrectly makes "manage_home a method
+                # the code would be broken, but without this handling cookstyle would explode
+                key_value = (k.send_type? && k.method_name == :manage_home) ? 'manage_home' : k.value
+
+                new_text << "#{key_value} #{v.source}"
               end
 
               corrector.replace(node.loc.expression, new_text.join("\n  "))
