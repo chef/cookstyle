@@ -1,3 +1,15 @@
+## Cookstyle 6.4
+
+### RuboCop 0.83
+
+The RuboCop engine that powers Cookstyle has been upgraded from 0.82 to 0.83. This new release resolves several issues that impacted detection and correction of code in cookbooks. The release also includes expanded autocorrection functionality, making it easier to fix your codebase without manual work.
+
+### Other Improvements
+
+* ChefModernize/FoodcriticComments is now enabled by default.
+* ChefDeprecations/UserDeprecatedSupportsProperty now autocorrect invalid supports property values containing methods instead of hash keys.
+* Files in `vendor` and `files` directories will now be ignored even if running cookbookstyle against a larger repository of cookbooks.
+
 ## Cookstyle 6.3
 
 ### 2 New Cops
