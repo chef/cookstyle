@@ -7,7 +7,7 @@ The RuboCop engine that powers Cookstyle has been upgraded from 0.82 to 0.83. Th
 ### Other Improvements
 
 * ChefModernize/FoodcriticComments is now enabled by default.
-* ChefDeprecations/UserDeprecatedSupportsProperty now autocorrect invalid supports property values containing methods instead of hash keys.
+* ChefDeprecations/UserDeprecatedSupportsProperty now autocorrects invalid supports property values containing methods instead of hash keys.
 * Files in `vendor` and `files` directories will now be ignored even if running cookbookstyle against a larger repository of cookbooks.
 
 ## Cookstyle 6.3
