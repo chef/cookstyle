@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 6.4.5 -->
+## [v6.4.5](https://github.com/chef/cookstyle/tree/v6.4.5) (2020-05-15)
+
+#### Merged Pull Requests
+- mistyped name [#627](https://github.com/chef/cookstyle/pull/627) ([Xorima](https://github.com/Xorima))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=6.4.4 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- mistyped name [#627](https://github.com/chef/cookstyle/pull/627) ([Xorima](https://github.com/Xorima)) <!-- 6.4.5 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
