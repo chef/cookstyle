@@ -1,3 +1,39 @@
+## Cookstyle 6.5
+
+### 2 New Cops
+
+#### ChefModernize/ShellOutHelper
+
+The `ChefModernize/ShellOutHelper` cop detects cookbooks that use `Mixlib::ShellOut.new('foo').run_command` instead of the `shell_out('foo')` helper included in Chef Infra Client 12.11 and later.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefDeprecations/Ruby27KeywordArgumentWarnings
+
+The `ChefDeprecations/Ruby27KeywordArgumentWarnings` cop detects cookbooks that use the `shell_out` helper with shellout options within hash braces. Using braces in this helper will result in Ruby 2.7 deprecation warnings when running on Chef Infra Client 16 and later.
+
+**With braces:**
+
+```ruby
+shell_out!('hostnamectl status', { returns: [0, 1] })
+```
+
+**Without braces:**
+
+```ruby
+shell_out!('hostnamectl status', returns: [0, 1])
+```
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+### Other Improvements
+
+- The `ChefDeprecations/DeprecatedChefSpecPlatform` cop has been updated to detect and correct additional legacy platform releases in ChefSpecs.
+
 ## Cookstyle 6.4
 
 ### RuboCop 0.83
