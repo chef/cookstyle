@@ -143,6 +143,7 @@
 * [ChefModernize/RespondToResourceName](cops_chefmodernize.md#chefmodernizerespondtoresourcename)
 * [ChefModernize/SetOrReturnInResources](cops_chefmodernize.md#chefmodernizesetorreturninresources)
 * [ChefModernize/SevenZipArchiveResource](cops_chefmodernize.md#chefmodernizesevenziparchiveresource)
+* [ChefModernize/ShellOutHelper](cops_chefmodernize.md#chefmodernizeshellouthelper)
 * [ChefModernize/ShellOutToChocolatey](cops_chefmodernize.md#chefmodernizeshellouttochocolatey)
 * [ChefModernize/SimplifyAptPpaSetup](cops_chefmodernize.md#chefmodernizesimplifyaptppasetup)
 * [ChefModernize/SysctlParamResource](cops_chefmodernize.md#chefmodernizesysctlparamresource)

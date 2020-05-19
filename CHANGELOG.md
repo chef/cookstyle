@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.5.2 -->
-## [v6.5.2](https://github.com/chef/cookstyle/tree/v6.5.2) (2020-05-19)
+ <!-- latest_release 6.5.3 -->
+## [v6.5.3](https://github.com/chef/cookstyle/tree/v6.5.3) (2020-05-19)
 
 #### Merged Pull Requests
-- Add Cookstyle 6.5 release notes [#631](https://github.com/chef/cookstyle/pull/631) ([tas50](https://github.com/tas50))
+- Add new ChefModernize/ShellOutHelper cop [#630](https://github.com/chef/cookstyle/pull/630) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.4.4 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add new ChefModernize/ShellOutHelper cop [#630](https://github.com/chef/cookstyle/pull/630) ([tas50](https://github.com/tas50)) <!-- 6.5.3 -->
 - Add Cookstyle 6.5 release notes [#631](https://github.com/chef/cookstyle/pull/631) ([tas50](https://github.com/tas50)) <!-- 6.5.2 -->
 - Add ChefDeprecations/Ruby27KeywordArgumentWarnings cop [#629](https://github.com/chef/cookstyle/pull/629) ([tas50](https://github.com/tas50)) <!-- 6.5.1 -->
 - More cleanup of legacy ChefSpec/Fauxhai platforms [#628](https://github.com/chef/cookstyle/pull/628) ([tas50](https://github.com/tas50)) <!-- 6.5.0 -->

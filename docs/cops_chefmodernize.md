@@ -1246,6 +1246,31 @@ Name | Default value | Configurable values
 VersionAdded | `5.5.0` | String
 Exclude | `**/metadata.rb` | Array
 
+## ChefModernize/ShellOutHelper
+
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | 12.11+
+
+Use the built-in `shell_out` helper available in Chef Infra Client 12.11+ instead of calling `Mixlib::ShellOut.new('foo').run_command`.
+
+### Examples
+
+```ruby
+# bad
+Mixlib::ShellOut.new('foo').run_command
+
+# good
+shell_out('foo')
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.5.0` | String
+Exclude | `**/metadata.rb`, `**/Berksfile`, `**/libraries/*.rb` | Array
+
 ## ChefModernize/ShellOutToChocolatey
 
 Enabled by default | Supports autocorrection | Target Chef Version
