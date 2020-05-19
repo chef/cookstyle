@@ -1,24 +1,22 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.5.3 -->
-## [v6.5.3](https://github.com/chef/cookstyle/tree/v6.5.3) (2020-05-19)
-
-#### Merged Pull Requests
-- Add new ChefModernize/ShellOutHelper cop [#630](https://github.com/chef/cookstyle/pull/630) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=6.4.4 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Add new ChefModernize/ShellOutHelper cop [#630](https://github.com/chef/cookstyle/pull/630) ([tas50](https://github.com/tas50)) <!-- 6.5.3 -->
-- Add Cookstyle 6.5 release notes [#631](https://github.com/chef/cookstyle/pull/631) ([tas50](https://github.com/tas50)) <!-- 6.5.2 -->
-- Add ChefDeprecations/Ruby27KeywordArgumentWarnings cop [#629](https://github.com/chef/cookstyle/pull/629) ([tas50](https://github.com/tas50)) <!-- 6.5.1 -->
-- More cleanup of legacy ChefSpec/Fauxhai platforms [#628](https://github.com/chef/cookstyle/pull/628) ([tas50](https://github.com/tas50)) <!-- 6.5.0 -->
-- mistyped name [#627](https://github.com/chef/cookstyle/pull/627) ([Xorima](https://github.com/Xorima)) <!-- 6.4.5 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v6.5.3](https://github.com/chef/cookstyle/tree/v6.5.3) (2020-05-19)
+
+#### Merged Pull Requests
+- mistyped name [#627](https://github.com/chef/cookstyle/pull/627) ([Xorima](https://github.com/Xorima))
+- More cleanup of legacy ChefSpec/Fauxhai platforms [#628](https://github.com/chef/cookstyle/pull/628) ([tas50](https://github.com/tas50))
+- Add ChefDeprecations/Ruby27KeywordArgumentWarnings cop [#629](https://github.com/chef/cookstyle/pull/629) ([tas50](https://github.com/tas50))
+- Add Cookstyle 6.5 release notes [#631](https://github.com/chef/cookstyle/pull/631) ([tas50](https://github.com/tas50))
+- Add new ChefModernize/ShellOutHelper cop [#630](https://github.com/chef/cookstyle/pull/630) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v6.4.4](https://github.com/chef/cookstyle/tree/v6.4.4) (2020-05-12)
 
 #### Merged Pull Requests
@@ -31,7 +29,6 @@
 - Support an edge case where the supports / manage_home value is a method [#624](https://github.com/chef/cookstyle/pull/624) ([tas50](https://github.com/tas50))
 - Fix our files and vendor exclusion to work [#625](https://github.com/chef/cookstyle/pull/625) ([tas50](https://github.com/tas50))
 - Add Cookstyle 6.4 release notes [#626](https://github.com/chef/cookstyle/pull/626) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v6.3.4](https://github.com/chef/cookstyle/tree/v6.3.4) (2020-04-16)
 
