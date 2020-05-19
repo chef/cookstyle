@@ -834,6 +834,14 @@ ChefDeprecations/DeprecatedShelloutMethods:
     - '**/attributes/*.rb'
     - '**/Berksfile'
 
+ChefDeprecations/Ruby27KeywordArgumentWarnings:
+  Description: Pass options to shell_out helpers without the brackets to avoid Ruby 2.7 deprecation warnings.
+  Enabled: true
+  VersionAdded: '6.5.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/Berksfile'
+
 ###############################
 # ChefModernize: Cleaning up legacy code and using new built-in resources
 ###############################
