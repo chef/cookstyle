@@ -1257,6 +1257,33 @@ Name | Default value | Configurable values
 VersionAdded | `6.0.0` | String
 Include | `**/libraries/*.rb` | Array
 
+## ChefDeprecations/Ruby27KeywordArgumentWarnings
+
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
+
+Pass options to shell_out helpers without the brackets to avoid Ruby 2.7 deprecation warnings.
+
+### Examples
+
+```ruby
+# bad
+shell_out!('hostnamectl status', { returns: [0, 1] })
+shell_out('hostnamectl status', { returns: [0, 1] })
+
+# good
+shell_out!('hostnamectl status', returns: [0, 1])
+shell_out('hostnamectl status', returns: [0, 1])
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.5.0` | String
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
+
 ## ChefDeprecations/RubyBlockCreateAction
 
 Enabled by default | Supports autocorrection | Target Chef Version
