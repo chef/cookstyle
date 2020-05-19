@@ -12,7 +12,7 @@ The `ChefModernize/ShellOutHelper` cop detects cookbooks that use `Mixlib::Shell
 
 #### ChefDeprecations/Ruby27KeywordArgumentWarnings
 
-The `ChefDeprecations/Ruby27KeywordArgumentWarnings` cop detects cookbooks that use the `shell_out` helper with shellout options within hash braces. The usage of braces in this helper will result in Ruby 2.7 deprecation warnings when running on Chef Infra Client 16 and later.
+The `ChefDeprecations/Ruby27KeywordArgumentWarnings` cop detects cookbooks that use the `shell_out` helper with shellout options within hash braces. Using braces in this helper will result in Ruby 2.7 deprecation warnings when running on Chef Infra Client 16 and later.
 
 **With braces:**
 
