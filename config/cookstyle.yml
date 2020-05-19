@@ -1301,6 +1301,15 @@ ChefModernize/RespondToCompileTime:
     - '**/metadata.rb'
     - '**/Berksfile'
 
+ChefModernize/ShellOutHelper:
+  Description: Use the built-in shell_out helper available in Chef Infra Client 12.11+ instead of calling Mixlib::ShellOut.new('foo').run_command.
+  Enabled: true
+  VersionAdded: '6.5.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/libraries/*.rb'
+
 ###############################
 # ChefRedundantCode: Cleanup unnecessary code in your cookbooks regardless of Chef Infra Client release
 ###############################
