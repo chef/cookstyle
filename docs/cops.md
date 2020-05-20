@@ -15,6 +15,7 @@
 * [ChefCorrectness/InvalidPlatformValueForPlatformFamilyHelper](cops_chefcorrectness.md#chefcorrectnessinvalidplatformvalueforplatformfamilyhelper)
 * [ChefCorrectness/InvalidPlatformValueForPlatformHelper](cops_chefcorrectness.md#chefcorrectnessinvalidplatformvalueforplatformhelper)
 * [ChefCorrectness/InvalidVersionMetadata](cops_chefcorrectness.md#chefcorrectnessinvalidversionmetadata)
+* [ChefCorrectness/LazyEvalNodeAttributeDefaults](cops_chefcorrectness.md#chefcorrectnesslazyevalnodeattributedefaults)
 * [ChefCorrectness/MalformedPlatformValueForPlatformHelper](cops_chefcorrectness.md#chefcorrectnessmalformedplatformvalueforplatformhelper)
 * [ChefCorrectness/MetadataMissingName](cops_chefcorrectness.md#chefcorrectnessmetadatamissingname)
 * [ChefCorrectness/NodeNormal](cops_chefcorrectness.md#chefcorrectnessnodenormal)

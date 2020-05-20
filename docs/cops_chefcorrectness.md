@@ -389,6 +389,31 @@ Name | Default value | Configurable values
 VersionAdded | `5.8.0` | String
 Include | `**/metadata.rb` | Array
 
+## ChefCorrectness/LazyEvalNodeAttributeDefaults
+
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Disabled | Yes | All Versions
+
+When setting a node attribute as a default value for a custom resource property, make sure to wrap the node attribute in `lazy {}` so that the node attribute is available when the resource executes.
+
+### Examples
+
+```ruby
+# bad
+property :Something, String, default: node['hostname']
+
+# good
+property :Something, String, default: lazy { node['hostname'] }
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.6.0` | String
+Include | `**/libraries/*.rb`, `**/resources/*.rb` | Array
+
 ## ChefCorrectness/MalformedPlatformValueForPlatformHelper
 
 Enabled by default | Supports autocorrection | Target Chef Version
