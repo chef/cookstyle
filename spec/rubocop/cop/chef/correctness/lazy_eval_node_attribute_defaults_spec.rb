@@ -40,6 +40,6 @@ describe RuboCop::Cop::Chef::ChefCorrectness::LazyEvalNodeAttributeDefaults do
   end
 
   it 'does not register an offense when a property does not have a default' do
-    expect_no_offenses("property :Something, String")
+    expect_no_offenses('property :Something, String')
   end
 end
