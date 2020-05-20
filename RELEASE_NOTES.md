@@ -88,7 +88,7 @@ Overly complex conditional check:
 ```ruby
 file '/etc/some/config' do
   content 'value = true'
-  only_if { ::File.exist?('/etc/some/config') }
+  not_if { ::File.exist?('/etc/some/config') }
 end
 ```
 
