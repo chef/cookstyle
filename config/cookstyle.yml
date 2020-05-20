@@ -361,6 +361,14 @@ ChefCorrectness/ConditionalRubyShellout:
     - '**/metadata.rb'
     - '**/Berksfile'
 
+ChefCorrectness/LazyEvalNodeAttributeDefaults:
+  Description: When setting a node attribute as a default value for a custom resource property, make sure to wrap the node attribute in `lazy {}` so that the node attribute is available when the resource executes.
+  Enabled: false
+  VersionAdded: '6.6.0'
+  Include:
+    - '**/libraries/*.rb'
+    - '**/resources/*.rb'
+
 ###############################
 # ChefSharing: Issues that prevent sharing code with other teams or with the Chef community in general
 ###############################
