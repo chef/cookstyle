@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.6.0 -->
-## [v6.6.0](https://github.com/chef/cookstyle/tree/v6.6.0) (2020-05-20)
+ <!-- latest_release 6.6.1 -->
+## [v6.6.1](https://github.com/chef/cookstyle/tree/v6.6.1) (2020-05-20)
 
 #### Merged Pull Requests
-- Add new ChefCorrectness/LazyEvalNodeAttributeDefaults cop [#632](https://github.com/chef/cookstyle/pull/632) ([tas50](https://github.com/tas50))
+- Minor update RELEASE_NOTES.md#cookstyle-62 [#633](https://github.com/chef/cookstyle/pull/633) ([vsingh-msys](https://github.com/vsingh-msys))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.5.3 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Minor update RELEASE_NOTES.md#cookstyle-62 [#633](https://github.com/chef/cookstyle/pull/633) ([vsingh-msys](https://github.com/vsingh-msys)) <!-- 6.6.1 -->
 - Add new ChefCorrectness/LazyEvalNodeAttributeDefaults cop [#632](https://github.com/chef/cookstyle/pull/632) ([tas50](https://github.com/tas50)) <!-- 6.6.0 -->
 <!-- release_rollup -->
 
