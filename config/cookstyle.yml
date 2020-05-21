@@ -2445,3 +2445,7 @@ Style/MultilineWhenThen:
 # .each_key is a lot more clear that .keys.each
 Style/HashEachMethods:
   Enabled: true
+
+# We want to catch this deprecation in cookbooks
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: true
