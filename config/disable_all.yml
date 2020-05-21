@@ -215,6 +215,8 @@ Lint/Debugger:
   Enabled: false
 Lint/DeprecatedClassMethods:
   Enabled: false
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: false
 Lint/DisjunctiveAssignmentInConstructor:
   Enabled: false
 Lint/DuplicateCaseCondition:

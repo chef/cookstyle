@@ -468,6 +468,13 @@ Layout/EmptyLinesAroundAttributeAccessor:
   StyleGuide: '#empty-lines-around-attribute-accessor'
   Enabled: pending
   VersionAdded: '0.83'
+  VersionChanged: '0.84'
+  AllowAliasSyntax: true
+  AllowedMethods:
+    - alias_method
+    - public
+    - protected
+    - private
 
 Layout/EmptyLinesAroundBeginBody:
   Description: "Keeps track of empty lines around begin-end bodies."
@@ -861,9 +868,9 @@ Layout/LineLength:
   StyleGuide: '#80-character-limits'
   Enabled: true
   VersionAdded: '0.25'
-  VersionChanged: '0.78'
+  VersionChanged: '0.84'
   AutoCorrect: false
-  Max: 80
+  Max: 120
   # To make it possible to copy or click on URIs in the code, we allow lines
   # containing a URI to be longer than Max.
   AllowHeredoc: true
@@ -1369,6 +1376,11 @@ Lint/DeprecatedClassMethods:
   Description: 'Check for deprecated class method calls.'
   Enabled: true
   VersionAdded: '0.19'
+
+Lint/DeprecatedOpenSSLConstant:
+  Description: "Don't use algorithm constants for `OpenSSL::Cipher` and `OpenSSL::Digest`."
+  Enabled: pending
+  VersionAdded: '0.84'
 
 Lint/DisjunctiveAssignmentInConstructor:
   Description: 'In constructor, plain assignment is preferred over disjunctive.'
@@ -2274,7 +2286,7 @@ Style/AndOr:
   VersionChanged: '0.25'
   # Whether `and` and `or` are banned only in conditionals (conditionals)
   # or completely (always).
-  EnforcedStyle: always
+  EnforcedStyle: conditionals
   SupportedStyles:
     - always
     - conditionals
@@ -2694,6 +2706,11 @@ Style/DoubleNegation:
   StyleGuide: '#no-bang-bang'
   Enabled: true
   VersionAdded: '0.19'
+  VersionChanged: '0.84'
+  EnforcedStyle: allowed_in_returns
+  SupportedStyles:
+    - allowed_in_returns
+    - forbidden
 
 Style/EachForSimpleLoop:
   Description: >-
