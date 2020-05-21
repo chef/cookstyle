@@ -1790,8 +1790,6 @@ ChefEffortless/Berksfile:
 
 Layout/AccessModifierIndentation:
   Enabled: true
-Naming/AccessorMethodName:
-  Enabled: true
 Layout/AlignArray:
   Enabled: true
 Layout/AlignHash:
