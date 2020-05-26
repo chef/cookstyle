@@ -514,8 +514,7 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Enabled | Yes | All Versions
 
-Do not include the deprecated xml::ruby recipe to install the nokogiri gem.
-Chef Infra Client 12 and later ships with nokogiri included.
+Do not include the deprecated xml::ruby recipe to install the nokogiri gem. Chef Infra Client 12 and later ships with nokogiri included.
 
 ### Examples
 
