@@ -369,6 +369,14 @@ ChefCorrectness/LazyEvalNodeAttributeDefaults:
     - '**/libraries/*.rb'
     - '**/resources/*.rb'
 
+ChefCorrectness/OpenSSLPasswordHelpers:
+  Description: The secure_password helper from the openssl cookbooks Opscode::OpenSSL::Password class should not be used to generate passwords.
+  Enabled: true
+  VersionAdded: '6.6.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/Berksfile'
+
 ###############################
 # ChefSharing: Issues that prevent sharing code with other teams or with the Chef community in general
 ###############################
