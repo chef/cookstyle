@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.6.4 -->
-## [v6.6.4](https://github.com/chef/cookstyle/tree/v6.6.4) (2020-05-26)
+ <!-- latest_release 6.6.5 -->
+## [v6.6.5](https://github.com/chef/cookstyle/tree/v6.6.5) (2020-05-26)
 
 #### Merged Pull Requests
-- Add new ChefCorrectness/OpenSSLPasswordHelpers cop [#638](https://github.com/chef/cookstyle/pull/638) ([tas50](https://github.com/tas50))
+- Detect package installs w/o an action in the multipackage cop [#637](https://github.com/chef/cookstyle/pull/637) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.5.3 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Detect package installs w/o an action in the multipackage cop [#637](https://github.com/chef/cookstyle/pull/637) ([tas50](https://github.com/tas50)) <!-- 6.6.5 -->
 - Add new ChefCorrectness/OpenSSLPasswordHelpers cop [#638](https://github.com/chef/cookstyle/pull/638) ([tas50](https://github.com/tas50)) <!-- 6.6.4 -->
 - Add oracle as an invalid platform_family [#636](https://github.com/chef/cookstyle/pull/636) ([tas50](https://github.com/tas50)) <!-- 6.6.3 -->
 - Catch conditionals in ChefDeprecations/IncludingXMLRubyRecipe [#635](https://github.com/chef/cookstyle/pull/635) ([tas50](https://github.com/tas50)) <!-- 6.6.2 -->
