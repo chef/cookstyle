@@ -1,5 +1,5 @@
 #
-# Copyright:: Copyright 2019, Chef Software Inc.
+# Copyright:: Copyright 2019-2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -32,6 +32,7 @@ module RuboCop
         'mswin' => 'windows',
         'opensuse' => 'suse',
         'opensuseleap' => 'suse',
+        'oracle' => 'rhel',
         'redhat' => 'rhel',
         'scientific' => 'rhel',
         'sles' => 'suse',
