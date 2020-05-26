@@ -47,12 +47,14 @@ module RuboCop
               (send
                 $(array ... ) :each)
               (args ... )
-              (block
+              {(block
                 (send nil? :package
                   (lvar ... ))
                 (args)
                 (send nil? :action
-                  (sym :install)))) nil?)
+                  (sym :install)))
+                (send nil? :package
+                    (lvar _))}) nil?)
           PATTERN
 
           def_node_matcher :package_array_install?, <<-PATTERN
@@ -60,12 +62,14 @@ module RuboCop
             (send
               $(array ... ) :each)
             (args ... )
-            (block
+            {(block
               (send nil? :package
                 (lvar ... ))
               (args)
               (send nil? :action
-                (sym :install))))
+                (sym :install)))
+              (send nil? :package
+                  (lvar _))})
           PATTERN
 
           # see if all platforms in the when condition are multipackage compliant
