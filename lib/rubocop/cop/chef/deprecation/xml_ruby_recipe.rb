@@ -34,7 +34,7 @@ module RuboCop
 
           def on_send(node)
             xml_ruby_recipe?(node) do
-              node = node.parent if node.parent&.single_line_condition? # make sure we catch any inline conditionals
+              node = node.parent if node.parent&.conditional? && node.parent&.single_line_condition? # make sure we catch any inline conditionals
               add_offense(node, location: :expression, message: MSG, severity: :warning)
             end
           end
