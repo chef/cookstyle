@@ -1,5 +1,5 @@
 #
-# Copyright:: 2019, Chef Software, Inc.
+# Copyright:: 2019-2020, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -26,6 +26,32 @@ describe RuboCop::Cop::Chef::ChefDeprecations::IncludingXMLRubyRecipe, :config d
     RUBY
 
     expect_correction("\n")
+  end
+
+  it 'registers an offense when including the "xml::ruby" recipe with a conditional' do
+    expect_offense(<<~RUBY)
+      include_recipe 'xml::ruby' unless platform_family?('windows')
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Do not include the deprecated xml::ruby recipe to install the nokogiri gem. Chef Infra Client 12 and later ships with nokogiri included.
+    RUBY
+
+    expect_correction("\n")
+  end
+
+  it 'registers an offense when including the "xml::ruby" recipe but skips non-inline conditional' do
+    expect_offense(<<~RUBY)
+      if foo == bar
+        baz
+        include_recipe 'xml::ruby' unless platform_family?('windows')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Do not include the deprecated xml::ruby recipe to install the nokogiri gem. Chef Infra Client 12 and later ships with nokogiri included.
+      end
+    RUBY
+
+    expect_correction(<<~RUBY)
+      if foo == bar
+        baz
+        
+      end
+    RUBY
   end
 
   it "doesn't register an offense when including any other recipe" do

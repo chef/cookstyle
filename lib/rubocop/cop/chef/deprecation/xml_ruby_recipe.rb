@@ -1,5 +1,5 @@
 #
-# Copyright:: 2019, Chef Software, Inc.
+# Copyright:: 2019-2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,8 +18,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefDeprecations
-        # Do not include the deprecated xml::ruby recipe to install the nokogiri gem.
-        # Chef Infra Client 12 and later ships with nokogiri included.
+        # Do not include the deprecated xml::ruby recipe to install the nokogiri gem. Chef Infra Client 12 and later ships with nokogiri included.
         #
         # @example
         #
@@ -35,6 +34,7 @@ module RuboCop
 
           def on_send(node)
             xml_ruby_recipe?(node) do
+              node = node.parent if node.parent&.single_line_condition? # make sure we catch any inline conditionals
               add_offense(node, location: :expression, message: MSG, severity: :warning)
             end
           end
