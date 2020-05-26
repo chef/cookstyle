@@ -41,6 +41,42 @@ describe RuboCop::Cop::Chef::ChefModernize::UseMultipackageInstalls, :config do
     RUBY
   end
 
+  it 'registers an offense when iterating over an array of packages in a case statement with a non-block package resource' do
+    expect_offense(<<~RUBY)
+      case node['platform']
+      when 'ubuntu'
+        %w(bmon htop vim curl).each do |pkg|
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Pass an array of packages to package resources instead of interating over an array of packages when using multi-package capable package subystem such as apt, yum, chocolatey, dnf, or zypper. Multipackage installs are faster and simplify logs.
+          package pkg
+        end
+      end
+    RUBY
+
+    expect_correction(<<~RUBY)
+      case node['platform']
+      when 'ubuntu'
+        package %w(bmon htop vim curl)
+      end
+    RUBY
+  end
+
+  it 'registers an offense when iterating over an array of packages in a platform? check with a non-block package resource' do
+    expect_offense(<<~RUBY)
+      if platform?('ubuntu')
+        %w(bmon htop vim curl).each do |pkg|
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Pass an array of packages to package resources instead of interating over an array of packages when using multi-package capable package subystem such as apt, yum, chocolatey, dnf, or zypper. Multipackage installs are faster and simplify logs.
+          package pkg
+        end
+      end
+    RUBY
+
+    expect_correction(<<~RUBY)
+      if platform?('ubuntu')
+        package %w(bmon htop vim curl)
+      end
+    RUBY
+  end
+
   it 'registers an offense when iterating over an array of packages in a platform? check' do
     expect_offense(<<~RUBY)
       if platform?('ubuntu')
