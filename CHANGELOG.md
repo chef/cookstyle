@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.6.7 -->
-## [v6.6.7](https://github.com/chef/cookstyle/tree/v6.6.7) (2020-05-27)
+ <!-- latest_release 6.6.8 -->
+## [v6.6.8](https://github.com/chef/cookstyle/tree/v6.6.8) (2020-05-27)
 
 #### Merged Pull Requests
-- Add Cookstyle 6.6 release notes [#640](https://github.com/chef/cookstyle/pull/640) ([tas50](https://github.com/tas50))
+- Add more styleguide links [#641](https://github.com/chef/cookstyle/pull/641) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.5.3 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add more styleguide links [#641](https://github.com/chef/cookstyle/pull/641) ([tas50](https://github.com/tas50)) <!-- 6.6.8 -->
 - Add Cookstyle 6.6 release notes [#640](https://github.com/chef/cookstyle/pull/640) ([tas50](https://github.com/tas50)) <!-- 6.6.7 -->
 - Add new cops for incorrect platforms / platform families [#639](https://github.com/chef/cookstyle/pull/639) ([tas50](https://github.com/tas50)) <!-- 6.6.6 -->
 - Detect package installs w/o an action in the multipackage cop [#637](https://github.com/chef/cookstyle/pull/637) ([tas50](https://github.com/tas50)) <!-- 6.6.5 -->

@@ -29,6 +29,10 @@ VersionAdded | `5.4.0` | String
 VersionChanged | `5.15.0` | String
 Include | `**/metadata.rb` | Array
 
+### References
+
+* [https://rubystyle.guide#chefsharingdefaultmetadatamaintainer](https://rubystyle.guide#chefsharingdefaultmetadatamaintainer)
+
 ## ChefSharing/EmptyMetadataField
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -55,6 +59,10 @@ VersionAdded | `5.8.0` | String
 VersionChanged | `5.15.0` | String
 Include | `**/metadata.rb` | Array
 
+### References
+
+* [https://rubystyle.guide#chefsharingemptymetadatafield](https://rubystyle.guide#chefsharingemptymetadatafield)
+
 ## ChefSharing/IncludePropertyDescriptions
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -80,6 +88,10 @@ Name | Default value | Configurable values
 VersionAdded | `6.1.0` | String
 Include | `**/libraries/*.rb`, `**/resources/*.rb` | Array
 
+### References
+
+* [https://rubystyle.guide#chefsharingincludepropetydescriptions](https://rubystyle.guide#chefsharingincludepropetydescriptions)
+
 ## ChefSharing/IncludeResourceDescriptions
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -102,6 +114,10 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `6.1.0` | String
 Include | `**/resources/*.rb` | Array
+
+### References
+
+* [https://rubystyle.guide#chefsharingincluderesourcedescriptions](https://rubystyle.guide#chefsharingincluderesourcedescriptions)
 
 ## ChefSharing/InsecureCookbookURL
 
@@ -132,6 +148,10 @@ Name | Default value | Configurable values
 VersionAdded | `5.1.0` | String
 VersionChanged | `5.15.0` | String
 Include | `**/metadata.rb` | Array
+
+### References
+
+* [https://rubystyle.guide#chefsharinginsecurecookbookurl](https://rubystyle.guide#chefsharinginsecurecookbookurl)
 
 ## ChefSharing/InvalidLicenseString
 
@@ -165,3 +185,7 @@ Name | Default value | Configurable values
 VersionAdded | `5.2.0` | String
 VersionChanged | `5.15.0` | String
 Include | `**/metadata.rb` | Array
+
+### References
+
+* [https://rubystyle.guide#chefsharinginvalidlicensestring](https://rubystyle.guide#chefsharinginvalidlicensestring)
