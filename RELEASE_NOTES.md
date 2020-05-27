@@ -39,6 +39,7 @@ The `ChefCorrectness/InvalidPlatformInCase` cop detects cookbooks that use `case
 - The `ChefModernize/UseMultipackageInstalls` has been updated to detect additional forms of creating multiple package resources from an Array of package names.
 - The `ChefDeprecations/IncludingXMLRubyRecipe` autocorrect has been udpated to remove any inline conditionals.
 - Added `oracle` as an invaid platform family for cops validating platform families.
+- All cops now include links to documentation that can be enabled by running Cookstyle with the `--display-style-guide` command line flag.
 
 ## Cookstyle 6.5
 
@@ -84,9 +85,9 @@ The RuboCop engine that powers Cookstyle has been upgraded from 0.82 to 0.83. Th
 
 ### Other Improvements
 
-* ChefModernize/FoodcriticComments is now enabled by default.
-* ChefDeprecations/UserDeprecatedSupportsProperty now autocorrects invalid supports property values containing methods instead of hash keys.
-* Files in `vendor` and `files` directories will now be ignored even if running Cookstyle against a larger repository of cookbooks.
+- ChefModernize/FoodcriticComments is now enabled by default.
+- ChefDeprecations/UserDeprecatedSupportsProperty now autocorrects invalid supports property values containing methods instead of hash keys.
+- Files in `vendor` and `files` directories will now be ignored even if running Cookstyle against a larger repository of cookbooks.
 
 ## Cookstyle 6.3
 
@@ -206,6 +207,7 @@ The `ChefDeprecations/PowershellCookbookHelpers` cop detects cookbooks that use 
 The `ChefCorrectness/ConditionalRubyShellout` cop detects resources that use unnecessary Ruby code in `not_if` and `only_if` conditionals to shellout when a string can be used to avoid additional complexity.
 
 Shelling out with ruby:
+
 ```ruby
 cookbook_file '/logs/foo/error.log' do
   only_if { system('wget https://www.bar.com/foobar.txt -O /dev/null') }
@@ -213,6 +215,7 @@ end
 ```
 
 Shelling out without Ruby:
+
 ```ruby
 cookbook_file '/logs/foo/error.log' do
   only_if 'wget https://www.bar.com/foobar.txt -O /dev/null'
