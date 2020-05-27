@@ -377,6 +377,22 @@ ChefCorrectness/OpenSSLPasswordHelpers:
     - '**/metadata.rb'
     - '**/Berksfile'
 
+ChefCorrectness/InvalidPlatformFamilyInCase:
+  Description: Use valid platform family values in case statements.
+  Enabled: true
+  VersionAdded: '6.6.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/Berksfile'
+
+ChefCorrectness/InvalidPlatformInCase:
+  Description: Use valid platform values in case statements.
+  Enabled: true
+  VersionAdded: '6.6.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/Berksfile'
+
 ###############################
 # ChefSharing: Issues that prevent sharing code with other teams or with the Chef community in general
 ###############################
