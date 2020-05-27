@@ -165,8 +165,12 @@ ChefStyle/NegatingOnlyIf:
 # ChefCorrectness: Avoiding potential problems
 ###############################
 
+ChefCorrectness:
+  StyleGuideBaseURL: https://github.com/chef/cookstyle/blob/master/docs/cops_chefcorrectness.md
+
 ChefCorrectness/ServiceResource:
   Description: Use a service resource to start and stop services instead of execute resources
+  StyleGuide: '#chefcorrectnessserviceresource'
   Enabled: true
   VersionAdded: '5.0.0'
   Exclude:
@@ -176,6 +180,7 @@ ChefCorrectness/ServiceResource:
 
 ChefCorrectness/NodeNormal:
   Description: Do not use the node.normal method
+  StyleGuide: '#chefcorrectnessnodenormal'
   Enabled: true
   VersionAdded: '5.1.0'
   Exclude:
@@ -192,6 +197,7 @@ ChefCorrectness/NodeNormalUnless:
 
 ChefCorrectness/TmpPath:
   Description: Use file_cache_path rather than hard-coding tmp paths
+  StyleGuide: '#chefcorrectnessnodenormalunless'
   Enabled: true
   VersionAdded: '5.0.0'
   Exclude:
@@ -200,6 +206,7 @@ ChefCorrectness/TmpPath:
 
 ChefCorrectness/InvalidPlatformMetadata:
   Description: metadata.rb "supports" platform is invalid
+  StyleGuide: '#chefcorrectnessinvalidplatformmetadata'
   Enabled: true
   VersionAdded: '5.2.0'
   Include:
@@ -207,6 +214,7 @@ ChefCorrectness/InvalidPlatformMetadata:
 
 ChefCorrectness/CookbookUsesNodeSave:
   Description: Don't use node.save to save partial node data to the Chef Infra Server mid-run unless it's absolutely necessary. Node.save can result in failed Chef Infra runs appearing in search and increases load on the Chef Infra Server.
+  StyleGuide: '#chefcorrectnesscookbookusesnodesave'
   Enabled: true
   VersionAdded: '5.5.0'
   Exclude:
@@ -215,13 +223,15 @@ ChefCorrectness/CookbookUsesNodeSave:
 
 ChefCorrectness/CookbooksDependsOnSelf:
   Description: A cookbook cannot depend on itself
+  StyleGuide: '#chefcorrectnesscookbooksdependonself'
   Enabled: true
   VersionAdded: '5.2.0'
   Include:
     - '**/metadata.rb'
 
 ChefCorrectness/MetadataMissingName:
-  Description: MetadataMissingName
+  Description: The metadata.rb file is missing the name field which is required by Chef Infra Client 12 and later
+  StyleGuide: '#chefcorrectnessmetadatamissingname'
   Enabled: true
   VersionAdded: '5.2.0'
   Include:
@@ -229,6 +239,7 @@ ChefCorrectness/MetadataMissingName:
 
 ChefCorrectness/BlockGuardWithOnlyString:
   Description: A resource guard (not_if/only_if) that is a string should not be wrapped in {}. Wrapping a guard string in {} causes it be executed as Ruby code which will always returns true instead of a shell command that will actually run.
+  StyleGuide: '#chefcorrectnessblockguardwithonlystring'
   Enabled: true
   VersionAdded: '5.2.0'
   Exclude:
@@ -238,6 +249,7 @@ ChefCorrectness/BlockGuardWithOnlyString:
 
 ChefCorrectness/ResourceSetsInternalProperties:
   Description: Do not set properties used internally by Chef Infra Client to track the system state.
+  StyleGuide: '#chefcorrectnessresourcesetsinternalproperties'
   Enabled: true
   VersionAdded: '5.5.0'
   Exclude:
@@ -247,6 +259,7 @@ ChefCorrectness/ResourceSetsInternalProperties:
 
 ChefCorrectness/ResourceSetsNameProperty:
   Description: Resource sets the name property in the resource instead of using a name_property.
+  StyleGuide: '#chefcorrectnessresourcesetsnameproperty'
   Enabled: true
   VersionAdded: '5.5.0'
   Exclude:
@@ -256,6 +269,7 @@ ChefCorrectness/ResourceSetsNameProperty:
 
 ChefCorrectness/ResourceWithNoneAction:
   Description: Resource uses the nonexistent :none action instead of the :nothing action
+  StyleGuide: '#chefcorrectnessresourcewithnoneaction'
   Enabled: true
   VersionAdded: '5.5.0'
   Exclude:
@@ -265,6 +279,7 @@ ChefCorrectness/ResourceWithNoneAction:
 
 ChefCorrectness/InvalidVersionMetadata:
   Description: Cookbook metadata.rb version field should follow X.Y.Z version format.
+  StyleGuide: '#chefcorrectnessinvalidversionmetadata'
   Enabled: true
   VersionAdded: '5.8.0'
   Include:
@@ -272,6 +287,7 @@ ChefCorrectness/InvalidVersionMetadata:
 
 ChefCorrectness/NotifiesActionNotSymbol:
   Description: When notifying or subscribing an action within a resource the action should always be a symbol. In Chef Infra Client releases before 14.0 this may result in double notification.
+  StyleGuide: '#chefcorrectnessnotifiesactionnotsymbol'
   Enabled: true
   VersionAdded: '5.10.0'
   Exclude:
@@ -281,6 +297,7 @@ ChefCorrectness/NotifiesActionNotSymbol:
 
 ChefCorrectness/IncorrectLibraryInjection:
   Description: Libraries should be injected into the Chef::DSL::Recipe or Chef::DSL::Resource classes and not Recipe/Resource/Provider classes directly.
+  StyleGuide: '#chefcorrectnessincorrectlibraryinjection'
   Enabled: true
   VersionAdded: '5.10.0'
   Include:
@@ -288,6 +305,7 @@ ChefCorrectness/IncorrectLibraryInjection:
 
 ChefCorrectness/InvalidPlatformHelper:
   Description: Pass valid platforms to the platform? helper.
+  StyleGuide: '#chefcorrectnessinvalidplatformhelper'
   Enabled: true
   VersionAdded: '5.15.0'
   Exclude:
@@ -296,6 +314,7 @@ ChefCorrectness/InvalidPlatformHelper:
 
 ChefCorrectness/InvalidPlatformFamilyHelper:
   Description: Pass valid platform families to the platform_family? helper.
+  StyleGuide: '#chefcorrectnessinvalidplatformfamilyhelper'
   Enabled: true
   VersionAdded: '5.15.0'
   Exclude:
@@ -304,6 +323,7 @@ ChefCorrectness/InvalidPlatformFamilyHelper:
 
 ChefCorrectness/ScopedFileExist:
   Description: Scope file exist to access the correct File class by using ::File.exist? not File.exist?.
+  StyleGuide: '#chefcorrectnessscopedfileexist'
   Enabled: true
   VersionAdded: '5.15.0'
   Exclude:
@@ -313,6 +333,7 @@ ChefCorrectness/ScopedFileExist:
 
 ChefCorrectness/InvalidPlatformValueForPlatformFamilyHelper:
   Description: Pass valid platforms families to the value_for_platform_family helper.
+  StyleGuide: '#chefcorrectnessinvalidplatformvalueforplatformfamilyhelper'
   Enabled: true
   VersionAdded: '5.15.0'
   Exclude:
@@ -321,6 +342,7 @@ ChefCorrectness/InvalidPlatformValueForPlatformFamilyHelper:
 
 ChefCorrectness/InvalidPlatformValueForPlatformHelper:
   Description: Pass valid platforms to the value_for_platform helper.
+  StyleGuide: '#chefcorrectnessinvalidplatformvalueforplatformhelper'
   Enabled: true
   VersionAdded: '5.15.0'
   Exclude:
@@ -329,6 +351,7 @@ ChefCorrectness/InvalidPlatformValueForPlatformHelper:
 
 ChefCorrectness/InvalidNotificationTiming:
   Description: Valid notification timings are :immediately, :immediate (alias for :immediately), :delayed, and :before.
+  StyleGuide: '#chefcorrectnessinvalidnotificationtiming'
   Enabled: true
   VersionAdded: '5.16.0'
   Exclude:
@@ -338,6 +361,7 @@ ChefCorrectness/InvalidNotificationTiming:
 
 ChefCorrectness/MalformedPlatformValueForPlatformHelper:
   Description: When using the value_for_platform helper you must include a hash of possible platforms where each platform contains a hash of versions and potential values. If you don't wish to match on a particular version you can instead use the key 'default'.
+  StyleGuide: '#chefcorrectnessmalformedplatformvalueforplatformhelper'
   Enabled: true
   VersionAdded: '5.16.0'
   Exclude:
@@ -346,6 +370,7 @@ ChefCorrectness/MalformedPlatformValueForPlatformHelper:
 
 ChefCorrectness/DnfPackageAllowDowngrades:
   Description: dnf_package does not support the allow_downgrades property
+  StyleGuide: '#chefcorrectnessdnfpackageallowdowngrades'
   Enabled: true
   VersionAdded: '5.16.0'
   Exclude:
@@ -355,6 +380,7 @@ ChefCorrectness/DnfPackageAllowDowngrades:
 
 ChefCorrectness/ChefApplicationFatal:
   Description: Use raise to force Chef Infra Client to fail instead of using Chef::Application.fatal
+  StyleGuide: '#chefcorrectnesschefapplicationfatal'
   Enabled: true
   VersionAdded: '6.0.0'
   Exclude:
@@ -363,6 +389,7 @@ ChefCorrectness/ChefApplicationFatal:
 
 ChefCorrectness/PowershellScriptDeleteFile:
   Description: Use the `file` or `directory` resources built into Chef Infra Client with the :delete action to remove files/directories instead of using Remove-Item in a powershell_script resource
+  StyleGuide: '#chefcorrectnesspowershellscriptdeletefiles'
   Enabled: true
   VersionAdded: '6.0.0'
   Exclude:
@@ -372,6 +399,7 @@ ChefCorrectness/PowershellScriptDeleteFile:
 
 ChefCorrectness/ConditionalRubyShellout:
   Description: Don't use Ruby to shellout in an only_if / not_if conditional when you can shellout directly by wrapping the command in quotes.
+  StyleGuide: '#chefcorrectnessconditionalrubyshellout'
   Enabled: true
   VersionAdded: '6.1.0'
   Exclude:
@@ -381,6 +409,7 @@ ChefCorrectness/ConditionalRubyShellout:
 
 ChefCorrectness/LazyEvalNodeAttributeDefaults:
   Description: When setting a node attribute as a default value for a custom resource property, make sure to wrap the node attribute in `lazy {}` so that the node attribute is available when the resource executes.
+  StyleGuide: '#chefcorrectnesslazyevalnodeattributedefaults'
   Enabled: true
   VersionAdded: '6.6.0'
   Include:
@@ -389,6 +418,7 @@ ChefCorrectness/LazyEvalNodeAttributeDefaults:
 
 ChefCorrectness/OpenSSLPasswordHelpers:
   Description: The secure_password helper from the openssl cookbooks Opscode::OpenSSL::Password class should not be used to generate passwords.
+  StyleGuide: '#chefcorrectnessopensslpasswordhelpers'
   Enabled: true
   VersionAdded: '6.6.0'
   Exclude:
@@ -397,6 +427,7 @@ ChefCorrectness/OpenSSLPasswordHelpers:
 
 ChefCorrectness/InvalidPlatformFamilyInCase:
   Description: Use valid platform family values in case statements.
+  StyleGuide: '#chefcorrectnessinvalidplatformfamilyincase'
   Enabled: true
   VersionAdded: '6.6.0'
   Exclude:
@@ -405,6 +436,7 @@ ChefCorrectness/InvalidPlatformFamilyInCase:
 
 ChefCorrectness/InvalidPlatformInCase:
   Description: Use valid platform values in case statements.
+  StyleGuide: '#chefcorrectnessinvalidplatformincase'
   Enabled: true
   VersionAdded: '6.6.0'
   Exclude:
