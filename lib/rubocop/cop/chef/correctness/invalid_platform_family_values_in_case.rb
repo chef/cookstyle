@@ -55,17 +55,18 @@ module RuboCop
           def autocorrect(node)
             new_value = INVALID_PLATFORM_FAMILIES[node.str_content]
 
-            if new_value # some invalid platform families have no direct correction value and return nil instead
-              # if the correct value already exists in the when statement then we just want to delete this node
-              if node.parent.conditions.any? { |x| x.str_content == new_value }
-                lambda do |corrector|
-                  range = range_with_surrounding_comma(range_with_surrounding_space(range: node.loc.expression, side: :left), :both)
-                  corrector.remove(range)
-                end
-              else
-                lambda do |corrector|
-                  corrector.replace(node.loc.expression, "'#{new_value}'")
-                end
+            # some invalid platform families have no direct correction value and return nil instead
+            return unless new_value
+
+            # if the correct value already exists in the when statement then we just want to delete this node
+            if node.parent.conditions.any? { |x| x.str_content == new_value }
+              lambda do |corrector|
+                range = range_with_surrounding_comma(range_with_surrounding_space(range: node.loc.expression, side: :left), :both)
+                corrector.remove(range)
+              end
+            else
+              lambda do |corrector|
+                corrector.replace(node.loc.expression, "'#{new_value}'")
               end
             end
           end
