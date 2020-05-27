@@ -363,7 +363,7 @@ ChefCorrectness/ConditionalRubyShellout:
 
 ChefCorrectness/LazyEvalNodeAttributeDefaults:
   Description: When setting a node attribute as a default value for a custom resource property, make sure to wrap the node attribute in `lazy {}` so that the node attribute is available when the resource executes.
-  Enabled: false
+  Enabled: true
   VersionAdded: '6.6.0'
   Include:
     - '**/libraries/*.rb'
