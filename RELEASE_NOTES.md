@@ -1,3 +1,45 @@
+## Cookstyle 6.6
+
+### 4 New Cops
+
+#### ChefCorrectness/LazyEvalNodeAttributeDefaults
+
+The `ChefCorrectness/LazyEvalNodeAttributeDefaults` cop detects custom resource properties using node attribute default values without wrapping those attributes with the `lazy` method. The `lazy` helper method ensures that node data is available at the time of resource execution.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefCorrectness/OpenSSLPasswordHelpers
+
+The `ChefCorrectness/OpenSSLPasswordHelpers` cop detects the usage of the legacy `Opscode::OpenSSL::Password` class from the openssl cookbook. This class included a `secure_password` helper method that would generate a random password for use when a data bag or attribute was not present. The practice of generating passwords to be stored on the node is bad security practice as it exposes the password to anyone that can view the nodes, and deleting a node deletes the password. Passwords should be retrieved from a secure source for use in cookbooks.
+
+`Enabled by default`: True
+
+`Autocorrects`: No
+
+#### ChefCorrectness/InvalidPlatformFamilyInCase
+
+The `ChefCorrectness/InvalidPlatformFamilyInCase` cop detects cookbooks that use `case node['platform_family']` with an incorrect platform family name.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefCorrectness/InvalidPlatformInCase
+
+The `ChefCorrectness/InvalidPlatformInCase` cop detects cookbooks that use `case node['platform']` with an incorrect platform name.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+### Other Improvements
+
+- The `ChefModernize/UseMultipackageInstalls` has been updated to detect additional forms of creating multiple package resources from an Array of package names.
+- The `ChefDeprecations/IncludingXMLRubyRecipe` autocorrect has been udpated to remove any inline conditionals.
+- Added `oracle` as an invaid platform family for cops validating platform families.
+
 ## Cookstyle 6.5
 
 ### 2 New Cops
