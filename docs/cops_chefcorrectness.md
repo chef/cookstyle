@@ -247,6 +247,31 @@ Name | Default value | Configurable values
 VersionAdded | `5.15.0` | String
 Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
+## ChefCorrectness/InvalidPlatformFamilyInCase
+
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
+
+Use valid platform family values in case statements.
+
+### Examples
+
+```ruby
+# bad
+case node['platform_family']
+when 'redhat'
+  puts "I'm on a RHEL-like system"
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.6.0` | String
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
+
 ## ChefCorrectness/InvalidPlatformHelper
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -274,6 +299,31 @@ platform?('suse')
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.15.0` | String
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
+
+## ChefCorrectness/InvalidPlatformInCase
+
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
+
+Use valid platform values in case statements.
+
+### Examples
+
+```ruby
+# bad
+case node['platform']
+when 'rhel'
+  puts "I'm on a Red Hat system!"
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.6.0` | String
 Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ## ChefCorrectness/InvalidPlatformMetadata
