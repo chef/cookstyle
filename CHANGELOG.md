@@ -1,29 +1,27 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.6.9 -->
-## [v6.6.9](https://github.com/chef/cookstyle/tree/v6.6.9) (2020-05-27)
-
-#### Merged Pull Requests
-- Add in the remaining styleguide links [#642](https://github.com/chef/cookstyle/pull/642) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=6.5.3 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Add in the remaining styleguide links [#642](https://github.com/chef/cookstyle/pull/642) ([tas50](https://github.com/tas50)) <!-- 6.6.9 -->
-- Add more styleguide links [#641](https://github.com/chef/cookstyle/pull/641) ([tas50](https://github.com/tas50)) <!-- 6.6.8 -->
-- Add Cookstyle 6.6 release notes [#640](https://github.com/chef/cookstyle/pull/640) ([tas50](https://github.com/tas50)) <!-- 6.6.7 -->
-- Add new cops for incorrect platforms / platform families [#639](https://github.com/chef/cookstyle/pull/639) ([tas50](https://github.com/tas50)) <!-- 6.6.6 -->
-- Detect package installs w/o an action in the multipackage cop [#637](https://github.com/chef/cookstyle/pull/637) ([tas50](https://github.com/tas50)) <!-- 6.6.5 -->
-- Add new ChefCorrectness/OpenSSLPasswordHelpers cop [#638](https://github.com/chef/cookstyle/pull/638) ([tas50](https://github.com/tas50)) <!-- 6.6.4 -->
-- Add oracle as an invalid platform_family [#636](https://github.com/chef/cookstyle/pull/636) ([tas50](https://github.com/tas50)) <!-- 6.6.3 -->
-- Catch conditionals in ChefDeprecations/IncludingXMLRubyRecipe [#635](https://github.com/chef/cookstyle/pull/635) ([tas50](https://github.com/tas50)) <!-- 6.6.2 -->
-- Minor update RELEASE_NOTES.md#cookstyle-62 [#633](https://github.com/chef/cookstyle/pull/633) ([vsingh-msys](https://github.com/vsingh-msys)) <!-- 6.6.1 -->
-- Add new ChefCorrectness/LazyEvalNodeAttributeDefaults cop [#632](https://github.com/chef/cookstyle/pull/632) ([tas50](https://github.com/tas50)) <!-- 6.6.0 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v6.6.9](https://github.com/chef/cookstyle/tree/v6.6.9) (2020-05-27)
+
+#### Merged Pull Requests
+- Add new ChefCorrectness/LazyEvalNodeAttributeDefaults cop [#632](https://github.com/chef/cookstyle/pull/632) ([tas50](https://github.com/tas50))
+- Minor update RELEASE_NOTES.md#cookstyle-62 [#633](https://github.com/chef/cookstyle/pull/633) ([vsingh-msys](https://github.com/vsingh-msys))
+- Catch conditionals in ChefDeprecations/IncludingXMLRubyRecipe [#635](https://github.com/chef/cookstyle/pull/635) ([tas50](https://github.com/tas50))
+- Add oracle as an invalid platform_family [#636](https://github.com/chef/cookstyle/pull/636) ([tas50](https://github.com/tas50))
+- Add new ChefCorrectness/OpenSSLPasswordHelpers cop [#638](https://github.com/chef/cookstyle/pull/638) ([tas50](https://github.com/tas50))
+- Detect package installs w/o an action in the multipackage cop [#637](https://github.com/chef/cookstyle/pull/637) ([tas50](https://github.com/tas50))
+- Add new cops for incorrect platforms / platform families [#639](https://github.com/chef/cookstyle/pull/639) ([tas50](https://github.com/tas50))
+- Add Cookstyle 6.6 release notes [#640](https://github.com/chef/cookstyle/pull/640) ([tas50](https://github.com/tas50))
+- Add more styleguide links [#641](https://github.com/chef/cookstyle/pull/641) ([tas50](https://github.com/tas50))
+- Add in the remaining styleguide links [#642](https://github.com/chef/cookstyle/pull/642) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v6.5.3](https://github.com/chef/cookstyle/tree/v6.5.3) (2020-05-19)
 
 #### Merged Pull Requests
@@ -32,7 +30,6 @@
 - Add ChefDeprecations/Ruby27KeywordArgumentWarnings cop [#629](https://github.com/chef/cookstyle/pull/629) ([tas50](https://github.com/tas50))
 - Add Cookstyle 6.5 release notes [#631](https://github.com/chef/cookstyle/pull/631) ([tas50](https://github.com/tas50))
 - Add new ChefModernize/ShellOutHelper cop [#630](https://github.com/chef/cookstyle/pull/630) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v6.4.4](https://github.com/chef/cookstyle/tree/v6.4.4) (2020-05-12)
 
