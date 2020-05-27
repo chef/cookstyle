@@ -33,6 +33,10 @@ Name | Default value | Configurable values
 VersionAdded | `5.2.0` | String
 Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
+### References
+
+* [https://rubystyle.guide#chefcorrectnessblockguardwithonlystring](https://rubystyle.guide#chefcorrectnessblockguardwithonlystring)
+
 ## ChefCorrectness/ChefApplicationFatal
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -57,6 +61,10 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `6.0.0` | String
 Exclude | `**/metadata.rb`, `**/Berksfile` | Array
+
+### References
+
+* [https://rubystyle.guide#chefcorrectnesschefapplicationfatal](https://rubystyle.guide#chefcorrectnesschefapplicationfatal)
 
 ## ChefCorrectness/ConditionalRubyShellout
 
@@ -94,6 +102,10 @@ Name | Default value | Configurable values
 VersionAdded | `6.1.0` | String
 Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
+### References
+
+* [https://rubystyle.guide#chefcorrectnessconditionalrubyshellout](https://rubystyle.guide#chefcorrectnessconditionalrubyshellout)
+
 ## ChefCorrectness/CookbookUsesNodeSave
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -118,6 +130,10 @@ Name | Default value | Configurable values
 VersionAdded | `5.5.0` | String
 Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
+### References
+
+* [https://rubystyle.guide#chefcorrectnesscookbookusesnodesave](https://rubystyle.guide#chefcorrectnesscookbookusesnodesave)
+
 ## ChefCorrectness/CookbooksDependsOnSelf
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -132,6 +148,10 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.2.0` | String
 Include | `**/metadata.rb` | Array
+
+### References
+
+* [https://rubystyle.guide#chefcorrectnesscookbooksdependonself](https://rubystyle.guide#chefcorrectnesscookbooksdependonself)
 
 ## ChefCorrectness/DnfPackageAllowDowngrades
 
@@ -163,6 +183,10 @@ Name | Default value | Configurable values
 VersionAdded | `5.16.0` | String
 Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
+### References
+
+* [https://rubystyle.guide#chefcorrectnessdnfpackageallowdowngrades](https://rubystyle.guide#chefcorrectnessdnfpackageallowdowngrades)
+
 ## ChefCorrectness/IncorrectLibraryInjection
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -188,6 +212,10 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.10.0` | String
 Include | `**/libraries/*.rb` | Array
+
+### References
+
+* [https://rubystyle.guide#chefcorrectnessincorrectlibraryinjection](https://rubystyle.guide#chefcorrectnessincorrectlibraryinjection)
 
 ## ChefCorrectness/InvalidNotificationTiming
 
@@ -220,6 +248,10 @@ Name | Default value | Configurable values
 VersionAdded | `5.16.0` | String
 Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
+### References
+
+* [https://rubystyle.guide#chefcorrectnessinvalidnotificationtiming](https://rubystyle.guide#chefcorrectnessinvalidnotificationtiming)
+
 ## ChefCorrectness/InvalidPlatformFamilyHelper
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -247,6 +279,10 @@ Name | Default value | Configurable values
 VersionAdded | `5.15.0` | String
 Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
+### References
+
+* [https://rubystyle.guide#chefcorrectnessinvalidplatformfamilyhelper](https://rubystyle.guide#chefcorrectnessinvalidplatformfamilyhelper)
+
 ## ChefCorrectness/InvalidPlatformFamilyInCase
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -271,6 +307,10 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `6.6.0` | String
 Exclude | `**/metadata.rb`, `**/Berksfile` | Array
+
+### References
+
+* [https://rubystyle.guide#chefcorrectnessinvalidplatformfamilyincase](https://rubystyle.guide#chefcorrectnessinvalidplatformfamilyincase)
 
 ## ChefCorrectness/InvalidPlatformHelper
 
@@ -301,6 +341,10 @@ Name | Default value | Configurable values
 VersionAdded | `5.15.0` | String
 Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
+### References
+
+* [https://rubystyle.guide#chefcorrectnessinvalidplatformhelper](https://rubystyle.guide#chefcorrectnessinvalidplatformhelper)
+
 ## ChefCorrectness/InvalidPlatformInCase
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -325,6 +369,10 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `6.6.0` | String
 Exclude | `**/metadata.rb`, `**/Berksfile` | Array
+
+### References
+
+* [https://rubystyle.guide#chefcorrectnessinvalidplatformincase](https://rubystyle.guide#chefcorrectnessinvalidplatformincase)
 
 ## ChefCorrectness/InvalidPlatformMetadata
 
@@ -352,6 +400,10 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.2.0` | String
 Include | `**/metadata.rb` | Array
+
+### References
+
+* [https://rubystyle.guide#chefcorrectnessinvalidplatformmetadata](https://rubystyle.guide#chefcorrectnessinvalidplatformmetadata)
 
 ## ChefCorrectness/InvalidPlatformValueForPlatformFamilyHelper
 
@@ -384,6 +436,10 @@ Name | Default value | Configurable values
 VersionAdded | `5.15.0` | String
 Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
+### References
+
+* [https://rubystyle.guide#chefcorrectnessinvalidplatformvalueforplatformfamilyhelper](https://rubystyle.guide#chefcorrectnessinvalidplatformvalueforplatformfamilyhelper)
+
 ## ChefCorrectness/InvalidPlatformValueForPlatformHelper
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -414,6 +470,10 @@ Name | Default value | Configurable values
 VersionAdded | `5.15.0` | String
 Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
+### References
+
+* [https://rubystyle.guide#chefcorrectnessinvalidplatformvalueforplatformhelper](https://rubystyle.guide#chefcorrectnessinvalidplatformvalueforplatformhelper)
+
 ## ChefCorrectness/InvalidVersionMetadata
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -439,11 +499,15 @@ Name | Default value | Configurable values
 VersionAdded | `5.8.0` | String
 Include | `**/metadata.rb` | Array
 
+### References
+
+* [https://rubystyle.guide#chefcorrectnessinvalidversionmetadata](https://rubystyle.guide#chefcorrectnessinvalidversionmetadata)
+
 ## ChefCorrectness/LazyEvalNodeAttributeDefaults
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
-Disabled | Yes | All Versions
+Enabled | Yes | All Versions
 
 When setting a node attribute as a default value for a custom resource property, make sure to wrap the node attribute in `lazy {}` so that the node attribute is available when the resource executes.
 
@@ -463,6 +527,10 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `6.6.0` | String
 Include | `**/libraries/*.rb`, `**/resources/*.rb` | Array
+
+### References
+
+* [https://rubystyle.guide#chefcorrectnesslazyevalnodeattributedefaults](https://rubystyle.guide#chefcorrectnesslazyevalnodeattributedefaults)
 
 ## ChefCorrectness/MalformedPlatformValueForPlatformHelper
 
@@ -504,6 +572,10 @@ Name | Default value | Configurable values
 VersionAdded | `5.16.0` | String
 Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
+### References
+
+* [https://rubystyle.guide#chefcorrectnessmalformedplatformvalueforplatformhelper](https://rubystyle.guide#chefcorrectnessmalformedplatformvalueforplatformhelper)
+
 ## ChefCorrectness/MetadataMissingName
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -518,6 +590,10 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.2.0` | String
 Include | `**/metadata.rb` | Array
+
+### References
+
+* [https://rubystyle.guide#chefcorrectnessmetadatamissingname](https://rubystyle.guide#chefcorrectnessmetadatamissingname)
 
 ## ChefCorrectness/NodeNormal
 
@@ -552,6 +628,10 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.1.0` | String
 Exclude | `**/metadata.rb`, `**/Berksfile` | Array
+
+### References
+
+* [https://rubystyle.guide#chefcorrectnessnodenormal](https://rubystyle.guide#chefcorrectnessnodenormal)
 
 ## ChefCorrectness/NodeNormalUnless
 
@@ -624,6 +704,10 @@ Name | Default value | Configurable values
 VersionAdded | `5.10.0` | String
 Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
+### References
+
+* [https://rubystyle.guide#chefcorrectnessnotifiesactionnotsymbol](https://rubystyle.guide#chefcorrectnessnotifiesactionnotsymbol)
+
 ## ChefCorrectness/OpenSSLPasswordHelpers
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -642,6 +726,10 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `6.6.0` | String
 Exclude | `**/metadata.rb`, `**/Berksfile` | Array
+
+### References
+
+* [https://rubystyle.guide#chefcorrectnessopensslpasswordhelpers](https://rubystyle.guide#chefcorrectnessopensslpasswordhelpers)
 
 ## ChefCorrectness/PowershellScriptDeleteFile
 
@@ -672,6 +760,10 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `6.0.0` | String
 Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
+
+### References
+
+* [https://rubystyle.guide#chefcorrectnesspowershellscriptdeletefiles](https://rubystyle.guide#chefcorrectnesspowershellscriptdeletefiles)
 
 ## ChefCorrectness/ResourceSetsInternalProperties
 
@@ -705,6 +797,10 @@ Name | Default value | Configurable values
 VersionAdded | `5.5.0` | String
 Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
+### References
+
+* [https://rubystyle.guide#chefcorrectnessresourcesetsinternalproperties](https://rubystyle.guide#chefcorrectnessresourcesetsinternalproperties)
+
 ## ChefCorrectness/ResourceSetsNameProperty
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -735,6 +831,10 @@ Name | Default value | Configurable values
 VersionAdded | `5.5.0` | String
 Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
+### References
+
+* [https://rubystyle.guide#chefcorrectnessresourcesetsnameproperty](https://rubystyle.guide#chefcorrectnessresourcesetsnameproperty)
+
 ## ChefCorrectness/ResourceWithNoneAction
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -764,6 +864,10 @@ Name | Default value | Configurable values
 VersionAdded | `5.5.0` | String
 Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
+### References
+
+* [https://rubystyle.guide#chefcorrectnessresourcewithnoneaction](https://rubystyle.guide#chefcorrectnessresourcewithnoneaction)
+
 ## ChefCorrectness/ScopedFileExist
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -789,6 +893,10 @@ Name | Default value | Configurable values
 VersionAdded | `5.15.0` | String
 Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
+### References
+
+* [https://rubystyle.guide#chefcorrectnessscopedfileexist](https://rubystyle.guide#chefcorrectnessscopedfileexist)
+
 ## ChefCorrectness/ServiceResource
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -813,6 +921,10 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.0.0` | String
 Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
+
+### References
+
+* [https://rubystyle.guide#chefcorrectnessserviceresource](https://rubystyle.guide#chefcorrectnessserviceresource)
 
 ## ChefCorrectness/TmpPath
 
@@ -840,3 +952,7 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.0.0` | String
 Exclude | `**/metadata.rb`, `**/Berksfile` | Array
+
+### References
+
+* [https://rubystyle.guide#chefcorrectnessnodenormalunless](https://rubystyle.guide#chefcorrectnessnodenormalunless)

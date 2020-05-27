@@ -41,6 +41,10 @@ EnforcedStyle | `strings` | `strings`, `symbols`
 VersionAdded | `5.0.0` | String
 Exclude | `**/metadata.rb` | Array
 
+### References
+
+* [https://rubystyle.guide#chefstyleattributekeys](https://rubystyle.guide#chefstyleattributekeys)
+
 ## ChefStyle/ChefWhaaat
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -66,6 +70,10 @@ Chef Infra configures your systems
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.20.0` | String
+
+### References
+
+* [https://rubystyle.guide#chefstylechefwhaaat](https://rubystyle.guide#chefstylechefwhaaat)
 
 ## ChefStyle/CommentFormat
 
@@ -102,6 +110,10 @@ Name | Default value | Configurable values
 VersionAdded | `5.0.0` | String
 Exclude | `**/Berksfile` | Array
 
+### References
+
+* [https://rubystyle.guide#chefstylecommentformat](https://rubystyle.guide#chefstylecommentformat)
+
 ## ChefStyle/CommentSentenceSpacing
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -116,6 +128,10 @@ Note: This is DISABLED by default.
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.1.0` | String
+
+### References
+
+* [https://rubystyle.guide#chefstylecommentsentencespacing](https://rubystyle.guide#chefstylecommentsentencespacing)
 
 ## ChefStyle/CopyrightCommentFormat
 
@@ -149,6 +165,10 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.0.0` | String
 
+### References
+
+* [https://rubystyle.guide#chefstylecopyrightcommentformat](https://rubystyle.guide#chefstylecopyrightcommentformat)
+
 ## ChefStyle/DefaultCopyrightComments
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -175,6 +195,10 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.12.0` | String
 
+### References
+
+* [https://rubystyle.guide#chefstyledefaultcopyrightcomments](https://rubystyle.guide#chefstyledefaultcopyrightcomments)
+
 ## ChefStyle/FileMode
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -200,6 +224,10 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.0.0` | String
 Exclude | `**/attributes/*`, `**/metadata.rb`, `**/Berksfile` | Array
+
+### References
+
+* [https://rubystyle.guide#chefstylefilemode](https://rubystyle.guide#chefstylefilemode)
 
 ## ChefStyle/ImmediateNotificationTiming
 
@@ -232,6 +260,10 @@ Name | Default value | Configurable values
 VersionAdded | `5.16.0` | String
 Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
+### References
+
+* [https://rubystyle.guide#chefstyleimmediatenotificationtiming](https://rubystyle.guide#chefstyleimmediatenotificationtiming)
+
 ## ChefStyle/NegatingOnlyIf
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -260,6 +292,10 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `6.2.0` | String
 Exclude | `**/metadata.rb`, `**/Berksfile` | Array
+
+### References
+
+* [https://rubystyle.guide#chefstylenegatingonlyif](https://rubystyle.guide#chefstylenegatingonlyif)
 
 ## ChefStyle/OverlyComplexSupportsDependsMetadata
 
@@ -298,6 +334,10 @@ Name | Default value | Configurable values
 VersionAdded | `5.19.0` | String
 Include | `**/metadata.rb` | Array
 
+### References
+
+* [https://rubystyle.guide#chefstyleovercomplexsupportsdependsmetadata](https://rubystyle.guide#chefstyleovercomplexsupportsdependsmetadata)
+
 ## ChefStyle/SimplifyPlatformMajorVersionCheck
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -328,6 +368,10 @@ Name | Default value | Configurable values
 VersionAdded | `5.8.0` | String
 Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
+### References
+
+* [https://rubystyle.guide#chefstylesimplifyplatformmajorversioncheck](https://rubystyle.guide#chefstylesimplifyplatformmajorversioncheck)
+
 ## ChefStyle/TrueClassFalseClassResourceProperties
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -352,6 +396,10 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.16.0` | String
 Include | `**/libraries/*.rb`, `**/resources/*.rb` | Array
+
+### References
+
+* [https://rubystyle.guide#chefstyletrueclassfalseclassresourceproperties](https://rubystyle.guide#chefstyletrueclassfalseclassresourceproperties)
 
 ## ChefStyle/UnnecessaryOSCheck
 
@@ -383,6 +431,10 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.21.0` | String
 Exclude | `**/metadata.rb`, `**/Berksfile` | Array
+
+### References
+
+* [https://rubystyle.guide#chefstyleunnecessaryoscheck](https://rubystyle.guide#chefstyleunnecessaryoscheck)
 
 ## ChefStyle/UnnecessaryPlatformCaseStatement
 
@@ -423,6 +475,10 @@ Name | Default value | Configurable values
 VersionAdded | `5.16.0` | String
 Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
+### References
+
+* [https://rubystyle.guide#chefstyleunnecessaryplatformcasestatement](https://rubystyle.guide#chefstyleunnecessaryplatformcasestatement)
+
 ## ChefStyle/UsePlatformHelpers
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -456,3 +512,7 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.6.0` | String
 Exclude | `**/metadata.rb`, `**/libraries/*`, `**/Berksfile` | Array
+
+### References
+
+* [https://rubystyle.guide#chefstyleuseplatformhelpers](https://rubystyle.guide#chefstyleuseplatformhelpers)
