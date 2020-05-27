@@ -31,8 +31,12 @@ AllCops:
 # ChefStyle: Making cookbooks look better
 ###############################
 
+ChefStyle:
+  StyleGuideBaseURL: https://github.com/chef/cookstyle/blob/master/docs/cops_chefstyle.md
+
 ChefStyle/AttributeKeys:
   Description: Check which style of keys are used to access node attributes.
+  StyleGuide: '#chefstyleattributekeys'
   Enabled: true
   EnforcedStyle: strings
   VersionAdded: '5.0.0'
@@ -44,16 +48,19 @@ ChefStyle/AttributeKeys:
 
 ChefStyle/CopyrightCommentFormat:
   Description: Properly format copyright dates in comment blocks and ensure dates are up to date
+  StyleGuide: '#chefstylecopyrightcommentformat'
   Enabled: false
   VersionAdded: '5.0.0'
 
 ChefStyle/CommentSentenceSpacing:
   Description: Use a single space after sentences in comments
+  StyleGuide: '#chefstylecommentsentencespacing'
   Enabled: false
   VersionAdded: '5.1.0'
 
 ChefStyle/CommentFormat:
   Description: Use Chef's unique format for comment headers
+  StyleGuide: '#chefstylecommentformat'
   Enabled: true
   VersionAdded: '5.0.0'
   Exclude:
@@ -61,6 +68,7 @@ ChefStyle/CommentFormat:
 
 ChefStyle/FileMode:
   Description: Use strings to represent file modes in Chef resources
+  StyleGuide: '#chefstylefilemode'
   Enabled: true
   VersionAdded: '5.0.0'
   Exclude:
@@ -70,6 +78,7 @@ ChefStyle/FileMode:
 
 ChefStyle/UsePlatformHelpers:
   Description: Use platform? and platform_family? helpers to check node platform in resources and recipes
+  StyleGuide: '#chefstyleuseplatformhelpers'
   Enabled: true
   VersionAdded: '5.6.0'
   Exclude:
@@ -79,6 +88,7 @@ ChefStyle/UsePlatformHelpers:
 
 ChefStyle/SimplifyPlatformMajorVersionCheck:
   Description: Use node['platform_version'].to_i instead of node['platform_version'].split('.').first or node['platform_version'].split('.')[0]
+  StyleGuide: '#chefstylesimplifyplatformmajorversioncheck'
   Enabled: true
   VersionAdded: '5.8.0'
   Exclude:
@@ -87,11 +97,13 @@ ChefStyle/SimplifyPlatformMajorVersionCheck:
 
 ChefStyle/DefaultCopyrightComments:
   Description: Cookbook copyright comment headers should be updated for a real person or organization.
+  StyleGuide: '#chefstyledefaultcopyrightcomments'
   Enabled: true
   VersionAdded: '5.12.0'
 
 ChefStyle/UnnecessaryPlatformCaseStatement:
   Description: Use the platform?() and platform_family?() helpers instead of a case statement that only includes a single when statement.
+  StyleGuide: '#chefstyleunnecessaryplatformcasestatement'
   Enabled: true
   VersionAdded: '5.16.0'
   Exclude:
@@ -100,6 +112,7 @@ ChefStyle/UnnecessaryPlatformCaseStatement:
 
 ChefStyle/ImmediateNotificationTiming:
   Description: Use :immediately instead of :immediate for resource notification timing.
+  StyleGuide: '#chefstyleimmediatenotificationtiming'
   Enabled: true
   VersionAdded: '5.16.0'
   Exclude:
@@ -109,6 +122,7 @@ ChefStyle/ImmediateNotificationTiming:
 
 ChefStyle/TrueClassFalseClassResourceProperties:
   Description: When setting the allowed types for a resource to accept either true or false values it's much simpler to use true and false instead of TrueClass and FalseClass.
+  StyleGuide: '#chefstyletrueclassfalseclassresourceproperties'
   Enabled: true
   VersionAdded: '5.16.0'
   Include:
@@ -117,6 +131,7 @@ ChefStyle/TrueClassFalseClassResourceProperties:
 
 ChefStyle/OverlyComplexSupportsDependsMetadata:
   Description: Don't loop over an array to set cookbook dependencies or supported platforms if you have fewer than three values to set.
+  StyleGuide: '#chefstyleovercomplexsupportsdependsmetadata'
   Enabled: true
   VersionAdded: '5.19.0'
   Include:
@@ -124,11 +139,13 @@ ChefStyle/OverlyComplexSupportsDependsMetadata:
 
 ChefStyle/ChefWhaaat:
   Description: Do you mean Chef (the company) or a Chef product (e.g. Chef Infra, Chef InSpec, etc)?
+  StyleGuide: '#chefstylechefwhaaat'
   Enabled: false
   VersionAdded: '5.20.0'
 
 ChefStyle/UnnecessaryOSCheck:
   Description: Use the platform_family?() helpers instead of node['os] == 'foo' for platform_families that match 1:1 with OS values. These helpers are easier to read and can accept multiple platform arguments, which greatly simplifies complex platform logic.
+  StyleGuide: '#chefstyleunnecessaryoscheck'
   Enabled: true
   VersionAdded: '5.21.0'
   Exclude:
@@ -137,6 +154,7 @@ ChefStyle/UnnecessaryOSCheck:
 
 ChefStyle/NegatingOnlyIf:
   Description: Use not_if instead of only_if that negates the Ruby statement with a !
+  StyleGuide: '#chefstylenegatingonlyif'
   VersionAdded: '6.2.0'
   Enabled: true
   Exclude:
