@@ -15,6 +15,10 @@ Name | Default value | Configurable values
 VersionAdded | `5.12.0` | String
 Include | `**/Berksfile` | Array
 
+### References
+
+* [https://rubystyle.guide#chefeffortlessberksfile](https://rubystyle.guide#chefeffortlessberksfile)
+
 ## ChefEffortless/CookbookUsesDatabags
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -37,6 +41,10 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.1.0` | String
 Exclude | `**/metadata.rb`, `**/Berksfile` | Array
+
+### References
+
+* [https://rubystyle.guide#chefeffortlesscookbookusesdatabags](https://rubystyle.guide#chefeffortlesscookbookusesdatabags)
 
 ## ChefEffortless/CookbookUsesEnvironmments
 
@@ -61,6 +69,10 @@ Name | Default value | Configurable values
 VersionAdded | `5.10.0` | String
 Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
+### References
+
+* [https://rubystyle.guide#chefeffortlesscookbookusesenvironments](https://rubystyle.guide#chefeffortlesscookbookusesenvironments)
+
 ## ChefEffortless/CookbookUsesPolicygroups
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -82,6 +94,10 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.10.0` | String
 Exclude | `**/metadata.rb`, `**/Berksfile` | Array
+
+### References
+
+* [https://rubystyle.guide#chefeffortlesscookbookusespolicygroups](https://rubystyle.guide#chefeffortlesscookbookusespolicygroups)
 
 ## ChefEffortless/CookbookUsesRoles
 
@@ -106,6 +122,10 @@ Name | Default value | Configurable values
 VersionAdded | `5.10.0` | String
 Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
+### References
+
+* [https://rubystyle.guide#chefeffortlesscookbookusesroles](https://rubystyle.guide#chefeffortlesscookbookusesroles)
+
 ## ChefEffortless/CookbookUsesSearch
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -127,6 +147,10 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.1.0` | String
 Exclude | `**/metadata.rb`, `**/Berksfile` | Array
+
+### References
+
+* [https://rubystyle.guide#chefeffortlesscookbookusessearch](https://rubystyle.guide#chefeffortlesscookbookusessearch)
 
 ## ChefEffortless/SearchForEnvironmentsOrRoles
 
@@ -150,3 +174,7 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.11.0` | String
 Exclude | `**/metadata.rb`, `**/Berksfile` | Array
+
+### References
+
+* [https://rubystyle.guide#chefeffortlesssearchforenvironmentsorroles](https://rubystyle.guide#chefeffortlesssearchforenvironmentsorroles)

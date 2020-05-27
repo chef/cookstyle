@@ -30,6 +30,10 @@ Name | Default value | Configurable values
 VersionAdded | `5.17.0` | String
 Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
+### References
+
+* [https://rubystyle.guide#chefredundantcodeaptrepositorydistributiondefault](https://rubystyle.guide#chefredundantcodeaptrepositorydistributiondefault)
+
 ## ChefRedundantCode/AptRepositoryNotifiesAptUpdate
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -60,6 +64,10 @@ Name | Default value | Configurable values
 VersionAdded | `5.17.0` | String
 Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
+### References
+
+* [https://rubystyle.guide#chefredundantcodeaptrepositorynotifiesaptupdate](https://rubystyle.guide#chefredundantcodeaptrepositorynotifiesaptupdate)
+
 ## ChefRedundantCode/AttributeMetadata
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -89,6 +97,10 @@ VersionAdded | `5.1.0` | String
 VersionChanged | `5.15.0` | String
 Include | `**/metadata.rb` | Array
 
+### References
+
+* [https://rubystyle.guide#chefredundantcodeattributemetadata](https://rubystyle.guide#chefredundantcodeattributemetadata)
+
 ## ChefRedundantCode/ConflictsMetadata
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -112,6 +124,10 @@ Name | Default value | Configurable values
 VersionAdded | `5.1.0` | String
 VersionChanged | `5.15.0` | String
 Include | `**/metadata.rb` | Array
+
+### References
+
+* [https://rubystyle.guide#chefredundantcodeconflictsmetadata](https://rubystyle.guide#chefredundantcodeconflictsmetadata)
 
 ## ChefRedundantCode/CustomResourceWithAllowedActions
 
@@ -139,6 +155,10 @@ VersionAdded | `5.2.0` | String
 VersionChanged | `5.15.0` | String
 Include | `**/resources/*.rb` | Array
 
+### References
+
+* [https://rubystyle.guide#chefredundantcodecustomresourcewithallowedactions](https://rubystyle.guide#chefredundantcodecustomresourcewithallowedactions)
+
 ## ChefRedundantCode/GroupingMetadata
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -160,6 +180,10 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.19.0` | String
 Include | `**/metadata.rb` | Array
+
+### References
+
+* [https://rubystyle.guide#chefredundantcodegroupingmetadata](https://rubystyle.guide#chefredundantcodegroupingmetadata)
 
 ## ChefRedundantCode/LongDescriptionMetadata
 
@@ -183,6 +207,10 @@ Name | Default value | Configurable values
 VersionAdded | `5.2.0` | String
 VersionChanged | `5.15.0` | String
 Include | `**/metadata.rb` | Array
+
+### References
+
+* [https://rubystyle.guide#chefredundantcodelongdescriptionmetadata](https://rubystyle.guide#chefredundantcodelongdescriptionmetadata)
 
 ## ChefRedundantCode/NamePropertyIsRequired
 
@@ -238,6 +266,10 @@ VersionAdded | `5.1.0` | String
 VersionChanged | `5.15.0` | String
 Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
 
+### References
+
+* [https://rubystyle.guide#chefredundantcodenamepropertyisrequired](https://rubystyle.guide#chefredundantcodenamepropertyisrequired)
+
 ## ChefRedundantCode/PropertySplatRegex
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -264,6 +296,10 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.21.0` | String
 Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
+
+### References
+
+* [https://rubystyle.guide#chefredundantcodepropertysplatregex](https://rubystyle.guide#chefredundantcodepropertysplatregex)
 
 ## ChefRedundantCode/PropertyWithRequiredAndDefault
 
@@ -294,6 +330,10 @@ VersionAdded | `5.1.0` | String
 VersionChanged | `5.15.0` | String
 Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
 
+### References
+
+* [https://rubystyle.guide#chefredundantcodepropertywithrequiredanddefault](https://rubystyle.guide#chefredundantcodepropertywithrequiredanddefault)
+
 ## ChefRedundantCode/ProvidesMetadata
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -318,6 +358,10 @@ VersionAdded | `5.1.0` | String
 VersionChanged | `5.15.0` | String
 Include | `**/metadata.rb` | Array
 
+### References
+
+* [https://rubystyle.guide#chefredundantcodeprovidesmetadata](https://rubystyle.guide#chefredundantcodeprovidesmetadata)
+
 ## ChefRedundantCode/RecipeMetadata
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -340,6 +384,10 @@ Name | Default value | Configurable values
 VersionAdded | `5.6.0` | String
 VersionChanged | `5.15.0` | String
 Include | `**/metadata.rb` | Array
+
+### References
+
+* [https://rubystyle.guide#chefredundantcoderecipemetadata](https://rubystyle.guide#chefredundantcoderecipemetadata)
 
 ## ChefRedundantCode/ReplacesMetadata
 
@@ -364,6 +412,10 @@ Name | Default value | Configurable values
 VersionAdded | `5.1.0` | String
 VersionChanged | `5.15.0` | String
 Include | `**/metadata.rb` | Array
+
+### References
+
+* [https://rubystyle.guide#chefredundantcodereplacesmetadata](https://rubystyle.guide#chefredundantcodereplacesmetadata)
 
 ## ChefRedundantCode/ResourceWithNothingAction
 
@@ -390,6 +442,10 @@ VersionAdded | `5.12.0` | String
 VersionChanged | `5.15.0` | String
 Include | `**/libraries/*.rb`, `**/resources/*.rb`, `**/providers/*.rb` | Array
 
+### References
+
+* [https://rubystyle.guide#chefredundantcoderesourcewithnothingaction](https://rubystyle.guide#chefredundantcoderesourcewithnothingaction)
+
 ## ChefRedundantCode/SensitivePropertyInResource
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -407,6 +463,10 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.16.0` | String
 Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
+
+### References
+
+* [https://rubystyle.guide#chefredundantcodesensitivepropertyinresource](https://rubystyle.guide#chefredundantcodesensitivepropertyinresource)
 
 ## ChefRedundantCode/StringPropertyWithNilDefault
 
@@ -435,6 +495,10 @@ Name | Default value | Configurable values
 VersionAdded | `5.21.0` | String
 Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
 
+### References
+
+* [https://rubystyle.guide#chefredundantcodestringpropertywithnildefault](https://rubystyle.guide#chefredundantcodestringpropertywithnildefault)
+
 ## ChefRedundantCode/SuggestsMetadata
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -459,6 +523,10 @@ VersionAdded | `5.1.0` | String
 VersionChanged | `5.15.0` | String
 Include | `**/metadata.rb` | Array
 
+### References
+
+* [https://rubystyle.guide#chefredundantcodesuggestsmetadata](https://rubystyle.guide#chefredundantcodesuggestsmetadata)
+
 ## ChefRedundantCode/UnnecessaryDesiredState
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -480,6 +548,10 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.16.0` | String
 Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
+
+### References
+
+* [https://rubystyle.guide#chefredundantcodeunnecessarydesiredstate](https://rubystyle.guide#chefredundantcodeunnecessarydesiredstate)
 
 ## ChefRedundantCode/UnnecessaryNameProperty
 
@@ -506,6 +578,10 @@ Name | Default value | Configurable values
 VersionAdded | `5.8.0` | String
 VersionChanged | `5.15.0` | String
 Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
+
+### References
+
+* [https://rubystyle.guide#chefredundantcodeunnecessarynameproperty](https://rubystyle.guide#chefredundantcodeunnecessarynameproperty)
 
 ## ChefRedundantCode/UseCreateIfMissing
 
@@ -543,3 +619,7 @@ Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `6.2.0` | String
 Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
+
+### References
+
+* [https://rubystyle.guide#chefredundantcodeusecreateifmissing](https://rubystyle.guide#chefredundantcodeusecreateifmissing)
