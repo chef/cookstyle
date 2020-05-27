@@ -447,8 +447,12 @@ ChefCorrectness/InvalidPlatformInCase:
 # ChefSharing: Issues that prevent sharing code with other teams or with the Chef community in general
 ###############################
 
+ChefSharing:
+  StyleGuideBaseURL: https://github.com/chef/cookstyle/blob/master/docs/cops_chefsharing.md
+
 ChefSharing/InsecureCookbookURL:
   Description: Insecure http Github or Gitlab URLs for metadata source_url/issues_url fields
+  StyleGuide: '#chefsharinginsecurecookbookurl'
   Enabled: true
   VersionAdded: '5.1.0'
   VersionChanged: '5.15.0'
@@ -457,6 +461,7 @@ ChefSharing/InsecureCookbookURL:
 
 ChefSharing/InvalidLicenseString:
   Description: Cookbook metadata.rb does not use a SPDX compliant license string or "all rights reserved"
+  StyleGuide: '#chefsharinginvalidlicensestring'
   Enabled: true
   VersionAdded: '5.2.0'
   VersionChanged: '5.15.0'
@@ -465,6 +470,7 @@ ChefSharing/InvalidLicenseString:
 
 ChefSharing/DefaultMetadataMaintainer:
   Description: Metadata contains default maintainer information from the cookbook generator. Add actual cookbook maintainer information to the metadata.rb.
+  StyleGuide: '#chefsharingdefaultmetadatamaintainer'
   Enabled: true
   VersionAdded: '5.4.0'
   VersionChanged: '5.15.0'
@@ -473,6 +479,7 @@ ChefSharing/DefaultMetadataMaintainer:
 
 ChefSharing/EmptyMetadataField:
   Description: metadata.rb should not include fields with an empty string. Either don't include the field or add a value.
+  StyleGuide: '#chefsharingemptymetadatafield'
   Enabled: true
   VersionAdded: '5.8.0'
   VersionChanged: '5.15.0'
@@ -481,6 +488,7 @@ ChefSharing/EmptyMetadataField:
 
 ChefSharing/IncludePropertyDescriptions:
   Description: Properties should include description fields to allow automated documention. Requires Chef Infra Client 13.9 or later.
+  StyleGuide: '#chefsharingincludepropetydescriptions'
   Enabled: false
   VersionAdded: '6.1.0'
   Include:
@@ -489,6 +497,7 @@ ChefSharing/IncludePropertyDescriptions:
 
 ChefSharing/IncludeResourceDescriptions:
   Description: Resources should include description fields to allow automated documention. Requires Chef Infra Client 13.9 or later.
+  StyleGuide: '#chefsharingincluderesourcedescriptions'
   Enabled: false
   VersionAdded: '6.1.0'
   Include:
@@ -498,8 +507,13 @@ ChefSharing/IncludeResourceDescriptions:
 # ChefDeprecations: Resolving Deprecations that block upgrading Chef Infra Client
 ###############################
 
+ChefDeprecations:
+  StyleGuideBaseURL: https://github.com/chef/cookstyle/blob/master/docs/cops_chefdeprecations.md
+
+
 ChefDeprecations/NodeDeepFetch:
   Description: Do not use the deprecated chef-sugar node.deep_fetch methods
+  StyleGuide: '#chefdeprecationsnodedeepfetch'
   Enabled: true
   VersionAdded: '5.12.0'
   Exclude:
@@ -508,6 +522,7 @@ ChefDeprecations/NodeDeepFetch:
 
 ChefDeprecations/NodeSet:
   Description: Do not use the deprecated node.set method
+  StyleGuide: '#chefdeprecationsnodeset'
   Enabled: true
   VersionAdded: '5.0.0'
   Exclude:
@@ -516,6 +531,7 @@ ChefDeprecations/NodeSet:
 
 ChefDeprecations/NodeSetUnless:
   Description: Do not use the deprecated node.set_unless method
+  StyleGuide: '#chefdeprecationsnodesetunless'
   Enabled: true
   VersionAdded: '5.1.0'
   Exclude:
@@ -524,6 +540,7 @@ ChefDeprecations/NodeSetUnless:
 
 ChefDeprecations/EpicFail:
   Description: Use ignore_failure method instead of the deprecated epic_fail method
+  StyleGuide: '#chefdeprecationsepicfail'
   Enabled: true
   VersionAdded: '5.1.0'
   Exclude:
@@ -533,27 +550,31 @@ ChefDeprecations/EpicFail:
 
 ChefDeprecations/CookbookDependsOnPoise:
   Description: Cookbooks should not depend on the deprecated Poise framework
+  StyleGuide: '#chefdeprecationscookbookdependsonpoise'
   Enabled: true
   VersionAdded: '5.1.0'
   Include:
     - '**/metadata.rb'
 
 ChefDeprecations/CookbookDependsOnCompatResource:
-  Description: Don't depend on the deprecated compat_resource cookbook made obsolete by Chef 12.19+
+  Description: Don't depend on the deprecated compat_resource cookbook made obsolete by Chef Infra Client 12.19+
+  StyleGuide: '#chefdeprecationscookbookdependsoncompatresource'
   Enabled: true
   VersionAdded: '5.1.0'
   Include:
     - '**/metadata.rb'
 
 ChefDeprecations/CookbookDependsOnPartialSearch:
-  Description: Don't depend on the deprecated partial_search cookbook made obsolete by Chef 13+
+  Description: Don't depend on the deprecated partial_search cookbook made obsolete by Chef Infra Client 13+
+  StyleGuide: '#chefdeprecationscookbookdependsonpartialsearch'
   Enabled: true
   VersionAdded: '5.1.0'
   Include:
     - '**/metadata.rb'
 
 ChefDeprecations/EasyInstallResource:
-  Description: Don't use the deprecated easy_install resource resource removed in Chef 13
+  Description: Don't use the deprecated easy_install resource resource removed in Chef Infra Client 13
+  StyleGuide: '#chefdeprecationseasyinstallresource'
   Enabled: true
   VersionAdded: '5.1.0'
   Exclude:
@@ -562,7 +583,8 @@ ChefDeprecations/EasyInstallResource:
     - '**/Berksfile'
 
 ChefDeprecations/ErlCallResource:
-  Description: Don't use the deprecated erl_call resource removed in Chef 13
+  Description: Don't use the deprecated erl_call resource removed in Chef Infra Client 13
+  StyleGuide: '#chefdeprecationserlcallresource'
   Enabled: true
   VersionAdded: '5.1.0'
   Exclude:
@@ -572,6 +594,7 @@ ChefDeprecations/ErlCallResource:
 
 ChefDeprecations/RequireRecipe:
   Description: Use include_recipe instead of the require_recipe method
+  StyleGuide: '#chefdeprecationsrequirerecipe'
   Enabled: true
   VersionAdded: '5.2.0'
   Exclude:
@@ -581,6 +604,7 @@ ChefDeprecations/RequireRecipe:
 
 ChefDeprecations/NodeMethodsInsteadofAttributes:
   Description: Use node attributes to access Ohai data instead of node methods, which were deprecated in Chef Infra Client 13.
+  StyleGuide: '#chefdeprecationsnodemethodsinsteadofattributes'
   Enabled: true
   VersionAdded: '5.4.0'
   Exclude:
@@ -589,6 +613,7 @@ ChefDeprecations/NodeMethodsInsteadofAttributes:
 
 ChefDeprecations/UsesDeprecatedMixins:
   Description: Don't use deprecated Mixins no longer included in Chef Infra Client 14 and later.
+  StyleGuide: '#chefdeprecationsusesdeprecatedmixins'
   Enabled: true
   VersionAdded: '5.4.0'
   Include:
@@ -598,6 +623,7 @@ ChefDeprecations/UsesDeprecatedMixins:
 
 ChefDeprecations/IncludingXMLRubyRecipe:
   Description: The xml::ruby recipe installs nokogiri which is included in Chef Infra Client 12 and later.
+  StyleGuide: '#chefdeprecationsincludingxmlrubyrecipe'
   Enabled: true
   VersionAdded: '5.4.0'
   Exclude:
@@ -607,6 +633,7 @@ ChefDeprecations/IncludingXMLRubyRecipe:
 
 ChefDeprecations/LegacyYumCookbookRecipes:
   Description: The elrepo, epel, ius, remi, and repoforge recipes were split into their own cookbooks and the yum recipe was renamed to be default with the release of yum cookbook 3.0 (Dec 2013).
+  StyleGuide: '#chefdeprecationslegacyyumcookbookrecipes'
   Enabled: true
   VersionAdded: '5.4.0'
   Exclude:
@@ -614,6 +641,7 @@ ChefDeprecations/LegacyYumCookbookRecipes:
 
 ChefDeprecations/UsesChefRESTHelpers:
   Description: Don't use the helpers in Chef::REST which were removed in Chef Infra Client 13
+  StyleGuide: '#chefdeprecationsuseschefresthelpers'
   Enabled: true
   VersionAdded: '5.5.0'
   Exclude:
@@ -621,6 +649,7 @@ ChefDeprecations/UsesChefRESTHelpers:
 
 ChefDeprecations/ChocolateyPackageUninstallAction:
   Description: Use the :remove action in the chocolatey_package resource instead of :uninstall which was removed in Chef Infra Client 14+
+  StyleGuide: '#chefdeprecationschocolateypackageuninstallaction'
   Enabled: true
   VersionAdded: '5.5.0'
   Exclude:
@@ -628,6 +657,7 @@ ChefDeprecations/ChocolateyPackageUninstallAction:
 
 ChefDeprecations/LaunchdDeprecatedHashProperty:
   Description: The launchd resource's hash property was renamed to plist_hash in Chef Infra Client 13+ to avoid conflicts with Ruby's hash class.
+  StyleGuide: '#chefdeprecationslaunchddeprecatedhashproperty'
   Enabled: true
   VersionAdded: '5.5.0'
   Exclude:
@@ -635,6 +665,7 @@ ChefDeprecations/LaunchdDeprecatedHashProperty:
 
 ChefDeprecations/LocaleDeprecatedLcAllProperty:
   Description: The local resource's lc_all property has been deprecated and will be removed in Chef Infra Client 16
+  StyleGuide: '#chefdeprecationslocaledeprecatedlcallproperty'
   Enabled: true
   VersionAdded: '5.5.0'
   Exclude:
@@ -642,6 +673,7 @@ ChefDeprecations/LocaleDeprecatedLcAllProperty:
 
 ChefDeprecations/UserDeprecatedSupportsProperty:
   Description: The supports property was removed in Chef Infra Client 13 in favor of individual 'manage_home' and 'non_unique' properties.
+  StyleGuide: '#chefdeprecationsuserdeprecatedsupportsproperty'
   Enabled: true
   VersionAdded: '5.5.0'
   Exclude:
@@ -649,6 +681,7 @@ ChefDeprecations/UserDeprecatedSupportsProperty:
 
 ChefDeprecations/UseInlineResourcesDefined:
   Description: use_inline_resources is now the default for resources in Chef Infra Client 13+ and does not need to be specified.
+  StyleGuide: '#chefdeprecationsuseinlineresourcesdefined'
   Enabled: true
   VersionAdded: '5.4.0'
   Include:
@@ -658,6 +691,7 @@ ChefDeprecations/UseInlineResourcesDefined:
 
 ChefDeprecations/IncludingYumDNFCompatRecipe:
   Description: Do not include the yum::dnf_yum_compat default recipe to install yum on dnf systems. Chef Infra Client now includes built in support for DNF.
+  StyleGuide: '#chefdeprecationsincludingyumdnfcompatrecipe'
   Enabled: true
   VersionAdded: '5.3.0'
   Exclude:
@@ -665,6 +699,7 @@ ChefDeprecations/IncludingYumDNFCompatRecipe:
 
 ChefDeprecations/WindowsTaskChangeAction:
   Description: The :change action in the windows_task resource was removed when windows_task was added to Chef Infra Client 13+. The default action of :create should can now be used to create an update tasks.
+  StyleGuide: '#chefdeprecationswindowstaskchangeaction'
   Enabled: true
   VersionAdded: '5.6.0'
   Exclude:
@@ -672,6 +707,7 @@ ChefDeprecations/WindowsTaskChangeAction:
 
 ChefDeprecations/ResourceOverridesProvidesMethod:
   Description: Don't override the provides? method in a resource provider. Use provides :SOME_PROVIDER_NAME instead. This will cause failures in Chef Infra Client 13 and later.
+  StyleGuide: '#chefdeprecationsresourceoverridesprovidesmethod'
   Enabled: true
   VersionAdded: '5.7.0'
   Include:
@@ -681,6 +717,7 @@ ChefDeprecations/ResourceOverridesProvidesMethod:
 
 ChefDeprecations/ResourceUsesDslNameMethod:
   Description: Use resource_name instead of the dsl_name method in resources. This will cause failures in Chef Infra Client 13 and later.
+  StyleGuide: '#chefdeprecationsresourceusesdslnamemethod'
   Enabled: true
   VersionAdded: '5.7.0'
   Include:
@@ -690,6 +727,7 @@ ChefDeprecations/ResourceUsesDslNameMethod:
 
 ChefDeprecations/ResourceUsesUpdatedMethod:
   Description: Don't use updated = true/false to update resource state. This will cause failures in Chef Infra Client 13 and later.
+  StyleGuide: '#chefdeprecationsresourceusesupdatedmethod'
   Enabled: false # has a high potential for false positives
   VersionAdded: '5.7.0'
   Include:
@@ -699,6 +737,7 @@ ChefDeprecations/ResourceUsesUpdatedMethod:
 
 ChefDeprecations/NamePropertyWithDefaultValue:
   Description: A resource property can't be marked as a name_property and also have a default value. This will fail in Chef Infra Client 13 or later.
+  StyleGuide: '#chefdeprecationsnamepropertywithdefaultvalue'
   Enabled: true
   VersionAdded: '5.7.0'
   Include:
@@ -707,6 +746,7 @@ ChefDeprecations/NamePropertyWithDefaultValue:
 
 ChefDeprecations/ResourceUsesProviderBaseMethod:
   Description: Don't use the deprecated provider_base method in a resource to specify the provider module to use. Instead, the provider should call provides to register itself, or the resource should call provider to specify the provider to use. This will cause failures in Chef Infra Client 13 and later.
+  StyleGuide: '#chefdeprecationsresourceusesproviderbasemethod'
   Enabled: true
   VersionAdded: '5.7.0'
   Include:
@@ -715,6 +755,7 @@ ChefDeprecations/ResourceUsesProviderBaseMethod:
 
 ChefDeprecations/ChefSpecCoverageReport:
   Description: Don't use the deprecated ChefSpec coverage report functionality in your specs.
+  StyleGuide: '#chefdeprecationschefspeccoveragereport'
   Enabled: true
   VersionAdded: '5.8.0'
   Include:
@@ -722,6 +763,7 @@ ChefDeprecations/ChefSpecCoverageReport:
 
 ChefDeprecations/ChefSpecLegacyRunner:
   Description: Use ChefSpec::SoloRunner or ChefSpec::ServerRunner instead of the deprecated ChefSpec::Runner.
+  StyleGuide: '#chefdeprecationschefspeclegacyrunner'
   Enabled: true
   VersionAdded: '5.8.0'
   Include:
@@ -729,6 +771,7 @@ ChefDeprecations/ChefSpecLegacyRunner:
 
 ChefDeprecations/UsesRunCommandHelper:
   Description: Use 'shell_out!' instead of the legacy 'run_command' helper for shelling out. The run_command helper was removed in Chef Infra Client 13.
+  StyleGuide: '#chefdeprecationsusesruncommandhelper'
   Enabled: true
   VersionAdded: '5.9.0'
   Exclude:
@@ -737,6 +780,7 @@ ChefDeprecations/UsesRunCommandHelper:
 
 ChefDeprecations/ChefHandlerUsesSupports:
   Description: Use the type property instead of the deprecated supports property in the chef_handler resource. The supports property was removed in chef_handler cookbook version 3.0 (June 2017) and Chef Infra Client 14.0.
+  StyleGuide: '#chefdeprecationschefhandlerusessupports'
   Enabled: true
   VersionAdded: '5.9.0'
   Exclude:
@@ -744,6 +788,7 @@ ChefDeprecations/ChefHandlerUsesSupports:
 
 ChefDeprecations/DeprecatedYumRepositoryProperties:
   Description: With the release of Chef Infra Client 12.14 and the yum cookbook 3.0 several properties in the yum_repository resource were renamed. url -> baseurl, keyurl -> gpgkey, and mirrorexpire -> mirror_expire.
+  StyleGuide: '#chefdeprecationsdeprecatedyumrepositoryproperties'
   Enabled: true
   VersionAdded: '5.10.0'
   Exclude:
@@ -751,6 +796,7 @@ ChefDeprecations/DeprecatedYumRepositoryProperties:
 
 ChefDeprecations/EOLAuditModeUsage:
   Description: The beta Audit Mode feature in Chef Infra Client was removed in Chef Infra Client 15.0. Users should instead use InSpec and the audit cookbook. See https://www.inspec.io/ for more informmation.
+  StyleGuide: '#chefdeprecationseolauditmodeusage'
   Enabled: true
   VersionAdded: '5.10.0'
   Exclude:
@@ -758,6 +804,7 @@ ChefDeprecations/EOLAuditModeUsage:
 
 ChefDeprecations/ResourceInheritsFromCompatResource:
   Description: HWRP style resource should inherit from the 'Chef::Resource' class and not the 'ChefCompat::Resource' class from the deprecated compat_resource cookbook.
+  StyleGuide: '#chefdeprecationsresourceinheritsfromcompatresource'
   Enabled: true
   VersionAdded: '5.10.0'
   Include:
@@ -765,6 +812,7 @@ ChefDeprecations/ResourceInheritsFromCompatResource:
 
 ChefDeprecations/VerifyPropertyUsesFileExpansion:
   Description: Use the 'path' variable in the verify property and not the 'file' variable which was removed in Chef Infra Client 13.
+  StyleGuide: '#chefdeprecationsverifypropertyusesfileexpansion'
   Enabled: true
   VersionAdded: '5.10.0'
   Exclude:
@@ -772,11 +820,13 @@ ChefDeprecations/VerifyPropertyUsesFileExpansion:
 
 ChefDeprecations/PoiseArchiveUsage:
   Description: The poise_archive resource in the deprecated poise-archive should be replaced with the archive_file resource found in Chef Infra Client 15+.
+  StyleGuide: '#chefdeprecationspoisearchiveusage'
   Enabled: true
   VersionAdded: '5.11.0'
 
 ChefDeprecations/PartialSearchHelperUsage:
   Description: Legacy partial_search usage should be updated to use :filter_result in the search helper instead.
+  StyleGuide: '#chefdeprecationspartialsearchhelperusage'
   Enabled: true
   VersionAdded: '5.11.0'
   Exclude:
@@ -784,6 +834,7 @@ ChefDeprecations/PartialSearchHelperUsage:
 
 ChefDeprecations/SearchUsesPositionalParameters:
   Description: Don't use deprecated positional parameters in cookbook search queries.
+  StyleGuide: '#chefdeprecationssearchusespositionalparameters'
   Enabled: true
   VersionAdded: '5.11.0'
   Exclude:
@@ -791,6 +842,7 @@ ChefDeprecations/SearchUsesPositionalParameters:
 
 ChefDeprecations/PartialSearchClassUsage:
   Description: Legacy Chef::PartialSearch class usage should be updated to use the search helper instead with the filter_result key.
+  StyleGuide: '#chefdeprecationspartialsearchclassusage'
   Enabled: true
   VersionAdded: '5.11.0'
   Exclude:
@@ -798,6 +850,7 @@ ChefDeprecations/PartialSearchClassUsage:
 
 ChefDeprecations/Cheffile:
   Description: The Libarian-Chef depsolving project is no longer maintained and should not be used for cookbook depsolving. Consider using Policyfiles instead.
+  StyleGuide: '#chefdeprecationscheffile'
   Enabled: true
   VersionAdded: '5.12.0'
   Include:
@@ -805,6 +858,7 @@ ChefDeprecations/Cheffile:
 
 ChefDeprecations/LegacyNotifySyntax:
   Description: Use the new-style notification syntax which allows you to notify resources defined later in a recipe or resource.
+  StyleGuide: '#chefdeprecationslegacynotifysyntax'
   Enabled: true
   VersionAdded: '5.13.0'
   Exclude:
@@ -812,6 +866,7 @@ ChefDeprecations/LegacyNotifySyntax:
 
 ChefDeprecations/NodeSetWithoutLevel:
   Description: When setting a node attribute in Chef Infra Client 11 and later you must specify the precedence level.
+  StyleGuide: '#chefdeprecationsnodesetwithoutlevel'
   Enabled: true
   VersionAdded: '5.13.0'
   Exclude:
@@ -820,6 +875,7 @@ ChefDeprecations/NodeSetWithoutLevel:
 
 ChefDeprecations/ChefRewind:
   Description: Use delete_resource / edit_resource instead of functionality in the deprecated chef-rewind gem
+  StyleGuide: '#chefdeprecationschefrewind'
   Enabled: true
   VersionAdded: '5.14.0'
   Exclude:
@@ -828,6 +884,7 @@ ChefDeprecations/ChefRewind:
 
 ChefDeprecations/RubyBlockCreateAction:
   Description: Use the :run action in the ruby_block resource instead of the deprecated :create action
+  StyleGuide: '#chefdeprecationsrubyblockcreateaction'
   Enabled: true
   VersionAdded: '5.16.0'
   Exclude:
@@ -837,6 +894,7 @@ ChefDeprecations/RubyBlockCreateAction:
 
 ChefDeprecations/DeprecatedPlatformMethods:
   Description: Use provider_for_action instead of the deprecated Chef::Platform methods in resources.
+  StyleGuide: '#chefdeprecationsdeprecatedplatformmethods'
   Enabled: true
   VersionAdded: '5.16.0'
   Include:
@@ -846,6 +904,7 @@ ChefDeprecations/DeprecatedPlatformMethods:
 
 ChefDeprecations/DeprecatedChefSpecPlatform:
   Description: Use currently supported platforms in ChefSpec listed at https://github.com/chefspec/fauxhai/blob/master/PLATFORMS.md. Fauxhai / ChefSpec will perform fuzzy matching on platform version so it's always best to be less specific ie. 10 instead of 10.3
+  StyleGuide: '#chefdeprecationsdeprecatedchefspecplatform'
   Enabled: true
   VersionAdded: '5.20.0'
   Include:
@@ -853,6 +912,7 @@ ChefDeprecations/DeprecatedChefSpecPlatform:
 
 ChefDeprecations/WindowsFeatureServermanagercmd:
   Description: The `windows_feature` resource no longer supports setting the `install_method` to `:servermanagercmd`. `:windows_feature_dism` or `:windows_feature_powershell` should be used instead.
+  StyleGuide: '#chefdeprecationswindowsfeatureservermanagercmd'
   Enabled: true
   VersionAdded: '5.22.0'
   Exclude:
@@ -862,6 +922,7 @@ ChefDeprecations/WindowsFeatureServermanagercmd:
 
 ChefDeprecations/DeprecatedWindowsVersionCheck:
   Description: Don't use the deprecated older_than_win_2012_or_8? helper. Windows versions before 2012 and 8 are now end of life and this helper will always return false.
+  StyleGuide: '#chefdeprecationsdeprecatedwindowsversioncheck'
   Enabled: true
   VersionAdded: '6.0.0'
   Exclude:
@@ -870,6 +931,7 @@ ChefDeprecations/DeprecatedWindowsVersionCheck:
 
 ChefDeprecations/ChefWindowsPlatformHelper:
   Description: Use `platform?('windows')` instead of the legacy `Chef::Platform.windows?` helper.
+  StyleGuide: '#chefdeprecationschefwindowsplatformhelper'
   Enabled: true
   VersionAdded: '6.0.0'
   Exclude:
@@ -878,6 +940,7 @@ ChefDeprecations/ChefWindowsPlatformHelper:
 
 ChefDeprecations/LogResourceNotifications:
   Description: In Chef Infra Client 16 the log resource no longer notifies when logging so notifications should not be triggered from log resources. Use the notify_group resource instead to aggregate notifications.
+  StyleGuide: '#chefdeprecationslogresourcenotifications'
   Enabled: true
   VersionAdded: '6.0.0'
   Exclude:
@@ -886,6 +949,7 @@ ChefDeprecations/LogResourceNotifications:
 
 ChefDeprecations/ResourceWithoutNameOrProvides:
   Description: In Chef Infra Client 16 and later legacy HWRP resources must use either `resource_name` or `provides` to define the resource name.
+  StyleGuide: '#chefdeprecationsresourcewithoutnameorprovides'
   Enabled: true
   VersionAdded: '6.0.0'
   Include:
@@ -893,6 +957,7 @@ ChefDeprecations/ResourceWithoutNameOrProvides:
 
 ChefDeprecations/WindowsVersionHelpers:
   Description: Use node['platform_version'] data instead of the Windows::VersionHelper helper from the Windows cookbook.
+  StyleGuide: '#chefdeprecationswindowsversionhelpers'
   Enabled: true
   VersionAdded: '5.4.0'
   Exclude:
@@ -901,6 +966,7 @@ ChefDeprecations/WindowsVersionHelpers:
 
 ChefDeprecations/PowershellCookbookHelpers:
   Description: Use node['powershell']['version'] or the new powershell_version helper available in Chef Infra Client 16+ instead of the deprecated PowerShell cookbook helpers.
+  StyleGuide: '#chefdeprecationspowershellcookbookhelpers'
   Enabled: true
   VersionAdded: '6.1.0'
   Exclude:
@@ -909,6 +975,7 @@ ChefDeprecations/PowershellCookbookHelpers:
 
 ChefDeprecations/DeprecatedShelloutMethods:
   Description: Many legacy specialized shell_out methods were replaced in Chef Infra Client 14.3 and removed in Chef Infra Client 15. Use shell_out and any additional options if necessary.
+  StyleGuide: '#chefdeprecationsdeprecatedshelloutmethods'
   Enabled: true
   VersionAdded: '6.3.0'
   Exclude:
@@ -918,6 +985,7 @@ ChefDeprecations/DeprecatedShelloutMethods:
 
 ChefDeprecations/Ruby27KeywordArgumentWarnings:
   Description: Pass options to shell_out helpers without the brackets to avoid Ruby 2.7 deprecation warnings.
+  StyleGuide: '#chefdeprecationsruby27keywordargumentwarnings'
   Enabled: true
   VersionAdded: '6.5.0'
   Exclude:
