@@ -23,7 +23,7 @@ describe RuboCop::Cop::Chef::ChefCorrectness::LazyEvalNodeAttributeDefaults do
   it 'registers an offense when a property includes a non-lazy attribute as a default' do
     expect_offense(<<~RUBY)
       property :Something, String, default: node['hostname']
-                                            ^^^^^^^^^^^^^^^^ When setting a node attribute as a default value for a custom resource property, make sure to wrap the node attribute in `lazy {}` so that the node attribute is available when the resource executes.
+                                            ^^^^^^^^^^^^^^^^ When setting a node attribute as the default value for a custom resource property, wrap the node attribute in `lazy {}` so that its value is available when the resource executes.
     RUBY
 
     expect_correction(<<~RUBY)
