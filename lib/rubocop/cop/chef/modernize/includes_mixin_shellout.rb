@@ -42,13 +42,35 @@ module RuboCop
             (send nil? :require ( str {"chef/mixin/shell_out" "chef/mixin/powershell_out"} ))
           PATTERN
 
+          def_node_search :hwrp_classes?, <<-PATTERN
+            (class
+              (const ... )
+              {(const
+                (const
+                  (const nil? :Chef) :Provider) :LWRPBase)
+               (const
+                 (const nil? :Chef) :Provider)
+               }
+              ...)
+          PATTERN
+
+          def check_for_offenses(node)
+            containing_dir = File.basename(File.dirname(processed_source.path))
+
+            if containing_dir == 'resources' # resource
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            elsif hwrp_classes?(processed_source.ast) # hwrp
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            end
+          end
+
           def on_send(node)
             require_shellout?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+              check_for_offenses(node)
             end
 
             include_shellout?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+              check_for_offenses(node)
             end
           end
 
