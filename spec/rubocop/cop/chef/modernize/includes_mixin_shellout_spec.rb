@@ -89,7 +89,7 @@ describe RuboCop::Cop::Chef::ChefModernize::IncludingMixinShelloutInResources, :
     expect_correction("\n")
   end
 
-  it 'registers an error when requiring "chef/mixin/shell_out" in a non-HWRP library' do
+  it "doesn't register an offense when requiring \"chef/mixin/shell_out\" in a non-HWRP library" do
     allow(File).to receive(:dirname).and_return('/foo/bar/cookbook/libraries/')
     expect_no_offenses(<<~RUBY)
     require 'chef/mixin/shell_out'
