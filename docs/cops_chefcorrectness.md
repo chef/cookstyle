@@ -509,7 +509,7 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Enabled | Yes | All Versions
 
-When setting a node attribute as a default value for a custom resource property, make sure to wrap the node attribute in `lazy {}` so that the node attribute is available when the resource executes.
+When setting a node attribute as the default value for a custom resource property, wrap the node attribute in `lazy {}` so that its value is available when the resource executes.
 
 ### Examples
 

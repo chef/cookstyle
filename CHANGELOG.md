@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 6.7.0 -->
+## [v6.7.0](https://github.com/chef/cookstyle/tree/v6.7.0) (2020-05-29)
+
+#### Merged Pull Requests
+- Expand ChefModernize/IncludingMixinShelloutInResources to work in HWRPs [#643](https://github.com/chef/cookstyle/pull/643) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=6.6.9 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Expand ChefModernize/IncludingMixinShelloutInResources to work in HWRPs [#643](https://github.com/chef/cookstyle/pull/643) ([tas50](https://github.com/tas50)) <!-- 6.7.0 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->

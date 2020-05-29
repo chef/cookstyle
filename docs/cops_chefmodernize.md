@@ -606,7 +606,7 @@ include Chef::Mixin::PowershellOut
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.4.0` | String
-Include | `**/resources/*.rb`, `**/providers/*.rb` | Array
+Include | `**/resources/*.rb`, `**/providers/*.rb`, `**/libraries/*.rb` | Array
 
 ### References
 
