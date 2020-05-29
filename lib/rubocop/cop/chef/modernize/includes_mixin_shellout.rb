@@ -1,5 +1,5 @@
 #
-# Copyright:: 2019, Chef Software Inc.
+# Copyright:: 2019-2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -57,9 +57,8 @@ module RuboCop
           def check_for_offenses(node)
             containing_dir = File.basename(File.dirname(processed_source.path))
 
-            if containing_dir == 'resources' # resource
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
-            elsif hwrp_classes?(processed_source.ast) # hwrp
+            # only add offenses when we're in a custom resource or HWRP, but not a plain old library
+            if containing_dir == 'resources' || hwrp_classes?(processed_source.ast)
               add_offense(node, location: :expression, message: MSG, severity: :refactor)
             end
           end
