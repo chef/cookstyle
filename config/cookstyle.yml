@@ -1115,6 +1115,7 @@ ChefModernize/IncludingMixinShelloutInResources:
   Include:
     - '**/resources/*.rb'
     - '**/providers/*.rb'
+    - '**/libraries/*.rb'
 
 ChefModernize/UseBuildEssentialResource:
   Description: Use the build_essential resource instead of the legacy build-essential recipe. This resource ships in the build-essential cookbook v5.0+ and is built into Chef Infra Client 14+

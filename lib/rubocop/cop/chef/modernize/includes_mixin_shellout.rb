@@ -1,5 +1,5 @@
 #
-# Copyright:: 2019, Chef Software Inc.
+# Copyright:: 2019-2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -42,13 +42,34 @@ module RuboCop
             (send nil? :require ( str {"chef/mixin/shell_out" "chef/mixin/powershell_out"} ))
           PATTERN
 
+          def_node_search :hwrp_classes?, <<-PATTERN
+            (class
+              (const ... )
+              {(const
+                (const
+                  (const nil? :Chef) :Provider) :LWRPBase)
+               (const
+                 (const nil? :Chef) :Provider)
+               }
+              ...)
+          PATTERN
+
+          def check_for_offenses(node)
+            containing_dir = File.basename(File.dirname(processed_source.path))
+
+            # only add offenses when we're in a custom resource or HWRP, but not a plain old library
+            if containing_dir == 'resources' || hwrp_classes?(processed_source.ast)
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            end
+          end
+
           def on_send(node)
             require_shellout?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+              check_for_offenses(node)
             end
 
             include_shellout?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+              check_for_offenses(node)
             end
           end
 
