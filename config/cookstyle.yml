@@ -991,6 +991,15 @@ ChefDeprecations/Ruby27KeywordArgumentWarnings:
     - '**/metadata.rb'
     - '**/Berksfile'
 
+ChefDeprecations/ResourceUsesOnlyResourceName:
+  Description: Starting with Chef Infra Client 16 using `resource_name` without also using `provides` will result in resource failures. Use `provides` to change the name of the instead and skip the `resource_name` entirely if it matches the name Chef Infra Client automatically assigned based on COOKBOOKNAME_FILENAME.
+  StyleGuide: '#chefdeprecationsresourceusesonlyresourcename'
+  Enabled: true
+  VersionAdded: '6.7.0'
+  Include:
+    - '**/libraries/*.rb'
+    - '**/resources/*.rb'
+
 ###############################
 # ChefModernize: Cleaning up legacy code and using new built-in resources
 ###############################
