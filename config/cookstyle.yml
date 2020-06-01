@@ -1790,8 +1790,6 @@ ChefEffortless/Berksfile:
 
 Layout/AccessModifierIndentation:
   Enabled: true
-Naming/AccessorMethodName:
-  Enabled: true
 Layout/AlignArray:
   Enabled: true
 Layout/AlignHash:
@@ -2444,4 +2442,8 @@ Style/MultilineWhenThen:
 
 # .each_key is a lot more clear that .keys.each
 Style/HashEachMethods:
+  Enabled: true
+
+# We want to catch this deprecation in cookbooks
+Lint/DeprecatedOpenSSLConstant:
   Enabled: true

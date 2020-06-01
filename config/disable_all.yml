@@ -215,6 +215,8 @@ Lint/Debugger:
   Enabled: false
 Lint/DeprecatedClassMethods:
   Enabled: false
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: false
 Lint/DisjunctiveAssignmentInConstructor:
   Enabled: false
 Lint/DuplicateCaseCondition:
@@ -262,6 +264,8 @@ Lint/LiteralInInterpolation:
 Lint/Loop:
   Enabled: false
 Lint/MissingCopEnableDirective:
+  Enabled: false
+Lint/MixedRegexpCaptureTypes:
   Enabled: false
 Lint/MultipleComparison:
   Enabled: false
@@ -666,6 +670,10 @@ Style/RedundantInterpolation:
 Style/RedundantParentheses:
   Enabled: false
 Style/RedundantPercentQ:
+  Enabled: false
+Style/RedundantRegexpCharacterClass:
+  Enabled: false
+Style/RedundantRegexpEscape:
   Enabled: false
 Style/RedundantReturn:
   Enabled: false
