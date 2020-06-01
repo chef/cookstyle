@@ -11,7 +11,7 @@ require 'rubocop/monkey_patches/comment_config.rb'
 # monkey patches needed for the TargetChefVersion config option
 require 'rubocop/monkey_patches/config.rb'
 require 'rubocop/monkey_patches/cop.rb'
-require 'rubocop/monkey_patches/commissioner.rb'
+require 'rubocop/monkey_patches/team.rb'
 
 module RuboCop
   class ConfigLoader
