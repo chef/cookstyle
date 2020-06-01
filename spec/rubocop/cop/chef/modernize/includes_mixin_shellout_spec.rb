@@ -20,8 +20,7 @@ describe RuboCop::Cop::Chef::ChefModernize::IncludingMixinShelloutInResources, :
   subject(:cop) { described_class.new(config) }
 
   it 'registers an error when requiring "chef/mixin/shell_out" in a resource' do
-    allow(File).to receive(:dirname).and_return('/foo/bar/cookbook/resources/')
-    expect_offense(<<~RUBY)
+    expect_offense(<<~RUBY, '/foo/bar/cookbook/resources/foo.rb')
     require 'chef/mixin/shell_out'
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ There is no need to include Chef::Mixin::ShellOut or Chef::Mixin::PowershellOut in resources or providers as this is already done by Chef Infra Client 12.4+.
     RUBY
@@ -30,8 +29,7 @@ describe RuboCop::Cop::Chef::ChefModernize::IncludingMixinShelloutInResources, :
   end
 
   it 'registers an error when requiring "chef/mixin/shell_out" in a HWRP inheriting from Chef::Provider' do
-    allow(File).to receive(:dirname).and_return('/foo/bar/cookbook/libraries/')
-    expect_offense(<<~RUBY)
+    expect_offense(<<~RUBY, '/foo/bar/cookbook/libraries/foo.rb')
     require 'chef/mixin/shell_out'
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ There is no need to include Chef::Mixin::ShellOut or Chef::Mixin::PowershellOut in resources or providers as this is already done by Chef Infra Client 12.4+.
 
@@ -45,8 +43,7 @@ describe RuboCop::Cop::Chef::ChefModernize::IncludingMixinShelloutInResources, :
   end
 
   it 'registers an error when requiring "chef/mixin/shell_out" in a HWRP inheriting from Chef::Provider::LWRPBase' do
-    allow(File).to receive(:dirname).and_return('/foo/bar/cookbook/libraries/')
-    expect_offense(<<~RUBY)
+    expect_offense(<<~RUBY, '/foo/bar/cookbook/libraries/foo.rb')
     require 'chef/mixin/shell_out'
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ There is no need to include Chef::Mixin::ShellOut or Chef::Mixin::PowershellOut in resources or providers as this is already done by Chef Infra Client 12.4+.
 
@@ -60,8 +57,7 @@ describe RuboCop::Cop::Chef::ChefModernize::IncludingMixinShelloutInResources, :
   end
 
   it 'registers an error when including "Chef::Mixin::ShellOut" in a resource' do
-    allow(File).to receive(:dirname).and_return('/foo/bar/cookbook/resources/')
-    expect_offense(<<~RUBY)
+    expect_offense(<<~RUBY, '/foo/bar/cookbook/resources/foo.rb')
     include Chef::Mixin::ShellOut
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ There is no need to include Chef::Mixin::ShellOut or Chef::Mixin::PowershellOut in resources or providers as this is already done by Chef Infra Client 12.4+.
     RUBY
@@ -70,8 +66,7 @@ describe RuboCop::Cop::Chef::ChefModernize::IncludingMixinShelloutInResources, :
   end
 
   it 'registers an error when requiring "chef/mixin/powershell_out" in a resource' do
-    allow(File).to receive(:dirname).and_return('/foo/bar/cookbook/resources/')
-    expect_offense(<<~RUBY)
+    expect_offense(<<~RUBY, '/foo/bar/cookbook/resources/foo.rb')
     require 'chef/mixin/powershell_out'
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ There is no need to include Chef::Mixin::ShellOut or Chef::Mixin::PowershellOut in resources or providers as this is already done by Chef Infra Client 12.4+.
     RUBY
@@ -80,8 +75,7 @@ describe RuboCop::Cop::Chef::ChefModernize::IncludingMixinShelloutInResources, :
   end
 
   it 'registers an error when including "Chef::Mixin::PowershellOut" in a resource' do
-    allow(File).to receive(:dirname).and_return('/foo/bar/cookbook/resources/')
-    expect_offense(<<~RUBY)
+    expect_offense(<<~RUBY, '/foo/bar/cookbook/resources/foo.rb')
     include Chef::Mixin::PowershellOut
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ There is no need to include Chef::Mixin::ShellOut or Chef::Mixin::PowershellOut in resources or providers as this is already done by Chef Infra Client 12.4+.
     RUBY
@@ -90,8 +84,7 @@ describe RuboCop::Cop::Chef::ChefModernize::IncludingMixinShelloutInResources, :
   end
 
   it "doesn't register an offense when requiring \"chef/mixin/shell_out\" in a non-HWRP library" do
-    allow(File).to receive(:dirname).and_return('/foo/bar/cookbook/libraries/')
-    expect_no_offenses(<<~RUBY)
+    expect_no_offenses(<<~RUBY, '/foo/bar/cookbook/libraries/foo.rb')
     require 'chef/mixin/shell_out'
 
     class MyCookbook
