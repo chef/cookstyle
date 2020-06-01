@@ -41,17 +41,14 @@ describe RuboCop::Cop::Chef::ChefStyle::UnnecessaryPlatformCaseStatement do
   end
 
   it 'autocorrects complex case platform checks to a single line if there is no else statement' do
-    expect_offense(<<~RUBY)
+    corrected = autocorrect_source(<<~RUBY)
       case node['platform']
-      ^^^^^^^^^^^^^^^^^^^^^ Use the platform?() and platform_family?() helpers instead of a case statement that only includes a single when statement.
       when 'ubuntu', 'debian'
         apt_update
       end
     RUBY
 
-    expect_correction(<<~RUBY)
-      apt_update if platform?('ubuntu', 'debian')
-    RUBY
+    expect(corrected).to eq "apt_update if platform?('ubuntu', 'debian')\n"
   end
 
   it "doesn't autocorrect complex case platform checks with no code in any when/else" do
