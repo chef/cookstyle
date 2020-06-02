@@ -1,23 +1,21 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.7.3 -->
-## [v6.7.3](https://github.com/chef/cookstyle/tree/v6.7.3) (2020-06-02)
-
-#### Merged Pull Requests
-- Add ChefDeprecations/ResourceUsesOnlyResourceName [#644](https://github.com/chef/cookstyle/pull/644) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=6.6.9 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Add ChefDeprecations/ResourceUsesOnlyResourceName [#644](https://github.com/chef/cookstyle/pull/644) ([tas50](https://github.com/tas50)) <!-- 6.7.3 -->
-- Improve a few specs [#645](https://github.com/chef/cookstyle/pull/645) ([tas50](https://github.com/tas50)) <!-- 6.7.2 -->
-- Update RuboCop engine to 0.85 [#634](https://github.com/chef/cookstyle/pull/634) ([tas50](https://github.com/tas50)) <!-- 6.7.1 -->
-- Expand ChefModernize/IncludingMixinShelloutInResources to work in HWRPs [#643](https://github.com/chef/cookstyle/pull/643) ([tas50](https://github.com/tas50)) <!-- 6.7.0 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v6.7.3](https://github.com/chef/cookstyle/tree/v6.7.3) (2020-06-02)
+
+#### Merged Pull Requests
+- Expand ChefModernize/IncludingMixinShelloutInResources to work in HWRPs [#643](https://github.com/chef/cookstyle/pull/643) ([tas50](https://github.com/tas50))
+- Update RuboCop engine to 0.85 [#634](https://github.com/chef/cookstyle/pull/634) ([tas50](https://github.com/tas50))
+- Improve a few specs [#645](https://github.com/chef/cookstyle/pull/645) ([tas50](https://github.com/tas50))
+- Add ChefDeprecations/ResourceUsesOnlyResourceName [#644](https://github.com/chef/cookstyle/pull/644) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v6.6.9](https://github.com/chef/cookstyle/tree/v6.6.9) (2020-05-27)
 
 #### Merged Pull Requests
@@ -31,7 +29,6 @@
 - Add Cookstyle 6.6 release notes [#640](https://github.com/chef/cookstyle/pull/640) ([tas50](https://github.com/tas50))
 - Add more styleguide links [#641](https://github.com/chef/cookstyle/pull/641) ([tas50](https://github.com/tas50))
 - Add in the remaining styleguide links [#642](https://github.com/chef/cookstyle/pull/642) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v6.5.3](https://github.com/chef/cookstyle/tree/v6.5.3) (2020-05-19)
 
