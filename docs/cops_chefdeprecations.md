@@ -1316,6 +1316,33 @@ Include | `**/libraries/*.rb`, `**/providers/*.rb`, `**/resources/*.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationsresourceusesdslnamemethod](https://rubystyle.guide#chefdeprecationsresourceusesdslnamemethod)
 
+## ChefDeprecations/ResourceUsesOnlyResourceName
+
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
+
+Starting with Chef Infra Client 16, using `resource_name` without also using `provides` will result in resource failures. Use `provides` to change the name of the resource instead and omit `resource_name` entirely if it matches the name Chef Infra Client automatically assigns based on COOKBOOKNAME_FILENAME.
+
+### Examples
+
+```ruby
+# bad
+mycookbook/resources/myresource.rb:
+resource_name :mycookbook_myresource
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.7.0` | String
+Include | `**/libraries/*.rb`, `**/resources/*.rb` | Array
+
+### References
+
+* [https://rubystyle.guide#chefdeprecationsresourceusesonlyresourcename](https://rubystyle.guide#chefdeprecationsresourceusesonlyresourcename)
+
 ## ChefDeprecations/ResourceUsesProviderBaseMethod
 
 Enabled by default | Supports autocorrection | Target Chef Version

@@ -74,6 +74,7 @@
 * [ChefDeprecations/ResourceInheritsFromCompatResource](cops_chefdeprecations.md#chefdeprecationsresourceinheritsfromcompatresource)
 * [ChefDeprecations/ResourceOverridesProvidesMethod](cops_chefdeprecations.md#chefdeprecationsresourceoverridesprovidesmethod)
 * [ChefDeprecations/ResourceUsesDslNameMethod](cops_chefdeprecations.md#chefdeprecationsresourceusesdslnamemethod)
+* [ChefDeprecations/ResourceUsesOnlyResourceName](cops_chefdeprecations.md#chefdeprecationsresourceusesonlyresourcename)
 * [ChefDeprecations/ResourceUsesProviderBaseMethod](cops_chefdeprecations.md#chefdeprecationsresourceusesproviderbasemethod)
 * [ChefDeprecations/ResourceUsesUpdatedMethod](cops_chefdeprecations.md#chefdeprecationsresourceusesupdatedmethod)
 * [ChefDeprecations/ResourceWithoutNameOrProvides](cops_chefdeprecations.md#chefdeprecationsresourcewithoutnameorprovides)
