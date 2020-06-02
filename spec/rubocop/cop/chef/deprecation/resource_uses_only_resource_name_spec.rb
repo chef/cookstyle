@@ -20,6 +20,10 @@ require 'spec_helper'
 describe RuboCop::Cop::Chef::ChefDeprecations::ResourceUsesOnlyResourceName do
   subject(:cop) { described_class.new }
 
+  before do
+    skip 'Test not currently supported on Windows!' if RuboCop::Platform.windows?
+  end
+
   let(:non_match_json) do
     <<~DATA
     {
