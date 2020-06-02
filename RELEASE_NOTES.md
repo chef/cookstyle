@@ -1,6 +1,6 @@
 ## Cookstyle 6.7
 
-### 2 New Cops
+### Two New Cops
 
 #### ChefDeprecations/ResourceUsesOnlyResourceName
 
