@@ -50,7 +50,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ResourceUsesOnlyResourceName do
   it 'registers an offense when a resource has resource_name and does not use provides' do
     expect_offense(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
       resource_name :my_cookbook_foo
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Starting with Chef Infra Client 16 using `resource_name` without also using `provides` will result in resource failures. Use `provides` to change the name of the instead and skip the `resource_name` entirely if it matches the name Chef Infra Client automatically assigned based on COOKBOOKNAME_FILENAME.
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Starting with Chef Infra Client 16, using `resource_name` without also using `provides` will result in resource failures. Use `provides` to change the name of the resource instead and omit `resource_name` entirely if it matches the name Chef Infra Client automatically assigns based on COOKBOOKNAME_FILENAME.
     RUBY
   end
 
