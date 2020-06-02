@@ -30,7 +30,7 @@ module RuboCop
           include RuboCop::Chef::CookbookHelpers
           include RangeHelp
 
-          MSG = 'Starting with Chef Infra Client 16 using `resource_name` without also using `provides` will result in resource failures. Use `provides` to change the name of the instead and skip the `resource_name` entirely if it matches the name Chef Infra Client automatically assigned based on COOKBOOKNAME_FILENAME.'.freeze
+          MSG = 'Starting with Chef Infra Client 16, using `resource_name` without also using `provides` will result in resource failures. Use `provides` to change the name of the resource instead and omit `resource_name` entirely if it matches the name Chef Infra Client automatically assigns based on COOKBOOKNAME_FILENAME.'.freeze
 
           def_node_matcher :resource_name?, <<-PATTERN
           (send nil? :resource_name (sym $_ ))
