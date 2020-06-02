@@ -18,7 +18,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefDeprecations
-        # Starting with Chef Infra Client 16 using `resource_name` without also using `provides` will result in resource failures. Use `provides` to change the name of the instead and skip the `resource_name` entirely if it matches the name Chef Infra Client automatically assigned based on COOKBOOKNAME_FILENAME.
+        # Starting with Chef Infra Client 16, using `resource_name` without also using `provides` will result in resource failures. Use `provides` to change the name of the resource instead and omit `resource_name` entirely if it matches the name Chef Infra Client automatically assigns based on COOKBOOKNAME_FILENAME.
         #
         # @example
         #
