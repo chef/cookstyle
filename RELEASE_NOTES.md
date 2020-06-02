@@ -1,3 +1,32 @@
+## Cookstyle 6.7
+
+### Two New Cops
+
+#### ChefDeprecations/ResourceUsesOnlyResourceName
+
+The `ChefDeprecations/ResourceUsesOnlyResourceName` cop detects custom resources / LWRPs that define a `resource_name` without also using `provides`. Starting with Chef Infra Client 16, using `resource_name` without also using `provides` will result in resource failures. Use `provides` to change the name of the resource instead and omit `resource_name` entirely if it matches the name Chef Infra Client automatically assigns based on COOKBOOKNAME_FILENAME.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### Lint/DeprecatedOpenSSLConstant
+
+The `Lint/DeprecatedOpenSSLConstant` cop detects an upcoming deprecation in Ruby 3.0 that impacts the usage of OpenSSL constants. This deprecation is incredibly uncommon in Chef Infra cookbooks, but we wanted to make sure that any occurances were corrected before Ruby 3.0 ships next year.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+### RuboCop 0.85
+
+The RuboCop engine that powers Cookstyle has been upgraded from 0.83 to 0.85. This new release resolves several issues that impacted detection and correction of code in cookbooks.
+
+### Other Improvements
+
+- The `Naming/AccessorMethodName` cop has been disabled. This cop did not significantly improve cookbook code and could not be autocorrected.
+- The `ChefModernize/IncludingMixinShelloutInResources` cop now detects and corrects occurences in legacy HWRP resources.
+
 ## Cookstyle 6.6
 
 ### 4 New Cops
