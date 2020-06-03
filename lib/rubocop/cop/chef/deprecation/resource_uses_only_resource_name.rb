@@ -18,7 +18,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefDeprecations
-        # Starting with Chef Infra Client 16, using `resource_name` without also using `provides` will result in resource failures. Use `provides` to change the name of the resource instead and omit `resource_name` entirely if it matches the name Chef Infra Client automatically assigns based on COOKBOOKNAME_FILENAME.
+        # Starting with Chef Infra Client 16, using `resource_name` without also using `provides` will result in resource failures. Make sure to use both `resource_name` and `provides` to change the name of the resource. You can also omit `resource_name` entirely if the value set matches the name Chef Infra Client automatically assigns based on COOKBOOKNAME_FILENAME.
         #
         # @example
         #
@@ -30,7 +30,7 @@ module RuboCop
           include RuboCop::Chef::CookbookHelpers
           include RangeHelp
 
-          MSG = 'Starting with Chef Infra Client 16, using `resource_name` without also using `provides` will result in resource failures. Use `provides` to change the name of the resource instead and omit `resource_name` entirely if it matches the name Chef Infra Client automatically assigns based on COOKBOOKNAME_FILENAME.'.freeze
+          MSG = 'Starting with Chef Infra Client 16, using `resource_name` without also using `provides` will result in resource failures. Make sure to use both `resource_name` and `provides` to change the name of the resource. You can also omit `resource_name` entirely if the value set matches the name Chef Infra Client automatically assigns based on COOKBOOKNAME_FILENAME.'.freeze
 
           def_node_matcher :resource_name?, <<-PATTERN
           (send nil? :resource_name (sym $_ ))
@@ -65,7 +65,7 @@ module RuboCop
                 if name.to_s == "#{cookbook_name}_#{File.basename(processed_source.path, '.rb')}"
                   corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
                 else
-                  corrector.replace(node.loc.expression, node.source.gsub('resource_name', 'provides'))
+                  corrector.insert_after(node.source_range, "\n#{node.source.gsub('resource_name', 'provides')}")
                 end
               end
             end
