@@ -97,11 +97,25 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ResourceUsesOnlyResourceName do
     RUBY
   end
 
+  it "doesn't register an offense when a resource has just provides (and the cookbook name doesn't match)" do
+    expect_no_offenses(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
+      provides :my_cookbook_bar
+    RUBY
+  end
+
   it "doesn't register an offense when a resource has resource_name and provides (and the cookbook name doesn't match)" do
     expect_no_offenses(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
       resource_name :my_cookbook_bar
       provides :my_cookbook_bar
     RUBY
+  end
+
+  it "corrects a cookbook that has a non-matching resource_name (when the cookbook name doesn't match)" do
+    corrected = autocorrect_source(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
+      resource_name :my_cookbook_bar
+    RUBY
+
+    expect(corrected).to eq("resource_name :my_cookbook_bar\nprovides :my_cookbook_bar\n")
   end
 
   it "corrects a cookbook that has a non-matching resource_name and provides" do
@@ -110,7 +124,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ResourceUsesOnlyResourceName do
       provides :my_cookbook
     RUBY
 
-    expect(corrected).to eq("resource_name :my_cookbook_bar\nprovides :my_cookbook_bar\nprovides :my_cookbook")
+    expect(corrected).to eq("resource_name :my_cookbook_bar\nprovides :my_cookbook_bar\nprovides :my_cookbook\n")
   end
 
   it "corrects a cookbook that has a non-matching resource_name and provides (flip the script)" do
@@ -119,7 +133,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ResourceUsesOnlyResourceName do
       provides :my_cookbook_bar
     RUBY
 
-    expect(corrected).to eq("resource_name :my_cookbook\nprovides :my_cookbook\nprovides :my_cookbook_bar")
+    expect(corrected).to eq("resource_name :my_cookbook\nprovides :my_cookbook\nprovides :my_cookbook_bar\n")
   end
 
   it "does not correct a cookbook that has an out of order set of provides" do
