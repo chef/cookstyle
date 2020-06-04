@@ -151,4 +151,19 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ResourceUsesOnlyResourceName do
       provides :my_cookbook_bar
     RUBY
   end
+
+  it 'does not correct a cookbook that matches, but also has a platform constraint' do
+    expect_no_offenses(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
+      resource_name :my_cookbook
+      provides :my_cookbook, platform: "windows"
+    RUBY
+  end
+
+  it 'does not correct a cookbook that matches, but also has a platform constraint, following some other provides' do
+    expect_no_offenses(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
+      resource_name :my_cookbook
+      provides :my_coobook_bar
+      provides :my_cookbook, platform: "windows"
+    RUBY
+  end
 end
