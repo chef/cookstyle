@@ -84,6 +84,18 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ResourceUsesOnlyResourceName do
     expect(corrected).to eq("resource_name :my_cookbook_foo\nprovides :my_cookbook_foo\n")
   end
 
+  it 'is not an offense if the resource_name if it the default name based on metadata.json data, but the provides line contains a platform constraint' do
+    allow(File).to receive(:exist?).and_call_original
+    allow(File).to receive(:read).and_call_original
+    allow(File).to receive(:exist?).with('/mydevdir/cookbooks/my_cookbook/metadata.rb').and_return(false)
+    allow(File).to receive(:exist?).with('/mydevdir/cookbooks/my_cookbook/metadata.json').and_return(true)
+    allow(File).to receive(:read).with('/mydevdir/cookbooks/my_cookbook/metadata.json').and_return(match_json)
+    expect_no_offenses(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
+      resource_name :my_cookbook_foo
+      provides :my_cookbook_foo, platform: "windows"
+    RUBY
+  end
+
   it "doesn't register an offense when a resource has just provides" do
     expect_no_offenses(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
       provides :my_cookbook_foo
