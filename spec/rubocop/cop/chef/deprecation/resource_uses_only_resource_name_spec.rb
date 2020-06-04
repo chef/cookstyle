@@ -1,5 +1,5 @@
 #
-# Copyright:: 2020, Chef Software, Inc.
+# Copyright:: Copyright (c) Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -94,6 +94,47 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ResourceUsesOnlyResourceName do
     expect_no_offenses(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
       resource_name :my_cookbook_foo
       provides :my_cookbook_foo
+    RUBY
+  end
+
+  it "doesn't register an offense when a resource has resource_name and provides (and the cookbook name doesn't match)" do
+    expect_no_offenses(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
+      resource_name :my_cookbook_bar
+      provides :my_cookbook_bar
+    RUBY
+  end
+
+  it "corrects a cookbook that has a non-matching resource_name and provides" do
+    corrected = autocorrect_source(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
+      resource_name :my_cookbook_bar
+      provides :my_cookbook
+    RUBY
+
+    expect(corrected).to eq("resource_name :my_cookbook_bar\nprovides :my_cookbook_bar\nprovides :my_cookbook")
+  end
+
+  it "corrects a cookbook that has a non-matching resource_name and provides (flip the script)" do
+    corrected = autocorrect_source(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
+      resource_name :my_cookbook
+      provides :my_cookbook_bar
+    RUBY
+
+    expect(corrected).to eq("resource_name :my_cookbook\nprovides :my_cookbook\nprovides :my_cookbook_bar")
+  end
+
+  it "does not correct a cookbook that has an out of order set of provides" do
+    expect_no_offenses(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
+      resource_name :my_cookbook
+      provides :my_cookbook_bar
+      provides :my_cookbook
+    RUBY
+  end
+
+  it "does not correct a cookbook that has an out of order set of provides (flipped around)" do
+    expect_no_offenses(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
+      resource_name :my_cookbook_bar
+      provides :my_cookbook
+      provides :my_cookbook_bar
     RUBY
   end
 end
