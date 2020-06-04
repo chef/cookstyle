@@ -73,13 +73,13 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ResourceWithoutNameOrProvides, :c
     RUBY
   end
 
-  # This is for Chef <= 15 backwards compatibility, in Chef-16 this becomes the correct usage and the duplicate resource_name should be removed
+  # This is correct usage for >= Chef-16, but this will fail on <= Chef-15 (this should become the autocorrect case in >= Chef-16)
+  # This is allowed here under the assumption that the person is writing cookbooks for >= Chef-16
   it 'registers an offense when a Resource derived HWRP does not define a resource_name' do
-    expect_offense(<<~RUBY)
+    expect_no_offenses(<<~RUBY)
     class Chef
       class Resource
         class UlimitRule < Chef::Resource
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ In Chef Infra Client 16 and later legacy HWRP resources must use either `resource_name` or `provides` to define the resource name.
           provides :ulimit_rule
 
           property :type, [Symbol, String], required: true
