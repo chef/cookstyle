@@ -118,7 +118,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ResourceUsesOnlyResourceName do
     expect(corrected).to eq("resource_name :my_cookbook_bar\nprovides :my_cookbook_bar\n")
   end
 
-  it "corrects a cookbook that has a non-matching resource_name and provides" do
+  it 'corrects a cookbook that has a non-matching resource_name and provides' do
     corrected = autocorrect_source(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
       resource_name :my_cookbook_bar
       provides :my_cookbook
@@ -127,7 +127,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ResourceUsesOnlyResourceName do
     expect(corrected).to eq("resource_name :my_cookbook_bar\nprovides :my_cookbook_bar\nprovides :my_cookbook\n")
   end
 
-  it "corrects a cookbook that has a non-matching resource_name and provides (flip the script)" do
+  it 'corrects a cookbook that has a non-matching resource_name and provides (flip the script)' do
     corrected = autocorrect_source(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
       resource_name :my_cookbook
       provides :my_cookbook_bar
@@ -136,7 +136,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ResourceUsesOnlyResourceName do
     expect(corrected).to eq("resource_name :my_cookbook\nprovides :my_cookbook\nprovides :my_cookbook_bar\n")
   end
 
-  it "does not correct a cookbook that has an out of order set of provides" do
+  it 'does not correct a cookbook that has an out of order set of provides' do
     expect_no_offenses(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
       resource_name :my_cookbook
       provides :my_cookbook_bar
@@ -144,7 +144,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ResourceUsesOnlyResourceName do
     RUBY
   end
 
-  it "does not correct a cookbook that has an out of order set of provides (flipped around)" do
+  it 'does not correct a cookbook that has an out of order set of provides (flipped around)' do
     expect_no_offenses(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
       resource_name :my_cookbook_bar
       provides :my_cookbook
