@@ -1,5 +1,5 @@
 #
-# Copyright:: 2020, Chef Software Inc.
+# Copyright:: Copyright (c) Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,7 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefDeprecations
-        # In Chef Infra Client 16 and later a legacy HWRP resource must use either `resource_name` or `provides` to define the resource name.
+        # In Chef Infra Client 16 and later a legacy HWRP resource must use `provides` to supply how the resource is addressed in recipes or other resources.
         #
         # @example
         #
@@ -35,11 +35,40 @@ module RuboCop
         #     end
         #   end
         #
-        #  # good
+        #   # bad
         #   class Chef
         #     class Resource
         #       class UlimitRule < Chef::Resource
         #         resource_name :ulimit_rule
+        #
+        #         property :type, [Symbol, String], required: true
+        #         property :item, [Symbol, String], required: true
+        #
+        #         # additional resource code
+        #       end
+        #     end
+        #   end
+        #
+        #  # good (including < chef-15)
+        #   class Chef
+        #     class Resource
+        #       class UlimitRule < Chef::Resource
+        #         resource_name :ulimit_rule
+        #         provides :ulimit_rule
+        #
+        #         property :type, [Symbol, String], required: true
+        #         property :item, [Symbol, String], required: true
+        #
+        #         # additional resource code
+        #       end
+        #     end
+        #   end
+        #
+        #  # good (>= chef-16)
+        #   class Chef
+        #     class Resource
+        #       class UlimitRule < Chef::Resource
+        #         provides :ulimit_rule
         #
         #         property :type, [Symbol, String], required: true
         #         property :item, [Symbol, String], required: true
