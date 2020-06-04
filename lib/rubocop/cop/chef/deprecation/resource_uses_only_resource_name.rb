@@ -1,5 +1,5 @@
 #
-# Copyright:: 2020, Chef Software, Inc.
+# Copyright:: Copyright (c) Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -40,7 +40,7 @@ module RuboCop
           (send nil? :name (str $_))
           PATTERN
 
-          def_node_search :provides_methods?, '(send nil? {:provides :chef_version_for_provides} ... )'
+          def_node_search :provides_methods?, '(send nil? :provides ... )'
 
           def cookbook_name
             cb_path = File.expand_path(File.join(processed_source.file_path, '../..'))
