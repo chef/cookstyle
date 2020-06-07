@@ -32,16 +32,15 @@ module RuboCop
 
           MSG = 'Starting with Chef Infra Client 16, using `resource_name` without also using `provides` will result in resource failures. Make sure to use both `resource_name` and `provides` to change the name of the resource. You can also omit `resource_name` entirely if the value set matches the name Chef Infra Client automatically assigns based on COOKBOOKNAME_FILENAME.'.freeze
 
-          def_node_matcher :resource_name?, <<-PATTERN
-          (send nil? :resource_name (sym $_ ))
-          PATTERN
+          def_node_matcher :resource_name?, '(send nil? :resource_name (sym $_ ))'
 
-          def_node_search :cb_name_match, <<~PATTERN
-          (send nil? :name (str $_))
-          PATTERN
+          def_node_search :cb_name_match, '(send nil? :name (str $_))'
 
-          def_node_search :provides_methods?, '(send nil? :provides ... )'
+          def_node_search :provides, '(send nil? :provides (sym $_) ...)'
 
+          # determine the cookbook name either by parsing metdata.rb or by parsing metata.json
+          #
+          # @returns [String] the cookbook name
           def cookbook_name
             cb_path = File.expand_path(File.join(processed_source.file_path, '../..'))
 
@@ -53,9 +52,19 @@ module RuboCop
             end
           end
 
+          # given a resource name make sure there's a provides that matches that name
+          #
+          # @returns [TrueClass, FalseClass]
+          def valid_provides?(resource_name)
+            provides_ast = provides(processed_source.ast)
+            return false unless provides_ast
+
+            provides_ast.include?(resource_name)
+          end
+
           def on_send(node)
-            resource_name?(node) do |_name|
-              add_offense(node, location: :expression, message: MSG, severity: :warning) unless provides_methods?(processed_source.ast)
+            resource_name?(node) do |r_name|
+              add_offense(node, location: :expression, message: MSG, severity: :warning) unless valid_provides?(r_name)
             end
           end
 
