@@ -946,11 +946,12 @@ ChefDeprecations/LogResourceNotifications:
     - '**/metadata.rb'
     - '**/Berksfile'
 
-ChefDeprecations/ResourceWithoutNameOrProvides:
-  Description: In Chef Infra Client 16 and later legacy HWRP resources must use either `resource_name` or `provides` to define the resource name.
+ChefDeprecations/HWRPWithoutResourcenameAndProvides:
+  Description: In Chef Infra Client 16 and later a legacy HWRP resource must use `provides` to define how the resource is called in recipes or other resources. To maintain compatibility with Chef Infra Client < 16 use both `resource_name` and `provides`.
   StyleGuide: '#chefdeprecationsresourcewithoutnameorprovides'
   Enabled: true
   VersionAdded: '6.0.0'
+  VersionChanged: '6.8.0'
   Include:
     - '**/libraries/*.rb'
 

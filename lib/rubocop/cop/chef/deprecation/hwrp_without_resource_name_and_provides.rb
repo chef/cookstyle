@@ -19,7 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefDeprecations
-        # In Chef Infra Client 16 and later a legacy HWRP resource must use `provides` to supply how the resource is addressed in recipes or other resources.
+        # Chef Infra Client 16 and later a legacy HWRP resource must use `provides` to define how the resource is called in recipes or other resources. To maintain compatibility with Chef Infra Client < 16 use both `resource_name` and `provides`.
         #
         # @example
         #
@@ -49,7 +49,7 @@ module RuboCop
         #     end
         #   end
         #
-        #  # good (including < chef-15)
+        #  # good when Chef Infra Client < 15 (but compatible with 16+ as well)
         #   class Chef
         #     class Resource
         #       class UlimitRule < Chef::Resource
@@ -64,7 +64,7 @@ module RuboCop
         #     end
         #   end
         #
-        #  # good (>= chef-16)
+        #  # good when Chef Infra Client 16+
         #   class Chef
         #     class Resource
         #       class UlimitRule < Chef::Resource
@@ -81,8 +81,8 @@ module RuboCop
         #  # better
         #  Convert your legacy HWRPs to custom resources
         #
-        class ResourceWithoutNameOrProvides < Cop
-          MSG = 'In Chef Infra Client 16 and later legacy HWRP resources must use either `resource_name` or `provides` to define the resource name.'.freeze
+        class HWRPWithoutResourcenameAndProvides < Cop
+          MSG = 'In Chef Infra Client 16 and later a legacy HWRP resource must use `provides` to define how the resource is called in recipes or other resources. To maintain compatibility with Chef Infra Client < 16 use both `resource_name` and `provides`.'.freeze
 
           def_node_matcher :HWRP?, <<-PATTERN
           (class
@@ -96,12 +96,25 @@ module RuboCop
                   (begin ... ))))
           PATTERN
 
-          def_node_search :provides_or_resource_name?, '(send nil? {:provides :resource_name} ...)'
+          def_node_search :provides, '(send nil? :provides (sym $_) ...)'
+          def_node_search :resource_name, '(send nil? :resource_name (sym $_))'
 
           def on_class(node)
             HWRP?(node) do |inherit|
-              add_offense(inherit, location: :expression, message: MSG, severity: :warning) if provides_or_resource_name?(processed_source.ast).nil?
+              add_offense(inherit, location: :expression, message: MSG, severity: :warning) unless has_resource_name_and_provides?
             end
+          end
+
+          def has_resource_name_and_provides?
+            provides_ast = provides(processed_source.ast)
+            return false unless provides_ast
+
+            resource_ast = resource_name(processed_source.ast)
+            return false unless resource_ast
+
+            # since we have a resource and provides make sure the there is a provides that
+            # matches the resource name
+            provides_ast.include?(resource_ast.first)
           end
         end
       end

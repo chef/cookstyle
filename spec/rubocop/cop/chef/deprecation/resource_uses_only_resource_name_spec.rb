@@ -96,22 +96,10 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ResourceUsesOnlyResourceName do
     RUBY
   end
 
-  it "doesn't register an offense when a resource has just provides" do
-    expect_no_offenses(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
-      provides :my_cookbook_foo
-    RUBY
-  end
-
   it "doesn't register an offense when a resource has resource_name and provides" do
     expect_no_offenses(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
       resource_name :my_cookbook_foo
       provides :my_cookbook_foo
-    RUBY
-  end
-
-  it "doesn't register an offense when a resource has just provides (and the cookbook name doesn't match)" do
-    expect_no_offenses(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
-      provides :my_cookbook_bar
     RUBY
   end
 
