@@ -1,5 +1,5 @@
 #
-# Copyright:: 2020, Chef Software, Inc.
+# Copyright:: Copyright (c) Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -84,9 +84,15 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ResourceUsesOnlyResourceName do
     expect(corrected).to eq("resource_name :my_cookbook_foo\nprovides :my_cookbook_foo\n")
   end
 
-  it "doesn't register an offense when a resource has just provides" do
+  it 'is not an offense if the resource_name if it the default name based on metadata.json data, but the provides line contains a platform constraint' do
+    allow(File).to receive(:exist?).and_call_original
+    allow(File).to receive(:read).and_call_original
+    allow(File).to receive(:exist?).with('/mydevdir/cookbooks/my_cookbook/metadata.rb').and_return(false)
+    allow(File).to receive(:exist?).with('/mydevdir/cookbooks/my_cookbook/metadata.json').and_return(true)
+    allow(File).to receive(:read).with('/mydevdir/cookbooks/my_cookbook/metadata.json').and_return(match_json)
     expect_no_offenses(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
-      provides :my_cookbook_foo
+      resource_name :my_cookbook_foo
+      provides :my_cookbook_foo, platform: "windows"
     RUBY
   end
 
@@ -94,6 +100,70 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ResourceUsesOnlyResourceName do
     expect_no_offenses(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
       resource_name :my_cookbook_foo
       provides :my_cookbook_foo
+    RUBY
+  end
+
+  it "doesn't register an offense when a resource has resource_name and provides (and the cookbook name doesn't match)" do
+    expect_no_offenses(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
+      resource_name :my_cookbook_bar
+      provides :my_cookbook_bar
+    RUBY
+  end
+
+  it "corrects a cookbook that has a non-matching resource_name (when the cookbook name doesn't match)" do
+    corrected = autocorrect_source(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
+      resource_name :my_cookbook_bar
+    RUBY
+
+    expect(corrected).to eq("resource_name :my_cookbook_bar\nprovides :my_cookbook_bar\n")
+  end
+
+  it 'corrects a cookbook that has a non-matching resource_name and provides' do
+    corrected = autocorrect_source(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
+      resource_name :my_cookbook_bar
+      provides :my_cookbook
+    RUBY
+
+    expect(corrected).to eq("resource_name :my_cookbook_bar\nprovides :my_cookbook_bar\nprovides :my_cookbook\n")
+  end
+
+  it 'corrects a cookbook that has a non-matching resource_name and provides (flip the script)' do
+    corrected = autocorrect_source(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
+      resource_name :my_cookbook
+      provides :my_cookbook_bar
+    RUBY
+
+    expect(corrected).to eq("resource_name :my_cookbook\nprovides :my_cookbook\nprovides :my_cookbook_bar\n")
+  end
+
+  it 'does not correct a cookbook that has an out of order set of provides' do
+    expect_no_offenses(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
+      resource_name :my_cookbook
+      provides :my_cookbook_bar
+      provides :my_cookbook
+    RUBY
+  end
+
+  it 'does not correct a cookbook that has an out of order set of provides (flipped around)' do
+    expect_no_offenses(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
+      resource_name :my_cookbook_bar
+      provides :my_cookbook
+      provides :my_cookbook_bar
+    RUBY
+  end
+
+  it 'does not correct a cookbook that matches, but also has a platform constraint' do
+    expect_no_offenses(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
+      resource_name :my_cookbook
+      provides :my_cookbook, platform: "windows"
+    RUBY
+  end
+
+  it 'does not correct a cookbook that matches, but also has a platform constraint, following some other provides' do
+    expect_no_offenses(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
+      resource_name :my_cookbook
+      provides :my_coobook_bar
+      provides :my_cookbook, platform: "windows"
     RUBY
   end
 end
