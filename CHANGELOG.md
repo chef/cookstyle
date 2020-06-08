@@ -7,17 +7,22 @@
 - Add Cookstyle 6.8 release notes [#652](https://github.com/chef/cookstyle/pull/652) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup since=6.7.3 -->
+<!-- release_rollup since=6.8.0 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
 - Add Cookstyle 6.8 release notes [#652](https://github.com/chef/cookstyle/pull/652) ([tas50](https://github.com/tas50)) <!-- 6.8.1 -->
-- Update resource_name/provides cops to detect new Chef 16.2+ behavior [#648](https://github.com/chef/cookstyle/pull/648) ([lamont-granquist](https://github.com/lamont-granquist)) <!-- 6.8.0 -->
-- Update to rubocop 0.85.1 [#650](https://github.com/chef/cookstyle/pull/650) ([tas50](https://github.com/tas50)) <!-- 6.7.5 -->
-- Make sure we autocorrect to both provide and resource_name for Chef &lt; 16 [#647](https://github.com/chef/cookstyle/pull/647) ([tas50](https://github.com/tas50)) <!-- 6.7.4 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v6.8.0](https://github.com/chef/cookstyle/tree/v6.8.0) (2020-06-08)
+
+#### Merged Pull Requests
+- Make sure we autocorrect to both provide and resource_name for Chef &lt; 16 [#647](https://github.com/chef/cookstyle/pull/647) ([tas50](https://github.com/tas50))
+- Update to rubocop 0.85.1 [#650](https://github.com/chef/cookstyle/pull/650) ([tas50](https://github.com/tas50))
+- Update resource_name/provides cops to detect new Chef 16.2+ behavior [#648](https://github.com/chef/cookstyle/pull/648) ([lamont-granquist](https://github.com/lamont-granquist))
+<!-- latest_stable_release -->
+
 ## [v6.7.3](https://github.com/chef/cookstyle/tree/v6.7.3) (2020-06-02)
 
 #### Merged Pull Requests
@@ -25,7 +30,6 @@
 - Update RuboCop engine to 0.85 [#634](https://github.com/chef/cookstyle/pull/634) ([tas50](https://github.com/tas50))
 - Improve a few specs [#645](https://github.com/chef/cookstyle/pull/645) ([tas50](https://github.com/tas50))
 - Add ChefDeprecations/ResourceUsesOnlyResourceName [#644](https://github.com/chef/cookstyle/pull/644) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v6.6.9](https://github.com/chef/cookstyle/tree/v6.6.9) (2020-05-27)
 
