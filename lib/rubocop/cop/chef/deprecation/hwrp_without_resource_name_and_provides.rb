@@ -97,6 +97,7 @@ module RuboCop
           PATTERN
 
           def_node_search :provides, '(send nil? :provides (sym $_) ...)'
+          def_node_search :resource_name_ast, '$(send nil? :resource_name ...)'
           def_node_search :resource_name, '(send nil? :resource_name (sym $_))'
 
           def on_class(node)
@@ -115,6 +116,20 @@ module RuboCop
             # since we have a resource and provides make sure the there is a provides that
             # matches the resource name
             provides_ast.include?(resource_ast.first)
+          end
+
+          def indentation(node)
+            node.source_range.source_line =~ /\S/
+          end
+
+          def autocorrect(node)
+            lambda do |corrector|
+              resource_name_ast(node) do |ast|
+                # build a new string to add after that includes the new line and the proper indentation
+                new_string = "\n" + ast.source.gsub('resource_name', 'provides').prepend(' ' * indentation(ast))
+                corrector.insert_after(ast.source_range, new_string)
+              end
+            end
           end
         end
       end

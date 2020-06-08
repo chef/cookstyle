@@ -36,13 +36,29 @@ describe RuboCop::Cop::Chef::ChefDeprecations::HWRPWithoutResourcenameAndProvide
     RUBY
   end
 
-  it 'registers an offense when a HWRP does not define a provides' do
+  it 'registers an offense when a HWRP does not define a provides, but does have resource_name' do
     expect_offense(<<~RUBY)
     class Chef
       class Resource
         class UlimitRule < Chef::Resource
         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ In Chef Infra Client 16 and later a legacy HWRP resource must use `provides` to define how the resource is called in recipes or other resources. To maintain compatibility with Chef Infra Client < 16 use both `resource_name` and `provides`.
           resource_name :ulimit_rule
+
+          property :type, [Symbol, String], required: true
+          property :item, [Symbol, String], required: true
+
+          # additional resource code
+        end
+      end
+    end
+    RUBY
+
+    expect_correction(<<~RUBY)
+    class Chef
+      class Resource
+        class UlimitRule < Chef::Resource
+          resource_name :ulimit_rule
+          provides :ulimit_rule
 
           property :type, [Symbol, String], required: true
           property :item, [Symbol, String], required: true
@@ -71,10 +87,25 @@ describe RuboCop::Cop::Chef::ChefDeprecations::HWRPWithoutResourcenameAndProvide
       end
     end
     RUBY
+
+    expect_correction(<<~RUBY)
+    class Chef
+      class Resource
+        class UlimitRule < Chef::Resource
+          resource_name :ulimit_rule
+          provides :ulimit_rule
+          provides :ulimit_something_else
+
+          property :type, [Symbol, String], required: true
+          property :item, [Symbol, String], required: true
+
+          # additional resource code
+        end
+      end
+    end
+    RUBY
   end
 
-  # This is for Chef <= 15 backwards compatibility, in Chef-16 this becomes an offense and the duplicate resource_name should be removed
-  # When we assume everyone is on 16 then we'll
   it "doesn't register an offense when a HWRP uses both resource_name and provides" do
     expect_no_offenses(<<~RUBY)
       class Chef
@@ -93,26 +124,6 @@ describe RuboCop::Cop::Chef::ChefDeprecations::HWRPWithoutResourcenameAndProvide
     RUBY
   end
 
-  # This is for Chef <= 15 backwards compatibility, in Chef-16 this becomes an offense and the duplicate resource_name should be removed
-  it "doesn't register an offense when a HWRP uses both resource_name and provides (with the provides first)" do
-    expect_no_offenses(<<~RUBY)
-      class Chef
-        class Resource
-          class UlimitRule < Chef::Resource
-            provides :ulimit_rule
-            resource_name :ulimit_rule
-
-            property :type, [Symbol, String], required: true
-            property :item, [Symbol, String], required: true
-
-            # additional resource code
-          end
-        end
-      end
-    RUBY
-  end
-
-  # This is for Chef <= 15 backwards compatibility, in Chef-16 this becomes an offense and the duplicate resource_name should be removed
   it "doesn't register an offense when a HWRP uses both resource_name and provides (with other provides)" do
     expect_no_offenses(<<~RUBY)
       class Chef
@@ -132,7 +143,6 @@ describe RuboCop::Cop::Chef::ChefDeprecations::HWRPWithoutResourcenameAndProvide
     RUBY
   end
 
-  # This is for Chef <= 15 backwards compatibility, in Chef-16 this becomes an offense and the duplicate resource_name should be removed
   it "doesn't register an offense when a HWRP uses both resource_name and provides (with other provides, and a platform constraint)" do
     expect_no_offenses(<<~RUBY)
       class Chef
