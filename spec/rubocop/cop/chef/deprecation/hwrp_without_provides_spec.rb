@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefDeprecations::HWRPWithoutResourcenameAndProvides, :config do
+describe RuboCop::Cop::Chef::ChefDeprecations::HWRPWithoutProvides, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when a HWRP does not define a resource_name or provides' do
@@ -151,6 +151,23 @@ describe RuboCop::Cop::Chef::ChefDeprecations::HWRPWithoutResourcenameAndProvide
             resource_name :ulimit_rule
             provides :ulimit_somethingelse
             provides :ulimit_rule, platform: "windows"
+
+            property :type, [Symbol, String], required: true
+            property :item, [Symbol, String], required: true
+
+            # additional resource code
+          end
+        end
+      end
+    RUBY
+  end
+
+  it "doesn't register an offense when a HWRP uses just provides (valid on 16+)" do
+    expect_no_offenses(<<~RUBY)
+      class Chef
+        class Resource
+          class UlimitRule < Chef::Resource
+            provides :ulimit_rule
 
             property :type, [Symbol, String], required: true
             property :item, [Symbol, String], required: true

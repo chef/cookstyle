@@ -81,7 +81,7 @@ module RuboCop
         #  # better
         #  Convert your legacy HWRPs to custom resources
         #
-        class HWRPWithoutResourcenameAndProvides < Cop
+        class HWRPWithoutProvides < Cop
           MSG = 'In Chef Infra Client 16 and later a legacy HWRP resource must use `provides` to define how the resource is called in recipes or other resources. To maintain compatibility with Chef Infra Client < 16 use both `resource_name` and `provides`.'.freeze
 
           def_node_matcher :HWRP?, <<-PATTERN
@@ -102,20 +102,23 @@ module RuboCop
 
           def on_class(node)
             HWRP?(node) do |inherit|
-              add_offense(inherit, location: :expression, message: MSG, severity: :warning) unless has_resource_name_and_provides?
+              add_offense(inherit, location: :expression, message: MSG, severity: :warning) unless has_provides?
             end
           end
 
-          def has_resource_name_and_provides?
+          def has_provides?
             provides_ast = provides(processed_source.ast)
-            return false unless provides_ast
+            return false if provides_ast.count == 0
 
             resource_ast = resource_name(processed_source.ast)
-            return false unless resource_ast
 
-            # since we have a resource and provides make sure the there is a provides that
-            # matches the resource name
-            provides_ast.include?(resource_ast.first)
+            if resource_ast.count == 0
+              true # no resource_name, but provides
+            else
+              # since we have a resource and provides make sure the there is a provides that
+              # matches the resource name
+              provides_ast.include?(resource_ast.first)
+            end
           end
 
           def indentation(node)
@@ -126,7 +129,7 @@ module RuboCop
             lambda do |corrector|
               resource_name_ast(node) do |ast_match|
                 # build a new string to add after that includes the new line and the proper indentation
-                new_string = "\n" + ast_match.source.gsub('resource_name', 'provides').prepend(' ' * indentation(ast_match))
+                new_string = "\n" + ast_match.source.dup.gsub('resource_name', 'provides').prepend(' ' * indentation(ast_match))
                 corrector.insert_after(ast_match.source_range, new_string)
               end
             end
