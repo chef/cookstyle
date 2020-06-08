@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.7.5 -->
-## [v6.7.5](https://github.com/chef/cookstyle/tree/v6.7.5) (2020-06-07)
+ <!-- latest_release 6.8.0 -->
+## [v6.8.0](https://github.com/chef/cookstyle/tree/v6.8.0) (2020-06-08)
 
 #### Merged Pull Requests
-- Update to rubocop 0.85.1 [#650](https://github.com/chef/cookstyle/pull/650) ([tas50](https://github.com/tas50))
+- Update resource_name/provides cops to detect new Chef 16.2+ behavior [#648](https://github.com/chef/cookstyle/pull/648) ([lamont-granquist](https://github.com/lamont-granquist))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.7.3 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Update resource_name/provides cops to detect new Chef 16.2+ behavior [#648](https://github.com/chef/cookstyle/pull/648) ([lamont-granquist](https://github.com/lamont-granquist)) <!-- 6.8.0 -->
 - Update to rubocop 0.85.1 [#650](https://github.com/chef/cookstyle/pull/650) ([tas50](https://github.com/tas50)) <!-- 6.7.5 -->
 - Make sure we autocorrect to both provide and resource_name for Chef &lt; 16 [#647](https://github.com/chef/cookstyle/pull/647) ([tas50](https://github.com/tas50)) <!-- 6.7.4 -->
 <!-- release_rollup -->

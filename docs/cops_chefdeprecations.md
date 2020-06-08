@@ -584,6 +584,88 @@ Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefdeprecationserlcallresource](https://rubystyle.guide#chefdeprecationserlcallresource)
 
+## ChefDeprecations/HWRPWithoutProvides
+
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
+
+Chef Infra Client 16 and later a legacy HWRP resource must use `provides` to define how the resource is called in recipes or other resources. To maintain compatibility with Chef Infra Client < 16 use both `resource_name` and `provides`.
+
+ # good when Chef Infra Client < 15 (but compatible with 16+ as well)
+  class Chef
+    class Resource
+      class UlimitRule < Chef::Resource
+        resource_name :ulimit_rule
+        provides :ulimit_rule
+
+        property :type, [Symbol, String], required: true
+        property :item, [Symbol, String], required: true
+
+        # additional resource code
+      end
+    end
+  end
+
+ # good when Chef Infra Client 16+
+  class Chef
+    class Resource
+      class UlimitRule < Chef::Resource
+        provides :ulimit_rule
+
+        property :type, [Symbol, String], required: true
+        property :item, [Symbol, String], required: true
+
+        # additional resource code
+      end
+    end
+  end
+
+ # better
+ Convert your legacy HWRPs to custom resources
+
+### Examples
+
+```ruby
+# bad
+class Chef
+  class Resource
+    class UlimitRule < Chef::Resource
+      property :type, [Symbol, String], required: true
+      property :item, [Symbol, String], required: true
+
+      # additional resource code
+    end
+  end
+end
+
+# bad
+class Chef
+  class Resource
+    class UlimitRule < Chef::Resource
+      resource_name :ulimit_rule
+
+      property :type, [Symbol, String], required: true
+      property :item, [Symbol, String], required: true
+
+      # additional resource code
+    end
+  end
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.0.0` | String
+VersionChanged | `6.8.0` | String
+Include | `**/libraries/*.rb` | Array
+
+### References
+
+* [https://rubystyle.guide#chefdeprecationsresourcewithoutnameorprovides](https://rubystyle.guide#chefdeprecationsresourcewithoutnameorprovides)
+
 ## ChefDeprecations/IncludingXMLRubyRecipe
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -1402,58 +1484,6 @@ Include | `**/libraries/*.rb`, `**/providers/*.rb`, `**/resources/*.rb` | Array
 ### References
 
 * [https://rubystyle.guide#chefdeprecationsresourceusesupdatedmethod](https://rubystyle.guide#chefdeprecationsresourceusesupdatedmethod)
-
-## ChefDeprecations/ResourceWithoutNameOrProvides
-
-Enabled by default | Supports autocorrection | Target Chef Version
---- | --- | ---
-Enabled | No | All Versions
-
-In Chef Infra Client 16 and later a legacy HWRP resource must use either `resource_name` or `provides` to define the resource name.
-
- # good
-  class Chef
-    class Resource
-      class UlimitRule < Chef::Resource
-        resource_name :ulimit_rule
-
-        property :type, [Symbol, String], required: true
-        property :item, [Symbol, String], required: true
-
-        # additional resource code
-      end
-    end
-  end
-
- # better
- Convert your legacy HWRPs to custom resources
-
-### Examples
-
-```ruby
-# bad
-class Chef
-  class Resource
-    class UlimitRule < Chef::Resource
-      property :type, [Symbol, String], required: true
-      property :item, [Symbol, String], required: true
-
-      # additional resource code
-    end
-  end
-end
-```
-
-### Configurable attributes
-
-Name | Default value | Configurable values
---- | --- | ---
-VersionAdded | `6.0.0` | String
-Include | `**/libraries/*.rb` | Array
-
-### References
-
-* [https://rubystyle.guide#chefdeprecationsresourcewithoutnameorprovides](https://rubystyle.guide#chefdeprecationsresourcewithoutnameorprovides)
 
 ## ChefDeprecations/Ruby27KeywordArgumentWarnings
 
