@@ -1,3 +1,15 @@
+## Cookstyle 6.8
+
+### Improvements for Chef Infra Client 16.2
+
+Chef Infra Client 16.2 contains additional changes to how resource names are specified in order to avoid edge cases in resource naming. When setting the name of a custom resource `provides` should now be used instead of `resource_name`. If writing cookbooks that support Chef Infra Client < 16 you'll want to use both `provides` and `resource_name` to support all all releases.
+
+To support these changes we've made several updates to existing cops. The `ChefDeprecations/ResourceUsesOnlyResourceName` cop has been updated to add `provides` in addition to `resoure_name` instead of replacing `resource_name` with `provides`. This change ensures cookbooks continue to function on Chef Infra Client less than 16. The `ChefDeprecations/ResourceWithoutNameOrProvides` cop has also been renamed to `ChefDeprecations/HWRPWithoutProvides` and improves detection of resources without `provides`. Both cops now better validate the contents of existing `provides` calls.
+
+### RuboCop 0.85.1
+
+RuboCop has been updated to 0.85.1, which includes several bug fixes to prevent false positives and improve autocorrection.
+
 ## Cookstyle 6.7
 
 ### Two New Cops
