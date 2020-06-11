@@ -483,7 +483,7 @@ module RuboCop
 
           def valid_license?(license)
             VALID_LICENSE_STRING.include?(license) ||
-              license.casecmp('all rights reserved').zero?
+              license.casecmp('all rights reserved') == 0
           end
         end
       end
