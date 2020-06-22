@@ -126,8 +126,8 @@ module RuboCop
           end
 
           def autocorrect(node)
-            lambda do |corrector|
-              resource_name_ast(node) do |ast_match|
+            resource_name_ast(node) do |ast_match|
+              lambda do |corrector|
                 # build a new string to add after that includes the new line and the proper indentation
                 new_string = "\n" + ast_match.source.dup.gsub('resource_name', 'provides').prepend(' ' * indentation(ast_match))
                 corrector.insert_after(ast_match.source_range, new_string)
