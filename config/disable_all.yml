@@ -211,6 +211,8 @@ Lint/BooleanSymbol:
   Enabled: false
 Lint/CircularArgumentReference:
   Enabled: false
+Lint/ConstantResolution:
+  Enabled: false
 Lint/Debugger:
   Enabled: false
 Lint/DeprecatedClassMethods:
@@ -564,6 +566,8 @@ Style/LineEndConcatenation:
 Style/MethodCallWithoutArgsParentheses:
   Enabled: false
 Style/MethodCallWithArgsParentheses:
+  Enabled: false
+Style/RedundantFetchBlock:
   Enabled: false
 Style/MethodCalledOnDoEndBlock:
   Enabled: false
