@@ -1361,6 +1361,15 @@ Lint/CircularArgumentReference:
   Enabled: true
   VersionAdded: '0.33'
 
+Lint/ConstantResolution:
+  Description: 'Check that constants are fully qualified with `::`.'
+  Enabled: false
+  VersionAdded: '0.86'
+  # Restrict this cop to only looking at certain names
+  Only: []
+  # Restrict this cop from only looking at certain names
+  Ignore: []
+
 Lint/Debugger:
   Description: 'Check for debugger calls.'
   Enabled: true
@@ -1611,7 +1620,9 @@ Lint/RaiseException:
   Description: Checks for `raise` or `fail` statements which are raising `Exception` class.
   StyleGuide: '#raise-exception'
   Enabled: pending
+  Safe: false
   VersionAdded: '0.81'
+  VersionChanged: '0.86'
   AllowedImplicitNamespaces:
     - 'Gem'
 
@@ -1668,6 +1679,7 @@ Lint/RegexpAsCondition:
                  The regexp literal matches `$_` implicitly.
   Enabled: true
   VersionAdded: '0.51'
+  VersionChanged: '0.86'
 
 Lint/RequireParentheses:
   Description: >-
@@ -1925,7 +1937,7 @@ Metrics/CyclomaticComplexity:
   VersionAdded: '0.25'
   VersionChanged: '0.81'
   IgnoredMethods: []
-  Max: 6
+  Max: 7
 
 Metrics/MethodLength:
   Description: 'Avoid methods longer than 10 lines of code.'
@@ -3239,6 +3251,7 @@ Style/MultilineTernaryOperator:
   StyleGuide: '#no-multiline-ternary'
   Enabled: true
   VersionAdded: '0.9'
+  VersionChanged: '0.86'
 
 Style/MultilineWhenThen:
   Description: 'Do not use then for multi-line when statement.'
@@ -3343,6 +3356,7 @@ Style/NestedTernaryOperator:
   StyleGuide: '#no-nested-ternary'
   Enabled: true
   VersionAdded: '0.9'
+  VersionChanged: '0.86'
 
 Style/Next:
   Description: 'Use `next` to skip iteration instead of a condition at the end.'
@@ -3595,6 +3609,19 @@ Style/RedundantException:
   Enabled: true
   VersionAdded: '0.14'
   VersionChanged: '0.29'
+
+Style/RedundantFetchBlock:
+  Description: >-
+                  Use `fetch(key, value)` instead of `fetch(key) { value }`
+                  when value has Numeric, Rational, Complex, Symbol or String type, `false`, `true`, `nil` or is a constant.
+  Reference: 'https://github.com/JuanitoFatas/fast-ruby#hashfetch-with-argument-vs-hashfetch--block-code'
+  Enabled: 'pending'
+  Safe: false
+  # If enabled, this cop will autocorrect usages of
+  # `fetch` being called with block returning a constant.
+  # This can be dangerous since constants will not be defined at that moment.
+  SafeForConstants: false
+  VersionAdded: '0.86'
 
 Style/RedundantFreeze:
   Description: "Checks usages of Object#freeze on immutable objects."
@@ -3875,6 +3902,7 @@ Style/StructInheritance:
   StyleGuide: '#no-extend-struct-new'
   Enabled: true
   VersionAdded: '0.29'
+  VersionChanged: '0.86'
 
 Style/SymbolArray:
   Description: 'Use %i or %I for arrays of symbols.'
