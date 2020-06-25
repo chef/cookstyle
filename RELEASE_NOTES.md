@@ -1,3 +1,9 @@
+## Cookstyle 6.9
+
+### RuboCop 0.86
+
+RuboCop has been updated to 0.86, which includes several bug fixes to prevent false positives and includes new autocorrection capabilities.
+
 ## Cookstyle 6.8
 
 ### Improvements for Chef Infra Client 16.2
