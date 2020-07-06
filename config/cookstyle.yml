@@ -1734,7 +1734,6 @@ ChefRedundantCode/OhaiAttributeToString:
   VersionAdded: '6.10.0'
   Exclude:
     - '**/metadata.rb'
-    - '**/attributes/*.rb'
     - '**/Berksfile'
 
 ###############################
