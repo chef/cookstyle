@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.10.0 -->
-## [v6.10.0](https://github.com/chef/cookstyle/tree/v6.10.0) (2020-07-07)
+ <!-- latest_release 6.10.1 -->
+## [v6.10.1](https://github.com/chef/cookstyle/tree/v6.10.1) (2020-07-07)
 
 #### Merged Pull Requests
-- Add new ChefRedundantCode/MultiplePlatformChecks cop [#660](https://github.com/chef/cookstyle/pull/660) ([tas50](https://github.com/tas50))
+- Monkeypatch the Migration/DepartmentName cop to suggest cookstyle [#661](https://github.com/chef/cookstyle/pull/661) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.9.0 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Monkeypatch the Migration/DepartmentName cop to suggest cookstyle [#661](https://github.com/chef/cookstyle/pull/661) ([tas50](https://github.com/tas50)) <!-- 6.10.1 -->
 - Add new ChefRedundantCode/MultiplePlatformChecks cop [#660](https://github.com/chef/cookstyle/pull/660) ([tas50](https://github.com/tas50)) <!-- 6.10.0 -->
 - Add cookstyle cop to detect using .to_s on ohai attribute [#659](https://github.com/chef/cookstyle/pull/659) ([tas50](https://github.com/tas50)) <!-- 6.9.1 -->
 <!-- release_rollup -->
