@@ -1736,6 +1736,15 @@ ChefRedundantCode/OhaiAttributeToString:
     - '**/metadata.rb'
     - '**/Berksfile'
 
+ChefRedundantCode/MultiplePlatformChecks:
+  Description: You can pass multiple values to the platform? and platform_family? helpers instead of calling the helpers multiple times.
+  StyleGuide: '#multipleplatformchecks'
+  Enabled: true
+  VersionAdded: '6.10.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/Berksfile'
+
 ###############################
 # ChefEffortless: Migrating to new patterns
 ###############################
