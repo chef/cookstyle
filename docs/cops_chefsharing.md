@@ -119,6 +119,41 @@ Include | `**/resources/*.rb` | Array
 
 * [https://rubystyle.guide#chefsharingincluderesourcedescriptions](https://rubystyle.guide#chefsharingincluderesourcedescriptions)
 
+## ChefSharing/IncludeResourceExamples
+
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Disabled | No | 13.9+
+
+Resources should include examples field to allow automated documention. Requires Chef Infra Client 13.9 or later.
+
+### Examples
+
+```ruby
+# good
+examples <<~DOC
+  **Specify a global domain value**
+
+  ```ruby
+  macos_userdefaults 'full keyboard access to all controls' do
+    key 'AppleKeyboardUIMode'
+    value '2'
+  end
+  ```
+DOC
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.10.0` | String
+Include | `**/resources/*.rb` | Array
+
+### References
+
+* [https://rubystyle.guide#chefsharingincluderesourceexamples](https://rubystyle.guide#chefsharingincluderesourceexamples)
+
 ## ChefSharing/InsecureCookbookURL
 
 Enabled by default | Supports autocorrection | Target Chef Version
