@@ -27,6 +27,6 @@ describe RuboCop::Cop::Migration::DepartmentName, :config do
         node['platform'] # rubocop: disable UnusedMethodArgument
                                             ^^^^^^^^^^^^^^^^^^^^ Department name is missing.
       RUBY
-    end.to output('file.rb: Warning: no department given for UnusedMethodArgument. Run `cookstyle -a --only Migration/DepartmentName` to fix.').to_stderr
+    end.to output("file.rb: Warning: no department given for UnusedMethodArgument. Run `cookstyle -a --only Migration/DepartmentName` to fix.\n").to_stderr
   end
 end
