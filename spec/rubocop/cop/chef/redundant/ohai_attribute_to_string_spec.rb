@@ -23,7 +23,7 @@ describe RuboCop::Cop::Chef::ChefRedundantCode::OhaiAttributeToString, :config d
   it "registers an offense with node['platform'].to_s" do
     expect_offense(<<~RUBY)
       node['platform'].to_s
-      ^^^^^^^^^^^^^^^^^^^^^ Many Ohai node attributes are already strings and don't need to be cast to strings again
+      ^^^^^^^^^^^^^^^^^^^^^ This Ohai node attribute is already a string and doesn't need to be converted
     RUBY
 
     expect_correction(<<~RUBY)
@@ -34,7 +34,7 @@ describe RuboCop::Cop::Chef::ChefRedundantCode::OhaiAttributeToString, :config d
   it "registers an offense with node['platform_family'].to_s" do
     expect_offense(<<~RUBY)
       node['platform_family'].to_s
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Many Ohai node attributes are already strings and don't need to be cast to strings again
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ This Ohai node attribute is already a string and doesn't need to be converted
     RUBY
 
     expect_correction(<<~RUBY)
@@ -45,7 +45,7 @@ describe RuboCop::Cop::Chef::ChefRedundantCode::OhaiAttributeToString, :config d
   it "registers an offense with node['platform_version'].to_s" do
     expect_offense(<<~RUBY)
       node['platform_version'].to_s
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Many Ohai node attributes are already strings and don't need to be cast to strings again
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ This Ohai node attribute is already a string and doesn't need to be converted
     RUBY
 
     expect_correction(<<~RUBY)
@@ -56,7 +56,7 @@ describe RuboCop::Cop::Chef::ChefRedundantCode::OhaiAttributeToString, :config d
   it "registers an offense with node['fqdn'].to_s" do
     expect_offense(<<~RUBY)
       node['fqdn'].to_s
-      ^^^^^^^^^^^^^^^^^ Many Ohai node attributes are already strings and don't need to be cast to strings again
+      ^^^^^^^^^^^^^^^^^ This Ohai node attribute is already a string and doesn't need to be converted
     RUBY
 
     expect_correction(<<~RUBY)
@@ -67,7 +67,7 @@ describe RuboCop::Cop::Chef::ChefRedundantCode::OhaiAttributeToString, :config d
   it "registers an offense with node['os'].to_s" do
     expect_offense(<<~RUBY)
       node['os'].to_s
-      ^^^^^^^^^^^^^^^ Many Ohai node attributes are already strings and don't need to be cast to strings again
+      ^^^^^^^^^^^^^^^ This Ohai node attribute is already a string and doesn't need to be converted
     RUBY
 
     expect_correction(<<~RUBY)
@@ -78,7 +78,7 @@ describe RuboCop::Cop::Chef::ChefRedundantCode::OhaiAttributeToString, :config d
   it "registers an offense with node['hostname'].to_s" do
     expect_offense(<<~RUBY)
       node['hostname'].to_s
-      ^^^^^^^^^^^^^^^^^^^^^ Many Ohai node attributes are already strings and don't need to be cast to strings again
+      ^^^^^^^^^^^^^^^^^^^^^ This Ohai node attribute is already a string and doesn't need to be converted
     RUBY
 
     expect_correction(<<~RUBY)
@@ -89,7 +89,7 @@ describe RuboCop::Cop::Chef::ChefRedundantCode::OhaiAttributeToString, :config d
   it "registers an offense with node['name'].to_s" do
     expect_offense(<<~RUBY)
       node['name'].to_s
-      ^^^^^^^^^^^^^^^^^ Many Ohai node attributes are already strings and don't need to be cast to strings again
+      ^^^^^^^^^^^^^^^^^ This Ohai node attribute is already a string and doesn't need to be converted
     RUBY
 
     expect_correction(<<~RUBY)
