@@ -1727,6 +1727,15 @@ ChefRedundantCode/UseCreateIfMissing:
     - '**/attributes/*.rb'
     - '**/Berksfile'
 
+ChefRedundantCode/OhaiAttributeToString:
+  Description: Many Ohai node attributes are already strings and don't need to be cast to strings again
+  StyleGuide: '#ohaiattributetostring'
+  Enabled: true
+  VersionAdded: '6.10.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/Berksfile'
+
 ###############################
 # ChefEffortless: Migrating to new patterns
 ###############################
