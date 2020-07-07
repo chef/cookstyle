@@ -421,6 +421,8 @@ Naming/VariableNumber:
   Enabled: false
 Style/AccessModifierDeclarations:
   Enabled: false
+Style/AccessorGrouping:
+  Enabled: false
 Style/Alias:
   Enabled: false
 Style/AndOr:
@@ -436,6 +438,8 @@ Style/AutoResourceCleanup:
 Style/BarePercentLiterals:
   Enabled: false
 Style/BeginBlock:
+  Enabled: false
+Style/BisectedAttrAccessor:
   Enabled: false
 Style/BlockComments:
   Enabled: false
@@ -566,6 +570,8 @@ Style/LineEndConcatenation:
 Style/MethodCallWithoutArgsParentheses:
   Enabled: false
 Style/MethodCallWithArgsParentheses:
+  Enabled: false
+Style/RedundantAssignment:
   Enabled: false
 Style/RedundantFetchBlock:
   Enabled: false
