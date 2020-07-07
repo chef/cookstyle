@@ -212,6 +212,37 @@ Include | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefredundantcodelongdescriptionmetadata](https://rubystyle.guide#chefredundantcodelongdescriptionmetadata)
 
+## ChefRedundantCode/MultiplePlatformChecks
+
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
+
+You can pass multiple values to the platform? and platform_family? helpers instead of calling the helpers multiple times.
+
+### Examples
+
+```ruby
+# bad
+platform?('redhat') || platform?('ubuntu')
+platform_family?('debian') || platform_family?('rhel')
+
+# good
+platform?('redhat', 'ubuntu')
+platform_family?('debian', 'rhel')
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.10.0` | String
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
+
+### References
+
+* [https://rubystyle.guide#multipleplatformchecks](https://rubystyle.guide#multipleplatformchecks)
+
 ## ChefRedundantCode/NamePropertyIsRequired
 
 Enabled by default | Supports autocorrection | Target Chef Version

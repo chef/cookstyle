@@ -173,6 +173,7 @@
 * [ChefRedundantCode/CustomResourceWithAllowedActions](cops_chefredundantcode.md#chefredundantcodecustomresourcewithallowedactions)
 * [ChefRedundantCode/GroupingMetadata](cops_chefredundantcode.md#chefredundantcodegroupingmetadata)
 * [ChefRedundantCode/LongDescriptionMetadata](cops_chefredundantcode.md#chefredundantcodelongdescriptionmetadata)
+* [ChefRedundantCode/MultiplePlatformChecks](cops_chefredundantcode.md#chefredundantcodemultipleplatformchecks)
 * [ChefRedundantCode/NamePropertyIsRequired](cops_chefredundantcode.md#chefredundantcodenamepropertyisrequired)
 * [ChefRedundantCode/OhaiAttributeToString](cops_chefredundantcode.md#chefredundantcodeohaiattributetostring)
 * [ChefRedundantCode/PropertySplatRegex](cops_chefredundantcode.md#chefredundantcodepropertysplatregex)
