@@ -174,6 +174,7 @@
 * [ChefRedundantCode/GroupingMetadata](cops_chefredundantcode.md#chefredundantcodegroupingmetadata)
 * [ChefRedundantCode/LongDescriptionMetadata](cops_chefredundantcode.md#chefredundantcodelongdescriptionmetadata)
 * [ChefRedundantCode/NamePropertyIsRequired](cops_chefredundantcode.md#chefredundantcodenamepropertyisrequired)
+* [ChefRedundantCode/OhaiAttributeToString](cops_chefredundantcode.md#chefredundantcodeohaiattributetostring)
 * [ChefRedundantCode/PropertySplatRegex](cops_chefredundantcode.md#chefredundantcodepropertysplatregex)
 * [ChefRedundantCode/PropertyWithRequiredAndDefault](cops_chefredundantcode.md#chefredundantcodepropertywithrequiredanddefault)
 * [ChefRedundantCode/ProvidesMetadata](cops_chefredundantcode.md#chefredundantcodeprovidesmetadata)

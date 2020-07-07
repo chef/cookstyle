@@ -270,6 +270,47 @@ Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
 
 * [https://rubystyle.guide#chefredundantcodenamepropertyisrequired](https://rubystyle.guide#chefredundantcodenamepropertyisrequired)
 
+## ChefRedundantCode/OhaiAttributeToString
+
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
+
+Many Ohai node attributes are already strings and don't need to be cast to strings again
+
+### Examples
+
+```ruby
+# bad
+node['platform'].to_s
+node['platform_family'].to_s
+node['platform_version'].to_s
+node['fqdn'].to_s
+node['hostname'].to_s
+node['os'].to_s
+node['name'].to_s
+
+# good
+node['platform']
+node['platform_family']
+node['platform_version']
+node['fqdn']
+node['hostname']
+node['os']
+node['name']
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.10.0` | String
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
+
+### References
+
+* [https://rubystyle.guide#ohaiattributetostring](https://rubystyle.guide#ohaiattributetostring)
+
 ## ChefRedundantCode/PropertySplatRegex
 
 Enabled by default | Supports autocorrection | Target Chef Version
