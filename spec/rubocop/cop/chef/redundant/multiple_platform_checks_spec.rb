@@ -52,4 +52,10 @@ describe RuboCop::Cop::Chef::ChefRedundantCode::MultiplePlatformChecks, :config 
       platform_family?(foo, 'bar')
     RUBY
   end
+
+  it "doesn't register an offense when the platform checks dont' match" do
+    expect_no_offenses(<<~RUBY)
+    platform_family?(foo) || platform?('bar')
+    RUBY
+  end
 end
