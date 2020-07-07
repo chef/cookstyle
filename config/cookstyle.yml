@@ -503,6 +503,14 @@ ChefSharing/IncludeResourceDescriptions:
   Include:
     - '**/resources/*.rb'
 
+ChefSharing/IncludeResourceExamples:
+  Description: Resources should include examples field to allow automated documention. Requires Chef Infra Client 13.9 or later.
+  StyleGuide: '#chefsharingincluderesourceexamples'
+  Enabled: false
+  VersionAdded: '6.10.0'
+  Include:
+    - '**/resources/*.rb'
+
 ###############################
 # ChefDeprecations: Resolving Deprecations that block upgrading Chef Infra Client
 ###############################
