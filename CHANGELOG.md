@@ -1,30 +1,27 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.10.2 -->
-## [v6.10.2](https://github.com/chef/cookstyle/tree/v6.10.2) (2020-07-07)
-
-#### Merged Pull Requests
-- Add ChefSharing/IncludeResourceExamples [#662](https://github.com/chef/cookstyle/pull/662) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=6.9.0 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Add ChefSharing/IncludeResourceExamples [#662](https://github.com/chef/cookstyle/pull/662) ([tas50](https://github.com/tas50)) <!-- 6.10.2 -->
-- Monkeypatch the Migration/DepartmentName cop to suggest cookstyle [#661](https://github.com/chef/cookstyle/pull/661) ([tas50](https://github.com/tas50)) <!-- 6.10.1 -->
-- Add new ChefRedundantCode/MultiplePlatformChecks cop [#660](https://github.com/chef/cookstyle/pull/660) ([tas50](https://github.com/tas50)) <!-- 6.10.0 -->
-- Add cookstyle cop to detect using .to_s on ohai attribute [#659](https://github.com/chef/cookstyle/pull/659) ([tas50](https://github.com/tas50)) <!-- 6.9.1 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v6.10.2](https://github.com/chef/cookstyle/tree/v6.10.2) (2020-07-07)
+
+#### Merged Pull Requests
+- Add cookstyle cop to detect using .to_s on ohai attribute [#659](https://github.com/chef/cookstyle/pull/659) ([tas50](https://github.com/tas50))
+- Add new ChefRedundantCode/MultiplePlatformChecks cop [#660](https://github.com/chef/cookstyle/pull/660) ([tas50](https://github.com/tas50))
+- Monkeypatch the Migration/DepartmentName cop to suggest cookstyle [#661](https://github.com/chef/cookstyle/pull/661) ([tas50](https://github.com/tas50))
+- Add ChefSharing/IncludeResourceExamples [#662](https://github.com/chef/cookstyle/pull/662) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v6.9.0](https://github.com/chef/cookstyle/tree/v6.9.0) (2020-06-25)
 
 #### Merged Pull Requests
 - Add Cookstyle 6.8 release notes [#652](https://github.com/chef/cookstyle/pull/652) ([tas50](https://github.com/tas50))
 - Minor optimizations from Rubocop Performance [#653](https://github.com/chef/cookstyle/pull/653) ([tas50](https://github.com/tas50))
 - Update Rubocop to 0.86 [#656](https://github.com/chef/cookstyle/pull/656) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v6.8.0](https://github.com/chef/cookstyle/tree/v6.8.0) (2020-06-08)
 
