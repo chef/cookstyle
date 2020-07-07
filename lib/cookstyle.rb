@@ -12,6 +12,7 @@ require 'rubocop/monkey_patches/comment_config.rb'
 require 'rubocop/monkey_patches/config.rb'
 require 'rubocop/monkey_patches/cop.rb'
 require 'rubocop/monkey_patches/team.rb'
+require 'rubocop/monkey_patches/registry_cop.rb'
 
 module RuboCop
   class ConfigLoader
