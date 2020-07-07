@@ -1,3 +1,53 @@
+## Cookstyle 6.10
+
+### 3 New Cops
+
+#### ChefSharing/IncludeResourceExamples
+
+The `ChefSharing/IncludeResourceExamples` cop detects resources that don't include examples. The `chef-resource-inspector` command displays resource examples and those examples can be used to automatically generate documentation.
+
+`Enabled by default`: False
+
+`Autocorrects`: No
+
+#### ChefRedundantCode/MultiplePlatformChecks
+
+The `ChefRedundantCode/MultiplePlatformChecks` cop detects usage of multiple `platform?` or `platform_family?` helpers that can be simplified by passing multiple values to a single helper.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+`Examples:`
+
+Conditional using multiple platform? helpers:
+
+```ruby
+if platform?('ubuntu') || platform?('centos')
+  ...
+end
+```
+
+Simplified conditional using a single platform? helper:
+
+```ruby
+if platform?('ubuntu', 'centos')
+  ...
+end
+```
+
+#### ChefRedundantCode/OhaiAttributeToString
+
+The `ChefRedundantCode/OhaiAttributeToString` cop detects cookbooks that use `.to_s` on node attributes from Ohai that are already String type.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+### Other Improvements
+
+- RuboCop's built-in `Migration/DepartmentName` cop now suggests running cookstyle, not rubocop, to resolve cop naming deprecations.
+
 ## Cookstyle 6.9
 
 ### RuboCop 0.86
