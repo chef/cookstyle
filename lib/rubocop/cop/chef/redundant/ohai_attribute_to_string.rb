@@ -42,7 +42,7 @@ module RuboCop
         #   node['name']
         #
         class OhaiAttributeToString < Cop
-          MSG = "Many Ohai node attributes are already strings and don't need to be cast to strings again".freeze
+          MSG = "This Ohai node attribute is already a string and doesn't need to be converted".freeze
 
           def_node_matcher :platform_to_s?, <<-PATTERN
             (send (send (send nil? :node) :[] $(str {"platform" "platform_family" "platform_version" "fqdn" "hostname" "os" "name"}) ) :to_s )
