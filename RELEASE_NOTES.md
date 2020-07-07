@@ -4,7 +4,7 @@
 
 #### ChefSharing/IncludeResourceExamples
 
-The `ChefSharing/IncludeResourceExamples` cop detects resources that don't include examples. The `chef-resource-inspector` command displays the examples in resources and that data can be used to automatically generate documentation.
+The `ChefSharing/IncludeResourceExamples` cop detects resources that don't include examples. The `chef-resource-inspector` command displays resource examples and those examples can be used to automatically generate documentation.
 
 `Enabled by default`: False
 
