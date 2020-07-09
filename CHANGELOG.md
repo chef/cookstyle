@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.11.0 -->
-## [v6.11.0](https://github.com/chef/cookstyle/tree/v6.11.0) (2020-07-09)
+ <!-- latest_release 6.11.1 -->
+## [v6.11.1](https://github.com/chef/cookstyle/tree/v6.11.1) (2020-07-09)
 
 #### Merged Pull Requests
-- Update RuboCop engine to 0.87.1 [#664](https://github.com/chef/cookstyle/pull/664) ([tas50](https://github.com/tas50))
+- Expand NodeInitPackage to catch more bad systemd tests [#665](https://github.com/chef/cookstyle/pull/665) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.10.2 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Expand NodeInitPackage to catch more bad systemd tests [#665](https://github.com/chef/cookstyle/pull/665) ([tas50](https://github.com/tas50)) <!-- 6.11.1 -->
 - Update RuboCop engine to 0.87.1 [#664](https://github.com/chef/cookstyle/pull/664) ([tas50](https://github.com/tas50)) <!-- 6.11.0 -->
 <!-- release_rollup -->
 
