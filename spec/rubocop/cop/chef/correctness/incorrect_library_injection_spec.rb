@@ -38,6 +38,24 @@ describe RuboCop::Cop::Chef::ChefCorrectness::IncorrectLibraryInjection do
     expect_correction("::Chef::DSL::Recipe.send(:include, Foo::Helpers)\n")
   end
 
+  it 'registers an offense when calling ::Chef::Recipe.include' do
+    expect_offense(<<~RUBY)
+      ::Chef::Recipe.include Foo::Helpers
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Libraries should be injected into the Chef::DSL::Recipe class and not Chef::Recipe or Chef::Provider classes directly.
+    RUBY
+
+    expect_correction("::Chef::DSL::Recipe.include Foo::Helpers\n")
+  end
+
+  it 'registers an offense when calling ::Chef::Provider.include' do
+    expect_offense(<<~RUBY)
+      ::Chef::Provider.include Foo::Helpers
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Libraries should be injected into the Chef::DSL::Recipe class and not Chef::Recipe or Chef::Provider classes directly.
+    RUBY
+
+    expect_correction("::Chef::DSL::Recipe.include Foo::Helpers\n")
+  end
+
   it 'does not register an offense when calling ::Chef::DSL::Recipe.send' do
     expect_no_offenses(<<~RUBY)
       ::Chef::DSL::Recipe.send
