@@ -1,3 +1,64 @@
+## Cookstyle 6.11
+
+### 2 New Cops
+
+#### ChefModernize/ConditionalUsingTest
+
+The `ChefModernize/ConditionalUsingTest` cop detects resources that have and `only_if` or `not_if` conditional which uses `test -e /some/file` or `test -f /some/file` to determine if a file exists. Using the test command in a conditional requires shelling out and is slower / more resource intensive than using Ruby's built-in `File.exist?('/some/file')` helper.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+`Examples:`
+
+Conditional using test:
+
+```ruby
+execute 'apt-get update' do
+  only_if 'test -f /usr/bin/apt'
+end
+```
+
+Using File.exist instead:
+
+```ruby
+execute 'apt-get update' do
+  only_if { ::File.exist?('/usr/bin/apt') }
+end
+```
+
+#### ChefStyle/IncludeRecipeWithParentheses
+
+The `ChefStyle/IncludeRecipeWithParentheses` cop detects unnecessary parentheses used with the `include_recipe` helper.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+`Examples:`
+
+Paranthesis with include_recipe:
+
+```ruby
+include_recipe('my_recipe')
+```
+
+Bare include_recipe:
+
+```ruby
+include_recipe 'my_recipe'
+```
+
+### RuboCop 0.87.1
+
+RuboCop has been updated to 0.87.1, which greatly expands the autocorrection capabilities of RuboCop and resolves many bugs in existing cops.
+
+### Other Improvements
+
+- The `ChefModernize/NodeInitPackage` cop has been improved to detect additional methods of testing a node for systemd support.
+- The `ChefCorrectness/IncorrectLibraryInjection` cop has been improved to detect additional incorrect methods of injecting libraries helpers.
+
 ## Cookstyle 6.10
 
 ### 3 New Cops
