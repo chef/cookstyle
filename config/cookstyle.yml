@@ -1551,6 +1551,16 @@ ChefModernize/ShellOutHelper:
     - '**/Berksfile'
     - '**/libraries/*.rb'
 
+ChefModernize/ConditionalUsingTest:
+  Description: Use ::File.exist?('/foo/bar') instead of the slower 'test -f /foo/bar' which requires shelling out.
+  StyleGuide: '#conditionalusingtest'
+  Enabled: true
+  VersionAdded: '6.11.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/attributes/*.rb'
+
 ###############################
 # ChefRedundantCode: Cleanup unnecessary code in your cookbooks regardless of Chef Infra Client release
 ###############################
