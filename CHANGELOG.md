@@ -1,24 +1,22 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.11.4 -->
-## [v6.11.4](https://github.com/chef/cookstyle/tree/v6.11.4) (2020-07-09)
-
-#### Merged Pull Requests
-- Expand IncorrectLibraryInjection to detect more types of injection [#668](https://github.com/chef/cookstyle/pull/668) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=6.10.2 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Expand IncorrectLibraryInjection to detect more types of injection [#668](https://github.com/chef/cookstyle/pull/668) ([tas50](https://github.com/tas50)) <!-- 6.11.4 -->
-- Add new cop ChefModernize/ConditionalUsingTest [#666](https://github.com/chef/cookstyle/pull/666) ([tas50](https://github.com/tas50)) <!-- 6.11.3 -->
-- Add new ChefStyle/IncludeRecipeWithParentheses [#667](https://github.com/chef/cookstyle/pull/667) ([tas50](https://github.com/tas50)) <!-- 6.11.2 -->
-- Expand NodeInitPackage to catch more bad systemd tests [#665](https://github.com/chef/cookstyle/pull/665) ([tas50](https://github.com/tas50)) <!-- 6.11.1 -->
-- Update RuboCop engine to 0.87.1 [#664](https://github.com/chef/cookstyle/pull/664) ([tas50](https://github.com/tas50)) <!-- 6.11.0 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v6.11.4](https://github.com/chef/cookstyle/tree/v6.11.4) (2020-07-09)
+
+#### Merged Pull Requests
+- Update RuboCop engine to 0.87.1 [#664](https://github.com/chef/cookstyle/pull/664) ([tas50](https://github.com/tas50))
+- Expand NodeInitPackage to catch more bad systemd tests [#665](https://github.com/chef/cookstyle/pull/665) ([tas50](https://github.com/tas50))
+- Add new ChefStyle/IncludeRecipeWithParentheses [#667](https://github.com/chef/cookstyle/pull/667) ([tas50](https://github.com/tas50))
+- Add new cop ChefModernize/ConditionalUsingTest [#666](https://github.com/chef/cookstyle/pull/666) ([tas50](https://github.com/tas50))
+- Expand IncorrectLibraryInjection to detect more types of injection [#668](https://github.com/chef/cookstyle/pull/668) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v6.10.2](https://github.com/chef/cookstyle/tree/v6.10.2) (2020-07-07)
 
 #### Merged Pull Requests
@@ -26,7 +24,6 @@
 - Add new ChefRedundantCode/MultiplePlatformChecks cop [#660](https://github.com/chef/cookstyle/pull/660) ([tas50](https://github.com/tas50))
 - Monkeypatch the Migration/DepartmentName cop to suggest cookstyle [#661](https://github.com/chef/cookstyle/pull/661) ([tas50](https://github.com/tas50))
 - Add ChefSharing/IncludeResourceExamples [#662](https://github.com/chef/cookstyle/pull/662) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v6.9.0](https://github.com/chef/cookstyle/tree/v6.9.0) (2020-06-25)
 
