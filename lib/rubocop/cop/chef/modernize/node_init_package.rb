@@ -27,18 +27,20 @@ module RuboCop
         #   ::File.open('/proc/1/comm').chomp == 'systemd'
         #   File.open('/proc/1/comm').gets.chomp == 'systemd'
         #   File.open('/proc/1/comm').chomp == 'systemd'
-        #   File.exist?('/proc/1/comm') && File.open('/proc/1/comm').chomp == 'systemd'
-        #
         #   IO.read('/proc/1/comm').chomp == 'systemd'
         #   IO.read('/proc/1/comm').gets.chomp == 'systemd'
         #   ::IO.read('/proc/1/comm').chomp == 'systemd'
         #   ::IO.read('/proc/1/comm').gets.chomp == 'systemd'
         #   File.exist?('/proc/1/comm') && File.open('/proc/1/comm').chomp == 'systemd'
+        #   only_if 'test -f /bin/systemctl && /bin/systemctl'
         #
         #   # good
         #   node['init_package'] == 'systemd'
+        #   only_if { node['init_package'] == 'systemd' }
         #
-        class NodeInitPackage < Cop
+        class NodeInitPackage < Base
+          extend RuboCop::Cop::AutoCorrector
+
           MSG = "Use node['init_package'] to check for systemd instead of reading the contents of '/proc/1/comm'".freeze
 
           def_node_matcher :file_reads_proc_1_comm?, <<-PATTERN
@@ -58,18 +60,24 @@ module RuboCop
                 :== (str "systemd"))
           PATTERN
 
+          def_node_matcher :file_systemd_conditional?, <<~PATTERN
+          (send nil? {:not_if :only_if} $(str "test -f /bin/systemctl && /bin/systemctl"))
+          PATTERN
+
           def on_send(node)
             compare_init_system?(node) do
               # if there's a ::File.exist?('/proc/1/comm') check first we want to match that as well
               node = node.parent if node.parent&.and_type? && proc_1_comm_exists?(node.parent.conditions.first)
 
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+              add_offense(node.loc.expression, message: MSG, severity: :refactor) do |corrector|
+                corrector.replace(node, "node['init_package'] == 'systemd'")
+              end
             end
-          end
 
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.replace(node.loc.expression, "node['init_package'] == 'systemd'")
+            file_systemd_conditional?(node) do |conditional|
+              add_offense(node.loc.expression, message: MSG, severity: :refactor) do |corrector|
+                corrector.replace(conditional.loc.expression, "{ node['init_package'] == 'systemd' }")
+              end
             end
           end
         end

@@ -108,6 +108,28 @@ describe RuboCop::Cop::Chef::ChefModernize::NodeInitPackage, :config do
     RUBY
   end
 
+  it "registers an offense with only_if 'test -f /bin/systemctl && /bin/systemctl'" do
+    expect_offense(<<~RUBY)
+      only_if 'test -f /bin/systemctl && /bin/systemctl'
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use node['init_package'] to check for systemd instead of reading the contents of '/proc/1/comm'
+    RUBY
+
+    expect_correction(<<~RUBY)
+      only_if { node['init_package'] == 'systemd' }
+    RUBY
+  end
+
+  it "registers an offense with not_if 'test -f /bin/systemctl && /bin/systemctl'" do
+    expect_offense(<<~RUBY)
+      not_if 'test -f /bin/systemctl && /bin/systemctl'
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use node['init_package'] to check for systemd instead of reading the contents of '/proc/1/comm'
+    RUBY
+
+    expect_correction(<<~RUBY)
+      not_if { node['init_package'] == 'systemd' }
+    RUBY
+  end
+
   it "does not register an offense when comparing a non-systemd value in '/proc/1/comm'" do
     expect_no_offenses(<<~RUBY)
       ::File.open('/proc/1/comm').gets.chomp == 'foo'
