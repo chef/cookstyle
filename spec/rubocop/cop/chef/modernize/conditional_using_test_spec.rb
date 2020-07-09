@@ -35,7 +35,7 @@ describe RuboCop::Cop::Chef::ChefModernize::ConditionalUsingTest, :config do
     RUBY
   end
 
-  it 'registers an offense a not_if uses test -f' do
+  it 'registers an offense when a not_if uses test -f' do
     expect_offense(<<~RUBY)
       execute 'yum update' do
         not_if 'test -f /sbin/apt'
