@@ -25,6 +25,8 @@ module RuboCop
         #   # bad
         #   ::Chef::Recipe.send(:include, Filebeat::Helpers)
         #   ::Chef::Provider.send(:include, Filebeat::Helpers)
+        #   ::Chef::Recipe.include Filebeat::Helpers
+        #   ::Chef::Provider.include Filebeat::Helpers
         #
         #   # good
         #   ::Chef::DSL::Recipe.send(:include, Filebeat::Helpers) # covers previous Recipe & Provider classes
@@ -36,8 +38,16 @@ module RuboCop
             (send (const (const (cbase) :Chef) {:Recipe :Provider}) :send (sym :include) ... )
           PATTERN
 
+          def_node_matcher :legacy_class_includes?, <<-PATTERN
+            (send (const (const (cbase) :Chef) {:Recipe :Provider}) :include ... )
+          PATTERN
+
           def on_send(node)
             legacy_class_sends?(node) do
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            end
+
+            legacy_class_includes?(node) do
               add_offense(node, location: :expression, message: MSG, severity: :refactor)
             end
           end

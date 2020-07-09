@@ -310,8 +310,9 @@ ChefCorrectness/IncorrectLibraryInjection:
   StyleGuide: '#chefcorrectnessincorrectlibraryinjection'
   Enabled: true
   VersionAdded: '5.10.0'
-  Include:
-    - '**/libraries/*.rb'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/Berksfile'
 
 ChefCorrectness/InvalidPlatformHelper:
   Description: Pass valid platforms to the platform? helper.
