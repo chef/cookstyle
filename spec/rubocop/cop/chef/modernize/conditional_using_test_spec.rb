@@ -65,7 +65,7 @@ describe RuboCop::Cop::Chef::ChefModernize::ConditionalUsingTest, :config do
     RUBY
   end
 
-  it "doesn't register an offense when test is used with a flag other and -e and -f" do
+  it "doesn't register an offense when test is used with a flag other than -e or -f" do
     expect_no_offenses(<<~RUBY)
     execute 'apt-get update' do
       only_if 'test -j /sbin/apt'
