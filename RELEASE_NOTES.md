@@ -52,7 +52,7 @@ include_recipe 'my_recipe'
 
 ### RuboCop 0.87.1
 
-RuboCop has been updated to 0.87.1, which greatly expands the autocorrection capabilities of RuboCop and resolves many bugs in existing cops.
+RuboCop has been updated to 0.87.1 which greatly expands the autocorrection capabilities of RuboCop and resolves many bugs in existing cops.
 
 ### Other Improvements
 
