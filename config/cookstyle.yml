@@ -161,6 +161,16 @@ ChefStyle/NegatingOnlyIf:
     - '**/metadata.rb'
     - '**/Berksfile'
 
+ChefStyle/IncludeRecipeWithParentheses:
+  Description: There is no need to wrap the recipe in parentheses when using the include_recipe helper
+  StyleGuide: '#includerecipewithparentheses'
+  VersionAdded: '6.11.0'
+  Enabled: true
+  Exclude:
+    - '**/attributes/*.rb'
+    - '**/metadata.rb'
+    - '**/Berksfile'
+
 ###############################
 # ChefCorrectness: Avoiding potential problems
 ###############################
