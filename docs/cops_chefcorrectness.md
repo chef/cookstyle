@@ -201,6 +201,8 @@ Libraries should be injected into the Chef::DSL::Recipe class and not Chef::Reci
 # bad
 ::Chef::Recipe.send(:include, Filebeat::Helpers)
 ::Chef::Provider.send(:include, Filebeat::Helpers)
+::Chef::Recipe.include Filebeat::Helpers
+::Chef::Provider.include Filebeat::Helpers
 
 # good
 ::Chef::DSL::Recipe.send(:include, Filebeat::Helpers) # covers previous Recipe & Provider classes
@@ -211,7 +213,7 @@ Libraries should be injected into the Chef::DSL::Recipe class and not Chef::Reci
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.10.0` | String
-Include | `**/libraries/*.rb` | Array
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ### References
 

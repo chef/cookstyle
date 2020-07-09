@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.11.3 -->
-## [v6.11.3](https://github.com/chef/cookstyle/tree/v6.11.3) (2020-07-09)
+ <!-- latest_release 6.11.4 -->
+## [v6.11.4](https://github.com/chef/cookstyle/tree/v6.11.4) (2020-07-09)
 
 #### Merged Pull Requests
-- Add new cop ChefModernize/ConditionalUsingTest [#666](https://github.com/chef/cookstyle/pull/666) ([tas50](https://github.com/tas50))
+- Expand IncorrectLibraryInjection to detect more types of injection [#668](https://github.com/chef/cookstyle/pull/668) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.10.2 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Expand IncorrectLibraryInjection to detect more types of injection [#668](https://github.com/chef/cookstyle/pull/668) ([tas50](https://github.com/tas50)) <!-- 6.11.4 -->
 - Add new cop ChefModernize/ConditionalUsingTest [#666](https://github.com/chef/cookstyle/pull/666) ([tas50](https://github.com/tas50)) <!-- 6.11.3 -->
 - Add new ChefStyle/IncludeRecipeWithParentheses [#667](https://github.com/chef/cookstyle/pull/667) ([tas50](https://github.com/tas50)) <!-- 6.11.2 -->
 - Expand NodeInitPackage to catch more bad systemd tests [#665](https://github.com/chef/cookstyle/pull/665) ([tas50](https://github.com/tas50)) <!-- 6.11.1 -->
