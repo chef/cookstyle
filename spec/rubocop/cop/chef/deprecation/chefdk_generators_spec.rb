@@ -29,15 +29,6 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ChefDKGenerators, :config do
     expect_correction("ChefCLI::CLI.new\n")
   end
 
-  it 'registers an offense when using ChefDK::CLI.new' do
-    expect_offense(<<~RUBY)
-      ChefDK::CLI.new
-      ^^^^^^ When writing cookbook generators use the ChefCLI module instead of the ChefDK module which was removed in Chef Workstation 0.8 and later.
-    RUBY
-
-    expect_correction("ChefCLI::CLI.new\n")
-  end
-
   it 'registers an offense when using a ChefDK Generator class' do
     expect_offense(<<~RUBY)
       ChefDK::Generator::TemplateHelper
