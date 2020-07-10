@@ -1029,6 +1029,15 @@ ChefDeprecations/ChefDKGenerators:
     - '**/metadata.rb'
     - '**/Berksfile'
 
+ChefDeprecations/ChefHandlerRecipe:
+  Description: There is no need to include the empty and deprecated chef_handler::default recipe in order to use the chef_handler resource.
+  StyleGuide: '#chefhandlerrecipe'
+  Enabled: true
+  VersionAdded: '6.12.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/Berksfile'
+
 ###############################
 # ChefModernize: Cleaning up legacy code and using new built-in resources
 ###############################
