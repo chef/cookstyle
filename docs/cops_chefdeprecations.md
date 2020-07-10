@@ -37,6 +37,33 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefdkgenerators](https://rubystyle.guide#chefdkgenerators)
 
+## ChefDeprecations/ChefHandlerRecipe
+
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
+
+There is no need to include the empty and deprecated chef_handler::default recipe in order to use the chef_handler resource
+
+### Examples
+
+```ruby
+# bad
+include_recipe 'chef_handler'
+include_recipe 'chef_handler::default'
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.12.0` | String
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
+
+### References
+
+* [https://rubystyle.guide#chefhandlerrecipe](https://rubystyle.guide#chefhandlerrecipe)
+
 ## ChefDeprecations/ChefHandlerUsesSupports
 
 Enabled by default | Supports autocorrection | Target Chef Version
