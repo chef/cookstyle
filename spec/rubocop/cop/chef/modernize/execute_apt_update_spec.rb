@@ -29,6 +29,24 @@ describe RuboCop::Cop::Chef::ChefModernize::ExecuteAptUpdate, :config do
     RUBY
   end
 
+  it 'registers an offense when using execute to run apt-get update -y' do
+    expect_offense(<<~RUBY)
+      execute 'apt-get update -y' do
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the apt_update resource instead of the execute resource to run an apt-get update package cache update
+        action :nothing
+      end
+    RUBY
+  end
+
+  it 'registers an offense when using execute to run apt-get -y update' do
+    expect_offense(<<~RUBY)
+      execute 'apt-get -y update' do
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the apt_update resource instead of the execute resource to run an apt-get update package cache update
+        action :nothing
+      end
+    RUBY
+  end
+
   it "registers an offense when a resource notifies 'execute[apt-get update]'" do
     expect_offense(<<~RUBY)
       execute 'some execute resource' do
