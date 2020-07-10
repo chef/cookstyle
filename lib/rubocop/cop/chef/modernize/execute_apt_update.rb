@@ -45,7 +45,7 @@ module RuboCop
           MSG = 'Use the apt_update resource instead of the execute resource to run an apt-get update package cache update'.freeze
 
           def_node_matcher :execute_apt_update?, <<-PATTERN
-            (send nil? :execute (str "apt-get update"))
+            (send nil? :execute (str { "apt-get update" "apt-get update -y" "apt-get -y update" }))
           PATTERN
 
           def_node_matcher :notification_property?, <<-PATTERN
