@@ -1,5 +1,42 @@
 # ChefDeprecations
 
+## ChefDeprecations/ChefDKGenerators
+
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
+
+Chef Workstation 0.8 and later renamed the ChefDK module used when writing custom cookbook generators from ChefDK to ChefCLI. For compatibility with the latest Chef Workstation releases you'll need to reference the new class names.
+
+### Examples
+
+```ruby
+# bad
+ChefDK::CLI
+ChefDK::Generator::TemplateHelper
+module ChefDK
+  ...
+end
+
+# good
+ChefCLI::CLI
+ChefCLI::Generator::TemplateHelper
+module ChefCLI
+  ...
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.12.0` | String
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
+
+### References
+
+* [https://rubystyle.guide#chefdkgenerators](https://rubystyle.guide#chefdkgenerators)
+
 ## ChefDeprecations/ChefHandlerUsesSupports
 
 Enabled by default | Supports autocorrection | Target Chef Version

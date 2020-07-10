@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.12.0 -->
-## [v6.12.0](https://github.com/chef/cookstyle/tree/v6.12.0) (2020-07-10)
+ <!-- latest_release 6.12.1 -->
+## [v6.12.1](https://github.com/chef/cookstyle/tree/v6.12.1) (2020-07-10)
 
 #### Merged Pull Requests
-- Detect additional ways to shellout to apt-get update [#670](https://github.com/chef/cookstyle/pull/670) ([tas50](https://github.com/tas50))
+- Add new ChefDeprecations/ChefDKGenerators cop [#671](https://github.com/chef/cookstyle/pull/671) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.11.4 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add new ChefDeprecations/ChefDKGenerators cop [#671](https://github.com/chef/cookstyle/pull/671) ([tas50](https://github.com/tas50)) <!-- 6.12.1 -->
 - Detect additional ways to shellout to apt-get update [#670](https://github.com/chef/cookstyle/pull/670) ([tas50](https://github.com/tas50)) <!-- 6.12.0 -->
 <!-- release_rollup -->
 
