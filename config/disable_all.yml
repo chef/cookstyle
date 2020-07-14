@@ -223,6 +223,8 @@ Lint/DisjunctiveAssignmentInConstructor:
   Enabled: false
 Lint/DuplicateCaseCondition:
   Enabled: false
+Lint/DuplicateElsifCondition:
+  Enabled: false
 Lint/DuplicateHashKey:
   Enabled: false
 Lint/DuplicateMethods:
@@ -427,6 +429,8 @@ Style/Alias:
   Enabled: false
 Style/AndOr:
   Enabled: false
+Style/ArrayCoercion:
+  Enabled: false
 Style/ArrayJoin:
   Enabled: false
 Style/AsciiComments:
@@ -446,6 +450,8 @@ Style/BlockComments:
 Style/BlockDelimiters:
   Enabled: false
 Style/CaseEquality:
+  Enabled: false
+Style/CaseLikeIf:
   Enabled: false
 Style/CharacterLiteral:
   Enabled: false
@@ -533,7 +539,11 @@ Style/GlobalVars:
   Enabled: false
 Style/GuardClause:
   Enabled: false
+Style/HashAsLastArrayItem:
+  Enabled: false
 Style/HashEachMethods:
+  Enabled: false
+Style/HashLikeCase:
   Enabled: false
 Style/HashSyntax:
   Enabled: false
@@ -574,6 +584,8 @@ Style/MethodCallWithArgsParentheses:
 Style/RedundantAssignment:
   Enabled: false
 Style/RedundantFetchBlock:
+  Enabled: false
+Style/RedundantFileExtensionInRequire:
   Enabled: false
 Style/MethodCalledOnDoEndBlock:
   Enabled: false
