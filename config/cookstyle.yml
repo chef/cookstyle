@@ -1038,6 +1038,15 @@ ChefDeprecations/ChefHandlerRecipe:
     - '**/metadata.rb'
     - '**/Berksfile'
 
+ChefDeprecations/UseAutomaticResourceName:
+  Description: The use_automatic_resource_name method was removed in Chef Infra Client 16. The resource name/provides should be set explicitly instead.
+  StyleGuide: '#useautomaticresourcename'
+  Enabled: true
+  VersionAdded: '6.12.0'
+  Include:
+    - '**/libraries/*.rb'
+    - '**/resources/*.rb'
+
 ###############################
 # ChefModernize: Cleaning up legacy code and using new built-in resources
 ###############################
