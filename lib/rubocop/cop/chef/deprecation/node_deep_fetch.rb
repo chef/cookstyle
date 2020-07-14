@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 #
@@ -17,8 +18,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefDeprecations
-        # The node.deep_fetch method has been removed from Chef-Sugar, and must be replaced by
-        # the node.read API.
+        # The node.deep_fetch method has been removed from Chef-Sugar, and must be replaced by the node.read API.
         #
         # @example
         #
@@ -34,31 +34,18 @@ module RuboCop
         #   # good
         #   node.read!("foo")
         #
-        class NodeDeepFetch < Cop
-          MSG = 'Do not use node.deep_fetch. Replace with node.read to keep identical behavior.'.freeze
-          MSG2 = 'Do not use node.deep_fetch!. Replace with node.read! to keep identical behavior.'.freeze
+        class NodeDeepFetch < Base
+          extend RuboCop::Cop::AutoCorrector
 
           def_node_matcher :node_deep_fetch?, <<-PATTERN
-            (send (send _ :node) $:deep_fetch _)
-          PATTERN
-
-          def_node_matcher :node_deep_fetch_bang?, <<-PATTERN
-            (send (send _ :node) $:deep_fetch! _)
+            (send (send _ :node) ${:deep_fetch :deep_fetch!} _)
           PATTERN
 
           def on_send(node)
             node_deep_fetch?(node) do
-              add_offense(node, location: :selector, message: MSG, severity: :warning)
-            end
-
-            node_deep_fetch_bang?(node) do
-              add_offense(node, location: :selector, message: MSG2, severity: :warning)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.replace(node.loc.selector, fix_name(node.method_name))
+              add_offense(node.loc.selector, message: "Do not use node.#{node.method_name}. Replace with node.#{fix_name(node.method_name)} to keep identical behavior.", severity: :warning) do |corrector|
+                corrector.replace(node.loc.selector, fix_name(node.method_name))
+              end
             end
           end
 

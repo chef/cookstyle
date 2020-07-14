@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -454,7 +455,7 @@ module RuboCop
             'UNLICENSED': 'all rights reserved',
           }.freeze
 
-          MSG = 'Cookbook metadata.rb does not use a SPDX compliant license string or "all rights reserved". See https://spdx.org/licenses/ for a complete list of license identifiers.'.freeze
+          MSG = 'Cookbook metadata.rb does not use a SPDX compliant license string or "all rights reserved". See https://spdx.org/licenses/ for a complete list of license identifiers.'
 
           def_node_matcher :license?, '(send nil? :license $str ...)'
 

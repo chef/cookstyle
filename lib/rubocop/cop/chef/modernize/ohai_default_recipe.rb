@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -29,7 +30,7 @@ module RuboCop
         #   include_recipe 'ohai'
         #
         class IncludingOhaiDefaultRecipe < Cop
-          MSG = "Use the ohai_plugin resource to ship custom Ohai plugins instead of using the ohai::default recipe. If you're not shipping custom Ohai plugins, then you can remove this recipe entirely".freeze
+          MSG = "Use the ohai_plugin resource to ship custom Ohai plugins instead of using the ohai::default recipe. If you're not shipping custom Ohai plugins, then you can remove this recipe entirely"
 
           def_node_matcher :ohai_recipe_usage?, <<-PATTERN
             (send nil? :include_recipe (str {"ohai" "ohai::default"}))

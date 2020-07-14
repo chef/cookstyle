@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -30,7 +31,7 @@ module RuboCop
         class ResourceWithNothingAction < Cop
           include RangeHelp
 
-          MSG = 'There is no need to define a :nothing action in your resource as Chef Infra Client provides the :nothing action by default for every resource.'.freeze
+          MSG = 'There is no need to define a :nothing action in your resource as Chef Infra Client provides the :nothing action by default for every resource.'
 
           def_node_matcher :nothing_action?, <<-PATTERN
             (block (send nil? :action (sym :nothing)) (args) ... )

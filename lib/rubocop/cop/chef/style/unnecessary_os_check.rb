@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -35,7 +36,7 @@ module RuboCop
         #   platform_family?('netbsd', 'openbsd', 'freebsd)
         #
         class UnnecessaryOSCheck < Cop
-          MSG = "Use the platform_family?() helpers instead of node['os] == 'foo' for platform_families that match 1:1 with OS values.".freeze
+          MSG = "Use the platform_family?() helpers instead of node['os] == 'foo' for platform_families that match 1:1 with OS values."
 
           # sorted list of all the os values that match 1:1 with a platform_family
           UNNECESSARY_OS_VALUES = %w(aix darwin dragonflybsd freebsd netbsd openbsd solaris2 windows).freeze
@@ -89,8 +90,7 @@ module RuboCop
           def autocorrect(node)
             lambda do |corrector|
               os_equals?(node) do |operator, plat|
-                corrected_string = operator == :!= ? '!' : ''
-                corrected_string << "platform_family?('#{sanitized_platform(plat.value)}')"
+                corrected_string = (operator == :!= ? '!' : '') + "platform_family?('#{sanitized_platform(plat.value)}')"
                 corrector.replace(node.loc.expression, corrected_string)
               end
 

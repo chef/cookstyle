@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -30,7 +31,7 @@ module RuboCop
         #   platform_family?('windows')
         #
         class ChefWindowsPlatformHelper < Cop
-          MSG = "Use `platform?('windows')` instead of the legacy `Chef::Platform.windows?` helper.".freeze
+          MSG = "Use `platform?('windows')` instead of the legacy `Chef::Platform.windows?` helper."
 
           def_node_matcher :chef_platform_windows?, <<-PATTERN
             (send

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -45,7 +46,7 @@ module RuboCop
         class UnnecessaryPlatformCaseStatement < Cop
           include RangeHelp
 
-          MSG = 'Use the platform?() and platform_family?() helpers instead of a case statement that only includes a single when statement.'.freeze
+          MSG = 'Use the platform?() and platform_family?() helpers instead of a case statement that only includes a single when statement.'
 
           def_node_matcher :platform_case?, <<-PATTERN
           ( case $( send (send nil? :node) :[] $(str {"platform" "platform_family"})) ... )

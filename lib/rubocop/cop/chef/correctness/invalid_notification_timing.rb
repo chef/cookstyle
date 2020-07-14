@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -35,7 +36,7 @@ module RuboCop
         #   end
         #
         class InvalidNotificationTiming < Cop
-          MSG = 'Valid notification timings are :immediately, :immediate (alias for :immediately), :delayed, and :before.'.freeze
+          MSG = 'Valid notification timings are :immediately, :immediate (alias for :immediately), :delayed, and :before.'
 
           def_node_matcher :notification_with_timing?, <<-PATTERN
             (send nil? {:notifies :subscribes} (sym _) (...) $(sym _))

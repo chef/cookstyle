@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -32,7 +33,7 @@ module RuboCop
         #   platform_family?('debian', 'rhel')
         #
         class MultiplePlatformChecks < Cop
-          MSG = 'You can pass multiple values to the platform? and platform_family? helpers instead of calling the helpers multiple times.'.freeze
+          MSG = 'You can pass multiple values to the platform? and platform_family? helpers instead of calling the helpers multiple times.'
 
           def_node_matcher :or_platform_helpers?, <<-PATTERN
             (or (send nil? ${:platform? :platform_family?} $_ )* )

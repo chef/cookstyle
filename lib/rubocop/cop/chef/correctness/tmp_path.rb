@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2016, Chris Henry
 #
@@ -30,7 +31,7 @@ module RuboCop
         #
         #
         class TmpPath < Cop
-          MSG = 'Use file_cache_path rather than hard-coding tmp paths'.freeze
+          MSG = 'Use file_cache_path rather than hard-coding tmp paths'
 
           def_node_matcher :remote_file?, <<-PATTERN
             (send nil? :remote_file $str)

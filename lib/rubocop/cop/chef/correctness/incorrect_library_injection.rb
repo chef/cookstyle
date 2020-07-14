@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: Copyright 2019-2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -32,7 +33,7 @@ module RuboCop
         #   ::Chef::DSL::Recipe.send(:include, Filebeat::Helpers) # covers previous Recipe & Provider classes
         #
         class IncorrectLibraryInjection < Cop
-          MSG = 'Libraries should be injected into the Chef::DSL::Recipe class and not Chef::Recipe or Chef::Provider classes directly.'.freeze
+          MSG = 'Libraries should be injected into the Chef::DSL::Recipe class and not Chef::Recipe or Chef::Provider classes directly.'
 
           def_node_matcher :legacy_class_sends?, <<-PATTERN
             (send (const (const (cbase) :Chef) {:Recipe :Provider}) :send (sym :include) ... )

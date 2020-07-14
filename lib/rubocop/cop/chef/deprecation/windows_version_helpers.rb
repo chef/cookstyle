@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019-2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -39,7 +40,7 @@ module RuboCop
 
           minimum_target_chef_version '14.0'
 
-          MSG = "Use node['platform_version'] and node['kernel'] data introduced in Chef Infra Client 14 instead of the deprecated Windows::VersionHelper helpers from the Windows cookbook.".freeze
+          MSG = "Use node['platform_version'] and node['kernel'] data introduced in Chef Infra Client 14 instead of the deprecated Windows::VersionHelper helpers from the Windows cookbook."
 
           def_node_matcher :windows_helper?, <<-PATTERN
             (send ( const ( const {nil? cbase} :Windows ) :VersionHelper ) $_ )

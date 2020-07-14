@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: Copyright 2019-2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -29,7 +30,7 @@ module RuboCop
         #   attribute :name, kind_of: String, name_attribute: true
         #
         class UnnecessaryNameProperty < Cop
-          MSG = 'There is no need to define a property or attribute named :name in a resource as Chef Infra defines this on all resources by default.'.freeze
+          MSG = 'There is no need to define a property or attribute named :name in a resource as Chef Infra defines this on all resources by default.'
 
           def_node_matcher :name_attribute?, <<-PATTERN
           (send nil? :attribute

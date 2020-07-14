@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -42,7 +43,7 @@ module RuboCop
 
           minimum_target_chef_version '14.4'
 
-          MSG = 'The openssl_x509 resource was renamed to openssl_x509_certificate in Chef Infra Client 14.4. The new resource name should be used.'.freeze
+          MSG = 'The openssl_x509 resource was renamed to openssl_x509_certificate in Chef Infra Client 14.4. The new resource name should be used.'
 
           def on_send(node)
             add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :openssl_x509

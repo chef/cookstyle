@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -34,7 +35,7 @@ module RuboCop
         class Ruby27KeywordArgumentWarnings < Cop
           include RuboCop::Chef::CookbookHelpers
 
-          MSG = 'Pass options to shell_out helpers without the brackets to avoid Ruby 2.7 deprecation warnings.'.freeze
+          MSG = 'Pass options to shell_out helpers without the brackets to avoid Ruby 2.7 deprecation warnings.'
 
           def_node_matcher :positional_shellout?, <<-PATTERN
             (send nil? {:shell_out :shell_out!} ... $(hash ... ))

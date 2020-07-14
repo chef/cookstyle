@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019-2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -31,7 +32,7 @@ module RuboCop
 
           minimum_target_chef_version '13.3'
 
-          MSG = "Don't depend on the zypper cookbook as the zypper_repository resource is built into Chef Infra Client 13.3+".freeze
+          MSG = "Don't depend on the zypper cookbook as the zypper_repository resource is built into Chef Infra Client 13.3+"
 
           def_node_matcher :zypper_depends?, <<-PATTERN
             (send nil? :depends (str "zypper"))

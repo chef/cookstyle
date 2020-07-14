@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -34,7 +35,7 @@ module RuboCop
         #   end
         #
         class EpicFail < Cop
-          MSG = 'Use ignore_failure method instead of the deprecated epic_fail method'.freeze
+          MSG = 'Use ignore_failure method instead of the deprecated epic_fail method'
 
           def on_send(node)
             add_offense(node, location: :expression, message: MSG, severity: :warning) if node.method_name == :epic_fail

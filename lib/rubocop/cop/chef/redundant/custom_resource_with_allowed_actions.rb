@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -32,7 +33,7 @@ module RuboCop
         class CustomResourceWithAllowedActions < Cop
           include RangeHelp
 
-          MSG = 'It is not necessary to set `actions` or `allowed_actions` in custom resources as Chef Infra Client determines these automatically from the set of all actions defined in the resource'.freeze
+          MSG = 'It is not necessary to set `actions` or `allowed_actions` in custom resources as Chef Infra Client determines these automatically from the set of all actions defined in the resource'
 
           def_node_matcher :allowed_actions?, <<-PATTERN
             (send nil? {:allowed_actions :actions} ... )

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -29,7 +30,7 @@ module RuboCop
         #   default_action :foo
         #
         class IfProvidesDefaultAction < Cop
-          MSG = 'if defined?(default_action) is no longer necessary in Chef Resources as default_action shipped in Chef 10.8.'.freeze
+          MSG = 'if defined?(default_action) is no longer necessary in Chef Resources as default_action shipped in Chef 10.8.'
 
           def on_defined?(node)
             return unless node.arguments.first == s(:send, nil, :default_action)

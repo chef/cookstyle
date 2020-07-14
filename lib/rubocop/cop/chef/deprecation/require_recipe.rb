@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -30,7 +31,7 @@ module RuboCop
         #   include_recipe 'foo'
         #
         class RequireRecipe < Cop
-          MSG = 'Use include_recipe instead of the require_recipe method'.freeze
+          MSG = 'Use include_recipe instead of the require_recipe method'
 
           def_node_matcher :require_recipe?, <<-PATTERN
             (send nil? :require_recipe $str)

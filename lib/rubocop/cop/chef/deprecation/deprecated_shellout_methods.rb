@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -53,7 +54,7 @@ module RuboCop
                                             shell_out_with_systems_locale!
                                           ).freeze
 
-          MSG = 'Many legacy specialized shell_out methods were replaced in Chef Infra Client 14.3 and removed in Chef Infra Client 15. Use shell_out and any additional options if necessary.'.freeze
+          MSG = 'Many legacy specialized shell_out methods were replaced in Chef Infra Client 14.3 and removed in Chef Infra Client 15. Use shell_out and any additional options if necessary.'
 
           def on_send(node)
             add_offense(node, location: :expression, message: MSG, severity: :warning) if DEPRECATED_SHELLOUT_METHODS.include?(node.method_name)

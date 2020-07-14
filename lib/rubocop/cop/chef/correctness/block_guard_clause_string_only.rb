@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -37,7 +38,7 @@ module RuboCop
         #   end
         #
         class BlockGuardWithOnlyString < Cop
-          MSG = 'A resource guard (not_if/only_if) that is a string should not be wrapped in {}. Wrapping a guard string in {} causes it be executed as Ruby code which will always returns true instead of a shell command that will actually run.'.freeze
+          MSG = 'A resource guard (not_if/only_if) that is a string should not be wrapped in {}. Wrapping a guard string in {} causes it be executed as Ruby code which will always returns true instead of a shell command that will actually run.'
 
           def_node_matcher :block_guard_with_only_string?, <<-PATTERN
             (block (send nil? ${:not_if :only_if}) (args) (str $_) )

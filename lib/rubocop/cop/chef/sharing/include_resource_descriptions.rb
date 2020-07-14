@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: Copyright 2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -32,7 +33,7 @@ module RuboCop
 
           minimum_target_chef_version '13.9'
 
-          MSG = 'Resources should include description fields to allow automated documention. Requires Chef Infra Client 13.9 or later.'.freeze
+          MSG = 'Resources should include description fields to allow automated documention. Requires Chef Infra Client 13.9 or later.'
 
           def investigate(processed_source)
             return if processed_source.blank?

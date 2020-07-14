@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -24,7 +25,7 @@ module RuboCop
         class Cheffile < Cop
           include RangeHelp
 
-          MSG = 'The Libarian-Chef depsolving project is no longer maintained and a Cheffile should not be used for cookbook depsolving. Consider using Policyfiles instead.'.freeze
+          MSG = 'The Libarian-Chef depsolving project is no longer maintained and a Cheffile should not be used for cookbook depsolving. Consider using Policyfiles instead.'
 
           def investigate(processed_source)
             return if processed_source.blank?

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -34,7 +35,7 @@ module RuboCop
         #   if node['platform_version'].to_i == 7
         #
         class SimplifyPlatformMajorVersionCheck < Cop
-          MSG = "Use node['platform_version'].to_i instead of node['platform_version'].split('.').first or node['platform_version'].split('.')[0]".freeze
+          MSG = "Use node['platform_version'].to_i instead of node['platform_version'].split('.').first or node['platform_version'].split('.')[0]"
 
           def_node_matcher :platform_version_check?, <<-PATTERN
             (send (send (send nil? :node) :[] (str "platform_version") ) :split (str ".") )

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -47,7 +48,7 @@ module RuboCop
 
           minimum_target_chef_version '12.1'
 
-          MSG = 'There is no need to check if the chef_gem resource supports compile_time as Chef Infra Client 12.1 and later support the compile_time property.'.freeze
+          MSG = 'There is no need to check if the chef_gem resource supports compile_time as Chef Infra Client 12.1 and later support the compile_time property.'
 
           def_node_matcher :compile_time_method_defined?, <<-PATTERN
           (if

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -28,7 +29,7 @@ module RuboCop
         class DeprecatedChefSpecPlatform < Cop
           include RuboCop::Chef::CookbookHelpers
 
-          MSG = "Use currently supported platforms in ChefSpec listed at https://github.com/chefspec/fauxhai/blob/master/PLATFORMS.md. Fauxhai / ChefSpec will perform fuzzy matching on platform version so it's always best to be less specific ie. 10 instead of 10.3".freeze
+          MSG = "Use currently supported platforms in ChefSpec listed at https://github.com/chefspec/fauxhai/blob/master/PLATFORMS.md. Fauxhai / ChefSpec will perform fuzzy matching on platform version so it's always best to be less specific ie. 10 instead of 10.3"
 
           Gem::Dependency.new('', ['~> 1.4.5', '>= 1.4.6']).match?('', '1.4.6')
 

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -27,7 +28,7 @@ module RuboCop
         #   node.chef_environment == "production"
         #
         class CookbookUsesEnvironmments < Cop
-          MSG = 'Cookbook uses environments, which cannot be used in Policyfiles or Effortless Infra'.freeze
+          MSG = 'Cookbook uses environments, which cannot be used in Policyfiles or Effortless Infra'
 
           def on_send(node)
             if %i(environment chef_environment).include?(node.method_name) && node.receiver && node.receiver.send_type? && node.receiver.method_name == :node

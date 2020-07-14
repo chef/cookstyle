@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -29,7 +30,7 @@ module RuboCop
         class MetadataMissingName < Cop
           include RangeHelp
 
-          MSG = 'metadata.rb needs to include the name method or it will fail on Chef Infra Client 12 and later.'.freeze
+          MSG = 'metadata.rb needs to include the name method or it will fail on Chef Infra Client 12 and later.'
 
           def investigate(processed_source)
             return if processed_source.blank?

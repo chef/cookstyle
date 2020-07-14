@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -28,7 +29,7 @@ module RuboCop
         #   at_exit { ChefSpec::Coverage.report! }
         #
         class ChefSpecCoverageReport < Cop
-          MSG = "Don't use the deprecated ChefSpec coverage report functionality in your specs.".freeze
+          MSG = "Don't use the deprecated ChefSpec coverage report functionality in your specs."
 
           def_node_matcher :coverage_reporter?, <<-PATTERN
           (block (send nil? :at_exit ) (args) (send (const (const nil? :ChefSpec) :Coverage) :report!))

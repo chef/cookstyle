@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -37,7 +38,7 @@ module RuboCop
         #   node['hostname']
         #
         class NodeMethodsInsteadofAttributes < Cop
-          MSG = 'Use node attributes to access Ohai data instead of node methods, which were deprecated in Chef Infra Client 13.'.freeze
+          MSG = 'Use node attributes to access Ohai data instead of node methods, which were deprecated in Chef Infra Client 13.'
 
           def_node_matcher :node_ohai_methods?, <<-PATTERN
             (send (send nil? :node) #non_nested_ohai_attribute?)

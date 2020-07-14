@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -42,7 +43,7 @@ module RuboCop
         class RubyBlockCreateAction < Cop
           include RuboCop::Chef::CookbookHelpers
 
-          MSG = 'Use the :run action in the ruby_block resource instead of the deprecated :create action'.freeze
+          MSG = 'Use the :run action in the ruby_block resource instead of the deprecated :create action'
 
           def on_block(node)
             match_property_in_resource?(:ruby_block, 'action', node) do |ruby_action|

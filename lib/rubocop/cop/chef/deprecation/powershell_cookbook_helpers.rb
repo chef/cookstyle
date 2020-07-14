@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -32,7 +33,7 @@ module RuboCop
         #   powershell_version == 4.0
         #
         class PowershellCookbookHelpers < Cop
-          MSG = "Use node['powershell']['version'] or the new powershell_version helper available in Chef Infra Client 15.8+ instead of the deprecated PowerShell cookbook helpers.".freeze
+          MSG = "Use node['powershell']['version'] or the new powershell_version helper available in Chef Infra Client 15.8+ instead of the deprecated PowerShell cookbook helpers."
 
           def_node_matcher :ps_cb_helper?, <<-PATTERN
           (send

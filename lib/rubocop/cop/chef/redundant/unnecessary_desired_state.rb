@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -28,7 +29,7 @@ module RuboCop
         class UnnecessaryDesiredState < Cop
           include RangeHelp
 
-          MSG = 'There is no need to set a property to desired_state: true as all properties have a desired_state of true by default.'.freeze
+          MSG = 'There is no need to set a property to desired_state: true as all properties have a desired_state of true by default.'
 
           def_node_matcher :property?, <<-PATTERN
             (send nil? {:property :attribute} (sym _) ... $(hash ...))

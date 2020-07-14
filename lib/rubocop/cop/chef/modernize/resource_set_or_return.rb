@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -38,7 +39,7 @@ module RuboCop
         #   property :severity, String
         #
         class SetOrReturnInResources < Cop
-          MSG = 'Do not use set_or_return within a method to define a property for a resource. Use the property method instead, which supports validation, reporting, and documentation functionality'.freeze
+          MSG = 'Do not use set_or_return within a method to define a property for a resource. Use the property method instead, which supports validation, reporting, and documentation functionality'
 
           def on_send(node)
             if node.method_name == :set_or_return

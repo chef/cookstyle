@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -36,7 +37,7 @@ module RuboCop
 
           minimum_target_chef_version '14.0'
 
-          MSG = 'The openssl_rsa_key resource was renamed to openssl_rsa_private_key in Chef Infra Client 14.0. The new resource name should be used.'.freeze
+          MSG = 'The openssl_rsa_key resource was renamed to openssl_rsa_private_key in Chef Infra Client 14.0. The new resource name should be used.'
 
           def on_send(node)
             add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :openssl_rsa_key

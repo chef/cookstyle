@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019-2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -32,7 +33,7 @@ module RuboCop
         class IncludingMixinShelloutInResources < Cop
           include RangeHelp
 
-          MSG = 'There is no need to include Chef::Mixin::ShellOut or Chef::Mixin::PowershellOut in resources or providers as this is already done by Chef Infra Client 12.4+.'.freeze
+          MSG = 'There is no need to include Chef::Mixin::ShellOut or Chef::Mixin::PowershellOut in resources or providers as this is already done by Chef Infra Client 12.4+.'
 
           def_node_matcher :include_shellout?, <<-PATTERN
             (send nil? :include (const (const (const nil? :Chef) :Mixin) {:ShellOut :PowershellOut}))

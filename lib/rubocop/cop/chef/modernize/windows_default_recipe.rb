@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -29,7 +30,7 @@ module RuboCop
         class IncludingWindowsDefaultRecipe < Cop
           include RangeHelp
 
-          MSG = 'Do not include the Windows default recipe, which only installs win32 gems already included in Chef Infra Client'.freeze
+          MSG = 'Do not include the Windows default recipe, which only installs win32 gems already included in Chef Infra Client'
 
           def_node_matcher :windows_recipe_usage?, <<-PATTERN
             (send nil? :include_recipe (str {"windows" "windows::default"}))

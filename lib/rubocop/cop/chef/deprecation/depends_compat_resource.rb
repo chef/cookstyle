@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -31,7 +32,7 @@ module RuboCop
 
           minimum_target_chef_version '12.19'
 
-          MSG = "Don't depend on the deprecated compat_resource cookbook made obsolete by Chef 12.19+".freeze
+          MSG = "Don't depend on the deprecated compat_resource cookbook made obsolete by Chef 12.19+"
 
           def_node_matcher :depends_compat_resource?, <<-PATTERN
             (send nil? :depends (str {"compat_resource"}))

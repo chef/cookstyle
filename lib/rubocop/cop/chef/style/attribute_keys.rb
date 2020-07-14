@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2016, Noah Kantrowitz
 #
@@ -43,7 +44,7 @@ module RuboCop
         class AttributeKeys < Cop
           include RuboCop::Cop::ConfigurableEnforcedStyle
 
-          MSG = 'Use %s to access node attributes'.freeze
+          MSG = 'Use %s to access node attributes'
 
           def_node_matcher :node_attribute_access?, <<-PATTERN
             (send (send _ :node) :[] _)

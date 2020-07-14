@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -33,7 +34,7 @@ module RuboCop
         #   package %w(bmon htop vim curl)
         #
         class UseMultipackageInstalls < Cop
-          MSG = 'Pass an array of packages to package resources instead of interating over an array of packages when using multi-package capable package subystem such as apt, yum, chocolatey, dnf, or zypper. Multipackage installs are faster and simplify logs.'.freeze
+          MSG = 'Pass an array of packages to package resources instead of interating over an array of packages when using multi-package capable package subystem such as apt, yum, chocolatey, dnf, or zypper. Multipackage installs are faster and simplify logs.'
           MULTIPACKAGE_PLATS = %w(debian redhat suse amazon fedora scientific oracle rhel ubuntu centos redhat).freeze
 
           def_node_matcher :platform_or_platform_family?, <<-PATTERN

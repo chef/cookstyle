@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -43,7 +44,7 @@ module RuboCop
 
           minimum_target_chef_version '13.3'
 
-          MSG = 'The zypper_repo resource was renamed zypper_repository when it was added to Chef Infra Client 13.3.'.freeze
+          MSG = 'The zypper_repo resource was renamed zypper_repository when it was added to Chef Infra Client 13.3.'
 
           def on_send(node)
             add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :zypper_repo

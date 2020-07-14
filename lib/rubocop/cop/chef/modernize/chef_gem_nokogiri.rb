@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -30,7 +31,7 @@ module RuboCop
           include RangeHelp
           include RuboCop::Chef::CookbookHelpers
 
-          MSG = 'The nokogiri gem ships in Chef Infra Client 12+ and does not need to be installed before being used.'.freeze
+          MSG = 'The nokogiri gem ships in Chef Infra Client 12+ and does not need to be installed before being used.'
 
           def_node_matcher :nokogiri_install?, <<-PATTERN
             (send nil? :chef_gem (str "nokogiri"))

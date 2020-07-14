@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -27,7 +28,7 @@ module RuboCop
         #   search(:node, 'role:bar')
         #
         class SearchForEnvironmentsOrRoles < Cop
-          MSG = 'Cookbook uses search with a node query that looks for a role or environment'.freeze
+          MSG = 'Cookbook uses search with a node query that looks for a role or environment'
 
           def on_send(node)
             if node.method_name == :search && node.arguments[1]&.value&.match?(/chef_environment|role/)

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019-2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -43,7 +44,7 @@ module RuboCop
         class UserDeprecatedSupportsProperty < Cop
           include RuboCop::Chef::CookbookHelpers
 
-          MSG = "The supports property was removed in Chef Infra Client 13 in favor of individual 'manage_home' and 'non_unique' properties.".freeze
+          MSG = "The supports property was removed in Chef Infra Client 13 in favor of individual 'manage_home' and 'non_unique' properties."
 
           def on_block(node)
             match_property_in_resource?(:user, 'supports', node) do |property|

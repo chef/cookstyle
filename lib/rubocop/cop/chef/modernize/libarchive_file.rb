@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019-2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -38,7 +39,7 @@ module RuboCop
 
           minimum_target_chef_version '15.0'
 
-          MSG = 'Use the archive_file resource built into Chef Infra Client 15+ instead of the libarchive file resource'.freeze
+          MSG = 'Use the archive_file resource built into Chef Infra Client 15+ instead of the libarchive file resource'
 
           def_node_matcher :notification_property?, <<-PATTERN
             (send nil? {:notifies :subscribes} (sym _) $(...) (sym _))

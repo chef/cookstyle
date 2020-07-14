@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -36,7 +37,7 @@ module RuboCop
         class PowershellScriptDeleteFile < Cop
           include RuboCop::Chef::CookbookHelpers
 
-          MSG = 'Use the `file` or `directory` resources built into Chef Infra Client with the :delete action to remove files/directories instead of using Remove-Item in a powershell_script resource'.freeze
+          MSG = 'Use the `file` or `directory` resources built into Chef Infra Client with the :delete action to remove files/directories instead of using Remove-Item in a powershell_script resource'
 
           def on_block(node)
             match_property_in_resource?(:powershell_script, 'code', node) do |code_property|

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2016-2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -22,7 +23,7 @@ module RuboCop
         # Replaces double spaces between sentences with a single space.
         # Note: This is DISABLED by default.
         class CommentSentenceSpacing < Cop
-          MSG = 'Use a single space after sentences in comments'.freeze
+          MSG = 'Use a single space after sentences in comments'
 
           def investigate(processed_source)
             return unless processed_source.ast

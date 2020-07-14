@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -41,7 +42,7 @@ module RuboCop
 
           minimum_target_chef_version '14.0'
 
-          MSG = 'Chef Infra Client 14.0 and later includes a sysctl resource that should be used to idempotently load sysctl values instead of templating files and using execute to load them.'.freeze
+          MSG = 'Chef Infra Client 14.0 and later includes a sysctl resource that should be used to idempotently load sysctl values instead of templating files and using execute to load them.'
 
           # non block execute resources
           def on_send(node)

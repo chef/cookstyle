@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -49,7 +50,7 @@ module RuboCop
 
           minimum_target_chef_version '15.8'
 
-          MSG = 'In Chef Infra Client 16 the log resource no longer notifies when logging so notifications should not be triggered from log resources. Use the notify_group resource introduced in Chef Infra Client 15.8 instead to aggregate notifications.'.freeze
+          MSG = 'In Chef Infra Client 16 the log resource no longer notifies when logging so notifications should not be triggered from log resources. Use the notify_group resource introduced in Chef Infra Client 15.8 instead to aggregate notifications.'
 
           def on_block(node)
             match_property_in_resource?(:log, 'notifies', node) do |prop_node|

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 #
@@ -34,7 +35,7 @@ module RuboCop
         #   node.default['foo']['bar'] -= 1
         #
         class NodeSetWithoutLevel < Cop
-          MSG = 'When setting a node attribute in Chef Infra Client 11 and later you must specify the precedence level.'.freeze
+          MSG = 'When setting a node attribute in Chef Infra Client 11 and later you must specify the precedence level.'
 
           def on_op_asgn(node)
             # make sure it was a += or -=

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -35,7 +36,7 @@ module RuboCop
         #  search(:node, '*:*', start: 0)
         #
         class SearchUsesPositionalParameters < Cop
-          MSG = "Don't use deprecated positional parameters in cookbook search queries.".freeze
+          MSG = "Don't use deprecated positional parameters in cookbook search queries."
 
           NAMED_PARAM_LOOKUP_TABLE = [nil, nil, 'start', 'rows', 'filter_result'].freeze
 

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -33,7 +34,7 @@ module RuboCop
         class CookbooksDependsOnSelf < Cop
           include RangeHelp
 
-          MSG = 'A cookbook cannot depend on itself. This will fail on Chef Infra Client 13+'.freeze
+          MSG = 'A cookbook cannot depend on itself. This will fail on Chef Infra Client 13+'
 
           def_node_search :dependencies, '(send nil? :depends str ...)'
           def_node_matcher :cb_name?, '(send nil? :name str ...)'

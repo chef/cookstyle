@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019-2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -33,7 +34,7 @@ module RuboCop
 
           minimum_target_chef_version '13.0'
 
-          MSG = 'whyrun_supported? no longer needs to be set to true as it is the default in Chef Infra Client 13+'.freeze
+          MSG = 'whyrun_supported? no longer needs to be set to true as it is the default in Chef Infra Client 13+'
 
           # match on both whyrun_supported? and the typo form why_run_supported?
           def_node_matcher :whyrun_true?, <<-PATTERN

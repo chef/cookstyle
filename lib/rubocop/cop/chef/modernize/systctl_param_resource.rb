@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -36,7 +37,7 @@ module RuboCop
 
           minimum_target_chef_version '14.0'
 
-          MSG = 'The sysctl_param resource was renamed to sysctl when it was added to Chef Infra Client 14.0. The new resource name should be used.'.freeze
+          MSG = 'The sysctl_param resource was renamed to sysctl when it was added to Chef Infra Client 14.0. The new resource name should be used.'
 
           def on_send(node)
             add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :sysctl_param

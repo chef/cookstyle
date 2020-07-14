@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -29,7 +30,7 @@ module RuboCop
         #   my_resource = MyResource.resource_name
         #
         class ResourceUsesDslNameMethod < Cop
-          MSG = 'Use resource_name instead of the dsl_name method in resources. This will cause failures in Chef Infra Client 13 and later.'.freeze
+          MSG = 'Use resource_name instead of the dsl_name method in resources. This will cause failures in Chef Infra Client 13 and later.'
 
           def on_send(node)
             add_offense(node, location: :expression, message: MSG, severity: :warning) if node.method_name == :dsl_name

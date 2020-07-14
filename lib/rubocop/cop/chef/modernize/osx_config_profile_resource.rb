@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -32,7 +33,7 @@ module RuboCop
         #   end
         #
         class OsxConfigProfileResource < Cop
-          MSG = 'The osx_config_profile resource was renamed to osx_profile. The new resource name should be used.'.freeze
+          MSG = 'The osx_config_profile resource was renamed to osx_profile. The new resource name should be used.'
 
           def on_send(node)
             add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :osx_config_profile

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -46,7 +47,7 @@ module RuboCop
             unwind: 'delete_resource',
           }.freeze
 
-          MSG = 'Use delete_resource / edit_resource introduced in Chef Infra Client 12.10 instead of functionality in the deprecated chef-rewind gem'.freeze
+          MSG = 'Use delete_resource / edit_resource introduced in Chef Infra Client 12.10 instead of functionality in the deprecated chef-rewind gem'
 
           def_node_matcher :rewind_gem_install?, <<-PATTERN
             (send nil? :chef_gem (str "chef-rewind"))

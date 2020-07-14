@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -36,7 +37,7 @@ module RuboCop
         class UsesDeprecatedMixins < Cop
           include RangeHelp
 
-          MSG = "Don't use deprecated Mixins no longer included in Chef Infra Client 14 and later.".freeze
+          MSG = "Don't use deprecated Mixins no longer included in Chef Infra Client 14 and later."
 
           def_node_matcher :deprecated_mixin?, <<-PATTERN
             (send nil? :include (const (const (const nil? :Chef) :Mixin) { :Language :LanguageIncludeAttribute :RecipeDefinitionDSLCore :LanguageIncludeRecipe }))

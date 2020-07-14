@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -27,7 +28,7 @@ module RuboCop
         #   depends 'poise-service'
         #
         class CookbookDependsOnPoise < Cop
-          MSG = 'Cookbooks should not depend on the deprecated Poise framework'.freeze
+          MSG = 'Cookbooks should not depend on the deprecated Poise framework'
 
           def_node_matcher :depends_method?, <<-PATTERN
             (send nil? :depends $str)

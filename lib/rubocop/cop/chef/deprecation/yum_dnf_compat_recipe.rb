@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -29,7 +30,7 @@ module RuboCop
         class IncludingYumDNFCompatRecipe < Cop
           include RangeHelp
 
-          MSG = 'Do not include the deprecated yum::dnf_yum_compat default recipe to install yum on dnf systems. Chef Infra Client now includes built in support for DNF packages.'.freeze
+          MSG = 'Do not include the deprecated yum::dnf_yum_compat default recipe to install yum on dnf systems. Chef Infra Client now includes built in support for DNF packages.'
 
           def_node_matcher :yum_dnf_compat_recipe_usage?, <<-PATTERN
             (send nil? :include_recipe (str "yum::dnf_yum_compat"))

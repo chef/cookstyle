@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: Copyright 2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -35,7 +36,7 @@ module RuboCop
           extend RuboCop::Cop::AutoCorrector
           include RangeHelp
 
-          MSG = 'The use_automatic_resource_name method was removed in Chef Infra Client 16. The resource name/provides should be set explicitly instead.'.freeze
+          MSG = 'The use_automatic_resource_name method was removed in Chef Infra Client 16. The resource name/provides should be set explicitly instead.'
 
           def on_send(node)
             return unless node.method_name == :use_automatic_resource_name

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 #
@@ -30,7 +31,7 @@ module RuboCop
         #   node.normal_unless['foo'] = true
         #
         class NodeSetUnless < Cop
-          MSG = 'Do not use node.set_unless. Replace with node.normal_unless to keep identical behavior.'.freeze
+          MSG = 'Do not use node.set_unless. Replace with node.normal_unless to keep identical behavior.'
 
           def_node_matcher :node_set_unless?, <<-PATTERN
             (send (send _ :node) $:set_unless)

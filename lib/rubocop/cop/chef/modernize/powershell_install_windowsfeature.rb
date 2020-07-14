@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -40,7 +41,7 @@ module RuboCop
 
           minimum_target_chef_version '14.0'
 
-          MSG = 'Use the windows_feature resource built into Chef Infra Client 14+ instead of using Install-WindowsFeature or Add-WindowsFeature in a powershell_script resource'.freeze
+          MSG = 'Use the windows_feature resource built into Chef Infra Client 14+ instead of using Install-WindowsFeature or Add-WindowsFeature in a powershell_script resource'
 
           def on_block(node)
             match_property_in_resource?(:powershell_script, 'code', node) do |code_property|

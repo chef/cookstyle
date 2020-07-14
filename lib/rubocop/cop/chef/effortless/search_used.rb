@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -26,7 +27,7 @@ module RuboCop
         #   search(:node, 'run_list:recipe\[bacula\:\:server\]')
         #
         class CookbookUsesSearch < Cop
-          MSG = 'Cookbook uses search, which cannot be used in the Effortless Infra pattern'.freeze
+          MSG = 'Cookbook uses search, which cannot be used in the Effortless Infra pattern'
 
           def on_send(node)
             add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :search

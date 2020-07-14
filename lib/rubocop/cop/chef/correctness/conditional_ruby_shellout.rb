@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -41,7 +42,7 @@ module RuboCop
         #
         class ConditionalRubyShellout < Cop
           include RuboCop::Chef::CookbookHelpers
-          MSG = "Don't use Ruby to shellout in an only_if / not_if conditional when you can shellout directly by wrapping the command in quotes.".freeze
+          MSG = "Don't use Ruby to shellout in an only_if / not_if conditional when you can shellout directly by wrapping the command in quotes."
 
           def_node_matcher :conditional_shellout?, <<-PATTERN
           (block

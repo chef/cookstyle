@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -38,7 +39,7 @@ module RuboCop
 
           minimum_target_chef_version '12.5'
 
-          MSG = "Use the 'path' variable in the verify property and not the 'file' variable which was removed in Chef Infra Client 13.".freeze
+          MSG = "Use the 'path' variable in the verify property and not the 'file' variable which was removed in Chef Infra Client 13."
 
           def on_block(node)
             match_property_in_resource?(nil, 'verify', node) do |verify|

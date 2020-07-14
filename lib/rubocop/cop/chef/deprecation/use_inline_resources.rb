@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -31,7 +32,7 @@ module RuboCop
         class UseInlineResourcesDefined < Cop
           include RangeHelp
 
-          MSG = 'use_inline_resources is now the default for resources in Chef Infra Client 13+ and does not need to be specified.'.freeze
+          MSG = 'use_inline_resources is now the default for resources in Chef Infra Client 13+ and does not need to be specified.'
 
           def on_send(node)
             if node.method_name == :use_inline_resources

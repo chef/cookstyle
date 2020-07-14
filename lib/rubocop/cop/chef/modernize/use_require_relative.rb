@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -29,7 +30,7 @@ module RuboCop
         #   require_relative '../libraries/helpers'
         #
         class UseRequireRelative < Cop
-          MSG = 'Instead of using require with a File.expand_path and __FILE__ use the simpler require_relative method.'.freeze
+          MSG = 'Instead of using require with a File.expand_path and __FILE__ use the simpler require_relative method.'
 
           def_node_matcher :require_with_expand_path?, <<-PATTERN
             (send nil? :require

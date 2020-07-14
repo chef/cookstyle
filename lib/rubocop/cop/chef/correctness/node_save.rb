@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -28,7 +29,7 @@ module RuboCop
         #   node.save
         #
         class CookbookUsesNodeSave < Cop
-          MSG = "Don't use node.save to save partial node data to the Chef Infra Server mid-run unless it's absolutely necessary. Node.save can result in failed Chef Infra runs appearing in search and increases load on the Chef Infra Server.".freeze
+          MSG = "Don't use node.save to save partial node data to the Chef Infra Server mid-run unless it's absolutely necessary. Node.save can result in failed Chef Infra runs appearing in search and increases load on the Chef Infra Server."
 
           def_node_matcher :node_save?, <<-PATTERN
             (send (send nil? :node) :save)

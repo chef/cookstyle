@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -33,7 +34,7 @@ module RuboCop
         #   include_recipe 'yum::yum'
         #
         class LegacyYumCookbookRecipes < Cop
-          MSG = 'The elrepo, epel, ius, remi, and repoforge recipes were split into their own cookbooks and the yum recipe was renamed to be default with the release of yum cookbook 3.0 (Dec 2013).'.freeze
+          MSG = 'The elrepo, epel, ius, remi, and repoforge recipes were split into their own cookbooks and the yum recipe was renamed to be default with the release of yum cookbook 3.0 (Dec 2013).'
 
           def_node_matcher :old_yum_recipe?, <<-PATTERN
             (send nil? :include_recipe (str {"yum::elrepo" "yum::epel" "yum::ius" "yum::remi" "yum::repoforge" "yum::yum"}))

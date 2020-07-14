@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -28,7 +29,7 @@ module RuboCop
         #   Chef::REST::RESTRequest.new(:GET, FOO, nil).call
         #
         class UsesChefRESTHelpers < Cop
-          MSG = "Don't use the helpers in Chef::REST which were removed in Chef Infra Client 13".freeze
+          MSG = "Don't use the helpers in Chef::REST which were removed in Chef Infra Client 13"
 
           def_node_matcher :require_rest?, <<-PATTERN
           (send nil? :require ( str "chef/rest"))

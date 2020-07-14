@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -38,7 +39,7 @@ module RuboCop
 
           minimum_target_chef_version '12.15'
 
-          MSG = 'It is no longer necessary to use respond_to? or if_defined? in metadata.rb in Chef Infra Client 12.15 and later'.freeze
+          MSG = 'It is no longer necessary to use respond_to? or if_defined? in metadata.rb in Chef Infra Client 12.15 and later'
 
           def on_if(node)
             if_respond_to?(node) do

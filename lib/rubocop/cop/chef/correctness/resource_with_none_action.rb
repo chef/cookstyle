@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -36,7 +37,7 @@ module RuboCop
         class ResourceWithNoneAction < Cop
           include RuboCop::Chef::CookbookHelpers
 
-          MSG = 'Resource uses the nonexistent :none action instead of the :nothing action'.freeze
+          MSG = 'Resource uses the nonexistent :none action instead of the :nothing action'
 
           def on_block(node)
             match_property_in_resource?(nil, 'action', node) do |action_node|

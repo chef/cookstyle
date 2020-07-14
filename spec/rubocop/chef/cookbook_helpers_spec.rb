@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # rubocop:disable Lint/ParenthesesAsGroupedExpression, Lint/BooleanSymbol
 #
 # Copyright:: Copyright 2019, Chef Software Inc.

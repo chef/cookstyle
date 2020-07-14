@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -31,7 +32,7 @@ module RuboCop
         #   encrypted_data = data_bag_item('foo2', 'bar2')
         #
         class DatabagHelpers < Cop
-          MSG = 'Use the `data_bag_item` helper instead of `Chef::DataBagItem.load` or `Chef::EncryptedDataBagItem.load`.'.freeze
+          MSG = 'Use the `data_bag_item` helper instead of `Chef::DataBagItem.load` or `Chef::EncryptedDataBagItem.load`.'
 
           def_node_matcher :data_bag_class_load?, <<-PATTERN
           (send

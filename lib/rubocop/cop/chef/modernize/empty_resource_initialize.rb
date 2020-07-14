@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -30,7 +31,7 @@ module RuboCop
         class EmptyResourceInitializeMethod < Cop
           include RangeHelp
 
-          MSG = 'There is no need for an empty initialize method in a resource'.freeze
+          MSG = 'There is no need for an empty initialize method in a resource'
 
           def_node_matcher :empty_initialize?, <<-PATTERN
             (def :initialize (args (restarg :args)) (zsuper))

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -41,7 +42,7 @@ module RuboCop
         #   depends 'yum'
         #
         class OverlyComplexSupportsDependsMetadata < Cop
-          MSG = "Don't loop over an array to set cookbook dependencies or supported platforms if you have fewer than three values to set.".freeze
+          MSG = "Don't loop over an array to set cookbook dependencies or supported platforms if you have fewer than three values to set."
 
           def_node_matcher :supports_depends_array?, <<-PATTERN
             (block

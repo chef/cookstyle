@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -34,7 +35,7 @@ module RuboCop
 
           minimum_target_chef_version '12.7'
 
-          MSG = 'Do not include the Apt default recipe to update package cache. Instead use the apt_update resource, which is built into Chef Infra Client 12.7 and later.'.freeze
+          MSG = 'Do not include the Apt default recipe to update package cache. Instead use the apt_update resource, which is built into Chef Infra Client 12.7 and later.'
 
           def_node_matcher :apt_recipe_usage?, <<-PATTERN
             (send nil? :include_recipe (str {"apt" "apt::default"}))

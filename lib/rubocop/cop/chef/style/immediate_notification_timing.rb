@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -35,7 +36,7 @@ module RuboCop
         #   end
         #
         class ImmediateNotificationTiming < Cop
-          MSG = 'Use :immediately instead of :immediate for resource notification timing'.freeze
+          MSG = 'Use :immediately instead of :immediate for resource notification timing'
 
           def_node_matcher :immediate_notify?, <<-PATTERN
             (send nil? :notifies (sym _) (...) $(sym :immediate))

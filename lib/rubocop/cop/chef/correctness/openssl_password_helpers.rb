@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 #
 # Copyright:: Copyright 2020, Chef Software Inc.
@@ -25,7 +26,7 @@ module RuboCop
         #   basic_auth_password = secure_password
         #
         class OpenSSLPasswordHelpers < Cop
-          MSG = 'The `secure_password` helper from the openssl cookbooks `Opscode::OpenSSL::Password` class should not be used to generate passwords.'.freeze
+          MSG = 'The `secure_password` helper from the openssl cookbooks `Opscode::OpenSSL::Password` class should not be used to generate passwords.'
 
           def_node_matcher :openssl_helper?, <<~PATTERN
             (const

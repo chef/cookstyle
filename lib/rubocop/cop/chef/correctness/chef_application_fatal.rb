@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: Copyright 2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -29,7 +30,7 @@ module RuboCop
         #   raise "Something horrible happened!"
         #
         class ChefApplicationFatal < Cop
-          MSG = 'Use raise to force Chef Infra Client to fail instead of using Chef::Application.fatal'.freeze
+          MSG = 'Use raise to force Chef Infra Client to fail instead of using Chef::Application.fatal'
 
           def_node_matcher :application_fatal?, <<-PATTERN
             (send

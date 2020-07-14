@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -33,7 +34,7 @@ module RuboCop
         class InvalidPlatformFamilyHelper < Cop
           include ::RuboCop::Chef::PlatformHelpers
 
-          MSG = 'Pass valid platform families to the platform_family? helper.'.freeze
+          MSG = 'Pass valid platform families to the platform_family? helper.'
 
           def_node_matcher :platform_family_helper?, <<-PATTERN
             (send nil? :platform_family? $str*)

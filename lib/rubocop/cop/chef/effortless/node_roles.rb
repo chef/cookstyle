@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -27,7 +28,7 @@ module RuboCop
         #   node.roles.include?('webserver')
         #
         class CookbookUsesRoles < Cop
-          MSG = 'Cookbook uses roles, which cannot be used in Policyfiles or Effortless Infra'.freeze
+          MSG = 'Cookbook uses roles, which cannot be used in Policyfiles or Effortless Infra'
 
           def on_send(node)
             if %i(role? roles).include?(node.method_name) && node.receiver && node.receiver.send_type? && node.receiver.method_name == :node

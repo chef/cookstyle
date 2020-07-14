@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -42,7 +43,7 @@ module RuboCop
 
           minimum_target_chef_version '14.6'
 
-          MSG = 'Use the timezone resource included in Chef Infra Client 14.6+ instead of shelling out to tzutil'.freeze
+          MSG = 'Use the timezone resource included in Chef Infra Client 14.6+ instead of shelling out to tzutil'
 
           def_node_matcher :execute_resource?, <<-PATTERN
             (send nil? :execute $str)

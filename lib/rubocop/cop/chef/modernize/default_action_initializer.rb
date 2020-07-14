@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019-2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -40,7 +41,7 @@ module RuboCop
         class DefaultActionFromInitialize < Cop
           include RangeHelp
 
-          MSG = 'The default action of a resource can be set with the "default_action" helper instead of using the initialize method.'.freeze
+          MSG = 'The default action of a resource can be set with the "default_action" helper instead of using the initialize method.'
 
           def_node_matcher :action_variable_assignment?, <<-PATTERN
             (ivasgn {:@action :@default_action} $(...))

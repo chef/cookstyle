@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -29,7 +30,7 @@ module RuboCop
         #   only_if { ::File.exist?('bin/foo') }
         #
         class ConditionalUsingTest < Cop
-          MSG = "Use ::File.exist?('/foo/bar') instead of the slower 'test -f /foo/bar' which requires shelling out".freeze
+          MSG = "Use ::File.exist?('/foo/bar') instead of the slower 'test -f /foo/bar' which requires shelling out"
 
           def_node_matcher :resource_conditional?, <<~PATTERN
           (send nil? {:not_if :only_if} $str )

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -29,7 +30,7 @@ module RuboCop
         class UnnecessaryMixlibShelloutRequire < Cop
           include RangeHelp
 
-          MSG = 'Chef Infra Client 12.4+ includes mixlib/shellout automatically in resources and providers.'.freeze
+          MSG = 'Chef Infra Client 12.4+ includes mixlib/shellout automatically in resources and providers.'
 
           def_node_matcher :require_mixlibshellout?, <<-PATTERN
           (send nil? :require ( str "mixlib/shellout"))

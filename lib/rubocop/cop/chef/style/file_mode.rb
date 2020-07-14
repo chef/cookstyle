@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2016, Noah Kantrowitz
 #
@@ -30,7 +31,7 @@ module RuboCop
         #   mode '644'
         #
         class FileMode < Cop
-          MSG = 'Use strings for file modes'.freeze
+          MSG = 'Use strings for file modes'
 
           def_node_matcher :resource_mode?, <<-PATTERN
             (send nil? :mode $int)

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2016-2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -40,7 +41,7 @@ module RuboCop
         class CopyrightCommentFormat < Cop
           require 'date'
 
-          MSG = 'Properly format copyrights header comments'.freeze
+          MSG = 'Properly format copyrights header comments'
 
           def investigate(processed_source)
             return unless processed_source.ast

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -29,7 +30,7 @@ module RuboCop
         #   node.role?('foo')
         #
         class NodeRolesInclude < Cop
-          MSG = "Use `node.role?('foo')` to check if a node includes a role instead of `node['roles'].include?('foo')`.".freeze
+          MSG = "Use `node.role?('foo')` to check if a node includes a role instead of `node['roles'].include?('foo')`."
 
           def_node_matcher :node_role_include?, <<-PATTERN
           (send

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -38,7 +39,7 @@ module RuboCop
         class ResourceSetsInternalProperties < Cop
           include RuboCop::Chef::CookbookHelpers
 
-          MSG = 'Do not set properties used internally by Chef Infra Client to track the system state.'.freeze
+          MSG = 'Do not set properties used internally by Chef Infra Client to track the system state.'
 
           def on_block(node)
             match_property_in_resource?(:service, 'running', node) do |prop|
