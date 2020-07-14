@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.12.4 -->
-## [v6.12.4](https://github.com/chef/cookstyle/tree/v6.12.4) (2020-07-14)
+ <!-- latest_release 6.12.5 -->
+## [v6.12.5](https://github.com/chef/cookstyle/tree/v6.12.5) (2020-07-14)
 
 #### Merged Pull Requests
-- Bump RuboCop to 0.88 [#683](https://github.com/chef/cookstyle/pull/683) ([tas50](https://github.com/tas50))
+- Set frozen string literals to true in all files [#682](https://github.com/chef/cookstyle/pull/682) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.11.4 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Set frozen string literals to true in all files [#682](https://github.com/chef/cookstyle/pull/682) ([tas50](https://github.com/tas50)) <!-- 6.12.5 -->
 - Bump RuboCop to 0.88 [#683](https://github.com/chef/cookstyle/pull/683) ([tas50](https://github.com/tas50)) <!-- 6.12.4 -->
 - Add ChefDeprecations/UseAutomaticResourceName cop [#680](https://github.com/chef/cookstyle/pull/680) ([tas50](https://github.com/tas50)) <!-- 6.12.3 -->
 - Add ChefDeprecations/ChefHandlerRecipe cop [#678](https://github.com/chef/cookstyle/pull/678) ([tas50](https://github.com/tas50)) <!-- 6.12.2 -->
