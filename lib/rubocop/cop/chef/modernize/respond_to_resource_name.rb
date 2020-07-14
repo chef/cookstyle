@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -29,7 +30,7 @@ module RuboCop
         #   resource_name :foo
         #
         class RespondToResourceName < Cop
-          MSG = 'respond_to?(:resource_name) in resources is no longer necessary in Chef Infra Client 12.5+'.freeze
+          MSG = 'respond_to?(:resource_name) in resources is no longer necessary in Chef Infra Client 12.5+'
 
           def on_if(node)
             if_respond_to_resource_name?(node) do

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: Copyright (c) Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -82,7 +83,7 @@ module RuboCop
         #  Convert your legacy HWRPs to custom resources
         #
         class HWRPWithoutProvides < Cop
-          MSG = 'In Chef Infra Client 16 and later a legacy HWRP resource must use `provides` to define how the resource is called in recipes or other resources. To maintain compatibility with Chef Infra Client < 16 use both `resource_name` and `provides`.'.freeze
+          MSG = 'In Chef Infra Client 16 and later a legacy HWRP resource must use `provides` to define how the resource is called in recipes or other resources. To maintain compatibility with Chef Infra Client < 16 use both `resource_name` and `provides`.'
 
           def_node_matcher :HWRP?, <<-PATTERN
           (class

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -32,7 +33,7 @@ module RuboCop
         class IncludeRecipeWithParentheses < Base
           extend RuboCop::Cop::AutoCorrector
 
-          MSG = 'There is no need to wrap the recipe in parentheses when using the include_recipe helper'.freeze
+          MSG = 'There is no need to wrap the recipe in parentheses when using the include_recipe helper'
 
           def_node_matcher :include_recipe?, <<-PATTERN
             (send nil? :include_recipe $(str _))

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -44,7 +45,7 @@ module RuboCop
         class NotifiesActionNotSymbol < Cop
           include RuboCop::Chef::CookbookHelpers
 
-          MSG = 'Resource notification and subscription actions should be symbols not strings.'.freeze
+          MSG = 'Resource notification and subscription actions should be symbols not strings.'
 
           def on_block(node)
             match_property_in_resource?(nil, %w(notifies subscribes), node) do |notifies_property|

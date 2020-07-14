@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -31,7 +32,7 @@ module RuboCop
         #   build_essential 'install compilation tools'
         #
         class UseBuildEssentialResource < Cop
-          MSG = 'Use the build_essential resource instead of the legacy build-essential recipe. This resource ships in the build-essential cookbook v5.0+ and is built into Chef Infra Client 14+'.freeze
+          MSG = 'Use the build_essential resource instead of the legacy build-essential recipe. This resource ships in the build-essential cookbook v5.0+ and is built into Chef Infra Client 14+'
 
           def_node_matcher :build_essential_recipe_usage?, <<-PATTERN
             (send nil? :include_recipe (str {"build-essential" "build-essential::default"}))

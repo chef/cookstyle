@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -43,7 +44,7 @@ module RuboCop
         class WindowsFeatureServermanagercmd < Cop
           include RuboCop::Chef::CookbookHelpers
 
-          MSG = 'The `windows_feature` resource no longer supports setting the `install_method` to `:servermanagercmd`. `:windows_feature_dism` or `:windows_feature_powershell` should be used instead.'.freeze
+          MSG = 'The `windows_feature` resource no longer supports setting the `install_method` to `:servermanagercmd`. `:windows_feature_dism` or `:windows_feature_powershell` should be used instead.'
 
           def on_block(node)
             match_property_in_resource?(:windows_feature, :install_method, node) do |prop_node|

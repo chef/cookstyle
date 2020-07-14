@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -29,7 +30,7 @@ module RuboCop
         #   property :bob, String, name_property: true
         #
         class PropertyWithNameAttribute < Cop
-          MSG = 'Resource property sets name_attribute instead of name_property'.freeze
+          MSG = 'Resource property sets name_attribute instead of name_property'
 
           # match on a property that has any name and any type and a hash that
           # contains name_attribute true. The hash pairs are wrapped in

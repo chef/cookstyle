@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: Copyright 2019-2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -24,7 +25,7 @@ module RuboCop
         # property :sensitive, [true, false], default: false
         #
         class SensitivePropertyInResource < Cop
-          MSG = 'Every Chef Infra resource already includes a sensitive property with a default value of false.'.freeze
+          MSG = 'Every Chef Infra resource already includes a sensitive property with a default value of false.'
 
           def_node_matcher :sensitive_property?, <<-PATTERN
             (send nil? {:property :attribute} (sym :sensitive) ... (hash (pair (sym :default) (false))))

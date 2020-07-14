@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -42,7 +43,7 @@ module RuboCop
 
           minimum_target_chef_version '15.0'
 
-          MSG = 'Chef Infra Client 15.0 and later includes a windows_uac resource that should be used to set Windows UAC values instead of setting registry keys directly.'.freeze
+          MSG = 'Chef Infra Client 15.0 and later includes a windows_uac resource that should be used to set Windows UAC values instead of setting registry keys directly.'
 
           # non block execute resources
           def on_send(node)

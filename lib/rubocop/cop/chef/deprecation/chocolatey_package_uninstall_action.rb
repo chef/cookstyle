@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -36,7 +37,7 @@ module RuboCop
         class ChocolateyPackageUninstallAction < Cop
           include RuboCop::Chef::CookbookHelpers
 
-          MSG = 'Use the :remove action in the chocolatey_package resource instead of :uninstall which was removed in Chef Infra Client 14+'.freeze
+          MSG = 'Use the :remove action in the chocolatey_package resource instead of :uninstall which was removed in Chef Infra Client 14+'
 
           def on_block(node)
             match_property_in_resource?(:chocolatey_package, 'action', node) do |choco_action|

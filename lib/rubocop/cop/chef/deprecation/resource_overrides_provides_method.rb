@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -31,7 +32,7 @@ module RuboCop
         #   provides :SOME_PROVIDER_NAME
         #
         class ResourceOverridesProvidesMethod < Cop
-          MSG = "Don't override the provides? method in a resource provider. Use provides :SOME_PROVIDER_NAME instead. This will cause failures in Chef Infra Client 13 and later.".freeze
+          MSG = "Don't override the provides? method in a resource provider. Use provides :SOME_PROVIDER_NAME instead. This will cause failures in Chef Infra Client 13 and later."
 
           def_node_search :provides, '(send nil? :provides ...)'
 

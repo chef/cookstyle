@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: Copyright 2019-2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -34,7 +35,7 @@ module RuboCop
         class PropertyWithRequiredAndDefault < Cop
           include RangeHelp
 
-          MSG = 'Resource properties should not be both required and have a default value. This will fail on Chef Infra Client 13+'.freeze
+          MSG = 'Resource properties should not be both required and have a default value. This will fail on Chef Infra Client 13+'
 
           # match on a property or attribute that has any name and any type and a hash that
           # contains default: true and required: true. These are wrapped in <> which means

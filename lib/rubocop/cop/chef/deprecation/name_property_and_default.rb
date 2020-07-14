@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -33,7 +34,7 @@ module RuboCop
         class NamePropertyWithDefaultValue < Cop
           include RangeHelp
 
-          MSG = "A resource property can't be marked as a name_property and also have a default value. This will fail in Chef Infra Client 13 or later.".freeze
+          MSG = "A resource property can't be marked as a name_property and also have a default value. This will fail in Chef Infra Client 13 or later."
 
           # match on a property or attribute that has any name and any type and a hash that
           # contains name_property/name_attribute true and any default value. These are wrapped in

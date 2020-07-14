@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -40,7 +41,7 @@ module RuboCop
         class AllowedActionsFromInitialize < Cop
           include RangeHelp
 
-          MSG = 'The allowed actions of a resource can be set with the "allowed_actions" helper instead of using the initialize method.'.freeze
+          MSG = 'The allowed actions of a resource can be set with the "allowed_actions" helper instead of using the initialize method.'
 
           def on_def(node)
             return unless node.method_name == :initialize

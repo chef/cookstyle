@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -33,7 +34,7 @@ module RuboCop
         #   end
         #
         class ResourceForcingCompileTime < Cop
-          MSG = "Set 'compile_time true' in resources when available instead of forcing resources to run at compile time by setting an action on the block.".freeze
+          MSG = "Set 'compile_time true' in resources when available instead of forcing resources to run at compile time by setting an action on the block."
 
           def_node_matcher :compile_time_resource?, <<-PATTERN
             (send (block (send nil? {:build_essential :chef_gem :hostname :ohai_hint} (...)) (args) (...)) $:run_action (sym ...))

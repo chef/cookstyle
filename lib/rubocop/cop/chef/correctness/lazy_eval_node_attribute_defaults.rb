@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -32,7 +33,7 @@ module RuboCop
         class LazyEvalNodeAttributeDefaults < Cop
           include RuboCop::Chef::CookbookHelpers
 
-          MSG = 'When setting a node attribute as the default value for a custom resource property, wrap the node attribute in `lazy {}` so that its value is available when the resource executes.'.freeze
+          MSG = 'When setting a node attribute as the default value for a custom resource property, wrap the node attribute in `lazy {}` so that its value is available when the resource executes.'
 
           def_node_matcher :non_lazy_node_attribute_default?, <<-PATTERN
             (send nil? :property (sym _) ... (hash <(pair (sym :default) $(send (send _ :node) :[] _) ) ...>))

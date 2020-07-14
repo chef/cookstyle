@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -34,7 +35,7 @@ module RuboCop
         #   source 'https://supermarket.chef.io'
         #
         class LegacyBerksfileSource < Cop
-          MSG = 'Do not use legacy Berksfile community sources. Use Chef Supermarket instead.'.freeze
+          MSG = 'Do not use legacy Berksfile community sources. Use Chef Supermarket instead.'
 
           def_node_matcher :berksfile_site?, <<-PATTERN
             (send nil? :site (:sym _))

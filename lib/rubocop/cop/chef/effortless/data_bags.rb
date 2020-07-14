@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -26,7 +27,7 @@ module RuboCop
         #   data_bag_item('admins', login)
         #   data_bag(data_bag_name)
         class CookbookUsesDatabags < Cop
-          MSG = 'Cookbook uses data bags, which cannot be used in the Effortless Infra pattern'.freeze
+          MSG = 'Cookbook uses data bags, which cannot be used in the Effortless Infra pattern'
 
           def on_send(node)
             add_offense(node, location: :expression, message: MSG, severity: :refactor) if %i(data_bag data_bag_item).include?(node.method_name)

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -40,7 +41,7 @@ module RuboCop
         #   end
         #
         class CustomResourceWithAttributes < Cop
-          MSG = 'Custom Resources should contain properties not attributes'.freeze
+          MSG = 'Custom Resources should contain properties not attributes'
 
           def_node_matcher :attribute?, <<-PATTERN
             (send nil? $:attribute ... )

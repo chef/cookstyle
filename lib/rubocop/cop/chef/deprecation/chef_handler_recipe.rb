@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -30,7 +31,7 @@ module RuboCop
         class ChefHandlerRecipe < Cop
           include RangeHelp
 
-          MSG = 'There is no need to include the empty and deprecated chef_handler::default recipe in order to use the chef_handler resource'.freeze
+          MSG = 'There is no need to include the empty and deprecated chef_handler::default recipe in order to use the chef_handler resource'
 
           def_node_matcher :chef_handler_recipe?, <<-PATTERN
             (send nil? :include_recipe (str {"chef_handler" "chef_handler::default"}))

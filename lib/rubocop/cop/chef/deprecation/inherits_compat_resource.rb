@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -37,7 +38,7 @@ module RuboCop
         #  Write a custom resource using the custom resource DSL and avoid class based HWRPs entirely
         #
         class ResourceInheritsFromCompatResource < Cop
-          MSG = "HWRP style resource should inherit from the 'Chef::Resource' class and not the 'ChefCompat::Resource' class from the deprecated compat_resource cookbook.".freeze
+          MSG = "HWRP style resource should inherit from the 'Chef::Resource' class and not the 'ChefCompat::Resource' class from the deprecated compat_resource cookbook."
 
           def_node_matcher :inherits_from_compat_resource?, <<-PATTERN
           (class (const nil? _ ) (const (const nil? :ChefCompat) :Resource) ... )

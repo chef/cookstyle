@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: Copyright 2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -32,7 +33,7 @@ module RuboCop
           include RangeHelp
           include ::RuboCop::Chef::PlatformHelpers
 
-          MSG = 'Use valid platform values in case statements.'.freeze
+          MSG = 'Use valid platform values in case statements.'
 
           def_node_matcher :node_platform?, <<-PATTERN
             (send (send nil? :node) :[] (str "platform") )

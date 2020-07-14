@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -28,7 +29,7 @@ module RuboCop
         class MinitestHandlerUsage < Cop
           include RangeHelp
 
-          MSG = 'Use Chef InSpec for testing instead of the Minitest Handler cookbook pattern.'.freeze
+          MSG = 'Use Chef InSpec for testing instead of the Minitest Handler cookbook pattern.'
 
           def_node_matcher :minitest_depends?, <<-PATTERN
             (send nil? :depends (str "minitest-handler"))

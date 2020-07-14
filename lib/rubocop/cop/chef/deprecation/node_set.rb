@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 #
@@ -30,7 +31,7 @@ module RuboCop
         #   node.normal['foo'] = true
         #
         class NodeSet < Cop
-          MSG = 'Do not use node.set. Replace with node.normal to keep identical behavior.'.freeze
+          MSG = 'Do not use node.set. Replace with node.normal to keep identical behavior.'
 
           def_node_matcher :node_set?, <<-PATTERN
             (send (send _ :node) $:set)

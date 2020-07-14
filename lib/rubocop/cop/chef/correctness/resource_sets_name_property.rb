@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -37,7 +38,7 @@ module RuboCop
         class ResourceSetsNameProperty < Cop
           include RuboCop::Chef::CookbookHelpers
 
-          MSG = 'Resource sets the name property in the resource instead of using a name_property.'.freeze
+          MSG = 'Resource sets the name property in the resource instead of using a name_property.'
 
           def on_block(node)
             match_property_in_resource?(nil, 'name', node) do |name_node|

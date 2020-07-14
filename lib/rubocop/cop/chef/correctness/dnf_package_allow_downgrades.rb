@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: Copyright 2019-2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -37,7 +38,7 @@ module RuboCop
           include RangeHelp
           include RuboCop::Chef::CookbookHelpers
 
-          MSG = 'dnf_package does not support the allow_downgrades property'.freeze
+          MSG = 'dnf_package does not support the allow_downgrades property'
 
           def on_block(node)
             match_property_in_resource?(:dnf_package, :allow_downgrades, node) do |prop|

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -38,7 +39,7 @@ module RuboCop
         #   end
         #
         class ChefDKGenerators < Cop
-          MSG = 'When writing cookbook generators use the ChefCLI module instead of the ChefDK module which was removed in Chef Workstation 0.8 and later.'.freeze
+          MSG = 'When writing cookbook generators use the ChefCLI module instead of the ChefDK module which was removed in Chef Workstation 0.8 and later.'
 
           def on_const(node)
             # We want to catch calls like ChefCLI::CLI.whatever or places where classes are defined in the ChefDK module

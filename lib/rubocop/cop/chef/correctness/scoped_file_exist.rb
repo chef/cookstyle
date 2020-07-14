@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -29,7 +30,7 @@ module RuboCop
         #   not_if { ::File.exist?('/etc/foo/bar') }
         #
         class ScopedFileExist < Cop
-          MSG = 'Scope file exist to access the correct File class by using ::File.exist? not File.exist?.'.freeze
+          MSG = 'Scope file exist to access the correct File class by using ::File.exist? not File.exist?.'
 
           def_node_matcher :unscoped_file_exist?, <<-PATTERN
           (block (send nil? {:not_if :only_if}) (args) (send $(const nil? :File) {:exist? :exists?} (...)))

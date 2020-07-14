@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -42,7 +43,7 @@ module RuboCop
         #   node['name']
         #
         class OhaiAttributeToString < Cop
-          MSG = "This Ohai node attribute is already a string and doesn't need to be converted".freeze
+          MSG = "This Ohai node attribute is already a string and doesn't need to be converted"
 
           def_node_matcher :platform_to_s?, <<-PATTERN
             (send (send (send nil? :node) :[] $(str {"platform" "platform_family" "platform_version" "fqdn" "hostname" "os" "name"}) ) :to_s )

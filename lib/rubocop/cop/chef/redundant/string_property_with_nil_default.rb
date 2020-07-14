@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: Copyright 2019-2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -33,7 +34,7 @@ module RuboCop
         class StringPropertyWithNilDefault < Cop
           include RangeHelp
 
-          MSG = 'Properties have a nil value by default so there is no need to set the default value to nil.'.freeze
+          MSG = 'Properties have a nil value by default so there is no need to set the default value to nil.'
 
           def_node_matcher :string_property_with_nil_default?, <<-PATTERN
             (send nil? :property (sym _)

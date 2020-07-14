@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -32,7 +33,7 @@ module RuboCop
         #   Chef Infra configures your systems
         #
         class ChefWhaaat < Cop
-          MSG = 'Do you mean Chef (the company) or a Chef product (e.g. Chef Infra, Chef InSpec, etc)?'.freeze
+          MSG = 'Do you mean Chef (the company) or a Chef product (e.g. Chef Infra, Chef InSpec, etc)?'
 
           def investigate(processed_source)
             return unless processed_source.ast

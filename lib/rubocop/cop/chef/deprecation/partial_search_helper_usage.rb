@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -47,7 +48,7 @@ module RuboCop
         #   end
         #
         class PartialSearchHelperUsage < Cop
-          MSG = 'Legacy partial_search usage should be updated to use :filter_result in the search helper instead'.freeze
+          MSG = 'Legacy partial_search usage should be updated to use :filter_result in the search helper instead'
 
           def on_send(node)
             add_offense(node, location: :expression, message: MSG, severity: :warning) if node.method_name == :partial_search

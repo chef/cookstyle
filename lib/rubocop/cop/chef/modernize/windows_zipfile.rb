@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -32,7 +33,7 @@ module RuboCop
 
           minimum_target_chef_version '15.0'
 
-          MSG = 'Use the archive_file resource built into Chef Infra Client 15+ instead of the windows_zipfile from the Windows cookbook'.freeze
+          MSG = 'Use the archive_file resource built into Chef Infra Client 15+ instead of the windows_zipfile from the Windows cookbook'
 
           def on_send(node)
             add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :windows_zipfile

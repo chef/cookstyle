@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 #
@@ -37,7 +38,7 @@ module RuboCop
         #   node.force_override['foo'] = true
         #
         class NodeNormal < Cop
-          MSG = 'Do not use node.normal. Replace with default/override/force_default/force_override attribute levels.'.freeze
+          MSG = 'Do not use node.normal. Replace with default/override/force_default/force_override attribute levels.'
 
           def_node_matcher :node_normal?, <<-PATTERN
             (send (send _ :node) :normal)

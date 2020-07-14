@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -41,7 +42,7 @@ module RuboCop
         class NodeInitPackage < Base
           extend RuboCop::Cop::AutoCorrector
 
-          MSG = "Use node['init_package'] to check for systemd instead of reading the contents of '/proc/1/comm'".freeze
+          MSG = "Use node['init_package'] to check for systemd instead of reading the contents of '/proc/1/comm'"
 
           def_node_matcher :file_reads_proc_1_comm?, <<-PATTERN
             (send (const {(cbase) nil?} {:File :IO}) {:open :read} (str "/proc/1/comm"))

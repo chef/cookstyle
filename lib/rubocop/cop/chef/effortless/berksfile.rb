@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -24,7 +25,7 @@ module RuboCop
         class Berksfile < Cop
           include RangeHelp
 
-          MSG = 'Policyfiles should be used for cookbook dependency solving instead of a Berkshelf Berksfile.'.freeze
+          MSG = 'Policyfiles should be used for cookbook dependency solving instead of a Berkshelf Berksfile.'
 
           def investigate(processed_source)
             return if processed_source.blank?

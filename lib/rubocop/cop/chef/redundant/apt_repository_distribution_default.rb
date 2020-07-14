@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -39,7 +40,7 @@ module RuboCop
           include RuboCop::Chef::CookbookHelpers
           include RangeHelp
 
-          MSG = "There is no need to pass `distribution node['lsb']['codename']` to an apt_repository resource as this is done automatically by the apt_repository resource.".freeze
+          MSG = "There is no need to pass `distribution node['lsb']['codename']` to an apt_repository resource as this is done automatically by the apt_repository resource."
 
           def_node_matcher :default_dist?, <<-PATTERN
             (send nil? :distribution (send (send (send nil? :node) :[] ({sym str} {:lsb "lsb"})) :[] ({sym str} {:codename "codename"})))

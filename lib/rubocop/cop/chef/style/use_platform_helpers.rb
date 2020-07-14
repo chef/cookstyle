@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -38,7 +39,7 @@ module RuboCop
         #   platform_family?('rhel', 'suse')
         #
         class UsePlatformHelpers < Cop
-          MSG = "Use platform? and platform_family? helpers to check a node's platform".freeze
+          MSG = "Use platform? and platform_family? helpers to check a node's platform"
 
           def_node_matcher :platform_equals?, <<-PATTERN
             (send (send (send nil? :node) :[] $(str {"platform" "platform_family"}) ) ${:== :!=} $str )
@@ -69,8 +70,7 @@ module RuboCop
           def autocorrect(node)
             lambda do |corrector|
               platform_equals?(node) do |type, operator, plat|
-                corrected_string = operator == :!= ? '!' : ''
-                corrected_string << "#{type.value}?('#{plat.value}')"
+                corrected_string = (operator == :!= ? '!' : '') + "#{type.value}?('#{plat.value}')"
                 corrector.replace(node.loc.expression, corrected_string)
               end
 

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -30,7 +31,7 @@ module RuboCop
         class ProvidesMetadata < Cop
           include RangeHelp
 
-          MSG = 'The provides metadata.rb method is not used and is unnecessary in cookbooks.'.freeze
+          MSG = 'The provides metadata.rb method is not used and is unnecessary in cookbooks.'
 
           def on_send(node)
             add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :provides

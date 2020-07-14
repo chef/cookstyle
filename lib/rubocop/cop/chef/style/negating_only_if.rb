@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -33,7 +34,7 @@ module RuboCop
         #   end
         #
         class NegatingOnlyIf < Cop
-          MSG = 'Instead of using only_if conditionals with ! to negate the returned value, use not_if which is easier to read'.freeze
+          MSG = 'Instead of using only_if conditionals with ! to negate the returned value, use not_if which is easier to read'
 
           def_node_matcher :negated_only_if?, <<-PATTERN
             (block

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -29,7 +30,7 @@ module RuboCop
         #   property :foo, [true, false]
         #
         class TrueClassFalseClassResourceProperties < Cop
-          MSG = "When setting the allowed types for a resource to accept either true or false values it's much simpler to use true and false instead of TrueClass and FalseClass.".freeze
+          MSG = "When setting the allowed types for a resource to accept either true or false values it's much simpler to use true and false instead of TrueClass and FalseClass."
 
           def_node_matcher :trueclass_falseclass_property?, <<-PATTERN
             (send nil? {:property :attribute} (sym _) $(array (const nil? :TrueClass) (const nil? :FalseClass)) ... )

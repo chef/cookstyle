@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -34,7 +35,7 @@ module RuboCop
         class ProvidesFromInitialize < Cop
           include RangeHelp
 
-          MSG = 'Provides should be set using the `provides` resource DSL method instead of instead of setting @provides in the initialize method.'.freeze
+          MSG = 'Provides should be set using the `provides` resource DSL method instead of instead of setting @provides in the initialize method.'
 
           def_node_matcher :provides_assignment?, <<-PATTERN
             (ivasgn :@provides $(sym ...))

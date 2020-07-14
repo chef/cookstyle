@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -47,7 +48,7 @@ module RuboCop
         #   end
         #
         class PartialSearchClassUsage < Cop
-          MSG = 'Legacy Chef::PartialSearch class usage should be updated to use the search helper instead with the filter_result key.'.freeze
+          MSG = 'Legacy Chef::PartialSearch class usage should be updated to use the search helper instead with the filter_result key.'
 
           def_node_matcher :partial_search_class?, <<-PATTERN
             (send (const (const ... :Chef) :PartialSearch) :new)

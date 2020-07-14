@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019-2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -26,7 +27,7 @@ module RuboCop
         #   include_recipe 'xml::ruby'
         #
         class IncludingXMLRubyRecipe < Cop
-          MSG = 'Do not include the deprecated xml::ruby recipe to install the nokogiri gem. Chef Infra Client 12 and later ships with nokogiri included.'.freeze
+          MSG = 'Do not include the deprecated xml::ruby recipe to install the nokogiri gem. Chef Infra Client 12 and later ships with nokogiri included.'
 
           def_node_matcher :xml_ruby_recipe?, <<-PATTERN
             (send nil? :include_recipe (str "xml::ruby"))

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -27,7 +28,7 @@ module RuboCop
         class DslIncludeInResource < Cop
           include RangeHelp
 
-          MSG = 'Chef Infra Client 12.4+ includes the Chef::DSL::Recipe in the resource and provider classed by default so there is no need to include this DSL in your resources or providers.'.freeze
+          MSG = 'Chef Infra Client 12.4+ includes the Chef::DSL::Recipe in the resource and provider classed by default so there is no need to include this DSL in your resources or providers.'
 
           def_node_matcher :dsl_include?, <<-PATTERN
           (send nil? :include

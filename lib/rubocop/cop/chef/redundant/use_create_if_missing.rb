@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -42,7 +43,7 @@ module RuboCop
         #
         class UseCreateIfMissing < Cop
           include RuboCop::Chef::CookbookHelpers
-          MSG = 'Use the :create_if_missing action instead of not_if with a ::File.exist(FOO) check.'.freeze
+          MSG = 'Use the :create_if_missing action instead of not_if with a ::File.exist(FOO) check.'
 
           def_node_matcher :not_if_file_exist?, <<-PATTERN
           (block (send nil? :not_if) (args) (send (const {nil? (cbase)} :File) {:exist? :exists?} $(str ...)))

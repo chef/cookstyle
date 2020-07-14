@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019-2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -42,7 +43,7 @@ module RuboCop
         #   end
         #
         class ExecuteAptUpdate < Cop
-          MSG = 'Use the apt_update resource instead of the execute resource to run an apt-get update package cache update'.freeze
+          MSG = 'Use the apt_update resource instead of the execute resource to run an apt-get update package cache update'
 
           def_node_matcher :execute_apt_update?, <<-PATTERN
             (send nil? :execute (str { "apt-get update" "apt-get update -y" "apt-get -y update" }))

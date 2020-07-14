@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -30,7 +31,7 @@ module RuboCop
         #   version '1.2.3'
         #
         class InvalidVersionMetadata < Cop
-          MSG = 'Cookbook metadata.rb version field should follow X.Y.Z version format.'.freeze
+          MSG = 'Cookbook metadata.rb version field should follow X.Y.Z version format.'
 
           def_node_matcher :version?, '(send nil? :version $str ...)'
 

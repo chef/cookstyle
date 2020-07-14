@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -34,7 +35,7 @@ module RuboCop
         class InvalidPlatformMetadata < Cop
           include ::RuboCop::Chef::PlatformHelpers
 
-          MSG = 'metadata.rb "supports" platform is invalid'.freeze
+          MSG = 'metadata.rb "supports" platform is invalid'
 
           def_node_matcher :supports?, '(send nil? :supports $str ...)'
 

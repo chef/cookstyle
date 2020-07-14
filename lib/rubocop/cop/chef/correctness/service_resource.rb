@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2016, Chris Henry
 #
@@ -27,7 +28,7 @@ module RuboCop
         #   command "/sbin/service/memcached start"
         #
         class ServiceResource < Cop
-          MSG = 'Use a service resource to start and stop services'.freeze
+          MSG = 'Use a service resource to start and stop services'
 
           def_node_matcher :execute_command?, <<-PATTERN
             (send nil? :command $str)

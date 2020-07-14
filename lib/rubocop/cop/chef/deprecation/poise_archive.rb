@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -35,7 +36,7 @@ module RuboCop
         class PoiseArchiveUsage < Cop
           include RuboCop::Chef::CookbookHelpers
 
-          MSG = 'The poise_archive resource in the deprecated poise-archive should be replaced with the archive_file resource found in Chef Infra Client 15+'.freeze
+          MSG = 'The poise_archive resource in the deprecated poise-archive should be replaced with the archive_file resource found in Chef Infra Client 15+'
 
           def_node_matcher :depends_poise_archive?, <<-PATTERN
             (send nil? :depends (str "poise-archive"))

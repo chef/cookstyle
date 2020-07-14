@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -34,7 +35,7 @@ module RuboCop
 
           minimum_target_chef_version '15.0'
 
-          MSG = 'Use the archive_file resource built into Chef Infra Client 15+ instead of the zipfile resource from the zipfile cookbook.'.freeze
+          MSG = 'Use the archive_file resource built into Chef Infra Client 15+ instead of the zipfile resource from the zipfile cookbook.'
 
           def_node_matcher :depends_zipfile?, <<-PATTERN
             (send nil? :depends (str "zipfile"))

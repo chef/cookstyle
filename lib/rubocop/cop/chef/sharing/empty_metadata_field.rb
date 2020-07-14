@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -30,7 +31,7 @@ module RuboCop
         #   license 'Apache-2.0'
         #
         class EmptyMetadataField < Cop
-          MSG = 'Cookbook metadata.rb contains an field with an empty string.'.freeze
+          MSG = 'Cookbook metadata.rb contains an field with an empty string.'
 
           def_node_matcher :field?, '(send nil? _ $str ...)'
 

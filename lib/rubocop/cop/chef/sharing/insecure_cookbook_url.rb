@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -33,7 +34,7 @@ module RuboCop
         #   source_url 'http://gitlab.com/something/something'
         #
         class InsecureCookbookURL < Cop
-          MSG = 'Insecure http Github or Gitlab URLs for metadata source_url/issues_url fields'.freeze
+          MSG = 'Insecure http Github or Gitlab URLs for metadata source_url/issues_url fields'
 
           def_node_matcher :insecure_cb_url?, <<-PATTERN
             (send nil? {:source_url :issues_url} (str #insecure_url?))

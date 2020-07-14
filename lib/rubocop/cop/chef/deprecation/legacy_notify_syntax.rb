@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -57,7 +58,7 @@ module RuboCop
         #   end
         #
         class LegacyNotifySyntax < Cop
-          MSG = 'Use the new-style notification syntax which allows you to notify resources defined later in a recipe or resource.'.freeze
+          MSG = 'Use the new-style notification syntax which allows you to notify resources defined later in a recipe or resource.'
 
           def_node_matcher :legacy_notify?, <<-PATTERN
             (send nil? ${:notifies :subscribes} $(sym _) (send nil? :resources (hash (pair $(sym _) $(...) ) ) ) $... )
@@ -80,7 +81,7 @@ module RuboCop
                                 else
                                   "\"#{type.source}[\#{#{name.source}}]\""
                                 end
-                new_val = "#{notify_type} #{action.source}, #{service_value}"
+                new_val = "#{notify_type} #{action.source}, #{service_value}".dup
                 new_val << ", #{timing.first.source}" unless timing.empty?
                 corrector.replace(node.loc.expression, new_val)
               end

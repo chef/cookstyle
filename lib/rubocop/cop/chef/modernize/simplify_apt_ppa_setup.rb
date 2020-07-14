@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -43,7 +44,7 @@ module RuboCop
           include RangeHelp
           include RuboCop::Chef::CookbookHelpers
 
-          MSG = 'The apt_repository resource allows setting up PPAs without using the full URL to ppa.launchpad.net.'.freeze
+          MSG = 'The apt_repository resource allows setting up PPAs without using the full URL to ppa.launchpad.net.'
 
           def on_block(node)
             match_property_in_resource?(:apt_repository, 'uri', node) do |uri|

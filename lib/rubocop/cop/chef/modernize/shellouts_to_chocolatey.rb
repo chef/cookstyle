@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -35,7 +36,7 @@ module RuboCop
         class ShellOutToChocolatey < Cop
           include RuboCop::Chef::CookbookHelpers
 
-          MSG = 'Use the Chocolatey resources built into Chef Infra Client instead of shelling out to the choco command'.freeze
+          MSG = 'Use the Chocolatey resources built into Chef Infra Client instead of shelling out to the choco command'
 
           def on_block(node)
             match_property_in_resource?(:powershell_script, 'code', node) do |code_property|

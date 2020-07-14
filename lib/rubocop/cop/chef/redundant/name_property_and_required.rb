@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: Copyright 2019-2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -59,7 +60,7 @@ module RuboCop
         #   property :config_file, String, required: true
         #
         class NamePropertyIsRequired < Cop
-          MSG = 'Resource properties marked as name properties should not also be required properties'.freeze
+          MSG = 'Resource properties marked as name properties should not also be required properties'
 
           # match on a property or attribute that has any name and any type and a hash that
           # contains name_property: true and required: true. These are wrapped in <> which means

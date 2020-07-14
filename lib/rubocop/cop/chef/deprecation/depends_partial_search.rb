@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -30,7 +31,7 @@ module RuboCop
 
           minimum_target_chef_version '13.0'
 
-          MSG = "Don't depend on the deprecated partial_search cookbook made obsolete by Chef 13".freeze
+          MSG = "Don't depend on the deprecated partial_search cookbook made obsolete by Chef 13"
 
           def_node_matcher :depends_partial_search?, <<-PATTERN
             (send nil? :depends (str "partial_search"))

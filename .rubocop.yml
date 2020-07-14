@@ -10,3 +10,7 @@ Style/HashEachMethods:
 # ChefModernize/FoodcriticComments itslef include an example Foocritic comment which alerts
 ChefModernize/FoodcriticComments:
   Enabled: false
+
+# reduces memory usage
+Style/FrozenStringLiteralComment:
+  Enabled: true

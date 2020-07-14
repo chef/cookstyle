@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -39,7 +40,7 @@ module RuboCop
           include RuboCop::Chef::CookbookHelpers
           include RangeHelp
 
-          MSG = 'There is no need to notify an apt-get update when an apt_repository is created as this is done automatically by the apt_repository resource.'.freeze
+          MSG = 'There is no need to notify an apt-get update when an apt_repository is created as this is done automatically by the apt_repository resource.'
 
           def on_block(node)
             match_property_in_resource?(:apt_repository, 'notifies', node) do |notifies|

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -23,7 +24,7 @@ module RuboCop
         class Definitions < Cop
           include RuboCop::Chef::CookbookHelpers
 
-          MSG = 'Legacy Chef Infra definitions should be rewritten as custom resources to take full advantage of the Chef Infra feature set.'.freeze
+          MSG = 'Legacy Chef Infra definitions should be rewritten as custom resources to take full advantage of the Chef Infra feature set.'
 
           def on_block(node)
             add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.respond_to?(:method_name) && node.method_name == :define

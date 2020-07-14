@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -26,7 +27,7 @@ module RuboCop
         #   node.policy_group == "foo"
         #
         class CookbookUsesPolicygroups < Cop
-          MSG = 'Cookbook uses Policy Groups, which cannot be used with Effortless Infra'.freeze
+          MSG = 'Cookbook uses Policy Groups, which cannot be used with Effortless Infra'
 
           def on_send(node)
             if node.method_name == :policy_group && node.receiver && node.receiver.send_type? && node.receiver.method_name == :node

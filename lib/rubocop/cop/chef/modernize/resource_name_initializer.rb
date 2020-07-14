@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -34,7 +35,7 @@ module RuboCop
         class ResourceNameFromInitialize < Cop
           include RangeHelp
 
-          MSG = 'The name of a resource can be set with the "resource_name" helper instead of using the initialize method.'.freeze
+          MSG = 'The name of a resource can be set with the "resource_name" helper instead of using the initialize method.'
 
           def on_def(node)
             return unless node.method_name == :initialize
