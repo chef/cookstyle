@@ -16,6 +16,11 @@ group :docs do
   gem 'yard'
 end
 
+group :profiling do
+  gem 'stackprof'
+  gem 'memory_profiler'
+end
+
 group :development do
   gem 'adamantium'
   gem 'anima'
