@@ -28,7 +28,7 @@ The `ChefDeprecations/UseAutomaticResourceName` cop detects resources that use t
 
 ### RuboCop 0.88
 
-RuboCop has been updated to 0.88, which offers significant performance improvements to many Ruby cops that cookstyle utilizes.
+RuboCop has been updated to 0.88, which offers significant performance improvements to many Ruby cops that Cookstyle utilizes.
 
 ### Other Improvements
 
