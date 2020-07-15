@@ -1,3 +1,39 @@
+## Cookstyle 6.12
+
+### 3 New Cops
+
+#### ChefDeprecations/ChefDKGenerators
+
+The `ChefDeprecations/ChefDKGenerators` cop detects custom cookbook generators for the `chef` CLI that utilize the legacy `ChefDK` classes and not `ChefCLI` classes.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefDeprecations/ChefHandlerRecipe
+
+The `ChefDeprecations/ChefHandlerRecipe` cop detects cookbooks that include the deprecated `chef-handler::default` recipe. This recipe is empty and does not need to be included, and the `chef_handler` resource was merged directly into Chef Infra Client in 14.0.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefDeprecations/UseAutomaticResourceName
+
+The `ChefDeprecations/UseAutomaticResourceName` cop detects resources that use the legacy `use_automatic_resource_name`, which was removed in Chef Infra Client 16.
+
+`Enabled by default`: True
+
+`Autocorrects`: No
+
+### RuboCop 0.88
+
+RuboCop has been updated to 0.88, which offers significant performance improvements to many Ruby cops that Cookstyle utilizes.
+
+### Other Improvements
+
+- `ChefModernize/ExecuteAptUpdate` has been updated to detect additional methods of executing `apt-get update`.
+
 ## Cookstyle 6.11
 
 ### 2 New Cops
