@@ -1,26 +1,24 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.12.6 -->
-## [v6.12.6](https://github.com/chef/cookstyle/tree/v6.12.6) (2020-07-14)
-
-#### Merged Pull Requests
-- Copy over profiling support from RuboCop [#681](https://github.com/chef/cookstyle/pull/681) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=6.11.4 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Copy over profiling support from RuboCop [#681](https://github.com/chef/cookstyle/pull/681) ([tas50](https://github.com/tas50)) <!-- 6.12.6 -->
-- Set frozen string literals to true in all files [#682](https://github.com/chef/cookstyle/pull/682) ([tas50](https://github.com/tas50)) <!-- 6.12.5 -->
-- Bump RuboCop to 0.88 [#683](https://github.com/chef/cookstyle/pull/683) ([tas50](https://github.com/tas50)) <!-- 6.12.4 -->
-- Add ChefDeprecations/UseAutomaticResourceName cop [#680](https://github.com/chef/cookstyle/pull/680) ([tas50](https://github.com/tas50)) <!-- 6.12.3 -->
-- Add ChefDeprecations/ChefHandlerRecipe cop [#678](https://github.com/chef/cookstyle/pull/678) ([tas50](https://github.com/tas50)) <!-- 6.12.2 -->
-- Add new ChefDeprecations/ChefDKGenerators cop [#671](https://github.com/chef/cookstyle/pull/671) ([tas50](https://github.com/tas50)) <!-- 6.12.1 -->
-- Detect additional ways to shellout to apt-get update [#670](https://github.com/chef/cookstyle/pull/670) ([tas50](https://github.com/tas50)) <!-- 6.12.0 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v6.12.6](https://github.com/chef/cookstyle/tree/v6.12.6) (2020-07-15)
+
+#### Merged Pull Requests
+- Detect additional ways to shellout to apt-get update [#670](https://github.com/chef/cookstyle/pull/670) ([tas50](https://github.com/tas50))
+- Add new ChefDeprecations/ChefDKGenerators cop [#671](https://github.com/chef/cookstyle/pull/671) ([tas50](https://github.com/tas50))
+- Add ChefDeprecations/ChefHandlerRecipe cop [#678](https://github.com/chef/cookstyle/pull/678) ([tas50](https://github.com/tas50))
+- Add ChefDeprecations/UseAutomaticResourceName cop [#680](https://github.com/chef/cookstyle/pull/680) ([tas50](https://github.com/tas50))
+- Bump RuboCop to 0.88 [#683](https://github.com/chef/cookstyle/pull/683) ([tas50](https://github.com/tas50))
+- Set frozen string literals to true in all files [#682](https://github.com/chef/cookstyle/pull/682) ([tas50](https://github.com/tas50))
+- Copy over profiling support from RuboCop [#681](https://github.com/chef/cookstyle/pull/681) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v6.11.4](https://github.com/chef/cookstyle/tree/v6.11.4) (2020-07-09)
 
 #### Merged Pull Requests
@@ -29,7 +27,6 @@
 - Add new ChefStyle/IncludeRecipeWithParentheses [#667](https://github.com/chef/cookstyle/pull/667) ([tas50](https://github.com/tas50))
 - Add new cop ChefModernize/ConditionalUsingTest [#666](https://github.com/chef/cookstyle/pull/666) ([tas50](https://github.com/tas50))
 - Expand IncorrectLibraryInjection to detect more types of injection [#668](https://github.com/chef/cookstyle/pull/668) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v6.10.2](https://github.com/chef/cookstyle/tree/v6.10.2) (2020-07-07)
 
