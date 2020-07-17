@@ -1,9 +1,10 @@
 # Cookstyle Changelog
 
- <!-- latest_release unreleased -->
-## Unreleased
+ <!-- latest_release 6.13.3 -->
+## [v6.13.3](https://github.com/chef/cookstyle/tree/v6.13.3) (2020-07-17)
 
 #### Merged Pull Requests
+- Add ChefModernize/ActionMethodInResource cop [#688](https://github.com/chef/cookstyle/pull/688) ([tas50](https://github.com/tas50))
 - Add release notes for 6.13 [#690](https://github.com/chef/cookstyle/pull/690) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
@@ -11,6 +12,7 @@
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add ChefModernize/ActionMethodInResource cop [#688](https://github.com/chef/cookstyle/pull/688) ([tas50](https://github.com/tas50)) <!-- 6.13.3 -->
 - Add release notes for 6.13 [#690](https://github.com/chef/cookstyle/pull/690) ([tas50](https://github.com/tas50)) <!-- 6.13.2 -->
 - Add ChefCorrectness/SupportsMustBeFloat [#689](https://github.com/chef/cookstyle/pull/689) ([tas50](https://github.com/tas50)) <!-- 6.13.2 -->
 - Add ChefRedundantCode/DoubleCompileTime cop [#687](https://github.com/chef/cookstyle/pull/687) ([tas50](https://github.com/tas50)) <!-- 6.13.1 -->
