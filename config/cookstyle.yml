@@ -1820,6 +1820,16 @@ ChefRedundantCode/MultiplePlatformChecks:
     - '**/metadata.rb'
     - '**/Berksfile'
 
+ChefRedundantCode/DoubleCompileTime:
+  Description: If a resource includes the `compile_time` property there's no need to also use `.run_action(:some_action)` on the resource block
+  StyleGuide: '#chefredundantcodedoublecompiletime'
+  Enabled: true
+  VersionAdded: '6.13.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/attributes/*.rb'
+    - '**/Berksfile'
+
 ###############################
 # ChefEffortless: Migrating to new patterns
 ###############################
