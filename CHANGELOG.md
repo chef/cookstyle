@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.12.7 -->
-## [v6.12.7](https://github.com/chef/cookstyle/tree/v6.12.7) (2020-07-17)
+ <!-- latest_release 6.13.0 -->
+## [v6.13.0](https://github.com/chef/cookstyle/tree/v6.13.0) (2020-07-17)
 
 #### Merged Pull Requests
-- Add ChefCorrectness/InvalidDefaultAction cop [#685](https://github.com/chef/cookstyle/pull/685) ([tas50](https://github.com/tas50))
+- Add new ChefModernize/CronDFileOrTemplate cop [#686](https://github.com/chef/cookstyle/pull/686) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.12.6 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add new ChefModernize/CronDFileOrTemplate cop [#686](https://github.com/chef/cookstyle/pull/686) ([tas50](https://github.com/tas50)) <!-- 6.13.0 -->
 - Add ChefCorrectness/InvalidDefaultAction cop [#685](https://github.com/chef/cookstyle/pull/685) ([tas50](https://github.com/tas50)) <!-- 6.12.7 -->
 <!-- release_rollup -->
 
