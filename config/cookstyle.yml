@@ -454,6 +454,15 @@ ChefCorrectness/InvalidPlatformInCase:
     - '**/metadata.rb'
     - '**/Berksfile'
 
+ChefCorrectness/InvalidDefaultAction:
+  Description: Default actions in resources should be a symbol or an array of symbols.
+  StyleGuide: '#chefcorrectnessinvaliddefaultaction'
+  Enabled: true
+  VersionAdded: '6.13.0'
+  Include:
+    - '**/libraries/*.rb'
+    - '**/resources/*.rb'
+
 ###############################
 # ChefSharing: Issues that prevent sharing code with other teams or with the Chef community in general
 ###############################
