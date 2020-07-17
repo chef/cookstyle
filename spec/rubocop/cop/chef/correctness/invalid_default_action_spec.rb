@@ -36,7 +36,7 @@ describe RuboCop::Cop::Chef::ChefCorrectness::InvalidDefaultAction do
     expect_no_offenses('default_action foo')
   end
 
-  it 'does not register an offense with a variable' do
+  it 'does not register an offense with an array of symbols' do
     expect_no_offenses('default_action [:create, :enable]')
   end
 end
