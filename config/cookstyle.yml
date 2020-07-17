@@ -1590,9 +1590,19 @@ ChefModernize/ShellOutHelper:
 
 ChefModernize/ConditionalUsingTest:
   Description: Use ::File.exist?('/foo/bar') instead of the slower 'test -f /foo/bar' which requires shelling out.
-  StyleGuide: '#conditionalusingtest'
+  StyleGuide: '#chefmodernizeconditionalusingtest'
   Enabled: true
   VersionAdded: '6.11.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/Berksfile'
+    - '**/attributes/*.rb'
+
+ChefModernize/CronDFileOrTemplate:
+  Description: Use the cron_d resource that ships with Chef Infra Client 14.4+ instead of manually creating the file with template, file, or cookbook_file resources
+  StyleGuide: '#chefmodernizecrondfileortemplate'
+  Enabled: true
+  VersionAdded: '6.13.0'
   Exclude:
     - '**/metadata.rb'
     - '**/Berksfile'
@@ -1794,7 +1804,7 @@ ChefRedundantCode/UseCreateIfMissing:
 
 ChefRedundantCode/OhaiAttributeToString:
   Description: Many Ohai node attributes are already strings and don't need to be cast to strings again
-  StyleGuide: '#ohaiattributetostring'
+  StyleGuide: '#chefredundantcodeohaiattributetostring'
   Enabled: true
   VersionAdded: '6.10.0'
   Exclude:
@@ -1803,7 +1813,7 @@ ChefRedundantCode/OhaiAttributeToString:
 
 ChefRedundantCode/MultiplePlatformChecks:
   Description: You can pass multiple values to the platform? and platform_family? helpers instead of calling the helpers multiple times.
-  StyleGuide: '#multipleplatformchecks'
+  StyleGuide: '#chefredundantcodemultipleplatformchecks'
   Enabled: true
   VersionAdded: '6.10.0'
   Exclude:
