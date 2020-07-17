@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.13.2 -->
-## [v6.13.2](https://github.com/chef/cookstyle/tree/v6.13.2) (2020-07-17)
+ <!-- latest_release unreleased -->
+## Unreleased
 
 #### Merged Pull Requests
-- Add ChefCorrectness/SupportsMustBeFloat [#689](https://github.com/chef/cookstyle/pull/689) ([tas50](https://github.com/tas50))
+- Add release notes for 6.13 [#690](https://github.com/chef/cookstyle/pull/690) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.12.6 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add release notes for 6.13 [#690](https://github.com/chef/cookstyle/pull/690) ([tas50](https://github.com/tas50)) <!-- 6.13.2 -->
 - Add ChefCorrectness/SupportsMustBeFloat [#689](https://github.com/chef/cookstyle/pull/689) ([tas50](https://github.com/tas50)) <!-- 6.13.2 -->
 - Add ChefRedundantCode/DoubleCompileTime cop [#687](https://github.com/chef/cookstyle/pull/687) ([tas50](https://github.com/tas50)) <!-- 6.13.1 -->
 - Add new ChefModernize/CronDFileOrTemplate cop [#686](https://github.com/chef/cookstyle/pull/686) ([tas50](https://github.com/tas50)) <!-- 6.13.0 -->
