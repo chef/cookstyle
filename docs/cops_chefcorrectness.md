@@ -219,6 +219,25 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefcorrectnessincorrectlibraryinjection](https://rubystyle.guide#chefcorrectnessincorrectlibraryinjection)
 
+## ChefCorrectness/InvalidDefaultAction
+
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
+
+No documentation
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.13.0` | String
+Include | `**/libraries/*.rb`, `**/resources/*.rb` | Array
+
+### References
+
+* [https://rubystyle.guide#chefcorrectnessinvaliddefaultaction](https://rubystyle.guide#chefcorrectnessinvaliddefaultaction)
+
 ## ChefCorrectness/InvalidNotificationTiming
 
 Enabled by default | Supports autocorrection | Target Chef Version
