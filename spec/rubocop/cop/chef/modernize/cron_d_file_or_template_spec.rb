@@ -45,7 +45,6 @@ describe RuboCop::Cop::Chef::ChefModernize::CronDFileOrTemplate, :config do
     RUBY
   end
 
-
   it 'registers an offense when using cookbook_file to create a file in /etc/cron.d/' do
     expect_offense(<<~RUBY)
     cookbook_file '/etc/cron.d/backup' do
