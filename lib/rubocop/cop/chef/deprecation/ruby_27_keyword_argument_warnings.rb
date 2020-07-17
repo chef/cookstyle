@@ -49,7 +49,7 @@ module RuboCop
 
           def autocorrect(node)
             lambda do |corrector|
-              # @todo when we drop ruby 2.4 support we can convert to to just delete_prefix delete_suffix
+              # @todo when we drop ruby 2.4 support we can convert this to just delete_prefix delete_suffix
               corrector.replace(node.loc.expression, node.loc.expression.source.gsub(/^{/, '').gsub(/}$/, ''))
             end
           end
