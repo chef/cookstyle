@@ -1,3 +1,125 @@
+## Cookstyle 6.13
+
+### 5 New Cops
+
+#### ChefCorrectness/InvalidDefaultAction
+
+The `ChefCorrectness/InvalidDefaultAction` cop detects resources that set the `default_action` to a value that is not a Symbol, Array, or variable.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+`Examples:`
+
+Invalid default_action:
+
+```ruby
+default_action 'create'
+```
+
+#### ChefCorrectness/SupportsMustBeFloat
+
+The `ChefCorrectness/SupportsMustBeFloat` cop detects `supports` metadata in the `metatdata.rb` that specifies a platform version as an Integer and not a Float. Integer platform values will cause errors when the cookbook is uploaded to a Chef Infra Server.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+`Examples:`
+
+Supports using an Integer value for a platform version:
+
+```ruby
+supports 'redhat', '< 8'
+```
+
+#### ChefModernize/ActionMethodInResource
+
+The `ChefModernize/ActionMethodInResource` detects resources that define resource actions as methods instead of using the custom resource language's `action :my_action` syntax.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+`Examples:`
+
+Resource using a method to define an action:
+
+```ruby
+def action_create
+  # :create action code here
+end
+```
+
+Autocorrected action:
+
+```ruby
+action :create do
+  # :create action code here
+end
+```
+
+#### ChefModernize/CronDFileOrTemplate
+
+The `ChefModernize/CronDFileOrTemplate` cop detects cookbooks that use `cookbook_file`, `template`, or `file` resources to create cron jobs in `/etc/cron.d` instead of using the `cron_d` resource included in Chef Infra Client 14 and later.
+
+`Enabled by default`: True
+
+`Autocorrects`: No
+
+`Examples:`
+
+Using template to create a cron.d file:
+
+```ruby
+template '/etc/cron.d/backup' do
+  source 'cron_backup_job.erb'
+  owner 'root'
+  group 'root'
+  mode '644'
+end
+```
+
+Using cron_d to create the same cron job:
+
+```ruby
+cron_d 'backup' do
+  minute '1'
+  hour '1'
+  mailto 'sysadmins@example.com'
+  command '/usr/local/bin/backup_script.sh'
+end
+```
+
+#### ChefRedundantCode/DoubleCompileTime
+
+The `ChefRedundantCode/DoubleCompileTime` cop detects resources that are set to run at compile time by using both the `compile_time` property and the `run_action` method, which do the same thing.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+`Examples:`
+
+Resource compile_time and run_action:
+
+```ruby
+chef_gem 'deep_merge' do
+  action :nothing
+  compile_time true
+end.run_action(:install)
+```
+
+Autocorrected resource:
+
+```ruby
+chef_gem 'deep_merge' do
+  action :install
+  compile_time true
+end
+```
+
 ## Cookstyle 6.12
 
 ### 3 New Cops
