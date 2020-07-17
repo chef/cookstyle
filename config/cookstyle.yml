@@ -455,7 +455,7 @@ ChefCorrectness/InvalidPlatformInCase:
     - '**/Berksfile'
 
 ChefCorrectness/InvalidDefaultAction:
-  Description: Default actions in resources should be symbols or an array of symbols.
+  Description: Default actions in resources should be a symbol or an array of symbols.
   StyleGuide: '#chefcorrectnessinvaliddefaultaction'
   Enabled: true
   VersionAdded: '6.13.0'
