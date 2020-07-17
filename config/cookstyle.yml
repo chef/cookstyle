@@ -1616,6 +1616,16 @@ ChefModernize/CronDFileOrTemplate:
     - '**/Berksfile'
     - '**/attributes/*.rb'
 
+ChefModernize/ActionMethodInResource:
+  Description: Use the custom resource language's `action :my_action` blocks instead of creating actions with methods.
+  StyleGuide: '#chefmodernizeactionmethodinresource'
+  Enabled: true
+  VersionAdded: '6.13.0'
+  Include:
+    - '**/resources/*.rb'
+    - '**/providers/*.rb'
+    - '**/libraries/*.rb'
+
 ###############################
 # ChefRedundantCode: Cleanup unnecessary code in your cookbooks regardless of Chef Infra Client release
 ###############################
