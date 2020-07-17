@@ -41,7 +41,7 @@ module RuboCop
           def_node_search :includes_poise?, '(send nil? :include (const nil? :Poise))'
 
           def on_def(node)
-            return unless node.method_name.start_with?('action_')
+            return unless node.method_name.to_s.start_with?('action_') # when we stop support for Ruby < 2.7 the .to_s can go away here
             return if node.arguments? # if they passed in arguments they may actually need this
             return if node.parent && includes_poise?(node.parent)
 
