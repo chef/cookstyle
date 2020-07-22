@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 #
 # Copyright:: 2019, Chef Software, Inc.
+# Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -24,6 +25,32 @@ describe RuboCop::Cop::Chef::ChefCorrectness::InvalidPlatformFamilyHelper, :conf
     expect_offense(<<~RUBY)
       platform_family?('redhat')
                        ^^^^^^^^ Pass valid platform families to the platform_family? helper.
+    RUBY
+
+    expect_correction(<<~RUBY)
+      platform_family?('rhel')
+    RUBY
+  end
+
+  it 'removes arguments if the correct value is already in the list' do
+    expect_offense(<<~RUBY)
+      platform_family?('redhat', 'rhel', 'amazon')
+                       ^^^^^^^^ Pass valid platform families to the platform_family? helper.
+    RUBY
+
+    expect_correction(<<~RUBY)
+      platform_family?('rhel', 'amazon')
+    RUBY
+  end
+
+  it 'does not autocorrect a platform family without a known mapping' do
+    expect_offense(<<~RUBY)
+      platform_family?('linux')
+                       ^^^^^^^ Pass valid platform families to the platform_family? helper.
+    RUBY
+
+    expect_correction(<<~RUBY)
+      platform_family?('linux')
     RUBY
   end
 

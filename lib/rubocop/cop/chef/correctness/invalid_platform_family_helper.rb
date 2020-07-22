@@ -31,8 +31,10 @@ module RuboCop
         #   platform_family?('rhel')
         #   platform_family?('suse')
         #
-        class InvalidPlatformFamilyHelper < Cop
+        class InvalidPlatformFamilyHelper < Base
+          extend RuboCop::Cop::AutoCorrector
           include ::RuboCop::Chef::PlatformHelpers
+          include RangeHelp
 
           MSG = 'Pass valid platform families to the platform_family? helper.'
 
@@ -41,9 +43,25 @@ module RuboCop
           PATTERN
 
           def on_send(node)
-            platform_family_helper?(node) do |plat|
-              plat.to_a.each do |p|
-                add_offense(p, location: :expression, message: MSG, severity: :refactor) if INVALID_PLATFORM_FAMILIES.key?(p.value)
+            platform_family_helper?(node) do |plats|
+              plats.to_a.each do |p|
+                next unless INVALID_PLATFORM_FAMILIES.key?(p.value)
+                add_offense(p.loc.expression, message: MSG, severity: :refactor) do |corrector|
+                  replacement_platform = INVALID_PLATFORM_FAMILIES[p.value]
+                  all_passed_platforms = p.parent.arguments.map(&:value)
+
+                  # see if we have a replacement platform in our hash. If not we can't autocorrect
+                  if replacement_platform
+                    # if the replacement platform was one of the other platforms passed we can just delete this bad platform
+                    if all_passed_platforms.include?(replacement_platform)
+                      all_passed_platforms.delete(p.value)
+                      arg_range = p.parent.arguments.first.loc.expression.join(p.parent.arguments[-1].loc.expression.end)
+                      corrector.replace(arg_range, all_passed_platforms.map { |x| "'#{x}'" }.join(', '))
+                    else
+                      corrector.replace(p.loc.expression, p.value.gsub(p.value, "'#{replacement_platform}'")) # gsub to retain quotes
+                    end
+                  end
+                end
               end
             end
           end
