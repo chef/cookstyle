@@ -45,18 +45,18 @@ module RuboCop
         class OhaiAttributeToString < Cop
           MSG = "This Ohai node attribute is already a string and doesn't need to be converted"
 
-          def_node_matcher :platform_to_s?, <<-PATTERN
+          def_node_matcher :attribute_to_s?, <<-PATTERN
             (send (send (send nil? :node) :[] $(str {"platform" "platform_family" "platform_version" "fqdn" "hostname" "os" "name"}) ) :to_s )
           PATTERN
 
           def on_send(node)
-            platform_to_s?(node) do
+            attribute_to_s?(node) do
               add_offense(node, location: :expression, message: MSG, severity: :refactor)
             end
           end
 
           def autocorrect(node)
-            platform_to_s?(node) do |method|
+            attribute_to_s?(node) do |method|
               lambda do |corrector|
                 corrector.replace(node.loc.expression, "node['#{method.value}']")
               end
