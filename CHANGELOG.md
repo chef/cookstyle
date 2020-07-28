@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.14.1 -->
-## [v6.14.1](https://github.com/chef/cookstyle/tree/v6.14.1) (2020-07-28)
+ <!-- latest_release 6.14.2 -->
+## [v6.14.2](https://github.com/chef/cookstyle/tree/v6.14.2) (2020-07-28)
 
 #### Merged Pull Requests
-- Multiple spelling corrections including a cop name [#697](https://github.com/chef/cookstyle/pull/697) ([tas50](https://github.com/tas50))
+- Update dead links [#696](https://github.com/chef/cookstyle/pull/696) ([dg42xyz](https://github.com/dg42xyz))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.13.3 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Update dead links [#696](https://github.com/chef/cookstyle/pull/696) ([dg42xyz](https://github.com/dg42xyz)) <!-- 6.14.2 -->
 - Multiple spelling corrections including a cop name [#697](https://github.com/chef/cookstyle/pull/697) ([tas50](https://github.com/tas50)) <!-- 6.14.1 -->
 - Fix matcher name to match what we&#39;re doing [#691](https://github.com/chef/cookstyle/pull/691) ([tas50](https://github.com/tas50)) <!-- 6.14.0 -->
 <!-- release_rollup -->
