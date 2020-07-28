@@ -19,7 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefDeprecations
-        # The beta Audit Mode for Chef Infra Client was removed in Chef Infra Client 15.0. Users should instead use InSpec and the audit cookbook. See https://www.inspec.io/ for more informmation.
+        # The beta Audit Mode for Chef Infra Client was removed in Chef Infra Client 15.0. Users should instead use InSpec and the audit cookbook. See https://www.inspec.io/ for more information.
         #
         # @example
         #
@@ -33,7 +33,7 @@ module RuboCop
         #   end
 
         class EOLAuditModeUsage < Cop
-          MSG = 'The beta Audit Mode feature in Chef Infra Client was removed in Chef Infra Client 15.0. Users should instead use InSpec and the audit cookbook. See https://www.inspec.io/ for more informmation.'
+          MSG = 'The beta Audit Mode feature in Chef Infra Client was removed in Chef Infra Client 15.0. Users should instead use InSpec and the audit cookbook. See https://www.inspec.io/ for more information.'
 
           def_node_matcher :control_group?, '(send nil? :control_group ...)'
 

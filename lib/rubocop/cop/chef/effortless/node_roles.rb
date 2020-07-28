@@ -19,13 +19,13 @@ module RuboCop
   module Cop
     module Chef
       module ChefEffortless
-        # Neither Policyfiles or Effortless Infra which is based on Policyfiles supports Chef Roles
+        # Neither Policyfiles or Effortless Infra which is based on Policyfiles supports Chef Infra Roles
         #
         # @example
         #
         #   # bad
-        #   node.role?('webserver')
-        #   node.roles.include?('webserver')
+        #   node.role?('web_server')
+        #   node.roles.include?('web_server')
         #
         class CookbookUsesRoles < Cop
           MSG = 'Cookbook uses roles, which cannot be used in Policyfiles or Effortless Infra'

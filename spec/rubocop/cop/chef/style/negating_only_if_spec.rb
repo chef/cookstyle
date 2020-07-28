@@ -71,7 +71,7 @@ describe RuboCop::Cop::Chef::ChefStyle::NegatingOnlyIf do
 
   it 'does not register an offense when an only_if conditional negates within the ruby in an inspec control' do
     expect_no_offenses(<<~RUBY)
-    control 'nagios-deamon-01' do
+    control 'nagios-daemon-01' do
       describe service(svc) do
         it { should be_running }
       end

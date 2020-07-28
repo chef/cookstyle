@@ -43,19 +43,19 @@ module RuboCop
 
           def on_ivasgn(node)
             provides_assignment?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor) if intialize_method(node.parent.parent).any?
+              add_offense(node, location: :expression, message: MSG, severity: :refactor) if initialize_method(node.parent.parent).any?
             end
           end
 
           def_node_search :provides_method?, '(send nil? :provides ... )'
 
-          def_node_search :intialize_method, '(def :initialize ... )'
+          def_node_search :initialize_method, '(def :initialize ... )'
 
           def autocorrect(node)
             lambda do |corrector|
               # insert the new provides call above the initialize method, but not if one already exists (this is sadly common)
               unless provides_method?(processed_source.ast)
-                initialize_node = intialize_method(processed_source.ast).first
+                initialize_node = initialize_method(processed_source.ast).first
                 corrector.insert_before(initialize_node.source_range, "provides #{node.descendants.first.source}\n\n")
               end
 

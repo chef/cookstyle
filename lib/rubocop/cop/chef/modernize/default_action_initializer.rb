@@ -47,13 +47,13 @@ module RuboCop
             (ivasgn {:@action :@default_action} $(...))
           PATTERN
 
-          def_node_search :intialize_method, '(def :initialize ... )'
+          def_node_search :initialize_method, '(def :initialize ... )'
 
           def_node_search :default_action_method?, '(send nil? :default_action ... )'
 
           def on_ivasgn(node)
             action_variable_assignment?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor) if intialize_method(node.parent.parent)
+              add_offense(node, location: :expression, message: MSG, severity: :refactor) if initialize_method(node.parent.parent)
             end
           end
 
@@ -61,7 +61,7 @@ module RuboCop
             lambda do |corrector|
               # insert the new default_action call above the initialize method, but not if one already exists (this is sadly common)
               unless default_action_method?(processed_source.ast)
-                initialize_node = intialize_method(processed_source.ast).first
+                initialize_node = initialize_method(processed_source.ast).first
                 corrector.insert_before(initialize_node.source_range, "default_action #{node.descendants.first.source}\n\n")
               end
 

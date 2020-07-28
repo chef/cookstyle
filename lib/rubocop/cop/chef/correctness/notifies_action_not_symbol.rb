@@ -25,20 +25,20 @@ module RuboCop
         # @example
         #
         #   # bad
-        #   execute 'some commmand' do
+        #   execute 'some command' do
         #     notifies 'restart', 'service[httpd]', 'delayed'
         #   end
         #
-        #   execute 'some commmand' do
+        #   execute 'some command' do
         #     subscribes 'restart', 'service[httpd]', 'delayed'
         #   end
         #
         #   # good
-        #   execute 'some commmand' do
+        #   execute 'some command' do
         #     notifies :restart, 'service[httpd]', 'delayed'
         #   end
         #
-        #   execute 'some commmand' do
+        #   execute 'some command' do
         #     subscribes :restart, 'service[httpd]', 'delayed'
         #   end
         #

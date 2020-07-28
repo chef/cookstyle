@@ -24,7 +24,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::Cheffile, :config do
   it 'registers an offense when cookbook includes a Cheffile' do
     expect_offense(<<~RUBY, 'Cheffile')
       site 'http://community.opscode.com/api/v1'
-      ^ The Libarian-Chef depsolving project is no longer maintained and a Cheffile should not be used for cookbook depsolving. Consider using Policyfiles instead.
+      ^ The Librarian-Chef depsolving project is no longer maintained and a Cheffile should not be used for cookbook depsolving. Consider using Policyfiles instead.
 
       cookbook 'application'
     RUBY

@@ -25,12 +25,12 @@ module RuboCop
         #
         #   # bad
         #   poise_archive 'https://example.com/myapp.tgz' do
-        #     destination '/opt/myapp'
+        #     destination '/opt/my_app'
         #   end
         #
         #   # good
         #   archive_file 'https://example.com/myapp.tgz' do
-        #     destination '/opt/myapp'
+        #     destination '/opt/my_app'
         #   end
         #
         class PoiseArchiveUsage < Cop

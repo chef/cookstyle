@@ -39,7 +39,7 @@ module RuboCop
 
           def_node_search :provides, '(send nil? :provides (sym $_) ...)'
 
-          # determine the cookbook name either by parsing metdata.rb or by parsing metata.json
+          # determine the cookbook name either by parsing metadata.rb or by parsing metadata.json
           #
           # @returns [String] the cookbook name
           def cookbook_name

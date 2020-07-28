@@ -515,7 +515,7 @@ ChefSharing/EmptyMetadataField:
     - '**/metadata.rb'
 
 ChefSharing/IncludePropertyDescriptions:
-  Description: Properties should include description fields to allow automated documention. Requires Chef Infra Client 13.9 or later.
+  Description: Properties should include description fields to allow automated documentation. Requires Chef Infra Client 13.9 or later.
   StyleGuide: '#chefsharingincludepropetydescriptions'
   Enabled: false
   VersionAdded: '6.1.0'
@@ -524,7 +524,7 @@ ChefSharing/IncludePropertyDescriptions:
     - '**/resources/*.rb'
 
 ChefSharing/IncludeResourceDescriptions:
-  Description: Resources should include description fields to allow automated documention. Requires Chef Infra Client 13.9 or later.
+  Description: Resources should include description fields to allow automated documentation. Requires Chef Infra Client 13.9 or later.
   StyleGuide: '#chefsharingincluderesourcedescriptions'
   Enabled: false
   VersionAdded: '6.1.0'
@@ -532,7 +532,7 @@ ChefSharing/IncludeResourceDescriptions:
     - '**/resources/*.rb'
 
 ChefSharing/IncludeResourceExamples:
-  Description: Resources should include examples field to allow automated documention. Requires Chef Infra Client 13.9 or later.
+  Description: Resources should include examples field to allow automated documentation. Requires Chef Infra Client 13.9 or later.
   StyleGuide: '#chefsharingincluderesourceexamples'
   Enabled: false
   VersionAdded: '6.10.0'
@@ -1540,7 +1540,7 @@ ChefModernize/WindowsRegistryUAC:
     - '**/Berksfile'
 
 ChefModernize/UseMultipackageInstalls:
-  Description: Pass an array of packages to package resources instead of interating over an array of packages when using multi-package capable package subystem such as apt, yum, chocolatey, dnf, or zypper. Multipackage installs are faster and simplify logs.
+  Description: Pass an array of packages to package resources instead of iterating over an array of packages when using multi-package capable package subsystem such as apt, yum, chocolatey, dnf, or zypper. Multi-package installs are faster and simplify logs.
   StyleGuide: '#chefmodernizeusemultipackageinstalls'
   Enabled: true
   VersionAdded: '6.0.0'
@@ -1873,7 +1873,7 @@ ChefEffortless/CookbookUsesDatabags:
     - '**/metadata.rb'
     - '**/Berksfile'
 
-ChefEffortless/CookbookUsesEnvironmments:
+ChefEffortless/CookbookUsesEnvironments:
   Description: Cookbook uses environments, which cannot be used in the Effortless Infra pattern
   StyleGuide: '#chefeffortlesscookbookusesenvironments'
   Enabled: false

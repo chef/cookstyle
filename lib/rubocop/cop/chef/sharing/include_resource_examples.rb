@@ -19,7 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefSharing
-        # Resources should include examples field to allow automated documention. Requires Chef Infra Client 13.9 or later.
+        # Resources should include examples field to allow automated documentation. Requires Chef Infra Client 13.9 or later.
         #
         # @example
         #
@@ -41,7 +41,7 @@ module RuboCop
 
           minimum_target_chef_version '13.9'
 
-          MSG = 'Resources should include examples field to allow automated documention. Requires Chef Infra Client 13.9 or later.'
+          MSG = 'Resources should include examples field to allow automated documentation. Requires Chef Infra Client 13.9 or later.'
 
           def investigate(processed_source)
             return if processed_source.blank?

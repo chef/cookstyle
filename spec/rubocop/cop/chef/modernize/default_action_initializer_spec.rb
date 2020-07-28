@@ -70,7 +70,7 @@ describe RuboCop::Cop::Chef::ChefModernize::DefaultActionFromInitialize, :config
     RUBY
   end
 
-  it 'Deletes the intializer usage it if the DSL method already exists' do
+  it 'Deletes the initializer usage it if the DSL method already exists' do
     expect_offense(<<~RUBY)
       default_action :create
 

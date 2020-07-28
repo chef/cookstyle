@@ -20,14 +20,14 @@ require 'spec_helper'
 describe RuboCop::Cop::Chef::ChefDeprecations::NodeSetWithoutLevel do
   subject(:cop) { described_class.new }
 
-  it 'registers an offense when setting a node attribute without precendence' do
+  it 'registers an offense when setting a node attribute without precedence' do
     expect_offense(<<~RUBY)
       node['foo'] = 'bar'
       ^^^^ When setting a node attribute in Chef Infra Client 11 and later you must specify the precedence level.
     RUBY
   end
 
-  it 'registers an offense when setting a deep node attribute without precendence' do
+  it 'registers an offense when setting a deep node attribute without precedence' do
     expect_offense(<<~RUBY)
       node['foo']['bar'] = 5
       ^^^^ When setting a node attribute in Chef Infra Client 11 and later you must specify the precedence level.
@@ -35,7 +35,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::NodeSetWithoutLevel do
   end
 
   %w(+= -= <<).each do |op|
-    it "registers an offense when apppending a node attribute without precendence using #{op}" do
+    it "registers an offense when appending a node attribute without precedence using #{op}" do
       expect_offense(<<~RUBY)
         node['foo'] #{op} 1
         ^^^^ When setting a node attribute in Chef Infra Client 11 and later you must specify the precedence level.
@@ -43,7 +43,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::NodeSetWithoutLevel do
     end
   end
 
-  it "doesn't register an offense when setting a node attribute with a precendence level" do
+  it "doesn't register an offense when setting a node attribute with a precedence level" do
     expect_no_offenses(<<~RUBY)
       node.default['foo'] = 'bar'
     RUBY

@@ -101,7 +101,7 @@ describe RuboCop::Cop::Chef::ChefModernize::IncludingMixinShelloutInResources, :
     RUBY
   end
 
-  it "doesn't register an offense when requirinng chef/mixin/foo" do
+  it "doesn't register an offense when requiring chef/mixin/foo" do
     expect_no_offenses(<<~RUBY)
     require 'chef/mixin/foo'
     RUBY

@@ -48,12 +48,12 @@ module RuboCop
             end
           end
 
-          def_node_search :intialize_method, '(def :initialize ... )'
+          def_node_search :initialize_method, '(def :initialize ... )'
 
           def autocorrect(node)
             lambda do |corrector|
               # insert the new resource_name call above the initialize method
-              initialize_node = intialize_method(processed_source.ast).first
+              initialize_node = initialize_method(processed_source.ast).first
               corrector.insert_before(initialize_node.source_range, "resource_name #{node.descendants.first.source}\n\n")
 
               # remove the variable from the initialize method

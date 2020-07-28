@@ -19,7 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefSharing
-        # Resource properties should include description fields to allow automated documention. Requires Chef Infra Client 13.9 or later.
+        # Resource properties should include description fields to allow automated documentation. Requires Chef Infra Client 13.9 or later.
         #
         # @example
         #
@@ -34,7 +34,7 @@ module RuboCop
 
           minimum_target_chef_version '13.9'
 
-          MSG = 'Resource properties should include description fields to allow automated documention. Requires Chef Infra Client 13.9 or later.'
+          MSG = 'Resource properties should include description fields to allow automated documentation. Requires Chef Infra Client 13.9 or later.'
 
           # any method named property being called with a symbol argument and anything else
           def_node_matcher :property?, '(send nil? :property (sym _) ...)'
