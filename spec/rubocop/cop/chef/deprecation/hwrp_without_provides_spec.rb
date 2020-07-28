@@ -131,7 +131,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::HWRPWithoutProvides, :config do
         class Resource
           class UlimitRule < Chef::Resource
             resource_name :ulimit_rule
-            provides :ulimit_somethingelse
+            provides :ulimit_something_else
             provides :ulimit_rule
 
             property :type, [Symbol, String], required: true
@@ -150,7 +150,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::HWRPWithoutProvides, :config do
         class Resource
           class UlimitRule < Chef::Resource
             resource_name :ulimit_rule
-            provides :ulimit_somethingelse
+            provides :ulimit_something_else
             provides :ulimit_rule, platform: "windows"
 
             property :type, [Symbol, String], required: true

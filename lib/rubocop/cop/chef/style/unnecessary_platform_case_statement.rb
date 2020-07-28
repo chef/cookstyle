@@ -67,7 +67,7 @@ module RuboCop
                   condition_string = node.when_branches.first.conditions.map(&:source).join(', ')
 
                   # single line bodies without an else statement should be transformed into `X if platform?('ubuntu')` style statements
-                  # while multiline statements should just have the case and when bits replace with `if platform?('ubuntu')`
+                  # while multi-line statements should just have the case and when bits replace with `if platform?('ubuntu')`
                   if !node.else? && !node.when_branches.first.body.multiline?
                     new_source = "#{node.when_branches.first.body.source} if #{type.value}?(#{condition_string})"
                     corrector.replace(node.loc.expression, new_source)

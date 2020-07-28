@@ -23,7 +23,7 @@ describe RuboCop::Cop::Chef::ChefCorrectness::InvalidNotificationTiming do
 
   it 'registers an offense with an invalid notification timing' do
     expect_offense(<<~RUBY)
-      execute 'some commmand' do
+      execute 'some command' do
         notifies :restart, 'service[httpd]', :now
                                              ^^^^ Valid notification timings are :immediately, :immediate (alias for :immediately), :delayed, and :before.
       end
@@ -32,7 +32,7 @@ describe RuboCop::Cop::Chef::ChefCorrectness::InvalidNotificationTiming do
 
   it 'does not register an offense with a valid notification timing' do
     expect_no_offenses(<<~RUBY)
-      execute 'some commmand' do
+      execute 'some command' do
         notifies :restart, 'service[httpd]', :delayed
       end
     RUBY
@@ -40,7 +40,7 @@ describe RuboCop::Cop::Chef::ChefCorrectness::InvalidNotificationTiming do
 
   it 'does not register an offense when there is no timing' do
     expect_no_offenses(<<~RUBY)
-      execute 'some commmand' do
+      execute 'some command' do
         notifies :restart, 'service[httpd]'
       end
     RUBY

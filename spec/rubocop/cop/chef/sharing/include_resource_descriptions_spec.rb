@@ -24,7 +24,7 @@ describe RuboCop::Cop::Chef::ChefSharing::IncludeResourceDescriptions, :config d
   it 'registers an offense when a resource does not include a description' do
     expect_offense(<<~RUBY)
     resource_name 'foo'
-    ^ Resources should include description fields to allow automated documention. Requires Chef Infra Client 13.9 or later.
+    ^ Resources should include description fields to allow automated documentation. Requires Chef Infra Client 13.9 or later.
     RUBY
   end
 

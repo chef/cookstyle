@@ -53,7 +53,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ResourceUsesOnlyResourceName do
   end
 
   it 'registers an offense when a resource has resource_name and does not use provides' do
-    expect_offense(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
+    expect_offense(<<~RUBY, '/my_dev_dir/cookbooks/my_cookbook/resources/foo.rb')
       resource_name :my_cookbook_foo
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Starting with Chef Infra Client 16, using `resource_name` without also using `provides` will result in resource failures. Make sure to use both `resource_name` and `provides` to change the name of the resource. You can also omit `resource_name` entirely if the value set matches the name Chef Infra Client automatically assigns based on COOKBOOKNAME_FILENAME.
     RUBY
@@ -62,10 +62,10 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ResourceUsesOnlyResourceName do
   it 'autocorrect deletes the resource_name if it the default name based on metadata.json data' do
     allow(File).to receive(:exist?).and_call_original
     allow(File).to receive(:read).and_call_original
-    allow(File).to receive(:exist?).with('/mydevdir/cookbooks/my_cookbook/metadata.rb').and_return(false)
-    allow(File).to receive(:exist?).with('/mydevdir/cookbooks/my_cookbook/metadata.json').and_return(true)
-    allow(File).to receive(:read).with('/mydevdir/cookbooks/my_cookbook/metadata.json').and_return(match_json)
-    corrected = autocorrect_source(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
+    allow(File).to receive(:exist?).with('/my_dev_dir/cookbooks/my_cookbook/metadata.rb').and_return(false)
+    allow(File).to receive(:exist?).with('/my_dev_dir/cookbooks/my_cookbook/metadata.json').and_return(true)
+    allow(File).to receive(:read).with('/my_dev_dir/cookbooks/my_cookbook/metadata.json').and_return(match_json)
+    corrected = autocorrect_source(<<~RUBY, '/my_dev_dir/cookbooks/my_cookbook/resources/foo.rb')
       resource_name :my_cookbook_foo
     RUBY
 
@@ -75,10 +75,10 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ResourceUsesOnlyResourceName do
   it 'adds provides in addition to resource_name if it is not the default name based on metadata.json data' do
     allow(File).to receive(:exist?).and_call_original
     allow(File).to receive(:read).and_call_original
-    allow(File).to receive(:exist?).with('/mydevdir/cookbooks/my_cookbook/metadata.rb').and_return(false)
-    allow(File).to receive(:exist?).with('/mydevdir/cookbooks/my_cookbook/metadata.json').and_return(true)
-    allow(File).to receive(:read).with('/mydevdir/cookbooks/my_cookbook/metadata.json').and_return(non_match_json)
-    corrected = autocorrect_source(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
+    allow(File).to receive(:exist?).with('/my_dev_dir/cookbooks/my_cookbook/metadata.rb').and_return(false)
+    allow(File).to receive(:exist?).with('/my_dev_dir/cookbooks/my_cookbook/metadata.json').and_return(true)
+    allow(File).to receive(:read).with('/my_dev_dir/cookbooks/my_cookbook/metadata.json').and_return(non_match_json)
+    corrected = autocorrect_source(<<~RUBY, '/my_dev_dir/cookbooks/my_cookbook/resources/foo.rb')
       resource_name :my_cookbook_foo
     RUBY
 
@@ -88,31 +88,31 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ResourceUsesOnlyResourceName do
   it 'is not an offense if the resource_name if it the default name based on metadata.json data, but the provides line contains a platform constraint' do
     allow(File).to receive(:exist?).and_call_original
     allow(File).to receive(:read).and_call_original
-    allow(File).to receive(:exist?).with('/mydevdir/cookbooks/my_cookbook/metadata.rb').and_return(false)
-    allow(File).to receive(:exist?).with('/mydevdir/cookbooks/my_cookbook/metadata.json').and_return(true)
-    allow(File).to receive(:read).with('/mydevdir/cookbooks/my_cookbook/metadata.json').and_return(match_json)
-    expect_no_offenses(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
+    allow(File).to receive(:exist?).with('/my_dev_dir/cookbooks/my_cookbook/metadata.rb').and_return(false)
+    allow(File).to receive(:exist?).with('/my_dev_dir/cookbooks/my_cookbook/metadata.json').and_return(true)
+    allow(File).to receive(:read).with('/my_dev_dir/cookbooks/my_cookbook/metadata.json').and_return(match_json)
+    expect_no_offenses(<<~RUBY, '/my_dev_dir/cookbooks/my_cookbook/resources/foo.rb')
       resource_name :my_cookbook_foo
       provides :my_cookbook_foo, platform: "windows"
     RUBY
   end
 
   it "doesn't register an offense when a resource has resource_name and provides" do
-    expect_no_offenses(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
+    expect_no_offenses(<<~RUBY, '/my_dev_dir/cookbooks/my_cookbook/resources/foo.rb')
       resource_name :my_cookbook_foo
       provides :my_cookbook_foo
     RUBY
   end
 
   it "doesn't register an offense when a resource has resource_name and provides (and the cookbook name doesn't match)" do
-    expect_no_offenses(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
+    expect_no_offenses(<<~RUBY, '/my_dev_dir/cookbooks/my_cookbook/resources/foo.rb')
       resource_name :my_cookbook_bar
       provides :my_cookbook_bar
     RUBY
   end
 
   it "corrects a cookbook that has a non-matching resource_name (when the cookbook name doesn't match)" do
-    corrected = autocorrect_source(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
+    corrected = autocorrect_source(<<~RUBY, '/my_dev_dir/cookbooks/my_cookbook/resources/foo.rb')
       resource_name :my_cookbook_bar
     RUBY
 
@@ -120,7 +120,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ResourceUsesOnlyResourceName do
   end
 
   it 'corrects a cookbook that has a non-matching resource_name and provides' do
-    corrected = autocorrect_source(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
+    corrected = autocorrect_source(<<~RUBY, '/my_dev_dir/cookbooks/my_cookbook/resources/foo.rb')
       resource_name :my_cookbook_bar
       provides :my_cookbook
     RUBY
@@ -129,7 +129,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ResourceUsesOnlyResourceName do
   end
 
   it 'corrects a cookbook that has a non-matching resource_name and provides (flip the script)' do
-    corrected = autocorrect_source(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
+    corrected = autocorrect_source(<<~RUBY, '/my_dev_dir/cookbooks/my_cookbook/resources/foo.rb')
       resource_name :my_cookbook
       provides :my_cookbook_bar
     RUBY
@@ -138,7 +138,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ResourceUsesOnlyResourceName do
   end
 
   it 'does not correct a cookbook that has an out of order set of provides' do
-    expect_no_offenses(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
+    expect_no_offenses(<<~RUBY, '/my_dev_dir/cookbooks/my_cookbook/resources/foo.rb')
       resource_name :my_cookbook
       provides :my_cookbook_bar
       provides :my_cookbook
@@ -146,7 +146,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ResourceUsesOnlyResourceName do
   end
 
   it 'does not correct a cookbook that has an out of order set of provides (flipped around)' do
-    expect_no_offenses(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
+    expect_no_offenses(<<~RUBY, '/my_dev_dir/cookbooks/my_cookbook/resources/foo.rb')
       resource_name :my_cookbook_bar
       provides :my_cookbook
       provides :my_cookbook_bar
@@ -154,16 +154,16 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ResourceUsesOnlyResourceName do
   end
 
   it 'does not correct a cookbook that matches, but also has a platform constraint' do
-    expect_no_offenses(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
+    expect_no_offenses(<<~RUBY, '/my_dev_dir/cookbooks/my_cookbook/resources/foo.rb')
       resource_name :my_cookbook
       provides :my_cookbook, platform: "windows"
     RUBY
   end
 
   it 'does not correct a cookbook that matches, but also has a platform constraint, following some other provides' do
-    expect_no_offenses(<<~RUBY, '/mydevdir/cookbooks/my_cookbook/resources/foo.rb')
+    expect_no_offenses(<<~RUBY, '/my_dev_dir/cookbooks/my_cookbook/resources/foo.rb')
       resource_name :my_cookbook
-      provides :my_coobook_bar
+      provides :my_cookbook_bar
       provides :my_cookbook, platform: "windows"
     RUBY
   end

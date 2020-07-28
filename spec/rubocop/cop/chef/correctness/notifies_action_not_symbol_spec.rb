@@ -23,14 +23,14 @@ describe RuboCop::Cop::Chef::ChefCorrectness::NotifiesActionNotSymbol do
 
   it 'registers an offense when a notifies action is a string' do
     expect_offense(<<~RUBY)
-      execute 'some commmand' do
+      execute 'some command' do
         notifies 'restart', 'service[httpd]', 'delayed'
         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Resource notification and subscription actions should be symbols not strings.
       end
     RUBY
 
     expect_correction(<<~RUBY)
-      execute 'some commmand' do
+      execute 'some command' do
         notifies :restart, 'service[httpd]', 'delayed'
       end
     RUBY
@@ -38,14 +38,14 @@ describe RuboCop::Cop::Chef::ChefCorrectness::NotifiesActionNotSymbol do
 
   it 'registers an offense when a subscribes action is a string' do
     expect_offense(<<~RUBY)
-      execute 'some commmand' do
+      execute 'some command' do
         subscribes 'restart', 'service[httpd]', 'delayed'
         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Resource notification and subscription actions should be symbols not strings.
       end
     RUBY
 
     expect_correction(<<~RUBY)
-      execute 'some commmand' do
+      execute 'some command' do
         subscribes :restart, 'service[httpd]', 'delayed'
       end
     RUBY
@@ -53,7 +53,7 @@ describe RuboCop::Cop::Chef::ChefCorrectness::NotifiesActionNotSymbol do
 
   it 'does not register an offense when the notifies action is a symbol' do
     expect_no_offenses(<<~RUBY)
-      execute 'some commmand' do
+      execute 'some command' do
         notifies :restart, 'service[httpd]', 'delayed'
       end
     RUBY

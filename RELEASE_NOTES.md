@@ -20,7 +20,7 @@ default_action 'create'
 
 #### ChefCorrectness/SupportsMustBeFloat
 
-The `ChefCorrectness/SupportsMustBeFloat` cop detects `supports` metadata in the `metatdata.rb` that specifies a platform version as an Integer and not a Float. Integer platform values will cause errors when the cookbook is uploaded to a Chef Infra Server.
+The `ChefCorrectness/SupportsMustBeFloat` cop detects `supports` metadata in the `metadata.rb` that specifies a platform version as an Integer and not a Float. Integer platform values will cause errors when the cookbook is uploaded to a Chef Infra Server.
 
 `Enabled by default`: True
 
@@ -196,7 +196,7 @@ The `ChefStyle/IncludeRecipeWithParentheses` cop detects unnecessary parentheses
 
 `Examples:`
 
-Paranthesis with include_recipe:
+Parentheses with include_recipe:
 
 ```ruby
 include_recipe('my_recipe')
@@ -279,7 +279,7 @@ RuboCop has been updated to 0.86, which includes several bug fixes to prevent fa
 
 Chef Infra Client 16.2 contains additional changes to how resource names are specified in order to avoid edge cases in resource naming. When setting the name of a custom resource `provides` should now be used instead of `resource_name`. If writing cookbooks that support Chef Infra Client < 16 you'll want to use both `provides` and `resource_name` to support all releases.
 
-To support these changes we've made several updates to existing cops. The `ChefDeprecations/ResourceUsesOnlyResourceName` cop has been updated to add `provides` in addition to `resoure_name` instead of replacing `resource_name` with `provides`. This change ensures cookbooks continue to function on Chef Infra Client less than 16. The `ChefDeprecations/ResourceWithoutNameOrProvides` cop has also been renamed to `ChefDeprecations/HWRPWithoutProvides` and improves detection of resources without `provides`. Both cops now better validate the contents of existing `provides` calls.
+To support these changes we've made several updates to existing cops. The `ChefDeprecations/ResourceUsesOnlyResourceName` cop has been updated to add `provides` in addition to `resource_name` instead of replacing `resource_name` with `provides`. This change ensures cookbooks continue to function on Chef Infra Client less than 16. The `ChefDeprecations/ResourceWithoutNameOrProvides` cop has also been renamed to `ChefDeprecations/HWRPWithoutProvides` and improves detection of resources without `provides`. Both cops now better validate the contents of existing `provides` calls.
 
 ### RuboCop 0.85.1
 
@@ -299,7 +299,7 @@ The `ChefDeprecations/ResourceUsesOnlyResourceName` cop detects custom resources
 
 #### Lint/DeprecatedOpenSSLConstant
 
-The `Lint/DeprecatedOpenSSLConstant` cop detects an upcoming deprecation in Ruby 3.0 that impacts the usage of OpenSSL constants. This deprecation is incredibly uncommon in Chef Infra cookbooks, but we wanted to make sure that any occurances were corrected before Ruby 3.0 ships next year.
+The `Lint/DeprecatedOpenSSLConstant` cop detects an upcoming deprecation in Ruby 3.0 that impacts the usage of OpenSSL constants. This deprecation is incredibly uncommon in Chef Infra cookbooks, but we wanted to make sure that any occurrences were corrected before Ruby 3.0 ships next year.
 
 `Enabled by default`: True
 
@@ -312,7 +312,7 @@ The RuboCop engine that powers Cookstyle has been upgraded from 0.83 to 0.85. Th
 ### Other Improvements
 
 - The `Naming/AccessorMethodName` cop has been disabled. This cop did not significantly improve cookbook code and could not be autocorrected.
-- The `ChefModernize/IncludingMixinShelloutInResources` cop now detects and corrects occurences in legacy HWRP resources.
+- The `ChefModernize/IncludingMixinShelloutInResources` cop now detects and corrects occurrences in legacy HWRP resources.
 
 ## Cookstyle 6.6
 
@@ -353,8 +353,8 @@ The `ChefCorrectness/InvalidPlatformInCase` cop detects cookbooks that use `case
 ### Other Improvements
 
 - The `ChefModernize/UseMultipackageInstalls` has been updated to detect additional forms of creating multiple package resources from an Array of package names.
-- The `ChefDeprecations/IncludingXMLRubyRecipe` autocorrect has been udpated to remove any inline conditionals.
-- Added `oracle` as an invaid platform family for cops validating platform families.
+- The `ChefDeprecations/IncludingXMLRubyRecipe` autocorrect has been updated to remove any inline conditionals.
+- Added `oracle` as an invalid platform family for cops validating platform families.
 - All cops now include links to documentation that can be enabled by running Cookstyle with the `--display-style-guide` command line flag.
 
 ## Cookstyle 6.5
@@ -631,7 +631,7 @@ The `ChefModernize/UseMultipackageInstalls` cop detects cookbooks that use Ruby 
 
 #### ChefModernize/ProvidesFromInitialize
 
-The `ChefModernize/ProvidesFromInitialize` cop detects legacy HWRP-style resources that set the `provides` name in an `intialize` method instead of using the `provides` method in the resource DSL.
+The `ChefModernize/ProvidesFromInitialize` cop detects legacy HWRP-style resources that set the `provides` name in an `initialize` method instead of using the `provides` method in the resource DSL.
 
 #### ChefModernize/DatabagHelpers
 
@@ -645,7 +645,7 @@ The `ChefModernize/DatabagHelpers` cop detects cookbooks that load data bags wit
 - `Style/MultilineWhenThen` is now enabled by default. This cop simplifies case statements.
 - `Style/HashEachMethod` is now enabled by default. This cop detects and autocorrects overly complex code against hashes that can be simplified.
 - `ChefRedundant/UnnecessaryNameProperty` now detects unnecessary :Name attributes as well as properties.
-- `ChefModernize/DefaultActionFromInitialize` has been improved to detect more forms of default actions set in intializers.
+- `ChefModernize/DefaultActionFromInitialize` has been improved to detect more forms of default actions set in initializers.
 - `ChefCorrectness/DnfPackageAllowDowngrades` now supports autocorrection.
 - `ChefModernize/WindowsRegistryUAC` now detects additional registry key forms used to set UAC settings.
 - `ChefModernize/PowerShellGuardInterpreter` now also detects if the PowerShell guard is set in `batch` resources
@@ -682,7 +682,7 @@ The `ChefModernize/UseRequireRelative` cop detects cookbooks that use overly com
 
 #### ChefStyle/UnnecessaryOSCheck
 
-The `ChefStyle/UnnecessaryOSCheck` cop checks cookbooks that use `node['os']` to check the operating system of a node, when they could instead use the `platform_family?()` helper. All values of `os` from Ohai match one-to-one with `platform_family` values, except for `linux` which has no single equivalent `plaform_family`.
+The `ChefStyle/UnnecessaryOSCheck` cop checks cookbooks that use `node['os']` to check the operating system of a node, when they could instead use the `platform_family?()` helper. All values of `os` from Ohai match one-to-one with `platform_family` values, except for `linux` which has no single equivalent `platform_family`.
 
 #### ChefModernize/SimplifyAptPpaSetup
 
@@ -739,7 +739,7 @@ let(:chef_run) { ChefSpec::ServerRunner.new(platform: 'debian') }
 
 ### Other fixes and changes
 
-- The `ChefModernize/ExecuteSysctl` cop will now detect `execute` resources that call systctl using the full path to the binary.
+- The `ChefModernize/ExecuteSysctl` cop will now detect `execute` resources that call sysctl using the full path to the binary.
 - The `ChefModernize/LibarchiveFileResource` resource will now replace the `libarchive_file` resource with Chef Infra Client's built-in `archive_file` resource.
 - The `ChefStyle/UnnecessaryPlatformCaseStatement` cop will no longer attempt to autocorrect empty case statements.
 
@@ -1457,9 +1457,9 @@ The `NotifiesActionNotSymbol` cop detects resources that notify another resource
 
 `Autocorrects`: Yes
 
-#### ChefEffortless/CookbookUsesEnvironmments
+#### ChefEffortless/CookbookUsesEnvironments
 
-`CookbookUsesEnvironmments` is a disabled by default cop that helps users migrating to the Chef Infra Effortless pattern by detecting cookbooks that use Chef Infra Environnments.
+`CookbookUsesEnvironments` is a disabled by default cop that helps users migrating to the Chef Infra Effortless pattern by detecting cookbooks that use Chef Infra Environments.
 
 `Enabled by default`: False
 
@@ -1548,7 +1548,7 @@ The `InvalidVersionMetadata` cop detects cookbook metadata that specifies invali
 
 #### ChefStyle/SimplifyPlatformMajorVersionCheck
 
-The `SimplifyPlatformMajorVersionCheck` cop detects overly complex code for determing the major version of a platform using the `node['platform_version']` attribute. The cop will detect the following methods for selecting the major version from `node['platform_version']`:
+The `SimplifyPlatformMajorVersionCheck` cop detects overly complex code for determining the major version of a platform using the `node['platform_version']` attribute. The cop will detect the following methods for selecting the major version from `node['platform_version']`:
 
 ```ruby
 node['platform_version'].split('.').first
@@ -2107,7 +2107,7 @@ The `IncludingOhaiDefaultRecipe` cop detects cookbooks that include the `ohai::d
 
 #### Chef/IncludingXMLRubyRecipe
 
-The `IncludingXMLRubyRecipe` cop detects cookbooks that include the `xml::ruby` recipe. This recipe was used to install the `nokogiri` gem into Chef Infra Client for use in parsing XML in cookbooks. Nokogori ships with Chef Infra Client 13+, so this recipe is no longer necessary.
+The `IncludingXMLRubyRecipe` cop detects cookbooks that include the `xml::ruby` recipe. This recipe was used to install the `nokogiri` gem into Chef Infra Client for use in parsing XML in cookbooks. Nokogiri ships with Chef Infra Client 13+, so this recipe is no longer necessary.
 
 `Enabled by default`: True
 
@@ -2155,7 +2155,7 @@ The `UsesDeprecatedMixins` cop detects various legacy mixins used in `HWRP` and 
 
 #### Chef/MinitestHandlerUsage
 
-The `MinitestHandlerUsage` cop detects cookbooks that depend on the [minitest-handler](https://supermarket.chef.io/cookbooks/minitest-handler) cookbook. This cookbook provides a handler for running [minitests](https://github.com/seattlerb/minitest) after each Chef Infra Client run. The handler is no longer maintained and we highly recommend using InSpec for validating a system configuration after a Chef Infra Client run. InSpec includes over 100 built-in resources and integrates with Automate to report the results of a system state validation.
+The `MinitestHandlerUsage` cop detects cookbooks that depend on the [minitest-handler](https://supermarket.chef.io/cookbooks/minitest-handler) cookbook. This cookbook provides a handler for running [minitest](https://github.com/seattlerb/minitest) after each Chef Infra Client run. The handler is no longer maintained and we highly recommend using InSpec for validating a system configuration after a Chef Infra Client run. InSpec includes over 100 built-in resources and integrates with Automate to report the results of a system state validation.
 
 `Enabled by default`: True
 
@@ -2185,7 +2185,7 @@ The same version comparison could be done using Ohai attributes
 
 #### Chef/WindowsZipfileUsage
 
-The `WindowsZipfileUsage` detects the usage of the `windows_zipfile` resource in the [Windows](https://supermarket.chef.io/cookbooks/windows) cookbook. This is one of the remaining resources in the windows cookbook that is not present in Chef Infra Client itself. In Chef Infra Client 15.0 we introduced the [archive_file](https://docs.chef.io/resource_archive_file.html) resource, which is a cross platform resource for uncompressing archives. This resource uses an ulta-fast compression library with support for multiple compression formats, and should be used instead of the legacy `windows_zipfile` resource.
+The `WindowsZipfileUsage` detects the usage of the `windows_zipfile` resource in the [Windows](https://supermarket.chef.io/cookbooks/windows) cookbook. This is one of the remaining resources in the windows cookbook that is not present in Chef Infra Client itself. In Chef Infra Client 15.0 we introduced the [archive_file](https://docs.chef.io/resource_archive_file.html) resource, which is a cross platform resource for uncompressing archives. This resource uses an ultra-fast compression library with support for multiple compression formats, and should be used instead of the legacy `windows_zipfile` resource.
 
 `Enabled by default`: True
 
@@ -2228,7 +2228,7 @@ The `IncludingMixinShelloutInResources` cop detects resources that require and i
 ### Other fixes and changes
 
 - Multiple cops will now skip scanning metadata.rb to speed up cookstyle runs
-- Chef/MetadataMissingName now supports autocorrecting. The folder containing the metadata.rb will be used as the cookbook name if it's missing from metdata.rb
+- Chef/MetadataMissingName now supports autocorrecting. The folder containing the metadata.rb will be used as the cookbook name if it's missing from metadata.rb
 - Chef/WhyRunSupportedTrue has been corrected to properly trigger on the whyrun_supported method in resources
 - The files directory in cookbooks is now excluded from Cookstyle scans
 
@@ -2457,7 +2457,7 @@ The `AttributeMetadata` detects metadata that contains attribute documentation. 
 
 `Enabled by default`: True
 
-`Autocorrects`: True (deletes the occurance)
+`Autocorrects`: True (deletes the occurrence)
 
 #### Chef/CookbookDependsOnCompatResource
 
@@ -2562,7 +2562,7 @@ The `EpicFail` cop detects usage of the legacy `epic_fail` method, which was ali
 `Example`:
 
 ```ruby
-excute '/bin/command_that_fails_often' do
+execute '/bin/command_that_fails_often' do
   epic_fail true
 end
 ```

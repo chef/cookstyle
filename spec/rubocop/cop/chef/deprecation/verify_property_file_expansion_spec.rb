@@ -36,7 +36,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::VerifyPropertyUsesFileExpansion, 
     RUBY
   end
 
-  it "doesn't register an when usinng path variable in the verify property" do
+  it "doesn't register an when using path variable in the verify property" do
     expect_no_offenses(<<~RUBY)
       file '/etc/nginx.conf' do
         verify 'nginx -t -c %{path}'

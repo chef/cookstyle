@@ -21,7 +21,7 @@ require 'spec_helper'
 describe RuboCop::Cop::Chef::ChefDeprecations::Ruby27KeywordArgumentWarnings, :config do
   subject(:cop) { described_class.new(config) }
 
-  it 'registers an offense when passing a hash with backets to shell_out' do
+  it 'registers an offense when passing a hash with brackets to shell_out' do
     expect_offense(<<~RUBY)
     shell_out('hostnamectl status', {returns: [0, 1]})
                                     ^^^^^^^^^^^^^^^^^ Pass options to shell_out helpers without the brackets to avoid Ruby 2.7 deprecation warnings.
@@ -32,7 +32,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::Ruby27KeywordArgumentWarnings, :c
     RUBY
   end
 
-  it 'registers an offense when passing a hash with backets to shell_out!' do
+  it 'registers an offense when passing a hash with brackets to shell_out!' do
     expect_offense(<<~RUBY)
     shell_out!('hostnamectl status', {returns: [0, 1]})
                                      ^^^^^^^^^^^^^^^^^ Pass options to shell_out helpers without the brackets to avoid Ruby 2.7 deprecation warnings.

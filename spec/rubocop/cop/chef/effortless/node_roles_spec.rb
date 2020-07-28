@@ -23,14 +23,14 @@ describe RuboCop::Cop::Chef::ChefEffortless::CookbookUsesRoles, :config do
 
   it 'registers an offense when node.role? is used' do
     expect_offense(<<~RUBY)
-      node.role?('webserver')
-      ^^^^^^^^^^^^^^^^^^^^^^^ Cookbook uses roles, which cannot be used in Policyfiles or Effortless Infra
+      node.role?('web_server')
+      ^^^^^^^^^^^^^^^^^^^^^^^^ Cookbook uses roles, which cannot be used in Policyfiles or Effortless Infra
     RUBY
   end
 
   it 'registers an offense when node.roles is used' do
     expect_offense(<<~RUBY)
-      node.roles.include?('webserver')
+      node.roles.include?('web_server')
       ^^^^^^^^^^ Cookbook uses roles, which cannot be used in Policyfiles or Effortless Infra
     RUBY
   end

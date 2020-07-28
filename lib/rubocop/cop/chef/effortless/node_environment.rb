@@ -27,7 +27,7 @@ module RuboCop
         #   node.environment == "production"
         #   node.chef_environment == "production"
         #
-        class CookbookUsesEnvironmments < Cop
+        class CookbookUsesEnvironments < Cop
           MSG = 'Cookbook uses environments, which cannot be used in Policyfiles or Effortless Infra'
 
           def on_send(node)

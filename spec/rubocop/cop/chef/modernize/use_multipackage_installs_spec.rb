@@ -26,7 +26,7 @@ describe RuboCop::Cop::Chef::ChefModernize::UseMultipackageInstalls, :config do
       case node['platform']
       when 'ubuntu'
         %w(bmon htop vim curl).each do |pkg|
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Pass an array of packages to package resources instead of interating over an array of packages when using multi-package capable package subystem such as apt, yum, chocolatey, dnf, or zypper. Multipackage installs are faster and simplify logs.
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Pass an array of packages to package resources instead of iterating over an array of packages when using multi-package capable package subsystem such as apt, yum, chocolatey, dnf, or zypper. Multi-package installs are faster and simplify logs.
           package pkg do
             action :install
           end
@@ -47,7 +47,7 @@ describe RuboCop::Cop::Chef::ChefModernize::UseMultipackageInstalls, :config do
       case node['platform']
       when 'ubuntu'
         %w(bmon htop vim curl).each do |pkg|
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Pass an array of packages to package resources instead of interating over an array of packages when using multi-package capable package subystem such as apt, yum, chocolatey, dnf, or zypper. Multipackage installs are faster and simplify logs.
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Pass an array of packages to package resources instead of iterating over an array of packages when using multi-package capable package subsystem such as apt, yum, chocolatey, dnf, or zypper. Multi-package installs are faster and simplify logs.
           package pkg
         end
       end
@@ -65,7 +65,7 @@ describe RuboCop::Cop::Chef::ChefModernize::UseMultipackageInstalls, :config do
     expect_offense(<<~RUBY)
       if platform?('ubuntu')
         %w(bmon htop vim curl).each do |pkg|
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Pass an array of packages to package resources instead of interating over an array of packages when using multi-package capable package subystem such as apt, yum, chocolatey, dnf, or zypper. Multipackage installs are faster and simplify logs.
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Pass an array of packages to package resources instead of iterating over an array of packages when using multi-package capable package subsystem such as apt, yum, chocolatey, dnf, or zypper. Multi-package installs are faster and simplify logs.
           package pkg
         end
       end
@@ -82,7 +82,7 @@ describe RuboCop::Cop::Chef::ChefModernize::UseMultipackageInstalls, :config do
     expect_offense(<<~RUBY)
       if platform?('ubuntu')
         %w(bmon htop vim curl).each do |pkg|
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Pass an array of packages to package resources instead of interating over an array of packages when using multi-package capable package subystem such as apt, yum, chocolatey, dnf, or zypper. Multipackage installs are faster and simplify logs.
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Pass an array of packages to package resources instead of iterating over an array of packages when using multi-package capable package subsystem such as apt, yum, chocolatey, dnf, or zypper. Multi-package installs are faster and simplify logs.
           package pkg do
             action :install
           end
@@ -97,7 +97,7 @@ describe RuboCop::Cop::Chef::ChefModernize::UseMultipackageInstalls, :config do
     RUBY
   end
 
-  it "doesn't register an offense when iterating over packages in a case statement on a non-multipackage platform" do
+  it "doesn't register an offense when iterating over packages in a case statement on a non-multi-package platform" do
     expect_no_offenses(<<~RUBY)
       case node['platform']
       when 'mac_os_x'
@@ -110,7 +110,7 @@ describe RuboCop::Cop::Chef::ChefModernize::UseMultipackageInstalls, :config do
     RUBY
   end
 
-  it "doesn't register an offense when iterating over packages in a platform? check on a non-multipackage platform" do
+  it "doesn't register an offense when iterating over packages in a platform? check on a non-multi-package platform" do
     expect_no_offenses(<<~RUBY)
       if platform?('mac_os_x')
         %w(bmon htop vim curl).each do |pkg|

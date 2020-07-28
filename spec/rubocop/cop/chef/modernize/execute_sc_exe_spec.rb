@@ -31,7 +31,7 @@ describe RuboCop::Cop::Chef::ChefModernize::ExecuteScExe, :config do
     RUBY
   end
 
-  it "doesn't register an offense for a command that doesnt' start with sc.exe" do
+  it "doesn't register an offense for a command that doesn't start with sc.exe" do
     expect_no_offenses(<<~RUBY)
       execute "foo" do
         command "something something sc.exe"

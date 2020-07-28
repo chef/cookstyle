@@ -56,13 +56,13 @@ module RuboCop
 
           def_node_search :action_methods?, '(send nil? {:actions :allowed_actions} ... )'
 
-          def_node_search :intialize_method, '(def :initialize ... )'
+          def_node_search :initialize_method, '(def :initialize ... )'
 
           def autocorrect(node)
             lambda do |corrector|
               # insert the new allowed_actions call above the initialize method, but not if one already exists (this is sadly common)
               unless action_methods?(processed_source.ast)
-                initialize_node = intialize_method(processed_source.ast).first
+                initialize_node = initialize_method(processed_source.ast).first
                 corrector.insert_before(initialize_node.source_range, "allowed_actions #{node.descendants.first.source}\n\n")
               end
 

@@ -19,7 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefModernize
-        # Pass an array of packages to package resources instead of interating over an array of packages when using multi-package capable package subystem such as apt, yum, chocolatey, dnf, or zypper. Multipackage installs are faster and simplify logs.
+        # Pass an array of packages to package resources instead of iterating over an array of packages when using multi-package capable package subsystem such as apt, yum, chocolatey, dnf, or zypper. Multi-package installs are faster and simplify logs.
         #
         # @example
         #
@@ -34,7 +34,7 @@ module RuboCop
         #   package %w(bmon htop vim curl)
         #
         class UseMultipackageInstalls < Cop
-          MSG = 'Pass an array of packages to package resources instead of interating over an array of packages when using multi-package capable package subystem such as apt, yum, chocolatey, dnf, or zypper. Multipackage installs are faster and simplify logs.'
+          MSG = 'Pass an array of packages to package resources instead of iterating over an array of packages when using multi-package capable package subsystem such as apt, yum, chocolatey, dnf, or zypper. Multi-package installs are faster and simplify logs.'
           MULTIPACKAGE_PLATS = %w(debian redhat suse amazon fedora scientific oracle rhel ubuntu centos redhat).freeze
 
           def_node_matcher :platform_or_platform_family?, <<-PATTERN
@@ -73,7 +73,7 @@ module RuboCop
                   (lvar _))})
           PATTERN
 
-          # see if all platforms in the when condition are multipackage compliant
+          # see if all platforms in the when condition are multi-package compliant
           def multipackage_platforms?(condition_obj)
             condition_obj.all? do |p|
               MULTIPACKAGE_PLATS.include?(p.value)
