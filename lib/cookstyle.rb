@@ -7,13 +7,13 @@ require 'yaml'
 # ensure the desired target version of RuboCop is gem activated
 gem 'rubocop', "= #{Cookstyle::RUBOCOP_VERSION}"
 require 'rubocop'
-require 'rubocop/monkey_patches/comment_config.rb'
+require_relative 'rubocop/monkey_patches/comment_config.rb'
 
 # monkey patches needed for the TargetChefVersion config option
-require 'rubocop/monkey_patches/config.rb'
-require 'rubocop/monkey_patches/cop.rb'
-require 'rubocop/monkey_patches/team.rb'
-require 'rubocop/monkey_patches/registry_cop.rb'
+require_relative 'rubocop/monkey_patches/config.rb'
+require_relative 'rubocop/monkey_patches/base.rb'
+require_relative 'rubocop/monkey_patches/team.rb'
+require_relative 'rubocop/monkey_patches/registry_cop.rb'
 
 module RuboCop
   class ConfigLoader
