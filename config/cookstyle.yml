@@ -1039,7 +1039,7 @@ ChefDeprecations/ResourceUsesOnlyResourceName:
 
 ChefDeprecations/ChefDKGenerators:
   Description: Chef Workstation 0.8 and later renamed the ChefDK module used when writing custom cookbook generators from ChefDK to ChefCLI. For compatibility with the latest Chef Workstation releases you'll need to reference the new class names.
-  StyleGuide: '#chefdkgenerators'
+  StyleGuide: '#chefdeprecationschefdkgenerators'
   Enabled: true
   VersionAdded: '6.12.0'
   Exclude:
@@ -1048,7 +1048,7 @@ ChefDeprecations/ChefDKGenerators:
 
 ChefDeprecations/ChefHandlerRecipe:
   Description: There is no need to include the empty and deprecated chef_handler::default recipe in order to use the chef_handler resource.
-  StyleGuide: '#chefhandlerrecipe'
+  StyleGuide: '#chefdeprecationschefhandlerrecipe'
   Enabled: true
   VersionAdded: '6.12.0'
   Exclude:
@@ -1057,7 +1057,7 @@ ChefDeprecations/ChefHandlerRecipe:
 
 ChefDeprecations/UseAutomaticResourceName:
   Description: The use_automatic_resource_name method was removed in Chef Infra Client 16. The resource name/provides should be set explicitly instead.
-  StyleGuide: '#useautomaticresourcename'
+  StyleGuide: '#chefdeprecationsuseautomaticresourcename'
   Enabled: true
   VersionAdded: '6.12.0'
   Include:
