@@ -5,27 +5,6 @@ AllCops:
     - '/**/files/**/*'
     - '/**/vendor/**/*'
     - Guardfile
-  ChefAttributes:
-    Patterns:
-    - attributes/.*\.rb
-  ChefDefinitions:
-    Patterns:
-    - definitions/.*\.rb
-  ChefLibraries:
-    Patterns:
-    - libraries/.*\.rb
-  ChefMetadata:
-    Patterns:
-    - metadata\.rb
-  ChefProviders:
-    Patterns:
-    - providers/.*\.rb
-  ChefRecipes:
-    Patterns:
-    - recipes/.*\.rb
-  ChefResources:
-    Patterns:
-    - resources/.*\.rb
 
 ###############################
 # ChefStyle: Making cookbooks look better
