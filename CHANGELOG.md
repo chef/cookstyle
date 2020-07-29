@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.14.4 -->
-## [v6.14.4](https://github.com/chef/cookstyle/tree/v6.14.4) (2020-07-29)
+ <!-- latest_release 6.14.5 -->
+## [v6.14.5](https://github.com/chef/cookstyle/tree/v6.14.5) (2020-07-29)
 
 #### Merged Pull Requests
-- Fix a few incorrect StyleGuide links [#699](https://github.com/chef/cookstyle/pull/699) ([tas50](https://github.com/tas50))
+- Fix target_chef_version support in the new Rubocop 0.88+ format of cops [#700](https://github.com/chef/cookstyle/pull/700) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.13.3 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Fix target_chef_version support in the new Rubocop 0.88+ format of cops [#700](https://github.com/chef/cookstyle/pull/700) ([tas50](https://github.com/tas50)) <!-- 6.14.5 -->
 - Fix a few incorrect StyleGuide links [#699](https://github.com/chef/cookstyle/pull/699) ([tas50](https://github.com/tas50)) <!-- 6.14.4 -->
 - Cleanup leftover config from rubocop-chef project [#698](https://github.com/chef/cookstyle/pull/698) ([tas50](https://github.com/tas50)) <!-- 6.14.3 -->
 - Update dead links [#696](https://github.com/chef/cookstyle/pull/696) ([dg42xyz](https://github.com/dg42xyz)) <!-- 6.14.2 -->
