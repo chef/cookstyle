@@ -40,6 +40,26 @@ describe RuboCop::Cop::Chef::ChefCorrectness::MacosUserdefaultsInvalidType do
     RUBY
   end
 
+  it "registers an offense even if it can't autocorrect it" do
+    expect_offense(<<~RUBY)
+      macos_userdefaults 'set a value' do
+        global true
+        key 'key'
+        type 'total_fake_stuff'
+        ^^^^^^^^^^^^^^^^^^^^^^^ The macos_userdefaults resource prior to Chef Infra Client 16.3 would silently continue if invalid types were passed resulting in unexpected behavior. Valid values are: "array", "bool", "dict", "float", "int", and "string".
+      end
+    RUBY
+
+    # not this is the same aka no autocorrect
+    expect_correction(<<~RUBY)
+      macos_userdefaults 'set a value' do
+        global true
+        key 'key'
+        type 'total_fake_stuff'
+      end
+    RUBY
+  end
+
   it 'does not register an offense with a valid type in macos_userdefaults' do
     expect_no_offenses(<<~RUBY)
       macos_userdefaults 'set a value' do
