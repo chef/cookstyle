@@ -450,6 +450,15 @@ ChefCorrectness/SupportsMustBeFloat:
   Include:
     - '**/metadata.rb'
 
+ChefCorrectness/MacosUserdefaultsInvalidType:
+  Description: The macos_userdefaults resource prior to Chef Infra Client 16.3 would silently continue if invalid types were passed resulting in unexpected behavior. Valid values are 'array', 'bool', 'dict', 'float', 'int', and 'string'.
+  StyleGuide: '#chefcorrectnessmacosuserdefaultsinvalidtype'
+  Enabled: true
+  VersionAdded: '6.14.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/Berksfile'
+
 ###############################
 # ChefSharing: Issues that prevent sharing code with other teams or with the Chef community in general
 ###############################
@@ -1042,6 +1051,15 @@ ChefDeprecations/UseAutomaticResourceName:
   Include:
     - '**/libraries/*.rb'
     - '**/resources/*.rb'
+
+ChefDeprecations/MacosUserdefaultsGlobalProperty:
+  Description: The `global` property in the macos_userdefaults resource was deprecated in Chef Infra Client 16.3. Omitting the `domain` property will now set global defaults.
+  StyleGuide: '#chefdeprecationsmacosuserdefaultsglobalproperty'
+  Enabled: true
+  VersionAdded: '6.14.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/Berksfile'
 
 ###############################
 # ChefModernize: Cleaning up legacy code and using new built-in resources
