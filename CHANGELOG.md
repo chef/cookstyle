@@ -1,27 +1,25 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.14.7 -->
-## [v6.14.7](https://github.com/chef/cookstyle/tree/v6.14.7) (2020-07-30)
-
-#### Merged Pull Requests
-- Update ChefStyle/FileMode to support files_mode as well [#702](https://github.com/chef/cookstyle/pull/702) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=6.13.3 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Update ChefStyle/FileMode to support files_mode as well [#702](https://github.com/chef/cookstyle/pull/702) ([tas50](https://github.com/tas50)) <!-- 6.14.7 -->
-- Add 2 new cops for macos_userdefaults changes in 16.3 [#701](https://github.com/chef/cookstyle/pull/701) ([tas50](https://github.com/tas50)) <!-- 6.14.6 -->
-- Fix target_chef_version support in the new Rubocop 0.88+ format of cops [#700](https://github.com/chef/cookstyle/pull/700) ([tas50](https://github.com/tas50)) <!-- 6.14.5 -->
-- Fix a few incorrect StyleGuide links [#699](https://github.com/chef/cookstyle/pull/699) ([tas50](https://github.com/tas50)) <!-- 6.14.4 -->
-- Cleanup leftover config from rubocop-chef project [#698](https://github.com/chef/cookstyle/pull/698) ([tas50](https://github.com/tas50)) <!-- 6.14.3 -->
-- Update dead links [#696](https://github.com/chef/cookstyle/pull/696) ([dg42xyz](https://github.com/dg42xyz)) <!-- 6.14.2 -->
-- Multiple spelling corrections including a cop name [#697](https://github.com/chef/cookstyle/pull/697) ([tas50](https://github.com/tas50)) <!-- 6.14.1 -->
-- Fix matcher name to match what we&#39;re doing [#691](https://github.com/chef/cookstyle/pull/691) ([tas50](https://github.com/tas50)) <!-- 6.14.0 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v6.14.7](https://github.com/chef/cookstyle/tree/v6.14.7) (2020-07-30)
+
+#### Merged Pull Requests
+- Fix matcher name to match what we&#39;re doing [#691](https://github.com/chef/cookstyle/pull/691) ([tas50](https://github.com/tas50))
+- Multiple spelling corrections including a cop name [#697](https://github.com/chef/cookstyle/pull/697) ([tas50](https://github.com/tas50))
+- Update dead links [#696](https://github.com/chef/cookstyle/pull/696) ([dg42xyz](https://github.com/dg42xyz))
+- Cleanup leftover config from rubocop-chef project [#698](https://github.com/chef/cookstyle/pull/698) ([tas50](https://github.com/tas50))
+- Fix a few incorrect StyleGuide links [#699](https://github.com/chef/cookstyle/pull/699) ([tas50](https://github.com/tas50))
+- Fix target_chef_version support in the new Rubocop 0.88+ format of cops [#700](https://github.com/chef/cookstyle/pull/700) ([tas50](https://github.com/tas50))
+- Add 2 new cops for macos_userdefaults changes in 16.3 [#701](https://github.com/chef/cookstyle/pull/701) ([tas50](https://github.com/tas50))
+- Update ChefStyle/FileMode to support files_mode as well [#702](https://github.com/chef/cookstyle/pull/702) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v6.13.3](https://github.com/chef/cookstyle/tree/v6.13.3) (2020-07-17)
 
 #### Merged Pull Requests
@@ -31,7 +29,6 @@
 - Add ChefCorrectness/SupportsMustBeFloat [#689](https://github.com/chef/cookstyle/pull/689) ([tas50](https://github.com/tas50))
 - Add release notes for 6.13 [#690](https://github.com/chef/cookstyle/pull/690) ([tas50](https://github.com/tas50))
 - Add ChefModernize/ActionMethodInResource cop [#688](https://github.com/chef/cookstyle/pull/688) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v6.12.6](https://github.com/chef/cookstyle/tree/v6.12.6) (2020-07-15)
 
