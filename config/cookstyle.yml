@@ -46,7 +46,7 @@ ChefStyle/CommentFormat:
     - '**/Berksfile'
 
 ChefStyle/FileMode:
-  Description: Use strings to represent file modes in Chef resources
+  Description: Use strings to represent file modes to avoid confusion between octal and base 10 integer formats.
   StyleGuide: '#chefstylefilemode'
   Enabled: true
   VersionAdded: '5.0.0'
