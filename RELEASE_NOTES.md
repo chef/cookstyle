@@ -4,7 +4,7 @@
 
 #### ChefCorrectness/MacosUserdefaultsInvalidType
 
-The `macos_userdefaults` resource prior to Chef Infra Client 16.3 would silently continue if invalid types were passed resulting in unexpected behavior. Valid values are `array`, `bool`, `dict`, `float`, `int`, and `string`. The `ChefCorrectness/MacosUserdefaultsInvalidType` will detect invalid types and autocorrect several common mistakes such using `integer` instead of `int`.
+The `macos_userdefaults` resource prior to Chef Infra Client 16.3 would silently continue if invalid types were passed resulting in unexpected behavior. Valid values are `array`, `bool`, `dict`, `float`, `int`, and `string`. The `ChefCorrectness/MacosUserdefaultsInvalidType` will detect invalid types and autocorrect several common mistakes such as using `integer` instead of `int`.
 
 `Enabled by default`: True
 
