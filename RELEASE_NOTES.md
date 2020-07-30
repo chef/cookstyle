@@ -1,3 +1,30 @@
+## Cookstyle 6.14
+
+### 2 New Cops
+
+#### ChefCorrectness/MacosUserdefaultsInvalidType
+
+The `macos_userdefaults` resource prior to Chef Infra Client 16.3 would silently continue if invalid types were passed resulting in unexpected behavior. Valid values are `array`, `bool`, `dict`, `float`, `int`, and `string`. The `ChefCorrectness/MacosUserdefaultsInvalidType` will detect invalid types and autocorrect several common mistakes such as using `integer` instead of `int`.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefDeprecations/MacosUserdefaultsGlobalProperty
+
+The `ChefDeprecations/MacosUserdefaultsGlobalProperty` cop detects the usage of the `global` property in the macos_userdefaults resource which was deprecated in Chef Infra Client 16.3. You can now ommit the `domain` property to set global default values instead.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+### Other Improvements
+
+- `ChefCorrectness/InvalidPlatformFamilyHelper` will now autocorrect offenses.
+- `ChefEffortless/CookbookUsesEnvironmments` has been renamed `ChefEffortless/CookbookUsesEnvironments`. Sticky Macbook keyboards are not fun.
+- `ChefStyle/FileMode` now detects the `files_mode` property in `remote_directory` resources.
+- Many styleguide links have been fixed to properly point to the docs in the Cookstyle repo.
+
 ## Cookstyle 6.13
 
 ### 5 New Cops
