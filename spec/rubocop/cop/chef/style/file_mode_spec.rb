@@ -25,7 +25,7 @@ describe RuboCop::Cop::Chef::ChefStyle::FileMode do
       file '/foo' do
         owner 'root'
         mode 644
-             ^^^ Use strings for file modes
+             ^^^ Use strings to represent file modes to avoid confusion between octal and base 10 integer formats
       end
     RUBY
 
@@ -42,7 +42,7 @@ describe RuboCop::Cop::Chef::ChefStyle::FileMode do
       file '/foo' do
         owner 'root'
         mode 0644
-             ^^^^ Use strings for file modes
+             ^^^^ Use strings to represent file modes to avoid confusion between octal and base 10 integer formats
       end
     RUBY
 
@@ -68,6 +68,23 @@ describe RuboCop::Cop::Chef::ChefStyle::FileMode do
       file '/foo' do
         owner 'root'
         mode '644'
+      end
+    RUBY
+  end
+
+  it 'registers an offense when setting a files_mode as well' do
+    expect_offense(<<~RUBY)
+      file '/foo' do
+        owner 'root'
+        files_mode 644
+                   ^^^ Use strings to represent file modes to avoid confusion between octal and base 10 integer formats
+      end
+    RUBY
+
+    expect_correction(<<~RUBY)
+      file '/foo' do
+        owner 'root'
+        files_mode '644'
       end
     RUBY
   end

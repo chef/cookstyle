@@ -19,39 +19,58 @@ module RuboCop
   module Cop
     module Chef
       module ChefStyle
-        # Check the file modes are given as strings instead of integers.
+        # Use strings to represent file modes to avoid confusion between octal and base 10 integer formats.
         #
         # @example
         #
         #   # bad
-        #   mode 644
-        #   mode 0644
+        #   remote_directory '/etc/my.conf' do
+        #     content 'some content'
+        #     mode 0600
+        #     action :create
+        #   end
+        #
+        #   remote_directory 'handler' do
+        #     source 'handlers'
+        #     recursive true
+        #     files_mode 644
+        #     action :create
+        #   end
         #
         #   # good
-        #   mode '644'
+        #   remote_directory '/etc/my.conf' do
+        #     content 'some content'
+        #     mode '600'
+        #     action :create
+        #   end
         #
-        class FileMode < Cop
-          MSG = 'Use strings for file modes'
+        #   remote_directory 'handler' do
+        #     source 'handlers'
+        #     recursive true
+        #     files_mode '644'
+        #     action :create
+        #   end
+        #
+        class FileMode < Base
+          extend RuboCop::Cop::AutoCorrector
+
+          MSG = 'Use strings to represent file modes to avoid confusion between octal and base 10 integer formats'
 
           def_node_matcher :resource_mode?, <<-PATTERN
-            (send nil? :mode $int)
+            (send nil? {:mode :files_mode} $int)
           PATTERN
 
           def on_send(node)
             resource_mode?(node) do |mode_int|
-              add_offense(mode_int, location: :expression, message: MSG, severity: :refactor)
-            end
-          end
+              add_offense(mode_int.loc.expression, message: MSG, severity: :refactor) do |corrector|
+                # If it was an octal literal, make sure we write out the right number.
+                replacement_base = octal?(mode_int) ? 8 : 10
+                replacement_mode = mode_int.children.first.to_s(replacement_base)
 
-          def autocorrect(node)
-            lambda do |corrector|
-              # If it was an octal literal, make sure we write out the right number.
-              replacement_base = octal?(node) ? 8 : 10
-              replacement_mode = node.children.first.to_s(replacement_base)
-
-              # we build our own escaped string instead of using .inspect because that way
-              # we can use single quotes instead of the double quotes that .inspect adds
-              corrector.replace(node.loc.expression, "\'#{replacement_mode}\'")
+                # we build our own escaped string instead of using .inspect because that way
+                # we can use single quotes instead of the double quotes that .inspect adds
+                corrector.replace(mode_int.loc.expression, "\'#{replacement_mode}\'")
+              end
             end
           end
 
