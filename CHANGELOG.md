@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.14.5 -->
-## [v6.14.5](https://github.com/chef/cookstyle/tree/v6.14.5) (2020-07-29)
+ <!-- latest_release 6.14.6 -->
+## [v6.14.6](https://github.com/chef/cookstyle/tree/v6.14.6) (2020-07-30)
 
 #### Merged Pull Requests
-- Fix target_chef_version support in the new Rubocop 0.88+ format of cops [#700](https://github.com/chef/cookstyle/pull/700) ([tas50](https://github.com/tas50))
+- Add 2 new cops for macos_userdefaults changes in 16.3 [#701](https://github.com/chef/cookstyle/pull/701) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.13.3 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add 2 new cops for macos_userdefaults changes in 16.3 [#701](https://github.com/chef/cookstyle/pull/701) ([tas50](https://github.com/tas50)) <!-- 6.14.6 -->
 - Fix target_chef_version support in the new Rubocop 0.88+ format of cops [#700](https://github.com/chef/cookstyle/pull/700) ([tas50](https://github.com/tas50)) <!-- 6.14.5 -->
 - Fix a few incorrect StyleGuide links [#699](https://github.com/chef/cookstyle/pull/699) ([tas50](https://github.com/tas50)) <!-- 6.14.4 -->
 - Cleanup leftover config from rubocop-chef project [#698](https://github.com/chef/cookstyle/pull/698) ([tas50](https://github.com/tas50)) <!-- 6.14.3 -->
