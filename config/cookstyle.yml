@@ -2206,10 +2206,6 @@ Style/WordArray:
   Enabled: true
 Style/ZeroLengthPredicate:
   Enabled: true
-Metrics/BlockNesting:
-  Enabled: true
-Metrics/ParameterLists:
-  Enabled: true
 Lint/AmbiguousOperator:
   Enabled: true
 Lint/AssignmentInCondition:
@@ -2340,6 +2336,10 @@ Metrics/ClassLength:
 Metrics/CyclomaticComplexity:
   Enabled: false
 Metrics/PerceivedComplexity:
+  Enabled: false
+Metrics/BlockNesting:
+  Enabled: false
+Metrics/ParameterLists:
   Enabled: false
 
 #### COPS FOR THE NEXT MAJOR RELEASE
