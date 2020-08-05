@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 6.14.8 -->
+## [v6.14.8](https://github.com/chef/cookstyle/tree/v6.14.8) (2020-08-05)
+
+#### Merged Pull Requests
+- Disable Metrics/BlockNesting and Metrics/ParameterLists [#707](https://github.com/chef/cookstyle/pull/707) ([lamont-granquist](https://github.com/lamont-granquist))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=6.14.7 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Disable Metrics/BlockNesting and Metrics/ParameterLists [#707](https://github.com/chef/cookstyle/pull/707) ([lamont-granquist](https://github.com/lamont-granquist)) <!-- 6.14.8 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
