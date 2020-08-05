@@ -35,6 +35,8 @@ module RuboCop
         #
         class PoiseArchiveUsage < Cop
           include RuboCop::Chef::CookbookHelpers
+          extend TargetChefVersion
+          minimum_target_chef_version '15.0'
 
           MSG = 'The poise_archive resource in the deprecated poise-archive should be replaced with the archive_file resource found in Chef Infra Client 15+'
 
