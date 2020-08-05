@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.15.0 -->
-## [v6.15.0](https://github.com/chef/cookstyle/tree/v6.15.0) (2020-08-05)
+ <!-- latest_release 6.15.1 -->
+## [v6.15.1](https://github.com/chef/cookstyle/tree/v6.15.1) (2020-08-05)
 
 #### Merged Pull Requests
-- Update to RuboCop 0.89 [#709](https://github.com/chef/cookstyle/pull/709) ([tas50](https://github.com/tas50))
+- Enable additional cops from recent RuboCop releases [#710](https://github.com/chef/cookstyle/pull/710) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.14.7 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Enable additional cops from recent RuboCop releases [#710](https://github.com/chef/cookstyle/pull/710) ([tas50](https://github.com/tas50)) <!-- 6.15.1 -->
 - Update to RuboCop 0.89 [#709](https://github.com/chef/cookstyle/pull/709) ([tas50](https://github.com/tas50)) <!-- 6.15.0 -->
 - Turn off Naming/AccessorMethodName [#708](https://github.com/chef/cookstyle/pull/708) ([tas50](https://github.com/tas50)) <!-- 6.14.9 -->
 - Disable Metrics/BlockNesting and Metrics/ParameterLists [#707](https://github.com/chef/cookstyle/pull/707) ([lamont-granquist](https://github.com/lamont-granquist)) <!-- 6.14.8 -->
