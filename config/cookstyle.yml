@@ -2575,3 +2575,40 @@ Lint/DeprecatedOpenSSLConstant:
 # This just isn't a big deal in the context of a cookbook
 Naming/AccessorMethodName:
   Enabled: false
+
+# Rescuing a particular exception twice isn't going to work
+Lint/DuplicateRescueException:
+  Enabled: true
+
+# if b == 0 && b == 0 is invalid and we should flag it
+Lint/BinaryOperatorWithIdenticalOperands:
+  Enabled: true
+
+# returning at the top level with an arg is invalid
+# @TODO we can enable this once this is fixed: https://github.com/rubocop-hq/rubocop/issues/8462
+# Lint/TopLevelReturnWithArgument:
+#   Enabled: true
+
+# simplify hash acccess that doesn't actually need .dig
+Style/SingleArgumentDig:
+  Enabled: true
+
+# trying to access $2 when there is no $2 will always return nil
+Lint/OutOfRangeRegexpRef:
+  Enabled: true
+
+# simplify how people coerce arrays
+Style/ArrayCoercion:
+  Enabled: true
+
+# if your elseif is the same as your if you're gonna have a bad day
+Lint/DuplicateElsifCondition:
+  Enabled: true
+
+# simplify attr_reader and attr_write into attr_accessor
+Style/BisectedAttrAccessor:
+  Enabled: true
+
+# avoid assignments that aren't needed
+Style/RedundantAssignment:
+  Enabled: true
