@@ -41,7 +41,7 @@ module RuboCop
 
           # determine the cookbook name either by parsing metadata.rb or by parsing metadata.json
           #
-          # @returns [String] the cookbook name
+          # @return [String] the cookbook name
           def cookbook_name
             cb_path = File.expand_path(File.join(processed_source.file_path, '../..'))
 
@@ -55,7 +55,7 @@ module RuboCop
 
           # given a resource name make sure there's a provides that matches that name
           #
-          # @returns [TrueClass, FalseClass]
+          # @return [TrueClass, FalseClass]
           def valid_provides?(resource_name)
             provides_ast = provides(processed_source.ast)
             return false unless provides_ast

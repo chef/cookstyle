@@ -1,5 +1,38 @@
 # ChefModernize
 
+## ChefModernize/ActionMethodInResource
+
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
+
+Use the custom resource language's `action :my_action` blocks instead of creating actions with methods.
+
+### Examples
+
+```ruby
+# bad
+def action_create
+ # :create action code here
+end
+
+# good
+action :create do
+ # :create action code here
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.13.0` | String
+Include | `**/resources/*.rb`, `**/providers/*.rb`, `**/libraries/*.rb` | Array
+
+### References
+
+* [https://rubystyle.guide#chefmodernizeactionmethodinresource](https://rubystyle.guide#chefmodernizeactionmethodinresource)
+
 ## ChefModernize/AllowedActionsFromInitialize
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -63,6 +96,95 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb` | Array
 ### References
 
 * [https://rubystyle.guide#chefmodernizechefgemnokogiri](https://rubystyle.guide#chefmodernizechefgemnokogiri)
+
+## ChefModernize/ConditionalUsingTest
+
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
+
+Use ::File.exist?('/foo/bar') instead of the slower 'test -f /foo/bar' which requires shelling out
+
+### Examples
+
+```ruby
+# bad
+only_if 'test -f /bin/foo'
+
+# good
+only_if { ::File.exist?('bin/foo') }
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.11.0` | String
+Exclude | `**/metadata.rb`, `**/Berksfile`, `**/attributes/*.rb` | Array
+
+### References
+
+* [https://rubystyle.guide#chefmodernizeconditionalusingtest](https://rubystyle.guide#chefmodernizeconditionalusingtest)
+
+## ChefModernize/CronDFileOrTemplate
+
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | 14.4+
+
+Use the cron_d resource that ships with Chef Infra Client 14.4+ instead of manually creating the file with template, file, or cookbook_file resources.
+
+### Examples
+
+```ruby
+# bad
+template '/etc/cron.d/backup' do
+  source 'cron_backup_job.erb'
+  owner 'root'
+  group 'root'
+  mode '644'
+end
+
+cookbook_file '/etc/cron.d/backup' do
+  owner 'root'
+  group 'root'
+  mode '644'
+end
+
+file '/etc/cron.d/backup' do
+  content '*/30 * * * * backup /usr/local/bin/backup_script.sh'
+  owner 'root'
+  group 'root'
+  mode '644'
+end
+
+file '/etc/cron.d/blogs' do
+  action :delete
+end
+
+# good
+cron_d 'backup' do
+  minute '1'
+  hour '1'
+  mailto 'sysadmins@example.com'
+  command '/usr/local/bin/backup_script.sh'
+end
+
+cron_d 'blogs' do
+  action :delete
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.13.0` | String
+Exclude | `**/metadata.rb`, `**/Berksfile`, `**/attributes/*.rb` | Array
+
+### References
+
+* [https://rubystyle.guide#chefmodernizecrondfileortemplate](https://rubystyle.guide#chefmodernizecrondfileortemplate)
 
 ## ChefModernize/CronManageResource
 
@@ -235,7 +357,7 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Enabled | No | All Versions
 
-In 2016 with Chef Infra Client 12.5 Custom Resources were introduced as a way of writing reusable resource code that could be shipped in cookbooks. Custom Resources offer many advantages of legacy Definitions including unit testing with ChefSpec, input validation, actions, commmon properties like not_if/only_if, and resource reporting.
+In 2016 with Chef Infra Client 12.5 Custom Resources were introduced as a way of writing reusable resource code that could be shipped in cookbooks. Custom Resources offer many advantages of legacy Definitions including unit testing with ChefSpec, input validation, actions, common properties like not_if/only_if, and resource reporting.
 
 ### Configurable attributes
 
@@ -812,16 +934,16 @@ Use node['init_package'] to check for systemd instead of reading the contents of
 ::File.open('/proc/1/comm').chomp == 'systemd'
 File.open('/proc/1/comm').gets.chomp == 'systemd'
 File.open('/proc/1/comm').chomp == 'systemd'
-File.exist?('/proc/1/comm') && File.open('/proc/1/comm').chomp == 'systemd'
-
 IO.read('/proc/1/comm').chomp == 'systemd'
 IO.read('/proc/1/comm').gets.chomp == 'systemd'
 ::IO.read('/proc/1/comm').chomp == 'systemd'
 ::IO.read('/proc/1/comm').gets.chomp == 'systemd'
 File.exist?('/proc/1/comm') && File.open('/proc/1/comm').chomp == 'systemd'
+only_if 'test -f /bin/systemctl && /bin/systemctl'
 
 # good
 node['init_package'] == 'systemd'
+only_if { node['init_package'] == 'systemd' }
 ```
 
 ### Configurable attributes
@@ -1651,7 +1773,7 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Enabled | Yes | All Versions
 
-Pass an array of packages to package resources instead of interating over an array of packages when using multi-package capable package subystem such as apt, yum, chocolatey, dnf, or zypper. Multipackage installs are faster and simplify logs.
+Pass an array of packages to package resources instead of iterating over an array of packages when using multi-package capable package subsystem such as apt, yum, chocolatey, dnf, or zypper. Multi-package installs are faster and simplify logs.
 
 ### Examples
 

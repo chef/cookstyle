@@ -46,7 +46,7 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefeffortlesscookbookusesdatabags](https://rubystyle.guide#chefeffortlesscookbookusesdatabags)
 
-## ChefEffortless/CookbookUsesEnvironmments
+## ChefEffortless/CookbookUsesEnvironments
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -105,14 +105,14 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Disabled | No | All Versions
 
-Neither Policyfiles or Effortless Infra which is based on Policyfiles supports Chef Roles
+Neither Policyfiles or Effortless Infra which is based on Policyfiles supports Chef Infra Roles
 
 ### Examples
 
 ```ruby
 # bad
-node.role?('webserver')
-node.roles.include?('webserver')
+node.role?('web_server')
+node.roles.include?('web_server')
 ```
 
 ### Configurable attributes

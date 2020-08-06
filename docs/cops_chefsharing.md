@@ -69,7 +69,7 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Disabled | No | 13.9+
 
-Resource properties should include description fields to allow automated documention. Requires Chef Infra Client 13.9 or later.
+Resource properties should include description fields to allow automated documentation. Requires Chef Infra Client 13.9 or later.
 
 ### Examples
 
@@ -98,7 +98,7 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Disabled | No | 13.9+
 
-Resources should include description fields to allow automated documention. Requires Chef Infra Client 13.9 or later.
+Resources should include description fields to allow automated documentation. Requires Chef Infra Client 13.9 or later.
 
 ### Examples
 
@@ -125,7 +125,7 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Disabled | No | 13.9+
 
-Resources should include examples field to allow automated documention. Requires Chef Infra Client 13.9 or later.
+Resources should include examples field to allow automated documentation. Requires Chef Infra Client 13.9 or later.
 
 ### Examples
 
