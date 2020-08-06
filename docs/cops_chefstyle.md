@@ -205,17 +205,38 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Enabled | Yes | All Versions
 
-Check the file modes are given as strings instead of integers.
+Use strings to represent file modes to avoid confusion between octal and base 10 integer formats.
 
 ### Examples
 
 ```ruby
 # bad
-mode 644
-mode 0644
+remote_directory '/etc/my.conf' do
+  content 'some content'
+  mode 0600
+  action :create
+end
+
+remote_directory 'handler' do
+  source 'handlers'
+  recursive true
+  files_mode 644
+  action :create
+end
 
 # good
-mode '644'
+remote_directory '/etc/my.conf' do
+  content 'some content'
+  mode '600'
+  action :create
+end
+
+remote_directory 'handler' do
+  source 'handlers'
+  recursive true
+  files_mode '644'
+  action :create
+end
 ```
 
 ### Configurable attributes
@@ -263,6 +284,35 @@ Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 ### References
 
 * [https://rubystyle.guide#chefstyleimmediatenotificationtiming](https://rubystyle.guide#chefstyleimmediatenotificationtiming)
+
+## ChefStyle/IncludeRecipeWithParentheses
+
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
+
+There is no need to wrap the recipe in parentheses when using the include_recipe helper.
+
+### Examples
+
+```ruby
+# bad
+include_recipe('foo::bar')
+
+# good
+include_recipe 'foo::bar'
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.11.0` | String
+Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
+
+### References
+
+* [https://rubystyle.guide#includerecipewithparentheses](https://rubystyle.guide#includerecipewithparentheses)
 
 ## ChefStyle/NegatingOnlyIf
 

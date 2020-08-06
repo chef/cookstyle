@@ -35,7 +35,7 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ### References
 
-* [https://rubystyle.guide#chefdkgenerators](https://rubystyle.guide#chefdkgenerators)
+* [https://rubystyle.guide#chefdeprecationschefdkgenerators](https://rubystyle.guide#chefdeprecationschefdkgenerators)
 
 ## ChefDeprecations/ChefHandlerRecipe
 
@@ -62,7 +62,7 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ### References
 
-* [https://rubystyle.guide#chefhandlerrecipe](https://rubystyle.guide#chefhandlerrecipe)
+* [https://rubystyle.guide#chefdeprecationschefhandlerrecipe](https://rubystyle.guide#chefdeprecationschefhandlerrecipe)
 
 ## ChefDeprecations/ChefHandlerUsesSupports
 
@@ -533,7 +533,7 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Enabled | No | All Versions
 
-The beta Audit Mode for Chef Infra Client was removed in Chef Infra Client 15.0. Users should instead use InSpec and the audit cookbook. See https://www.inspec.io/ for more informmation.
+The beta Audit Mode for Chef Infra Client was removed in Chef Infra Client 15.0. Users should instead use InSpec and the audit cookbook. See https://www.inspec.io/ for more information.
 
 ### Examples
 
@@ -978,6 +978,42 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefdeprecationslogresourcenotifications](https://rubystyle.guide#chefdeprecationslogresourcenotifications)
 
+## ChefDeprecations/MacosUserdefaultsGlobalProperty
+
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | 16.3+
+
+The `global` property in the macos_userdefaults resource was deprecated in Chef Infra Client 16.3. This property was never properly implemented and caused failures under many conditions. Omitting the `domain` property will now set global defaults.
+
+### Examples
+
+```ruby
+# bad
+macos_userdefaults 'set a value' do
+  global true
+  key 'key'
+  value 'value'
+end
+
+# good
+macos_userdefaults 'set a value' do
+  key 'key'
+  value 'value'
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.14.0` | String
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
+
+### References
+
+* [https://rubystyle.guide#chefdeprecationsmacosuserdefaultsglobalproperty](https://rubystyle.guide#chefdeprecationsmacosuserdefaultsglobalproperty)
+
 ## ChefDeprecations/NamePropertyWithDefaultValue
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -1015,8 +1051,7 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Enabled | Yes | All Versions
 
-The node.deep_fetch method has been removed from Chef-Sugar, and must be replaced by
-the node.read API.
+The node.deep_fetch method has been removed from Chef-Sugar, and must be replaced by the node.read API.
 
 ### Examples
 
@@ -1277,7 +1312,7 @@ Exclude | `**/metadata.rb` | Array
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
-Enabled | No | All Versions
+Enabled | No | 15.0+
 
 The poise_archive resource in the deprecated poise-archive should be replaced with the archive_file resource found in Chef Infra Client 15+.
 
@@ -1286,12 +1321,12 @@ The poise_archive resource in the deprecated poise-archive should be replaced wi
 ```ruby
 # bad
 poise_archive 'https://example.com/myapp.tgz' do
-  destination '/opt/myapp'
+  destination '/opt/my_app'
 end
 
 # good
 archive_file 'https://example.com/myapp.tgz' do
-  destination '/opt/myapp'
+  destination '/opt/my_app'
 end
 ```
 
@@ -1642,6 +1677,38 @@ Exclude | `**/metadata.rb` | Array
 ### References
 
 * [https://rubystyle.guide#chefdeprecationssearchusespositionalparameters](https://rubystyle.guide#chefdeprecationssearchusespositionalparameters)
+
+## ChefDeprecations/UseAutomaticResourceName
+
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
+
+The use_automatic_resource_name method was removed in Chef Infra Client 16. The resource name/provides should be set explicitly instead.
+
+### Examples
+
+```ruby
+# bad
+module MyCookbook
+  class MyCookbookService < Chef::Resource
+    use_automatic_resource_name
+    provides :mycookbook_service
+    ...
+  end
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.12.0` | String
+Include | `**/libraries/*.rb`, `**/resources/*.rb` | Array
+
+### References
+
+* [https://rubystyle.guide#chefdeprecationsuseautomaticresourcename](https://rubystyle.guide#chefdeprecationsuseautomaticresourcename)
 
 ## ChefDeprecations/UseInlineResourcesDefined
 

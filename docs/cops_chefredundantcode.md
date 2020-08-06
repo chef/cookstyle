@@ -159,6 +159,37 @@ Include | `**/resources/*.rb` | Array
 
 * [https://rubystyle.guide#chefredundantcodecustomresourcewithallowedactions](https://rubystyle.guide#chefredundantcodecustomresourcewithallowedactions)
 
+## ChefRedundantCode/DoubleCompileTime
+
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
+
+If a resource includes the `compile_time` property there's no need to also use `.run_action(:some_action)` on the resource block
+
+  # bad
+  chef_gem 'deep_merge' do
+    action :nothing
+    compile_time true
+  end.run_action(:install)
+
+  # good
+  chef_gem 'deep_merge' do
+    action :install
+    compile_time true
+  end
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.13.0` | String
+Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
+
+### References
+
+* [https://rubystyle.guide#chefredundantcodedoublecompiletime](https://rubystyle.guide#chefredundantcodedoublecompiletime)
+
 ## ChefRedundantCode/GroupingMetadata
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -241,7 +272,7 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ### References
 
-* [https://rubystyle.guide#multipleplatformchecks](https://rubystyle.guide#multipleplatformchecks)
+* [https://rubystyle.guide#chefredundantcodemultipleplatformchecks](https://rubystyle.guide#chefredundantcodemultipleplatformchecks)
 
 ## ChefRedundantCode/NamePropertyIsRequired
 
@@ -340,7 +371,7 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 ### References
 
-* [https://rubystyle.guide#ohaiattributetostring](https://rubystyle.guide#ohaiattributetostring)
+* [https://rubystyle.guide#chefredundantcodeohaiattributetostring](https://rubystyle.guide#chefredundantcodeohaiattributetostring)
 
 ## ChefRedundantCode/PropertySplatRegex
 

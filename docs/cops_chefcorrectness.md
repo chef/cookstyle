@@ -277,7 +277,7 @@ Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
-Enabled | No | All Versions
+Enabled | Yes | All Versions
 
 Pass valid platform families to the platform_family? helper.
 
@@ -553,6 +553,43 @@ Include | `**/libraries/*.rb`, `**/resources/*.rb` | Array
 
 * [https://rubystyle.guide#chefcorrectnesslazyevalnodeattributedefaults](https://rubystyle.guide#chefcorrectnesslazyevalnodeattributedefaults)
 
+## ChefCorrectness/MacosUserdefaultsInvalidType
+
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
+
+The macos_userdefaults resource prior to Chef Infra Client 16.3 would silently continue if invalid types were passed resulting in unexpected behavior. Valid values are: "array", "bool", "dict", "float", "int", and "string".
+
+### Examples
+
+```ruby
+# bad
+macos_userdefaults 'set a value' do
+  global true
+  key 'key'
+  type 'boolean'
+end
+
+# good
+macos_userdefaults 'set a value' do
+  global true
+  key 'key'
+  type 'bool'
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.14.0` | String
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
+
+### References
+
+* [https://rubystyle.guide#chefcorrectnessmacosuserdefaultsinvalidtype](https://rubystyle.guide#chefcorrectnessmacosuserdefaultsinvalidtype)
+
 ## ChefCorrectness/MalformedPlatformValueForPlatformHelper
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -700,20 +737,20 @@ When notifying or subscribing an action within a resource the action should alwa
 
 ```ruby
 # bad
-execute 'some commmand' do
+execute 'some command' do
   notifies 'restart', 'service[httpd]', 'delayed'
 end
 
-execute 'some commmand' do
+execute 'some command' do
   subscribes 'restart', 'service[httpd]', 'delayed'
 end
 
 # good
-execute 'some commmand' do
+execute 'some command' do
   notifies :restart, 'service[httpd]', 'delayed'
 end
 
-execute 'some commmand' do
+execute 'some command' do
   subscribes :restart, 'service[httpd]', 'delayed'
 end
 ```
@@ -946,6 +983,35 @@ Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 ### References
 
 * [https://rubystyle.guide#chefcorrectnessserviceresource](https://rubystyle.guide#chefcorrectnessserviceresource)
+
+## ChefCorrectness/SupportsMustBeFloat
+
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
+
+Versions used in metadata.rb supports calls should be floats not integers.
+
+### Examples
+
+```ruby
+# bad
+supports 'redhat', '> 8'
+
+# good
+supports 'redhat', '> 8.0'
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.13.0` | String
+Include | `**/metadata.rb` | Array
+
+### References
+
+* [https://rubystyle.guide#chefcorrectnesssupportsmustbefloat](https://rubystyle.guide#chefcorrectnesssupportsmustbefloat)
 
 ## ChefCorrectness/TmpPath
 
