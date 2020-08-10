@@ -2,7 +2,7 @@
 
 ### RuboCop 0.89.1
 
-RuboCop has been updated to 0.89.1, which offers significant performance and autocorrection improvements to many Ruby cops that Cookstyle utilizes.
+RuboCop has been updated to 0.89.1 which offers significant performance and autocorrection improvements to many Ruby cops that Cookstyle utilizes.
 
 ### New Ruby Cops Enabled
 
