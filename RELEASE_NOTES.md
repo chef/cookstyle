@@ -10,7 +10,7 @@ We have enabled many new built-in RuboCop cops that we believe are also useful i
 
 #### Lint/BinaryOperatorWithIdenticalOperands
 
-The `Lint/BinaryOperatorWithIdenticalOperands` cop detects conditionals with duplicate checks. For example `b == 0 && b == 0` which can be simplified to just `b == 0`
+The `Lint/BinaryOperatorWithIdenticalOperands` cop detects conditionals with duplicate checks. For example, `b == 0 && b == 0` which can be simplified to just `b == 0`
 
 #### Lint/DuplicateElsifCondition
 
