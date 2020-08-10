@@ -1,25 +1,23 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.15.3 -->
-## [v6.15.3](https://github.com/chef/cookstyle/tree/v6.15.3) (2020-08-10)
-
-#### Merged Pull Requests
-- Update RuboCop engine to 0.89.1 [#713](https://github.com/chef/cookstyle/pull/713) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=6.14.7 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Update RuboCop engine to 0.89.1 [#713](https://github.com/chef/cookstyle/pull/713) ([tas50](https://github.com/tas50)) <!-- 6.15.3 -->
-- Fix doc generation [#711](https://github.com/chef/cookstyle/pull/711) ([phiggins](https://github.com/phiggins)) <!-- 6.15.2 -->
-- Enable additional cops from recent RuboCop releases [#710](https://github.com/chef/cookstyle/pull/710) ([tas50](https://github.com/tas50)) <!-- 6.15.1 -->
-- Update to RuboCop 0.89 [#709](https://github.com/chef/cookstyle/pull/709) ([tas50](https://github.com/tas50)) <!-- 6.15.0 -->
-- Turn off Naming/AccessorMethodName [#708](https://github.com/chef/cookstyle/pull/708) ([tas50](https://github.com/tas50)) <!-- 6.14.9 -->
-- Disable Metrics/BlockNesting and Metrics/ParameterLists [#707](https://github.com/chef/cookstyle/pull/707) ([lamont-granquist](https://github.com/lamont-granquist)) <!-- 6.14.8 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v6.15.3](https://github.com/chef/cookstyle/tree/v6.15.3) (2020-08-10)
+
+#### Merged Pull Requests
+- Disable Metrics/BlockNesting and Metrics/ParameterLists [#707](https://github.com/chef/cookstyle/pull/707) ([lamont-granquist](https://github.com/lamont-granquist))
+- Turn off Naming/AccessorMethodName [#708](https://github.com/chef/cookstyle/pull/708) ([tas50](https://github.com/tas50))
+- Update to RuboCop 0.89 [#709](https://github.com/chef/cookstyle/pull/709) ([tas50](https://github.com/tas50))
+- Enable additional cops from recent RuboCop releases [#710](https://github.com/chef/cookstyle/pull/710) ([tas50](https://github.com/tas50))
+- Fix doc generation [#711](https://github.com/chef/cookstyle/pull/711) ([phiggins](https://github.com/phiggins))
+- Update RuboCop engine to 0.89.1 [#713](https://github.com/chef/cookstyle/pull/713) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v6.14.7](https://github.com/chef/cookstyle/tree/v6.14.7) (2020-07-30)
 
 #### Merged Pull Requests
@@ -31,7 +29,6 @@
 - Fix target_chef_version support in the new Rubocop 0.88+ format of cops [#700](https://github.com/chef/cookstyle/pull/700) ([tas50](https://github.com/tas50))
 - Add 2 new cops for macos_userdefaults changes in 16.3 [#701](https://github.com/chef/cookstyle/pull/701) ([tas50](https://github.com/tas50))
 - Update ChefStyle/FileMode to support files_mode as well [#702](https://github.com/chef/cookstyle/pull/702) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v6.13.3](https://github.com/chef/cookstyle/tree/v6.13.3) (2020-07-17)
 
