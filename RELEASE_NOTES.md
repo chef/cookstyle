@@ -1,3 +1,45 @@
+## Cookstyle 6.15
+
+### RuboCop 0.89.1
+
+RuboCop has been updated to 0.89.1 which offers significant performance and autocorrection improvements to many Ruby cops that Cookstyle utilizes.
+
+### New Ruby Cops Enabled
+
+We have enabled many new built-in RuboCop cops that we believe are also useful in correcting Chef Infra cookbooks:
+
+#### Lint/BinaryOperatorWithIdenticalOperands
+
+The `Lint/BinaryOperatorWithIdenticalOperands` cop detects conditionals with duplicate checks. For example, `b == 0 && b == 0` which can be simplified to just `b == 0`
+
+#### Lint/DuplicateElsifCondition
+
+The `Lint/BinaryOperatorWithIdenticalOperands` cop detects conditions with duplicate `elsif` checks that can be removed.
+
+#### Lint/DuplicateRescueException
+
+The `Lint/BinaryOperatorWithIdenticalOperands` cop detects duplicate `rescue` statements in code that can be removed.
+
+#### Lint/OutOfRangeRegexpRef
+
+The `Lint/OutOfRangeRegexpRef` detects the use of regex captures that are outside of the range of possible capture groups within a regex statement. For example, `/(foo)bar/ =~ 'foobar'` has a single capture so `$2` is not a valid capture and will always return `nil`.
+
+#### Style/ArrayCoercion
+
+The `Style/ArrayCoercion` cop ensures a consistent method of coercing data types into Arrays. For example, this will autocorrect `foo = "some_string"; [foo]` into `foo = "some_string"; Array(foo)` and `[*paths]` into `Array(paths)` to make it more clear what is being done.
+
+#### Style/BisectedAttrAccessor
+
+The `Style/BisectedAttrAccessor` cop will detect classes that include both an `attr_reader` and `attr_writer` and combine them into a single `attr_accessor`.
+
+#### Style/RedundantAssignment
+
+The `Style/RedundantAssignment` cop detects methods that assign a value to a variable immediately before returning the variable. This assignment is not necessary and increases memory usage. Instead just return the value directly.
+
+#### Style/SingleArgumentDig
+
+The `Style/SingleArgumentDig` cop detects code that uses `.dig` to fetch a value from a Hash just one level deep. For example, this cop will autocorrect `{ key: 'value' }.dig(:key)` to just `{ key: 'value' }[:key]`
+
 ## Cookstyle 6.14
 
 ### 2 New Cops
@@ -12,7 +54,7 @@ The `macos_userdefaults` resource prior to Chef Infra Client 16.3 would silently
 
 #### ChefDeprecations/MacosUserdefaultsGlobalProperty
 
-The `ChefDeprecations/MacosUserdefaultsGlobalProperty` cop detects the usage of the `global` property in the macos_userdefaults resource which was deprecated in Chef Infra Client 16.3. You can now ommit the `domain` property to set global default values instead.
+The `ChefDeprecations/MacosUserdefaultsGlobalProperty` cop detects the usage of the `global` property in the macos_userdefaults resource which was deprecated in Chef Infra Client 16.3. You can now omit the `domain` property to set global default values instead.
 
 `Enabled by default`: True
 
@@ -21,7 +63,7 @@ The `ChefDeprecations/MacosUserdefaultsGlobalProperty` cop detects the usage of 
 ### Other Improvements
 
 - `ChefCorrectness/InvalidPlatformFamilyHelper` will now autocorrect offenses.
-- `ChefEffortless/CookbookUsesEnvironmments` has been renamed `ChefEffortless/CookbookUsesEnvironments`. Sticky Macbook keyboards are not fun.
+- `ChefEffortless/CookbookUsesEnvironmments` has been renamed `ChefEffortless/CookbookUsesEnvironments`. Sticky MacBook keyboards are not fun.
 - `ChefStyle/FileMode` now detects the `files_mode` property in `remote_directory` resources.
 - Many styleguide links have been fixed to properly point to the docs in the Cookstyle repo.
 
