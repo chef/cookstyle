@@ -22,7 +22,7 @@ The `Lint/BinaryOperatorWithIdenticalOperands` cop detects duplicate `rescue` st
 
 #### Lint/OutOfRangeRegexpRef
 
-The `Lint/OutOfRangeRegexpRef` detects the use of regex captures that are outside of the range of possible within a regex statement. For example `/(foo)bar/ =~ 'foobar'` has a single capture so `$2` is not a valid capture and will always return `nil`.
+The `Lint/OutOfRangeRegexpRef` detects the use of regex captures that are outside of the range of possible capture groups within a regex statement. For example, `/(foo)bar/ =~ 'foobar'` has a single capture so `$2` is not a valid capture and will always return `nil`.
 
 #### Style/ArrayCoercion
 
