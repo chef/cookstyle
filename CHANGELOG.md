@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.15.2 -->
-## [v6.15.2](https://github.com/chef/cookstyle/tree/v6.15.2) (2020-08-06)
+ <!-- latest_release 6.15.3 -->
+## [v6.15.3](https://github.com/chef/cookstyle/tree/v6.15.3) (2020-08-10)
 
 #### Merged Pull Requests
-- Fix doc generation [#711](https://github.com/chef/cookstyle/pull/711) ([phiggins](https://github.com/phiggins))
+- Update RuboCop engine to 0.89.1 [#713](https://github.com/chef/cookstyle/pull/713) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.14.7 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Update RuboCop engine to 0.89.1 [#713](https://github.com/chef/cookstyle/pull/713) ([tas50](https://github.com/tas50)) <!-- 6.15.3 -->
 - Fix doc generation [#711](https://github.com/chef/cookstyle/pull/711) ([phiggins](https://github.com/phiggins)) <!-- 6.15.2 -->
 - Enable additional cops from recent RuboCop releases [#710](https://github.com/chef/cookstyle/pull/710) ([tas50](https://github.com/tas50)) <!-- 6.15.1 -->
 - Update to RuboCop 0.89 [#709](https://github.com/chef/cookstyle/pull/709) ([tas50](https://github.com/tas50)) <!-- 6.15.0 -->
