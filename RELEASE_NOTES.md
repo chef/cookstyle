@@ -26,7 +26,7 @@ The `Lint/OutOfRangeRegexpRef` detects the use of regex captures that are outsid
 
 #### Style/ArrayCoercion
 
-The `Style/ArrayCoercion` cop ensures a consistent method of coercing data types into Arrays. For example this will autocorrect `foo = "some_string"; [foo]` into `foo = "some_string"; Array(foo)` and `[*paths]` into `Array(paths)` to make it more clear what is being done.
+The `Style/ArrayCoercion` cop ensures a consistent method of coercing data types into Arrays. For example, this will autocorrect `foo = "some_string"; [foo]` into `foo = "some_string"; Array(foo)` and `[*paths]` into `Array(paths)` to make it more clear what is being done.
 
 #### Style/BisectedAttrAccessor
 
