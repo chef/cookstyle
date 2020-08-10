@@ -38,7 +38,7 @@ The `Style/RedundantAssignment` cop detects methods that assign a value to a var
 
 #### Style/SingleArgumentDig
 
-The `Style/SingleArgumentDig` cop detects code that uses `.dig` to fetch a value from a Hash just one level deep. For example this cop will autocorrect `{ key: 'value' }.dig(:key)` to just `{ key: 'value' }[:key]`
+The `Style/SingleArgumentDig` cop detects code that uses `.dig` to fetch a value from a Hash just one level deep. For example, this cop will autocorrect `{ key: 'value' }.dig(:key)` to just `{ key: 'value' }[:key]`
 
 ## Cookstyle 6.14
 
