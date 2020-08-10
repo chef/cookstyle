@@ -30,7 +30,7 @@ The `Style/ArrayCoercion` cop ensures a consistent method of coercing data types
 
 #### Style/BisectedAttrAccessor
 
-The `Style/BisectedAttrAccessor` cop will detect classes that include both a `attr_reader` and `attr_writer` and combine them into a single `attr_accessor`.
+The `Style/BisectedAttrAccessor` cop will detect classes that include both an `attr_reader` and `attr_writer` and combine them into a single `attr_accessor`.
 
 #### Style/RedundantAssignment
 
