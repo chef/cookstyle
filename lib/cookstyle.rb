@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 require_relative 'cookstyle/version'
 
-require 'pathname'
-require 'yaml'
+require 'pathname' unless defined?(Pathname)
+require 'yaml' unless defined?(YAML)
 
 # ensure the desired target version of RuboCop is gem activated
 gem 'rubocop', "= #{Cookstyle::RUBOCOP_VERSION}"
