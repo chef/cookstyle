@@ -23,7 +23,7 @@ describe RuboCop::Cop::Chef::ChefSharing::EmptyMetadataField, :config do
   it 'registers an offense when a metadata.rb contains a field with an empty string' do
     expect_offense(<<~RUBY)
       license ''
-              ^^ Cookbook metadata.rb contains an field with an empty string.
+              ^^ Cookbook metadata.rb contains a field with an empty string.
     RUBY
   end
 

@@ -31,7 +31,7 @@ module RuboCop
         #   license 'Apache-2.0'
         #
         class EmptyMetadataField < Cop
-          MSG = 'Cookbook metadata.rb contains an field with an empty string.'
+          MSG = 'Cookbook metadata.rb contains a field with an empty string.'
 
           def_node_matcher :field?, '(send nil? _ $str ...)'
 
