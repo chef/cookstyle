@@ -1,21 +1,19 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.15.5 -->
-## [v6.15.5](https://github.com/chef/cookstyle/tree/v6.15.5) (2020-08-13)
-
-#### Merged Pull Requests
-- Optimize requires for non omnibus installs [#715](https://github.com/chef/cookstyle/pull/715) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=6.15.3 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Optimize requires for non omnibus installs [#715](https://github.com/chef/cookstyle/pull/715) ([tas50](https://github.com/tas50)) <!-- 6.15.5 -->
-- Fix typo in ChefSharing/EmptyMetadataField [#714](https://github.com/chef/cookstyle/pull/714) ([tas50](https://github.com/tas50)) <!-- 6.15.4 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v6.15.5](https://github.com/chef/cookstyle/tree/v6.15.5) (2020-08-13)
+
+#### Merged Pull Requests
+- Fix typo in ChefSharing/EmptyMetadataField [#714](https://github.com/chef/cookstyle/pull/714) ([tas50](https://github.com/tas50))
+- Optimize requires for non omnibus installs [#715](https://github.com/chef/cookstyle/pull/715) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v6.15.3](https://github.com/chef/cookstyle/tree/v6.15.3) (2020-08-10)
 
 #### Merged Pull Requests
@@ -25,7 +23,6 @@
 - Enable additional cops from recent RuboCop releases [#710](https://github.com/chef/cookstyle/pull/710) ([tas50](https://github.com/tas50))
 - Fix doc generation [#711](https://github.com/chef/cookstyle/pull/711) ([phiggins](https://github.com/phiggins))
 - Update RuboCop engine to 0.89.1 [#713](https://github.com/chef/cookstyle/pull/713) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v6.14.7](https://github.com/chef/cookstyle/tree/v6.14.7) (2020-07-30)
 
