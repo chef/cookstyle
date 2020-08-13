@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.15.4 -->
-## [v6.15.4](https://github.com/chef/cookstyle/tree/v6.15.4) (2020-08-13)
+ <!-- latest_release 6.15.5 -->
+## [v6.15.5](https://github.com/chef/cookstyle/tree/v6.15.5) (2020-08-13)
 
 #### Merged Pull Requests
-- Fix typo in ChefSharing/EmptyMetadataField [#714](https://github.com/chef/cookstyle/pull/714) ([tas50](https://github.com/tas50))
+- Optimize requires for non omnibus installs [#715](https://github.com/chef/cookstyle/pull/715) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.15.3 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Optimize requires for non omnibus installs [#715](https://github.com/chef/cookstyle/pull/715) ([tas50](https://github.com/tas50)) <!-- 6.15.5 -->
 - Fix typo in ChefSharing/EmptyMetadataField [#714](https://github.com/chef/cookstyle/pull/714) ([tas50](https://github.com/tas50)) <!-- 6.15.4 -->
 <!-- release_rollup -->
 
