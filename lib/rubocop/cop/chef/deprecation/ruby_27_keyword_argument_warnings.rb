@@ -33,7 +33,6 @@ module RuboCop
         #   shell_out('hostnamectl status', returns: [0, 1])
         #
         class Ruby27KeywordArgumentWarnings < Base
-          include RuboCop::Chef::CookbookHelpers
           extend RuboCop::Cop::AutoCorrector
 
           MSG = 'Pass options to shell_out helpers without the brackets to avoid Ruby 2.7 deprecation warnings.'
