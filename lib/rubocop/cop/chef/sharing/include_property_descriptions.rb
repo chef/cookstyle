@@ -29,7 +29,7 @@ module RuboCop
         #   # good
         #   property :foo, String, description: "Set the important thing to..."
         #
-        class IncludePropertyDescriptions < Cop
+        class IncludePropertyDescriptions < Base
           extend TargetChefVersion
 
           minimum_target_chef_version '13.9'
@@ -40,11 +40,11 @@ module RuboCop
           def_node_matcher :property?, '(send nil? :property (sym _) ...)'
 
           # hash that contains description in any order (that's the <> bit)
-          def_node_search :description_hash, '(hash <(pair (sym :description) ...) ...>)'
+          def_node_search :description_hash?, '(hash <(pair (sym :description) ...) ...>)'
 
           def on_send(node)
             property?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor) unless description_hash(processed_source.ast).any?
+              add_offense(node.loc.expression, message: MSG, severity: :refactor) unless description_hash?(node)
             end
           end
         end
