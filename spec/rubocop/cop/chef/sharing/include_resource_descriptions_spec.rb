@@ -34,4 +34,12 @@ describe RuboCop::Cop::Chef::ChefSharing::IncludeResourceDescriptions, :config d
       description 'foo does a thing'
     RUBY
   end
+
+  it "doesn't register an offense when a resource contains a description with string interpolation" do
+    expect_no_offenses(<<~'RUBY')
+      resource_name 'foo'
+      val = 'thing'
+      description "foo does a #{val}"
+    RUBY
+  end
 end

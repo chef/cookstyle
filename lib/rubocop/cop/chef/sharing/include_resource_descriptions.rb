@@ -44,7 +44,7 @@ module RuboCop
             add_offense(nil, location: range, message: MSG, severity: :refactor) unless resource_description(processed_source.ast).any?
           end
 
-          def_node_search :resource_description, '(send nil? :description str ...)'
+          def_node_search :resource_description, '(send nil? :description ...)'
         end
       end
     end
