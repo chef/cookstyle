@@ -32,8 +32,8 @@ module RuboCop
         #   shell_out!('hostnamectl status', returns: [0, 1])
         #   shell_out('hostnamectl status', returns: [0, 1])
         #
-        class Ruby27KeywordArgumentWarnings < Cop
-          include RuboCop::Chef::CookbookHelpers
+        class Ruby27KeywordArgumentWarnings < Base
+          extend RuboCop::Cop::AutoCorrector
 
           MSG = 'Pass options to shell_out helpers without the brackets to avoid Ruby 2.7 deprecation warnings.'
 
@@ -43,14 +43,10 @@ module RuboCop
 
           def on_send(node)
             positional_shellout?(node) do |h|
-              add_offense(h, location: :expression, message: MSG, severity: :refactor) if h.braces?
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              # @todo when we drop ruby 2.4 support we can convert this to just delete_prefix delete_suffix
-              corrector.replace(node.loc.expression, node.loc.expression.source.gsub(/^{/, '').gsub(/}$/, ''))
+              next unless h.braces?
+              add_offense(h.loc.expression, message: MSG, severity: :refactor) do |corrector|
+                corrector.replace(h.loc.expression, h.loc.expression.source[1..-2])
+              end
             end
           end
         end

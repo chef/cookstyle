@@ -27,5 +27,4 @@ group :development do
   gem 'concord'
   gem 'rake'
   gem 'rspec', '>= 3.4'
-  gem 'simplecov'
 end
