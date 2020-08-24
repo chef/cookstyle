@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.15.6 -->
-## [v6.15.6](https://github.com/chef/cookstyle/tree/v6.15.6) (2020-08-18)
+ <!-- latest_release 6.15.7 -->
+## [v6.15.7](https://github.com/chef/cookstyle/tree/v6.15.7) (2020-08-24)
 
 #### Merged Pull Requests
-- Update the list of deprecated fauxhai/chefspec platforms [#716](https://github.com/chef/cookstyle/pull/716) ([tas50](https://github.com/tas50))
+- Refactor Ruby27KeywordArgumentWarnings [#717](https://github.com/chef/cookstyle/pull/717) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.15.5 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Refactor Ruby27KeywordArgumentWarnings [#717](https://github.com/chef/cookstyle/pull/717) ([tas50](https://github.com/tas50)) <!-- 6.15.7 -->
 - Update the list of deprecated fauxhai/chefspec platforms [#716](https://github.com/chef/cookstyle/pull/716) ([tas50](https://github.com/tas50)) <!-- 6.15.6 -->
 <!-- release_rollup -->
 
