@@ -27,7 +27,7 @@ module RuboCop
         #   mycookbook/resources/myresource.rb:
         #   resource_name :mycookbook_myresource
         #
-        class ResourceUsesOnlyResourceName < Cop
+        class ResourceUsesOnlyResourceName < Base
           include RuboCop::Chef::CookbookHelpers
           include RangeHelp
 
@@ -63,21 +63,16 @@ module RuboCop
             provides_ast.include?(resource_name)
           end
 
+          extend AutoCorrector
           def on_send(node)
-            resource_name?(node) do |r_name|
-              add_offense(node, location: :expression, message: MSG, severity: :warning) unless valid_provides?(r_name)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              resource_name?(node) do |name|
+            resource_name?(node) do |name|
+              add_offense(node, message: MSG, severity: :warning) do |corrector|
                 if name.to_s == "#{cookbook_name}_#{File.basename(processed_source.path, '.rb')}"
                   corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
                 else
                   corrector.insert_after(node.source_range, "\n#{node.source.gsub('resource_name', 'provides')}")
                 end
-              end
+              end unless valid_provides?(name)
             end
           end
         end

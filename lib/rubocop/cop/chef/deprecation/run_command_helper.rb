@@ -33,7 +33,7 @@ module RuboCop
         #   # good
         #   shell_out!('/bin/foo')
         #
-        class UsesRunCommandHelper < Cop
+        class UsesRunCommandHelper < Base
           MSG = "Use 'shell_out!' instead of the legacy 'run_command' or 'run_command_with_systems_locale' helpers for shelling out. The run_command helper was removed in Chef Infra Client 13."
 
           def_node_matcher :calls_run_command?, '(send nil? {:run_command :run_command_with_systems_locale} ...)'
@@ -44,15 +44,15 @@ module RuboCop
 
           def on_send(node)
             calls_run_command?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :warning) unless defines_run_command?(processed_source.ast)
+              add_offense(node, message: MSG, severity: :warning) unless defines_run_command?(processed_source.ast)
             end
 
             require_mixin_command?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :warning)
+              add_offense(node, message: MSG, severity: :warning)
             end
 
             include_mixin_command?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :warning)
+              add_offense(node, message: MSG, severity: :warning)
             end
           end
         end

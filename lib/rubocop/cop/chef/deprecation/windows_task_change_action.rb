@@ -40,9 +40,10 @@ module RuboCop
         #     action :create
         #   end
         #
-        class WindowsTaskChangeAction < Cop
+        class WindowsTaskChangeAction < Base
           include RuboCop::Chef::CookbookHelpers
           extend TargetChefVersion
+          extend AutoCorrector
 
           minimum_target_chef_version '13.0'
 
@@ -60,17 +61,13 @@ module RuboCop
             end
           end
 
-          def autocorrect(node)
+          def fixer(node, corrector)
             if node.parent.send_type? # :change was the only action
-              lambda do |corrector|
-                corrector.replace(node.loc.expression, ':create')
-              end
+              corrector.replace(node.loc.expression, ':create')
             # chances are it's [:create, :change] since that's all that makes sense, but double check that theory
             elsif node.parent.child_nodes.count == 2 &&
                   node.parent.child_nodes.map(&:value).sort == [:change, :create]
-              lambda do |corrector|
-                corrector.replace(node.parent.loc.expression, ':create')
-              end
+              corrector.replace(node.parent.loc.expression, ':create')
             end
           end
 
@@ -78,7 +75,9 @@ module RuboCop
 
           def check_action(ast_obj)
             if ast_obj.respond_to?(:value) && ast_obj.value == :change
-              add_offense(ast_obj, location: :expression, message: MSG, severity: :warning)
+              add_offense(ast_obj, message: MSG, severity: :warning) do |corrector|
+                fixer(ast_obj, corrector)
+              end
             end
           end
         end

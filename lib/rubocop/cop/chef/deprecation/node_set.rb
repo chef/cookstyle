@@ -30,22 +30,19 @@ module RuboCop
         #   # good
         #   node.normal['foo'] = true
         #
-        class NodeSet < Cop
+        class NodeSet < Base
           MSG = 'Do not use node.set. Replace with node.normal to keep identical behavior.'
 
           def_node_matcher :node_set?, <<-PATTERN
             (send (send _ :node) $:set)
           PATTERN
 
+          extend AutoCorrector
           def on_send(node)
             node_set?(node) do
-              add_offense(node, location: :selector, message: MSG, severity: :warning)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.replace(node.loc.selector, 'normal')
+              add_offense(node.loc.selector, message: MSG, severity: :warning) do |corrector|
+                corrector.replace(node.loc.selector, 'normal')
+              end
             end
           end
         end

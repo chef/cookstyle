@@ -33,9 +33,10 @@ module RuboCop
         #     verify 'nginx -t -c %{path}'
         #   end
         #
-        class VerifyPropertyUsesFileExpansion < Cop
+        class VerifyPropertyUsesFileExpansion < Base
           include RuboCop::Chef::CookbookHelpers
           extend TargetChefVersion
+          extend AutoCorrector
 
           minimum_target_chef_version '12.5'
 
@@ -43,13 +44,9 @@ module RuboCop
 
           def on_block(node)
             match_property_in_resource?(nil, 'verify', node) do |verify|
-              add_offense(verify, location: :expression, message: MSG, severity: :warning) if verify.source.match?(/%{file}/)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.replace(node.loc.expression, node.loc.expression.source.gsub('%{file}', '%{path}'))
+              add_offense(verify, message: MSG, severity: :warning) do |corrector|
+                corrector.replace(verify.loc.expression, verify.loc.expression.source.gsub('%{file}', '%{path}'))
+              end if verify.source.match?(/%{file}/)
             end
           end
         end

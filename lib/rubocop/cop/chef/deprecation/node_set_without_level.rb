@@ -34,7 +34,7 @@ module RuboCop
         #   node.default['foo']['bar'] += 1
         #   node.default['foo']['bar'] -= 1
         #
-        class NodeSetWithoutLevel < Cop
+        class NodeSetWithoutLevel < Base
           MSG = 'When setting a node attribute in Chef Infra Client 11 and later you must specify the precedence level.'
 
           def on_op_asgn(node)
@@ -55,9 +55,9 @@ module RuboCop
 
           def add_offense_for_bare_assignment(sub_node)
             if sub_node.receiver == s(:send, nil, :node) # node['foo'] scenario
-              add_offense(sub_node.receiver, location: :selector, message: MSG, severity: :warning)
+              add_offense(sub_node.receiver.loc.selector, message: MSG, severity: :warning)
             elsif sub_node.receiver && sub_node.receiver&.node_parts[0] == s(:send, nil, :node) && sub_node.receiver&.node_parts[1] == :[] # node['foo']['bar'] scenario
-              add_offense(sub_node.receiver.node_parts.first, location: :selector, message: MSG, severity: :warning)
+              add_offense(sub_node.receiver.node_parts.first.loc.selector, message: MSG, severity: :warning)
             end
           end
         end

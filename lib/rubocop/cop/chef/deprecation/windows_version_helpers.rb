@@ -35,8 +35,9 @@ module RuboCop
         #   node['kernel']['server_core']
         #   node['kernel']['product_type'] == 'Workstation'
         #
-        class WindowsVersionHelpers < Cop
+        class WindowsVersionHelpers < Base
           extend TargetChefVersion
+          extend AutoCorrector
 
           minimum_target_chef_version '14.0'
 
@@ -47,14 +48,8 @@ module RuboCop
           PATTERN
 
           def on_send(node)
-            windows_helper?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              windows_helper?(node) do |method|
+            windows_helper?(node) do |method|
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
                 case method
                 when :nt_version
                   corrector.replace(node.loc.expression, 'node[\'platform_version\'].to_f')
@@ -65,7 +60,11 @@ module RuboCop
                 when :workstation_version?
                   corrector.replace(node.loc.expression, 'node[\'kernel\'][\'product_type\'] == \'Workstation\'')
                 end
-              end
+            end
+          end
+
+          def autocorrect(node)
+            lambda 
             end
           end
         end
