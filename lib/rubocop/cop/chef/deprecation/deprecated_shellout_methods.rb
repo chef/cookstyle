@@ -39,7 +39,7 @@ module RuboCop
         #   shell_out!('foo')
         #   shell_out!('foo', default_env: false) # replaces shell_out_with_systems_locale
         #
-        class DeprecatedShelloutMethods < Cop
+        class DeprecatedShelloutMethods < Base
           extend TargetChefVersion
 
           minimum_target_chef_version '14.3'
@@ -57,7 +57,7 @@ module RuboCop
           MSG = 'Many legacy specialized shell_out methods were replaced in Chef Infra Client 14.3 and removed in Chef Infra Client 15. Use shell_out and any additional options if necessary.'
 
           def on_send(node)
-            add_offense(node, location: :expression, message: MSG, severity: :warning) if DEPRECATED_SHELLOUT_METHODS.include?(node.method_name)
+            add_offense(node, message: MSG, severity: :warning) if DEPRECATED_SHELLOUT_METHODS.include?(node.method_name)
           end
         end
       end

@@ -27,7 +27,7 @@ module RuboCop
         #   depends 'poise'
         #   depends 'poise-service'
         #
-        class CookbookDependsOnPoise < Cop
+        class CookbookDependsOnPoise < Base
           MSG = 'Cookbooks should not depend on the deprecated Poise framework'
 
           def_node_matcher :depends_method?, <<-PATTERN
@@ -36,7 +36,7 @@ module RuboCop
 
           def on_send(node)
             depends_method?(node) do |arg|
-              add_offense(node, location: :expression, message: MSG, severity: :warning) if %w(poise poise-service).include?(arg.value)
+              add_offense(node, message: MSG, severity: :warning) if %w(poise poise-service).include?(arg.value)
             end
           end
         end

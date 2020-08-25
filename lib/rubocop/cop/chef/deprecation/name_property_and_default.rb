@@ -31,8 +31,9 @@ module RuboCop
         #   property :config_file, String, name_property: true
         #   attribute :config_file, String, name_attribute: true
         #
-        class NamePropertyWithDefaultValue < Cop
+        class NamePropertyWithDefaultValue < Base
           include RangeHelp
+          extend AutoCorrector
 
           MSG = "A resource property can't be marked as a name_property and also have a default value. This will fail in Chef Infra Client 13 or later."
 
@@ -45,15 +46,11 @@ module RuboCop
 
           def on_send(node)
             name_property_with_default?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :warning)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              name_property_with_default?(node) do |default|
-                range = range_with_surrounding_comma(range_with_surrounding_space(range: default.loc.expression, side: :left), :left)
-                corrector.remove(range)
+              add_offense(node, message: MSG, severity: :warning) do |corrector|
+                name_property_with_default?(node) do |default|
+                  range = range_with_surrounding_comma(range_with_surrounding_space(range: default.loc.expression, side: :left), :left)
+                  corrector.remove(range)
+                end
               end
             end
           end

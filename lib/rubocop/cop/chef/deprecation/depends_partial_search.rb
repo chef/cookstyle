@@ -26,7 +26,7 @@ module RuboCop
         #   # bad
         #   depends 'partial_search'
         #
-        class CookbookDependsOnPartialSearch < Cop
+        class CookbookDependsOnPartialSearch < Base
           extend TargetChefVersion
 
           minimum_target_chef_version '13.0'
@@ -39,7 +39,7 @@ module RuboCop
 
           def on_send(node)
             depends_partial_search?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :warning)
+              add_offense(node, message: MSG, severity: :warning)
             end
           end
         end

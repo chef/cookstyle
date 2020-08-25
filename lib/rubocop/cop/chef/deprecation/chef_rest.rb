@@ -28,7 +28,7 @@ module RuboCop
         #   require 'chef/rest'
         #   Chef::REST::RESTRequest.new(:GET, FOO, nil).call
         #
-        class UsesChefRESTHelpers < Cop
+        class UsesChefRESTHelpers < Base
           MSG = "Don't use the helpers in Chef::REST which were removed in Chef Infra Client 13"
 
           def_node_matcher :require_rest?, <<-PATTERN
@@ -41,13 +41,13 @@ module RuboCop
 
           def on_send(node)
             require_rest?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :warning)
+              add_offense(node, message: MSG, severity: :warning)
             end
           end
 
           def on_const(node)
             rest_const?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :warning)
+              add_offense(node, message: MSG, severity: :warning)
             end
           end
         end

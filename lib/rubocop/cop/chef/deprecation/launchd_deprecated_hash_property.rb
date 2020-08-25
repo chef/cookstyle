@@ -33,23 +33,20 @@ module RuboCop
         #     plist_hash foo: 'bar'
         #   end
         #
-        class LaunchdDeprecatedHashProperty < Cop
+        class LaunchdDeprecatedHashProperty < Base
           include RuboCop::Chef::CookbookHelpers
           extend TargetChefVersion
+          extend AutoCorrector
 
           minimum_target_chef_version '12.19'
 
           MSG = "The launchd resource's hash property was renamed to plist_hash in Chef Infra Client 13+ to avoid conflicts with Ruby's hash class."
 
           def on_block(node)
-            match_property_in_resource?(:launchd, 'hash', node) do |hash_prop|
-              add_offense(hash_prop, location: :expression, message: MSG, severity: :warning)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.replace(node.loc.expression, node.loc.expression.source.gsub(/^hash/, 'plist_hash'))
+            return unless match_property_in_resource?(:launchd, 'hash', node) do |offense|
+              add_offense(offense.loc.expression, message: MSG, severity: :warning) do |corrector|
+                corrector.replace(offense.loc.expression, offense.loc.expression.source.gsub(/^hash/, 'plist_hash'))
+              end
             end
           end
         end

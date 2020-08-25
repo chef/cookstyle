@@ -26,7 +26,7 @@ module RuboCop
         #   # bad
         #   depends 'compat_resource'
         #
-        class CookbookDependsOnCompatResource < Cop
+        class CookbookDependsOnCompatResource < Base
           include RangeHelp
           extend TargetChefVersion
 
@@ -38,15 +38,12 @@ module RuboCop
             (send nil? :depends (str {"compat_resource"}))
           PATTERN
 
+          extend AutoCorrector
           def on_send(node)
             depends_compat_resource?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :warning)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
+              add_offense(node, message: MSG, severity: :warning) do |corrector|
+                corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
+              end
             end
           end
         end

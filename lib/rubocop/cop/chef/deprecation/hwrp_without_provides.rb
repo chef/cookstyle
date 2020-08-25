@@ -82,7 +82,7 @@ module RuboCop
         #  # better
         #  Convert your legacy HWRPs to custom resources
         #
-        class HWRPWithoutProvides < Cop
+        class HWRPWithoutProvides < Base
           MSG = 'In Chef Infra Client 16 and later a legacy HWRP resource must use `provides` to define how the resource is called in recipes or other resources. To maintain compatibility with Chef Infra Client < 16 use both `resource_name` and `provides`.'
 
           def_node_matcher :HWRP?, <<-PATTERN
@@ -101,9 +101,17 @@ module RuboCop
           def_node_search :resource_name_ast, '$(send nil? :resource_name ...)'
           def_node_search :resource_name, '(send nil? :resource_name (sym $_))'
 
+          extend AutoCorrector
           def on_class(node)
+            return if has_provides?
             HWRP?(node) do |inherit|
-              add_offense(inherit, location: :expression, message: MSG, severity: :warning) unless has_provides?
+              add_offense(inherit, message: MSG, severity: :warning) do |corrector|
+                resource_name_ast(node) do |ast_match|
+                  # build a new string to add after that includes the new line and the proper indentation
+                  new_string = "\n" + ast_match.source.dup.gsub('resource_name', 'provides').prepend(' ' * indentation(ast_match))
+                  corrector.insert_after(ast_match.source_range, new_string)
+                end
+              end
             end
           end
 
@@ -124,16 +132,6 @@ module RuboCop
 
           def indentation(node)
             node.source_range.source_line =~ /\S/
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              resource_name_ast(node) do |ast_match|
-                # build a new string to add after that includes the new line and the proper indentation
-                new_string = "\n" + ast_match.source.dup.gsub('resource_name', 'provides').prepend(' ' * indentation(ast_match))
-                corrector.insert_after(ast_match.source_range, new_string)
-              end
-            end
           end
         end
       end

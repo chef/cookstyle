@@ -37,22 +37,19 @@ module RuboCop
         #  # better
         #  Write a custom resource using the custom resource DSL and avoid class based HWRPs entirely
         #
-        class ResourceInheritsFromCompatResource < Cop
+        class ResourceInheritsFromCompatResource < Base
           MSG = "HWRP style resource should inherit from the 'Chef::Resource' class and not the 'ChefCompat::Resource' class from the deprecated compat_resource cookbook."
 
           def_node_matcher :inherits_from_compat_resource?, <<-PATTERN
           (class (const nil? _ ) (const (const nil? :ChefCompat) :Resource) ... )
           PATTERN
 
+          extend AutoCorrector
           def on_class(node)
             inherits_from_compat_resource?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :warning)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.replace(node.loc.expression, node.loc.expression.source.gsub('ChefCompat', 'Chef'))
+              add_offense(node, message: MSG, severity: :warning) do |corrector|
+                corrector.replace(node.loc.expression, node.loc.expression.source.gsub('ChefCompat', 'Chef'))
+              end
             end
           end
         end

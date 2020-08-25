@@ -28,7 +28,7 @@ module RuboCop
         #   include_recipe 'chef_handler'
         #   include_recipe 'chef_handler::default'
         #
-        class ChefHandlerRecipe < Cop
+        class ChefHandlerRecipe < Base
           include RangeHelp
 
           MSG = 'There is no need to include the empty and deprecated chef_handler::default recipe in order to use the chef_handler resource'
@@ -37,15 +37,12 @@ module RuboCop
             (send nil? :include_recipe (str {"chef_handler" "chef_handler::default"}))
           PATTERN
 
+          extend AutoCorrector
           def on_send(node)
             chef_handler_recipe?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+                corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
+              end
             end
           end
         end

@@ -28,22 +28,19 @@ module RuboCop
         #
         #   at_exit { ChefSpec::Coverage.report! }
         #
-        class ChefSpecCoverageReport < Cop
+        class ChefSpecCoverageReport < Base
           MSG = "Don't use the deprecated ChefSpec coverage report functionality in your specs."
 
           def_node_matcher :coverage_reporter?, <<-PATTERN
           (block (send nil? :at_exit ) (args) (send (const (const nil? :ChefSpec) :Coverage) :report!))
           PATTERN
 
+          extend AutoCorrector
           def on_block(node)
             coverage_reporter?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :warning)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.remove(node.loc.expression)
+              add_offense(node, message: MSG, severity: :warning) do |corrector|
+                corrector.remove(node.loc.expression)
+              end
             end
           end
         end

@@ -57,33 +57,30 @@ module RuboCop
         #     subscribes :restart, "service[#{service_name_variable}]", :immediately
         #   end
         #
-        class LegacyNotifySyntax < Cop
+        class LegacyNotifySyntax < Base
           MSG = 'Use the new-style notification syntax which allows you to notify resources defined later in a recipe or resource.'
 
           def_node_matcher :legacy_notify?, <<-PATTERN
             (send nil? ${:notifies :subscribes} $(sym _) (send nil? :resources (hash (pair $(sym _) $(...) ) ) ) $... )
           PATTERN
 
+          extend AutoCorrector
           def on_send(node)
             legacy_notify?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :warning)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              legacy_notify?(node) do |notify_type, action, type, name, timing|
-                service_value = case name.type
-                                when :str
-                                  "'#{type.source}[#{name.value}]'"
-                                when :dstr
-                                  "\"#{type.source}[#{name.value.source}]\""
-                                else
-                                  "\"#{type.source}[\#{#{name.source}}]\""
-                                end
-                new_val = "#{notify_type} #{action.source}, #{service_value}".dup
-                new_val << ", #{timing.first.source}" unless timing.empty?
-                corrector.replace(node.loc.expression, new_val)
+              add_offense(node, message: MSG, severity: :warning) do |corrector|
+                legacy_notify?(node) do |notify_type, action, type, name, timing|
+                  service_value = case name.type
+                                  when :str
+                                    "'#{type.source}[#{name.value}]'"
+                                  when :dstr
+                                    "\"#{type.source}[#{name.value.source}]\""
+                                  else
+                                    "\"#{type.source}[\#{#{name.source}}]\""
+                                  end
+                  new_val = "#{notify_type} #{action.source}, #{service_value}".dup
+                  new_val << ", #{timing.first.source}" unless timing.empty?
+                  corrector.replace(node.loc.expression, new_val)
+                end
               end
             end
           end

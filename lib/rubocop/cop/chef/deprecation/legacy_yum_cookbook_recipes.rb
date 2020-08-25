@@ -33,7 +33,7 @@ module RuboCop
         #   include_recipe 'yum::repoforge'
         #   include_recipe 'yum::yum'
         #
-        class LegacyYumCookbookRecipes < Cop
+        class LegacyYumCookbookRecipes < Base
           MSG = 'The elrepo, epel, ius, remi, and repoforge recipes were split into their own cookbooks and the yum recipe was renamed to be default with the release of yum cookbook 3.0 (Dec 2013).'
 
           def_node_matcher :old_yum_recipe?, <<-PATTERN
@@ -42,7 +42,7 @@ module RuboCop
 
           def on_send(node)
             old_yum_recipe?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :warning)
+              add_offense(node, message: MSG, severity: :warning)
             end
           end
         end
