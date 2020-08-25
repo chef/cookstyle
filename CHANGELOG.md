@@ -1,29 +1,26 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.15.9 -->
-## [v6.15.9](https://github.com/chef/cookstyle/tree/v6.15.9) (2020-08-24)
-
-#### Merged Pull Requests
-- Update IncludeResourceDescriptions to allow string interpolation [#719](https://github.com/chef/cookstyle/pull/719) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=6.15.5 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Update IncludeResourceDescriptions to allow string interpolation [#719](https://github.com/chef/cookstyle/pull/719) ([tas50](https://github.com/tas50)) <!-- 6.15.9 -->
-- Fix IncludePropertyDescriptions to catch all occurrences [#718](https://github.com/chef/cookstyle/pull/718) ([tas50](https://github.com/tas50)) <!-- 6.15.8 -->
-- Refactor Ruby27KeywordArgumentWarnings [#717](https://github.com/chef/cookstyle/pull/717) ([tas50](https://github.com/tas50)) <!-- 6.15.7 -->
-- Update the list of deprecated fauxhai/chefspec platforms [#716](https://github.com/chef/cookstyle/pull/716) ([tas50](https://github.com/tas50)) <!-- 6.15.6 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v6.15.9](https://github.com/chef/cookstyle/tree/v6.15.9) (2020-08-25)
+
+#### Merged Pull Requests
+- Update the list of deprecated fauxhai/chefspec platforms [#716](https://github.com/chef/cookstyle/pull/716) ([tas50](https://github.com/tas50))
+- Refactor Ruby27KeywordArgumentWarnings [#717](https://github.com/chef/cookstyle/pull/717) ([tas50](https://github.com/tas50))
+- Fix IncludePropertyDescriptions to catch all occurrences [#718](https://github.com/chef/cookstyle/pull/718) ([tas50](https://github.com/tas50))
+- Update IncludeResourceDescriptions to allow string interpolation [#719](https://github.com/chef/cookstyle/pull/719) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v6.15.5](https://github.com/chef/cookstyle/tree/v6.15.5) (2020-08-13)
 
 #### Merged Pull Requests
 - Fix typo in ChefSharing/EmptyMetadataField [#714](https://github.com/chef/cookstyle/pull/714) ([tas50](https://github.com/tas50))
 - Optimize requires for non omnibus installs [#715](https://github.com/chef/cookstyle/pull/715) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v6.15.3](https://github.com/chef/cookstyle/tree/v6.15.3) (2020-08-10)
 
