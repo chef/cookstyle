@@ -32,7 +32,7 @@ module RuboCop
         #
         class NodeSet < Base
           extend AutoCorrector
-          
+
           MSG = 'Do not use node.set. Replace with node.normal to keep identical behavior.'
 
           def_node_matcher :node_set?, <<-PATTERN

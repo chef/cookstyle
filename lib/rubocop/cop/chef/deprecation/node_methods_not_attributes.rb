@@ -39,7 +39,7 @@ module RuboCop
         #
         class NodeMethodsInsteadofAttributes < Base
           extend AutoCorrector
-          
+
           MSG = 'Use node attributes to access Ohai data instead of node methods, which were deprecated in Chef Infra Client 13.'
 
           def_node_matcher :node_ohai_methods?, <<-PATTERN

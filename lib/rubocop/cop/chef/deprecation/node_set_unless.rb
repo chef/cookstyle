@@ -32,7 +32,7 @@ module RuboCop
         #
         class NodeSetUnless < Base
           extend AutoCorrector
-          
+
           MSG = 'Do not use node.set_unless. Replace with node.normal_unless to keep identical behavior.'
 
           def_node_matcher :node_set_unless?, <<-PATTERN

@@ -32,7 +32,7 @@ module RuboCop
         #
         class RequireRecipe < Base
           extend AutoCorrector
-          
+
           MSG = 'Use include_recipe instead of the require_recipe method'
 
           def_node_matcher :require_recipe?, <<-PATTERN
@@ -40,7 +40,7 @@ module RuboCop
           PATTERN
 
           def on_send(node)
-            require_recipe?(node) do 
+            require_recipe?(node) do
               add_offense(node.loc.selector, message: MSG, severity: :warning) do |corrector|
                 corrector.replace(node.loc.selector, 'include_recipe')
               end
