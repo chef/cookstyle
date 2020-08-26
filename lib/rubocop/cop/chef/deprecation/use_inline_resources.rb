@@ -45,6 +45,7 @@ module RuboCop
               if node.parent && node.parent.if_type? && %i(defined? respond_to?).include?(node.parent.children.first.method_name)
                 node = node.parent
               end
+              
               add_offense(node, message: MSG, severity: :warning) do |corrector|
                 corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
               end

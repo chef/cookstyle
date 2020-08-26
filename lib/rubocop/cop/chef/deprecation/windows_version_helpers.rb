@@ -60,11 +60,7 @@ module RuboCop
                 when :workstation_version?
                   corrector.replace(node.loc.expression, 'node[\'kernel\'][\'product_type\'] == \'Workstation\'')
                 end
-            end
-          end
-
-          def autocorrect(node)
-            lambda 
+              end
             end
           end
         end

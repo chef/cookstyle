@@ -36,16 +36,17 @@ module RuboCop
         #
         class ChocolateyPackageUninstallAction < Base
           include RuboCop::Chef::CookbookHelpers
+          extend AutoCorrector
 
           MSG = 'Use the :remove action in the chocolatey_package resource instead of :uninstall which was removed in Chef Infra Client 14+'
 
-          extend AutoCorrector
           def on_block(node)
             match_property_in_resource?(:chocolatey_package, 'action', node) do |choco_action|
               choco_action.arguments.each do |action|
+                next unless action.source == ':uninstall'
                 add_offense(action, message: MSG, severity: :warning) do |corrector|
                   corrector.replace(action, ':remove')
-                end if action.source == ':uninstall'
+                end
               end
             end
           end

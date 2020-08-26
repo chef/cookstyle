@@ -33,6 +33,8 @@ module RuboCop
         #   powershell_version == 4.0
         #
         class PowershellCookbookHelpers < Base
+          extend AutoCorrector
+
           MSG = "Use node['powershell']['version'] or the new powershell_version helper available in Chef Infra Client 15.8+ instead of the deprecated PowerShell cookbook helpers."
 
           def_node_matcher :ps_cb_helper?, <<-PATTERN
@@ -42,7 +44,6 @@ module RuboCop
             $(...))
           PATTERN
 
-          extend AutoCorrector
           def on_send(node)
             ps_cb_helper?(node) do |ver|
               add_offense(node, message: MSG, severity: :warning) do |corrector|

@@ -83,6 +83,8 @@ module RuboCop
         #  Convert your legacy HWRPs to custom resources
         #
         class HWRPWithoutProvides < Base
+          extend AutoCorrector
+
           MSG = 'In Chef Infra Client 16 and later a legacy HWRP resource must use `provides` to define how the resource is called in recipes or other resources. To maintain compatibility with Chef Infra Client < 16 use both `resource_name` and `provides`.'
 
           def_node_matcher :HWRP?, <<-PATTERN
@@ -101,7 +103,6 @@ module RuboCop
           def_node_search :resource_name_ast, '$(send nil? :resource_name ...)'
           def_node_search :resource_name, '(send nil? :resource_name (sym $_))'
 
-          extend AutoCorrector
           def on_class(node)
             return if has_provides?
             HWRP?(node) do |inherit|

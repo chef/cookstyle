@@ -49,9 +49,11 @@ module RuboCop
           def on_block(node)
             match_property_in_resource?(:ruby_block, 'action', node) do |ruby_action|
               ruby_action.arguments.each do |action|
-                add_offense(action, message: MSG, severity: :warning) do |corrector|
+                next unless action.source == ':create'
+                puts action.source
+                add_offense(action.loc.expression, message: MSG, severity: :warning) do |corrector|
                   corrector.replace(action.loc.expression, ':run')
-                end if action.source == ':create'
+                end
               end
             end
           end

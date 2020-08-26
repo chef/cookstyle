@@ -28,6 +28,7 @@ module RuboCop
         #
         class DeprecatedChefSpecPlatform < Base
           include RuboCop::Chef::CookbookHelpers
+          extend AutoCorrector
 
           MSG = "Use currently supported platforms in ChefSpec listed at https://github.com/chefspec/fauxhai/blob/master/PLATFORMS.md. Fauxhai / ChefSpec will perform fuzzy matching on platform version so it's always best to be less specific ie. 10 instead of 10.3"
 
@@ -114,14 +115,14 @@ module RuboCop
             nil # we don't have a replacement os return nil
           end
 
-          extend AutoCorrector
           def on_send(node)
             chefspec_definition?(node) do |plat, ver|
+              next unless legacy_chefspec_platform(plat.value, ver.value)
               add_offense(node, message: MSG, severity: :warning) do |corrector|
                 if replacement = replacement_string(plat.value, ver.value) # rubocop: disable Lint/AssignmentInCondition
                   corrector.replace(ver.loc.expression, "'#{replacement}'")
                 end
-              end if legacy_chefspec_platform(plat.value, ver.value)
+              end
             end
           end
         end

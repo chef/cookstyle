@@ -44,12 +44,12 @@ module RuboCop
         class DeprecatedYumRepositoryProperties < Base
           include RuboCop::Chef::CookbookHelpers
           extend TargetChefVersion
+          extend AutoCorrector
 
           minimum_target_chef_version '12.14'
 
           MSG = 'With the release of Chef Infra Client 12.14 and the yum cookbook 3.0 several properties in the yum_repository resource were renamed. url -> baseurl, keyurl -> gpgkey, and mirrorexpire -> mirror_expire.'
 
-          extend AutoCorrector
           def on_block(node)
             %w(url keyurl mirrorexpire).each do |prop|
               match_property_in_resource?(:yum_repository, prop, node) do |prop_node|

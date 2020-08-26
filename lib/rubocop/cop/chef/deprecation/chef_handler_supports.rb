@@ -36,10 +36,10 @@ module RuboCop
         #
         class ChefHandlerUsesSupports < Base
           include RuboCop::Chef::CookbookHelpers
+          extend AutoCorrector
 
           MSG = 'Use the type property instead of the deprecated supports property in the chef_handler resource. The supports property was removed in chef_handler cookbook version 3.0 (June 2017) and Chef Infra Client 14.0.'
 
-          extend AutoCorrector
           def on_block(node)
             match_property_in_resource?(:chef_handler, 'supports', node) do |prop_node|
               add_offense(prop_node, message: MSG, severity: :warning) do |corrector|

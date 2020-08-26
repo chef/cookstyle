@@ -31,13 +31,14 @@ module RuboCop
         #   include_recipe 'foo'
         #
         class RequireRecipe < Base
+          extend AutoCorrector
+          
           MSG = 'Use include_recipe instead of the require_recipe method'
 
           def_node_matcher :require_recipe?, <<-PATTERN
             (send nil? :require_recipe $str)
           PATTERN
 
-          extend AutoCorrector
           def on_send(node)
             require_recipe?(node) do 
               add_offense(node.loc.selector, message: MSG, severity: :warning) do |corrector|

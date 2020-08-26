@@ -44,9 +44,10 @@ module RuboCop
 
           def on_block(node)
             match_property_in_resource?(nil, 'verify', node) do |verify|
+              return unless verify.source.match?(/%{file}/)
               add_offense(verify, message: MSG, severity: :warning) do |corrector|
                 corrector.replace(verify.loc.expression, verify.loc.expression.source.gsub('%{file}', '%{path}'))
-              end if verify.source.match?(/%{file}/)
+              end
             end
           end
         end

@@ -35,13 +35,15 @@ module RuboCop
         #   end
         #
         class EpicFail < Base
+          extend AutoCorrector
+
           MSG = 'Use ignore_failure method instead of the deprecated epic_fail method'
 
-          extend AutoCorrector
           def on_send(node)
+            return unless node.method_name == :epic_fail
             add_offense(node, message: MSG, severity: :warning) do |corrector|
               corrector.replace(node.loc.expression, 'ignore_failure true')
-            end if node.method_name == :epic_fail
+            end
           end
         end
       end

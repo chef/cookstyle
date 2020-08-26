@@ -41,13 +41,13 @@ module RuboCop
         #   end
         #
         class ChefSpecLegacyRunner < Base
+          extend AutoCorrector
           MSG = 'Use ChefSpec::SoloRunner or ChefSpec::ServerRunner instead of the deprecated ChefSpec::Runner.'
 
           def_node_matcher :chefspec_runner?, <<-PATTERN
           (const (const nil? :ChefSpec) :Runner)
           PATTERN
 
-          extend AutoCorrector
           def on_const(node)
             chefspec_runner?(node) do
               add_offense(node, message: MSG, severity: :warning) do |corrector|

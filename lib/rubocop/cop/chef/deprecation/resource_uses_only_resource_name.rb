@@ -30,6 +30,7 @@ module RuboCop
         class ResourceUsesOnlyResourceName < Base
           include RuboCop::Chef::CookbookHelpers
           include RangeHelp
+          extend AutoCorrector
 
           MSG = 'Starting with Chef Infra Client 16, using `resource_name` without also using `provides` will result in resource failures. Make sure to use both `resource_name` and `provides` to change the name of the resource. You can also omit `resource_name` entirely if the value set matches the name Chef Infra Client automatically assigns based on COOKBOOKNAME_FILENAME.'
 
@@ -63,16 +64,16 @@ module RuboCop
             provides_ast.include?(resource_name)
           end
 
-          extend AutoCorrector
           def on_send(node)
             resource_name?(node) do |name|
+              return if valid_provides?(name)
               add_offense(node, message: MSG, severity: :warning) do |corrector|
                 if name.to_s == "#{cookbook_name}_#{File.basename(processed_source.path, '.rb')}"
                   corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
                 else
                   corrector.insert_after(node.source_range, "\n#{node.source.gsub('resource_name', 'provides')}")
                 end
-              end unless valid_provides?(name)
+              end
             end
           end
         end

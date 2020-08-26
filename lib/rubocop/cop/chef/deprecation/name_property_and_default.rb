@@ -45,12 +45,10 @@ module RuboCop
           PATTERN
 
           def on_send(node)
-            name_property_with_default?(node) do
+            name_property_with_default?(node) do |default|
               add_offense(node, message: MSG, severity: :warning) do |corrector|
-                name_property_with_default?(node) do |default|
-                  range = range_with_surrounding_comma(range_with_surrounding_space(range: default.loc.expression, side: :left), :left)
-                  corrector.remove(range)
-                end
+                range = range_with_surrounding_comma(range_with_surrounding_space(range: default.loc.expression, side: :left), :left)
+                corrector.remove(range)
               end
             end
           end
