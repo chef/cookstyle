@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 6.15.10 -->
+## [v6.15.10](https://github.com/chef/cookstyle/tree/v6.15.10) (2020-08-27)
+
+#### Merged Pull Requests
+- Update Deprecations rules to latest RuboCop format [#720](https://github.com/chef/cookstyle/pull/720) ([scottvidmar](https://github.com/scottvidmar))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=6.15.9 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Update Deprecations rules to latest RuboCop format [#720](https://github.com/chef/cookstyle/pull/720) ([scottvidmar](https://github.com/scottvidmar)) <!-- 6.15.10 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
