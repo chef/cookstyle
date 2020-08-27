@@ -28,9 +28,6 @@ module RuboCop
           MSG = 'The Librarian-Chef depsolving project is no longer maintained and a Cheffile should not be used for cookbook depsolving. Consider using Policyfiles instead.'
 
           def on_new_investigation
-            f_name = processed_source.file_path
-            return if processed_source.blank? && f_name != 'Cheffile'
-
             # Using range similar to RuboCop::Cop::Naming::Filename (file_name.rb)
             range = source_range(processed_source.buffer, 1, 0)
 
