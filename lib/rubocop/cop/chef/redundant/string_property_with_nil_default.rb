@@ -31,8 +31,9 @@ module RuboCop
         #   property :config_file, String
         #   property :config_file, [String, NilClass]
         #
-        class StringPropertyWithNilDefault < Cop
+        class StringPropertyWithNilDefault < Base
           include RangeHelp
+          extend AutoCorrector
 
           MSG = 'Properties have a nil value by default so there is no need to set the default value to nil.'
 
@@ -49,14 +50,10 @@ module RuboCop
 
           def on_send(node)
             string_property_with_nil_default?(node) do |nil_default|
-              add_offense(nil_default, location: :expression, message: MSG, severity: :refactor)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              range = range_with_surrounding_comma(range_with_surrounding_space(range: node.loc.expression, side: :left), :left)
-              corrector.remove(range)
+              add_offense(nil_default, message: MSG, severity: :refactor) do |corrector|
+                range = range_with_surrounding_comma(range_with_surrounding_space(range: nil_default.loc.expression, side: :left), :left)
+                corrector.remove(range)
+              end
             end
           end
         end

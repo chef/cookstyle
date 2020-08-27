@@ -59,7 +59,7 @@ module RuboCop
         #   # good
         #   property :config_file, String, required: true
         #
-        class NamePropertyIsRequired < Cop
+        class NamePropertyIsRequired < Base
           MSG = 'Resource properties marked as name properties should not also be required properties'
 
           # match on a property or attribute that has any name and any type and a hash that
@@ -71,7 +71,7 @@ module RuboCop
 
           def on_send(node)
             name_property_and_required?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+              add_offense(node, message: MSG, severity: :refactor)
             end
           end
         end

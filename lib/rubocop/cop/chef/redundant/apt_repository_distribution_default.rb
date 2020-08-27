@@ -36,9 +36,10 @@ module RuboCop
         #     deb_src false
         #   end
         #
-        class AptRepositoryDistributionDefault < Cop
+        class AptRepositoryDistributionDefault < Base
           include RuboCop::Chef::CookbookHelpers
           include RangeHelp
+          extend AutoCorrector
 
           MSG = "There is no need to pass `distribution node['lsb']['codename']` to an apt_repository resource as this is done automatically by the apt_repository resource."
 
@@ -49,14 +50,10 @@ module RuboCop
           def on_block(node)
             match_property_in_resource?(:apt_repository, 'distribution', node) do |dist|
               default_dist?(dist) do
-                add_offense(dist, location: :expression, message: MSG, severity: :refactor)
+                add_offense(dist, message: MSG, severity: :refactor) do |corrector|
+                  corrector.remove(range_with_surrounding_space(range: dist.loc.expression, side: :left))
+                end
               end
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
             end
           end
         end

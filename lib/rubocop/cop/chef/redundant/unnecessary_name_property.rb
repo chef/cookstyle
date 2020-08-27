@@ -29,7 +29,9 @@ module RuboCop
         #   attribute :name, kind_of: String
         #   attribute :name, kind_of: String, name_attribute: true
         #
-        class UnnecessaryNameProperty < Cop
+        class UnnecessaryNameProperty < Base
+          extend AutoCorrector
+
           MSG = 'There is no need to define a property or attribute named :name in a resource as Chef Infra defines this on all resources by default.'
 
           def_node_matcher :name_attribute?, <<-PATTERN
@@ -56,17 +58,15 @@ module RuboCop
 
           def on_send(node)
             name_property?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+                corrector.remove(node.source_range)
+              end
             end
 
             name_attribute?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.remove(node.source_range)
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+                corrector.remove(node.source_range)
+              end
             end
           end
         end

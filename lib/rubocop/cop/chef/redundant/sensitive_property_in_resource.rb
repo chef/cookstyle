@@ -24,7 +24,9 @@ module RuboCop
         # # bad
         # property :sensitive, [true, false], default: false
         #
-        class SensitivePropertyInResource < Cop
+        class SensitivePropertyInResource < Base
+          extend AutoCorrector
+
           MSG = 'Every Chef Infra resource already includes a sensitive property with a default value of false.'
 
           def_node_matcher :sensitive_property?, <<-PATTERN
@@ -32,13 +34,9 @@ module RuboCop
           PATTERN
 
           def on_send(node)
-            if sensitive_property?(node)
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
-            end
-          end
+            return unless sensitive_property?(node)
 
-          def autocorrect(node)
-            lambda do |corrector|
+            add_offense(node, message: MSG, severity: :refactor) do |corrector|
               corrector.remove(node.source_range)
             end
           end

@@ -27,18 +27,17 @@ module RuboCop
         #   # bad
         #   grouping 'windows_log_rotate', title: 'Demonstration cookbook with code to switch loggers'
         #
-        class GroupingMetadata < Cop
+        class GroupingMetadata < Base
           include RangeHelp
           include RuboCop::Chef::AutocorrectHelpers
+          extend AutoCorrector
 
           MSG = 'The grouping metadata.rb method is not used and is unnecessary in cookbooks.'
 
           def on_send(node)
-            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :grouping
-          end
+            return unless node.method_name == :grouping
 
-          def autocorrect(node)
-            lambda do |corrector|
+            add_offense(node, message: MSG, severity: :refactor) do |corrector|
               corrector.remove(range_with_surrounding_space(range: expression_including_heredocs(node), side: :left))
             end
           end

@@ -32,8 +32,9 @@ module RuboCop
         #   # good
         #   property :bob, String, required: true
         #
-        class PropertyWithRequiredAndDefault < Cop
+        class PropertyWithRequiredAndDefault < Base
           include RangeHelp
+          extend AutoCorrector
 
           MSG = 'Resource properties should not be both required and have a default value. This will fail on Chef Infra Client 13+'
 
@@ -45,14 +46,8 @@ module RuboCop
           PATTERN
 
           def on_send(node)
-            required_and_default?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              required_and_default?(node) do |default|
+            required_and_default?(node) do |default|
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
                 range = range_with_surrounding_comma(range_with_surrounding_space(range: default.loc.expression, side: :left), :left)
                 corrector.remove(range)
               end
