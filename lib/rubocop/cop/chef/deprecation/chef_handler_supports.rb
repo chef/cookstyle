@@ -34,22 +34,19 @@ module RuboCop
         #     type start: true, report: true, exception: true
         #   end
         #
-        class ChefHandlerUsesSupports < Cop
+        class ChefHandlerUsesSupports < Base
           include RuboCop::Chef::CookbookHelpers
+          extend AutoCorrector
 
           MSG = 'Use the type property instead of the deprecated supports property in the chef_handler resource. The supports property was removed in chef_handler cookbook version 3.0 (June 2017) and Chef Infra Client 14.0.'
 
           def on_block(node)
             match_property_in_resource?(:chef_handler, 'supports', node) do |prop_node|
-              add_offense(prop_node, location: :expression, message: MSG, severity: :warning)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              # make sure to delete leading and trailing {}s that would create invalid ruby syntax
-              extracted_val = node.arguments.first.source.gsub(/{|}/, '')
-              corrector.replace(node.loc.expression, "type #{extracted_val}")
+              add_offense(prop_node, message: MSG, severity: :warning) do |corrector|
+                # make sure to delete leading and trailing {}s that would create invalid ruby syntax
+                extracted_val = prop_node.arguments.first.source.gsub(/{|}/, '')
+                corrector.replace(prop_node.loc.expression, "type #{extracted_val}")
+              end
             end
           end
         end

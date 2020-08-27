@@ -34,8 +34,9 @@ module RuboCop
         #   require 'chef/mixin/language_include_attribute'
         #   require 'chef/mixin/language_include_recipe'
         #
-        class UsesDeprecatedMixins < Cop
+        class UsesDeprecatedMixins < Base
           include RangeHelp
+          extend AutoCorrector
 
           MSG = "Don't use deprecated Mixins no longer included in Chef Infra Client 14 and later."
 
@@ -53,21 +54,21 @@ module RuboCop
 
           def on_send(node)
             deprecated_mixin?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :warning)
+              add_offense(node, message: MSG, severity: :warning) do |corrector|
+                corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
+              end
             end
 
             deprecated_dsl?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :warning)
+              add_offense(node, message: MSG, severity: :warning) do |corrector|
+                corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
+              end
             end
 
             dsl_mixin_require?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :warning)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
+              add_offense(node, message: MSG, severity: :warning) do |corrector|
+                corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
+              end
             end
           end
         end

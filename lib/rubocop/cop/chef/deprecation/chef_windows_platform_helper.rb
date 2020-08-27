@@ -30,7 +30,8 @@ module RuboCop
         #   platform?('windows')
         #   platform_family?('windows')
         #
-        class ChefWindowsPlatformHelper < Cop
+        class ChefWindowsPlatformHelper < Base
+          extend AutoCorrector
           MSG = "Use `platform?('windows')` instead of the legacy `Chef::Platform.windows?` helper."
 
           def_node_matcher :chef_platform_windows?, <<-PATTERN
@@ -41,13 +42,9 @@ module RuboCop
 
           def on_send(node)
             chef_platform_windows?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :warning)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.replace(node.loc.expression, "platform?('windows')")
+              add_offense(node, message: MSG, severity: :warning) do |corrector|
+                corrector.replace(node.loc.expression, "platform?('windows')")
+              end
             end
           end
         end

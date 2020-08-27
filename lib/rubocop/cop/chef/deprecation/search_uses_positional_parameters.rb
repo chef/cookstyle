@@ -35,7 +35,9 @@ module RuboCop
         #  search(:node, '*:*', start: 0, rows: 1000)
         #  search(:node, '*:*', start: 0)
         #
-        class SearchUsesPositionalParameters < Cop
+        class SearchUsesPositionalParameters < Base
+          extend AutoCorrector
+
           MSG = "Don't use deprecated positional parameters in cookbook search queries."
 
           NAMED_PARAM_LOOKUP_TABLE = [nil, nil, 'start', 'rows', 'filter_result'].freeze
@@ -46,13 +48,9 @@ module RuboCop
 
           def on_send(node)
             search_method?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :warning) if positional_arguments?(node)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.replace(node.loc.expression, corrected_string(node))
+              add_offense(node, message: MSG, severity: :warning) do |corrector|
+                corrector.replace(node.loc.expression, corrected_string(node))
+              end if positional_arguments?(node)
             end
           end
 

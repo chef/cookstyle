@@ -38,7 +38,7 @@ module RuboCop
         #   resource = Chef::Resource::File.new("/tmp/foo.xyz", run_context)
         #   provider = resource.provider_for_action(:create)
         #
-        class DeprecatedPlatformMethods < Cop
+        class DeprecatedPlatformMethods < Base
           MSG = 'Use provider_for_action instead of the deprecated Chef::Platform methods in resources, which were removed in Chef Infra Client 13.'
 
           def_node_matcher :platform_method?, <<-PATTERN
@@ -47,7 +47,7 @@ module RuboCop
 
           def on_send(node)
             platform_method?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :warning)
+              add_offense(node, message: MSG, severity: :warning)
             end
           end
         end

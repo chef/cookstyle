@@ -33,7 +33,7 @@ module RuboCop
         #     destination '/opt/my_app'
         #   end
         #
-        class PoiseArchiveUsage < Cop
+        class PoiseArchiveUsage < Base
           include RuboCop::Chef::CookbookHelpers
           extend TargetChefVersion
           minimum_target_chef_version '15.0'
@@ -46,13 +46,13 @@ module RuboCop
 
           def on_send(node)
             depends_poise_archive?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :warning)
+              add_offense(node, message: MSG, severity: :warning)
             end
           end
 
           def on_block(node)
             match_resource_type?(:poise_archive, node) do
-              add_offense(node, location: :expression, message: MSG, severity: :warning)
+              add_offense(node, message: MSG, severity: :warning)
             end
           end
         end

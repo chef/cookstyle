@@ -37,7 +37,9 @@ module RuboCop
         #   node['platform_version']
         #   node['hostname']
         #
-        class NodeMethodsInsteadofAttributes < Cop
+        class NodeMethodsInsteadofAttributes < Base
+          extend AutoCorrector
+
           MSG = 'Use node attributes to access Ohai data instead of node methods, which were deprecated in Chef Infra Client 13.'
 
           def_node_matcher :node_ohai_methods?, <<-PATTERN
@@ -46,13 +48,9 @@ module RuboCop
 
           def on_send(node)
             node_ohai_methods?(node) do
-              add_offense(node, location: :selector, message: MSG, severity: :warning)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.replace(node.loc.expression, "node['#{node.method_name}']")
+              add_offense(node.loc.selector, message: MSG, severity: :warning) do |corrector|
+                corrector.replace(node.loc.expression, "node['#{node.method_name}']")
+              end
             end
           end
 

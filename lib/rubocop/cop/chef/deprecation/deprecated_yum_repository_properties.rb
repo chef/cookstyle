@@ -41,9 +41,10 @@ module RuboCop
         #     action :create
         #   end
         #
-        class DeprecatedYumRepositoryProperties < Cop
+        class DeprecatedYumRepositoryProperties < Base
           include RuboCop::Chef::CookbookHelpers
           extend TargetChefVersion
+          extend AutoCorrector
 
           minimum_target_chef_version '12.14'
 
@@ -52,14 +53,13 @@ module RuboCop
           def on_block(node)
             %w(url keyurl mirrorexpire).each do |prop|
               match_property_in_resource?(:yum_repository, prop, node) do |prop_node|
-                add_offense(prop_node, location: :expression, message: MSG, severity: :warning)
+                add_offense(prop_node, message: MSG, severity: :warning)  do |corrector|
+                  corrector.replace(prop_node.loc.expression, prop_node.loc.expression.source
+                    .gsub(/^url/, 'baseurl')
+                    .gsub(/^keyurl/, 'gpgkey')
+                    .gsub(/^mirrorexpire/, 'mirror_expire'))
+                end
               end
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.replace(node.loc.expression, node.loc.expression.source.gsub(/^url/, 'baseurl').gsub(/^keyurl/, 'gpgkey').gsub(/^mirrorexpire/, 'mirror_expire'))
             end
           end
         end

@@ -57,7 +57,9 @@ module RuboCop
         #     subscribes :restart, "service[#{service_name_variable}]", :immediately
         #   end
         #
-        class LegacyNotifySyntax < Cop
+        class LegacyNotifySyntax < Base
+          extend AutoCorrector
+
           MSG = 'Use the new-style notification syntax which allows you to notify resources defined later in a recipe or resource.'
 
           def_node_matcher :legacy_notify?, <<-PATTERN
@@ -65,14 +67,8 @@ module RuboCop
           PATTERN
 
           def on_send(node)
-            legacy_notify?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :warning)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              legacy_notify?(node) do |notify_type, action, type, name, timing|
+            legacy_notify?(node) do |notify_type, action, type, name, timing|
+              add_offense(node, message: MSG, severity: :warning) do |corrector|
                 service_value = case name.type
                                 when :str
                                   "'#{type.source}[#{name.value}]'"

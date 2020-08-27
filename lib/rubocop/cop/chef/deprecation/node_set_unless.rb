@@ -30,7 +30,9 @@ module RuboCop
         #   # good
         #   node.normal_unless['foo'] = true
         #
-        class NodeSetUnless < Cop
+        class NodeSetUnless < Base
+          extend AutoCorrector
+
           MSG = 'Do not use node.set_unless. Replace with node.normal_unless to keep identical behavior.'
 
           def_node_matcher :node_set_unless?, <<-PATTERN
@@ -39,13 +41,9 @@ module RuboCop
 
           def on_send(node)
             node_set_unless?(node) do
-              add_offense(node, location: :selector, message: MSG, severity: :warning)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.replace(node.loc.selector, 'normal_unless')
+              add_offense(node.loc.selector, message: MSG, severity: :warning) do |corrector|
+                corrector.replace(node.loc.selector, 'normal_unless')
+              end
             end
           end
         end

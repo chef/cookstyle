@@ -47,7 +47,7 @@ module RuboCop
         #     puts result['kernel_version']
         #   end
         #
-        class PartialSearchClassUsage < Cop
+        class PartialSearchClassUsage < Base
           MSG = 'Legacy Chef::PartialSearch class usage should be updated to use the search helper instead with the filter_result key.'
 
           def_node_matcher :partial_search_class?, <<-PATTERN
@@ -56,7 +56,7 @@ module RuboCop
 
           def on_send(node)
             partial_search_class?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :warning)
+              add_offense(node, message: MSG, severity: :warning)
             end
           end
         end

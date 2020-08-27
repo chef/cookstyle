@@ -41,30 +41,27 @@ module RuboCop
         #     non_unique true
         #   end
         #
-        class UserDeprecatedSupportsProperty < Cop
+        class UserDeprecatedSupportsProperty < Base
           include RuboCop::Chef::CookbookHelpers
+          extend AutoCorrector
 
           MSG = "The supports property was removed in Chef Infra Client 13 in favor of individual 'manage_home' and 'non_unique' properties."
 
           def on_block(node)
             match_property_in_resource?(:user, 'supports', node) do |property|
-              add_offense(property, location: :expression, message: MSG, severity: :warning)
-            end
-          end
+              add_offense(property, message: MSG, severity: :warning) do |corrector|
+                new_text = []
 
-          def autocorrect(node)
-            lambda do |corrector|
-              new_text = []
+                property.arguments.first.each_pair do |k, v|
+                  # account for a strange edge case where the person incorrectly makes "manage_home a method
+                  # the code would be broken, but without this handling cookstyle would explode
+                  key_value = (k.send_type? && k.method_name == :manage_home) ? 'manage_home' : k.value
 
-              node.arguments.first.each_pair do |k, v|
-                # account for a strange edge case where the person incorrectly makes "manage_home a method
-                # the code would be broken, but without this handling cookstyle would explode
-                key_value = (k.send_type? && k.method_name == :manage_home) ? 'manage_home' : k.value
+                  new_text << "#{key_value} #{v.source}"
+                end
 
-                new_text << "#{key_value} #{v.source}"
+                corrector.replace(property.loc.expression, new_text.join("\n  "))
               end
-
-              corrector.replace(node.loc.expression, new_text.join("\n  "))
             end
           end
         end

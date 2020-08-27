@@ -29,8 +29,9 @@ module RuboCop
         #   use_inline_resources if defined?(use_inline_resources)
         #   use_inline_resources if respond_to?(:use_inline_resources)
         #
-        class UseInlineResourcesDefined < Cop
+        class UseInlineResourcesDefined < Base
           include RangeHelp
+          extend AutoCorrector
 
           MSG = 'use_inline_resources is now the default for resources in Chef Infra Client 13+ and does not need to be specified.'
 
@@ -44,13 +45,10 @@ module RuboCop
               if node.parent && node.parent.if_type? && %i(defined? respond_to?).include?(node.parent.children.first.method_name)
                 node = node.parent
               end
-              add_offense(node, location: :expression, message: MSG, severity: :warning)
-            end
-          end
 
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
+              add_offense(node, message: MSG, severity: :warning) do |corrector|
+                corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
+              end
             end
           end
         end

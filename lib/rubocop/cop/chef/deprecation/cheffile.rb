@@ -22,18 +22,16 @@ module RuboCop
       # The Librarian-Chef depsolving project is no longer maintained and a Cheffile should not be used for cookbook depsolving. Consider using Policyfiles instead. If the Policyfiles model is not compatible with your workflow you may find Berkshelf offers a more similar, and still supported, experience to Librarian-Chef.
       #
       module ChefDeprecations
-        class Cheffile < Cop
+        class Cheffile < Base
           include RangeHelp
 
           MSG = 'The Librarian-Chef depsolving project is no longer maintained and a Cheffile should not be used for cookbook depsolving. Consider using Policyfiles instead.'
 
-          def investigate(processed_source)
-            return if processed_source.blank?
-
+          def on_new_investigation
             # Using range similar to RuboCop::Cop::Naming::Filename (file_name.rb)
             range = source_range(processed_source.buffer, 1, 0)
 
-            add_offense(nil, location: range, message: MSG, severity: :warning)
+            add_offense(range, message: MSG, severity: :warning)
           end
         end
       end

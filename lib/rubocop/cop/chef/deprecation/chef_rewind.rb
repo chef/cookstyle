@@ -35,10 +35,11 @@ module RuboCop
         #
         #   unwind "user[postgres]"
         #
-        class ChefRewind < Cop
+        class ChefRewind < Base
           include RuboCop::Chef::CookbookHelpers
           include RangeHelp
           extend TargetChefVersion
+          extend AutoCorrector
 
           minimum_target_chef_version '12.10'
 
@@ -63,44 +64,30 @@ module RuboCop
 
           def on_send(node)
             rewind_gem_install?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :warning)
+              add_offense(node, message: MSG, severity: :warning) do |corrector|
+                node = node.parent if node.parent&.block_type? # make sure we get the whole block not just the method in the block
+                corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
+              end
             end
 
             require_rewind?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :warning)
+              add_offense(node, message: MSG, severity: :warning) do |corrector|
+                corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
+              end
             end
 
-            rewind_resources?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :warning)
+            rewind_resources?(node) do |string|
+              add_offense(node, message: MSG, severity: :warning) do |corrector|
+                corrector.replace(node.loc.expression, node.source.gsub(string.to_s, MAPPING[string]))
+              end
             end
           end
 
           def on_block(node)
             match_property_in_resource?(:chef_gem, 'package_name', node) do |pkg_name|
-              add_offense(node, location: :expression, message: MSG, severity: :warning) if pkg_name.arguments&.first&.str_content == 'chef-rewind'
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              rewind_gem_install?(node) do
-                node = node.parent if node.parent&.block_type? # make sure we get the whole block not just the method in the block
-                corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
-                return
-              end
-
-              require_rewind?(node) do
-                corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
-                return
-              end
-
-              match_property_in_resource?(:chef_gem, 'package_name', node) do |pkg_name|
+              next unless pkg_name.arguments&.first&.str_content == 'chef-rewind'
+              add_offense(node, message: MSG, severity: :warning) do |corrector|
                 corrector.remove(node.loc.expression) if pkg_name.arguments&.first&.str_content == 'chef-rewind'
-                return
-              end
-
-              rewind_resources?(node) do |string|
-                corrector.replace(node.loc.expression, node.source.gsub(string.to_s, MAPPING[string]))
               end
             end
           end

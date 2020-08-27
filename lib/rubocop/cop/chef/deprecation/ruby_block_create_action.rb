@@ -40,22 +40,20 @@ module RuboCop
         #     action :run
         #   end
         #
-        class RubyBlockCreateAction < Cop
+        class RubyBlockCreateAction < Base
           include RuboCop::Chef::CookbookHelpers
+          extend AutoCorrector
 
           MSG = 'Use the :run action in the ruby_block resource instead of the deprecated :create action'
 
           def on_block(node)
             match_property_in_resource?(:ruby_block, 'action', node) do |ruby_action|
               ruby_action.arguments.each do |action|
-                add_offense(action, location: :expression, message: MSG, severity: :warning) if action.source == ':create'
+                next unless action.source == ':create'
+                add_offense(action.loc.expression, message: MSG, severity: :warning) do |corrector|
+                  corrector.replace(action.loc.expression, ':run')
+                end
               end
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.replace(node.loc.expression, ':run')
             end
           end
         end

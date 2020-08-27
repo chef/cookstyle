@@ -29,14 +29,14 @@ module RuboCop
         #     lc_all 'en_gb.utf-8'
         #   end
         #
-        class LocaleDeprecatedLcAllProperty < Cop
+        class LocaleDeprecatedLcAllProperty < Base
           include RuboCop::Chef::CookbookHelpers
 
           MSG = "The local resource's lc_all property has been deprecated and will be removed in Chef Infra Client 17"
 
           def on_block(node)
             match_property_in_resource?(:locale, 'lc_all', node) do |property|
-              add_offense(property, location: :expression, message: MSG, severity: :warning)
+              add_offense(property, message: MSG, severity: :warning)
             end
           end
         end

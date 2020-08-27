@@ -26,7 +26,9 @@ module RuboCop
         #   # bad
         #   include_recipe 'xml::ruby'
         #
-        class IncludingXMLRubyRecipe < Cop
+        class IncludingXMLRubyRecipe < Base
+          extend AutoCorrector
+
           MSG = 'Do not include the deprecated xml::ruby recipe to install the nokogiri gem. Chef Infra Client 12 and later ships with nokogiri included.'
 
           def_node_matcher :xml_ruby_recipe?, <<-PATTERN
@@ -36,13 +38,9 @@ module RuboCop
           def on_send(node)
             xml_ruby_recipe?(node) do
               node = node.parent if node.parent&.conditional? && node.parent&.single_line_condition? # make sure we catch any inline conditionals
-              add_offense(node, location: :expression, message: MSG, severity: :warning)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.remove(node.loc.expression)
+              add_offense(node, message: MSG, severity: :warning) do |corrector|
+                corrector.remove(node.loc.expression)
+              end
             end
           end
         end
