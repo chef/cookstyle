@@ -30,8 +30,9 @@ module RuboCop
         #   # also bad
         #   actions [:create, :remove]
         #
-        class CustomResourceWithAllowedActions < Cop
+        class CustomResourceWithAllowedActions < Base
           include RangeHelp
+          extend AutoCorrector
 
           MSG = 'It is not necessary to set `actions` or `allowed_actions` in custom resources as Chef Infra Client determines these automatically from the set of all actions defined in the resource'
 
@@ -47,16 +48,12 @@ module RuboCop
 
           def on_send(node)
             # if the resource requires poise then bail out since we're in a poise resource where @allowed_actions is legit
-            return if poise_require(processed_source.ast).any?
+            return if poise_require(processed_source.ast).any? && !resource_actions?(processed_source.ast)
 
             allowed_actions?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor) if resource_actions?(processed_source.ast)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+                corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
+              end
             end
           end
         end

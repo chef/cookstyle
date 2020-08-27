@@ -26,12 +26,15 @@ module RuboCop
         #   # bad
         #   node.policy_group == "foo"
         #
-        class CookbookUsesPolicygroups < Cop
+        class CookbookUsesPolicygroups < Base
           MSG = 'Cookbook uses Policy Groups, which cannot be used with Effortless Infra'
 
           def on_send(node)
-            if node.method_name == :policy_group && node.receiver && node.receiver.send_type? && node.receiver.method_name == :node
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            if node.method_name == :policy_group &&
+               node.receiver &&
+               node.receiver.send_type? &&
+               node.receiver.method_name == :node
+              add_offense(node, message: MSG, severity: :refactor)
             end
           end
         end

@@ -28,8 +28,9 @@ module RuboCop
         #     # let's do nothing
         #   end
         #
-        class ResourceWithNothingAction < Cop
+        class ResourceWithNothingAction < Base
           include RangeHelp
+          extend AutoCorrector
 
           MSG = 'There is no need to define a :nothing action in your resource as Chef Infra Client provides the :nothing action by default for every resource.'
 
@@ -39,13 +40,9 @@ module RuboCop
 
           def on_block(node)
             nothing_action?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+                corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
+              end
             end
           end
         end

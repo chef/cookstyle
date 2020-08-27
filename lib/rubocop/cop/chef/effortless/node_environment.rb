@@ -27,12 +27,15 @@ module RuboCop
         #   node.environment == "production"
         #   node.chef_environment == "production"
         #
-        class CookbookUsesEnvironments < Cop
+        class CookbookUsesEnvironments < Base
           MSG = 'Cookbook uses environments, which cannot be used in Policyfiles or Effortless Infra'
 
           def on_send(node)
-            if %i(environment chef_environment).include?(node.method_name) && node.receiver && node.receiver.send_type? && node.receiver.method_name == :node
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            if %i(environment chef_environment).include?(node.method_name) &&
+               node.receiver &&
+               node.receiver.send_type? &&
+               node.receiver.method_name == :node
+              add_offense(node, message: MSG, severity: :refactor)
             end
           end
         end

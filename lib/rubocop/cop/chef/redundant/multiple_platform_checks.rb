@@ -32,7 +32,9 @@ module RuboCop
         #   platform?('redhat', 'ubuntu')
         #   platform_family?('debian', 'rhel')
         #
-        class MultiplePlatformChecks < Cop
+        class MultiplePlatformChecks < Base
+          extend AutoCorrector
+
           MSG = 'You can pass multiple values to the platform? and platform_family? helpers instead of calling the helpers multiple times.'
 
           def_node_matcher :or_platform_helpers?, <<-PATTERN
@@ -40,16 +42,12 @@ module RuboCop
           PATTERN
 
           def on_or(node)
-            or_platform_helpers?(node) do |helpers, _plats|
+            or_platform_helpers?(node) do |helpers, plats|
               # if the helper types were the same it's an offense, but platform_family?('rhel') || platform?('ubuntu') is legit
-              add_offense(node, location: :expression, message: MSG, severity: :refactor) if helpers.uniq.size == 1
-            end
-          end
+              return unless helpers.uniq.size == 1
 
-          def autocorrect(node)
-            or_platform_helpers?(node) do |type, plats|
-              lambda do |corrector|
-                new_string = "#{type.first}(#{plats.map(&:source).join(', ')})"
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+                new_string = "#{helpers.first}(#{plats.map(&:source).join(', ')})"
                 corrector.replace(node.loc.expression, new_string)
               end
             end

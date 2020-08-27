@@ -41,8 +41,10 @@ module RuboCop
         #     action :create_if_missing
         #   end
         #
-        class UseCreateIfMissing < Cop
+        class UseCreateIfMissing < Base
           include RuboCop::Chef::CookbookHelpers
+          extend AutoCorrector
+
           MSG = 'Use the :create_if_missing action instead of not_if with a ::File.exist(FOO) check.'
 
           def_node_matcher :not_if_file_exist?, <<-PATTERN
@@ -59,16 +61,12 @@ module RuboCop
             not_if_file_exist?(node) do |props|
               file_like_resource?(node.parent.parent) do |resource_blk_name|
                 # the not_if file name is the same as the resource name and there's no action defined (it's the default)
-                if props == resource_blk_name && create_action?(node.parent.parent).nil?
-                  add_offense(node, location: :expression, message: MSG, severity: :refactor)
+                return unless props == resource_blk_name && create_action?(node.parent.parent).nil?
+
+                add_offense(node, message: MSG, severity: :refactor) do |corrector|
+                  corrector.replace(node.loc.expression, 'action :create_if_missing')
                 end
               end
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.replace(node.loc.expression, 'action :create_if_missing')
             end
           end
         end

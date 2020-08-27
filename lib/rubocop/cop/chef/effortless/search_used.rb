@@ -26,11 +26,11 @@ module RuboCop
         #   # bad
         #   search(:node, 'run_list:recipe\[bacula\:\:server\]')
         #
-        class CookbookUsesSearch < Cop
+        class CookbookUsesSearch < Base
           MSG = 'Cookbook uses search, which cannot be used in the Effortless Infra pattern'
 
           def on_send(node)
-            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :search
+            add_offense(node, message: MSG, severity: :refactor) if node.method_name == :search
           end
         end
       end

@@ -28,17 +28,16 @@ module RuboCop
         #
         #   suggests "another_cookbook"
         #
-        class SuggestsMetadata < Cop
+        class SuggestsMetadata < Base
           include RangeHelp
+          extend AutoCorrector
 
           MSG = 'The suggests metadata.rb method is not used and is unnecessary in cookbooks.'
 
           def on_send(node)
-            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :suggests
-          end
+            return unless node.method_name == :suggests
 
-          def autocorrect(node)
-            lambda do |corrector|
+            add_offense(node, message: MSG, severity: :refactor) do |corrector|
               corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
             end
           end

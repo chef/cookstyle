@@ -28,18 +28,17 @@ module RuboCop
         #   recipe 'openldap::default', 'Install and configure OpenLDAP'
         #
         #
-        class RecipeMetadata < Cop
+        class RecipeMetadata < Base
           include RangeHelp
           include RuboCop::Chef::AutocorrectHelpers
+          extend AutoCorrector
 
           MSG = "The recipe metadata.rb method is not used and is unnecessary in cookbooks. Recipes should be documented in the cookbook's README.md file instead."
 
           def on_send(node)
-            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :recipe
-          end
+            return unless node.method_name == :recipe
 
-          def autocorrect(node)
-            lambda do |corrector|
+            add_offense(node, message: MSG, severity: :refactor) do |corrector|
               corrector.remove(range_with_surrounding_space(range: expression_including_heredocs(node), side: :left))
             end
           end

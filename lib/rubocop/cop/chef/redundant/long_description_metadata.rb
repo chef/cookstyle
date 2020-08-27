@@ -27,18 +27,17 @@ module RuboCop
         #   # bad
         #   long_description 'this is my cookbook and this description will never be seen'
         #
-        class LongDescriptionMetadata < Cop
+        class LongDescriptionMetadata < Base
           include RangeHelp
           include RuboCop::Chef::AutocorrectHelpers
+          extend AutoCorrector
 
           MSG = 'The long_description metadata.rb method is not used and is unnecessary in cookbooks.'
 
           def on_send(node)
-            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :long_description
-          end
+            return unless node.method_name == :long_description
 
-          def autocorrect(node)
-            lambda do |corrector|
+            add_offense(node, message: MSG, severity: :refactor) do |corrector|
               corrector.remove(range_with_surrounding_space(range: expression_including_heredocs(node), side: :left))
             end
           end

@@ -36,21 +36,19 @@ module RuboCop
         #     deb_src false
         #   end
         #
-        class AptRepositoryNotifiesAptUpdate < Cop
+        class AptRepositoryNotifiesAptUpdate < Base
           include RuboCop::Chef::CookbookHelpers
           include RangeHelp
+          extend AutoCorrector
 
           MSG = 'There is no need to notify an apt-get update when an apt_repository is created as this is done automatically by the apt_repository resource.'
 
           def on_block(node)
             match_property_in_resource?(:apt_repository, 'notifies', node) do |notifies|
-              add_offense(notifies, location: :expression, message: MSG, severity: :refactor) if notifies.arguments[1] == s(:str, 'execute[apt-get update]')
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
+              return unless notifies.arguments[1] == s(:str, 'execute[apt-get update]')
+              add_offense(notifies, message: MSG, severity: :refactor) do |corrector|
+                corrector.remove(range_with_surrounding_space(range: notifies.loc.expression, side: :left))
+              end
             end
           end
         end

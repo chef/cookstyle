@@ -33,18 +33,16 @@ module RuboCop
         #              required: 'optional',
         #              default: '"127.0.0.1:2181"'
         #
-        class AttributeMetadata < Cop
+        class AttributeMetadata < Base
           include RangeHelp
           include RuboCop::Chef::AutocorrectHelpers
+          extend AutoCorrector
 
           MSG = 'The attribute metadata.rb method is not used and is unnecessary in cookbooks.'
 
           def on_send(node)
-            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :attribute
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
+            return unless node.method_name == :attribute
+            add_offense(node, message: MSG, severity: :refactor) do |corrector|
               corrector.remove(range_with_surrounding_space(range: expression_including_heredocs(node), side: :left))
             end
           end

@@ -31,8 +31,9 @@ module RuboCop
         #   property :config_file, String
         #   attribute :config_file, String
         #
-        class PropertySplatRegex < Cop
+        class PropertySplatRegex < Base
           include RangeHelp
+          extend AutoCorrector
 
           MSG = 'There is no need to validate the input of properties in resources using a regex value that will always pass.'
 
@@ -42,14 +43,12 @@ module RuboCop
 
           def on_send(node)
             property_with_regex_splat?(node) do |splat|
-              add_offense(splat, location: :expression, message: MSG, severity: :refactor)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              range = range_with_surrounding_comma(range_with_surrounding_space(range: node.loc.expression, side: :left), :left)
-              corrector.remove(range)
+              add_offense(splat, message: MSG, severity: :refactor) do |corrector|
+                range = range_with_surrounding_comma(
+                  range_with_surrounding_space(
+                    range: splat.loc.expression, side: :left), :left)
+                corrector.remove(range)
+              end
             end
           end
         end

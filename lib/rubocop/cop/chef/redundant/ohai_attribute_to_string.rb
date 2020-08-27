@@ -42,7 +42,9 @@ module RuboCop
         #   node['os']
         #   node['name']
         #
-        class OhaiAttributeToString < Cop
+        class OhaiAttributeToString < Base
+          extend AutoCorrector
+
           MSG = "This Ohai node attribute is already a string and doesn't need to be converted"
 
           def_node_matcher :attribute_to_s?, <<-PATTERN
@@ -50,14 +52,8 @@ module RuboCop
           PATTERN
 
           def on_send(node)
-            attribute_to_s?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
-            end
-          end
-
-          def autocorrect(node)
             attribute_to_s?(node) do |method|
-              lambda do |corrector|
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
                 corrector.replace(node.loc.expression, "node['#{method.value}']")
               end
             end
