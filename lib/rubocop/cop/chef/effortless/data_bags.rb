@@ -26,11 +26,11 @@ module RuboCop
         #   # bad
         #   data_bag_item('admins', login)
         #   data_bag(data_bag_name)
-        class CookbookUsesDatabags < Cop
+        class CookbookUsesDatabags < Base
           MSG = 'Cookbook uses data bags, which cannot be used in the Effortless Infra pattern'
 
           def on_send(node)
-            add_offense(node, location: :expression, message: MSG, severity: :refactor) if %i(data_bag data_bag_item).include?(node.method_name)
+            add_offense(node, message: MSG, severity: :refactor) if %i(data_bag data_bag_item).include?(node.method_name)
           end
         end
       end

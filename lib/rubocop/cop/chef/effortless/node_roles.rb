@@ -27,12 +27,15 @@ module RuboCop
         #   node.role?('web_server')
         #   node.roles.include?('web_server')
         #
-        class CookbookUsesRoles < Cop
+        class CookbookUsesRoles < Base
           MSG = 'Cookbook uses roles, which cannot be used in Policyfiles or Effortless Infra'
 
           def on_send(node)
-            if %i(role? roles).include?(node.method_name) && node.receiver && node.receiver.send_type? && node.receiver.method_name == :node
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            if %i(role? roles).include?(node.method_name) &&
+               node.receiver &&
+               node.receiver.send_type? &&
+               node.receiver.method_name == :node
+              add_offense(node, message: MSG, severity: :refactor)
             end
           end
         end

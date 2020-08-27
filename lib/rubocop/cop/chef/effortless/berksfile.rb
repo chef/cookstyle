@@ -22,18 +22,16 @@ module RuboCop
       module ChefEffortless
         # Policyfiles should be used for cookbook dependency solving instead of a Berkshelf Berksfile.
         #
-        class Berksfile < Cop
+        class Berksfile < Base
           include RangeHelp
 
           MSG = 'Policyfiles should be used for cookbook dependency solving instead of a Berkshelf Berksfile.'
 
-          def investigate(processed_source)
-            return if processed_source.blank?
-
+          def on_new_investigation
             # Using range similar to RuboCop::Cop::Naming::Filename (file_name.rb)
             range = source_range(processed_source.buffer, 1, 0)
 
-            add_offense(nil, location: range, message: MSG, severity: :refactor)
+            add_offense(range, message: MSG, severity: :refactor)
           end
         end
       end
