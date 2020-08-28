@@ -29,7 +29,9 @@ module RuboCop
         #   # good
         #   not_if { ::File.exist?('/etc/foo/bar') }
         #
-        class ScopedFileExist < Cop
+        class ScopedFileExist < Base
+          extend AutoCorrector
+
           MSG = 'Scope file exist to access the correct File class by using ::File.exist? not File.exist?.'
 
           def_node_matcher :unscoped_file_exist?, <<-PATTERN
@@ -38,13 +40,9 @@ module RuboCop
 
           def on_block(node)
             unscoped_file_exist?(node) do |m|
-              add_offense(m, location: :expression, message: MSG, severity: :refactor)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.replace(node.loc.expression, '::File')
+              add_offense(m, message: MSG, severity: :refactor) do |corrector|
+                corrector.replace(m.loc.expression, '::File')
+              end
             end
           end
         end

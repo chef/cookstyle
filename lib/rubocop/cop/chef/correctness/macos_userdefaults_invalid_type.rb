@@ -55,9 +55,8 @@ module RuboCop
               type_val = method_arg_ast_to_string(type)
               return if VALID_VALUES.include?(type_val)
               add_offense(type.loc.expression, message: MSG, severity: :refactor) do |corrector|
-                if INVALID_VALUE_MAP[type_val]
-                  corrector.replace(type.loc.expression, "type '#{INVALID_VALUE_MAP[type_val]}'")
-                end
+                next unless INVALID_VALUE_MAP[type_val]
+                corrector.replace(type.loc.expression, "type '#{INVALID_VALUE_MAP[type_val]}'")
               end
             end
           end

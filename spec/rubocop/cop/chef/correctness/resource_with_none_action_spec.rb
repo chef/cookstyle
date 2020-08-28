@@ -27,6 +27,12 @@ describe RuboCop::Cop::Chef::ChefCorrectness::ResourceWithNoneAction, :config do
                ^^^^^ Resource uses the nonexistent :none action instead of the :nothing action
       end
     RUBY
+
+    expect_correction(<<~RUBY)
+      execute 'apache_start' do
+        action :nothing
+      end
+    RUBY
   end
 
   it 'does not register an offense when a resource calls the :nothing action' do

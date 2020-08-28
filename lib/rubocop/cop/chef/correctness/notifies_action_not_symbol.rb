@@ -42,20 +42,20 @@ module RuboCop
         #     subscribes :restart, 'service[httpd]', 'delayed'
         #   end
         #
-        class NotifiesActionNotSymbol < Cop
+        class NotifiesActionNotSymbol < Base
           include RuboCop::Chef::CookbookHelpers
+          extend AutoCorrector
 
           MSG = 'Resource notification and subscription actions should be symbols not strings.'
 
           def on_block(node)
             match_property_in_resource?(nil, %w(notifies subscribes), node) do |notifies_property|
-              add_offense(notifies_property, location: :expression, message: MSG, severity: :refactor) if notifies_property.node_parts[2].str_type?
-            end
-          end
+              return unless notifies_property.node_parts[2].str_type?
 
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.replace(node.first_argument.loc.expression, ":#{node.node_parts[2].value}")
+              add_offense(notifies_property, message: MSG, severity: :refactor) do |corrector|
+                corrector.replace(notifies_property.first_argument.loc.expression,
+                  ":#{notifies_property.node_parts[2].value}")
+              end
             end
           end
         end

@@ -29,7 +29,9 @@ module RuboCop
         #   # good
         #   raise "Something horrible happened!"
         #
-        class ChefApplicationFatal < Cop
+        class ChefApplicationFatal < Base
+          extend AutoCorrector
+
           MSG = 'Use raise to force Chef Infra Client to fail instead of using Chef::Application.fatal'
 
           def_node_matcher :application_fatal?, <<-PATTERN
@@ -40,14 +42,8 @@ module RuboCop
           PATTERN
 
           def on_send(node)
-            application_fatal?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              application_fatal?(node) do |val|
+            application_fatal?(node) do |val|
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
                 corrector.replace(node.loc.expression, "raise(#{val.source})")
               end
             end

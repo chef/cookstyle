@@ -36,14 +36,14 @@ module RuboCop
         #     action [:start, :enable]
         #   end
         #
-        class ResourceSetsInternalProperties < Cop
+        class ResourceSetsInternalProperties < Base
           include RuboCop::Chef::CookbookHelpers
 
           MSG = 'Do not set properties used internally by Chef Infra Client to track the system state.'
 
           def on_block(node)
             match_property_in_resource?(:service, 'running', node) do |prop|
-              add_offense(prop, location: :expression, message: MSG, severity: :refactor)
+              add_offense(prop, message: MSG, severity: :refactor)
             end
           end
         end

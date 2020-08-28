@@ -31,7 +31,8 @@ module RuboCop
       #   name 'foo'
       #
       module ChefCorrectness
-        class CookbooksDependsOnSelf < Cop
+        class CookbooksDependsOnSelf < Base
+          extend AutoCorrector
           include RangeHelp
 
           MSG = 'A cookbook cannot depend on itself. This will fail on Chef Infra Client 13+'
@@ -42,17 +43,11 @@ module RuboCop
           def on_send(node)
             cb_name?(node) do
               dependencies(processed_source.ast).each do |dep|
-                if dep.arguments == node.arguments
-                  node = dep # set our dependency node as the node for autocorrecting later
-                  add_offense(node, location: dep.source_range, message: MSG, severity: :refactor)
+                next unless dep.arguments == node.arguments
+                add_offense(dep, message: MSG, severity: :refactor) do |corrector|
+                  corrector.remove(range_with_surrounding_space(range: dep.loc.expression, side: :left))
                 end
               end
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
             end
           end
         end

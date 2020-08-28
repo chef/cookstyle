@@ -30,16 +30,15 @@ module RuboCop
         #   # good
         #   version '1.2.3'
         #
-        class InvalidVersionMetadata < Cop
+        class InvalidVersionMetadata < Base
           MSG = 'Cookbook metadata.rb version field should follow X.Y.Z version format.'
 
           def_node_matcher :version?, '(send nil? :version $str ...)'
 
           def on_send(node)
             version?(node) do |ver|
-              unless /\A\d+\.\d+(\.\d+)?\z/.match?(ver.value) # entirely borrowed from Foodcritic.
-                add_offense(ver, location: :expression, message: MSG, severity: :refactor)
-              end
+              next if /\A\d+\.\d+(\.\d+)?\z/.match?(ver.value) # entirely borrowed from Foodcritic.
+              add_offense(ver, message: MSG, severity: :refactor)
             end
           end
         end

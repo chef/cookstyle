@@ -25,7 +25,7 @@ module RuboCop
         #   ::Chef::Recipe.send(:include, Opscode::OpenSSL::Password)
         #   basic_auth_password = secure_password
         #
-        class OpenSSLPasswordHelpers < Cop
+        class OpenSSLPasswordHelpers < Base
           MSG = 'The `secure_password` helper from the openssl cookbooks `Opscode::OpenSSL::Password` class should not be used to generate passwords.'
 
           def_node_matcher :openssl_helper?, <<~PATTERN
@@ -36,7 +36,7 @@ module RuboCop
 
           def on_const(node)
             openssl_helper?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :warning)
+              add_offense(node, message: MSG, severity: :warning)
             end
           end
         end

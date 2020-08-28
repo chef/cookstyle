@@ -29,7 +29,8 @@ module RuboCop
         #     puts "I'm on a Red Hat system!"
         #   end
         #
-        class InvalidPlatformInCase < Cop
+        class InvalidPlatformInCase < Base
+          extend AutoCorrector
           include RangeHelp
           include ::RuboCop::Chef::PlatformHelpers
 
@@ -44,30 +45,20 @@ module RuboCop
               node.each_when do |when_node|
                 when_node.each_condition do |con|
                   next unless con.str_type? # if the condition isn't a string we can't check so skip
+                  new_value = INVALID_PLATFORMS[con.str_content]
+                  # some invalid platform have no direct correction value and return nil instead
+                  next unless new_value
 
-                  if INVALID_PLATFORMS[con.str_content]
-                    add_offense(con, location: :expression, message: MSG, severity: :refactor)
+                  add_offense(con, message: MSG, severity: :refactor) do |corrector|
+                    # if the correct value already exists in the when statement then we just want to delete this node
+                    if con.parent.conditions.any? { |x| x.str_content == new_value }
+                      range = range_with_surrounding_comma(range_with_surrounding_space(range: con.loc.expression, side: :left), :both)
+                      corrector.remove(range)
+                    else
+                      corrector.replace(con.loc.expression, "'#{new_value}'")
+                    end
                   end
                 end
-              end
-            end
-          end
-
-          def autocorrect(node)
-            new_value = INVALID_PLATFORMS[node.str_content]
-
-            # some invalid platform have no direct correction value and return nil instead
-            return unless new_value
-
-            # if the correct value already exists in the when statement then we just want to delete this node
-            if node.parent.conditions.any? { |x| x.str_content == new_value }
-              lambda do |corrector|
-                range = range_with_surrounding_comma(range_with_surrounding_space(range: node.loc.expression, side: :left), :both)
-                corrector.remove(range)
-              end
-            else
-              lambda do |corrector|
-                corrector.replace(node.loc.expression, "'#{new_value}'")
               end
             end
           end

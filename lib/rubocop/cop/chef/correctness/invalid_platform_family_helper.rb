@@ -31,9 +31,10 @@ module RuboCop
         #   platform_family?('rhel')
         #   platform_family?('suse')
         #
-        class InvalidPlatformFamilyHelper < Cop
+        class InvalidPlatformFamilyHelper < Base
           include ::RuboCop::Chef::PlatformHelpers
           include RangeHelp
+          extend AutoCorrector
 
           MSG = 'Pass valid platform families to the platform_family? helper.'
 
@@ -45,27 +46,20 @@ module RuboCop
             platform_family_helper?(node) do |plats|
               plats.to_a.each do |p|
                 next unless INVALID_PLATFORM_FAMILIES.key?(p.value)
-                add_offense(p, location: :expression, message: MSG, severity: :refactor)
-              end
-            end
-          end
+                add_offense(p, message: MSG, severity: :refactor) do |corrector|
+                  replacement_platform = INVALID_PLATFORM_FAMILIES[p.value]
+                  all_passed_platforms = p.parent.arguments.map(&:value)
 
-          def autocorrect(node)
-            replacement_platform = INVALID_PLATFORM_FAMILIES[node.value]
-            all_passed_platforms = node.parent.arguments.map(&:value)
-
-            # see if we have a replacement platform in our hash. If not we can't autocorrect
-            if replacement_platform
-              # if the replacement platform was one of the other platforms passed we can just delete this bad platform
-              if all_passed_platforms.include?(replacement_platform)
-                all_passed_platforms.delete(node.value)
-                lambda do |corrector|
-                  arg_range = node.parent.arguments.first.loc.expression.join(node.parent.arguments[-1].loc.expression.end)
-                  corrector.replace(arg_range, all_passed_platforms.map { |x| "'#{x}'" }.join(', '))
-                end
-              else
-                lambda do |corrector|
-                  corrector.replace(node.loc.expression, node.value.gsub(node.value, "'#{replacement_platform}'")) # gsub to retain quotes
+                  # see if we have a replacement platform in our hash. If not we can't autocorrect
+                  next unless replacement_platform
+                  # if the replacement platform was one of the other platforms passed we can just delete this bad platform
+                  if all_passed_platforms.include?(replacement_platform)
+                    all_passed_platforms.delete(p.value)
+                    arg_range = p.parent.arguments.first.loc.expression.join(p.parent.arguments[-1].loc.expression.end)
+                    corrector.replace(arg_range, all_passed_platforms.map { |x| "'#{x}'" }.join(', '))
+                  else
+                    corrector.replace(p.loc.expression, p.value.gsub(p.value, "'#{replacement_platform}'")) # gsub to retain quotes
+                  end
                 end
               end
             end

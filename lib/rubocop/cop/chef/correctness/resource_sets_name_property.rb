@@ -35,14 +35,14 @@ module RuboCop
         #    service_name 'bar'
         #   end
         #
-        class ResourceSetsNameProperty < Cop
+        class ResourceSetsNameProperty < Base
           include RuboCop::Chef::CookbookHelpers
 
           MSG = 'Resource sets the name property in the resource instead of using a name_property.'
 
           def on_block(node)
             match_property_in_resource?(nil, 'name', node) do |name_node|
-              add_offense(name_node, location: :expression, message: MSG, severity: :refactor)
+              add_offense(name_node, message: MSG, severity: :refactor)
             end
           end
         end

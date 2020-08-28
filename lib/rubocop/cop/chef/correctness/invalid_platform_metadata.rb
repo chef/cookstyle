@@ -32,7 +32,8 @@ module RuboCop
         #   supports 'mac_os_x'
         #   supports 'windows'
         #
-        class InvalidPlatformMetadata < Cop
+        class InvalidPlatformMetadata < Base
+          extend AutoCorrector
           include ::RuboCop::Chef::PlatformHelpers
 
           MSG = 'metadata.rb "supports" platform is invalid'
@@ -50,8 +51,11 @@ module RuboCop
 
           def on_send(node)
             supports?(node) do |plat|
-              if INVALID_PLATFORMS[plat.str_content]
-                add_offense(plat, location: :expression, message: MSG, severity: :refactor)
+              next unless INVALID_PLATFORMS[plat.str_content]
+              add_offense(plat, message: MSG, severity: :refactor) do |corrector|
+                correct_string = corrected_platform_source(plat)
+                next unless correct_string
+                corrector.replace(plat.loc.expression, correct_string)
               end
             end
           end
@@ -59,18 +63,12 @@ module RuboCop
           def on_block(node)
             supports_array?(node) do |plats|
               plats.values.each do |plat|
-                if INVALID_PLATFORMS[plat.str_content]
-                  add_offense(plat, location: :expression, message: MSG, severity: :refactor)
+                next unless INVALID_PLATFORMS[plat.str_content]
+                add_offense(plat, message: MSG, severity: :refactor) do |corrector|
+                  correct_string = corrected_platform_source(plat)
+                  next unless correct_string
+                  corrector.replace(plat.loc.expression, correct_string)
                 end
-              end
-            end
-          end
-
-          def autocorrect(node)
-            correct_string = corrected_platform_source(node)
-            if correct_string
-              lambda do |corrector|
-                corrector.replace(node.loc.expression, correct_string)
               end
             end
           end

@@ -34,21 +34,18 @@ module RuboCop
         #     version '1.2.3'
         #   end
         #
-        class DnfPackageAllowDowngrades < Cop
+        class DnfPackageAllowDowngrades < Base
           include RangeHelp
           include RuboCop::Chef::CookbookHelpers
+          extend AutoCorrector
 
           MSG = 'dnf_package does not support the allow_downgrades property'
 
           def on_block(node)
             match_property_in_resource?(:dnf_package, :allow_downgrades, node) do |prop|
-              add_offense(prop, location: :expression, message: MSG, severity: :refactor)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
+              add_offense(prop, message: MSG, severity: :refactor) do |corrector|
+                corrector.remove(range_with_surrounding_space(range: prop.loc.expression, side: :left))
+              end
             end
           end
         end

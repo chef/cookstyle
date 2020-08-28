@@ -37,7 +37,7 @@ module RuboCop
         #   node.force_default_unless['foo'] = true
         #   node.force_override_unless['foo'] = true
         #
-        class NodeNormalUnless < Cop
+        class NodeNormalUnless < Base
           MSG = 'Do not use node.normal_unless. Replace with default/override/force_default/force_override attribute levels.'
 
           def_node_matcher :node_normal_unless?, <<-PATTERN
@@ -46,7 +46,7 @@ module RuboCop
 
           def on_send(node)
             node_normal_unless?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+              add_offense(node, message: MSG, severity: :refactor)
             end
           end
         end

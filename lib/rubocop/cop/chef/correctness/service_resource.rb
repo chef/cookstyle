@@ -27,7 +27,7 @@ module RuboCop
         #   command "/etc/init.d/mysql start"
         #   command "/sbin/service/memcached start"
         #
-        class ServiceResource < Cop
+        class ServiceResource < Base
           MSG = 'Use a service resource to start and stop services'
 
           def_node_matcher :execute_command?, <<-PATTERN
@@ -37,7 +37,7 @@ module RuboCop
           def on_send(node)
             execute_command?(node) do |command|
               if starts_service?(command)
-                add_offense(command, location: :expression, message: MSG, severity: :refactor)
+                add_offense(command, message: MSG, severity: :refactor)
               end
             end
           end

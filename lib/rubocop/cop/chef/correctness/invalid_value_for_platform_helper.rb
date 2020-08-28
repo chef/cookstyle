@@ -34,7 +34,7 @@ module RuboCop
         #     %w(opensuseleap) => { 'default' => 'bar' }
         #   )
         #
-        class InvalidPlatformValueForPlatformHelper < Cop
+        class InvalidPlatformValueForPlatformHelper < Base
           include ::RuboCop::Chef::PlatformHelpers
 
           MSG = 'Pass valid platforms to the value_for_platform helper.'
@@ -52,10 +52,11 @@ module RuboCop
               plats.each do |p_hash|
                 if p_hash.key.array_type?
                   p_hash.key.values.each do |plat|
-                    add_offense(plat, location: :expression, message: MSG, severity: :refactor) if INVALID_PLATFORMS.key?(plat.value)
+                    next unless INVALID_PLATFORMS.key?(plat.value)
+                    add_offense(plat, message: MSG, severity: :refactor)
                   end
                 elsif INVALID_PLATFORMS.key?(p_hash.key.value)
-                  add_offense(p_hash.key, location: :expression, message: MSG, severity: :refactor)
+                  add_offense(p_hash.key, message: MSG, severity: :refactor)
                 end
               end
             end
