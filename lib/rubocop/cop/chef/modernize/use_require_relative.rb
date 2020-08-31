@@ -29,7 +29,9 @@ module RuboCop
         #   # good
         #   require_relative '../libraries/helpers'
         #
-        class UseRequireRelative < Cop
+        class UseRequireRelative < Base
+          extend AutoCorrector
+
           MSG = 'Instead of using require with a File.expand_path and __FILE__ use the simpler require_relative method.'
 
           def_node_matcher :require_with_expand_path?, <<-PATTERN
@@ -41,14 +43,9 @@ module RuboCop
           PATTERN
 
           def on_send(node)
-            require_with_expand_path?(node) do |_file, path|
-              add_offense(node, location: :expression, message: MSG, severity: :refactor) if path.source == '__FILE__'
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              require_with_expand_path?(node) do |file, _path|
+            require_with_expand_path?(node) do |file, path|
+              return unless path.source == '__FILE__'
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
                 corrected_value = file.value
                 corrected_value.slice!(%r{^../}) # take the first ../ off the path
                 corrector.replace(node.loc.expression, "require_relative '#{corrected_value}'")

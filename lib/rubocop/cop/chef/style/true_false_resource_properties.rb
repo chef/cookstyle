@@ -29,7 +29,8 @@ module RuboCop
         #   # good
         #   property :foo, [true, false]
         #
-        class TrueClassFalseClassResourceProperties < Cop
+        class TrueClassFalseClassResourceProperties < Base
+          extend AutoCorrector
           MSG = "When setting the allowed types for a resource to accept either true or false values it's much simpler to use true and false instead of TrueClass and FalseClass."
 
           def_node_matcher :trueclass_falseclass_property?, <<-PATTERN
@@ -37,14 +38,8 @@ module RuboCop
           PATTERN
 
           def on_send(node)
-            trueclass_falseclass_property?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              trueclass_falseclass_property?(node) do |types|
+            trueclass_falseclass_property?(node) do |types|
+              add_offense(node.loc.expression, message: MSG, severity: :refactor) do |corrector|
                 corrector.replace(types.loc.expression, '[true, false]')
               end
             end

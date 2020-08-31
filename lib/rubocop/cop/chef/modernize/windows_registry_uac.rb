@@ -47,22 +47,21 @@ module RuboCop
 
           # non block execute resources
           def on_send(node)
-            return unless node.method_name == :registry_key
+            return unless node.method_name == :registry_key &&
+                          node&.arguments.first&.source.match?(/(HKLM|HKEY_LOCAL_MACHINE)\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System/i) &&
+                          node.parent&.method_name != :describe
 
             # use source instead of .value in case there's string interpolation which adds a complex dstr type
             # with a nested string and a begin. Source allows us to avoid a lot of defensive programming here
-            if node&.arguments.first&.source.match?(/(HKLM|HKEY_LOCAL_MACHINE)\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System/i) && node.parent&.method_name != :describe
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
-            end
+            add_offense(node, location: :expression, message: MSG, severity: :refactor)
           end
 
           # block execute resources
           def on_block(node)
             match_property_in_resource?(:registry_key, 'key', node) do |key_prop|
               property_data = method_arg_ast_to_string(key_prop)
-              if property_data && property_data.match?(/(HKLM|HKEY_LOCAL_MACHINE)\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System/i)
-                add_offense(node, location: :expression, message: MSG, severity: :refactor)
-              end
+              return unless property_data && property_data.match?(/(HKLM|HKEY_LOCAL_MACHINE)\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System/i)
+              add_offense(node, location: :expression, message: MSG, severity: :refactor)
             end
           end
         end

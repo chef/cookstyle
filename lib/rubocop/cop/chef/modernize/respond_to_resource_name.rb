@@ -29,24 +29,22 @@ module RuboCop
         #   # good
         #   resource_name :foo
         #
-        class RespondToResourceName < Cop
+        class RespondToResourceName < Base
+          extend AutoCorrector
+
           MSG = 'respond_to?(:resource_name) in resources is no longer necessary in Chef Infra Client 12.5+'
 
           def on_if(node)
             if_respond_to_resource_name?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+                corrector.replace(node.loc.expression, node.children[1].source)
+              end
             end
           end
 
           def_node_matcher :if_respond_to_resource_name?, <<~PATTERN
           (if (send nil? :respond_to? ( :sym :resource_name ) ) ... )
           PATTERN
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.replace(node.loc.expression, node.children[1].source)
-            end
-          end
         end
       end
     end

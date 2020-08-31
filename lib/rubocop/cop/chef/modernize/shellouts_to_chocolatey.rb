@@ -33,7 +33,7 @@ module RuboCop
         #    not_if 'choco source list | findstr artifactory'
         #  end
         #
-        class ShellOutToChocolatey < Cop
+        class ShellOutToChocolatey < Base
           include RuboCop::Chef::CookbookHelpers
 
           MSG = 'Use the Chocolatey resources built into Chef Infra Client instead of shelling out to the choco command'
@@ -41,16 +41,14 @@ module RuboCop
           def on_block(node)
             match_property_in_resource?(:powershell_script, 'code', node) do |code_property|
               property_data = method_arg_ast_to_string(code_property)
-              if property_data && property_data.match?(/^choco /i)
-                add_offense(node, location: :expression, message: MSG, severity: :refactor)
-              end
+              next unless property_data && property_data.match?(/^choco /i)
+              add_offense(node, message: MSG, severity: :refactor)
             end
 
             match_property_in_resource?(:execute, 'command', node) do |code_property|
               property_data = method_arg_ast_to_string(code_property)
-              if property_data && property_data.match?(/^choco /i)
-                add_offense(node, location: :expression, message: MSG, severity: :refactor)
-              end
+              next unless property_data && property_data.match?(/^choco /i)
+              add_offense(node, message: MSG, severity: :refactor)
             end
           end
         end

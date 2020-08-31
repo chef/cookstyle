@@ -38,8 +38,9 @@ module RuboCop
         #   # good
         #   allowed_actions [ :create, :add ]
         #
-        class AllowedActionsFromInitialize < Cop
+        class AllowedActionsFromInitialize < Base
           include RangeHelp
+          extend AutoCorrector
 
           MSG = 'The allowed actions of a resource can be set with the "allowed_actions" helper instead of using the initialize method.'
 
@@ -48,8 +49,20 @@ module RuboCop
             return if node.body.nil? # nil body is an empty initialize method
 
             node.body.each_node do |x|
-              if x.assignment? && !x.parent.op_asgn_type? && !x.node_parts.empty? && %i(@actions @allowed_actions).include?(x.node_parts.first)
-                add_offense(x, location: :expression, message: MSG, severity: :refactor)
+              next unless x.assignment? &&
+                          !x.parent.op_asgn_type? &&
+                          !x.node_parts.empty? &&
+                          %i(@actions @allowed_actions).include?(x.node_parts.first)
+
+              add_offense(x, message: MSG, severity: :refactor) do |corrector|
+                # insert the new allowed_actions call above the initialize method, but not if one already exists (this is sadly common)
+                unless action_methods?(processed_source.ast)
+                  initialize_node = initialize_method(processed_source.ast).first
+                  corrector.insert_before(initialize_node.source_range, "allowed_actions #{x.descendants.first.source}\n\n")
+                end
+
+                # remove the variable from the initialize method
+                corrector.remove(range_with_surrounding_space(range: x.loc.expression, side: :left))
               end
             end
           end
@@ -57,19 +70,6 @@ module RuboCop
           def_node_search :action_methods?, '(send nil? {:actions :allowed_actions} ... )'
 
           def_node_search :initialize_method, '(def :initialize ... )'
-
-          def autocorrect(node)
-            lambda do |corrector|
-              # insert the new allowed_actions call above the initialize method, but not if one already exists (this is sadly common)
-              unless action_methods?(processed_source.ast)
-                initialize_node = initialize_method(processed_source.ast).first
-                corrector.insert_before(initialize_node.source_range, "allowed_actions #{node.descendants.first.source}\n\n")
-              end
-
-              # remove the variable from the initialize method
-              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
-            end
-          end
         end
       end
     end

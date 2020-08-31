@@ -32,19 +32,17 @@ module RuboCop
         #     key_length 2048
         #   end
         #
-        class OpensslRsaKeyResource < Cop
+        class OpensslRsaKeyResource < Base
           extend TargetChefVersion
+          extend AutoCorrector
 
           minimum_target_chef_version '14.0'
 
           MSG = 'The openssl_rsa_key resource was renamed to openssl_rsa_private_key in Chef Infra Client 14.0. The new resource name should be used.'
 
           def on_send(node)
-            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :openssl_rsa_key
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
+            return unless node.method_name == :openssl_rsa_key
+            add_offense(node, message: MSG, severity: :refactor) do |corrector|
               corrector.replace(node.loc.expression, node.source.gsub(/^openssl_rsa_key/, 'openssl_rsa_private_key'))
             end
           end

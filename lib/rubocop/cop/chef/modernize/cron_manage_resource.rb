@@ -29,19 +29,17 @@ module RuboCop
         #   # good
         #   cron_access 'mike'
         #
-        class CronManageResource < Cop
+        class CronManageResource < Base
           extend TargetChefVersion
+          extend AutoCorrector
 
           minimum_target_chef_version '14.4'
 
           MSG = 'The cron_manage resource was renamed to cron_access in the 6.1 release of the cron cookbook and later shipped in Chef Infra Client 14.4. The new resource name should be used.'
 
           def on_send(node)
-            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :cron_manage
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
+            add_offense(node, message: MSG, severity: :refactor) do |corrector|
+              return unless node.method_name == :cron_manage
               corrector.replace(node.loc.expression, node.source.gsub(/^cron_manage/, 'cron_access'))
             end
           end

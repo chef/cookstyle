@@ -43,7 +43,8 @@ module RuboCop
         #
         #   include_recipe 'yum' if platform_family?('rhel')
         #
-        class UnnecessaryPlatformCaseStatement < Cop
+        class UnnecessaryPlatformCaseStatement < Base
+          extend AutoCorrector
           include RangeHelp
 
           MSG = 'Use the platform?() and platform_family?() helpers instead of a case statement that only includes a single when statement.'
@@ -53,14 +54,9 @@ module RuboCop
           PATTERN
 
           def on_case(node)
-            platform_case?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor) if node&.when_branches&.count == 1
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              platform_case?(node) do |node_, type|
+            platform_case?(node) do |node_, type|
+              return unless node&.when_branches&.count == 1
+              add_offense(node.loc.expression, message: MSG, severity: :refactor) do |corrector|
                 # we have at least one supermarket cookbook with an entirely empty platform case statement
                 # we can't actually fix that so let's do nothing here.
                 unless empty_case_statement?(node)

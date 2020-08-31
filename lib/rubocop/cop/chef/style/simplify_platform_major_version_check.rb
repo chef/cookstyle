@@ -34,7 +34,9 @@ module RuboCop
         #   # check to see if we're on RHEL 7 on a RHEL 7.6 node where node['platform_version] is 7.6.1810
         #   if node['platform_version'].to_i == 7
         #
-        class SimplifyPlatformMajorVersionCheck < Cop
+        class SimplifyPlatformMajorVersionCheck < Base
+          extend AutoCorrector
+
           MSG = "Use node['platform_version'].to_i instead of node['platform_version'].split('.').first or node['platform_version'].split('.')[0]"
 
           def_node_matcher :platform_version_check?, <<-PATTERN
@@ -57,18 +59,14 @@ module RuboCop
             end
           end
 
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.replace(node.loc.expression, "node['platform_version'].to_i")
-            end
-          end
-
           private
 
           # if the parent is .to_i then we want to alert on that
           def add_offense_to_i_if_present(node)
             node = node.parent if parent_method_equals?(node, :to_i)
-            add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            add_offense(node, message: MSG, severity: :refactor) do |corrector|
+              corrector.replace(node.loc.expression, "node['platform_version'].to_i")
+            end
           end
 
           # see if the parent is a method and if it equals the passed in name

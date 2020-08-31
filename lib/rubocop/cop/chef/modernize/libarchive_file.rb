@@ -34,8 +34,9 @@ module RuboCop
         #     path 'C:\expand_here'
         #   end
         #
-        class LibarchiveFileResource < Cop
+        class LibarchiveFileResource < Base
           extend TargetChefVersion
+          extend AutoCorrector
 
           minimum_target_chef_version '15.0'
 
@@ -46,16 +47,18 @@ module RuboCop
           PATTERN
 
           def on_send(node)
-            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :libarchive_file
+            # The need for this goes away once https://github.com/rubocop-hq/rubocop/pull/8365 is pulled into Cookstyle
+            if node.method_name == :libarchive_file
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+                corrector.replace(node.loc.expression, node.source.gsub('libarchive_file', 'archive_file'))
+              end
+            end
 
             notification_property?(node) do |val|
-              add_offense(val, location: :expression, message: MSG, severity: :refactor) if val.str_content&.start_with?('libarchive_file')
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.replace(node.loc.expression, node.source.gsub('libarchive_file', 'archive_file'))
+              next unless val.str_content&.start_with?('libarchive_file')
+              add_offense(val, message: MSG, severity: :refactor) do |corrector|
+                corrector.replace(node.loc.expression, node.source.gsub('libarchive_file', 'archive_file'))
+              end
             end
           end
         end

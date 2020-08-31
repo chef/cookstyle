@@ -29,7 +29,9 @@ module RuboCop
         #   # good
         #   node.role?('foo')
         #
-        class NodeRolesInclude < Cop
+        class NodeRolesInclude < Base
+          extend AutoCorrector
+
           MSG = "Use `node.role?('foo')` to check if a node includes a role instead of `node['roles'].include?('foo')`."
 
           def_node_matcher :node_role_include?, <<-PATTERN
@@ -41,14 +43,8 @@ module RuboCop
           PATTERN
 
           def on_send(node)
-            node_role_include?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              node_role_include?(node) do |val|
+            node_role_include?(node) do |val|
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
                 corrector.replace(node.loc.expression, "node.role?(#{val.source})")
               end
             end

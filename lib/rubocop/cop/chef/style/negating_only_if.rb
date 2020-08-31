@@ -33,7 +33,9 @@ module RuboCop
         #     not_if { systemd }
         #   end
         #
-        class NegatingOnlyIf < Cop
+        class NegatingOnlyIf < Base
+          extend AutoCorrector
+
           MSG = 'Instead of using only_if conditionals with ! to negate the returned value, use not_if which is easier to read'
 
           def_node_matcher :negated_only_if?, <<-PATTERN
@@ -45,7 +47,7 @@ module RuboCop
           PATTERN
 
           def on_block(node)
-            negated_only_if?(node) do |_only_if, code|
+            negated_only_if?(node) do |only_if, code|
               # skip inspec controls where we don't have not_if
               return if node.parent&.parent&.block_type? &&
                         node.parent&.parent&.method_name == :control
@@ -54,13 +56,7 @@ module RuboCop
               return if code.descendants.first.send_type? &&
                         code.descendants.first.negation_method?
 
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
-            end
-          end
-
-          def autocorrect(node)
-            negated_only_if?(node) do |only_if, code|
-              lambda do |corrector|
+              add_offense(node.loc.expression, message: MSG, severity: :refactor) do |corrector|
                 corrector.replace(code.loc.expression, code.source.gsub(/^!/, ''))
                 corrector.replace(only_if.source_range, 'not_if')
               end

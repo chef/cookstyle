@@ -33,7 +33,9 @@ module RuboCop
         #   # good
         #   package %w(bmon htop vim curl)
         #
-        class UseMultipackageInstalls < Cop
+        class UseMultipackageInstalls < Base
+          extend AutoCorrector
+
           MSG = 'Pass an array of packages to package resources instead of iterating over an array of packages when using multi-package capable package subsystem such as apt, yum, chocolatey, dnf, or zypper. Multi-package installs are faster and simplify logs.'
           MULTIPACKAGE_PLATS = %w(debian redhat suse amazon fedora scientific oracle rhel ubuntu centos redhat).freeze
 
@@ -81,22 +83,21 @@ module RuboCop
           end
 
           def on_when(node)
-            if platform_or_platform_family?(node.parent.condition) &&
-               package_array_install?(node.body) &&
-               multipackage_platforms?(node.conditions)
-              add_offense(node.body, location: :expression, message: MSG, severity: :refactor)
-            end
+            return unless platform_or_platform_family?(node.parent.condition) &&
+                          package_array_install?(node.body) &&
+                          multipackage_platforms?(node.conditions)
+            check_offense(node.body)
           end
 
           def on_if(node)
             platform_helper?(node) do |plats, blk, _pkgs|
-              add_offense(blk, location: :expression, message: MSG, severity: :refactor) if multipackage_platforms?(plats)
+              check_offense(blk) if multipackage_platforms?(plats)
             end
           end
 
-          def autocorrect(node)
-            package_array_install?(node) do |vals|
-              lambda do |corrector|
+          def check_offense(node)
+            add_offense(node, message: MSG, severity: :refactor) do |corrector|
+              package_array_install?(node) do |vals|
                 corrector.replace(node.loc.expression, "package #{vals.source}")
               end
             end

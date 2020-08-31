@@ -41,7 +41,8 @@ module RuboCop
         #   depends 'apt'
         #   depends 'yum'
         #
-        class OverlyComplexSupportsDependsMetadata < Cop
+        class OverlyComplexSupportsDependsMetadata < Base
+          extend AutoCorrector
           MSG = "Don't loop over an array to set cookbook dependencies or supported platforms if you have fewer than three values to set."
 
           def_node_matcher :supports_depends_array?, <<-PATTERN
@@ -54,14 +55,9 @@ module RuboCop
           PATTERN
 
           def on_block(node)
-            supports_depends_array?(node) do |array, _type|
-              add_offense(node, location: :expression, message: MSG, severity: :refactor) if array.values.count < 3
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              supports_depends_array?(node) do |array, type|
+            supports_depends_array?(node) do |array, type|
+              return unless array.values.count < 3
+              add_offense(node.loc.expression, message: MSG, severity: :refactor) do |corrector|
                 corrected_value = array.values.map { |x| "#{type} '#{x.source}'" }
                 corrector.replace(node.loc.expression, corrected_value.join("\n"))
               end

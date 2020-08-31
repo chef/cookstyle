@@ -30,7 +30,8 @@ module RuboCop
         #   # good
         #   shell_out('foo')
         #
-        class ShellOutHelper < Cop
+        class ShellOutHelper < Base
+          extend AutoCorrector
           extend TargetChefVersion
 
           minimum_target_chef_version '12.11'
@@ -46,14 +47,8 @@ module RuboCop
           PATTERN
 
           def on_send(node)
-            mixlib_shellout_run_cmd?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
-            end
-          end
-
-          def autocorrect(node)
             mixlib_shellout_run_cmd?(node) do |cmd|
-              lambda do |corrector|
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
                 corrector.replace(node.loc.expression, "shell_out(#{cmd.loc.expression.source})")
               end
             end

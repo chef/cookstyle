@@ -35,7 +35,9 @@ module RuboCop
         #     notifies :restart, 'service[apache]', :immediately
         #   end
         #
-        class ImmediateNotificationTiming < Cop
+        class ImmediateNotificationTiming < Base
+          extend AutoCorrector
+
           MSG = 'Use :immediately instead of :immediate for resource notification timing'
 
           def_node_matcher :immediate_notify?, <<-PATTERN
@@ -44,13 +46,9 @@ module RuboCop
 
           def on_send(node)
             immediate_notify?(node) do |timing|
-              add_offense(timing, location: :expression, message: MSG, severity: :refactor)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.replace(node.loc.expression, ':immediately')
+              add_offense(timing.loc.expression, message: MSG, severity: :refactor) do |corrector|
+                corrector.replace(timing.loc.expression, ':immediately')
+              end
             end
           end
         end

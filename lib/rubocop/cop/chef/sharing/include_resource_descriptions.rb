@@ -27,7 +27,7 @@ module RuboCop
         #   resource_name :foo
         #   description "The foo resource is used to do..."
         #
-        class IncludeResourceDescriptions < Cop
+        class IncludeResourceDescriptions < Base
           include RangeHelp
           extend TargetChefVersion
 
@@ -35,13 +35,13 @@ module RuboCop
 
           MSG = 'Resources should include description fields to allow automated documentation. Requires Chef Infra Client 13.9 or later.'
 
-          def investigate(processed_source)
-            return if processed_source.blank?
+          def on_new_investigation
+            return if processed_source.blank? || resource_description(processed_source.ast).any?
 
             # Using range similar to RuboCop::Cop::Naming::Filename (file_name.rb)
             range = source_range(processed_source.buffer, 1, 0)
 
-            add_offense(nil, location: range, message: MSG, severity: :refactor) unless resource_description(processed_source.ast).any?
+            add_offense(range, message: MSG, severity: :refactor)
           end
 
           def_node_search :resource_description, '(send nil? :description ...)'

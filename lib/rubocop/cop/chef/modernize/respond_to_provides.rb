@@ -31,12 +31,16 @@ module RuboCop
         #   # good
         #   provides :foo
         #
-        class RespondToProvides < Cop
+        class RespondToProvides < Base
+          extend AutoCorrector
+
           MSG = 'Using `respond_to?(:provides)` or `if defined? provides` in resources is no longer necessary in Chef Infra Client 12+.'
 
           def on_if(node)
             if_respond_to_provides?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+                corrector.replace(node.loc.expression, node.children[1].source)
+              end
             end
           end
 
@@ -52,12 +56,6 @@ module RuboCop
             (send nil? :provides
               (sym _)) ... )
           PATTERN
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.replace(node.loc.expression, node.children[1].source)
-            end
-          end
         end
       end
     end

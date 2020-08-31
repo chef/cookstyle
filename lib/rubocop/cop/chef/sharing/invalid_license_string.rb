@@ -37,7 +37,9 @@ module RuboCop
         # json_data = JSON.parse(Net::HTTP.get(URI('https://raw.githubusercontent.com/spdx/license-list-data/master/json/licenses.json')))
         # licenses = json_data['licenses'].map {|l| l['licenseId'] }.sort
         #
-        class InvalidLicenseString < Cop
+        class InvalidLicenseString < Base
+          extend AutoCorrector
+
           VALID_LICENSE_STRING = %w(
             0BSD
             AAL
@@ -461,17 +463,10 @@ module RuboCop
 
           def on_send(node)
             license?(node) do |license|
-              unless valid_license?(license.str_content)
-                add_offense(license, location: :expression, message: MSG, severity: :refactor)
-              end
-            end
-          end
-
-          def autocorrect(node)
-            correct_string = autocorrect_license_string(node.str_content)
-            if correct_string
-              lambda do |corrector|
-                corrector.replace(node.loc.expression, "'#{correct_string}'")
+              return if valid_license?(license.str_content)
+              add_offense(license, message: MSG, severity: :refactor) do |corrector|
+                correct_string = autocorrect_license_string(license.str_content)
+                corrector.replace(license.loc.expression, "'#{correct_string}'") if correct_string
               end
             end
           end

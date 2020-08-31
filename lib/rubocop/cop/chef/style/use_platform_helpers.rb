@@ -38,7 +38,9 @@ module RuboCop
         #   !platform_family?('debian')
         #   platform_family?('rhel', 'suse')
         #
-        class UsePlatformHelpers < Cop
+        class UsePlatformHelpers < Base
+          extend AutoCorrector
+
           MSG = "Use platform? and platform_family? helpers to check a node's platform"
 
           def_node_matcher :platform_equals?, <<-PATTERN
@@ -54,33 +56,23 @@ module RuboCop
           PATTERN
 
           def on_send(node)
-            platform_equals?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
-            end
-
-            platform_include?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
-            end
-
-            platform_eql?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              platform_equals?(node) do |type, operator, plat|
+            platform_equals?(node) do |type, operator, plat|
+              add_offense(node.loc.expression, message: MSG, severity: :refactor) do |corrector|
                 corrected_string = (operator == :!= ? '!' : '') + "#{type.value}?('#{plat.value}')"
                 corrector.replace(node.loc.expression, corrected_string)
               end
+            end
 
-              platform_include?(node) do |plats, type|
+            platform_include?(node) do |plats, type|
+              add_offense(node.loc.expression, message: MSG, severity: :refactor) do |corrector|
                 platforms = plats.values.map { |x| x.str_type? ? "'#{x.value}'" : x.source }
                 corrected_string = "#{type.value}?(#{platforms.join(', ')})"
                 corrector.replace(node.loc.expression, corrected_string)
               end
+            end
 
-              platform_eql?(node) do |type, plat|
+            platform_eql?(node) do |type, plat|
+              add_offense(node.loc.expression, message: MSG, severity: :refactor) do |corrector|
                 corrected_string = "#{type.value}?('#{plat.value}')"
                 corrector.replace(node.loc.expression, corrected_string)
               end

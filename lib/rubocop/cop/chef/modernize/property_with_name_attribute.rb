@@ -29,7 +29,9 @@ module RuboCop
         #   # good
         #   property :bob, String, name_property: true
         #
-        class PropertyWithNameAttribute < Cop
+        class PropertyWithNameAttribute < Base
+          extend AutoCorrector
+
           MSG = 'Resource property sets name_attribute instead of name_property'
 
           # match on a property that has any name and any type and a hash that
@@ -40,14 +42,8 @@ module RuboCop
           PATTERN
 
           def on_send(node)
-            property_with_name_attribute?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              property_with_name_attribute?(node) do |name_attribute|
+            property_with_name_attribute?(node) do |name_attribute|
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
                 corrector.replace(name_attribute.loc.expression, 'name_property: true')
               end
             end

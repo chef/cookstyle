@@ -43,21 +43,17 @@ module RuboCop
 
           MSG = 'Properly format copyrights header comments'
 
-          def investigate(processed_source)
+          def on_new_investigation
             return unless processed_source.ast
 
             processed_source.comments.each do |comment|
-              next unless comment.inline? # headers aren't in blocks
+              next unless comment.inline? && invalid_copyright_comment?(comment) # headers aren't in blocks
 
-              if invalid_copyright_comment?(comment)
-                add_offense(comment, location: comment.loc.expression, message: MSG, severity: :refactor)
+              add_offense(comment, location: comment.loc.expression, message: MSG, severity: :refactor) do |corrector|
+                correct_comment = "# Copyright:: #{copyright_date_range(comment)}, #{copyright_holder(comment)}"
+                corrector.replace(comment.loc.expression, correct_comment)
               end
             end
-          end
-
-          def autocorrect(comment)
-            correct_comment = "# Copyright:: #{copyright_date_range(comment)}, #{copyright_holder(comment)}"
-            ->(corrector) { corrector.replace(comment.loc.expression, correct_comment) }
           end
 
           private

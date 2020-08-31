@@ -37,7 +37,7 @@ module RuboCop
         #   # good
         #   timezone 'UTC'
         #
-        class ExecuteTzUtil < Cop
+        class ExecuteTzUtil < Base
           include RuboCop::Chef::CookbookHelpers
           extend TargetChefVersion
 
@@ -51,17 +51,20 @@ module RuboCop
 
           def on_send(node)
             execute_resource?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.arguments.first.value.match?(/^tzutil/i)
+              return unless node.arguments.first.value.match?(/^tzutil/i)
+              add_offense(node, message: MSG, severity: :refactor)
             end
           end
 
           def on_block(node)
             match_property_in_resource?(:execute, 'command', node) do |code_property|
-              add_offense(node, location: :expression, message: MSG, severity: :refactor) if calls_tzutil?(code_property)
+              next unless calls_tzutil?(code_property)
+              add_offense(node, message: MSG, severity: :refactor)
             end
 
             match_property_in_resource?(:powershell_script, 'code', node) do |code_property|
-              add_offense(node, location: :expression, message: MSG, severity: :refactor) if calls_tzutil?(code_property)
+              next unless calls_tzutil?(code_property)
+              add_offense(node, message: MSG, severity: :refactor)
             end
           end
 

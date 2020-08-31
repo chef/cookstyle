@@ -27,7 +27,8 @@ module RuboCop
         #   # bad
         #   require 'mixlib/shellout'
         #
-        class UnnecessaryMixlibShelloutRequire < Cop
+        class UnnecessaryMixlibShelloutRequire < Base
+          extend AutoCorrector
           include RangeHelp
 
           MSG = 'Chef Infra Client 12.4+ includes mixlib/shellout automatically in resources and providers.'
@@ -38,13 +39,9 @@ module RuboCop
 
           def on_send(node)
             require_mixlibshellout?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+                corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
+              end
             end
           end
         end

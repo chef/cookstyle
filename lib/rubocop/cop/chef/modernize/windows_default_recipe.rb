@@ -27,8 +27,9 @@ module RuboCop
         #   include_recipe 'windows::default'
         #   include_recipe 'windows'
         #
-        class IncludingWindowsDefaultRecipe < Cop
+        class IncludingWindowsDefaultRecipe < Base
           include RangeHelp
+          extend AutoCorrector
 
           MSG = 'Do not include the Windows default recipe, which only installs win32 gems already included in Chef Infra Client'
 
@@ -38,13 +39,9 @@ module RuboCop
 
           def on_send(node)
             windows_recipe_usage?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+                corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
+              end
             end
           end
         end

@@ -29,7 +29,7 @@ module RuboCop
         #     code 'Expand-Archive "C:\\file.zip" -DestinationPath "C:\\inetpub\\wwwroot\\" -Force'
         #   end
         #
-        class PowershellScriptExpandArchive < Cop
+        class PowershellScriptExpandArchive < Base
           include RuboCop::Chef::CookbookHelpers
           extend TargetChefVersion
 
@@ -40,9 +40,8 @@ module RuboCop
           def on_block(node)
             match_property_in_resource?(:powershell_script, 'code', node) do |code_property|
               property_data = method_arg_ast_to_string(code_property)
-              if property_data && property_data.match?(/^expand-archive/i)
-                add_offense(node, location: :expression, message: MSG, severity: :refactor)
-              end
+              return unless property_data && property_data.match?(/^expand-archive/i)
+              add_offense(node, message: MSG, severity: :refactor)
             end
           end
         end

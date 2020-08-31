@@ -41,7 +41,7 @@ module RuboCop
           MSG = 'Chef Infra Client 14.0 and later includes :create, :delete, and :configure actions without the need for the sc cookbook dependency. See the windows_service documentation at https://docs.chef.io/resource_windows_service.html for additional details.'
 
           def on_send(node)
-            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :sc_windows
+            add_offense(node, message: MSG, severity: :refactor) if node.method_name == :sc_windows
           end
         end
       end

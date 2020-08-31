@@ -34,7 +34,8 @@ module RuboCop
         #   # good
         #   chef_version '>= 13'
         #
-        class RespondToInMetadata < Cop
+        class RespondToInMetadata < Base
+          extend AutoCorrector
           extend TargetChefVersion
 
           minimum_target_chef_version '12.15'
@@ -43,30 +44,33 @@ module RuboCop
 
           def on_if(node)
             if_respond_to?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+                # When the if statement is if modifier like `foo if respond_to?(:foo)` then
+                # node.if_branch is the actual method call we want to extract.
+                # If a series of metadata methods are wrapped in an if statement then the content we want
+                # is a block under the if statement and node.parent.if_branch can get us that block
+                node = node.parent unless node.if_type?
+
+                corrector.replace(node.loc.expression, node.if_branch.source)
+              end
             end
           end
 
           def on_defined?(node)
-            node = node.parent if node.parent.if? # we want the whole if statement
-            add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            # When the if statement is if modifier like `foo if respond_to?(:foo)` then
+            # node.if_branch is the actual method call we want to extract.
+            # If a series of metadata methods are wrapped in an if statement then the content we want
+            # is a block under the if statement and node.parent.if_branch can get us that block
+
+            node = node.parent if node.parent.if? && !node.if_type? # we want the whole if statement
+            add_offense(node, message: MSG, severity: :refactor) do |corrector|
+              corrector.replace(node.loc.expression, node.if_branch.source)
+            end
           end
 
           def_node_matcher :if_respond_to?, <<~PATTERN
           (if (send nil? :respond_to? _ ) ... )
           PATTERN
-
-          def autocorrect(node)
-            lambda do |corrector|
-              # When the if statement is if modifier like `foo if respond_to?(:foo)` then
-              # node.if_branch is the actual method call we want to extract.
-              # If a series of metadata methods are wrapped in an if statement then the content we want
-              # is a block under the if statement and node.parent.if_branch can get us that block
-              node = node.parent unless node.if_type?
-
-              corrector.replace(node.loc.expression, node.if_branch.source)
-            end
-          end
         end
       end
     end

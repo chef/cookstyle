@@ -30,7 +30,8 @@ module RuboCop
         #   require 'chef/mixin/powershell_out'
         #   include Chef::Mixin::PowershellOut
         #
-        class IncludingMixinShelloutInResources < Cop
+        class IncludingMixinShelloutInResources < Base
+          extend AutoCorrector
           include RangeHelp
 
           MSG = 'There is no need to include Chef::Mixin::ShellOut or Chef::Mixin::PowershellOut in resources or providers as this is already done by Chef Infra Client 12.4+.'
@@ -60,7 +61,9 @@ module RuboCop
 
             # only add offenses when we're in a custom resource or HWRP, but not a plain old library
             if containing_dir == 'resources' || hwrp_classes?(processed_source.ast)
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+                corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
+              end
             end
           end
 
@@ -71,12 +74,6 @@ module RuboCop
 
             include_shellout?(node) do
               check_for_offenses(node)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
             end
           end
         end

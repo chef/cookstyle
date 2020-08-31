@@ -38,7 +38,8 @@ module RuboCop
         #  # good
         #  default_action :create
 
-        class DefaultActionFromInitialize < Cop
+        class DefaultActionFromInitialize < Base
+          extend AutoCorrector
           include RangeHelp
 
           MSG = 'The default action of a resource can be set with the "default_action" helper instead of using the initialize method.'
@@ -53,20 +54,17 @@ module RuboCop
 
           def on_ivasgn(node)
             action_variable_assignment?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor) if initialize_method(node.parent.parent)
-            end
-          end
+              return unless initialize_method(node.parent.parent)
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+                # insert the new default_action call above the initialize method, but not if one already exists (this is sadly common)
+                unless default_action_method?(processed_source.ast)
+                  initialize_node = initialize_method(processed_source.ast).first
+                  corrector.insert_before(initialize_node.source_range, "default_action #{node.descendants.first.source}\n\n")
+                end
 
-          def autocorrect(node)
-            lambda do |corrector|
-              # insert the new default_action call above the initialize method, but not if one already exists (this is sadly common)
-              unless default_action_method?(processed_source.ast)
-                initialize_node = initialize_method(processed_source.ast).first
-                corrector.insert_before(initialize_node.source_range, "default_action #{node.descendants.first.source}\n\n")
+                # remove the variable from the initialize method
+                corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
               end
-
-              # remove the variable from the initialize method
-              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
             end
           end
         end

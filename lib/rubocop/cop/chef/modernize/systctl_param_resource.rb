@@ -31,20 +31,18 @@ module RuboCop
         #     value '1048576'
         #   end
         #
-        class SysctlParamResource < Cop
+        class SysctlParamResource < Base
           include RuboCop::Chef::CookbookHelpers
           extend TargetChefVersion
+          extend AutoCorrector
 
           minimum_target_chef_version '14.0'
 
           MSG = 'The sysctl_param resource was renamed to sysctl when it was added to Chef Infra Client 14.0. The new resource name should be used.'
 
           def on_send(node)
-            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :sysctl_param
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
+            return unless node.method_name == :sysctl_param
+            add_offense(node, message: MSG, severity: :refactor) do |corrector|
               corrector.replace(node.loc.expression, node.source.gsub(/^sysctl_param/, 'sysctl'))
             end
           end

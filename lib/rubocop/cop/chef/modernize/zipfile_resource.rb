@@ -29,7 +29,7 @@ module RuboCop
         #     path 'C:\expand_here'
         #   end
         #
-        class ZipfileResource < Cop
+        class ZipfileResource < Base
           include RuboCop::Chef::CookbookHelpers
           extend TargetChefVersion
 
@@ -43,13 +43,13 @@ module RuboCop
 
           def on_send(node)
             depends_zipfile?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+              add_offense(node, message: MSG, severity: :refactor)
             end
           end
 
           def on_block(node)
             match_resource_type?(:zipfile, node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+              add_offense(node, message: MSG, severity: :refactor)
             end
           end
         end

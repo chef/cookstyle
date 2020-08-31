@@ -32,18 +32,16 @@ module RuboCop
         #   Copyright:: 2019 Tim Smith
         #   Copyright:: 2019 Chef Software, Inc.
         #
-        class DefaultCopyrightComments < Cop
+        class DefaultCopyrightComments < Base
           MSG = 'Cookbook copyright comment headers should be updated for a real person or organization.'
 
-          def investigate(processed_source)
+          def on_new_investigation
             return unless processed_source.ast
 
             processed_source.comments.each do |comment|
-              next unless comment.inline? # headers aren't in blocks
-
-              if /# (?:Copyright\W*).*YOUR_(NAME|COMPANY_NAME)/.match?(comment.text)
-                add_offense(comment, location: comment.loc.expression, message: MSG, severity: :refactor)
-              end
+              next unless comment.inline? &&  # headers aren't in blocks
+                          /# (?:Copyright\W*).*YOUR_(NAME|COMPANY_NAME)/.match?(comment.text)
+              add_offense(comment.loc.expression, message: MSG, severity: :refactor)
             end
           end
         end

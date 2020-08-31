@@ -35,13 +35,12 @@ module RuboCop
         class ChefWhaaat < Cop
           MSG = 'Do you mean Chef (the company) or a Chef product (e.g. Chef Infra, Chef InSpec, etc)?'
 
-          def investigate(processed_source)
+          def on_new_investigation
             return unless processed_source.ast
 
             processed_source.comments.each do |comment|
-              if comment.text.match?(/Chef [a-z]/) # https://rubular.com/r/0YzfDAbwJrDHix
-                add_offense(comment, location: comment.loc.expression, message: MSG, severity: :refactor)
-              end
+              next unless comment.text.match?(/Chef [a-z]/) # https://rubular.com/r/0YzfDAbwJrDHix
+              add_offense(comment.loc.expression, message: MSG, severity: :refactor)
             end
           end
         end

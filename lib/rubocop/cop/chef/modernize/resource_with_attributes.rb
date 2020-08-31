@@ -40,7 +40,9 @@ module RuboCop
         #     # some action code because we're in a custom resource
         #   end
         #
-        class CustomResourceWithAttributes < Cop
+        class CustomResourceWithAttributes < Base
+          extend AutoCorrector
+
           MSG = 'Custom Resources should contain properties not attributes'
 
           def_node_matcher :attribute?, <<-PATTERN
@@ -52,14 +54,11 @@ module RuboCop
           PATTERN
 
           def on_send(node)
+            return unless resource_actions?(processed_source.ast)
             attribute?(node) do
-              add_offense(node, location: :selector, message: MSG, severity: :refactor) if resource_actions?(processed_source.ast)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.replace(node.loc.selector, 'property')
+              add_offense(node.loc.selector, message: MSG, severity: :refactor) do |corrector|
+                corrector.replace(node.loc.selector, 'property')
+              end
             end
           end
         end

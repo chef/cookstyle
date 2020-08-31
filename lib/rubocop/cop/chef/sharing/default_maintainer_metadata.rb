@@ -33,14 +33,14 @@ module RuboCop
         #   maintainer 'Bob Bobberson'
         #   maintainer_email 'bob@bobberson.com'
         #
-        class DefaultMetadataMaintainer < Cop
+        class DefaultMetadataMaintainer < Base
           MSG = 'Metadata contains default maintainer information from the cookbook generator. Add actual cookbook maintainer information to the metadata.rb.'
 
           def_node_matcher :default_metadata?, '(send nil? {:maintainer :maintainer_email} (str {"YOUR_COMPANY_NAME" "The Authors" "YOUR_EMAIL" "you@example.com"}))'
 
           def on_send(node)
             default_metadata?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+              add_offense(node, message: MSG, severity: :refactor)
             end
           end
         end

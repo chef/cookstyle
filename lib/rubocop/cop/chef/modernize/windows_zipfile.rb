@@ -28,7 +28,7 @@ module RuboCop
         #     source 'C:\\Temp\\file.zip'
         #   end
         #
-        class WindowsZipfileUsage < Cop
+        class WindowsZipfileUsage < Base
           extend TargetChefVersion
 
           minimum_target_chef_version '15.0'
@@ -36,7 +36,7 @@ module RuboCop
           MSG = 'Use the archive_file resource built into Chef Infra Client 15+ instead of the windows_zipfile from the Windows cookbook'
 
           def on_send(node)
-            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :windows_zipfile
+            add_offense(node, message: MSG, severity: :refactor) if node.method_name == :windows_zipfile
           end
         end
       end
