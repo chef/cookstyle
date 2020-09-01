@@ -2,7 +2,7 @@
 
 ### RuboCop 0.90.0
 
-RuboCop has been updated to 0.90.0 which includes a large number of improvements to the built-in RuboCop cops that Cookstyle utilizes.
+RuboCop has been updated to 0.90.0, which includes a large number of improvements to the built-in RuboCop cops that Cookstyle uses.
 
 ### Autocorrection Performance Improvements
 
