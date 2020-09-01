@@ -28,9 +28,10 @@ module RuboCop
         #   data_bag(data_bag_name)
         class CookbookUsesDatabags < Base
           MSG = 'Cookbook uses data bags, which cannot be used in the Effortless Infra pattern'
+          RESTRICT_ON_SEND = [:data_bag, :data_bag_item].freeze
 
           def on_send(node)
-            add_offense(node, message: MSG, severity: :refactor) if %i(data_bag data_bag_item).include?(node.method_name)
+            add_offense(node, message: MSG, severity: :refactor)
           end
         end
       end

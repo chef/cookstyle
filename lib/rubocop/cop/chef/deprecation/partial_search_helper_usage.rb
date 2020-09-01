@@ -49,9 +49,10 @@ module RuboCop
         #
         class PartialSearchHelperUsage < Base
           MSG = 'Legacy partial_search usage should be updated to use :filter_result in the search helper instead'
+          RESTRICT_ON_SEND = [:partial_search].freeze
 
           def on_send(node)
-            add_offense(node, message: MSG, severity: :warning) if node.method_name == :partial_search
+            add_offense(node, message: MSG, severity: :warning)
           end
         end
       end

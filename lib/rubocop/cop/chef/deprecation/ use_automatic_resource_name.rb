@@ -37,10 +37,9 @@ module RuboCop
           include RangeHelp
 
           MSG = 'The use_automatic_resource_name method was removed in Chef Infra Client 16. The resource name/provides should be set explicitly instead.'
+          RESTRICT_ON_SEND = [:use_automatic_resource_name].freeze
 
           def on_send(node)
-            return unless node.method_name == :use_automatic_resource_name
-
             add_offense(node.loc.selector, message: MSG, severity: :warning) do |corrector|
               corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
             end

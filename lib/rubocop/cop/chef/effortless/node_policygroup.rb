@@ -28,10 +28,10 @@ module RuboCop
         #
         class CookbookUsesPolicygroups < Base
           MSG = 'Cookbook uses Policy Groups, which cannot be used with Effortless Infra'
+          RESTRICT_ON_SEND = [:policy_group].freeze
 
           def on_send(node)
-            if node.method_name == :policy_group &&
-               node.receiver &&
+            if node.receiver &&
                node.receiver.send_type? &&
                node.receiver.method_name == :node
               add_offense(node, message: MSG, severity: :refactor)

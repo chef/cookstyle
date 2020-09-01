@@ -45,9 +45,9 @@ module RuboCop
         #   )
         #
         class MalformedPlatformValueForPlatformHelper < Base
-          def on_send(node)
-            return unless node.method_name == :value_for_platform
+          RESTRICT_ON_SEND = [:value_for_platform].freeze
 
+          def on_send(node)
             if node.arguments.count > 1
               msg = 'Malformed value_for_platform helper argument. The value_for_platform helper takes a single hash of platforms as an argument.'
               add_offense(node, message: msg, severity: :refactor)

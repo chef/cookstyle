@@ -29,10 +29,10 @@ module RuboCop
         #
         class SearchForEnvironmentsOrRoles < Base
           MSG = 'Cookbook uses search with a node query that looks for a role or environment'
+          RESTRICT_ON_SEND = [:search].freeze
 
           def on_send(node)
-            if node.method_name == :search &&
-               node.arguments[1]&.value&.match?(/chef_environment|role/)
+            if node.arguments[1]&.value&.match?(/chef_environment|role/)
               add_offense(node, message: MSG, severity: :refactor)
             end
           end
