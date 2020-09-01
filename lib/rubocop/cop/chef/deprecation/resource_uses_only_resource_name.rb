@@ -33,6 +33,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'Starting with Chef Infra Client 16, using `resource_name` without also using `provides` will result in resource failures. Make sure to use both `resource_name` and `provides` to change the name of the resource. You can also omit `resource_name` entirely if the value set matches the name Chef Infra Client automatically assigns based on COOKBOOKNAME_FILENAME.'
+          RESTRICT_ON_SEND = [:resource_name].freeze
 
           def_node_matcher :resource_name?, '(send nil? :resource_name (sym $_ ))'
 

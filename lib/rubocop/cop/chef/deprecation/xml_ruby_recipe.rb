@@ -30,6 +30,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'Do not include the deprecated xml::ruby recipe to install the nokogiri gem. Chef Infra Client 12 and later ships with nokogiri included.'
+          RESTRICT_ON_SEND = [:include_recipe].freeze
 
           def_node_matcher :xml_ruby_recipe?, <<-PATTERN
             (send nil? :include_recipe (str "xml::ruby"))

@@ -458,6 +458,7 @@ module RuboCop
           }.freeze
 
           MSG = 'Cookbook metadata.rb does not use a SPDX compliant license string or "all rights reserved". See https://spdx.org/licenses/ for a complete list of license identifiers.'
+          RESTRICT_ON_SEND = [:license].freeze
 
           def_node_matcher :license?, '(send nil? :license $str ...)'
 

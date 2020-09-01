@@ -44,11 +44,11 @@ module RuboCop
           minimum_target_chef_version '15.0'
 
           MSG = 'Chef Infra Client 15.0 and later includes a windows_uac resource that should be used to set Windows UAC values instead of setting registry keys directly.'
+          RESTRICT_ON_SEND = [:registry_key].freeze
 
           # non block execute resources
           def on_send(node)
-            return unless node.method_name == :registry_key &&
-                          node&.arguments.first&.source.match?(/(HKLM|HKEY_LOCAL_MACHINE)\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System/i) &&
+            return unless node&.arguments.first&.source.match?(/(HKLM|HKEY_LOCAL_MACHINE)\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System/i) &&
                           node.parent&.method_name != :describe
 
             # use source instead of .value in case there's string interpolation which adds a complex dstr type

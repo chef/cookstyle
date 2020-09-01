@@ -29,16 +29,17 @@ module RuboCop
         class CookbookDependsOnCompatResource < Base
           include RangeHelp
           extend TargetChefVersion
+          extend AutoCorrector
 
           minimum_target_chef_version '12.19'
 
           MSG = "Don't depend on the deprecated compat_resource cookbook made obsolete by Chef 12.19+"
+          RESTRICT_ON_SEND = [:depends].freeze
 
           def_node_matcher :depends_compat_resource?, <<-PATTERN
             (send nil? :depends (str {"compat_resource"}))
           PATTERN
 
-          extend AutoCorrector
           def on_send(node)
             depends_compat_resource?(node) do
               add_offense(node, message: MSG, severity: :warning) do |corrector|

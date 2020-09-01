@@ -61,6 +61,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'Use the new-style notification syntax which allows you to notify resources defined later in a recipe or resource.'
+          RESTRICT_ON_SEND = [:notifies, :subscribes].freeze
 
           def_node_matcher :legacy_notify?, <<-PATTERN
             (send nil? ${:notifies :subscribes} $(sym _) (send nil? :resources (hash (pair $(sym _) $(...) ) ) ) $... )

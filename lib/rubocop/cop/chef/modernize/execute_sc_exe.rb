@@ -39,12 +39,13 @@ module RuboCop
           minimum_target_chef_version '14.0'
 
           MSG = 'Chef Infra Client 14.0 and later includes :create, :delete, and :configure actions with the full idempotency of the windows_service resource. See the windows_service documentation at https://docs.chef.io/resource_windows_service.html for additional details on creating services with the windows_service resource'
+          RESTRICT_ON_SEND = [:execute].freeze
 
           # non block execute resources
           def on_send(node)
             # use a regex on source instead of .value in case there's string interpolation which adds a complex dstr type
             # with a nested string and a begin. Source allows us to avoid a lot of defensive programming here
-            return unless node&.arguments.first&.source&.match?(/^("|')sc.exe/) && node.method_name == :execute
+            return unless node&.arguments.first&.source&.match?(/^("|')sc.exe/)
 
             add_offense(node, message: MSG, severity: :refactor)
           end

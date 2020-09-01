@@ -39,6 +39,7 @@ module RuboCop
           minimum_target_chef_version '15.0'
 
           MSG = 'The poise_archive resource in the deprecated poise-archive should be replaced with the archive_file resource found in Chef Infra Client 15+'
+          RESTRICT_ON_SEND = [:depends].freeze
 
           def_node_matcher :depends_poise_archive?, <<-PATTERN
             (send nil? :depends (str "poise-archive"))

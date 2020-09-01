@@ -31,6 +31,7 @@ module RuboCop
           include RangeHelp
 
           MSG = 'Use Chef InSpec for testing instead of the Minitest Handler cookbook pattern.'
+          RESTRICT_ON_SEND = [:depends].freeze
 
           def_node_matcher :minitest_depends?, <<-PATTERN
             (send nil? :depends (str "minitest-handler"))

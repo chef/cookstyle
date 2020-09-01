@@ -37,6 +37,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'Pass valid platform families to the platform_family? helper.'
+          RESTRICT_ON_SEND = [:platform_family?].freeze
 
           def_node_matcher :platform_family_helper?, <<-PATTERN
             (send nil? :platform_family? $str*)

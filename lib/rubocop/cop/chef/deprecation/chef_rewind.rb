@@ -49,6 +49,7 @@ module RuboCop
           }.freeze
 
           MSG = 'Use delete_resource / edit_resource introduced in Chef Infra Client 12.10 instead of functionality in the deprecated chef-rewind gem'
+          RESTRICT_ON_SEND = [:chef_gem, :require, :rewind, :unwind].freeze
 
           def_node_matcher :rewind_gem_install?, <<-PATTERN
             (send nil? :chef_gem (str "chef-rewind"))

@@ -36,6 +36,7 @@ module RuboCop
           include ::RuboCop::Chef::PlatformHelpers
 
           MSG = 'Pass valid platforms to the platform? helper.'
+          RESTRICT_ON_SEND = [:platform?].freeze
 
           def_node_matcher :platform_helper?, <<-PATTERN
             (send nil? :platform? $str*)

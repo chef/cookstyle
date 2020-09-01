@@ -36,6 +36,7 @@ module RuboCop
           include RangeHelp
 
           MSG = 'A cookbook cannot depend on itself. This will fail on Chef Infra Client 13+'
+          RESTRICT_ON_SEND = [:name].freeze
 
           def_node_search :dependencies, '(send nil? :depends str ...)'
           def_node_matcher :cb_name?, '(send nil? :name str ...)'

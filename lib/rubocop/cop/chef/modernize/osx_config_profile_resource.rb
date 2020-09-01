@@ -36,9 +36,9 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'The osx_config_profile resource was renamed to osx_profile. The new resource name should be used.'
+          RESTRICT_ON_SEND = [:osx_config_profile].freeze
 
           def on_send(node)
-            return unless node.method_name == :osx_config_profile
             add_offense(node, message: MSG, severity: :refactor) do |corrector|
               corrector.replace(node.loc.expression, node.source.gsub(/^osx_config_profile/, 'osx_profile'))
             end

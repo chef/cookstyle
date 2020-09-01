@@ -30,6 +30,7 @@ module RuboCop
         #
         class UsesChefRESTHelpers < Base
           MSG = "Don't use the helpers in Chef::REST which were removed in Chef Infra Client 13"
+          RESTRICT_ON_SEND = [:require].freeze
 
           def_node_matcher :require_rest?, <<-PATTERN
           (send nil? :require ( str "chef/rest"))

@@ -46,6 +46,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'Use the apt_update resource instead of the execute resource to run an apt-get update package cache update'
+          RESTRICT_ON_SEND = [:execute, :notifies, :subscribes, :command].freeze
 
           def_node_matcher :execute_apt_update?, <<-PATTERN
             (send nil? :execute (str { "apt-get update" "apt-get update -y" "apt-get -y update" }))

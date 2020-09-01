@@ -39,6 +39,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = "Don't use deprecated positional parameters in cookbook search queries."
+          RESTRICT_ON_SEND = [:search].freeze
 
           NAMED_PARAM_LOOKUP_TABLE = [nil, nil, 'start', 'rows', 'filter_result'].freeze
 

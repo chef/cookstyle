@@ -33,10 +33,9 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'The replaces metadata.rb method is not used and is unnecessary in cookbooks.'
+          RESTRICT_ON_SEND = [:replaces].freeze
 
           def on_send(node)
-            return unless node.method_name == :replaces
-
             add_offense(node, message: MSG, severity: :refactor) do |corrector|
               corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
             end

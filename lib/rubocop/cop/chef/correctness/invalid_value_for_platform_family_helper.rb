@@ -39,6 +39,7 @@ module RuboCop
           include ::RuboCop::Chef::PlatformHelpers
 
           MSG = 'Pass valid platform families to the value_for_platform_family helper.'
+          RESTRICT_ON_SEND = [:value_for_platform_family].freeze
 
           def_node_matcher :value_for_platform_family?, <<-PATTERN
           (send nil? :value_for_platform_family

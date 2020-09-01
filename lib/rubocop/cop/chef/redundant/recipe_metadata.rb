@@ -34,10 +34,9 @@ module RuboCop
           extend AutoCorrector
 
           MSG = "The recipe metadata.rb method is not used and is unnecessary in cookbooks. Recipes should be documented in the cookbook's README.md file instead."
+          RESTRICT_ON_SEND = [:recipe].freeze
 
           def on_send(node)
-            return unless node.method_name == :recipe
-
             add_offense(node, message: MSG, severity: :refactor) do |corrector|
               corrector.remove(range_with_surrounding_space(range: expression_including_heredocs(node), side: :left))
             end

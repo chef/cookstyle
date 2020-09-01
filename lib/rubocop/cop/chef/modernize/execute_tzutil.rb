@@ -44,6 +44,7 @@ module RuboCop
           minimum_target_chef_version '14.6'
 
           MSG = 'Use the timezone resource included in Chef Infra Client 14.6+ instead of shelling out to tzutil'
+          RESTRICT_ON_SEND = [:execute].freeze
 
           def_node_matcher :execute_resource?, <<-PATTERN
             (send nil? :execute $str)

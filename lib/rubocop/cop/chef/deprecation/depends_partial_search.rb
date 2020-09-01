@@ -32,6 +32,7 @@ module RuboCop
           minimum_target_chef_version '13.0'
 
           MSG = "Don't depend on the deprecated partial_search cookbook made obsolete by Chef 13"
+          RESTRICT_ON_SEND = [:depends].freeze
 
           def_node_matcher :depends_partial_search?, <<-PATTERN
             (send nil? :depends (str "partial_search"))

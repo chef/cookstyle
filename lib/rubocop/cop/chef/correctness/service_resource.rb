@@ -29,6 +29,7 @@ module RuboCop
         #
         class ServiceResource < Base
           MSG = 'Use a service resource to start and stop services'
+          RESTRICT_ON_SEND = [:command].freeze
 
           def_node_matcher :execute_command?, <<-PATTERN
             (send nil? :command $str)

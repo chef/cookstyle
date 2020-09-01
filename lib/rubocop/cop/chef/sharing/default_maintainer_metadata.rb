@@ -35,6 +35,7 @@ module RuboCop
         #
         class DefaultMetadataMaintainer < Base
           MSG = 'Metadata contains default maintainer information from the cookbook generator. Add actual cookbook maintainer information to the metadata.rb.'
+          RESTRICT_ON_SEND = [:maintainer, :maintainer_email].freeze
 
           def_node_matcher :default_metadata?, '(send nil? {:maintainer :maintainer_email} (str {"YOUR_COMPANY_NAME" "The Authors" "YOUR_EMAIL" "you@example.com"}))'
 

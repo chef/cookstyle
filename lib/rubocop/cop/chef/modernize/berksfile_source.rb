@@ -38,6 +38,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'Do not use legacy Berksfile community sources. Use Chef Supermarket instead.'
+          RESTRICT_ON_SEND = [:source, :site].freeze
 
           def_node_matcher :berksfile_site?, <<-PATTERN
             (send nil? :site (:sym _))

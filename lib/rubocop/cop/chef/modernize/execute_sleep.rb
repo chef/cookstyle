@@ -43,12 +43,13 @@ module RuboCop
           minimum_target_chef_version '15.5'
 
           MSG = 'Chef Infra Client 15.5 and later include a chef_sleep resource that should be used to sleep between executing resources if necessary instead of using the bash or execute resources to run the sleep command.'
+          RESTRICT_ON_SEND = [:execute].freeze
 
           # non block execute resources
           def on_send(node)
             # use a regex on source instead of .value in case there's string interpolation which adds a complex dstr type
             # with a nested string and a begin. Source allows us to avoid a lot of defensive programming here
-            return unless node.method_name == :execute && node&.arguments.first&.source&.match?(/^("|')sleep/)
+            return unless node&.arguments.first&.source&.match?(/^("|')sleep/)
             add_offense(node, message: MSG, severity: :refactor)
           end
 

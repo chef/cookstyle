@@ -40,9 +40,9 @@ module RuboCop
         #
         class SetOrReturnInResources < Base
           MSG = 'Do not use set_or_return within a method to define a property for a resource. Use the property method instead, which supports validation, reporting, and documentation functionality'
+          RESTRICT_ON_SEND = [:set_or_return].freeze
 
           def on_send(node)
-            return unless node.method_name == :set_or_return
             add_offense(node, message: MSG, severity: :refactor)
           end
         end

@@ -55,6 +55,7 @@ module RuboCop
           extend RuboCop::Cop::AutoCorrector
 
           MSG = 'Use strings to represent file modes to avoid confusion between octal and base 10 integer formats'
+          RESTRICT_ON_SEND = [:mode, :files_mode].freeze
 
           def_node_matcher :resource_mode?, <<-PATTERN
             (send nil? {:mode :files_mode} $int)

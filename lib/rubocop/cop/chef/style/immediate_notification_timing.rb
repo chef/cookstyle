@@ -39,6 +39,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'Use :immediately instead of :immediate for resource notification timing'
+          RESTRICT_ON_SEND = [:notifies].freeze
 
           def_node_matcher :immediate_notify?, <<-PATTERN
             (send nil? :notifies (sym _) (...) $(sym :immediate))
