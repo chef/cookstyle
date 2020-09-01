@@ -451,7 +451,7 @@ Include | `**/resources/*.rb`, `**/providers/*.rb` | Array
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
-Enabled | No | All Versions
+Enabled | Yes | All Versions
 
 Instead of using the execute resource to to run the `apt-get update` use Chef Infra Client's built-n
 apt_update resource which is available in Chef Infra Client 12.7 and later.

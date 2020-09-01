@@ -137,7 +137,7 @@ VersionAdded | `5.1.0` | String
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
-Disabled | Yes | All Versions
+Disabled | No | All Versions
 
 Checks for incorrectly formatted copyright comments.
 

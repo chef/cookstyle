@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.16.2 -->
-## [v6.16.2](https://github.com/chef/cookstyle/tree/v6.16.2) (2020-09-01)
+ <!-- latest_release 6.16.3 -->
+## [v6.16.3](https://github.com/chef/cookstyle/tree/v6.16.3) (2020-09-01)
 
 #### Merged Pull Requests
-- Update RuboCop engine to 0.90 [#723](https://github.com/chef/cookstyle/pull/723) ([tas50](https://github.com/tas50))
+-  Refactoring Cookstyle rules to latest format of Rubocop [#725](https://github.com/chef/cookstyle/pull/725) ([scottvidmar](https://github.com/scottvidmar))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.15.9 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+-  Refactoring Cookstyle rules to latest format of Rubocop [#725](https://github.com/chef/cookstyle/pull/725) ([scottvidmar](https://github.com/scottvidmar)) <!-- 6.16.3 -->
 - Update RuboCop engine to 0.90 [#723](https://github.com/chef/cookstyle/pull/723) ([tas50](https://github.com/tas50)) <!-- 6.16.2 -->
 - Update Correctness cops to latest Rubocop format and added corrector for ResourceWithNoneAction [#722](https://github.com/chef/cookstyle/pull/722) ([scottvidmar](https://github.com/scottvidmar)) <!-- 6.16.1 -->
 - Effortless and Redundant cops refactor to latest Rubocop format [#721](https://github.com/chef/cookstyle/pull/721) ([scottvidmar](https://github.com/scottvidmar)) <!-- 6.16.0 -->
