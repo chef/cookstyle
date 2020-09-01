@@ -6,7 +6,7 @@ RuboCop has been updated to 0.90.0, which includes a large number of improvement
 
 ### Autocorrection Performance Improvements
 
-All Cookstyle Cops have been refactored to use a more performant plugin format added in a recent release of RuboCop. With this change many cops no longer have to detect issues twice in order to autocorrect, which allows for fater autocorrection with less memory usage.
+All Cookstyle Cops have been refactored to use a more performant plugin format added in a recent release of RuboCop. With this change many cops no longer have to detect issues twice in order to autocorrect, which allows for faster autocorrection with less memory usage.
 
 ### CookbooksDependsOnSelf is now a ChefDeprecations Cop
 
