@@ -53,6 +53,8 @@ Layout/EmptyLineAfterGuardClause:
   Enabled: false
 Layout/EmptyLineAfterMagicComment:
   Enabled: false
+Layout/EmptyLineAfterMultilineCondition:
+  Enabled: false
 Layout/EmptyLineBetweenDefs:
   Enabled: false
 Layout/EmptyLinesAroundAccessModifier:
@@ -231,6 +233,8 @@ Lint/DuplicateHashKey:
   Enabled: false
 Lint/DuplicateMethods:
   Enabled: false
+Lint/DuplicateRequire:
+  Enabled: false
 Lint/DuplicateRescueException:
   Enabled: false
 Lint/EachWithObjectArgument:
@@ -242,6 +246,8 @@ Lint/EmptyConditionalBody:
 Lint/EmptyEnsure:
   Enabled: false
 Lint/EmptyExpression:
+  Enabled: false
+Lint/EmptyFile:
   Enabled: false
 Lint/EmptyInterpolation:
   Enabled: false
@@ -361,6 +367,8 @@ Lint/ToJSON:
   Enabled: false
 Lint/TopLevelReturnWithArgument:
   Enabled: false
+Lint/TrailingCommaInAttributeDeclaration:
+  Enabled: false
 Lint/UnderscorePrefixedVariableName:
   Enabled: false
 Lint/UnifiedInteger:
@@ -382,6 +390,8 @@ Lint/UselessAccessModifier:
 Lint/UselessAssignment:
   Enabled: false
 Lint/UselessElseWithoutRescue:
+  Enabled: false
+Lint/UselessMethodDefinition:
   Enabled: false
 Lint/UselessSetterCall:
   Enabled: false
@@ -477,6 +487,8 @@ Style/ClassCheck:
   Enabled: false
 Style/ClassMethods:
   Enabled: false
+Style/ClassMethodsDefinitions:
+  Enabled: false
 Style/ClassVars:
   Enabled: false
 Style/CollectionMethods:
@@ -484,6 +496,8 @@ Style/CollectionMethods:
 Style/ColonMethodCall:
   Enabled: false
 Style/ColonMethodDefinition:
+  Enabled: false
+Style/CombinableLoops:
   Enabled: false
 Style/CommandLiteral:
   Enabled: false
@@ -591,6 +605,8 @@ Style/InlineComment:
   Enabled: false
 Style/IpAddresses:
   Enabled: false
+Style/KeywordParametersOrder:
+  Enabled: false
 Style/Lambda:
   Enabled: false
 Style/LambdaCall:
@@ -606,6 +622,10 @@ Style/RedundantAssignment:
 Style/RedundantFetchBlock:
   Enabled: false
 Style/RedundantFileExtensionInRequire:
+  Enabled: false
+Style/RedundantSelfAssignment:
+  Enabled: false
+Style/SoleNestedConditional:
   Enabled: false
 Style/MethodCalledOnDoEndBlock:
   Enabled: false
