@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 6.16.5 -->
+## [v6.16.5](https://github.com/chef/cookstyle/tree/v6.16.5) (2020-09-01)
+
+#### Merged Pull Requests
+- Use RESTRICT_ON_SEND to speedup on_send checks [#728](https://github.com/chef/cookstyle/pull/728) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=6.16.4 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Use RESTRICT_ON_SEND to speedup on_send checks [#728](https://github.com/chef/cookstyle/pull/728) ([tas50](https://github.com/tas50)) <!-- 6.16.5 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
