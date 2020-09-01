@@ -31,9 +31,10 @@ module RuboCop
         #
         class ErlCallResource < Base
           MSG = "Don't use the deprecated erl_call resource removed in Chef Infra Client 13"
+          RESTRICT_ON_SEND = [:erl_call].freeze
 
           def on_send(node)
-            add_offense(node, message: MSG, severity: :warning) if node.method_name == :erl_call
+            add_offense(node, message: MSG, severity: :warning)
           end
         end
       end

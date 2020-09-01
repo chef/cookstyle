@@ -28,9 +28,10 @@ module RuboCop
         #
         class ResourceUsesProviderBaseMethod < Base
           MSG = "Don't use the deprecated provider_base method in a resource to specify the provider module to use. Instead, the provider should call provides to register itself, or the resource should call provider to specify the provider to use. This will cause failures in Chef Infra Client 13 and later."
+          RESTRICT_ON_SEND = [:provider_base].freeze
 
           def on_send(node)
-            add_offense(node, message: MSG, severity: :warning) if node.method_name == :provider_base
+            add_offense(node, message: MSG, severity: :warning)
           end
         end
       end

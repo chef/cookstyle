@@ -28,9 +28,10 @@ module RuboCop
         #
         class CookbookUsesSearch < Base
           MSG = 'Cookbook uses search, which cannot be used in the Effortless Infra pattern'
+          RESTRICT_ON_SEND = [:search].freeze
 
           def on_send(node)
-            add_offense(node, message: MSG, severity: :refactor) if node.method_name == :search
+            add_offense(node, message: MSG, severity: :refactor)
           end
         end
       end

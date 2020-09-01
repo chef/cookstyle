@@ -29,10 +29,10 @@ module RuboCop
         #
         class CookbookUsesRoles < Base
           MSG = 'Cookbook uses roles, which cannot be used in Policyfiles or Effortless Infra'
+          RESTRICT_ON_SEND = [:role?, :roles].freeze
 
           def on_send(node)
-            if %i(role? roles).include?(node.method_name) &&
-               node.receiver &&
+            if node.receiver &&
                node.receiver.send_type? &&
                node.receiver.method_name == :node
               add_offense(node, message: MSG, severity: :refactor)

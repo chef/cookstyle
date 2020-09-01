@@ -34,21 +34,20 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'use_inline_resources is now the default for resources in Chef Infra Client 13+ and does not need to be specified.'
+          RESTRICT_ON_SEND = [:use_inline_resources].freeze
 
           def on_send(node)
-            if node.method_name == :use_inline_resources
-              # don't alert on the use_inline_resources within the defined? check
-              # that would result in 2 alerts on the same line and wouldn't be useful
-              return if node.parent && node.parent.defined_type?
+            # don't alert on the use_inline_resources within the defined? check
+            # that would result in 2 alerts on the same line and wouldn't be useful
+            return if node.parent && node.parent.defined_type?
 
-              # catch the full offense if the method is gated like this: use_inline_resources if defined?(use_inline_resources)
-              if node.parent && node.parent.if_type? && %i(defined? respond_to?).include?(node.parent.children.first.method_name)
-                node = node.parent
-              end
+            # catch the full offense if the method is gated like this: use_inline_resources if defined?(use_inline_resources)
+            if node.parent && node.parent.if_type? && %i(defined? respond_to?).include?(node.parent.children.first.method_name)
+              node = node.parent
+            end
 
-              add_offense(node, message: MSG, severity: :warning) do |corrector|
-                corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
-              end
+            add_offense(node, message: MSG, severity: :warning) do |corrector|
+              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
             end
           end
         end
