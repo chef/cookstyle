@@ -638,7 +638,7 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
-Enabled | Yes | All Versions
+Enabled | No | All Versions
 
 No documentation
 
@@ -897,7 +897,7 @@ Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
-Enabled | No | All Versions
+Enabled | Yes | All Versions
 
 The :nothing action is often typo'd as :none
 
