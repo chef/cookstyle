@@ -134,25 +134,6 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefcorrectnesscookbookusesnodesave](https://rubystyle.guide#chefcorrectnesscookbookusesnodesave)
 
-## ChefCorrectness/CookbooksDependsOnSelf
-
-Enabled by default | Supports autocorrection | Target Chef Version
---- | --- | ---
-Enabled | Yes | All Versions
-
-No documentation
-
-### Configurable attributes
-
-Name | Default value | Configurable values
---- | --- | ---
-VersionAdded | `5.2.0` | String
-Include | `**/metadata.rb` | Array
-
-### References
-
-* [https://rubystyle.guide#chefcorrectnesscookbooksdependonself](https://rubystyle.guide#chefcorrectnesscookbooksdependonself)
-
 ## ChefCorrectness/DnfPackageAllowDowngrades
 
 Enabled by default | Supports autocorrection | Target Chef Version

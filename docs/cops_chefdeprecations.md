@@ -358,6 +358,26 @@ Include | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationscookbookdependsonpoise](https://rubystyle.guide#chefdeprecationscookbookdependsonpoise)
 
+## ChefDeprecations/CookbooksDependsOnSelf
+
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
+
+No documentation
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `5.2.0` | String
+VersionChanged | `6.16.0` | String
+Include | `**/metadata.rb` | Array
+
+### References
+
+* [https://rubystyle.guide#chefdeprecationscookbooksdependonself](https://rubystyle.guide#chefdeprecationscookbooksdependonself)
+
 ## ChefDeprecations/DeprecatedChefSpecPlatform
 
 Enabled by default | Supports autocorrection | Target Chef Version
