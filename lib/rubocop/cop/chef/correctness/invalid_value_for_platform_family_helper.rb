@@ -35,7 +35,7 @@ module RuboCop
         #     %w(mac_os_x) => 'foo'
         #   )
         #
-        class InvalidPlatformValueForPlatformFamilyHelper < Cop
+        class InvalidPlatformValueForPlatformFamilyHelper < Base
           include ::RuboCop::Chef::PlatformHelpers
 
           MSG = 'Pass valid platform families to the value_for_platform_family helper.'
@@ -53,10 +53,11 @@ module RuboCop
               plats.each do |p_hash|
                 if p_hash.key.array_type?
                   p_hash.key.values.each do |plat|
-                    add_offense(plat, location: :expression, message: MSG, severity: :refactor) if INVALID_PLATFORM_FAMILIES.key?(plat.value)
+                    next unless INVALID_PLATFORM_FAMILIES.key?(plat.value)
+                    add_offense(plat, message: MSG, severity: :refactor)
                   end
                 elsif INVALID_PLATFORM_FAMILIES.key?(p_hash.key.value)
-                  add_offense(p_hash.key, location: :expression, message: MSG, severity: :refactor)
+                  add_offense(p_hash.key, message: MSG, severity: :refactor)
                 end
               end
             end

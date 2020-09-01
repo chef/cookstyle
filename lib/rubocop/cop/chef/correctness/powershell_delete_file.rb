@@ -34,7 +34,7 @@ module RuboCop
         #    action :delete
         #  end
         #
-        class PowershellScriptDeleteFile < Cop
+        class PowershellScriptDeleteFile < Base
           include RuboCop::Chef::CookbookHelpers
 
           MSG = 'Use the `file` or `directory` resources built into Chef Infra Client with the :delete action to remove files/directories instead of using Remove-Item in a powershell_script resource'
@@ -42,9 +42,9 @@ module RuboCop
           def on_block(node)
             match_property_in_resource?(:powershell_script, 'code', node) do |code_property|
               property_data = method_arg_ast_to_string(code_property)
-              if property_data && property_data.match?(/^remove-item/i) && !property_data.include?('*')
-                add_offense(node, location: :expression, message: MSG, severity: :refactor)
-              end
+              return unless property_data && property_data.match?(/^remove-item/i) &&
+                            !property_data.include?('*')
+              add_offense(node, message: MSG, severity: :refactor)
             end
           end
         end

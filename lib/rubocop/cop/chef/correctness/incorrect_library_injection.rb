@@ -32,7 +32,9 @@ module RuboCop
         #   # good
         #   ::Chef::DSL::Recipe.send(:include, Filebeat::Helpers) # covers previous Recipe & Provider classes
         #
-        class IncorrectLibraryInjection < Cop
+        class IncorrectLibraryInjection < Base
+          extend AutoCorrector
+
           MSG = 'Libraries should be injected into the Chef::DSL::Recipe class and not Chef::Recipe or Chef::Provider classes directly.'
 
           def_node_matcher :legacy_class_sends?, <<-PATTERN
@@ -45,17 +47,17 @@ module RuboCop
 
           def on_send(node)
             legacy_class_sends?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+                corrector.replace(node.loc.expression,
+                  node.source.gsub(/Chef::(Provider|Recipe)/, 'Chef::DSL::Recipe'))
+              end
             end
 
             legacy_class_includes?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.replace(node.loc.expression, node.source.gsub(/Chef::(Provider|Recipe)/, 'Chef::DSL::Recipe'))
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+                corrector.replace(node.loc.expression,
+                  node.source.gsub(/Chef::(Provider|Recipe)/, 'Chef::DSL::Recipe'))
+              end
             end
           end
         end

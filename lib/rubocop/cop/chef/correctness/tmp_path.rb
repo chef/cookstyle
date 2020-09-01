@@ -30,7 +30,7 @@ module RuboCop
         #   remote_file "#{Chef::Config[:file_cache_path]}/large-file.tar.gz" do
         #
         #
-        class TmpPath < Cop
+        class TmpPath < Base
           MSG = 'Use file_cache_path rather than hard-coding tmp paths'
 
           def_node_matcher :remote_file?, <<-PATTERN
@@ -39,9 +39,8 @@ module RuboCop
 
           def on_send(node)
             remote_file?(node) do |command|
-              if hardcoded_tmp?(command) && !file_cache_path?(command)
-                add_offense(command, location: :expression, message: MSG, severity: :refactor)
-              end
+              return unless hardcoded_tmp?(command) && !file_cache_path?(command)
+              add_offense(command, message: MSG, severity: :refactor)
             end
           end
 

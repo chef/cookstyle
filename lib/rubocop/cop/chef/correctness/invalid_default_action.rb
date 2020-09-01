@@ -30,7 +30,7 @@ module RuboCop
       #   default_action :create
       #
       module ChefCorrectness
-        class InvalidDefaultAction < Cop
+        class InvalidDefaultAction < Base
           MSG = 'Default actions in resources should be symbols or an array of symbols.'
 
           def_node_matcher :default_action?, '(send nil? :default_action $_)'
@@ -38,7 +38,7 @@ module RuboCop
           def on_send(node)
             default_action?(node) do |match|
               return if %i(send sym array).include?(match.type)
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+              add_offense(node, message: MSG, severity: :refactor)
             end
           end
         end

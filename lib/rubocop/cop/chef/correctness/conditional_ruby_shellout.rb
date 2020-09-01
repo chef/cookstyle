@@ -40,8 +40,10 @@ module RuboCop
         #     only_if 'wget https://www.bar.com/foobar.txt -O /dev/null'
         #   end
         #
-        class ConditionalRubyShellout < Cop
+        class ConditionalRubyShellout < Base
+          extend AutoCorrector
           include RuboCop::Chef::CookbookHelpers
+
           MSG = "Don't use Ruby to shellout in an only_if / not_if conditional when you can shellout directly by wrapping the command in quotes."
 
           def_node_matcher :conditional_shellout?, <<-PATTERN
@@ -54,14 +56,8 @@ module RuboCop
           PATTERN
 
           def on_block(node)
-            conditional_shellout?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              conditional_shellout?(node) do |type, val|
+            conditional_shellout?(node) do |type, val|
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
                 corrector.replace(node.loc.expression, "#{type} #{val.source}")
               end
             end

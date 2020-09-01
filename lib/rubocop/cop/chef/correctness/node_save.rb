@@ -28,7 +28,7 @@ module RuboCop
         #   # bad
         #   node.save
         #
-        class CookbookUsesNodeSave < Cop
+        class CookbookUsesNodeSave < Base
           MSG = "Don't use node.save to save partial node data to the Chef Infra Server mid-run unless it's absolutely necessary. Node.save can result in failed Chef Infra runs appearing in search and increases load on the Chef Infra Server."
 
           def_node_matcher :node_save?, <<-PATTERN
@@ -37,7 +37,7 @@ module RuboCop
 
           def on_send(node)
             node_save?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+              add_offense(node, message: MSG, severity: :refactor)
             end
           end
         end

@@ -34,15 +34,19 @@ module RuboCop
         #    action :nothing
         #   end
         #
-        class ResourceWithNoneAction < Cop
+        class ResourceWithNoneAction < Base
           include RuboCop::Chef::CookbookHelpers
+          extend AutoCorrector
 
           MSG = 'Resource uses the nonexistent :none action instead of the :nothing action'
 
           def on_block(node)
             match_property_in_resource?(nil, 'action', node) do |action_node|
               action_node.arguments.each do |action|
-                add_offense(action, location: :expression, message: MSG, severity: :refactor) if action.source == ':none'
+                next unless action.source == ':none'
+                add_offense(action, message: MSG, severity: :refactor) do |corrector|
+                  corrector.replace(action.loc.expression, ':nothing')
+                end
               end
             end
           end

@@ -44,20 +44,19 @@ module RuboCop
         #     'default' => 'bar'
         #   )
         #
-        class MalformedPlatformValueForPlatformHelper < Cop
+        class MalformedPlatformValueForPlatformHelper < Base
           def on_send(node)
             return unless node.method_name == :value_for_platform
 
             if node.arguments.count > 1
               msg = 'Malformed value_for_platform helper argument. The value_for_platform helper takes a single hash of platforms as an argument.'
-              add_offense(node, location: :expression, message: msg, severity: :refactor)
+              add_offense(node, message: msg, severity: :refactor)
             elsif node.arguments.first.hash_type? # if it's a variable we can't check what's in that variable so skip
               msg = "Malformed value_for_platform helper argument. The value for each platform in your hash must be a hash of either platform version strings or a value with a key of 'default'"
               node.arguments.first.each_pair do |plats, plat_vals|
                 # instead of a platform the hash key can be default with a value of anything. Depending on the hash format this is a string or symbol
-                unless plat_vals.hash_type? || plats == s(:str, 'default') || plats == s(:sym, :default)
-                  add_offense(plat_vals, location: :expression, message: msg, severity: :refactor)
-                end
+                next if plat_vals.hash_type? || plats == s(:str, 'default') || plats == s(:sym, :default)
+                add_offense(plat_vals, message: msg, severity: :refactor)
               end
             end
           end

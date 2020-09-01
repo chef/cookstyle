@@ -32,7 +32,7 @@ module RuboCop
         #   platform?('mac_os_x')
         #   platform?('redhat)
         #   platform?('suse')
-        class InvalidPlatformHelper < Cop
+        class InvalidPlatformHelper < Base
           include ::RuboCop::Chef::PlatformHelpers
 
           MSG = 'Pass valid platforms to the platform? helper.'
@@ -44,7 +44,7 @@ module RuboCop
           def on_send(node)
             platform_helper?(node) do |plat|
               plat.to_a.each do |p|
-                add_offense(p, location: :expression, message: MSG, severity: :refactor) if INVALID_PLATFORMS.key?(p.value)
+                add_offense(p, message: MSG, severity: :refactor) if INVALID_PLATFORMS.key?(p.value)
               end
             end
           end

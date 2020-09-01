@@ -37,7 +37,9 @@ module RuboCop
         #     only_if 'test -f /etc/foo'
         #   end
         #
-        class BlockGuardWithOnlyString < Cop
+        class BlockGuardWithOnlyString < Base
+          extend AutoCorrector
+
           MSG = 'A resource guard (not_if/only_if) that is a string should not be wrapped in {}. Wrapping a guard string in {} causes it be executed as Ruby code which will always returns true instead of a shell command that will actually run.'
 
           def_node_matcher :block_guard_with_only_string?, <<-PATTERN
@@ -46,14 +48,10 @@ module RuboCop
 
           def on_block(node)
             block_guard_with_only_string?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              new_val = "#{node.method_name} #{node.body.source}"
-              corrector.replace(node.loc.expression, new_val)
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+                new_val = "#{node.method_name} #{node.body.source}"
+                corrector.replace(node.loc.expression, new_val)
+              end
             end
           end
         end

@@ -30,7 +30,8 @@ module RuboCop
         #   # good
         #   property :Something, String, default: lazy { node['hostname'] }
         #
-        class LazyEvalNodeAttributeDefaults < Cop
+        class LazyEvalNodeAttributeDefaults < Base
+          extend AutoCorrector
           include RuboCop::Chef::CookbookHelpers
 
           MSG = 'When setting a node attribute as the default value for a custom resource property, wrap the node attribute in `lazy {}` so that its value is available when the resource executes.'
@@ -41,13 +42,9 @@ module RuboCop
 
           def on_send(node)
             non_lazy_node_attribute_default?(node) do |default|
-              add_offense(default, location: :expression, message: MSG, severity: :refactor)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.replace(node.loc.expression, "lazy { #{node.loc.expression.source} }")
+              add_offense(default, message: MSG, severity: :refactor) do |corrector|
+                corrector.replace(default.loc.expression, "lazy { #{default.loc.expression.source} }")
+              end
             end
           end
         end

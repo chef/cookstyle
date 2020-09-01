@@ -35,7 +35,7 @@ module RuboCop
         #     notifies :restart, 'service[apache]', :immediately
         #   end
         #
-        class InvalidNotificationTiming < Cop
+        class InvalidNotificationTiming < Base
           MSG = 'Valid notification timings are :immediately, :immediate (alias for :immediately), :delayed, and :before.'
 
           def_node_matcher :notification_with_timing?, <<-PATTERN
@@ -44,7 +44,7 @@ module RuboCop
 
           def on_send(node)
             notification_with_timing?(node) do |timing|
-              add_offense(timing, location: :expression, message: MSG, severity: :refactor) unless %i(immediate immediately delayed before).include?(timing.value)
+              add_offense(timing, message: MSG, severity: :refactor) unless %i(immediate immediately delayed before).include?(timing.value)
             end
           end
         end
