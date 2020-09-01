@@ -1,25 +1,23 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.16.4 -->
-## [v6.16.4](https://github.com/chef/cookstyle/tree/v6.16.4) (2020-09-01)
-
-#### Merged Pull Requests
-- Move CookbooksDependsOnSelf from ChefCorrectness to ChefDeprecations [#726](https://github.com/chef/cookstyle/pull/726) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=6.15.9 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Move CookbooksDependsOnSelf from ChefCorrectness to ChefDeprecations [#726](https://github.com/chef/cookstyle/pull/726) ([tas50](https://github.com/tas50)) <!-- 6.16.4 -->
--  Refactoring Cookstyle rules to latest format of Rubocop [#725](https://github.com/chef/cookstyle/pull/725) ([scottvidmar](https://github.com/scottvidmar)) <!-- 6.16.3 -->
-- Update RuboCop engine to 0.90 [#723](https://github.com/chef/cookstyle/pull/723) ([tas50](https://github.com/tas50)) <!-- 6.16.2 -->
-- Update Correctness cops to latest Rubocop format and added corrector for ResourceWithNoneAction [#722](https://github.com/chef/cookstyle/pull/722) ([scottvidmar](https://github.com/scottvidmar)) <!-- 6.16.1 -->
-- Effortless and Redundant cops refactor to latest Rubocop format [#721](https://github.com/chef/cookstyle/pull/721) ([scottvidmar](https://github.com/scottvidmar)) <!-- 6.16.0 -->
-- Update Deprecations rules to latest RuboCop format [#720](https://github.com/chef/cookstyle/pull/720) ([scottvidmar](https://github.com/scottvidmar)) <!-- 6.15.10 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v6.16.4](https://github.com/chef/cookstyle/tree/v6.16.4) (2020-09-01)
+
+#### Merged Pull Requests
+- Update Deprecations rules to latest RuboCop format [#720](https://github.com/chef/cookstyle/pull/720) ([scottvidmar](https://github.com/scottvidmar))
+- Effortless and Redundant cops refactor to latest Rubocop format [#721](https://github.com/chef/cookstyle/pull/721) ([scottvidmar](https://github.com/scottvidmar))
+- Update Correctness cops to latest Rubocop format and added corrector for ResourceWithNoneAction [#722](https://github.com/chef/cookstyle/pull/722) ([scottvidmar](https://github.com/scottvidmar))
+- Update RuboCop engine to 0.90 [#723](https://github.com/chef/cookstyle/pull/723) ([tas50](https://github.com/tas50))
+-  Refactoring Cookstyle rules to latest format of Rubocop [#725](https://github.com/chef/cookstyle/pull/725) ([scottvidmar](https://github.com/scottvidmar))
+- Move CookbooksDependsOnSelf from ChefCorrectness to ChefDeprecations [#726](https://github.com/chef/cookstyle/pull/726) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v6.15.9](https://github.com/chef/cookstyle/tree/v6.15.9) (2020-08-25)
 
 #### Merged Pull Requests
@@ -27,7 +25,6 @@
 - Refactor Ruby27KeywordArgumentWarnings [#717](https://github.com/chef/cookstyle/pull/717) ([tas50](https://github.com/tas50))
 - Fix IncludePropertyDescriptions to catch all occurrences [#718](https://github.com/chef/cookstyle/pull/718) ([tas50](https://github.com/tas50))
 - Update IncludeResourceDescriptions to allow string interpolation [#719](https://github.com/chef/cookstyle/pull/719) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v6.15.5](https://github.com/chef/cookstyle/tree/v6.15.5) (2020-08-13)
 
