@@ -210,14 +210,6 @@ ChefCorrectness/CookbookUsesNodeSave:
     - '**/metadata.rb'
     - '**/Berksfile'
 
-ChefCorrectness/CookbooksDependsOnSelf:
-  Description: A cookbook cannot depend on itself
-  StyleGuide: '#chefcorrectnesscookbooksdependonself'
-  Enabled: true
-  VersionAdded: '5.2.0'
-  Include:
-    - '**/metadata.rb'
-
 ChefCorrectness/MetadataMissingName:
   Description: The metadata.rb file is missing the name field which is required by Chef Infra Client 12 and later
   StyleGuide: '#chefcorrectnessmetadatamissingname'
@@ -1060,6 +1052,15 @@ ChefDeprecations/MacosUserdefaultsGlobalProperty:
   Exclude:
     - '**/metadata.rb'
     - '**/Berksfile'
+
+ChefDeprecations/CookbooksDependsOnSelf:
+  Description: A cookbook cannot depend on itself in Chef Infra Client 13 or later.
+  StyleGuide: '#chefdeprecationscookbooksdependonself'
+  Enabled: true
+  VersionAdded: '5.2.0'
+  VersionChanged: '6.16.0'
+  Include:
+    - '**/metadata.rb'
 
 ###############################
 # ChefModernize: Cleaning up legacy code and using new built-in resources

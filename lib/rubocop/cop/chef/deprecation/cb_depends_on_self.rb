@@ -30,7 +30,7 @@ module RuboCop
       #   # good
       #   name 'foo'
       #
-      module ChefCorrectness
+      module ChefDeprecations
         class CookbooksDependsOnSelf < Base
           extend AutoCorrector
           include RangeHelp
