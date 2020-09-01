@@ -29,7 +29,9 @@ module RuboCop
         #   # good
         #   only_if { ::File.exist?('bin/foo') }
         #
-        class ConditionalUsingTest < Cop
+        class ConditionalUsingTest < Base
+          extend AutoCorrector
+
           MSG = "Use ::File.exist?('/foo/bar') instead of the slower 'test -f /foo/bar' which requires shelling out"
 
           def_node_matcher :resource_conditional?, <<~PATTERN
@@ -38,13 +40,8 @@ module RuboCop
 
           def on_send(node)
             resource_conditional?(node) do |conditional|
-              add_offense(node, location: :expression, message: MSG, severity: :refactor) if conditional.value.match?(/^test -[ef] \S*$/)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              resource_conditional?(node) do |conditional|
+              return unless conditional.value.match?(/^test -[ef] \S*$/)
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
                 new_string = "{ ::File.exist?('#{conditional.value.match(/^test -[ef] (\S*)$/)[1]}') }"
                 corrector.replace(conditional.loc.expression, new_string)
               end

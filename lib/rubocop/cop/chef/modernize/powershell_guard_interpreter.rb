@@ -43,10 +43,11 @@ module RuboCop
         #     code "mkdir C:\mydir"
         #   end
         #
-        class PowerShellGuardInterpreter < Cop
+        class PowerShellGuardInterpreter < Base
           include RuboCop::Chef::CookbookHelpers
           include RangeHelp
           extend TargetChefVersion
+          extend AutoCorrector
 
           minimum_target_chef_version '13.0'
 
@@ -54,15 +55,10 @@ module RuboCop
 
           def on_block(node)
             match_property_in_resource?(%i(powershell_script batch), 'guard_interpreter', node) do |interpreter|
-              if interpreter.arguments.first.source == ':powershell_script'
-                add_offense(interpreter, location: :expression, message: MSG, severity: :refactor)
+              return unless interpreter.arguments.first.source == ':powershell_script'
+              add_offense(interpreter, message: MSG, severity: :refactor) do |corrector|
+                corrector.remove(range_with_surrounding_space(range: interpreter.loc.expression, side: :left))
               end
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
             end
           end
         end

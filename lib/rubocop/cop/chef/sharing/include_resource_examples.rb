@@ -35,7 +35,7 @@ module RuboCop
         #     ```
         #   DOC
         #
-        class IncludeResourceExamples < Cop
+        class IncludeResourceExamples < Base
           include RangeHelp
           extend TargetChefVersion
 
@@ -43,13 +43,13 @@ module RuboCop
 
           MSG = 'Resources should include examples field to allow automated documentation. Requires Chef Infra Client 13.9 or later.'
 
-          def investigate(processed_source)
-            return if processed_source.blank?
+          def on_new_investigation
+            return if processed_source.blank? || resource_examples(processed_source.ast).any?
 
             # Using range similar to RuboCop::Cop::Naming::Filename (file_name.rb)
             range = source_range(processed_source.buffer, 1, 0)
 
-            add_offense(nil, location: range, message: MSG, severity: :refactor) unless resource_examples(processed_source.ast).any?
+            add_offense(range, message: MSG, severity: :refactor)
           end
 
           def_node_search :resource_examples, '(send nil? :examples dstr ...)'

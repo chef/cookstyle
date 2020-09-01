@@ -43,8 +43,9 @@ module RuboCop
         #     action :nothing
         #   end
         #
-        class RespondToCompileTime < Cop
+        class RespondToCompileTime < Base
           extend TargetChefVersion
+          extend AutoCorrector
 
           minimum_target_chef_version '12.1'
 
@@ -75,14 +76,8 @@ module RuboCop
           PATTERN
 
           def on_if(node)
-            compile_time_method_defined?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              compile_time_method_defined?(node) do |val|
+            compile_time_method_defined?(node) do |val|
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
                 corrector.replace(node.loc.expression, "compile_time #{val.source}")
               end
             end

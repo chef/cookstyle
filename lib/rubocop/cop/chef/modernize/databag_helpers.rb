@@ -31,7 +31,9 @@ module RuboCop
         #   plain_text_data = data_bag_item('foo', 'bar')
         #   encrypted_data = data_bag_item('foo2', 'bar2')
         #
-        class DatabagHelpers < Cop
+        class DatabagHelpers < Base
+          extend AutoCorrector
+
           MSG = 'Use the `data_bag_item` helper instead of `Chef::DataBagItem.load` or `Chef::EncryptedDataBagItem.load`.'
 
           def_node_matcher :data_bag_class_load?, <<-PATTERN
@@ -43,13 +45,10 @@ module RuboCop
 
           def on_send(node)
             data_bag_class_load?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.replace(node.loc.expression, node.source.gsub(/Chef::(EncryptedDataBagItem|DataBagItem).load/, 'data_bag_item'))
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+                corrector.replace(node.loc.expression,
+                   node.source.gsub(/Chef::(EncryptedDataBagItem|DataBagItem).load/, 'data_bag_item'))
+              end
             end
           end
         end

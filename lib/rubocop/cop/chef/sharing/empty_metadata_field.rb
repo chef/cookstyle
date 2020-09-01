@@ -30,14 +30,15 @@ module RuboCop
         #   # good
         #   license 'Apache-2.0'
         #
-        class EmptyMetadataField < Cop
+        class EmptyMetadataField < Base
           MSG = 'Cookbook metadata.rb contains a field with an empty string.'
 
           def_node_matcher :field?, '(send nil? _ $str ...)'
 
           def on_send(node)
             field?(node) do |str|
-              add_offense(str, location: :expression, message: MSG, severity: :refactor) if str.value.empty?
+              return unless str.value.empty?
+              add_offense(str, message: MSG, severity: :refactor)
             end
           end
         end

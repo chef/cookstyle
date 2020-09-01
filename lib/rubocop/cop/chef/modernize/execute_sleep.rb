@@ -46,29 +46,24 @@ module RuboCop
 
           # non block execute resources
           def on_send(node)
-            return unless node.method_name == :execute
-
             # use a regex on source instead of .value in case there's string interpolation which adds a complex dstr type
             # with a nested string and a begin. Source allows us to avoid a lot of defensive programming here
-            if node&.arguments.first&.source&.match?(/^("|')sleep/)
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
-            end
+            return unless node.method_name == :execute && node&.arguments.first&.source&.match?(/^("|')sleep/)
+            add_offense(node, message: MSG, severity: :refactor)
           end
 
           # block execute resources
           def on_block(node)
             match_property_in_resource?(:execute, 'command', node) do |code_property|
               property_data = method_arg_ast_to_string(code_property)
-              if property_data && property_data.match?(/^sleep/i)
-                add_offense(node, location: :expression, message: MSG, severity: :refactor)
-              end
+              next unless property_data && property_data.match?(/^sleep/i)
+              add_offense(node, message: MSG, severity: :refactor)
             end
 
             match_property_in_resource?(:bash, 'code', node) do |code_property|
               property_data = method_arg_ast_to_string(code_property)
-              if property_data && property_data.match?(/^sleep/i)
-                add_offense(node, location: :expression, message: MSG, severity: :refactor)
-              end
+              next unless property_data && property_data.match?(/^sleep/i)
+              add_offense(node, message: MSG, severity: :refactor)
             end
           end
         end

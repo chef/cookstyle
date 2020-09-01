@@ -21,13 +21,13 @@ module RuboCop
       module ChefModernize
         # In 2016 with Chef Infra Client 12.5 Custom Resources were introduced as a way of writing reusable resource code that could be shipped in cookbooks. Custom Resources offer many advantages of legacy Definitions including unit testing with ChefSpec, input validation, actions, common properties like not_if/only_if, and resource reporting.
         #
-        class Definitions < Cop
+        class Definitions < Base
           include RuboCop::Chef::CookbookHelpers
 
           MSG = 'Legacy Chef Infra definitions should be rewritten as custom resources to take full advantage of the Chef Infra feature set.'
 
           def on_block(node)
-            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.respond_to?(:method_name) && node.method_name == :define
+            add_offense(node, message: MSG, severity: :refactor) if node.respond_to?(:method_name) && node.method_name == :define
           end
         end
       end

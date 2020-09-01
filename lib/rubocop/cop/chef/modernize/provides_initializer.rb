@@ -32,8 +32,9 @@ module RuboCop
         #   # good
         #   provides :foo
         #
-        class ProvidesFromInitialize < Cop
+        class ProvidesFromInitialize < Base
           include RangeHelp
+          extend AutoCorrector
 
           MSG = 'Provides should be set using the `provides` resource DSL method instead of instead of setting @provides in the initialize method.'
 
@@ -43,26 +44,23 @@ module RuboCop
 
           def on_ivasgn(node)
             provides_assignment?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor) if initialize_method(node.parent.parent).any?
+              return unless initialize_method(node.parent.parent).any?
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+                # insert the new provides call above the initialize method, but not if one already exists (this is sadly common)
+                unless provides_method?(processed_source.ast)
+                  initialize_node = initialize_method(processed_source.ast).first
+                  corrector.insert_before(initialize_node.source_range, "provides #{node.descendants.first.source}\n\n")
+                end
+
+                # remove the variable from the initialize method
+                corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
+              end
             end
           end
 
           def_node_search :provides_method?, '(send nil? :provides ... )'
 
           def_node_search :initialize_method, '(def :initialize ... )'
-
-          def autocorrect(node)
-            lambda do |corrector|
-              # insert the new provides call above the initialize method, but not if one already exists (this is sadly common)
-              unless provides_method?(processed_source.ast)
-                initialize_node = initialize_method(processed_source.ast).first
-                corrector.insert_before(initialize_node.source_range, "provides #{node.descendants.first.source}\n\n")
-              end
-
-              # remove the variable from the initialize method
-              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
-            end
-          end
         end
       end
     end

@@ -33,7 +33,7 @@ module RuboCop
         #    compile_time true
         #   end
         #
-        class ResourceForcingCompileTime < Cop
+        class ResourceForcingCompileTime < Base
           MSG = "Set 'compile_time true' in resources when available instead of forcing resources to run at compile time by setting an action on the block."
 
           def_node_matcher :compile_time_resource?, <<-PATTERN
@@ -42,7 +42,7 @@ module RuboCop
 
           def on_send(node)
             compile_time_resource?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+              add_offense(node, message: MSG, severity: :refactor)
             end
           end
         end

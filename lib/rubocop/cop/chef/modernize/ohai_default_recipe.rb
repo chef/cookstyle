@@ -29,7 +29,7 @@ module RuboCop
         #   include_recipe 'ohai::default'
         #   include_recipe 'ohai'
         #
-        class IncludingOhaiDefaultRecipe < Cop
+        class IncludingOhaiDefaultRecipe < Base
           MSG = "Use the ohai_plugin resource to ship custom Ohai plugins instead of using the ohai::default recipe. If you're not shipping custom Ohai plugins, then you can remove this recipe entirely"
 
           def_node_matcher :ohai_recipe_usage?, <<-PATTERN
@@ -38,7 +38,7 @@ module RuboCop
 
           def on_send(node)
             ohai_recipe_usage?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+              add_offense(node, message: MSG, severity: :refactor)
             end
           end
         end

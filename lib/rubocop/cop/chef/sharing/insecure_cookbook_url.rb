@@ -33,7 +33,9 @@ module RuboCop
         #   source_url 'http://github.com/something/something'
         #   source_url 'http://gitlab.com/something/something'
         #
-        class InsecureCookbookURL < Cop
+        class InsecureCookbookURL < Base
+          extend AutoCorrector
+
           MSG = 'Insecure http Github or Gitlab URLs for metadata source_url/issues_url fields'
 
           def_node_matcher :insecure_cb_url?, <<-PATTERN
@@ -47,13 +49,9 @@ module RuboCop
 
           def on_send(node)
             insecure_cb_url?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.replace(node.loc.expression, node.source.gsub(%r{http://(www.)*}, 'https://'))
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+                corrector.replace(node.loc.expression, node.source.gsub(%r{http://(www.)*}, 'https://'))
+              end
             end
           end
         end

@@ -32,15 +32,14 @@ module RuboCop
         #     profile 'screensaver/com.company.screensaver.mobileconfig'
         #   end
         #
-        class OsxConfigProfileResource < Cop
+        class OsxConfigProfileResource < Base
+          extend AutoCorrector
+
           MSG = 'The osx_config_profile resource was renamed to osx_profile. The new resource name should be used.'
 
           def on_send(node)
-            add_offense(node, location: :expression, message: MSG, severity: :refactor) if node.method_name == :osx_config_profile
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
+            return unless node.method_name == :osx_config_profile
+            add_offense(node, message: MSG, severity: :refactor) do |corrector|
               corrector.replace(node.loc.expression, node.source.gsub(/^osx_config_profile/, 'osx_profile'))
             end
           end

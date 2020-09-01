@@ -30,7 +30,7 @@ module RuboCop
         #   # good
         #   apt_update
         #
-        class IncludingAptDefaultRecipe < Cop
+        class IncludingAptDefaultRecipe < Base
           extend TargetChefVersion
 
           minimum_target_chef_version '12.7'
@@ -43,7 +43,7 @@ module RuboCop
 
           def on_send(node)
             apt_recipe_usage?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+              add_offense(node, message: MSG, severity: :refactor)
             end
           end
         end

@@ -32,7 +32,8 @@ module RuboCop
         #  # good
         #  resource_name :create
 
-        class ResourceNameFromInitialize < Cop
+        class ResourceNameFromInitialize < Base
+          extend AutoCorrector
           include RangeHelp
 
           MSG = 'The name of a resource can be set with the "resource_name" helper instead of using the initialize method.'
@@ -42,24 +43,19 @@ module RuboCop
             return if node.body.nil? # nil body is an empty initialize method
 
             node.body.each_node do |x|
-              if x.assignment? && !x.node_parts.empty? && x.node_parts.first == :@resource_name
-                add_offense(x, location: :expression, message: MSG, severity: :refactor)
+              next unless x.assignment? && !x.node_parts.empty? && x.node_parts.first == :@resource_name
+
+              add_offense(x, message: MSG, severity: :refactor) do |corrector|
+                # insert the new resource_name call above the initialize method
+                initialize_node = initialize_method(processed_source.ast).first
+                corrector.insert_before(initialize_node.source_range, "resource_name #{x.descendants.first.source}\n\n")
+                # remove the variable from the initialize method
+                corrector.remove(range_with_surrounding_space(range: x.loc.expression, side: :left))
               end
             end
           end
 
           def_node_search :initialize_method, '(def :initialize ... )'
-
-          def autocorrect(node)
-            lambda do |corrector|
-              # insert the new resource_name call above the initialize method
-              initialize_node = initialize_method(processed_source.ast).first
-              corrector.insert_before(initialize_node.source_range, "resource_name #{node.descendants.first.source}\n\n")
-
-              # remove the variable from the initialize method
-              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
-            end
-          end
         end
       end
     end

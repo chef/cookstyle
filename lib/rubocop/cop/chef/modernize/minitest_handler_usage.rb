@@ -26,7 +26,8 @@ module RuboCop
         #   # bad
         #   depends 'minitest-handler'
         #
-        class MinitestHandlerUsage < Cop
+        class MinitestHandlerUsage < Base
+          extend AutoCorrector
           include RangeHelp
 
           MSG = 'Use Chef InSpec for testing instead of the Minitest Handler cookbook pattern.'
@@ -37,13 +38,9 @@ module RuboCop
 
           def on_send(node)
             minitest_depends?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+                corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
+              end
             end
           end
         end

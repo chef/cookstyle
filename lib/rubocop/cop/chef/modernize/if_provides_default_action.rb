@@ -29,17 +29,15 @@ module RuboCop
         #   # good
         #   default_action :foo
         #
-        class IfProvidesDefaultAction < Cop
+        class IfProvidesDefaultAction < Base
+          extend AutoCorrector
+
           MSG = 'if defined?(default_action) is no longer necessary in Chef Resources as default_action shipped in Chef 10.8.'
 
           def on_defined?(node)
             return unless node.arguments.first == s(:send, nil, :default_action)
             node = node.parent if node.parent.respond_to?(:if?) && node.parent.if? # we want the whole if statement
-            add_offense(node, location: :expression, message: MSG, severity: :refactor)
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
+            add_offense(node, message: MSG, severity: :refactor) do |corrector|
               corrector.replace(node.loc.expression, node.children[1].source)
             end
           end

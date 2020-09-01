@@ -34,7 +34,9 @@ module RuboCop
         #   # good
         #   source 'https://supermarket.chef.io'
         #
-        class LegacyBerksfileSource < Cop
+        class LegacyBerksfileSource < Base
+          extend AutoCorrector
+
           MSG = 'Do not use legacy Berksfile community sources. Use Chef Supermarket instead.'
 
           def_node_matcher :berksfile_site?, <<-PATTERN
@@ -51,17 +53,15 @@ module RuboCop
 
           def on_send(node)
             berksfile_source?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+                corrector.replace(node.loc.expression, "source 'https://supermarket.chef.io'")
+              end
             end
 
             berksfile_site?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.replace(node.loc.expression, "source 'https://supermarket.chef.io'")
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+                corrector.replace(node.loc.expression, "source 'https://supermarket.chef.io'")
+              end
             end
           end
         end

@@ -25,7 +25,8 @@ module RuboCop
         #   include Chef::DSL::Recipe
         #   include Chef::DSL::IncludeRecipe
         #
-        class DslIncludeInResource < Cop
+        class DslIncludeInResource < Base
+          extend AutoCorrector
           include RangeHelp
 
           MSG = 'Chef Infra Client 12.4+ includes the Chef::DSL::Recipe in the resource and provider classed by default so there is no need to include this DSL in your resources or providers.'
@@ -39,13 +40,9 @@ module RuboCop
 
           def on_send(node)
             dsl_include?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+                corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
+              end
             end
           end
         end

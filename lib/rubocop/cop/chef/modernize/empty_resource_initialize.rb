@@ -28,7 +28,8 @@ module RuboCop
         #     super
         #   end
         #
-        class EmptyResourceInitializeMethod < Cop
+        class EmptyResourceInitializeMethod < Base
+          extend AutoCorrector
           include RangeHelp
 
           MSG = 'There is no need for an empty initialize method in a resource'
@@ -39,13 +40,9 @@ module RuboCop
 
           def on_def(node)
             empty_initialize?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+                corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
+              end
             end
           end
         end

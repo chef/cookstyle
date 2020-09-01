@@ -27,22 +27,17 @@ module RuboCop
         #   # bad
         #   # ~FC013
         #
-        class FoodcriticComments < Cop
+        class FoodcriticComments < Base
+          extend AutoCorrector
+
           MSG = 'Remove legacy code comments that disable Foodcritic rules'
 
-          def investigate(processed_source)
-            return unless processed_source.ast
-
+          def on_new_investigation
             processed_source.comments.each do |comment|
-              if comment.text.match?(/#\s*~FC\d{3}.*/)
-                add_offense(comment, location: :expression, message: MSG, severity: :refactor)
+              next unless comment.text.match?(/#\s*~FC\d{3}.*/)
+              add_offense(comment, message: MSG, severity: :refactor) do |corrector|
+                corrector.remove(comment.loc.expression)
               end
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.remove(node.loc.expression)
             end
           end
         end

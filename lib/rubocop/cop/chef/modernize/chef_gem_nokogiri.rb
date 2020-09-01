@@ -27,7 +27,8 @@ module RuboCop
         #   # bad
         #   chef_gem 'nokogiri'
         #
-        class ChefGemNokogiri < Cop
+        class ChefGemNokogiri < Base
+          extend AutoCorrector
           include RangeHelp
           include RuboCop::Chef::CookbookHelpers
 
@@ -39,20 +40,20 @@ module RuboCop
 
           def on_block(node)
             match_property_in_resource?(:chef_gem, 'package_name', node) do |pkg_name|
-              add_offense(node, location: :expression, message: MSG, severity: :refactor) if pkg_name.arguments&.first&.str_content == 'nokogiri'
+              return unless pkg_name.arguments&.first&.str_content == 'nokogiri'
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+                node = node.parent if node.parent&.block_type? # make sure we get the whole block not just the method in the block
+                corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
+              end
             end
           end
 
           def on_send(node)
             nokogiri_install?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              node = node.parent if node.parent&.block_type? # make sure we get the whole block not just the method in the block
-              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+                node = node.parent if node.parent&.block_type? # make sure we get the whole block not just the method in the block
+                corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
+              end
             end
           end
         end

@@ -31,7 +31,9 @@ module RuboCop
         #   # good
         #   build_essential 'install compilation tools'
         #
-        class UseBuildEssentialResource < Cop
+        class UseBuildEssentialResource < Base
+          extend AutoCorrector
+
           MSG = 'Use the build_essential resource instead of the legacy build-essential recipe. This resource ships in the build-essential cookbook v5.0+ and is built into Chef Infra Client 14+'
 
           def_node_matcher :build_essential_recipe_usage?, <<-PATTERN
@@ -40,13 +42,9 @@ module RuboCop
 
           def on_send(node)
             build_essential_recipe_usage?(node) do
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              corrector.replace(node.loc.expression, "build_essential 'install compilation tools'")
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+                corrector.replace(node.loc.expression, "build_essential 'install compilation tools'")
+              end
             end
           end
         end

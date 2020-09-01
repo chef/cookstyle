@@ -40,31 +40,28 @@ module RuboCop
         #   License:: Apache License, Version 2.0
         #   Cookbook:: Tomcat
         #
-        class CommentFormat < Cop
+        class CommentFormat < Base
+          extend AutoCorrector
+
           MSG = 'Properly format header comments'
 
-          def investigate(processed_source)
+          def on_new_investigation
             return unless processed_source.ast
 
             processed_source.comments.each do |comment|
               next if comment.loc.first_line > 10 # avoid false positives when we were checking further down the file
-              next unless comment.inline? # headers aren't in blocks
+              next unless comment.inline? && invalid_comment?(comment) # headers aren't in blocks
 
-              if invalid_comment?(comment)
-                add_offense(comment, location: comment.loc.expression, message: MSG, severity: :refactor)
+              add_offense(comment.loc.expression, message: MSG, severity: :refactor) do |corrector|
+                # Extract the type and the actual value. Strip out "Name" or "File"
+                # 'Cookbook Name' should be 'Cookbook'. Also skip a :: if present
+                # https://rubular.com/r/Do9fpLWXlCmvdJ
+                match = /^#\s*([A-Za-z]+)\s?(?:Name|File)?(?:::)?\s(.*)/.match(comment.text)
+                comment_type, value = match.captures
+                correct_comment = "# #{comment_type}:: #{value}"
+                corrector.replace(comment.loc.expression, correct_comment)
               end
             end
-          end
-
-          def autocorrect(comment)
-            # Extract the type and the actual value. Strip out "Name" or "File"
-            # 'Cookbook Name' should be 'Cookbook'. Also skip a :: if present
-            # https://rubular.com/r/Do9fpLWXlCmvdJ
-            match = /^#\s*([A-Za-z]+)\s?(?:Name|File)?(?:::)?\s(.*)/.match(comment.text)
-            comment_type, value = match.captures
-            correct_comment = "# #{comment_type}:: #{value}"
-
-            ->(corrector) { corrector.replace(comment.loc.expression, correct_comment) }
           end
 
           private
