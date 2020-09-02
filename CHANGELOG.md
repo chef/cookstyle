@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 6.16.8 -->
+## [v6.16.8](https://github.com/chef/cookstyle/tree/v6.16.8) (2020-09-02)
+
+#### Merged Pull Requests
+- Resolve another regression in CustomResourceWithAllowedActions [#731](https://github.com/chef/cookstyle/pull/731) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=6.16.7 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Resolve another regression in CustomResourceWithAllowedActions [#731](https://github.com/chef/cookstyle/pull/731) ([tas50](https://github.com/tas50)) <!-- 6.16.8 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
