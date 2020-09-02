@@ -9,13 +9,11 @@
 
 <!-- latest_stable_release -->
 ## [v6.16.9](https://github.com/chef/cookstyle/tree/v6.16.9) (2020-09-02)
-<!-- latest_stable_release -->
-
-## [v6.19.9](https://github.com/chef/cookstyle/tree/v6.19.9) (2020-09-02)
 
 #### Merged Pull Requests
 - Resolve another regression in CustomResourceWithAllowedActions [#731](https://github.com/chef/cookstyle/pull/731) ([tas50](https://github.com/tas50))
 - Resolve a regression in ResourceOverridesProvidesMethod [#732](https://github.com/chef/cookstyle/pull/732) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
 
 ## [v6.16.7](https://github.com/chef/cookstyle/tree/v6.16.7) (2020-09-02)
 
