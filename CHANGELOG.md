@@ -1,28 +1,25 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.16.9 -->
-## [v6.16.9](https://github.com/chef/cookstyle/tree/v6.16.9) (2020-09-02)
-
-#### Merged Pull Requests
-- Resolve a regression in ResourceOverridesProvidesMethod [#732](https://github.com/chef/cookstyle/pull/732) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=6.16.7 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Resolve a regression in ResourceOverridesProvidesMethod [#732](https://github.com/chef/cookstyle/pull/732) ([tas50](https://github.com/tas50)) <!-- 6.16.9 -->
-- Resolve another regression in CustomResourceWithAllowedActions [#731](https://github.com/chef/cookstyle/pull/731) ([tas50](https://github.com/tas50)) <!-- 6.16.8 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v6.19.9](https://github.com/chef/cookstyle/tree/v6.19.9) (2020-09-02)
+
+#### Merged Pull Requests
+- Resolve another regression in CustomResourceWithAllowedActions [#731](https://github.com/chef/cookstyle/pull/731) ([tas50](https://github.com/tas50))
+- Resolve a regression in ResourceOverridesProvidesMethod [#732](https://github.com/chef/cookstyle/pull/732) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v6.16.7](https://github.com/chef/cookstyle/tree/v6.16.7) (2020-09-02)
 
 #### Merged Pull Requests
 - Use RESTRICT_ON_SEND to speedup on_send checks [#728](https://github.com/chef/cookstyle/pull/728) ([tas50](https://github.com/tas50))
 - Restrict on_sends to specific methods throughout [#729](https://github.com/chef/cookstyle/pull/729) ([tas50](https://github.com/tas50))
 - Resolve a regression in CustomResourceWithAllowedActions [#730](https://github.com/chef/cookstyle/pull/730) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v6.16.4](https://github.com/chef/cookstyle/tree/v6.16.4) (2020-09-01)
 
