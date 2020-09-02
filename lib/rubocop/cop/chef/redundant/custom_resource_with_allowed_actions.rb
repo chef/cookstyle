@@ -44,6 +44,9 @@ module RuboCop
           PATTERN
 
           def on_send(node)
+            # avoid triggering on things like new_resource.actions
+            return unless node.receiver.nil?
+
             # if the resource requires poise then bail out since we're in a poise resource where @allowed_actions is legit
             return if poise_require(processed_source.ast).any? || !resource_actions?(processed_source.ast)
 
