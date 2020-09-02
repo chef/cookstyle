@@ -43,12 +43,13 @@ module RuboCop
           minimum_target_chef_version '14.0'
 
           MSG = 'Chef Infra Client 14.0 and later includes a sysctl resource that should be used to idempotently load sysctl values instead of templating files and using execute to load them.'
+          RESTRICT_ON_SEND = [:execute].freeze
 
           # non block execute resources
           def on_send(node)
             # use a regex on source instead of .value in case there's string interpolation which adds a complex dstr type
             # with a nested string and a begin. Source allows us to avoid a lot of defensive programming here
-            return unless node.method_name == :execute && node&.arguments.first&.source&.match?(/^("|')sysctl -p/)
+            return unless node&.arguments.first&.source&.match?(/^("|')sysctl -p/)
             add_offense(node, message: MSG, severity: :refactor)
           end
 

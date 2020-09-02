@@ -31,7 +31,9 @@ module RuboCop
         #
         class TrueClassFalseClassResourceProperties < Base
           extend AutoCorrector
+
           MSG = "When setting the allowed types for a resource to accept either true or false values it's much simpler to use true and false instead of TrueClass and FalseClass."
+          RESTRICT_ON_SEND = [:property, :attribute].freeze
 
           def_node_matcher :trueclass_falseclass_property?, <<-PATTERN
             (send nil? {:property :attribute} (sym _) $(array (const nil? :TrueClass) (const nil? :FalseClass)) ... )

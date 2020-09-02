@@ -35,9 +35,10 @@ module RuboCop
           minimum_target_chef_version '15.0'
 
           MSG = 'Use the archive_file resource built into Chef Infra Client 15+ instead of the seven_zip_archive'
+          RESTRICT_ON_SEND = [:seven_zip_archive].freeze
 
           def on_send(node)
-            add_offense(node, message: MSG, severity: :refactor) if node.method_name == :seven_zip_archive
+            add_offense(node, message: MSG, severity: :refactor)
           end
         end
       end

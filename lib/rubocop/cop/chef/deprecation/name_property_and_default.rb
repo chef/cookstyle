@@ -36,6 +36,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = "A resource property can't be marked as a name_property and also have a default value. This will fail in Chef Infra Client 13 or later."
+          RESTRICT_ON_SEND = [:attribute, :property].freeze
 
           # match on a property or attribute that has any name and any type and a hash that
           # contains name_property/name_attribute true and any default value. These are wrapped in

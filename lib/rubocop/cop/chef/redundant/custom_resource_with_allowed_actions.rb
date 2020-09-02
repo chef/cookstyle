@@ -35,10 +35,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'It is not necessary to set `actions` or `allowed_actions` in custom resources as Chef Infra Client determines these automatically from the set of all actions defined in the resource'
-
-          def_node_matcher :allowed_actions?, <<-PATTERN
-            (send nil? {:allowed_actions :actions} ... )
-          PATTERN
+          RESTRICT_ON_SEND = [:allowed_actions, :actions].freeze
 
           def_node_search :poise_require, '(send nil? :require (str "poise"))'
 
@@ -50,10 +47,8 @@ module RuboCop
             # if the resource requires poise then bail out since we're in a poise resource where @allowed_actions is legit
             return if poise_require(processed_source.ast).any? && !resource_actions?(processed_source.ast)
 
-            allowed_actions?(node) do
-              add_offense(node, message: MSG, severity: :refactor) do |corrector|
-                corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
-              end
+            add_offense(node, message: MSG, severity: :refactor) do |corrector|
+              corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
             end
           end
         end

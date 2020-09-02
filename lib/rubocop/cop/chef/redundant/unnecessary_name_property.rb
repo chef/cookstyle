@@ -33,6 +33,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'There is no need to define a property or attribute named :name in a resource as Chef Infra defines this on all resources by default.'
+          RESTRICT_ON_SEND = [:property, :attribute].freeze
 
           def_node_matcher :name_attribute?, <<-PATTERN
           (send nil? :attribute

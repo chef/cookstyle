@@ -43,9 +43,9 @@ module RuboCop
           minimum_target_chef_version '14.0'
 
           MSG = 'The mac_os_x_userdefaults resource was renamed to macos_userdefaults when it was added to Chef Infra Client 14.0. The new resource name should be used.'
+          RESTRICT_ON_SEND = [:mac_os_x_userdefaults].freeze
 
           def on_send(node)
-            return unless node.method_name == :mac_os_x_userdefaults
             add_offense(node, message: MSG, severity: :refactor) do |corrector|
               corrector.replace(node.loc.expression, node.source.gsub(/^mac_os_x_userdefaults/, 'macos_userdefaults'))
             end

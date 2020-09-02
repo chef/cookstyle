@@ -37,6 +37,7 @@ module RuboCop
         #
         class InvalidNotificationTiming < Base
           MSG = 'Valid notification timings are :immediately, :immediate (alias for :immediately), :delayed, and :before.'
+          RESTRICT_ON_SEND = [:notifies, :subscribes].freeze
 
           def_node_matcher :notification_with_timing?, <<-PATTERN
             (send nil? {:notifies :subscribes} (sym _) (...) $(sym _))

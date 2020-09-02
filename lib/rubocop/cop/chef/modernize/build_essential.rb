@@ -35,6 +35,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'Use the build_essential resource instead of the legacy build-essential recipe. This resource ships in the build-essential cookbook v5.0+ and is built into Chef Infra Client 14+'
+          RESTRICT_ON_SEND = [:include_recipe].freeze
 
           def_node_matcher :build_essential_recipe_usage?, <<-PATTERN
             (send nil? :include_recipe (str {"build-essential" "build-essential::default"}))

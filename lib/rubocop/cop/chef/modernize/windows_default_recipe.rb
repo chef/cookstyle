@@ -32,6 +32,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'Do not include the Windows default recipe, which only installs win32 gems already included in Chef Infra Client'
+          RESTRICT_ON_SEND = [:include_recipe].freeze
 
           def_node_matcher :windows_recipe_usage?, <<-PATTERN
             (send nil? :include_recipe (str {"windows" "windows::default"}))

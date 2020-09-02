@@ -32,6 +32,7 @@ module RuboCop
           include RangeHelp
 
           MSG = 'Chef Infra Client 12.4+ includes mixlib/shellout automatically in resources and providers.'
+          RESTRICT_ON_SEND = [:require].freeze
 
           def_node_matcher :require_mixlibshellout?, <<-PATTERN
           (send nil? :require ( str "mixlib/shellout"))

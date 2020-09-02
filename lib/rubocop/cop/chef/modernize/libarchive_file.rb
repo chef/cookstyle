@@ -41,6 +41,7 @@ module RuboCop
           minimum_target_chef_version '15.0'
 
           MSG = 'Use the archive_file resource built into Chef Infra Client 15+ instead of the libarchive file resource'
+          RESTRICT_ON_SEND = [:libarchive_file, :notifies, :subscribes].freeze
 
           def_node_matcher :notification_property?, <<-PATTERN
             (send nil? {:notifies :subscribes} (sym _) $(...) (sym _))

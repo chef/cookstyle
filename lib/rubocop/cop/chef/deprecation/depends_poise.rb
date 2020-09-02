@@ -29,6 +29,7 @@ module RuboCop
         #
         class CookbookDependsOnPoise < Base
           MSG = 'Cookbooks should not depend on the deprecated Poise framework'
+          RESTRICT_ON_SEND = [:depends].freeze
 
           def_node_matcher :depends_method?, <<-PATTERN
             (send nil? :depends $str)

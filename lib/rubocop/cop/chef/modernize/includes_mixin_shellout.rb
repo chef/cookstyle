@@ -35,6 +35,7 @@ module RuboCop
           include RangeHelp
 
           MSG = 'There is no need to include Chef::Mixin::ShellOut or Chef::Mixin::PowershellOut in resources or providers as this is already done by Chef Infra Client 12.4+.'
+          RESTRICT_ON_SEND = [:include, :require].freeze
 
           def_node_matcher :include_shellout?, <<-PATTERN
             (send nil? :include (const (const (const nil? :Chef) :Mixin) {:ShellOut :PowershellOut}))

@@ -33,6 +33,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'Resource property sets name_attribute instead of name_property'
+          RESTRICT_ON_SEND = [:property].freeze
 
           # match on a property that has any name and any type and a hash that
           # contains name_attribute true. The hash pairs are wrapped in

@@ -32,6 +32,7 @@ module RuboCop
       module ChefCorrectness
         class InvalidDefaultAction < Base
           MSG = 'Default actions in resources should be symbols or an array of symbols.'
+          RESTRICT_ON_SEND = [:default_action].freeze
 
           def_node_matcher :default_action?, '(send nil? :default_action $_)'
 

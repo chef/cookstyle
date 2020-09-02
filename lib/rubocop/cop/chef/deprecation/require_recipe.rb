@@ -34,6 +34,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'Use include_recipe instead of the require_recipe method'
+          RESTRICT_ON_SEND = [:require_recipe].freeze
 
           def_node_matcher :require_recipe?, <<-PATTERN
             (send nil? :require_recipe $str)

@@ -33,6 +33,7 @@ module RuboCop
           include RuboCop::Chef::CookbookHelpers
 
           MSG = 'The nokogiri gem ships in Chef Infra Client 12+ and does not need to be installed before being used.'
+          RESTRICT_ON_SEND = [:chef_gem].freeze
 
           def_node_matcher :nokogiri_install?, <<-PATTERN
             (send nil? :chef_gem (str "nokogiri"))

@@ -36,6 +36,7 @@ module RuboCop
           minimum_target_chef_version '15.0'
 
           MSG = 'Use the archive_file resource built into Chef Infra Client 15+ instead of the zipfile resource from the zipfile cookbook.'
+          RESTRICT_ON_SEND = [:depends].freeze
 
           def_node_matcher :depends_zipfile?, <<-PATTERN
             (send nil? :depends (str "zipfile"))

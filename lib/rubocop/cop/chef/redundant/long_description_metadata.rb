@@ -33,10 +33,9 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'The long_description metadata.rb method is not used and is unnecessary in cookbooks.'
+          RESTRICT_ON_SEND = [:long_description].freeze
 
           def on_send(node)
-            return unless node.method_name == :long_description
-
             add_offense(node, message: MSG, severity: :refactor) do |corrector|
               corrector.remove(range_with_surrounding_space(range: expression_including_heredocs(node), side: :left))
             end

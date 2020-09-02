@@ -30,6 +30,7 @@ module RuboCop
           include RangeHelp
 
           MSG = 'There is no need to set a property to desired_state: true as all properties have a desired_state of true by default.'
+          RESTRICT_ON_SEND = [:property, :attribute].freeze
 
           def_node_matcher :property?, <<-PATTERN
             (send nil? {:property :attribute} (sym _) ... $(hash ...))

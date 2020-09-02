@@ -44,20 +44,19 @@ module RuboCop
 
           minimum_target_chef_version '14.3'
 
-          DEPRECATED_SHELLOUT_METHODS = %i( shell_out_compact
-                                            shell_out_compact!
-                                            shell_out_compact_timeout
-                                            shell_out_compact_timeout!
-                                            shell_out_with_timeout
-                                            shell_out_with_timeout!
-                                            shell_out_with_systems_locale
-                                            shell_out_with_systems_locale!
-                                          ).freeze
-
           MSG = 'Many legacy specialized shell_out methods were replaced in Chef Infra Client 14.3 and removed in Chef Infra Client 15. Use shell_out and any additional options if necessary.'
+          RESTRICT_ON_SEND = %i( shell_out_compact
+          shell_out_compact!
+          shell_out_compact_timeout
+          shell_out_compact_timeout!
+          shell_out_with_timeout
+          shell_out_with_timeout!
+          shell_out_with_systems_locale
+          shell_out_with_systems_locale!
+        ).freeze
 
           def on_send(node)
-            add_offense(node, message: MSG, severity: :warning) if DEPRECATED_SHELLOUT_METHODS.include?(node.method_name)
+            add_offense(node, message: MSG, severity: :warning)
           end
         end
       end

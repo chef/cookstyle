@@ -37,6 +37,7 @@ module RuboCop
           include ::RuboCop::Chef::PlatformHelpers
 
           MSG = 'metadata.rb "supports" platform is invalid'
+          RESTRICT_ON_SEND = [:supports].freeze
 
           def_node_matcher :supports?, '(send nil? :supports $str ...)'
 

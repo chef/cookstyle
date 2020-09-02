@@ -39,9 +39,9 @@ module RuboCop
           minimum_target_chef_version '14.0'
 
           MSG = 'The openssl_rsa_key resource was renamed to openssl_rsa_private_key in Chef Infra Client 14.0. The new resource name should be used.'
+          RESTRICT_ON_SEND = [:openssl_rsa_key].freeze
 
           def on_send(node)
-            return unless node.method_name == :openssl_rsa_key
             add_offense(node, message: MSG, severity: :refactor) do |corrector|
               corrector.replace(node.loc.expression, node.source.gsub(/^openssl_rsa_key/, 'openssl_rsa_private_key'))
             end

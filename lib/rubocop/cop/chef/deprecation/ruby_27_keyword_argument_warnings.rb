@@ -36,6 +36,7 @@ module RuboCop
           extend RuboCop::Cop::AutoCorrector
 
           MSG = 'Pass options to shell_out helpers without the brackets to avoid Ruby 2.7 deprecation warnings.'
+          RESTRICT_ON_SEND = [:shell_out!, :shell_out].freeze
 
           def_node_matcher :positional_shellout?, <<-PATTERN
             (send nil? {:shell_out :shell_out!} ... $(hash ... ))

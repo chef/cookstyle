@@ -32,6 +32,7 @@ module RuboCop
         #
         class TmpPath < Base
           MSG = 'Use file_cache_path rather than hard-coding tmp paths'
+          RESTRICT_ON_SEND = [:remote_file].freeze
 
           def_node_matcher :remote_file?, <<-PATTERN
             (send nil? :remote_file $str)

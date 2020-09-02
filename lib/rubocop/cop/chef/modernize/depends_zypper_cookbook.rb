@@ -34,6 +34,7 @@ module RuboCop
           minimum_target_chef_version '13.3'
 
           MSG = "Don't depend on the zypper cookbook as the zypper_repository resource is built into Chef Infra Client 13.3+"
+          RESTRICT_ON_SEND = [:depends].freeze
 
           def_node_matcher :zypper_depends?, <<-PATTERN
             (send nil? :depends (str "zypper"))

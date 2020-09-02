@@ -33,6 +33,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'There is no need to include the empty and deprecated chef_handler::default recipe in order to use the chef_handler resource'
+          RESTRICT_ON_SEND = [:include_recipe].freeze
 
           def_node_matcher :chef_handler_recipe?, <<-PATTERN
             (send nil? :include_recipe (str {"chef_handler" "chef_handler::default"}))

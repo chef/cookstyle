@@ -28,6 +28,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'Every Chef Infra resource already includes a sensitive property with a default value of false.'
+          RESTRICT_ON_SEND = [:property, :attribute].freeze
 
           def_node_matcher :sensitive_property?, <<-PATTERN
             (send nil? {:property :attribute} (sym :sensitive) ... (hash (pair (sym :default) (false))))

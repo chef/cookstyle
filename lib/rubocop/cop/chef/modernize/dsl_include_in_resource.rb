@@ -30,6 +30,7 @@ module RuboCop
           include RangeHelp
 
           MSG = 'Chef Infra Client 12.4+ includes the Chef::DSL::Recipe in the resource and provider classed by default so there is no need to include this DSL in your resources or providers.'
+          RESTRICT_ON_SEND = [:include].freeze
 
           def_node_matcher :dsl_include?, <<-PATTERN
           (send nil? :include

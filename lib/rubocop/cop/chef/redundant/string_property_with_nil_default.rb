@@ -36,6 +36,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'Properties have a nil value by default so there is no need to set the default value to nil.'
+          RESTRICT_ON_SEND = [:property].freeze
 
           def_node_matcher :string_property_with_nil_default?, <<-PATTERN
             (send nil? :property (sym _)

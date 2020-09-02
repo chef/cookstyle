@@ -44,6 +44,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'Custom Resources should contain properties not attributes'
+          RESTRICT_ON_SEND = [:attribute].freeze
 
           def_node_matcher :attribute?, <<-PATTERN
             (send nil? $:attribute ... )

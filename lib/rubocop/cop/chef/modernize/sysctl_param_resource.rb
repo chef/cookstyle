@@ -39,9 +39,9 @@ module RuboCop
           minimum_target_chef_version '14.0'
 
           MSG = 'The sysctl_param resource was renamed to sysctl when it was added to Chef Infra Client 14.0. The new resource name should be used.'
+          RESTRICT_ON_SEND = [:sysctl_param].freeze
 
           def on_send(node)
-            return unless node.method_name == :sysctl_param
             add_offense(node, message: MSG, severity: :refactor) do |corrector|
               corrector.replace(node.loc.expression, node.source.gsub(/^sysctl_param/, 'sysctl'))
             end

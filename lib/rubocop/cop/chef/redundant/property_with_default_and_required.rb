@@ -37,6 +37,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'Resource properties should not be both required and have a default value. This will fail on Chef Infra Client 13+'
+          RESTRICT_ON_SEND = [:property, :attribute].freeze
 
           # match on a property or attribute that has any name and any type and a hash that
           # contains default: true and required: true. These are wrapped in <> which means

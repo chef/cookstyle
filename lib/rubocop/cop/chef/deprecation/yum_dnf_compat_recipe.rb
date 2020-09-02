@@ -32,6 +32,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'Do not include the deprecated yum::dnf_yum_compat default recipe to install yum on dnf systems. Chef Infra Client now includes built in support for DNF packages.'
+          RESTRICT_ON_SEND = [:include_recipe].freeze
 
           def_node_matcher :yum_dnf_compat_recipe_usage?, <<-PATTERN
             (send nil? :include_recipe (str "yum::dnf_yum_compat"))

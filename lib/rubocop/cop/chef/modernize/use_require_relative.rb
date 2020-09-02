@@ -33,6 +33,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'Instead of using require with a File.expand_path and __FILE__ use the simpler require_relative method.'
+          RESTRICT_ON_SEND = [:require].freeze
 
           def_node_matcher :require_with_expand_path?, <<-PATTERN
             (send nil? :require

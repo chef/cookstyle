@@ -45,9 +45,9 @@ module RuboCop
           minimum_target_chef_version '14.4'
 
           MSG = 'The openssl_x509 resource was renamed to openssl_x509_certificate in Chef Infra Client 14.4. The new resource name should be used.'
+          RESTRICT_ON_SEND = [:openssl_x509].freeze
 
           def on_send(node)
-            return unless node.method_name == :openssl_x509
             add_offense(node, message: MSG, severity: :refactor) do |corrector|
               corrector.replace(node.loc.expression, node.source.gsub(/^openssl_x509/, 'openssl_x509_certificate'))
             end

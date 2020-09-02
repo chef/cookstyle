@@ -46,9 +46,9 @@ module RuboCop
           minimum_target_chef_version '13.3'
 
           MSG = 'The zypper_repo resource was renamed zypper_repository when it was added to Chef Infra Client 13.3.'
+          RESTRICT_ON_SEND = [:zypper_repo].freeze
 
           def on_send(node)
-            return unless node.method_name == :zypper_repo
             add_offense(node, message: MSG, severity: :refactor) do |corrector|
               corrector.replace(node.loc.expression, node.source.gsub(/^zypper_repo/, 'zypper_repository'))
             end

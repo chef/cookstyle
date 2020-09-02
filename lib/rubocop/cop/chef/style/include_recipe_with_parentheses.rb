@@ -34,6 +34,7 @@ module RuboCop
           extend RuboCop::Cop::AutoCorrector
 
           MSG = 'There is no need to wrap the recipe in parentheses when using the include_recipe helper'
+          RESTRICT_ON_SEND = [:include_recipe].freeze
 
           def_node_matcher :include_recipe?, <<-PATTERN
             (send nil? :include_recipe $(str _))

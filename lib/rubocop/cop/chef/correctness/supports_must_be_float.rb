@@ -34,6 +34,7 @@ module RuboCop
           extend RuboCop::Cop::AutoCorrector
 
           MSG = 'Versions used in metadata.rb supports calls should be floats not integers.'
+          RESTRICT_ON_SEND = [:supports].freeze
 
           def_node_matcher :supports_with_constraint?, '(send nil? :supports str $str)'
 

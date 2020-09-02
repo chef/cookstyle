@@ -33,6 +33,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = "Use ::File.exist?('/foo/bar') instead of the slower 'test -f /foo/bar' which requires shelling out"
+          RESTRICT_ON_SEND = [:not_if, :only_if].freeze
 
           def_node_matcher :resource_conditional?, <<~PATTERN
           (send nil? {:not_if :only_if} $str )
