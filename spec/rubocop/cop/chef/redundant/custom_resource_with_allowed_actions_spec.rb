@@ -78,4 +78,16 @@ describe RuboCop::Cop::Chef::ChefRedundantCode::CustomResourceWithAllowedActions
       end
     RUBY
   end
+
+  it 'does not register an offense when calling actions method on another object' do
+    expect_no_offenses(<<~RUBY)
+      action :create do
+        template ::File.join(apache_dir, 'mods-available', 'actions.conf') do
+          source 'mods/actions.conf.erb'
+          cookbook 'apache2'
+          variables(actions: new_resource.actions)
+        end
+      end
+    RUBY
+  end
 end
