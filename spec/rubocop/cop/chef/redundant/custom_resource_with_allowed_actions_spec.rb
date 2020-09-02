@@ -58,4 +58,24 @@ describe RuboCop::Cop::Chef::ChefRedundantCode::CustomResourceWithAllowedActions
       end
     RUBY
   end
+
+  it 'does not register an offense when in a LWRP resource' do
+    expect_no_offenses(<<~RUBY)
+      actions [:create, :remove]
+      allowed_actions [:create, :remove]
+    RUBY
+  end
+
+  it 'does not register an offense when in a Poise resource' do
+    expect_no_offenses(<<~RUBY)
+      require 'poise'
+
+      actions [:create, :remove]
+      allowed_actions [:create, :remove]
+
+      action :foo do
+        # action stuff
+      end
+    RUBY
+  end
 end
