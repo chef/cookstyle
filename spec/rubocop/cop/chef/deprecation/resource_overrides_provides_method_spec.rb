@@ -38,4 +38,12 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ResourceOverridesProvidesMethod, 
       end
     RUBY
   end
+
+  it "doesn't register an offense with any old method" do
+    expect_no_offenses(<<~RUBY)
+      def foo
+       true
+      end
+    RUBY
+  end
 end
