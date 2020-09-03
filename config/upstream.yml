@@ -1861,7 +1861,6 @@ Lint/Syntax:
   Enabled: true
   VersionAdded: '0.9'
 
-
 Lint/ToJSON:
   Description: 'Ensure #to_json includes an optional argument.'
   Enabled: true

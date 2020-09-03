@@ -2613,3 +2613,7 @@ Style/BisectedAttrAccessor:
 # avoid assignments that aren't needed
 Style/RedundantAssignment:
   Enabled: true
+
+# alert on invalid ruby
+Lint/Syntax:
+  Enabled: true
