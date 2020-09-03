@@ -1,10 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 6.16.10 -->
+## [v6.16.10](https://github.com/chef/cookstyle/tree/v6.16.10) (2020-09-03)
+
+#### Merged Pull Requests
+- Enable Lint/Syntax cop that previously enabled by default [#735](https://github.com/chef/cookstyle/pull/735) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.16.9 -->
 ### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Enable Lint/Syntax cop that previously enabled by default [#735](https://github.com/chef/cookstyle/pull/735) ([tas50](https://github.com/tas50)) <!-- 6.16.10 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
