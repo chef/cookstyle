@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.17.2 -->
-## [v6.17.2](https://github.com/chef/cookstyle/tree/v6.17.2) (2020-09-10)
+ <!-- latest_release 6.17.3 -->
+## [v6.17.3](https://github.com/chef/cookstyle/tree/v6.17.3) (2020-09-10)
 
 #### Merged Pull Requests
-- Remove unused stuff from spec_helper. [#741](https://github.com/chef/cookstyle/pull/741) ([phiggins](https://github.com/phiggins))
+- Spec cleanup from rubocop-rspec [#740](https://github.com/chef/cookstyle/pull/740) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.16.10 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Spec cleanup from rubocop-rspec [#740](https://github.com/chef/cookstyle/pull/740) ([tas50](https://github.com/tas50)) <!-- 6.17.3 -->
 - Remove unused stuff from spec_helper. [#741](https://github.com/chef/cookstyle/pull/741) ([phiggins](https://github.com/phiggins)) <!-- 6.17.2 -->
 - Minor optimizations from rubocop-performance [#739](https://github.com/chef/cookstyle/pull/739) ([tas50](https://github.com/tas50)) <!-- 6.17.1 -->
 - Replace uses of File.dirname(__FILE__) with __dir__ [#737](https://github.com/chef/cookstyle/pull/737) ([tas50](https://github.com/tas50)) <!-- 6.17.0 -->
