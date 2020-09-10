@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.17.0 -->
-## [v6.17.0](https://github.com/chef/cookstyle/tree/v6.17.0) (2020-09-10)
+ <!-- latest_release 6.17.1 -->
+## [v6.17.1](https://github.com/chef/cookstyle/tree/v6.17.1) (2020-09-10)
 
 #### Merged Pull Requests
-- Replace uses of ```File.dirname(__FILE__)``` with ```__dir__``` [#737](https://github.com/chef/cookstyle/pull/737) ([tas50](https://github.com/tas50))
+- Minor optimizations from rubocop-performance [#739](https://github.com/chef/cookstyle/pull/739) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.16.10 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Minor optimizations from rubocop-performance [#739](https://github.com/chef/cookstyle/pull/739) ([tas50](https://github.com/tas50)) <!-- 6.17.1 -->
 - Replace uses of File.dirname(__FILE__) with __dir__ [#737](https://github.com/chef/cookstyle/pull/737) ([tas50](https://github.com/tas50)) <!-- 6.17.0 -->
 - Add missing description to rake task [#738](https://github.com/chef/cookstyle/pull/738) ([tas50](https://github.com/tas50)) <!-- 6.16.11 -->
 <!-- release_rollup -->
