@@ -57,6 +57,8 @@ module RuboCop
 
           private
 
+          VALID_TYPES = %i(send hash block_pass).freeze
+
           #
           # Are the arguments in the passed node object positional
           #
@@ -68,7 +70,7 @@ module RuboCop
             return false if node.arguments.count < 3
             node.arguments[2..-1].each do |arg|
               # hashes, blocks, or variable/methods are valid. Anything else is not
-              return true unless %i(send hash block_pass).include?(arg.type)
+              return true unless VALID_TYPES.include?(arg.type)
             end
             false
           end
