@@ -4,7 +4,7 @@
 ## [v6.17.0](https://github.com/chef/cookstyle/tree/v6.17.0) (2020-09-10)
 
 #### Merged Pull Requests
-- Replace uses of File.dirname(__FILE__) with __dir__ [#737](https://github.com/chef/cookstyle/pull/737) ([tas50](https://github.com/tas50))
+- Replace uses of ```File.dirname(__FILE__)``` with ```__dir__``` [#737](https://github.com/chef/cookstyle/pull/737) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.16.10 -->
