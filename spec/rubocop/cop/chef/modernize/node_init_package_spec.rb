@@ -43,17 +43,6 @@ describe RuboCop::Cop::Chef::ChefModernize::NodeInitPackage, :config do
     RUBY
   end
 
-  it "registers an offense with File.exist?('/proc/1/comm') && File.open('/proc/1/comm').chomp == 'systemd'" do
-    expect_offense(<<~RUBY)
-      File.exist?('/proc/1/comm') && File.open('/proc/1/comm').chomp == 'systemd'
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use node['init_package'] to check for systemd instead of reading the contents of '/proc/1/comm'
-    RUBY
-
-    expect_correction(<<~RUBY)
-      node['init_package'] == 'systemd'
-    RUBY
-  end
-
   it "registers an offense with IO.read('/proc/1/comm').chomp == 'systemd'" do
     expect_offense(<<~RUBY)
       IO.read('/proc/1/comm').chomp == 'systemd'

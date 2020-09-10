@@ -63,7 +63,7 @@ describe RuboCop::Cop::Chef::ChefModernize::RespondToResourceName, :config do
     RUBY
   end
 
-  it 'registers an offense with a HWRP that uses respond_to? with resource_name' do
+  it 'does not register an offense with a HWRP does not use respond_to? with resource_name' do
     expect_no_offenses(<<~RUBY)
     class Chef
       class Resource

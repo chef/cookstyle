@@ -22,7 +22,7 @@ describe RuboCop::Cop::Chef::ChefCorrectness::MetadataMissingName, :config do
 
   # prior to Rubocop 0.87 the autocorrect was not with expect_offense
   # in Rubocop 0.87 the autocorrect method is being executed and this attempts to write data
-  before(:each) do
+  before do
     allow(IO).to receive(:read).with('/foo/bar/metadata.rb').and_return("supports 'ubuntu'")
     allow(IO).to receive(:write).with('/foo/bar/metadata.rb', "name 'bar'\nsupports 'ubuntu'")
   end

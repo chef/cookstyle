@@ -63,15 +63,6 @@ describe RuboCop::Cop::Chef::ChefStyle::FileMode do
     RUBY
   end
 
-  it 'does not register an offense when setting a mode using a double quoted string' do
-    expect_no_offenses(<<~RUBY)
-      file '/foo' do
-        owner 'root'
-        mode '644'
-      end
-    RUBY
-  end
-
   it 'registers an offense when setting a files_mode as well' do
     expect_offense(<<~RUBY)
       file '/foo' do

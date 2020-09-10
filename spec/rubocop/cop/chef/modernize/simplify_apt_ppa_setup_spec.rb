@@ -42,7 +42,7 @@ describe RuboCop::Cop::Chef::ChefModernize::SimplifyAptPpaSetup, :config do
     RUBY
   end
 
-  it "doesn't register an offense when apt_repository sets a non-PPA uri" do
+  it "doesn't register an offense with a simplified PPA uri" do
     expect_no_offenses(<<~RUBY)
       apt_repository 'atom-ppa' do
         uri 'ppa:webupd8team/atom'

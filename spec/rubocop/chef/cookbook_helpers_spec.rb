@@ -21,7 +21,7 @@ require 'spec_helper'
 
 RSpec.describe RuboCop::Chef::CookbookHelpers do
   include RuboCop::AST::Sexp
-  include RuboCop::Chef::CookbookHelpers
+  include described_class
 
   let (:running_false_ast) { s(:send, nil, :running, s(:false)) }
 
@@ -31,7 +31,7 @@ RSpec.describe RuboCop::Chef::CookbookHelpers do
     describe 'when the the resource name is a string' do
       let(:resource_source) { "service 'foo' do; running true; end" }
 
-      it 'should return the resource name string' do
+      it 'returns the resource name string' do
         expect(resource_block_name_if_string(parse_source(resource_source).ast)).to eq 'foo'
       end
     end
@@ -39,7 +39,7 @@ RSpec.describe RuboCop::Chef::CookbookHelpers do
     describe 'when the the resource name is a variable' do
       let(:resource_source) { 'service foo_service do; running true; end' }
 
-      it 'should return nil' do
+      it 'returns nil' do
         expect(resource_block_name_if_string(parse_source(resource_source).ast)).to be_nil
       end
     end
@@ -49,7 +49,7 @@ RSpec.describe RuboCop::Chef::CookbookHelpers do
     describe 'when the passed name matches the resource' do
       let(:resource_source) { "service 'foo' do; running true; end" }
 
-      it 'should yield a the service block ast objects' do
+      it 'yields a the service block ast objects' do
         expect { |b| match_resource_type?(:service, parse_source(resource_source).ast, &b) }.to yield_successive_args(s(:block, s(:send, nil, :service, s(:str, 'foo')), s(:args), s(:send, nil, :running, s(:true))))
       end
     end
@@ -57,7 +57,7 @@ RSpec.describe RuboCop::Chef::CookbookHelpers do
     describe "when the passed name doesn't match the resource" do
       let(:resource_source) { "service 'foo' do; running true; end" }
 
-      it 'should not yield anything' do
+      it 'does not yield anything' do
         expect { |b| match_resource_type?(:archive_file, parse_source(resource_source).ast, &b) }.not_to yield_control
       end
     end
@@ -67,11 +67,11 @@ RSpec.describe RuboCop::Chef::CookbookHelpers do
     describe 'single property in a resource' do
       let(:resource_source) { "service 'single_property' do; running true; end" }
 
-      it "should yield a single 'running' property ast objects" do
+      it "yields a single 'running' property ast objects" do
         expect { |b| match_property_in_resource?(:service, 'running', parse_source(resource_source).ast, &b) }.to yield_successive_args(running_true_ast)
       end
 
-      it "should yield a single 'running' property ast objects when passed an array" do
+      it "yields a single 'running' property ast objects when passed an array" do
         expect { |b| match_property_in_resource?(%i(service file), 'running', parse_source(resource_source).ast, &b) }.to yield_successive_args(running_true_ast)
       end
     end
@@ -79,7 +79,7 @@ RSpec.describe RuboCop::Chef::CookbookHelpers do
     describe 'multiple properties in a resource' do
       let(:resource_source) { "service 'single_property' do; not_running true; running true; end" }
 
-      it "should yield a single 'running' property ast objects" do
+      it "yields a single 'running' property ast objects" do
         expect { |b| match_property_in_resource?(:service, 'running', parse_source(resource_source).ast, &b) }.to yield_successive_args(running_true_ast)
       end
     end
@@ -95,7 +95,7 @@ RSpec.describe RuboCop::Chef::CookbookHelpers do
         RUBY
       end
 
-      it "should yield a single 'running' property ast objects" do
+      it "yields a single 'running' property ast objects" do
         expect { |b| match_property_in_resource?(:service, %w(running verify), parse_source(resource_source).ast, &b) }.to yield_successive_args(running_true_ast)
       end
     end
@@ -111,7 +111,7 @@ RSpec.describe RuboCop::Chef::CookbookHelpers do
         RUBY
       end
 
-      it "should yield a single 'running' property ast objects" do
+      it "yields a single 'running' property ast objects" do
         expect { |b| match_property_in_resource?(:service, 'running', parse_source(resource_source).ast, &b) }.to yield_successive_args(running_true_ast)
       end
     end
@@ -130,7 +130,7 @@ RSpec.describe RuboCop::Chef::CookbookHelpers do
         RUBY
       end
 
-      it "should yield both 'running' property ast objects" do
+      it "yields both 'running' property ast objects" do
         expect { |b| match_property_in_resource?(:service, 'running', parse_source(resource_source).ast, &b) }.to yield_successive_args(running_true_ast, running_false_ast)
       end
     end
@@ -153,7 +153,7 @@ RSpec.describe RuboCop::Chef::CookbookHelpers do
         RUBY
       end
 
-      it "should yield three 'running' property ast objects" do
+      it "yields three 'running' property ast objects" do
         expect { |b| match_property_in_resource?(:service, 'running', parse_source(resource_source).ast, &b) }.to yield_successive_args(running_true_ast, running_false_ast, running_true_ast)
       end
     end
@@ -172,7 +172,7 @@ RSpec.describe RuboCop::Chef::CookbookHelpers do
         RUBY
       end
 
-      it "should yield a single 'running' property ast objects" do
+      it "yields a single 'running' property ast objects" do
         expect { |b| match_property_in_resource?(:service, 'running', parse_source(resource_source).ast, &b) }.to yield_successive_args(running_false_ast)
       end
     end
@@ -188,7 +188,7 @@ RSpec.describe RuboCop::Chef::CookbookHelpers do
         RUBY
       end
 
-      it "should yield a single 'running' property ast objects" do
+      it "yields a single 'running' property ast objects" do
         expect { |b| match_property_in_resource?(:service, 'running', parse_source(resource_source).ast, &b) }.to yield_successive_args(running_false_ast)
       end
     end
@@ -204,7 +204,7 @@ RSpec.describe RuboCop::Chef::CookbookHelpers do
         RUBY
       end
 
-      it "should yield a single 'running' property ast objects" do
+      it "yields a single 'running' property ast objects" do
         expect { |b| match_property_in_resource?(:service, 'running', parse_source(resource_source).ast, &b) }.to yield_successive_args(running_false_ast)
       end
     end
@@ -218,7 +218,7 @@ RSpec.describe RuboCop::Chef::CookbookHelpers do
         RUBY
       end
 
-      it 'should not yield anything' do
+      it 'does not yield anything' do
         expect { |b| match_property_in_resource?(:service, 'running', parse_source(resource_source).ast, &b) }.not_to yield_control
       end
     end
