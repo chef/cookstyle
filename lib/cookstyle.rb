@@ -19,7 +19,7 @@ module RuboCop
   class ConfigLoader
     RUBOCOP_HOME.gsub!(
       /^.*$/,
-      File.realpath(File.join(File.dirname(__FILE__), '..'))
+      File.realpath(File.join(__dir__, '..'))
     )
 
     DEFAULT_FILE.gsub!(
@@ -46,7 +46,7 @@ require_relative 'rubocop/chef/cookbook_only'
 require_relative 'rubocop/cop/target_chef_version'
 
 # Chef Infra specific cops
-Dir.glob(File.dirname(__FILE__) + '/rubocop/cop/chef/**/*.rb') do |file|
+Dir.glob(__dir__ + '/rubocop/cop/chef/**/*.rb') do |file|
   next if File.directory?(file)
 
   require_relative file # not actually relative but require_relative is faster

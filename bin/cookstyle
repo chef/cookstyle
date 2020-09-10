@@ -2,7 +2,7 @@
 # -*- encoding: utf-8 -*-
 # frozen_string_literal: true
 
-$LOAD_PATH.unshift File.join(File.dirname(__FILE__), %w(.. lib))
+$LOAD_PATH.unshift File.join(__dir__, %w(.. lib))
 
 require 'cookstyle'
 
