@@ -28,7 +28,7 @@ The `ChefDeprecations/ExecuteRelativeCreatesWithoutCwd` cop detects the usage of
 
 #### ChefDeprecations/WindowsPackageInstallerTypeString
 
-The `ChefDeprecations/WindowsPackageInstallerTypeString` cop detects the usage of the `windows_package` resource with a `installer_type` property value that is a String. In Chef Infra Client 13 or later this value must be a Symbol.
+The `ChefDeprecations/WindowsPackageInstallerTypeString` cop detects the usage of the `windows_package` resource with a `installer_type` property value that is a String. In Chef Infra Client 13 or later, this property value must be a Symbol.
 
 `Enabled by default`: True
 
