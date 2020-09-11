@@ -4,7 +4,7 @@
 
 #### ChefDeprecations/ChefShellout
 
-The `ChefDeprecations/ChefShellout` cop detects the use of the `Chef::ShellOut` class which was removed in Chef Infra Client 13. It will autocorrect all occurences to instead use `Mixlib::ShellOut`, which is a drop-in replacement.
+The `ChefDeprecations/ChefShellout` cop detects the use of the `Chef::ShellOut` class, which was removed in Chef Infra Client 13. It will autocorrect all occurences to instead use `Mixlib::ShellOut`, which is a drop-in replacement.
 
 `Enabled by default`: True
 
