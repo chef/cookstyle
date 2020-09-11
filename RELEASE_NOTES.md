@@ -36,7 +36,7 @@ The `ChefDeprecations/WindowsPackageInstallerTypeString` cop detects the usage o
 
 ### Other Improvements
 
-- The `ChefDeprecations/DeprecatedPlatformMethods` cop now detects the usage of `Chef::Platform.set` which was removed in Chef Infra Client 13.
+- The `ChefDeprecations/DeprecatedPlatformMethods` cop now detects the usage of `Chef::Platform.set`, which was removed in Chef Infra Client 13.
 - Several minor performance and memory usage improvements were made to speed up Cookstyle scans.
 - An error was resolved that would occur when using Cookstyle with the rubocop-ast 0.4.0 or later gem.
 
