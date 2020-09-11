@@ -83,7 +83,7 @@ module RuboCop
           # @return [String]
           #
           def corrected_string(node)
-            args = node.arguments
+            args = node.arguments.dup
 
             # If the 2nd argument is a String and not an Integer as a String
             # then it's the old sort field and we need to delete it. Same thing
