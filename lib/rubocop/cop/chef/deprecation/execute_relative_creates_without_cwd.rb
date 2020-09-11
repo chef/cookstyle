@@ -26,17 +26,17 @@ module RuboCop
         #
         #   # bad
         #   execute 'some_cmd' do
-        #     create 'something'
+        #     creates 'something'
         #   end
         #
         #   # good
         #   execute 'some_cmd' do
-        #     create '/tmp/something'
+        #     creates '/tmp/something'
         #   end
         #
         #   execute 'some_cmd' do
-        #     create 'something'
-        #     cwd
+        #     creates 'something'
+        #     cwd '/tmp/'
         #   end
         #
         class ExecuteRelativeCreatesWithoutCwd < Base
@@ -49,8 +49,8 @@ module RuboCop
               return unless offense.arguments.count == 1 # we can only analyze simple string args
               return unless offense.arguments.first.str_type? # we can only analyze simple string args
 
-              # skip any creates that are abs paths https://rubular.com/r/DaYzKtomK9ue2I
-              return if offense.arguments.first.value.match?(%r{^[/|[a-zA-Z]:]})
+              # skip any creates that are abs paths https://rubular.com/r/3TbDsgcAa1EaIF
+              return if offense.arguments.first.value.match?(%r{^(/|[a-zA-Z]:)})
 
               # return if we have a cwd property
               match_property_in_resource?(:execute, 'cwd', node) do
