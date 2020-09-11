@@ -1,31 +1,28 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.17.5 -->
-## [v6.17.5](https://github.com/chef/cookstyle/tree/v6.17.5) (2020-09-11)
-
-#### Merged Pull Requests
-- Add Cookstyle 6.17 release notes [#743](https://github.com/chef/cookstyle/pull/743) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=6.16.10 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Add Cookstyle 6.17 release notes [#743](https://github.com/chef/cookstyle/pull/743) ([tas50](https://github.com/tas50)) <!-- 6.17.5 -->
-- Add new deprecation cops to help people get off Chef 12 [#742](https://github.com/chef/cookstyle/pull/742) ([tas50](https://github.com/tas50)) <!-- 6.17.4 -->
-- Spec cleanup from rubocop-rspec [#740](https://github.com/chef/cookstyle/pull/740) ([tas50](https://github.com/tas50)) <!-- 6.17.3 -->
-- Remove unused stuff from spec_helper. [#741](https://github.com/chef/cookstyle/pull/741) ([phiggins](https://github.com/phiggins)) <!-- 6.17.2 -->
-- Minor optimizations from rubocop-performance [#739](https://github.com/chef/cookstyle/pull/739) ([tas50](https://github.com/tas50)) <!-- 6.17.1 -->
-- Replace uses of File.dirname(__FILE__) with __dir__ [#737](https://github.com/chef/cookstyle/pull/737) ([tas50](https://github.com/tas50)) <!-- 6.17.0 -->
-- Add missing description to rake task [#738](https://github.com/chef/cookstyle/pull/738) ([tas50](https://github.com/tas50)) <!-- 6.16.11 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v6.17.5](https://github.com/chef/cookstyle/tree/v6.17.5) (2020-09-11)
+
+#### Merged Pull Requests
+- Add missing description to rake task [#738](https://github.com/chef/cookstyle/pull/738) ([tas50](https://github.com/tas50))
+- Replace uses of File.dirname(__FILE__) with __dir__ [#737](https://github.com/chef/cookstyle/pull/737) ([tas50](https://github.com/tas50))
+- Minor optimizations from rubocop-performance [#739](https://github.com/chef/cookstyle/pull/739) ([tas50](https://github.com/tas50))
+- Remove unused stuff from spec_helper. [#741](https://github.com/chef/cookstyle/pull/741) ([phiggins](https://github.com/phiggins))
+- Spec cleanup from rubocop-rspec [#740](https://github.com/chef/cookstyle/pull/740) ([tas50](https://github.com/tas50))
+- Add new deprecation cops to help people get off Chef 12 [#742](https://github.com/chef/cookstyle/pull/742) ([tas50](https://github.com/tas50))
+- Add Cookstyle 6.17 release notes [#743](https://github.com/chef/cookstyle/pull/743) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v6.16.10](https://github.com/chef/cookstyle/tree/v6.16.10) (2020-09-03)
 
 #### Merged Pull Requests
 - Enable Lint/Syntax cop that previously enabled by default [#735](https://github.com/chef/cookstyle/pull/735) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v6.16.9](https://github.com/chef/cookstyle/tree/v6.16.9) (2020-09-02)
 
