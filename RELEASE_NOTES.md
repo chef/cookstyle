@@ -12,7 +12,7 @@ The `ChefDeprecations/ChefShellout` cop detects the use of the `Chef::ShellOut` 
 
 #### ChefDeprecations/ExecutePathProperty
 
-The `ChefDeprecations/ExecutePathProperty` cop detects `execute` resources that use the `path` property, which was removed in Chef Infra Client 13. To set a path for use when executing you should instead set the `PATH` via the `environment` property.
+The `ChefDeprecations/ExecutePathProperty` cop detects `execute` resources that use the `path` property, which was removed in Chef Infra Client 13. To set a path for use when executing, you should instead set the `PATH` via the `environment` property.
 
 `Enabled by default`: True
 
