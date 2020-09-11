@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 #
-# Copyright:: 2019, Chef Software Inc.
+# Copyright:: 2019-2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,7 +20,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefDeprecations
-        # Use provider_for_action instead of the deprecated Chef::Platform methods in resources, which were removed in Chef Infra Client 13.
+        # Use provider_for_action or provides instead of the deprecated Chef::Platform methods in resources, which were removed in Chef Infra Client 13.
         #
         # @example
         #
@@ -34,15 +34,19 @@ module RuboCop
         #   resource = Chef::Resource::File.new("/tmp/foo.xyz", run_context)
         #   provider = Chef::Platform.find_provider_for_node(node, resource)
         #
+        #   Chef::Platform.set :platform => :mac_os_x, :resource => :package, :provider => Chef::Provider::Package::Homebrew
+        #
         #   # good
         #   resource = Chef::Resource::File.new("/tmp/foo.xyz", run_context)
         #   provider = resource.provider_for_action(:create)
         #
+        #   # provides :package, platform_family: 'mac_os_x'
+
         class DeprecatedPlatformMethods < Base
-          MSG = 'Use provider_for_action instead of the deprecated Chef::Platform methods in resources, which were removed in Chef Infra Client 13.'
+          MSG = 'Use provider_for_action or provides instead of the deprecated Chef::Platform methods in resources, which were removed in Chef Infra Client 13.'
 
           def_node_matcher :platform_method?, <<-PATTERN
-            (send (const (const nil? :Chef) :Platform) {:provider_for_resource :find_provider :find_provider_for_node} ... )
+            (send (const (const nil? :Chef) :Platform) {:provider_for_resource :find_provider :find_provider_for_node :set} ... )
           PATTERN
 
           def on_send(node)

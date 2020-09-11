@@ -908,10 +908,11 @@ ChefDeprecations/RubyBlockCreateAction:
     - '**/Berksfile'
 
 ChefDeprecations/DeprecatedPlatformMethods:
-  Description: Use provider_for_action instead of the deprecated Chef::Platform methods in resources.
+  Description: Use provider_for_action or provides instead of the deprecated Chef::Platform methods in resources.
   StyleGuide: '#chefdeprecationsdeprecatedplatformmethods'
   Enabled: true
   VersionAdded: '5.16.0'
+  VersionChanged: '6.17.0'
   Include:
     - '**/libraries/*.rb'
     - '**/resources/*.rb'
@@ -1061,16 +1062,6 @@ ChefDeprecations/CookbooksDependsOnSelf:
   VersionChanged: '6.16.0'
   Include:
     - '**/metadata.rb'
-
-ChefDeprecations/ChefPlatformSet:
-  Description: The Chef::Platform.set method has been removed. Use `provides` instead to set platform specific resource provides.
-  StyleGuide: '#chefdeprecationschefplatformset'
-  Enabled: true
-  VersionAdded: '6.17.0'
-  Include:
-    - '**/libraries/*.rb'
-    - '**/resources/*.rb'
-    - '**/providers/*.rb'
 
 ChefDeprecations/ChefShellout:
   Description: Don't use deprecated Chef::Shellout which was removed in Chef Infra Client 13. Use Mixlib::Shellout instead, which behaves identically.
