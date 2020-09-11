@@ -1074,7 +1074,7 @@ ChefDeprecations/ChefShellout:
     - '**/Berksfile'
 
 ChefDeprecations/ExecutePathProperty:
-  Description: In Chef Infra Client 13 and later you must set path env vars in execute resources using the `environment` property not the legacy `path` property.
+  Description: In Chef Infra Client 13 and later you must set path env vars in `execute` resources using the `environment` property not the legacy `path` property.
   StyleGuide: '#chefdeprecationsexecutepathproperty'
   Enabled: true
   VersionAdded: '6.17.0'
