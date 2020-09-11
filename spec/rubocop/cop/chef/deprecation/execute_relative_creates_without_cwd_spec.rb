@@ -53,24 +53,4 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ExecuteRelativeCreatesWithoutCwd,
       end
     RUBY
   end
-
-  # # BELOW HERE WE LACK THE TECHNICAL ABILITY TO CHECK THESE SITUATIONS
-  # # we test these to confirm we don't crash
-  # it "doesn't register an offense when an execute resource has a creates property with string interpolation " do
-  #   expect_no_offenses(<<-RUBY)
-  #     execute 'some_cmd' do
-  #       creates "something#{something}"
-  #       cwd '/tmp'
-  #     end
-  #   RUBY
-  # end
-
-  # it "doesn't register an offense when an execute resource has a creates property with string interpolation " do
-  #   expect_no_offenses(<<-RUBY)
-  #     execute 'some_cmd' do
-  #       creates "something#{something}"
-  #       cwd '/tmp'
-  #     end
-  #   RUBY
-  # end
 end
