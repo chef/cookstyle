@@ -12,7 +12,7 @@ The `ChefDeprecations/ChefShellout` cop detects the use of the `Chef::ShellOut` 
 
 #### ChefDeprecations/ExecutePathProperty
 
-The `ChefDeprecations/ExecutePathProperty` cop detects `execute` resources that use the `path` property, which was removed in Chef Infra Client 13. The paths should instead be modified by setting the `PATH` variable in the `environment` property.
+The `ChefDeprecations/ExecutePathProperty` cop detects `execute` resources that use the `path` property, which was removed in Chef Infra Client 13. To set a path for use when executing you should instead set the `PATH` via the `environment` property.
 
 `Enabled by default`: True
 
@@ -28,7 +28,7 @@ The `ChefDeprecations/ExecuteRelativeCreatesWithoutCwd` cop detects the usage of
 
 #### ChefDeprecations/WindowsPackageInstallerTypeString
 
-The `ChefDeprecations/WindowsPackageInstallerTypeString` cop detects the usage of the `windows_package` resource with a `installer_type` property value that is a String. In Chef Infra Client 13 or later this value must be a symbol.
+The `ChefDeprecations/WindowsPackageInstallerTypeString` cop detects the usage of the `windows_package` resource with a `installer_type` property value that is a String. In Chef Infra Client 13 or later this value must be a Symbol.
 
 `Enabled by default`: True
 
