@@ -26,12 +26,20 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ChefShellout, :config do
       foo = Chef::ShellOut.new('foo')
             ^^^^^^^^^^^^^^^^^^^^^^^^^ Don't use deprecated Chef::ShellOut which was removed in Chef Infra Client 13. Use Mixlib::ShellOut instead, which behaves identically.
     RUBY
+
+    expect_correction(<<~RUBY)
+      foo = Mixlib::ShellOut.new('foo')
+    RUBY
   end
 
   it 'registers an offense when using methods in Mixin::Shellout' do
     expect_offense(<<~RUBY)
       Chef::ShellOut.new('foo').run_command
       ^^^^^^^^^^^^^^^^^^^^^^^^^ Don't use deprecated Chef::ShellOut which was removed in Chef Infra Client 13. Use Mixlib::ShellOut instead, which behaves identically.
+    RUBY
+
+    expect_correction(<<~RUBY)
+      Mixlib::ShellOut.new('foo').run_command
     RUBY
   end
 
@@ -40,6 +48,8 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ChefShellout, :config do
       require 'chef/shellout'
       ^^^^^^^^^^^^^^^^^^^^^^^ Don't use deprecated Chef::ShellOut which was removed in Chef Infra Client 13. Use Mixlib::ShellOut instead, which behaves identically.
     RUBY
+
+    expect_correction("\n")
   end
 
   it 'registers an offense when including Chef::ShellOut' do
@@ -47,6 +57,8 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ChefShellout, :config do
       include Chef::ShellOut
       ^^^^^^^^^^^^^^^^^^^^^^ Don't use deprecated Chef::ShellOut which was removed in Chef Infra Client 13. Use Mixlib::ShellOut instead, which behaves identically.
     RUBY
+
+    expect_correction("\n")
   end
 
   it "doesn't register an offense when using Mixlib::ShellOut instead" do
