@@ -908,10 +908,11 @@ ChefDeprecations/RubyBlockCreateAction:
     - '**/Berksfile'
 
 ChefDeprecations/DeprecatedPlatformMethods:
-  Description: Use provider_for_action instead of the deprecated Chef::Platform methods in resources.
+  Description: Use provider_for_action or provides instead of the deprecated Chef::Platform methods in resources.
   StyleGuide: '#chefdeprecationsdeprecatedplatformmethods'
   Enabled: true
   VersionAdded: '5.16.0'
+  VersionChanged: '6.17.0'
   Include:
     - '**/libraries/*.rb'
     - '**/resources/*.rb'
@@ -1061,6 +1062,46 @@ ChefDeprecations/CookbooksDependsOnSelf:
   VersionChanged: '6.16.0'
   Include:
     - '**/metadata.rb'
+
+ChefDeprecations/ChefShellout:
+  Description: Don't use deprecated Chef::ShellOut which was removed in Chef Infra Client 13. Use Mixlib::ShellOut instead, which behaves identically.
+  StyleGuide: '#chefdeprecationschefshellout'
+  Enabled: true
+  VersionAdded: '6.17.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/attributes/*.rb'
+    - '**/Berksfile'
+
+ChefDeprecations/ExecutePathProperty:
+  Description: In Chef Infra Client 13 and later you must set path env vars in `execute` resources using the `environment` property not the legacy `path` property.
+  StyleGuide: '#chefdeprecationsexecutepathproperty'
+  Enabled: true
+  VersionAdded: '6.17.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/attributes/*.rb'
+    - '**/Berksfile'
+
+ChefDeprecations/ExecuteRelativeCreatesWithoutCwd:
+  Description: In Chef Infra Client 13 and later you must either specify an absolute path when using the `execute` resource's `creates` property or also use the `cwd` property.
+  StyleGuide: '#chefdeprecationsexecuterelativecreateswithoutcwd'
+  Enabled: true
+  VersionAdded: '6.17.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/attributes/*.rb'
+    - '**/Berksfile'
+
+ChefDeprecations/WindowsPackageInstallerTypeString:
+  Description: In Chef Infra Client 13 and later the `windows_package` resource's `installer_type` property must be a symbol.
+  StyleGuide: '#chefdeprecationswindowspackageinstallertypestring'
+  Enabled: true
+  VersionAdded: '6.17.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/attributes/*.rb'
+    - '**/Berksfile'
 
 ###############################
 # ChefModernize: Cleaning up legacy code and using new built-in resources
