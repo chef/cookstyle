@@ -1,3 +1,45 @@
+## Cookstyle 6.17
+
+### 4 New Cops
+
+#### ChefDeprecations/ChefShellout
+
+The `ChefDeprecations/ChefShellout` cop detects the use of the `Chef::ShellOut` class which was removed in Chef Infra Client 13. It will autocorrect all occurences to instead use `Mixlib::ShellOut`, which is a drop-in replacement.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefDeprecations/ExecutePathProperty
+
+The `ChefDeprecations/ExecutePathProperty` cop detects `execute` resources that use the `path` property, which was removed in Chef Infra Client 13. The paths should instead be modified by setting the `PATH` variable in the `environment` property.
+
+`Enabled by default`: True
+
+`Autocorrects`: No
+
+#### ChefDeprecations/ExecuteRelativeCreatesWithoutCwd
+
+The `ChefDeprecations/ExecuteRelativeCreatesWithoutCwd` cop detects the usage of the `execute` resource with a relative path in the `creates` property and no `cwd` property. This will fail in Chef Infra Client 13 or later, and it never would have actually worked so it was always failing code. You should either provide an absolute path to the `creates` property or use a relative path with `creates` and specify the working directory with `cwd`.
+
+`Enabled by default`: True
+
+`Autocorrects`: No
+
+#### ChefDeprecations/WindowsPackageInstallerTypeString
+
+The `ChefDeprecations/WindowsPackageInstallerTypeString` cop detects the usage of the `windows_package` resource with a `installer_type` property value that is a String. In Chef Infra Client 13 or later this value must be a symbol.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+### Other Improvements
+
+- The `ChefDeprecations/DeprecatedPlatformMethods` cop now detects the usage of `Chef::Platform.set` which was removed in Chef Infra Client 13.
+- Several minor performance and memory usage improvements were made to speed up Cookstyle scans.
+- An error was resolved that would occur when using Cookstyle with the rubocop-ast 0.4.0 or later gem.
+
 ## Cookstyle 6.16
 
 ### RuboCop 0.90.0
