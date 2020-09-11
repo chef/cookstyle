@@ -30,7 +30,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ExecutePathProperty, :config do
   end
 
   it 'registers an offense when an execute resource has an Array path property' do
-    expect_offense(<<~RUBY)\
+    expect_offense(<<~RUBY)
       execute 'some_cmd' do
         path ['/foo/bar']
         ^^^^^^^^^^^^^^^^^ In Chef Infra Client 13 and later you must set path env vars in execute resources using the `environment` property not the legacy `path` property.
