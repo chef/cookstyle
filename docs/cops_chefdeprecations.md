@@ -131,6 +131,41 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationschefrewind](https://rubystyle.guide#chefdeprecationschefrewind)
 
+## ChefDeprecations/ChefShellout
+
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
+
+Don't use deprecated Chef::ShellOut which was removed in Chef Infra Client 13.
+Use Mixlib::ShellOut instead, which behaves identically or convert to the shell_out
+helper provided in chef-utils.
+
+### Examples
+
+```ruby
+# bad
+include Chef::ShellOut
+require 'chef/shellout'
+Chef::ShellOut.new('some_command')
+
+# good
+include Mixlib::ShellOut
+require 'mixlib/shellout'
+Mixlib::ShellOut.new('some_command')
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.17.0` | String
+Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
+
+### References
+
+* [https://rubystyle.guide#chefdeprecationschefshellout](https://rubystyle.guide#chefdeprecationschefshellout)
+
 ## ChefDeprecations/ChefSpecCoverageReport
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -409,7 +444,7 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Enabled | No | All Versions
 
-Use provider_for_action instead of the deprecated Chef::Platform methods in resources, which were removed in Chef Infra Client 13.
+Use provider_for_action or provides instead of the deprecated Chef::Platform methods in resources, which were removed in Chef Infra Client 13.
 
 ### Examples
 
@@ -424,9 +459,13 @@ provider = Chef::Platform.find_provider("ubuntu", "16.04", resource)
 resource = Chef::Resource::File.new("/tmp/foo.xyz", run_context)
 provider = Chef::Platform.find_provider_for_node(node, resource)
 
+Chef::Platform.set :platform => :mac_os_x, :resource => :package, :provider => Chef::Provider::Package::Homebrew
+
 # good
 resource = Chef::Resource::File.new("/tmp/foo.xyz", run_context)
 provider = resource.provider_for_action(:create)
+
+# provides :package, platform_family: 'mac_os_x'
 ```
 
 ### Configurable attributes
@@ -434,6 +473,7 @@ provider = resource.provider_for_action(:create)
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.16.0` | String
+VersionChanged | `6.17.0` | String
 Include | `**/libraries/*.rb`, `**/resources/*.rb`, `**/providers/*.rb` | Array
 
 ### References
@@ -667,6 +707,77 @@ Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 ### References
 
 * [https://rubystyle.guide#chefdeprecationserlcallresource](https://rubystyle.guide#chefdeprecationserlcallresource)
+
+## ChefDeprecations/ExecutePathProperty
+
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
+
+In Chef Infra Client 13 and later you must set path env vars in execute resources using the `environment` property not the legacy `path` property.
+
+### Examples
+
+```ruby
+# bad
+execute 'some_cmd' do
+  path '/foo/bar'
+end
+
+# good
+execute 'some_cmd' do
+  environment {path: '/foo/bar'}
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.17.0` | String
+Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
+
+### References
+
+* [https://rubystyle.guide#chefdeprecationsexecutepathproperty](https://rubystyle.guide#chefdeprecationsexecutepathproperty)
+
+## ChefDeprecations/ExecuteRelativeCreatesWithoutCwd
+
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
+
+In Chef Infra Client 13 and later you must either specific an absolute path when using the `execute` resource's `creates` property or also use the `cwd` property.
+
+### Examples
+
+```ruby
+# bad
+execute 'some_cmd' do
+  creates 'something'
+end
+
+# good
+execute 'some_cmd' do
+  creates '/tmp/something'
+end
+
+execute 'some_cmd' do
+  creates 'something'
+  cwd '/tmp/'
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.17.0` | String
+Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
+
+### References
+
+* [https://rubystyle.guide#chefdeprecationsexecuterelativecreateswithoutcwd](https://rubystyle.guide#chefdeprecationsexecuterelativecreateswithoutcwd)
 
 ## ChefDeprecations/HWRPWithoutProvides
 
@@ -1966,6 +2077,43 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 ### References
 
 * [https://rubystyle.guide#chefdeprecationswindowsfeatureservermanagercmd](https://rubystyle.guide#chefdeprecationswindowsfeatureservermanagercmd)
+
+## ChefDeprecations/WindowsPackageInstallerTypeString
+
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
+
+In Chef Infra Client 13 and later the `windows_package` resource's `installer_type` property must be a symbol.
+
+### Examples
+
+```ruby
+# bad
+windows_package 'AppveyorDeploymentAgent' do
+  source 'https://www.example.com/appveyor.msi'
+  installer_type 'msi'
+  options "/quiet /qn /norestart /log install.log"
+end
+
+# good
+windows_package 'AppveyorDeploymentAgent' do
+  source 'https://www.example.com/appveyor.msi'
+  installer_type :msi
+  options "/quiet /qn /norestart /log install.log"
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.17.0` | String
+Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
+
+### References
+
+* [https://rubystyle.guide#chefdeprecationswindowspackageinstallertypestring](https://rubystyle.guide#chefdeprecationswindowspackageinstallertypestring)
 
 ## ChefDeprecations/WindowsTaskChangeAction
 
