@@ -20,28 +20,33 @@ module RuboCop
   module Cop
     module Chef
       module ChefDeprecations
-        # Don't use deprecated Chef::Shellout which was removed in Chef Infra Client 13.
-        # Use Mixlib::Shellout instead, which behaves identically
+        # Don't use deprecated Chef::ShellOut which was removed in Chef Infra Client 13.
+        # Use Mixlib::ShellOut instead, which behaves identically or convert to the shell_out
+        # helper provided in chef-utils.
         #
         # @example
         #
         #   # bad
-        #   include Chef::Shellout
+        #   include Chef::ShellOut
         #   require 'chef/shellout'
-        #   Chef::Shellout.new
-        #   require 'chef/mixin/language_include_recipe'
+        #   Chef::ShellOut.new('some_command')
+        #
+        #   # good
+        #   include Mixlib::ShellOut
+        #   require 'mixlib/shellout'
+        #   Mixlib::ShellOut.new('some_command')
         #
         class ChefShellout < Base
           include RangeHelp
           extend AutoCorrector
 
-          MSG = "Don't use deprecated Chef::Shellout which was removed in Chef Infra Client 13. Use Mixlib::Shellout instead, which behaves identically."
+          MSG = "Don't use deprecated Chef::ShellOut which was removed in Chef Infra Client 13. Use Mixlib::ShellOut instead, which behaves identically."
           # RESTRICT_ON_SEND = [:new, :require, :include].freeze
 
           def_node_matcher :include_shellout?, <<-PATTERN
           (send nil? :include
             (const
-              (const nil? :Chef) :Shellout))
+              (const nil? :Chef) :ShellOut))
           PATTERN
 
           def_node_matcher :require_shellout?, <<-PATTERN
