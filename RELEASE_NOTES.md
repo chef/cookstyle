@@ -20,7 +20,7 @@ The `ChefDeprecations/ExecutePathProperty` cop detects `execute` resources that 
 
 #### ChefDeprecations/ExecuteRelativeCreatesWithoutCwd
 
-The `ChefDeprecations/ExecuteRelativeCreatesWithoutCwd` cop detects the usage of the `execute` resource with a relative path in the `creates` property and no `cwd` property. This will fail in Chef Infra Client 13 or later, and it never would have actually worked so it was always failing code. You should either provide an absolute path to the `creates` property or use a relative path with `creates` and specify the working directory with `cwd`.
+The `ChefDeprecations/ExecuteRelativeCreatesWithoutCwd` cop detects the usage of the `execute` resource with a relative path in the `creates` property and with no `cwd` property present. This condition will fail in Chef Infra Client 13 or later, and it never would have actually worked, so it was always failing code. You should either provide an absolute path to the `creates` property, or use a relative path with `creates` and specify the working directory with `cwd`.
 
 `Enabled by default`: True
 
