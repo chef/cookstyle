@@ -63,7 +63,7 @@ module RuboCop
             (send (const (const {cbase nil?} :Chef) {:Recipe :Provider}) :include ... )
           PATTERN
 
-          # @todo: This is higly repetitive and could be simplified into a single node_matcher
+          # @todo: This is highly repetitive and could be simplified into a single node_matcher
           # call with some matcher magic that should be figured out
           def on_send(node)
             legacy_class_sends?(node) do
