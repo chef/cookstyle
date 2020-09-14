@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 6.17.6 -->
+## [v6.17.6](https://github.com/chef/cookstyle/tree/v6.17.6) (2020-09-14)
+
+#### Merged Pull Requests
+- ChefCorrectness/IncorrectLibraryInjection: Catch more offenses [#745](https://github.com/chef/cookstyle/pull/745) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=6.17.5 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- ChefCorrectness/IncorrectLibraryInjection: Catch more offenses [#745](https://github.com/chef/cookstyle/pull/745) ([tas50](https://github.com/tas50)) <!-- 6.17.6 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
