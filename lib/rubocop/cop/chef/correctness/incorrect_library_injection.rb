@@ -38,11 +38,11 @@ module RuboCop
           MSG = 'Libraries should be injected into the Chef::DSL::Recipe class and not Chef::Recipe or Chef::Provider classes directly.'
 
           def_node_matcher :legacy_class_sends?, <<-PATTERN
-            (send (const (const (cbase) :Chef) {:Recipe :Provider}) :send (sym :include) ... )
+            (send (const (const {cbase nil?} :Chef) {:Recipe :Provider}) :send (sym :include) ... )
           PATTERN
 
           def_node_matcher :legacy_class_includes?, <<-PATTERN
-            (send (const (const (cbase) :Chef) {:Recipe :Provider}) :include ... )
+            (send (const (const {cbase nil?} :Chef) {:Recipe :Provider}) :include ... )
           PATTERN
 
           def on_send(node)
