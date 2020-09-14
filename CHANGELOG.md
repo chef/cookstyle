@@ -1,20 +1,18 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.17.6 -->
+ <!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v6.17.6](https://github.com/chef/cookstyle/tree/v6.17.6) (2020-09-14)
 
 #### Merged Pull Requests
 - ChefCorrectness/IncorrectLibraryInjection: Catch more offenses [#745](https://github.com/chef/cookstyle/pull/745) ([tas50](https://github.com/tas50))
-<!-- latest_release -->
-
-<!-- release_rollup since=6.17.5 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- ChefCorrectness/IncorrectLibraryInjection: Catch more offenses [#745](https://github.com/chef/cookstyle/pull/745) ([tas50](https://github.com/tas50)) <!-- 6.17.6 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v6.17.5](https://github.com/chef/cookstyle/tree/v6.17.5) (2020-09-11)
 
 #### Merged Pull Requests
@@ -25,7 +23,6 @@
 - Spec cleanup from rubocop-rspec [#740](https://github.com/chef/cookstyle/pull/740) ([tas50](https://github.com/tas50))
 - Add new deprecation cops to help people get off Chef 12 [#742](https://github.com/chef/cookstyle/pull/742) ([tas50](https://github.com/tas50))
 - Add Cookstyle 6.17 release notes [#743](https://github.com/chef/cookstyle/pull/743) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v6.16.10](https://github.com/chef/cookstyle/tree/v6.16.10) (2020-09-03)
 
