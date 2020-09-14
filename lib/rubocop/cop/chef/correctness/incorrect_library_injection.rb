@@ -33,30 +33,58 @@ module RuboCop
         #   ::Chef::DSL::Recipe.send(:include, Filebeat::Helpers) # covers previous Recipe & Provider classes
         #
         class IncorrectLibraryInjection < Base
+          include RangeHelp
           extend AutoCorrector
 
           MSG = 'Libraries should be injected into the Chef::DSL::Recipe class and not Chef::Recipe or Chef::Provider classes directly.'
+
+          def_node_search :correct_send?, <<-PATTERN
+            (send
+              (const
+                (const
+                  (const {cbase nil?} :Chef) :DSL) :Recipe) :send
+              (sym :include)
+            ... )
+          PATTERN
+
+          def_node_search :correct_include?, <<-PATTERN
+          (send
+            (const
+              (const
+                (const {cbase nil?} :Chef) :DSL) :Recipe) :include
+          ... )
+          PATTERN
 
           def_node_matcher :legacy_class_sends?, <<-PATTERN
             (send (const (const {cbase nil?} :Chef) {:Recipe :Provider}) :send (sym :include) ... )
           PATTERN
 
-          def_node_matcher :legacy_class_includes?, <<-PATTERN
+          def_node_matcher :legacy_class_include?, <<-PATTERN
             (send (const (const {cbase nil?} :Chef) {:Recipe :Provider}) :include ... )
           PATTERN
 
+          # @todo: This is highly repetitive and could be simplified into a single node_matcher
+          # call with some matcher magic that should be figured out
           def on_send(node)
             legacy_class_sends?(node) do
               add_offense(node, message: MSG, severity: :refactor) do |corrector|
-                corrector.replace(node.loc.expression,
-                  node.source.gsub(/Chef::(Provider|Recipe)/, 'Chef::DSL::Recipe'))
+                if node.parent && correct_send?(node.parent)
+                  corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
+                else
+                  corrector.replace(node.loc.expression,
+                    node.source.gsub(/Chef::(Provider|Recipe)/, 'Chef::DSL::Recipe'))
+                end
               end
             end
 
-            legacy_class_includes?(node) do
+            legacy_class_include?(node) do
               add_offense(node, message: MSG, severity: :refactor) do |corrector|
-                corrector.replace(node.loc.expression,
-                  node.source.gsub(/Chef::(Provider|Recipe)/, 'Chef::DSL::Recipe'))
+                if node.parent && correct_include?(node.parent)
+                  corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
+                else
+                  corrector.replace(node.loc.expression,
+                    node.source.gsub(/Chef::(Provider|Recipe)/, 'Chef::DSL::Recipe'))
+                end
               end
             end
           end
