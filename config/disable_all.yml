@@ -25,6 +25,8 @@ Layout/ArrayAlignment:
   Enabled: false
 Layout/AssignmentIndentation:
   Enabled: false
+Layout/BeginEndAlignment:
+  Enabled: false
 Layout/BlockAlignment:
   Enabled: false
 Layout/BlockEndNewline:
@@ -215,6 +217,8 @@ Lint/BooleanSymbol:
   Enabled: false
 Lint/CircularArgumentReference:
   Enabled: false
+Lint/ConstantDefinitionInBlock:
+  Enabled: false
 Lint/ConstantResolution:
   Enabled: false
 Lint/Debugger:
@@ -266,6 +270,8 @@ Lint/FloatOutOfRange:
 Lint/FormatParameterMismatch:
   Enabled: false
 Lint/HeredocMethodCallPosition:
+  Enabled: false
+Lint/IdentityComparison:
   Enabled: false
 Lint/ImplicitStringConcatenation:
   Enabled: false
@@ -394,6 +400,8 @@ Lint/UselessElseWithoutRescue:
 Lint/UselessMethodDefinition:
   Enabled: false
 Lint/UselessSetterCall:
+  Enabled: false
+Lint/UselessTimes:
   Enabled: false
 Lint/Void:
   Enabled: false
