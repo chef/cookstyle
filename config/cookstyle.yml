@@ -460,8 +460,6 @@ ChefCorrectness/LazyInResourceGuard:
     - '**/metadata.rb'
     - '**/Berksfile'
 
-
-
 ###############################
 # ChefSharing: Issues that prevent sharing code with other teams or with the Chef community in general
 ###############################
