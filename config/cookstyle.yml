@@ -451,6 +451,17 @@ ChefCorrectness/MacosUserdefaultsInvalidType:
     - '**/metadata.rb'
     - '**/Berksfile'
 
+ChefCorrectness/LazyInResourceGuard:
+  Description: Using `lazy {}` within a resource guard (not_if/only_if) will cause failures and is unnecessary as resource guards are always lazily evaluated.
+  StyleGuide: '#chefcorrectnesslazyinresourceguard'
+  Enabled: true
+  VersionAdded: '6.18.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/Berksfile'
+
+
+
 ###############################
 # ChefSharing: Issues that prevent sharing code with other teams or with the Chef community in general
 ###############################
