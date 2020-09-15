@@ -18,6 +18,7 @@
 * [ChefCorrectness/InvalidPlatformValueForPlatformHelper](cops_chefcorrectness.md#chefcorrectnessinvalidplatformvalueforplatformhelper)
 * [ChefCorrectness/InvalidVersionMetadata](cops_chefcorrectness.md#chefcorrectnessinvalidversionmetadata)
 * [ChefCorrectness/LazyEvalNodeAttributeDefaults](cops_chefcorrectness.md#chefcorrectnesslazyevalnodeattributedefaults)
+* [ChefCorrectness/LazyInResourceGuard](cops_chefcorrectness.md#chefcorrectnesslazyinresourceguard)
 * [ChefCorrectness/MacosUserdefaultsInvalidType](cops_chefcorrectness.md#chefcorrectnessmacosuserdefaultsinvalidtype)
 * [ChefCorrectness/MalformedPlatformValueForPlatformHelper](cops_chefcorrectness.md#chefcorrectnessmalformedplatformvalueforplatformhelper)
 * [ChefCorrectness/MetadataMissingName](cops_chefcorrectness.md#chefcorrectnessmetadatamissingname)

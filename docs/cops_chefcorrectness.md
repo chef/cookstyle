@@ -534,6 +534,43 @@ Include | `**/libraries/*.rb`, `**/resources/*.rb` | Array
 
 * [https://rubystyle.guide#chefcorrectnesslazyevalnodeattributedefaults](https://rubystyle.guide#chefcorrectnesslazyevalnodeattributedefaults)
 
+## ChefCorrectness/LazyInResourceGuard
+
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | All Versions
+
+Using `lazy {}` within a resource guard (not_if/only_if) will cause failures and is unnecessary as resource guards are always lazily evaluated.
+
+### Examples
+
+```ruby
+# bad
+template '/etc/foo' do
+  mode '0644'
+  source 'foo.erb'
+  only_if { lazy { ::File.exist?('/etc/foo')} }
+end
+
+# good
+template '/etc/foo' do
+  mode '0644'
+  source 'foo.erb'
+  only_if { ::File.exist?('/etc/foo') }
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.18.0` | String
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
+
+### References
+
+* [https://rubystyle.guide#chefcorrectnesslazyinresourceguard](https://rubystyle.guide#chefcorrectnesslazyinresourceguard)
+
 ## ChefCorrectness/MacosUserdefaultsInvalidType
 
 Enabled by default | Supports autocorrection | Target Chef Version

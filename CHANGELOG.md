@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.18.0 -->
-## [v6.18.0](https://github.com/chef/cookstyle/tree/v6.18.0) (2020-09-15)
+ <!-- latest_release 6.18.1 -->
+## [v6.18.1](https://github.com/chef/cookstyle/tree/v6.18.1) (2020-09-15)
 
 #### Merged Pull Requests
-- Update RuboCop to 0.91 [#748](https://github.com/chef/cookstyle/pull/748) ([tas50](https://github.com/tas50))
+- Add new ChefCorrectness/LazyInResourceGuard cop [#750](https://github.com/chef/cookstyle/pull/750) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.17.7 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add new ChefCorrectness/LazyInResourceGuard cop [#750](https://github.com/chef/cookstyle/pull/750) ([tas50](https://github.com/tas50)) <!-- 6.18.1 -->
 - Update RuboCop to 0.91 [#748](https://github.com/chef/cookstyle/pull/748) ([tas50](https://github.com/tas50)) <!-- 6.18.0 -->
 <!-- release_rollup -->
 
