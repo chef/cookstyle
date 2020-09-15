@@ -1,25 +1,22 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.17.7 -->
-## [v6.17.7](https://github.com/chef/cookstyle/tree/v6.17.7) (2020-09-14)
-
-#### Merged Pull Requests
-- ChefCorrectness/IncorrectLibraryInjection: Avoid adding duplicate includes in autocorrection [#747](https://github.com/chef/cookstyle/pull/747) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=6.17.6 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- ChefCorrectness/IncorrectLibraryInjection: Avoid adding duplicate includes in autocorrection [#747](https://github.com/chef/cookstyle/pull/747) ([tas50](https://github.com/tas50)) <!-- 6.17.7 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v6.17.7](https://github.com/chef/cookstyle/tree/v6.17.7) (2020-09-15)
+
+#### Merged Pull Requests
+- ChefCorrectness/IncorrectLibraryInjection: Avoid adding duplicate includes in autocorrection [#747](https://github.com/chef/cookstyle/pull/747) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v6.17.6](https://github.com/chef/cookstyle/tree/v6.17.6) (2020-09-14)
 
 #### Merged Pull Requests
 - ChefCorrectness/IncorrectLibraryInjection: Catch more offenses [#745](https://github.com/chef/cookstyle/pull/745) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v6.17.5](https://github.com/chef/cookstyle/tree/v6.17.5) (2020-09-11)
 
