@@ -2667,3 +2667,7 @@ Style/RedundantAssignment:
 # alert on invalid ruby
 Lint/Syntax:
   Enabled: true
+
+# remove extra requires like 'thread'
+Lint/RedundantRequireStatement:
+  Enabled: true
