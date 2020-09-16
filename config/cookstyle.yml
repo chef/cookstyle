@@ -460,6 +460,15 @@ ChefCorrectness/LazyInResourceGuard:
     - '**/metadata.rb'
     - '**/Berksfile'
 
+ChefCorrectness/PropertyWithoutType:
+  Description: Custom resource properties or attributes should always define a type to help users understand the correct allowed values.
+  StyleGuide: '#chefcorrectnesspropertywithouttype'
+  Enabled: true
+  VersionAdded: '6.18.0'
+  Include:
+    - '**/libraries/*.rb'
+    - '**/resources/*.rb'
+
 ###############################
 # ChefSharing: Issues that prevent sharing code with other teams or with the Chef community in general
 ###############################
