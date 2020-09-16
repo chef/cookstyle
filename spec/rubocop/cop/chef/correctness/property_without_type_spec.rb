@@ -49,7 +49,7 @@ describe RuboCop::Cop::Chef::ChefCorrectness::PropertyWithoutType do
     RUBY
   end
 
-  it 'does not register an offense if a propety uses kind_of option' do
+  it 'does not register an offense if a property uses kind_of option' do
     expect_no_offenses('property :size, regex: /^\d+[KMGTP]$/, kind_of: String')
   end
 
