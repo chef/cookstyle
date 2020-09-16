@@ -2680,3 +2680,35 @@ Lint/Syntax:
 # remove extra requires like 'thread'
 Lint/RedundantRequireStatement:
   Enabled: true
+
+# simplify stripping strings
+Style/Strip:
+  Enabled: true
+
+# simplify how you warn
+Style/StderrPuts:
+  Enabled: true
+
+# more code simplification
+Style/Sample:
+  Enabled: true
+
+# simpler returns
+Style/ReturnNil:
+  Enabled: true
+
+# simpler sorts
+Style/RedundantSortBy:
+  Enabled: true
+
+# simplify getting min/max
+Style/RedundantSort:
+  Enabled: true
+
+# no need for .rb in requires
+Style/RedundantFileExtensionInRequire:
+  Enabled: true
+
+# more code you don't need
+Style/RedundantCondition:
+  Enabled: true
