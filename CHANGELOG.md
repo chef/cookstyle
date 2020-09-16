@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.18.3 -->
-## [v6.18.3](https://github.com/chef/cookstyle/tree/v6.18.3) (2020-09-16)
+ <!-- latest_release 6.18.4 -->
+## [v6.18.4](https://github.com/chef/cookstyle/tree/v6.18.4) (2020-09-16)
 
 #### Merged Pull Requests
-- Enable Lint/RedundantRequireStatement cop [#752](https://github.com/chef/cookstyle/pull/752) ([tas50](https://github.com/tas50))
+- Add new ChefCorrectness/PropertyWithoutType cop [#751](https://github.com/chef/cookstyle/pull/751) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.17.7 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add new ChefCorrectness/PropertyWithoutType cop [#751](https://github.com/chef/cookstyle/pull/751) ([tas50](https://github.com/tas50)) <!-- 6.18.4 -->
 - Enable Lint/RedundantRequireStatement cop [#752](https://github.com/chef/cookstyle/pull/752) ([tas50](https://github.com/tas50)) <!-- 6.18.3 -->
 - Backport a fix for Layout/RescueEnsureAlignment [#749](https://github.com/chef/cookstyle/pull/749) ([tas50](https://github.com/tas50)) <!-- 6.18.2 -->
 - Add new ChefCorrectness/LazyInResourceGuard cop [#750](https://github.com/chef/cookstyle/pull/750) ([tas50](https://github.com/tas50)) <!-- 6.18.1 -->

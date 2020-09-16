@@ -27,6 +27,7 @@
 * [ChefCorrectness/NotifiesActionNotSymbol](cops_chefcorrectness.md#chefcorrectnessnotifiesactionnotsymbol)
 * [ChefCorrectness/OpenSSLPasswordHelpers](cops_chefcorrectness.md#chefcorrectnessopensslpasswordhelpers)
 * [ChefCorrectness/PowershellScriptDeleteFile](cops_chefcorrectness.md#chefcorrectnesspowershellscriptdeletefile)
+* [ChefCorrectness/PropertyWithoutType](cops_chefcorrectness.md#chefcorrectnesspropertywithouttype)
 * [ChefCorrectness/ResourceSetsInternalProperties](cops_chefcorrectness.md#chefcorrectnessresourcesetsinternalproperties)
 * [ChefCorrectness/ResourceSetsNameProperty](cops_chefcorrectness.md#chefcorrectnessresourcesetsnameproperty)
 * [ChefCorrectness/ResourceWithNoneAction](cops_chefcorrectness.md#chefcorrectnessresourcewithnoneaction)

@@ -841,6 +841,37 @@ Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefcorrectnesspowershellscriptdeletefiles](https://rubystyle.guide#chefcorrectnesspowershellscriptdeletefiles)
 
+## ChefCorrectness/PropertyWithoutType
+
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
+
+Resource properties or attributes should always define a type to help users understand the correct allowed values.
+
+### Examples
+
+```ruby
+# bad
+property :size, regex: /^\d+[KMGTP]$/
+attribute :size, regex: /^\d+[KMGTP]$/
+
+# good
+property :size, String, regex: /^\d+[KMGTP]$/
+attribute :size, kind_of: String, regex: /^\d+[KMGTP]$/
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.18.0` | String
+Include | `**/libraries/*.rb`, `**/resources/*.rb` | Array
+
+### References
+
+* [https://rubystyle.guide#chefcorrectnesspropertywithouttype](https://rubystyle.guide#chefcorrectnesspropertywithouttype)
+
 ## ChefCorrectness/ResourceSetsInternalProperties
 
 Enabled by default | Supports autocorrection | Target Chef Version
