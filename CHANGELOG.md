@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.18.5 -->
-## [v6.18.5](https://github.com/chef/cookstyle/tree/v6.18.5) (2020-09-16)
+ <!-- latest_release 6.18.6 -->
+## [v6.18.6](https://github.com/chef/cookstyle/tree/v6.18.6) (2020-09-16)
 
 #### Merged Pull Requests
-- Enable 8 more RuboCop cops to simplify code [#753](https://github.com/chef/cookstyle/pull/753) ([tas50](https://github.com/tas50))
+- Optimize our slowest cop [#754](https://github.com/chef/cookstyle/pull/754) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.17.7 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Optimize our slowest cop [#754](https://github.com/chef/cookstyle/pull/754) ([tas50](https://github.com/tas50)) <!-- 6.18.6 -->
 - Enable 8 more RuboCop cops to simplify code [#753](https://github.com/chef/cookstyle/pull/753) ([tas50](https://github.com/tas50)) <!-- 6.18.5 -->
 - Add new ChefCorrectness/PropertyWithoutType cop [#751](https://github.com/chef/cookstyle/pull/751) ([tas50](https://github.com/tas50)) <!-- 6.18.4 -->
 - Enable Lint/RedundantRequireStatement cop [#752](https://github.com/chef/cookstyle/pull/752) ([tas50](https://github.com/tas50)) <!-- 6.18.3 -->
