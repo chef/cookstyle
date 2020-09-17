@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.18.7 -->
-## [v6.18.7](https://github.com/chef/cookstyle/tree/v6.18.7) (2020-09-17)
+ <!-- latest_release 6.18.8 -->
+## [v6.18.8](https://github.com/chef/cookstyle/tree/v6.18.8) (2020-09-17)
 
 #### Merged Pull Requests
-- Enable 3 new ruby cops &amp; remove duplicate disables [#756](https://github.com/chef/cookstyle/pull/756) ([tas50](https://github.com/tas50))
+- Cookstyle 6.18 release notes [#755](https://github.com/chef/cookstyle/pull/755) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.17.7 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Cookstyle 6.18 release notes [#755](https://github.com/chef/cookstyle/pull/755) ([tas50](https://github.com/tas50)) <!-- 6.18.8 -->
 - Enable 3 new ruby cops &amp; remove duplicate disables [#756](https://github.com/chef/cookstyle/pull/756) ([tas50](https://github.com/tas50)) <!-- 6.18.7 -->
 - Optimize our slowest cop [#754](https://github.com/chef/cookstyle/pull/754) ([tas50](https://github.com/tas50)) <!-- 6.18.6 -->
 - Enable 8 more RuboCop cops to simplify code [#753](https://github.com/chef/cookstyle/pull/753) ([tas50](https://github.com/tas50)) <!-- 6.18.5 -->
