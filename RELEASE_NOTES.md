@@ -22,7 +22,7 @@ The `ChefCorrectness/PropertyWithoutType` cop detects properties or attributes i
 
 `Autocorrects`: No
 
-### 11 New Ruby Cops
+### 12 New Ruby Cops
 
 Several new built-in RuboCop cops have been enabled to help simplify Ruby code within Chef Infra cookbooks. We've chosen to enable these cops as they simplify cookbook code and they all support autocorrection.
 
@@ -69,6 +69,10 @@ The `Style/Encoding` cop detects `.rb` files that start with a `UTF-8` Ruby enco
 #### Style/Dir
 
 The `Style/Dir` cop detects code with complex methods of detecting the current file path, which can be simplified by using the built in `__dir__` method in Ruby.
+
+#### Style/ExpandPathArguments
+
+The `Style/ExpandPathArguments` cop detects code with overly complex `File.expand_path` usage that can be simplified.
 
 ### Other Improvements
 
