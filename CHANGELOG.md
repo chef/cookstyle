@@ -1,33 +1,30 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.18.8 -->
-## [v6.18.8](https://github.com/chef/cookstyle/tree/v6.18.8) (2020-09-17)
-
-#### Merged Pull Requests
-- Cookstyle 6.18 release notes [#755](https://github.com/chef/cookstyle/pull/755) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=6.17.7 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Cookstyle 6.18 release notes [#755](https://github.com/chef/cookstyle/pull/755) ([tas50](https://github.com/tas50)) <!-- 6.18.8 -->
-- Enable 3 new ruby cops &amp; remove duplicate disables [#756](https://github.com/chef/cookstyle/pull/756) ([tas50](https://github.com/tas50)) <!-- 6.18.7 -->
-- Optimize our slowest cop [#754](https://github.com/chef/cookstyle/pull/754) ([tas50](https://github.com/tas50)) <!-- 6.18.6 -->
-- Enable 8 more RuboCop cops to simplify code [#753](https://github.com/chef/cookstyle/pull/753) ([tas50](https://github.com/tas50)) <!-- 6.18.5 -->
-- Add new ChefCorrectness/PropertyWithoutType cop [#751](https://github.com/chef/cookstyle/pull/751) ([tas50](https://github.com/tas50)) <!-- 6.18.4 -->
-- Enable Lint/RedundantRequireStatement cop [#752](https://github.com/chef/cookstyle/pull/752) ([tas50](https://github.com/tas50)) <!-- 6.18.3 -->
-- Backport a fix for Layout/RescueEnsureAlignment [#749](https://github.com/chef/cookstyle/pull/749) ([tas50](https://github.com/tas50)) <!-- 6.18.2 -->
-- Add new ChefCorrectness/LazyInResourceGuard cop [#750](https://github.com/chef/cookstyle/pull/750) ([tas50](https://github.com/tas50)) <!-- 6.18.1 -->
-- Update RuboCop to 0.91 [#748](https://github.com/chef/cookstyle/pull/748) ([tas50](https://github.com/tas50)) <!-- 6.18.0 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v6.18.8](https://github.com/chef/cookstyle/tree/v6.18.8) (2020-09-17)
+
+#### Merged Pull Requests
+- Update RuboCop to 0.91 [#748](https://github.com/chef/cookstyle/pull/748) ([tas50](https://github.com/tas50))
+- Add new ChefCorrectness/LazyInResourceGuard cop [#750](https://github.com/chef/cookstyle/pull/750) ([tas50](https://github.com/tas50))
+- Backport a fix for Layout/RescueEnsureAlignment [#749](https://github.com/chef/cookstyle/pull/749) ([tas50](https://github.com/tas50))
+- Enable Lint/RedundantRequireStatement cop [#752](https://github.com/chef/cookstyle/pull/752) ([tas50](https://github.com/tas50))
+- Add new ChefCorrectness/PropertyWithoutType cop [#751](https://github.com/chef/cookstyle/pull/751) ([tas50](https://github.com/tas50))
+- Enable 8 more RuboCop cops to simplify code [#753](https://github.com/chef/cookstyle/pull/753) ([tas50](https://github.com/tas50))
+- Optimize our slowest cop [#754](https://github.com/chef/cookstyle/pull/754) ([tas50](https://github.com/tas50))
+- Enable 3 new ruby cops &amp; remove duplicate disables [#756](https://github.com/chef/cookstyle/pull/756) ([tas50](https://github.com/tas50))
+- Cookstyle 6.18 release notes [#755](https://github.com/chef/cookstyle/pull/755) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v6.17.7](https://github.com/chef/cookstyle/tree/v6.17.7) (2020-09-15)
 
 #### Merged Pull Requests
 - ChefCorrectness/IncorrectLibraryInjection: Avoid adding duplicate includes in autocorrection [#747](https://github.com/chef/cookstyle/pull/747) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v6.17.6](https://github.com/chef/cookstyle/tree/v6.17.6) (2020-09-14)
 
