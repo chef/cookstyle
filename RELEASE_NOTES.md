@@ -48,7 +48,7 @@ The `Style/ReturnNil` cop detects methods that use `return nil` when `return` ca
 
 #### Style/RedundantSortBy
 
-The `Style/RedundantSortBy` cop detects code that calls `sort_by` with a block in ways that can be simplified to use just `sort` instead without the need for a block.
+The `Style/RedundantSortBy` cop detects code that calls `sort_by` with a block in ways that can be simplified to use just `sort` instead, without the need for a block.
 
 #### Style/RedundantSort
 
