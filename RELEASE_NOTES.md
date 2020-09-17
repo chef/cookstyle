@@ -56,7 +56,7 @@ The `Style/RedundantSort` cop detects code that calls `sort` in order to determi
 
 #### Style/RedundantFileExtensionInRequire
 
-The `Style/RedundantFileExtensionInRequire` cop detects code that requires libraries to use their complete filenames when the `.rb` extension is not necessary.
+The `Style/RedundantFileExtensionInRequire` cop detects code that requires libraries with their complete filenames when the `.rb` extension is not necessary.
 
 #### Style/RedundantCondition
 
