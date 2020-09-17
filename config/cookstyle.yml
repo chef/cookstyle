@@ -2361,21 +2361,6 @@ Lint/UselessSetterCall:
 Lint/Void:
   Enabled: true
 
-##### Additional rules we enable/disable over the rubocop 0.37 rules ago #####
-
-Layout/AlignParameters:
-  Enabled: false
-Style/Encoding:
-  Enabled: false
-Style/Alias:
-  Enabled: false
-Layout/SpaceBeforeFirstArg:
-  Enabled: false
-Style/ClassAndModuleChildren:
-  Enabled: false
-Style/DoubleNegation:
-  Enabled: false
-
 # file names don't matter in cookbooks
 Naming/FileName:
   Enabled: false
@@ -2711,4 +2696,16 @@ Style/RedundantFileExtensionInRequire:
 
 # more code you don't need
 Style/RedundantCondition:
+  Enabled: true
+
+# Ruby 2 makes these pointless
+Style/Encoding:
+  Enabled: true
+
+# Use  __dir__ to simplify things
+Style/Dir:
+  Enabled: true
+
+# Use __FILE__ or __dir__ to simplify expand_paths
+Style/ExpandPathArguments:
   Enabled: true
