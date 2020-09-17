@@ -2697,7 +2697,7 @@ Style/Sample:
 Style/ReturnNil:
   Enabled: true
 
-# simpler sorts
+# use .sort when .sort_by isn't needed
 Style/RedundantSortBy:
   Enabled: true
 
