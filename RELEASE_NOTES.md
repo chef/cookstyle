@@ -52,7 +52,7 @@ The `Style/RedundantSortBy` cop detects code that calls `sort_by` with a block i
 
 #### Style/RedundantSort
 
-The `Style/RedundantSort` cop detects code that calls `sort` in order to determine the min or max values when the `min` or `max` methods could be used instead.
+The `Style/RedundantSort` cop detects code that calls `sort` in order to determine the minimum or maximum values when the `min` or `max` methods could be used instead.
 
 #### Style/RedundantFileExtensionInRequire
 
