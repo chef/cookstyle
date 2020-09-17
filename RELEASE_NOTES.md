@@ -76,7 +76,7 @@ The `Style/ExpandPathArguments` cop detects code with overly complex `File.expan
 
 ### Other Improvements
 
-- The `ChefModernize/RespondToCompileTime` cop has seen significant performance optimizations that will result in faster overall Cookstyle runtimes
+- The `ChefModernize/RespondToCompileTime` cop has seen significant performance optimizations that will result in faster overall Cookstyle runtimes.
 
 ## Cookstyle 6.17
 
