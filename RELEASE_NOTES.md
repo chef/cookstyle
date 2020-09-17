@@ -1,3 +1,83 @@
+## Cookstyle 6.18
+
+### RuboCop 0.91.0
+
+RuboCop has been updated to 0.91.0, which includes a large number of bug fixes to the built-in RuboCop cops that Cookstyle uses as well as significant performance improvements.
+
+### 2 New Chef Infra Cops
+
+#### ChefCorrectness/LazyInResourceGuard
+
+The `ChefCorrectness/LazyInResourceGuard` cop detects resources that use `only_if/not_if` conditionals where the Ruby code block is wrapped in `lazy {}`. All resource conditionals are always lazily evaluated (evaluated at runtime) so there is no need to wrap them in lazy and doing so results in failures.
+
+`Enabled by default`: True
+
+`Autocorrects`: Yes
+
+#### ChefCorrectness/PropertyWithoutType
+
+The `ChefCorrectness/PropertyWithoutType` cop detects properties or attributes in resources that don't declare their type such as Array, String, or Hash. Not including a type limits the built-in validation performed by the Chef Infra Client for all user inputs, and can cause difficult to troubleshoot failures.
+
+`Enabled by default`: True
+
+`Autocorrects`: No
+
+### 12 New Ruby Cops
+
+Several new built-in RuboCop cops have been enabled to help simplify Ruby code within Chef Infra cookbooks. We've chosen to enable these cops as they simplify cookbook code and they all support autocorrection.
+
+#### Lint/RedundantRequireStatement
+
+The `Lint/RedundantRequireStatement` cop detects code requiring several built-in Ruby libraries that are required out of the box by Ruby.
+
+#### Style/Strip
+
+The `Style/Strip` cop detects code that calls `'abc'.lstrip.rstrip` when `'abc'.strip` can be used instead.
+
+#### Style/StderrPuts
+
+The `Style/StderrPuts` cop detects code that calls `$stderr.puts('hello')` when `warn('hello')` can be used instead.
+
+#### Style/Sample
+
+The `Style/Sample` detects code that uses the `shuffle` method to sample data from an array when `sample` can be used instead.
+
+#### Style/ReturnNil
+
+The `Style/ReturnNil` cop detects methods that use `return nil` when `return` can be used instead as `nil` is implied.
+
+#### Style/RedundantSortBy
+
+The `Style/RedundantSortBy` cop detects code that calls `sort_by` with a block in ways that can be simplified to use just `sort` instead, without the need for a block.
+
+#### Style/RedundantSort
+
+The `Style/RedundantSort` cop detects code that calls `sort` in order to determine the minimum or maximum values when the `min` or `max` methods could be used instead.
+
+#### Style/RedundantFileExtensionInRequire
+
+The `Style/RedundantFileExtensionInRequire` cop detects code that requires libraries with their complete filenames when the `.rb` extension is not necessary.
+
+#### Style/RedundantCondition
+
+The `Style/RedundantCondition` cop detects complex ternary operators that can be reduced to simpler `x || y` type expressions.
+
+#### Style/Encoding
+
+The `Style/Encoding` cop detects `.rb` files that start with a `UTF-8` Ruby encoding comment. These comments are no longer necessary as Ruby now defaults to `UTF-8` as of Ruby 2.0 (Chef Infra Client 12).
+
+#### Style/Dir
+
+The `Style/Dir` cop detects code with complex methods of detecting the current file path, which can be simplified by using the built in `__dir__` method in Ruby.
+
+#### Style/ExpandPathArguments
+
+The `Style/ExpandPathArguments` cop detects code with overly complex `File.expand_path` usage that can be simplified.
+
+### Other Improvements
+
+- The `ChefModernize/RespondToCompileTime` cop has seen significant performance optimizations that will result in faster overall Cookstyle runtimes.
+
 ## Cookstyle 6.17
 
 ### 4 New Cops
