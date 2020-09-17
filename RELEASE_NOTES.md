@@ -16,7 +16,7 @@ The `ChefCorrectness/LazyInResourceGuard` cop detects resources that use `only_i
 
 #### ChefCorrectness/PropertyWithoutType
 
-The `ChefCorrectness/PropertyWithoutType` cop detects properties or attributes in resources that don't declare their type such as Array, String, of Hash. Not including a type limits the built-in validation performed by the Chef Infra Client for all user inputs, and can cause difficult to troubleshoot failures.
+The `ChefCorrectness/PropertyWithoutType` cop detects properties or attributes in resources that don't declare their type such as Array, String, or Hash. Not including a type limits the built-in validation performed by the Chef Infra Client for all user inputs, and can cause difficult to troubleshoot failures.
 
 `Enabled by default`: True
 
