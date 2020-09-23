@@ -3283,11 +3283,16 @@ Style/IpAddresses:
   Description: "Don't include literal IP addresses in code."
   Enabled: false
   VersionAdded: '0.58'
-  VersionChanged: '0.77'
+  VersionChanged: '0.91'
   # Allow addresses to be permitted
   AllowedAddresses:
     - "::"
     # :: is a valid IPv6 address, but could potentially be legitimately in code
+  Exclude:
+    - '**/*.gemfile'
+    - '**/Gemfile'
+    - '**/gems.rb'
+    - '**/*.gemspec'
 
 Style/KeywordParametersOrder:
   Description: 'Enforces that optional keyword parameters are placed at the end of the parameters list.'
@@ -3988,6 +3993,8 @@ Style/SafeNavigation:
                   This cop transforms usages of a method call safeguarded by
                   a check for the existence of the object to
                   safe navigation (`&.`).
+                  Auto-correction is unsafe as it assumes the object will
+                  be `nil` or truthy, but never `false`.
   Enabled: true
   VersionAdded: '0.43'
   VersionChanged: '0.77'
@@ -4000,6 +4007,7 @@ Style/SafeNavigation:
     - presence
     - try
     - try!
+  SafeAutoCorrect: false
 
 Style/Sample:
   Description: >-
