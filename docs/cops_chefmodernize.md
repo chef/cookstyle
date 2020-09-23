@@ -1404,6 +1404,7 @@ methods in Chef 11 and early versions of Chef 12.
 # bad
 chef_version '>= 13' if respond_to?(:chef_version)
 chef_version '>= 13' if defined?(chef_version)
+chef_version '>= 13' unless defined?(Ridley::Chef::Cookbook::Metadata)
 if defined(chef_version)
   chef_version '>= 13'
 end
