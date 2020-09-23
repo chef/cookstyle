@@ -23,7 +23,7 @@ describe RuboCop::Cop::Chef::ChefModernize::RespondToInMetadata, :config do
   it "registers an offense when metadata includes the 'if respond_to?(:foo)' modifier" do
     expect_offense(<<~RUBY)
       chef_version '> 13' if respond_to?(:chef_version)
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ It is no longer necessary to use respond_to? or if_defined? in metadata.rb in Chef Infra Client 12.15 and later
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ It is no longer necessary to use respond_to? or defined? in metadata.rb in Chef Infra Client 12.15 and later
     RUBY
 
     expect_correction(<<~RUBY)
@@ -34,7 +34,7 @@ describe RuboCop::Cop::Chef::ChefModernize::RespondToInMetadata, :config do
   it "registers an offense when metadata includes the 'if defined?(foo)' modifier" do
     expect_offense(<<~RUBY)
       chef_version '> 13' if defined?(chef_version)
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ It is no longer necessary to use respond_to? or if_defined? in metadata.rb in Chef Infra Client 12.15 and later
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ It is no longer necessary to use respond_to? or defined? in metadata.rb in Chef Infra Client 12.15 and later
     RUBY
 
     expect_correction(<<~RUBY)
@@ -45,13 +45,26 @@ describe RuboCop::Cop::Chef::ChefModernize::RespondToInMetadata, :config do
   it "registers an offense when metadata includes the 'if defined?(foo)' as a multi-line conditional" do
     expect_offense(<<~RUBY)
       if defined?(chef_version)
-      ^^^^^^^^^^^^^^^^^^^^^^^^^ It is no longer necessary to use respond_to? or if_defined? in metadata.rb in Chef Infra Client 12.15 and later
+      ^^^^^^^^^^^^^^^^^^^^^^^^^ It is no longer necessary to use respond_to? or defined? in metadata.rb in Chef Infra Client 12.15 and later
         chef_version '> 13'
       end
     RUBY
 
     expect_correction(<<~RUBY)
       chef_version '> 13'
+    RUBY
+  end
+
+  it "registers an offense when metadata includes the 'unless defined?(Ridley::Chef::Cookbook::Metadata)' as a multi-line conditional" do
+    expect_offense(<<~RUBY)
+      unless defined?(Ridley::Chef::Cookbook::Metadata)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ It is no longer necessary to use respond_to? or defined? in metadata.rb in Chef Infra Client 12.15 and later
+        source_url 'https://github.com/zpallin/cyclesafe_chef.git'
+      end
+    RUBY
+
+    expect_correction(<<~RUBY)
+      source_url 'https://github.com/zpallin/cyclesafe_chef.git'
     RUBY
   end
 
