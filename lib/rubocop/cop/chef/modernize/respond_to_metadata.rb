@@ -27,6 +27,7 @@ module RuboCop
         #   # bad
         #   chef_version '>= 13' if respond_to?(:chef_version)
         #   chef_version '>= 13' if defined?(chef_version)
+        #   chef_version '>= 13' unless defined?(Ridley::Chef::Cookbook::Metadata)
         #   if defined(chef_version)
         #     chef_version '>= 13'
         #   end
@@ -40,7 +41,7 @@ module RuboCop
 
           minimum_target_chef_version '12.15'
 
-          MSG = 'It is no longer necessary to use respond_to? or if_defined? in metadata.rb in Chef Infra Client 12.15 and later'
+          MSG = 'It is no longer necessary to use respond_to? or defined? in metadata.rb in Chef Infra Client 12.15 and later'
 
           def on_if(node)
             if_respond_to?(node) do
@@ -61,8 +62,7 @@ module RuboCop
             # node.if_branch is the actual method call we want to extract.
             # If a series of metadata methods are wrapped in an if statement then the content we want
             # is a block under the if statement and node.parent.if_branch can get us that block
-
-            node = node.parent if node.parent.if? && !node.if_type? # we want the whole if statement
+            node = node.parent if node.parent.conditional? # we want the whole conditional statement
             add_offense(node, message: MSG, severity: :refactor) do |corrector|
               corrector.replace(node, node.if_branch.source)
             end
