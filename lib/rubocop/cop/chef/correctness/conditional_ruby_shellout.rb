@@ -58,7 +58,7 @@ module RuboCop
           def on_block(node)
             conditional_shellout?(node) do |type, val|
               add_offense(node, message: MSG, severity: :refactor) do |corrector|
-                corrector.replace(node.loc.expression, "#{type} #{val.source}")
+                corrector.replace(node, "#{type} #{val.source}")
               end
             end
           end

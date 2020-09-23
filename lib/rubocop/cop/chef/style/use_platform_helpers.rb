@@ -59,7 +59,7 @@ module RuboCop
             platform_equals?(node) do |type, operator, plat|
               add_offense(node.loc.expression, message: MSG, severity: :refactor) do |corrector|
                 corrected_string = (operator == :!= ? '!' : '') + "#{type.value}?('#{plat.value}')"
-                corrector.replace(node.loc.expression, corrected_string)
+                corrector.replace(node, corrected_string)
               end
             end
 
@@ -67,14 +67,14 @@ module RuboCop
               add_offense(node.loc.expression, message: MSG, severity: :refactor) do |corrector|
                 platforms = plats.values.map { |x| x.str_type? ? "'#{x.value}'" : x.source }
                 corrected_string = "#{type.value}?(#{platforms.join(', ')})"
-                corrector.replace(node.loc.expression, corrected_string)
+                corrector.replace(node, corrected_string)
               end
             end
 
             platform_eql?(node) do |type, plat|
               add_offense(node.loc.expression, message: MSG, severity: :refactor) do |corrector|
                 corrected_string = "#{type.value}?('#{plat.value}')"
-                corrector.replace(node.loc.expression, corrected_string)
+                corrector.replace(node, corrected_string)
               end
             end
           end

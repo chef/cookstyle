@@ -52,13 +52,13 @@ module RuboCop
               add_offense(node, message: MSG, severity: :refactor) do |corrector|
                 case method
                 when :nt_version
-                  corrector.replace(node.loc.expression, 'node[\'platform_version\'].to_f')
+                  corrector.replace(node, 'node[\'platform_version\'].to_f')
                 when :server_version?
-                  corrector.replace(node.loc.expression, 'node[\'kernel\'][\'product_type\'] == \'Server\'')
+                  corrector.replace(node, 'node[\'kernel\'][\'product_type\'] == \'Server\'')
                 when :core_version?
-                  corrector.replace(node.loc.expression, 'node[\'kernel\'][\'server_core\']')
+                  corrector.replace(node, 'node[\'kernel\'][\'server_core\']')
                 when :workstation_version?
-                  corrector.replace(node.loc.expression, 'node[\'kernel\'][\'product_type\'] == \'Workstation\'')
+                  corrector.replace(node, 'node[\'kernel\'][\'product_type\'] == \'Workstation\'')
                 end
               end
             end

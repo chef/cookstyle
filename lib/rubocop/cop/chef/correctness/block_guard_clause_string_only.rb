@@ -50,7 +50,7 @@ module RuboCop
             block_guard_with_only_string?(node) do
               add_offense(node, message: MSG, severity: :refactor) do |corrector|
                 new_val = "#{node.method_name} #{node.body.source}"
-                corrector.replace(node.loc.expression, new_val)
+                corrector.replace(node, new_val)
               end
             end
           end

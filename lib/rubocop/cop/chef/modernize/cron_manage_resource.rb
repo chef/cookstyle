@@ -40,7 +40,7 @@ module RuboCop
 
           def on_send(node)
             add_offense(node, message: MSG, severity: :refactor) do |corrector|
-              corrector.replace(node.loc.expression, node.source.gsub(/^cron_manage/, 'cron_access'))
+              corrector.replace(node, node.source.gsub(/^cron_manage/, 'cron_access'))
             end
           end
         end

@@ -79,7 +79,7 @@ module RuboCop
 
             rewind_resources?(node) do |string|
               add_offense(node, message: MSG, severity: :warning) do |corrector|
-                corrector.replace(node.loc.expression, node.source.gsub(string.to_s, MAPPING[string]))
+                corrector.replace(node, node.source.gsub(string.to_s, MAPPING[string]))
               end
             end
           end

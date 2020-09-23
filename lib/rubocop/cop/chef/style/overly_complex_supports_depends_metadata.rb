@@ -59,7 +59,7 @@ module RuboCop
               return unless array.values.count < 3
               add_offense(node.loc.expression, message: MSG, severity: :refactor) do |corrector|
                 corrected_value = array.values.map { |x| "#{type} '#{x.source}'" }
-                corrector.replace(node.loc.expression, corrected_value.join("\n"))
+                corrector.replace(node, corrected_value.join("\n"))
               end
             end
           end

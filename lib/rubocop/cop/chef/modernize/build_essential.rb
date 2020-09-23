@@ -44,7 +44,7 @@ module RuboCop
           def on_send(node)
             build_essential_recipe_usage?(node) do
               add_offense(node, message: MSG, severity: :refactor) do |corrector|
-                corrector.replace(node.loc.expression, "build_essential 'install compilation tools'")
+                corrector.replace(node, "build_essential 'install compilation tools'")
               end
             end
           end

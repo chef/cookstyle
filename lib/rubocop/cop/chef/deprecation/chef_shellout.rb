@@ -75,7 +75,7 @@ module RuboCop
 
             shellout_new?(node) do
               add_offense(node, message: MSG, severity: :warning) do |corrector|
-                corrector.replace(node.loc.expression, node.source.gsub('Chef::ShellOut', 'Mixlib::ShellOut'))
+                corrector.replace(node, node.source.gsub('Chef::ShellOut', 'Mixlib::ShellOut'))
               end
             end
           end

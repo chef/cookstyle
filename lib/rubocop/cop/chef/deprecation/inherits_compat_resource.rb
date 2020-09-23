@@ -49,7 +49,7 @@ module RuboCop
           def on_class(node)
             inherits_from_compat_resource?(node) do
               add_offense(node, message: MSG, severity: :warning) do |corrector|
-                corrector.replace(node.loc.expression, node.loc.expression.source.gsub('ChefCompat', 'Chef'))
+                corrector.replace(node, node.loc.expression.source.gsub('ChefCompat', 'Chef'))
               end
             end
           end

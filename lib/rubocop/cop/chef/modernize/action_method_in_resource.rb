@@ -47,7 +47,7 @@ module RuboCop
 
             add_offense(node.loc.expression, message: MSG, severity: :refactor) do |corrector|
               # @todo when we drop ruby 2.4 support we can convert this to use delete_suffix
-              corrector.replace(node.loc.expression, node.source.gsub("def #{node.method_name}", "action :#{node.method_name.to_s.gsub(/^action_/, '')} do"))
+              corrector.replace(node, node.source.gsub("def #{node.method_name}", "action :#{node.method_name.to_s.gsub(/^action_/, '')} do"))
             end
           end
         end

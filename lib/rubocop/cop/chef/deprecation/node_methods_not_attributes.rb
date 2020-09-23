@@ -49,7 +49,7 @@ module RuboCop
           def on_send(node)
             node_ohai_methods?(node) do
               add_offense(node.loc.selector, message: MSG, severity: :warning) do |corrector|
-                corrector.replace(node.loc.expression, "node['#{node.method_name}']")
+                corrector.replace(node, "node['#{node.method_name}']")
               end
             end
           end

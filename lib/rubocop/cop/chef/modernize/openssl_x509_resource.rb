@@ -49,7 +49,7 @@ module RuboCop
 
           def on_send(node)
             add_offense(node, message: MSG, severity: :refactor) do |corrector|
-              corrector.replace(node.loc.expression, node.source.gsub(/^openssl_x509/, 'openssl_x509_certificate'))
+              corrector.replace(node, node.source.gsub(/^openssl_x509/, 'openssl_x509_certificate'))
             end
           end
         end

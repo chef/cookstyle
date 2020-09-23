@@ -37,7 +37,7 @@ module RuboCop
           def on_if(node)
             if_respond_to_resource_name?(node) do
               add_offense(node, message: MSG, severity: :refactor) do |corrector|
-                corrector.replace(node.loc.expression, node.children[1].source)
+                corrector.replace(node, node.children[1].source)
               end
             end
           end

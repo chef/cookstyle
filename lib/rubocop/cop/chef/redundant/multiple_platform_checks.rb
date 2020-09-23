@@ -48,7 +48,7 @@ module RuboCop
 
               add_offense(node, message: MSG, severity: :refactor) do |corrector|
                 new_string = "#{helpers.first}(#{plats.map(&:source).join(', ')})"
-                corrector.replace(node.loc.expression, new_string)
+                corrector.replace(node, new_string)
               end
             end
           end

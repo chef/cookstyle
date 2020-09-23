@@ -51,14 +51,14 @@ module RuboCop
             # The need for this goes away once https://github.com/rubocop-hq/rubocop/pull/8365 is pulled into Cookstyle
             if node.method_name == :libarchive_file
               add_offense(node, message: MSG, severity: :refactor) do |corrector|
-                corrector.replace(node.loc.expression, node.source.gsub('libarchive_file', 'archive_file'))
+                corrector.replace(node, node.source.gsub('libarchive_file', 'archive_file'))
               end
             end
 
             notification_property?(node) do |val|
               next unless val.str_content&.start_with?('libarchive_file')
               add_offense(val, message: MSG, severity: :refactor) do |corrector|
-                corrector.replace(node.loc.expression, node.source.gsub('libarchive_file', 'archive_file'))
+                corrector.replace(node, node.source.gsub('libarchive_file', 'archive_file'))
               end
             end
           end

@@ -47,7 +47,7 @@ module RuboCop
             return unless node.const_name == 'ChefDK' && (node.parent&.module_type? || node.parent&.const_type?)
 
             add_offense(node, message: MSG, severity: :warning) do |corrector|
-              corrector.replace(node.loc.expression, node.source.gsub('ChefDK', 'ChefCLI'))
+              corrector.replace(node, node.source.gsub('ChefDK', 'ChefCLI'))
             end
           end
         end

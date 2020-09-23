@@ -64,7 +64,7 @@ module RuboCop
                 return unless props == resource_blk_name && create_action?(node.parent.parent).nil?
 
                 add_offense(node, message: MSG, severity: :refactor) do |corrector|
-                  corrector.replace(node.loc.expression, 'action :create_if_missing')
+                  corrector.replace(node, 'action :create_if_missing')
                 end
               end
             end

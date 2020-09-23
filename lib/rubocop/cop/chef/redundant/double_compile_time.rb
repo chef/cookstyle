@@ -54,7 +54,7 @@ module RuboCop
           def on_send(node)
             compile_time_and_run_action?(node) do |resource, action, run_action|
               add_offense(node.loc.selector, message: MSG, severity: :refactor) do |corrector|
-                corrector.replace(node.loc.expression, resource.source.gsub(action.to_s, run_action.to_s))
+                corrector.replace(node, resource.source.gsub(action.to_s, run_action.to_s))
               end
             end
           end

@@ -48,7 +48,7 @@ module RuboCop
               return if node.parent&.send_type?
 
               add_offense(node.loc.expression, message: MSG, severity: :refactor) do |corrector|
-                corrector.replace(node.loc.expression, "include_recipe #{recipe.source}")
+                corrector.replace(node, "include_recipe #{recipe.source}")
               end
             end
           end
