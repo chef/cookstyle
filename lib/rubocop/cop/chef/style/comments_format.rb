@@ -66,11 +66,11 @@ module RuboCop
 
           private
 
+          #
+          # @return [Boolean]
+          #
           def invalid_comment?(comment)
-            comment_types = %w(Author Cookbook Library Attribute Copyright Recipe Resource Definition License)
-            comment_types.any? do |comment_type|
-              /^#\s*#{comment_type}\s+/.match(comment.text)
-            end
+            /^#\s*(Author|Cookbook|Library|Attribute|Copyright|Recipe|Resource|Definition|License)\s+/.match?(comment.text)
           end
         end
       end
