@@ -44,32 +44,25 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'Properly format header comments'
+          VERBOSE_COMMENT_REGEX = /^#\s*([A-Za-z]+)\s?(?:Name|File)?(?:::)?\s(.*)/.freeze
+          CHEF_LIKE_COMMENT_REGEX = /^#\s*(Author|Cookbook|Library|Attribute|Copyright|Recipe|Resource|Definition|License)\s+/.freeze
 
           def on_new_investigation
             return unless processed_source.ast
 
             processed_source.comments.each do |comment|
               next if comment.loc.first_line > 10 # avoid false positives when we were checking further down the file
-              next unless comment.inline? && invalid_comment?(comment) # headers aren't in blocks
+              next unless comment.inline? && CHEF_LIKE_COMMENT_REGEX.match?(comment.text) # headers aren't in blocks
 
               add_offense(comment, message: MSG, severity: :refactor) do |corrector|
                 # Extract the type and the actual value. Strip out "Name" or "File"
                 # 'Cookbook Name' should be 'Cookbook'. Also skip a :: if present
                 # https://rubular.com/r/Do9fpLWXlCmvdJ
-                match = /^#\s*([A-Za-z]+)\s?(?:Name|File)?(?:::)?\s(.*)/.match(comment.text)
+                match = VERBOSE_COMMENT_REGEX.match(comment.text)
                 comment_type, value = match.captures
                 correct_comment = "# #{comment_type}:: #{value}"
                 corrector.replace(comment, correct_comment)
               end
-            end
-          end
-
-          private
-
-          def invalid_comment?(comment)
-            comment_types = %w(Author Cookbook Library Attribute Copyright Recipe Resource Definition License)
-            comment_types.any? do |comment_type|
-              /^#\s*#{comment_type}\s+/.match(comment.text)
             end
           end
         end
