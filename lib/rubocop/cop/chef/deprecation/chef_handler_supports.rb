@@ -45,7 +45,7 @@ module RuboCop
               add_offense(prop_node, message: MSG, severity: :warning) do |corrector|
                 # make sure to delete leading and trailing {}s that would create invalid ruby syntax
                 extracted_val = prop_node.arguments.first.source.gsub(/{|}/, '')
-                corrector.replace(prop_node.loc.expression, "type #{extracted_val}")
+                corrector.replace(prop_node, "type #{extracted_val}")
               end
             end
           end

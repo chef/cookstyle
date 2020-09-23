@@ -88,7 +88,7 @@ module RuboCop
             match_property_in_resource?(:chef_gem, 'package_name', node) do |pkg_name|
               next unless pkg_name.arguments&.first&.str_content == 'chef-rewind'
               add_offense(node, message: MSG, severity: :warning) do |corrector|
-                corrector.remove(node.loc.expression) if pkg_name.arguments&.first&.str_content == 'chef-rewind'
+                corrector.remove(node) if pkg_name.arguments&.first&.str_content == 'chef-rewind'
               end
             end
           end

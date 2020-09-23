@@ -41,7 +41,7 @@ module RuboCop
 
           def on_block(node)
             match_property_in_resource?(:execute, 'path', node) do |offense|
-              add_offense(offense.loc.expression, message: MSG, severity: :warning) # @todo: we could probably autocorrect this with some work
+              add_offense(offense, message: MSG, severity: :warning) # @todo: we could probably autocorrect this with some work
             end
           end
         end

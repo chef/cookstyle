@@ -55,7 +55,7 @@ module RuboCop
                       range = range_with_surrounding_comma(range_with_surrounding_space(range: con.loc.expression, side: :left), :both)
                       corrector.remove(range)
                     else
-                      corrector.replace(con.loc.expression, "'#{new_value}'")
+                      corrector.replace(con, "'#{new_value}'")
                     end
                   end
                 end

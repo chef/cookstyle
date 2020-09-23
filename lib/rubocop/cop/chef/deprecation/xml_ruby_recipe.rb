@@ -40,7 +40,7 @@ module RuboCop
             xml_ruby_recipe?(node) do
               node = node.parent if node.parent&.conditional? && node.parent&.single_line_condition? # make sure we catch any inline conditionals
               add_offense(node, message: MSG, severity: :warning) do |corrector|
-                corrector.remove(node.loc.expression)
+                corrector.remove(node)
               end
             end
           end

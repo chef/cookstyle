@@ -70,14 +70,14 @@ module RuboCop
               # if there's a ::File.exist?('/proc/1/comm') check first we want to match that as well
               node = node.parent if node.parent&.and_type? && proc_1_comm_exists?(node.parent.conditions.first)
 
-              add_offense(node.loc.expression, message: MSG, severity: :refactor) do |corrector|
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
                 corrector.replace(node, "node['init_package'] == 'systemd'")
               end
             end
 
             file_systemd_conditional?(node) do |conditional|
-              add_offense(node.loc.expression, message: MSG, severity: :refactor) do |corrector|
-                corrector.replace(conditional.loc.expression, "{ node['init_package'] == 'systemd' }")
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+                corrector.replace(conditional, "{ node['init_package'] == 'systemd' }")
               end
             end
           end

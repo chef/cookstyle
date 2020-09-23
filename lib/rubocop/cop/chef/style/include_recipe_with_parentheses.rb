@@ -47,7 +47,7 @@ module RuboCop
               # avoid chefspec: expect(chef_run).to include_recipe('foo')
               return if node.parent&.send_type?
 
-              add_offense(node.loc.expression, message: MSG, severity: :refactor) do |corrector|
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
                 corrector.replace(node, "include_recipe #{recipe.source}")
               end
             end

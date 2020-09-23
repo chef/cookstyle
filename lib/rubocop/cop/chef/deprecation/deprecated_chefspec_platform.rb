@@ -120,7 +120,7 @@ module RuboCop
               next unless legacy_chefspec_platform(plat.value, ver.value)
               add_offense(node, message: MSG, severity: :warning) do |corrector|
                 if replacement = replacement_string(plat.value, ver.value) # rubocop: disable Lint/AssignmentInCondition
-                  corrector.replace(ver.loc.expression, "'#{replacement}'")
+                  corrector.replace(ver, "'#{replacement}'")
                 end
               end
             end

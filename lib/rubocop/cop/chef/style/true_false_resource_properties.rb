@@ -41,8 +41,8 @@ module RuboCop
 
           def on_send(node)
             trueclass_falseclass_property?(node) do |types|
-              add_offense(node.loc.expression, message: MSG, severity: :refactor) do |corrector|
-                corrector.replace(types.loc.expression, '[true, false]')
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+                corrector.replace(types, '[true, false]')
               end
             end
           end

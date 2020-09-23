@@ -58,7 +58,7 @@ module RuboCop
           def on_send(node)
             os_equals?(node) do |operator, val|
               return unless UNNECESSARY_OS_VALUES.include?(val.value)
-              add_offense(node.loc.expression, message: MSG, severity: :refactor) do |corrector|
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
                 corrected_string = (operator == :!= ? '!' : '') + "platform_family?('#{sanitized_platform(val.value)}')"
                 corrector.replace(node, corrected_string)
               end

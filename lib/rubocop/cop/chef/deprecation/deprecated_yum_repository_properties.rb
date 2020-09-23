@@ -54,7 +54,7 @@ module RuboCop
             %w(url keyurl mirrorexpire).each do |prop|
               match_property_in_resource?(:yum_repository, prop, node) do |prop_node|
                 add_offense(prop_node, message: MSG, severity: :warning)  do |corrector|
-                  corrector.replace(prop_node.loc.expression, prop_node.loc.expression.source
+                  corrector.replace(prop_node, prop_node.source
                     .gsub(/^url/, 'baseurl')
                     .gsub(/^keyurl/, 'gpgkey')
                     .gsub(/^mirrorexpire/, 'mirror_expire'))

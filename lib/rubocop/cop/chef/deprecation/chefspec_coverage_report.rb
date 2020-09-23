@@ -39,7 +39,7 @@ module RuboCop
           def on_block(node)
             coverage_reporter?(node) do
               add_offense(node, message: MSG, severity: :warning) do |corrector|
-                corrector.remove(node.loc.expression)
+                corrector.remove(node)
               end
             end
           end
