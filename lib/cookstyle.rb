@@ -15,9 +15,6 @@ require_relative 'rubocop/monkey_patches/base'
 require_relative 'rubocop/monkey_patches/team'
 require_relative 'rubocop/monkey_patches/registry_cop'
 
-# @TODO remove this monkeypatch after we upgrade from 0.91.0
-require_relative 'rubocop/monkey_patches/rescue_ensure_alignment'
-
 module RuboCop
   class ConfigLoader
     RUBOCOP_HOME.gsub!(
