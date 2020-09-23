@@ -51,7 +51,7 @@ module RuboCop
                 # is a block under the if statement and node.parent.if_branch can get us that block
                 node = node.parent unless node.if_type?
 
-                corrector.replace(node.loc.expression, node.if_branch.source)
+                corrector.replace(node, node.if_branch.source)
               end
             end
           end
@@ -64,7 +64,7 @@ module RuboCop
 
             node = node.parent if node.parent.if? && !node.if_type? # we want the whole if statement
             add_offense(node, message: MSG, severity: :refactor) do |corrector|
-              corrector.replace(node.loc.expression, node.if_branch.source)
+              corrector.replace(node, node.if_branch.source)
             end
           end
 

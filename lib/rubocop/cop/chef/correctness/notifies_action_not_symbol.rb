@@ -53,7 +53,7 @@ module RuboCop
               return unless notifies_property.node_parts[2].str_type?
 
               add_offense(notifies_property, message: MSG, severity: :refactor) do |corrector|
-                corrector.replace(notifies_property.first_argument.loc.expression,
+                corrector.replace(notifies_property.first_argument,
                   ":#{notifies_property.node_parts[2].value}")
               end
             end

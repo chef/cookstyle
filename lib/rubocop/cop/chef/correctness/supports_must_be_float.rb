@@ -41,8 +41,8 @@ module RuboCop
           def on_send(node)
             supports_with_constraint?(node) do |ver|
               return if ver.source.include?('.')
-              add_offense(ver.loc.expression, message: MSG, severity: :refactor) do |corrector|
-                corrector.replace(ver.loc.expression, ver.source.gsub(ver.value, (ver.value + '.0')))
+              add_offense(ver, message: MSG, severity: :refactor) do |corrector|
+                corrector.replace(ver, ver.source.gsub(ver.value, (ver.value + '.0')))
               end
             end
           end

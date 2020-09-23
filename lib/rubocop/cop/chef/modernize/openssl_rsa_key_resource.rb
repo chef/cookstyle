@@ -43,7 +43,7 @@ module RuboCop
 
           def on_send(node)
             add_offense(node, message: MSG, severity: :refactor) do |corrector|
-              corrector.replace(node.loc.expression, node.source.gsub(/^openssl_rsa_key/, 'openssl_rsa_private_key'))
+              corrector.replace(node, node.source.gsub(/^openssl_rsa_key/, 'openssl_rsa_private_key'))
             end
           end
         end

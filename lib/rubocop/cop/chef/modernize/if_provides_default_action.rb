@@ -38,7 +38,7 @@ module RuboCop
             return unless node.arguments.first == s(:send, nil, :default_action)
             node = node.parent if node.parent.respond_to?(:if?) && node.parent.if? # we want the whole if statement
             add_offense(node, message: MSG, severity: :refactor) do |corrector|
-              corrector.replace(node.loc.expression, node.children[1].source)
+              corrector.replace(node, node.children[1].source)
             end
           end
         end

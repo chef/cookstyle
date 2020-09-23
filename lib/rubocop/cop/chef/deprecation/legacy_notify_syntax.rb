@@ -80,7 +80,7 @@ module RuboCop
                                 end
                 new_val = "#{notify_type} #{action.source}, #{service_value}".dup
                 new_val << ", #{timing.first.source}" unless timing.empty?
-                corrector.replace(node.loc.expression, new_val)
+                corrector.replace(node, new_val)
               end
             end
           end

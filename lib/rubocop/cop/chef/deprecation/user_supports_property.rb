@@ -60,7 +60,7 @@ module RuboCop
                   new_text << "#{key_value} #{v.source}"
                 end
 
-                corrector.replace(property.loc.expression, new_text.join("\n  "))
+                corrector.replace(property, new_text.join("\n  "))
               end
             end
           end

@@ -41,7 +41,7 @@ module RuboCop
           def on_block(node)
             unscoped_file_exist?(node) do |m|
               add_offense(m, message: MSG, severity: :refactor) do |corrector|
-                corrector.replace(m.loc.expression, '::File')
+                corrector.replace(m, '::File')
               end
             end
           end

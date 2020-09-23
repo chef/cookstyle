@@ -42,7 +42,7 @@ module RuboCop
 
           def on_send(node)
             add_offense(node, message: MSG, severity: :warning) do |corrector|
-              corrector.replace(node.loc.expression, 'ignore_failure true')
+              corrector.replace(node, 'ignore_failure true')
             end
           end
         end

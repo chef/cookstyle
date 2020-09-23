@@ -36,7 +36,7 @@ module RuboCop
             processed_source.comments.each do |comment|
               next unless comment.text.match?(/#\s*~FC\d{3}.*/)
               add_offense(comment, message: MSG, severity: :refactor) do |corrector|
-                corrector.remove(comment.loc.expression)
+                corrector.remove(comment)
               end
             end
           end

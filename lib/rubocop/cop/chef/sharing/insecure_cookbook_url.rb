@@ -51,7 +51,7 @@ module RuboCop
           def on_send(node)
             insecure_cb_url?(node) do
               add_offense(node, message: MSG, severity: :refactor) do |corrector|
-                corrector.replace(node.loc.expression, node.source.gsub(%r{http://(www.)*}, 'https://'))
+                corrector.replace(node, node.source.gsub(%r{http://(www.)*}, 'https://'))
               end
             end
           end

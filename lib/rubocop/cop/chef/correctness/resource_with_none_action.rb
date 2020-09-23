@@ -45,7 +45,7 @@ module RuboCop
               action_node.arguments.each do |action|
                 next unless action.source == ':none'
                 add_offense(action, message: MSG, severity: :refactor) do |corrector|
-                  corrector.replace(action.loc.expression, ':nothing')
+                  corrector.replace(action, ':nothing')
                 end
               end
             end

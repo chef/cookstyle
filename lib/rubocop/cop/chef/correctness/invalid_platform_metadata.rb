@@ -56,7 +56,7 @@ module RuboCop
               add_offense(plat, message: MSG, severity: :refactor) do |corrector|
                 correct_string = corrected_platform_source(plat)
                 next unless correct_string
-                corrector.replace(plat.loc.expression, correct_string)
+                corrector.replace(plat, correct_string)
               end
             end
           end
@@ -68,7 +68,7 @@ module RuboCop
                 add_offense(plat, message: MSG, severity: :refactor) do |corrector|
                   correct_string = corrected_platform_source(plat)
                   next unless correct_string
-                  corrector.replace(plat.loc.expression, correct_string)
+                  corrector.replace(plat, correct_string)
                 end
               end
             end

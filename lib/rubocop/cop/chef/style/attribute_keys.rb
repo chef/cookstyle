@@ -85,7 +85,7 @@ module RuboCop
                                 else # strings
                                   key_string.inspect
                                 end
-              corrector.replace(node.loc.expression, key_replacement)
+              corrector.replace(node, key_replacement)
             end
           end
         end

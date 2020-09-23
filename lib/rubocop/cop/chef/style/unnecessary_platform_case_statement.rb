@@ -56,7 +56,7 @@ module RuboCop
           def on_case(node)
             platform_case?(node) do |node_, type|
               return unless node&.when_branches&.count == 1
-              add_offense(node.loc.expression, message: MSG, severity: :refactor) do |corrector|
+              add_offense(node, message: MSG, severity: :refactor) do |corrector|
                 # we have at least one supermarket cookbook with an entirely empty platform case statement
                 # we can't actually fix that so let's do nothing here.
                 unless empty_case_statement?(node)
@@ -66,7 +66,7 @@ module RuboCop
                   # while multi-line statements should just have the case and when bits replace with `if platform?('ubuntu')`
                   if !node.else? && !node.when_branches.first.body.multiline?
                     new_source = "#{node.when_branches.first.body.source} if #{type.value}?(#{condition_string})"
-                    corrector.replace(node.loc.expression, new_source)
+                    corrector.replace(node, new_source)
                   else
                     # find the range from the beginning of the case to the end of the node['platform'] or node['platform_family']
                     case_range = node.loc.keyword.join(node_.loc.expression.end)

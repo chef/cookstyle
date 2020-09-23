@@ -43,7 +43,7 @@ module RuboCop
 
           def on_send(node)
             add_offense(node, message: MSG, severity: :refactor) do |corrector|
-              corrector.replace(node.loc.expression, node.source.gsub(/^sysctl_param/, 'sysctl'))
+              corrector.replace(node, node.source.gsub(/^sysctl_param/, 'sysctl'))
             end
           end
         end

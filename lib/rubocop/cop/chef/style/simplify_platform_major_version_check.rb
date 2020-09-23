@@ -65,7 +65,7 @@ module RuboCop
           def add_offense_to_i_if_present(node)
             node = node.parent if parent_method_equals?(node, :to_i)
             add_offense(node, message: MSG, severity: :refactor) do |corrector|
-              corrector.replace(node.loc.expression, "node['platform_version'].to_i")
+              corrector.replace(node, "node['platform_version'].to_i")
             end
           end
 

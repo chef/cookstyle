@@ -467,7 +467,7 @@ module RuboCop
               return if valid_license?(license.str_content)
               add_offense(license, message: MSG, severity: :refactor) do |corrector|
                 correct_string = autocorrect_license_string(license.str_content)
-                corrector.replace(license.loc.expression, "'#{correct_string}'") if correct_string
+                corrector.replace(license, "'#{correct_string}'") if correct_string
               end
             end
           end

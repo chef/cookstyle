@@ -50,7 +50,7 @@ module RuboCop
           def on_send(node)
             search_method?(node) do
               add_offense(node, message: MSG, severity: :warning) do |corrector|
-                corrector.replace(node.loc.expression, corrected_string(node))
+                corrector.replace(node, corrected_string(node))
               end if positional_arguments?(node)
             end
           end

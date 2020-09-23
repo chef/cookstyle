@@ -98,7 +98,7 @@ module RuboCop
           def check_offense(node)
             add_offense(node, message: MSG, severity: :refactor) do |corrector|
               package_array_install?(node) do |vals|
-                corrector.replace(node.loc.expression, "package #{vals.source}")
+                corrector.replace(node, "package #{vals.source}")
               end
             end
           end

@@ -47,7 +47,7 @@ module RuboCop
 
           def on_send(node)
             add_offense(node, message: MSG, severity: :refactor) do |corrector|
-              corrector.replace(node.loc.expression, node.source.gsub(/^mac_os_x_userdefaults/, 'macos_userdefaults'))
+              corrector.replace(node, node.source.gsub(/^mac_os_x_userdefaults/, 'macos_userdefaults'))
             end
           end
         end

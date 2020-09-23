@@ -44,7 +44,7 @@ module RuboCop
           def on_send(node)
             application_fatal?(node) do |val|
               add_offense(node, message: MSG, severity: :refactor) do |corrector|
-                corrector.replace(node.loc.expression, "raise(#{val.source})")
+                corrector.replace(node, "raise(#{val.source})")
               end
             end
           end

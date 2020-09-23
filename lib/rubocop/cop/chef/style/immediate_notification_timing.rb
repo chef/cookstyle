@@ -47,8 +47,8 @@ module RuboCop
 
           def on_send(node)
             immediate_notify?(node) do |timing|
-              add_offense(timing.loc.expression, message: MSG, severity: :refactor) do |corrector|
-                corrector.replace(timing.loc.expression, ':immediately')
+              add_offense(timing, message: MSG, severity: :refactor) do |corrector|
+                corrector.replace(timing, ':immediately')
               end
             end
           end

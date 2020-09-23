@@ -52,14 +52,14 @@ module RuboCop
               next if comment.loc.first_line > 10 # avoid false positives when we were checking further down the file
               next unless comment.inline? && invalid_comment?(comment) # headers aren't in blocks
 
-              add_offense(comment.loc.expression, message: MSG, severity: :refactor) do |corrector|
+              add_offense(comment, message: MSG, severity: :refactor) do |corrector|
                 # Extract the type and the actual value. Strip out "Name" or "File"
                 # 'Cookbook Name' should be 'Cookbook'. Also skip a :: if present
                 # https://rubular.com/r/Do9fpLWXlCmvdJ
                 match = /^#\s*([A-Za-z]+)\s?(?:Name|File)?(?:::)?\s(.*)/.match(comment.text)
                 comment_type, value = match.captures
                 correct_comment = "# #{comment_type}:: #{value}"
-                corrector.replace(comment.loc.expression, correct_comment)
+                corrector.replace(comment, correct_comment)
               end
             end
           end

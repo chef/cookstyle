@@ -63,14 +63,14 @@ module RuboCop
 
           def on_send(node)
             resource_mode?(node) do |mode_int|
-              add_offense(mode_int.loc.expression, message: MSG, severity: :refactor) do |corrector|
+              add_offense(mode_int, message: MSG, severity: :refactor) do |corrector|
                 # If it was an octal literal, make sure we write out the right number.
                 replacement_base = octal?(mode_int) ? 8 : 10
                 replacement_mode = mode_int.children.first.to_s(replacement_base)
 
                 # we build our own escaped string instead of using .inspect because that way
                 # we can use single quotes instead of the double quotes that .inspect adds
-                corrector.replace(mode_int.loc.expression, "\'#{replacement_mode}\'")
+                corrector.replace(mode_int, "\'#{replacement_mode}\'")
               end
             end
           end

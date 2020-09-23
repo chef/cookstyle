@@ -46,7 +46,7 @@ module RuboCop
           def on_send(node)
             data_bag_class_load?(node) do
               add_offense(node, message: MSG, severity: :refactor) do |corrector|
-                corrector.replace(node.loc.expression,
+                corrector.replace(node,
                    node.source.gsub(/Chef::(EncryptedDataBagItem|DataBagItem).load/, 'data_bag_item'))
               end
             end

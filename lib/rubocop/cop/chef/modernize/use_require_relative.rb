@@ -49,7 +49,7 @@ module RuboCop
               add_offense(node, message: MSG, severity: :refactor) do |corrector|
                 corrected_value = file.value
                 corrected_value.slice!(%r{^../}) # take the first ../ off the path
-                corrector.replace(node.loc.expression, "require_relative '#{corrected_value}'")
+                corrector.replace(node, "require_relative '#{corrected_value}'")
               end
             end
           end
