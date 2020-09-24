@@ -1929,6 +1929,23 @@ ChefEffortless/CookbookUsesDatabags:
   Exclude:
     - '**/metadata.rb'
     - '**/Berksfile'
+  
+ChefEffortless/ChefVaultUsed:
+  Description: Cookbook uses Chef Vault, which cannot be used in the Effortless Infra pattern
+  StyleGuide: '#chefeffortlesscookbookuseschefvault'
+  Enabled: false
+  VersionAdded: '6.19.2'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/Berksfile'
+
+ChefEffortless/DependsChefVault:
+  Description: Cookbook depends on Chef Vault, which cannot be used in the Effortless Infra pattern
+  StyleGuide: '#chefeffortlesscookbookdependschefvault'
+  Enabled: false
+  VersionAdded: '6.19.2'
+  Include:
+    - '**/metadata.rb'
 
 ChefEffortless/CookbookUsesEnvironments:
   Description: Cookbook uses environments, which cannot be used in the Effortless Infra pattern
