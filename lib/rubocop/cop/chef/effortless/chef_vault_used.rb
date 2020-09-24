@@ -50,17 +50,7 @@ module RuboCop
                               :chef_gem].freeze
 
           def_node_matcher :require?, <<-PATTERN
-            (send nil? :require
-              (str "chef-vault"))
-          PATTERN
-
-          def_node_matcher :include?, <<-PATTERN
-            (send nil? :include_recipe
-              (str "chef-vault"))
-          PATTERN
-
-          def_node_matcher :chef_gem?, <<-PATTERN
-            (send nil? :chef_gem
+            (send nil? { :require :include_recipe :chef_gem }
               (str "chef-vault"))
           PATTERN
 
@@ -80,10 +70,8 @@ module RuboCop
 
           def on_send(node)
             return unless require?(node) ||
-                          chef_gem?(node) ||
                           chef_vault_item_for_environment?(node) ||
-                          chef_vault_item?(node) ||
-                          include?(node)
+                          chef_vault_item?(node)
             add_offense(node.loc.expression, message: MSG, severity: :refactor)
           end
 
