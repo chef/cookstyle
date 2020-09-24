@@ -43,6 +43,11 @@ module RuboCop
         #
         class ChefVaultUsed < Base
           MSG = 'Chef Vault usage is not supported in the Effortless pattern'
+          RESTRICT_ON_SEND = [:chef_vault_item,
+                              :chef_vault_item_for_environment,
+                              :include_recipe,
+                              :require,
+                              :chef_gem].freeze
 
           def_node_matcher :require?, <<-PATTERN
             (send nil? :require
