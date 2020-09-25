@@ -203,7 +203,7 @@ Include | `**/metadata.rb`| Array
 
 ### References
 
-* [https://rubystyle.guide#chefeffortlessdependschefvault](ttps://rubystyle.guide#chefeffortlessdependschefvault)
+* [https://rubystyle.guide#chefeffortlessdependschefvault](https://rubystyle.guide#chefeffortlessdependschefvault)
 
 ## ChefEffortless/ChefVaultUsed
 
@@ -244,4 +244,4 @@ Exclude | `**/metadata.rb`, `**/Berksfile`| Array
 
 ### References
 
-* [https://rubystyle.guide#chefeffortlessdependschefvault](ttps://rubystyle.guide#chefeffortlessdependschefvault)
+* [https://rubystyle.guide#chefeffortlessdependschefvault](https://rubystyle.guide#chefeffortlessdependschefvault)
