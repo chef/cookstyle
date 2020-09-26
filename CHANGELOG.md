@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.19.2 -->
-## [v6.19.2](https://github.com/chef/cookstyle/tree/v6.19.2) (2020-09-23)
+ <!-- latest_release 6.19.3 -->
+## [v6.19.3](https://github.com/chef/cookstyle/tree/v6.19.3) (2020-09-26)
 
 #### Merged Pull Requests
-- Run a single regex per comment line instead of 9 [#760](https://github.com/chef/cookstyle/pull/760) ([tas50](https://github.com/tas50))
+- Update RuboCop to 0.92 [#763](https://github.com/chef/cookstyle/pull/763) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.18.8 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Update RuboCop to 0.92 [#763](https://github.com/chef/cookstyle/pull/763) ([tas50](https://github.com/tas50)) <!-- 6.19.3 -->
 - Run a single regex per comment line instead of 9 [#760](https://github.com/chef/cookstyle/pull/760) ([tas50](https://github.com/tas50)) <!-- 6.19.2 -->
 - Catch more legacy metadata gating [#759](https://github.com/chef/cookstyle/pull/759) ([tas50](https://github.com/tas50)) <!-- 6.19.1 -->
 - Update RuboCop to 0.91.1 [#761](https://github.com/chef/cookstyle/pull/761) ([tas50](https://github.com/tas50)) <!-- 6.19.0 -->
