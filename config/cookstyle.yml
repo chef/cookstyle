@@ -1935,7 +1935,7 @@ ChefEffortless/ChefVaultUsed:
   Description: Cookbook uses Chef Vault, which cannot be used in the Effortless Infra pattern
   StyleGuide: '#chefeffortlesscookbookuseschefvault'
   Enabled: false
-  VersionAdded: '6.19.2'
+  VersionAdded: '6.19'
   Exclude:
     - '**/metadata.rb'
     - '**/Berksfile'
@@ -1945,7 +1945,7 @@ ChefEffortless/DependsChefVault:
   Description: Cookbook depends on Chef Vault, which cannot be used in the Effortless Infra pattern
   StyleGuide: '#chefeffortlesscookbookdependschefvault'
   Enabled: false
-  VersionAdded: '6.19.2'
+  VersionAdded: '6.19'
   Include:
     - '**/metadata.rb'
 

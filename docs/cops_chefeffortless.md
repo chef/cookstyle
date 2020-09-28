@@ -198,7 +198,7 @@ depends 'chef-vault'
 
 Name | Default value | Configurable values
 --- | --- | ---
-VersionAdded | `6.19.2` | String
+VersionAdded | `6.19` | String
 Include | `**/metadata.rb`| Array
 
 ### References
@@ -239,7 +239,7 @@ chef_vault_item(arg, arg1)
 
 Name | Default value | Configurable values
 --- | --- | ---
-VersionAdded | `6.19.2` | String
+VersionAdded | `6.19` | String
 Exclude | `**/metadata.rb`, `**/Berksfile`| Array
 
 ### References

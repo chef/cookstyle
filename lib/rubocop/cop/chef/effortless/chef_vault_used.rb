@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 #
-# Copyright:: 2019, Chef Software Inc.
+# Copyright:: 2020, Chef Software Inc.
+# Author:: Scott Vidmar (<svidmar@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,7 +20,7 @@ module RuboCop
   module Cop
     module Chef
       module ChefEffortless
-        # Cookbook:: Chef Vault does not work with Effortless
+        # Cookbook:: Chef Vault is not compatible with the Chef Infra Effortless pattern due to its reliance on Data Bags to store secrets.
         #
         # @example
         #
@@ -41,6 +42,7 @@ module RuboCop
         #   # bad
         #   chef_vault_item(arg, arg1)
         #
+
         class ChefVaultUsed < Base
           MSG = 'Chef Vault usage is not supported in the Effortless pattern'
           RESTRICT_ON_SEND = [:chef_vault_item,
