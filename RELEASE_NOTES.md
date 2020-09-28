@@ -1,3 +1,32 @@
+## Cookstyle 6.19
+
+### RuboCop 0.92.0
+
+RuboCop has been updated to 0.92.0, which includes a large number of bug fixes to the built-in RuboCop cops that Cookstyle uses.
+
+### 2 New Chef Infra Cops
+
+#### ChefEffortless/ChefVaultUsed
+
+The `ChefEffortless/ChefVaultUsed` cop detects cookbooks that use the Chef Vault helpers to access Chef Vault encrypted data bag secrets. Chef Vault is not compatible with the Chef Infra Effortless pattern and users will need to migrate to a different secrets storage system.
+
+`Enabled by default`: False
+
+`Autocorrects`: False
+
+#### ChefEffortless/DependsChefVault
+
+The `ChefEffortless/DependsChefVault` cop detects cookbooks that depend on the `chef-vault` cookbook. Chef Vault is not compatible with the Chef Infra Effortless pattern and users will need to migrate to a different secrets storage system.
+
+`Enabled by default`: False
+
+`Autocorrects`: False
+
+### Other Improvements
+
+- The performance of the `ChefStyle/CommentFormat` and `ChefCorrectness/IncorrectLibraryInjection` cops have been greatly improved.
+- The `ChefModernize/RespondToInMetadata` cop now detects additional methods of gating metadata for legacy Chef Infra Client releases.
+
 ## Cookstyle 6.18
 
 ### RuboCop 0.91.0
