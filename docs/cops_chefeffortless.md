@@ -25,7 +25,7 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Disabled | No | All Versions
 
-Cookbook:: Chef Vault is not compatible with the Chef Infra Effortless pattern due to its reliance on Data Bags to store secrets.
+Chef Vault is not supported in the Effortless pattern, so usage of Chef Vault must be shifted to another secrets management solution before leveraging the Effortless pattern.
 
 ### Examples
 
@@ -199,7 +199,7 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Disabled | No | All Versions
 
-Cookbook:: Chef Vault is not compatible with the Chef Infra Effortless pattern due to its reliance on Data Bags to store secrets.
+Chef Vault is not supported in the Effortless pattern, so usage of Chef Vault must be shifted to another secrets management solution before leveraging the Effortless pattern.
 
 ### Examples
 

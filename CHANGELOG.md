@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.19.4 -->
-## [v6.19.4](https://github.com/chef/cookstyle/tree/v6.19.4) (2020-09-28)
+ <!-- latest_release 6.19.5 -->
+## [v6.19.5](https://github.com/chef/cookstyle/tree/v6.19.5) (2020-09-28)
 
 #### Merged Pull Requests
-- Adds cops to detect Chef Vault usage. [#762](https://github.com/chef/cookstyle/pull/762) ([scottvidmar](https://github.com/scottvidmar))
+- Update the description for the new vault plugins [#764](https://github.com/chef/cookstyle/pull/764) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.18.8 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Update the description for the new vault plugins [#764](https://github.com/chef/cookstyle/pull/764) ([tas50](https://github.com/tas50)) <!-- 6.19.5 -->
 - Adds cops to detect Chef Vault usage. [#762](https://github.com/chef/cookstyle/pull/762) ([scottvidmar](https://github.com/scottvidmar)) <!-- 6.19.4 -->
 - Update RuboCop to 0.92 [#763](https://github.com/chef/cookstyle/pull/763) ([tas50](https://github.com/tas50)) <!-- 6.19.3 -->
 - Run a single regex per comment line instead of 9 [#760](https://github.com/chef/cookstyle/pull/760) ([tas50](https://github.com/tas50)) <!-- 6.19.2 -->
