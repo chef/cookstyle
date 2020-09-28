@@ -1,26 +1,24 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.19.5 -->
-## [v6.19.5](https://github.com/chef/cookstyle/tree/v6.19.5) (2020-09-28)
-
-#### Merged Pull Requests
-- Update the description for the new vault plugins [#764](https://github.com/chef/cookstyle/pull/764) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=6.18.8 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Update the description for the new vault plugins [#764](https://github.com/chef/cookstyle/pull/764) ([tas50](https://github.com/tas50)) <!-- 6.19.5 -->
-- Adds cops to detect Chef Vault usage. [#762](https://github.com/chef/cookstyle/pull/762) ([scottvidmar](https://github.com/scottvidmar)) <!-- 6.19.4 -->
-- Update RuboCop to 0.92 [#763](https://github.com/chef/cookstyle/pull/763) ([tas50](https://github.com/tas50)) <!-- 6.19.3 -->
-- Run a single regex per comment line instead of 9 [#760](https://github.com/chef/cookstyle/pull/760) ([tas50](https://github.com/tas50)) <!-- 6.19.2 -->
-- Catch more legacy metadata gating [#759](https://github.com/chef/cookstyle/pull/759) ([tas50](https://github.com/tas50)) <!-- 6.19.1 -->
-- Update RuboCop to 0.91.1 [#761](https://github.com/chef/cookstyle/pull/761) ([tas50](https://github.com/tas50)) <!-- 6.19.0 -->
-- Simplify various cops [#758](https://github.com/chef/cookstyle/pull/758) ([tas50](https://github.com/tas50)) <!-- 6.18.9 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v6.19.5](https://github.com/chef/cookstyle/tree/v6.19.5) (2020-09-28)
+
+#### Merged Pull Requests
+- Simplify various cops [#758](https://github.com/chef/cookstyle/pull/758) ([tas50](https://github.com/tas50))
+- Update RuboCop to 0.91.1 [#761](https://github.com/chef/cookstyle/pull/761) ([tas50](https://github.com/tas50))
+- Catch more legacy metadata gating [#759](https://github.com/chef/cookstyle/pull/759) ([tas50](https://github.com/tas50))
+- Run a single regex per comment line instead of 9 [#760](https://github.com/chef/cookstyle/pull/760) ([tas50](https://github.com/tas50))
+- Update RuboCop to 0.92 [#763](https://github.com/chef/cookstyle/pull/763) ([tas50](https://github.com/tas50))
+- Adds cops to detect Chef Vault usage. [#762](https://github.com/chef/cookstyle/pull/762) ([scottvidmar](https://github.com/scottvidmar))
+- Update the description for the new vault plugins [#764](https://github.com/chef/cookstyle/pull/764) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v6.18.8](https://github.com/chef/cookstyle/tree/v6.18.8) (2020-09-17)
 
 #### Merged Pull Requests
@@ -33,7 +31,6 @@
 - Optimize our slowest cop [#754](https://github.com/chef/cookstyle/pull/754) ([tas50](https://github.com/tas50))
 - Enable 3 new ruby cops &amp; remove duplicate disables [#756](https://github.com/chef/cookstyle/pull/756) ([tas50](https://github.com/tas50))
 - Cookstyle 6.18 release notes [#755](https://github.com/chef/cookstyle/pull/755) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v6.17.7](https://github.com/chef/cookstyle/tree/v6.17.7) (2020-09-15)
 
