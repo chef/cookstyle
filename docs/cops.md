@@ -107,11 +107,13 @@
 #### Department [ChefEffortless](cops_chefeffortless.md)
 
 * [ChefEffortless/Berksfile](cops_chefeffortless.md#chefeffortlessberksfile)
+* [ChefEffortless/ChefVaultUsed](cops_chefeffortless.md#chefeffortlesschefvaultused)
 * [ChefEffortless/CookbookUsesDatabags](cops_chefeffortless.md#chefeffortlesscookbookusesdatabags)
 * [ChefEffortless/CookbookUsesEnvironments](cops_chefeffortless.md#chefeffortlesscookbookusesenvironments)
 * [ChefEffortless/CookbookUsesPolicygroups](cops_chefeffortless.md#chefeffortlesscookbookusespolicygroups)
 * [ChefEffortless/CookbookUsesRoles](cops_chefeffortless.md#chefeffortlesscookbookusesroles)
 * [ChefEffortless/CookbookUsesSearch](cops_chefeffortless.md#chefeffortlesscookbookusessearch)
+* [ChefEffortless/DependsChefVault](cops_chefeffortless.md#chefeffortlessdependschefvault)
 * [ChefEffortless/SearchForEnvironmentsOrRoles](cops_chefeffortless.md#chefeffortlesssearchforenvironmentsorroles)
 
 #### Department [ChefModernize](cops_chefmodernize.md)

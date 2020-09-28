@@ -19,6 +19,47 @@ Include | `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefeffortlessberksfile](https://rubystyle.guide#chefeffortlessberksfile)
 
+## ChefEffortless/ChefVaultUsed
+
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Disabled | No | All Versions
+
+Cookbook:: Chef Vault is not compatible with the Chef Infra Effortless pattern due to its reliance on Data Bags to store secrets.
+
+### Examples
+
+```ruby
+# bad
+require 'chef-vault'
+
+# bad
+ChefVault::Item
+
+# bad
+include_recipe 'chef-vault'
+
+# bad
+chef_gem 'chef-vault'
+
+# bad
+chef_vault_item_for_environment(arg, arg1)
+
+# bad
+chef_vault_item(arg, arg1)
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.19` | String
+Exclude | `**/metadata.rb`, `**/Berksfile` | Array
+
+### References
+
+* [https://rubystyle.guide#chefeffortlesscookbookuseschefvault](https://rubystyle.guide#chefeffortlesscookbookuseschefvault)
+
 ## ChefEffortless/CookbookUsesDatabags
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -152,6 +193,32 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefeffortlesscookbookusessearch](https://rubystyle.guide#chefeffortlesscookbookusessearch)
 
+## ChefEffortless/DependsChefVault
+
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Disabled | No | All Versions
+
+Cookbook:: Chef Vault is not compatible with the Chef Infra Effortless pattern due to its reliance on Data Bags to store secrets.
+
+### Examples
+
+```ruby
+# bad
+depends 'chef-vault'
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.19` | String
+Include | `**/metadata.rb` | Array
+
+### References
+
+* [https://rubystyle.guide#chefeffortlesscookbookdependschefvault](https://rubystyle.guide#chefeffortlesscookbookdependschefvault)
+
 ## ChefEffortless/SearchForEnvironmentsOrRoles
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -178,70 +245,3 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 ### References
 
 * [https://rubystyle.guide#chefeffortlesssearchforenvironmentsorroles](https://rubystyle.guide#chefeffortlesssearchforenvironmentsorroles)
-
-## ChefEffortless/DependsChefVault
-
-Enabled by default | Supports autocorrection | Target Chef Version
---- | --- | ---
-Disabled | No | All Versions
-
-Chef Vault is not supported in the Effortless pattern, so usage of Chef Vault must be shifted to another secrets management solution before leveraging the Effortless pattern.
-
-### Examples
-
-```ruby
-# bad
-depends 'chef-vault'
-```
-
-### Configurable attributes
-
-Name | Default value | Configurable values
---- | --- | ---
-VersionAdded | `6.19` | String
-Include | `**/metadata.rb`| Array
-
-### References
-
-* [https://rubystyle.guide#chefeffortlessdependschefvault](https://rubystyle.guide#chefeffortlessdependschefvault)
-
-## ChefEffortless/ChefVaultUsed
-
-Enabled by default | Supports autocorrection | Target Chef Version
---- | --- | ---
-Disabled | No | All Versions
-
-Chef Vault is not supported in the Effortless pattern, so usage of Chef Vault must be shifted to another secrets management solution before leveraging the Effortless pattern.
-
-### Examples
-
-```Ruby
-# bad
-require 'chef-vault'
-
-# bad
-ChefVault::Item
-
-# bad
-include_recipe 'chef-vault'
-
-# bad
-chef_gem 'chef-vault'
-
-# bad
-chef_vault_item_for_environment(arg, arg1)
-
-# bad
-chef_vault_item(arg, arg1)
-```
-
-### Configurable attributes
-
-Name | Default value | Configurable values
---- | --- | ---
-VersionAdded | `6.19` | String
-Exclude | `**/metadata.rb`, `**/Berksfile`| Array
-
-### References
-
-* [https://rubystyle.guide#chefeffortlessdependschefvault](https://rubystyle.guide#chefeffortlessdependschefvault)
