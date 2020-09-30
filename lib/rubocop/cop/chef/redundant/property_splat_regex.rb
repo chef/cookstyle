@@ -36,6 +36,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'There is no need to validate the input of properties in resources using a regex value that will always pass.'
+          RESTRICT_ON_SEND = [:property, :attribute].freeze
 
           def_node_matcher :property_with_regex_splat?, <<-PATTERN
             (send nil? {:property :attribute} (sym _) ... (hash <$(pair (sym :regex) (regexp (str ".*") (regopt))) ...>))

@@ -36,6 +36,7 @@ module RuboCop
         #
         class NodeSetWithoutLevel < Base
           MSG = 'When setting a node attribute in Chef Infra Client 11 and later you must specify the precedence level.'
+          RESTRICT_ON_SEND = [:[]=, :<<].freeze
 
           def on_op_asgn(node)
             # make sure it was a += or -=

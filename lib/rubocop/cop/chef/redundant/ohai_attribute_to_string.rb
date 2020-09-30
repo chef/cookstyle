@@ -46,6 +46,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = "This Ohai node attribute is already a string and doesn't need to be converted"
+          RESTRICT_ON_SEND = [:to_s].freeze
 
           def_node_matcher :attribute_to_s?, <<-PATTERN
             (send (send (send nil? :node) :[] $(str {"platform" "platform_family" "platform_version" "fqdn" "hostname" "os" "name"}) ) :to_s )

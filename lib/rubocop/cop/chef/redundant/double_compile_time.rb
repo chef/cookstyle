@@ -37,6 +37,7 @@ module RuboCop
           extend RuboCop::Cop::AutoCorrector
 
           MSG = "If a resource includes the `compile_time` property there's no need to also use `.run_action(:some_action)` on the resource block."
+          RESTRICT_ON_SEND = [:run_action].freeze
 
           def_node_matcher :compile_time_and_run_action?, <<-PATTERN
           (send

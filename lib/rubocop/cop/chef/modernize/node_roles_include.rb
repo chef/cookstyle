@@ -33,6 +33,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = "Use `node.role?('foo')` to check if a node includes a role instead of `node['roles'].include?('foo')`."
+          RESTRICT_ON_SEND = [:include?].freeze
 
           def_node_matcher :node_role_include?, <<-PATTERN
           (send

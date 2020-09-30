@@ -39,6 +39,7 @@ module RuboCop
         #
         class NodeNormalUnless < Base
           MSG = 'Do not use node.normal_unless. Replace with default/override/force_default/force_override attribute levels.'
+          RESTRICT_ON_SEND = [:normal_unless].freeze
 
           def_node_matcher :node_normal_unless?, <<-PATTERN
             (send (send _ :node) :normal_unless)

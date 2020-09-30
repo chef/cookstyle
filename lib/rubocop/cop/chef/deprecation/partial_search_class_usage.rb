@@ -49,6 +49,7 @@ module RuboCop
         #
         class PartialSearchClassUsage < Base
           MSG = 'Legacy Chef::PartialSearch class usage should be updated to use the search helper instead with the filter_result key.'
+          RESTRICT_ON_SEND = [:new].freeze
 
           def_node_matcher :partial_search_class?, <<-PATTERN
             (send (const (const ... :Chef) :PartialSearch) :new)

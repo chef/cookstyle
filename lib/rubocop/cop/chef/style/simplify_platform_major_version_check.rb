@@ -38,6 +38,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = "Use node['platform_version'].to_i instead of node['platform_version'].split('.').first or node['platform_version'].split('.')[0]"
+          RESTRICT_ON_SEND = [:split].freeze
 
           def_node_matcher :platform_version_check?, <<-PATTERN
             (send (send (send nil? :node) :[] (str "platform_version") ) :split (str ".") )

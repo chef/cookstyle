@@ -37,6 +37,7 @@ module RuboCop
           minimum_target_chef_version '12.11'
 
           MSG = "Use the built-in `shell_out` helper available in Chef Infra Client 12.11+ instead of calling `Mixlib::ShellOut.new('foo').run_command`."
+          RESTRICT_ON_SEND = [:run_command].freeze
 
           def_node_matcher :mixlib_shellout_run_cmd?, <<-PATTERN
           (send

@@ -34,6 +34,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'Do not use node.set. Replace with node.normal to keep identical behavior.'
+          RESTRICT_ON_SEND = [:set].freeze
 
           def_node_matcher :node_set?, <<-PATTERN
             (send (send _ :node) $:set)

@@ -37,6 +37,8 @@ module RuboCop
         class NodeDeepFetch < Base
           extend RuboCop::Cop::AutoCorrector
 
+          RESTRICT_ON_SEND = [:deep_fetch, :deep_fetch!].freeze
+
           def_node_matcher :node_deep_fetch?, <<-PATTERN
             (send (send _ :node) ${:deep_fetch :deep_fetch!} _)
           PATTERN

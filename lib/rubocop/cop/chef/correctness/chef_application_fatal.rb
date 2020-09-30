@@ -33,6 +33,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'Use raise to force Chef Infra Client to fail instead of using Chef::Application.fatal'
+          RESTRICT_ON_SEND = [:fatal!].freeze
 
           def_node_matcher :application_fatal?, <<-PATTERN
             (send

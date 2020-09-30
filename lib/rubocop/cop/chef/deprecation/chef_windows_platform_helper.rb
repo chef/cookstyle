@@ -33,6 +33,7 @@ module RuboCop
         class ChefWindowsPlatformHelper < Base
           extend AutoCorrector
           MSG = "Use `platform?('windows')` instead of the legacy `Chef::Platform.windows?` helper."
+          RESTRICT_ON_SEND = [:windows?].freeze
 
           def_node_matcher :chef_platform_windows?, <<-PATTERN
             (send

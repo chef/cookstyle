@@ -35,6 +35,7 @@ module RuboCop
         #
         class ResourceForcingCompileTime < Base
           MSG = "Set 'compile_time true' in resources when available instead of forcing resources to run at compile time by setting an action on the block."
+          RESTRICT_ON_SEND = [:run_action].freeze
 
           def_node_matcher :compile_time_resource?, <<-PATTERN
             (send (block (send nil? {:build_essential :chef_gem :hostname :ohai_hint} (...)) (args) (...)) $:run_action (sym ...))

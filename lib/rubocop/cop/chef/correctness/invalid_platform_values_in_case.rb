@@ -35,6 +35,7 @@ module RuboCop
           include ::RuboCop::Chef::PlatformHelpers
 
           MSG = 'Use valid platform values in case statements.'
+          RESTRICT_ON_SEND = [:[]].freeze
 
           def_node_matcher :node_platform?, <<-PATTERN
             (send (send nil? :node) :[] (str "platform") )
