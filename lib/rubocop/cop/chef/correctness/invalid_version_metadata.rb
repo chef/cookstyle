@@ -32,6 +32,7 @@ module RuboCop
         #
         class InvalidVersionMetadata < Base
           MSG = 'Cookbook metadata.rb version field should follow X.Y.Z version format.'
+          RESTRICT_ON_SEND = [:version].freeze
 
           def_node_matcher :version?, '(send nil? :version $str ...)'
 

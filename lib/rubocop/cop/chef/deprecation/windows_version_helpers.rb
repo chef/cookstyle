@@ -42,6 +42,7 @@ module RuboCop
           minimum_target_chef_version '14.0'
 
           MSG = "Use node['platform_version'] and node['kernel'] data introduced in Chef Infra Client 14 instead of the deprecated Windows::VersionHelper helpers from the Windows cookbook."
+          RESTRICT_ON_SEND = [:nt_version, :server_version?, :core_version?, :workstation_version?].freeze
 
           def_node_matcher :windows_helper?, <<-PATTERN
             (send ( const ( const {nil? cbase} :Windows ) :VersionHelper ) $_ )

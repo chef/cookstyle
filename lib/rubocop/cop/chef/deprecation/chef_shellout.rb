@@ -41,7 +41,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = "Don't use deprecated Chef::ShellOut which was removed in Chef Infra Client 13. Use Mixlib::ShellOut instead, which behaves identically."
-          # RESTRICT_ON_SEND = [:new, :require, :include].freeze
+          RESTRICT_ON_SEND = [:new, :require, :include].freeze
 
           def_node_matcher :include_shellout?, <<-PATTERN
           (send nil? :include

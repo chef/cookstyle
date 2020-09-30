@@ -39,6 +39,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = "Use the platform_family?() helpers instead of node['os] == 'foo' for platform_families that match 1:1 with OS values."
+          RESTRICT_ON_SEND = [:==, :!=, :eql?, :include?].freeze
 
           # sorted list of all the os values that match 1:1 with a platform_family
           UNNECESSARY_OS_VALUES = %w(aix darwin dragonflybsd freebsd netbsd openbsd solaris2 windows).freeze

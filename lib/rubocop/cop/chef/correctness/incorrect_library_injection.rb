@@ -37,6 +37,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'Libraries should be injected into the Chef::DSL::Recipe class and not Chef::Recipe or Chef::Provider classes directly.'
+          RESTRICT_ON_SEND = [:send, :include].freeze
 
           def_node_search :correct_injection?, <<-PATTERN
             {(send

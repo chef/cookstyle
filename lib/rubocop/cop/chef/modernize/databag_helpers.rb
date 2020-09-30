@@ -35,6 +35,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'Use the `data_bag_item` helper instead of `Chef::DataBagItem.load` or `Chef::EncryptedDataBagItem.load`.'
+          RESTRICT_ON_SEND = [:load].freeze
 
           def_node_matcher :data_bag_class_load?, <<-PATTERN
           (send

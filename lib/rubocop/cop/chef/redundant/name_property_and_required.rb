@@ -61,6 +61,7 @@ module RuboCop
         #
         class NamePropertyIsRequired < Base
           MSG = 'Resource properties marked as name properties should not also be required properties'
+          RESTRICT_ON_SEND = [:property, :attribute].freeze
 
           # match on a property or attribute that has any name and any type and a hash that
           # contains name_property: true and required: true. These are wrapped in <> which means

@@ -45,6 +45,7 @@ module RuboCop
           include RuboCop::Cop::ConfigurableEnforcedStyle
 
           MSG = 'Use %s to access node attributes'
+          RESTRICT_ON_SEND = [:[]].freeze
 
           def_node_matcher :node_attribute_access?, <<-PATTERN
             (send (send _ :node) :[] _)
