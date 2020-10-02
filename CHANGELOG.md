@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.19.9 -->
-## [v6.19.9](https://github.com/chef/cookstyle/tree/v6.19.9) (2020-10-02)
+ <!-- latest_release 6.19.10 -->
+## [v6.19.10](https://github.com/chef/cookstyle/tree/v6.19.10) (2020-10-02)
 
 #### Merged Pull Requests
-- Use + instead of dup to unfreeze a string [#769](https://github.com/chef/cookstyle/pull/769) ([tas50](https://github.com/tas50))
+- Ident all the heredocs [#770](https://github.com/chef/cookstyle/pull/770) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.19.5 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Ident all the heredocs [#770](https://github.com/chef/cookstyle/pull/770) ([tas50](https://github.com/tas50)) <!-- 6.19.10 -->
 - Use + instead of dup to unfreeze a string [#769](https://github.com/chef/cookstyle/pull/769) ([tas50](https://github.com/tas50)) <!-- 6.19.9 -->
 - Remove extra Gem::Dependency.new code [#768](https://github.com/chef/cookstyle/pull/768) ([tas50](https://github.com/tas50)) <!-- 6.19.8 -->
 - Simplify ChefDeprecations/ResourceOverridesProvidesMethod [#767](https://github.com/chef/cookstyle/pull/767) ([tas50](https://github.com/tas50)) <!-- 6.19.7 -->
