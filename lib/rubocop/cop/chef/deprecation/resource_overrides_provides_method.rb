@@ -34,12 +34,12 @@ module RuboCop
         class ResourceOverridesProvidesMethod < Base
           MSG = "Don't override the provides? method in a resource provider. Use provides :SOME_PROVIDER_NAME instead. This will cause failures in Chef Infra Client 13 and later."
 
-          def_node_search :provides, '(send nil? :provides ...)'
+          def_node_search :calls_provides?, '(send nil? :provides ...)'
 
           def on_def(node)
             return unless node.method_name == :provides?
 
-            add_offense(node, message: MSG, severity: :warning) if provides(processed_source.ast).count == 0
+            add_offense(node, message: MSG, severity: :warning) unless calls_provides?(processed_source.ast)
           end
         end
       end
