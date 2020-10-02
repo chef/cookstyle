@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.19.10 -->
-## [v6.19.10](https://github.com/chef/cookstyle/tree/v6.19.10) (2020-10-02)
+ <!-- latest_release 6.19.11 -->
+## [v6.19.11](https://github.com/chef/cookstyle/tree/v6.19.11) (2020-10-02)
 
 #### Merged Pull Requests
-- Ident all the heredocs [#770](https://github.com/chef/cookstyle/pull/770) ([tas50](https://github.com/tas50))
+- Enable rubocop-performance in CI [#771](https://github.com/chef/cookstyle/pull/771) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.19.5 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Enable rubocop-performance in CI [#771](https://github.com/chef/cookstyle/pull/771) ([tas50](https://github.com/tas50)) <!-- 6.19.11 -->
 - Ident all the heredocs [#770](https://github.com/chef/cookstyle/pull/770) ([tas50](https://github.com/tas50)) <!-- 6.19.10 -->
 - Use + instead of dup to unfreeze a string [#769](https://github.com/chef/cookstyle/pull/769) ([tas50](https://github.com/tas50)) <!-- 6.19.9 -->
 - Remove extra Gem::Dependency.new code [#768](https://github.com/chef/cookstyle/pull/768) ([tas50](https://github.com/tas50)) <!-- 6.19.8 -->
