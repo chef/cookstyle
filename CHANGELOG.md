@@ -1,25 +1,23 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.19.11 -->
-## [v6.19.11](https://github.com/chef/cookstyle/tree/v6.19.11) (2020-10-02)
-
-#### Merged Pull Requests
-- Enable rubocop-performance in CI [#771](https://github.com/chef/cookstyle/pull/771) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=6.19.5 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Enable rubocop-performance in CI [#771](https://github.com/chef/cookstyle/pull/771) ([tas50](https://github.com/tas50)) <!-- 6.19.11 -->
-- Ident all the heredocs [#770](https://github.com/chef/cookstyle/pull/770) ([tas50](https://github.com/tas50)) <!-- 6.19.10 -->
-- Use + instead of dup to unfreeze a string [#769](https://github.com/chef/cookstyle/pull/769) ([tas50](https://github.com/tas50)) <!-- 6.19.9 -->
-- Remove extra Gem::Dependency.new code [#768](https://github.com/chef/cookstyle/pull/768) ([tas50](https://github.com/tas50)) <!-- 6.19.8 -->
-- Simplify ChefDeprecations/ResourceOverridesProvidesMethod [#767](https://github.com/chef/cookstyle/pull/767) ([tas50](https://github.com/tas50)) <!-- 6.19.7 -->
-- Speedup runs by 4.3% with restrict on send [#766](https://github.com/chef/cookstyle/pull/766) ([tas50](https://github.com/tas50)) <!-- 6.19.6 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v6.19.11](https://github.com/chef/cookstyle/tree/v6.19.11) (2020-10-02)
+
+#### Merged Pull Requests
+- Speedup runs by 4.3% with restrict on send [#766](https://github.com/chef/cookstyle/pull/766) ([tas50](https://github.com/tas50))
+- Simplify ChefDeprecations/ResourceOverridesProvidesMethod [#767](https://github.com/chef/cookstyle/pull/767) ([tas50](https://github.com/tas50))
+- Remove extra Gem::Dependency.new code [#768](https://github.com/chef/cookstyle/pull/768) ([tas50](https://github.com/tas50))
+- Use + instead of dup to unfreeze a string [#769](https://github.com/chef/cookstyle/pull/769) ([tas50](https://github.com/tas50))
+- Ident all the heredocs [#770](https://github.com/chef/cookstyle/pull/770) ([tas50](https://github.com/tas50))
+- Enable rubocop-performance in CI [#771](https://github.com/chef/cookstyle/pull/771) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v6.19.5](https://github.com/chef/cookstyle/tree/v6.19.5) (2020-09-28)
 
 #### Merged Pull Requests
@@ -30,7 +28,6 @@
 - Update RuboCop to 0.92 [#763](https://github.com/chef/cookstyle/pull/763) ([tas50](https://github.com/tas50))
 - Adds cops to detect Chef Vault usage. [#762](https://github.com/chef/cookstyle/pull/762) ([scottvidmar](https://github.com/scottvidmar))
 - Update the description for the new vault plugins [#764](https://github.com/chef/cookstyle/pull/764) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v6.18.8](https://github.com/chef/cookstyle/tree/v6.18.8) (2020-09-17)
 
