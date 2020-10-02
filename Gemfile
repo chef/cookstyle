@@ -17,8 +17,12 @@ group :docs do
 end
 
 group :profiling do
-  gem 'stackprof'
   gem 'memory_profiler'
+  gem 'stackprof'
+end
+
+group :rubocop_gems do
+  gem 'rubocop-performance'
 end
 
 group :development do
