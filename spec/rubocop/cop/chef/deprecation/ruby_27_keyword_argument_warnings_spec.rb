@@ -23,23 +23,23 @@ describe RuboCop::Cop::Chef::ChefDeprecations::Ruby27KeywordArgumentWarnings, :c
 
   it 'registers an offense when passing a hash with brackets to shell_out' do
     expect_offense(<<~RUBY)
-    shell_out('hostnamectl status', {returns: [0, 1]})
-                                    ^^^^^^^^^^^^^^^^^ Pass options to shell_out helpers without the brackets to avoid Ruby 2.7 deprecation warnings.
+      shell_out('hostnamectl status', {returns: [0, 1]})
+                                      ^^^^^^^^^^^^^^^^^ Pass options to shell_out helpers without the brackets to avoid Ruby 2.7 deprecation warnings.
     RUBY
 
     expect_correction(<<~RUBY)
-    shell_out('hostnamectl status', returns: [0, 1])
+      shell_out('hostnamectl status', returns: [0, 1])
     RUBY
   end
 
   it 'registers an offense when passing a hash with brackets to shell_out!' do
     expect_offense(<<~RUBY)
-    shell_out!('hostnamectl status', {returns: [0, 1]})
-                                     ^^^^^^^^^^^^^^^^^ Pass options to shell_out helpers without the brackets to avoid Ruby 2.7 deprecation warnings.
+      shell_out!('hostnamectl status', {returns: [0, 1]})
+                                       ^^^^^^^^^^^^^^^^^ Pass options to shell_out helpers without the brackets to avoid Ruby 2.7 deprecation warnings.
     RUBY
 
     expect_correction(<<~RUBY)
-    shell_out!('hostnamectl status', returns: [0, 1])
+      shell_out!('hostnamectl status', returns: [0, 1])
     RUBY
   end
 

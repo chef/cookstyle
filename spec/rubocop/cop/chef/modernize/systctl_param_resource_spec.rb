@@ -22,24 +22,24 @@ describe RuboCop::Cop::Chef::ChefModernize::SysctlParamResource, :config do
 
   it 'registers an offense when using the sysctl_param resource' do
     expect_offense(<<~RUBY)
-    sysctl_param 'fs.aio-max-nr' do
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ The sysctl_param resource was renamed to sysctl when it was added to Chef Infra Client 14.0. The new resource name should be used.
-      value '1048576'
-    end
+      sysctl_param 'fs.aio-max-nr' do
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ The sysctl_param resource was renamed to sysctl when it was added to Chef Infra Client 14.0. The new resource name should be used.
+        value '1048576'
+      end
     RUBY
 
     expect_correction(<<~RUBY)
-    sysctl 'fs.aio-max-nr' do
-      value '1048576'
-    end
+      sysctl 'fs.aio-max-nr' do
+        value '1048576'
+      end
     RUBY
   end
 
   it "doesn't register an offense when using the sysctl resource" do
     expect_no_offenses(<<~RUBY)
-    sysctl 'fs.aio-max-nr' do
-      value '1048576'
-    end
+      sysctl 'fs.aio-max-nr' do
+        value '1048576'
+      end
     RUBY
   end
 

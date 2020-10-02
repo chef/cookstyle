@@ -23,87 +23,87 @@ describe RuboCop::Cop::Chef::ChefDeprecations::HWRPWithoutProvides, :config do
 
   it 'registers an offense when a HWRP does not define a resource_name or provides' do
     expect_offense(<<~RUBY)
-    class Chef
-      class Resource
-        class UlimitRule < Chef::Resource
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ In Chef Infra Client 16 and later a legacy HWRP resource must use `provides` to define how the resource is called in recipes or other resources. To maintain compatibility with Chef Infra Client < 16 use both `resource_name` and `provides`.
-          property :type, [Symbol, String], required: true
-          property :item, [Symbol, String], required: true
+      class Chef
+        class Resource
+          class UlimitRule < Chef::Resource
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ In Chef Infra Client 16 and later a legacy HWRP resource must use `provides` to define how the resource is called in recipes or other resources. To maintain compatibility with Chef Infra Client < 16 use both `resource_name` and `provides`.
+            property :type, [Symbol, String], required: true
+            property :item, [Symbol, String], required: true
 
-          # additional resource code
+            # additional resource code
+          end
         end
       end
-    end
     RUBY
   end
 
   it 'registers an offense when a HWRP does not define a provides, but does have resource_name' do
     expect_offense(<<~RUBY)
-    class Chef
-      class Resource
-        class UlimitRule < Chef::Resource
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ In Chef Infra Client 16 and later a legacy HWRP resource must use `provides` to define how the resource is called in recipes or other resources. To maintain compatibility with Chef Infra Client < 16 use both `resource_name` and `provides`.
-          resource_name :ulimit_rule
+      class Chef
+        class Resource
+          class UlimitRule < Chef::Resource
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ In Chef Infra Client 16 and later a legacy HWRP resource must use `provides` to define how the resource is called in recipes or other resources. To maintain compatibility with Chef Infra Client < 16 use both `resource_name` and `provides`.
+            resource_name :ulimit_rule
 
-          property :type, [Symbol, String], required: true
-          property :item, [Symbol, String], required: true
+            property :type, [Symbol, String], required: true
+            property :item, [Symbol, String], required: true
 
-          # additional resource code
+            # additional resource code
+          end
         end
       end
-    end
     RUBY
 
     expect_correction(<<~RUBY)
-    class Chef
-      class Resource
-        class UlimitRule < Chef::Resource
-          resource_name :ulimit_rule
-          provides :ulimit_rule
+      class Chef
+        class Resource
+          class UlimitRule < Chef::Resource
+            resource_name :ulimit_rule
+            provides :ulimit_rule
 
-          property :type, [Symbol, String], required: true
-          property :item, [Symbol, String], required: true
+            property :type, [Symbol, String], required: true
+            property :item, [Symbol, String], required: true
 
-          # additional resource code
+            # additional resource code
+          end
         end
       end
-    end
     RUBY
   end
 
   it 'registers an offense when a HWRP defines a resource_name that does not match a provides' do
     expect_offense(<<~RUBY)
-    class Chef
-      class Resource
-        class UlimitRule < Chef::Resource
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ In Chef Infra Client 16 and later a legacy HWRP resource must use `provides` to define how the resource is called in recipes or other resources. To maintain compatibility with Chef Infra Client < 16 use both `resource_name` and `provides`.
-          resource_name :ulimit_rule
-          provides :ulimit_something_else
+      class Chef
+        class Resource
+          class UlimitRule < Chef::Resource
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ In Chef Infra Client 16 and later a legacy HWRP resource must use `provides` to define how the resource is called in recipes or other resources. To maintain compatibility with Chef Infra Client < 16 use both `resource_name` and `provides`.
+            resource_name :ulimit_rule
+            provides :ulimit_something_else
 
-          property :type, [Symbol, String], required: true
-          property :item, [Symbol, String], required: true
+            property :type, [Symbol, String], required: true
+            property :item, [Symbol, String], required: true
 
-          # additional resource code
+            # additional resource code
+          end
         end
       end
-    end
     RUBY
 
     expect_correction(<<~RUBY)
-    class Chef
-      class Resource
-        class UlimitRule < Chef::Resource
-          resource_name :ulimit_rule
-          provides :ulimit_rule
-          provides :ulimit_something_else
+      class Chef
+        class Resource
+          class UlimitRule < Chef::Resource
+            resource_name :ulimit_rule
+            provides :ulimit_rule
+            provides :ulimit_something_else
 
-          property :type, [Symbol, String], required: true
-          property :item, [Symbol, String], required: true
+            property :type, [Symbol, String], required: true
+            property :item, [Symbol, String], required: true
 
-          # additional resource code
+            # additional resource code
+          end
         end
       end
-    end
     RUBY
   end
 

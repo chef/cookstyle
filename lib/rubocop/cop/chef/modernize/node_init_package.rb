@@ -63,7 +63,7 @@ module RuboCop
           PATTERN
 
           def_node_matcher :file_systemd_conditional?, <<~PATTERN
-          (send nil? {:not_if :only_if} $(str "test -f /bin/systemctl && /bin/systemctl"))
+            (send nil? {:not_if :only_if} $(str "test -f /bin/systemctl && /bin/systemctl"))
           PATTERN
 
           def on_send(node)

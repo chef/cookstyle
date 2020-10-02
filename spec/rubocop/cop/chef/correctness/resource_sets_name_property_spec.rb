@@ -31,9 +31,9 @@ describe RuboCop::Cop::Chef::ChefCorrectness::ResourceSetsNameProperty, :config 
 
   it 'does not register an offense when when a resource sets other properties' do
     expect_no_offenses(<<~RUBY)
-    service 'foo' do
-        not_name 'bar'
-      end
+      service 'foo' do
+          not_name 'bar'
+        end
     RUBY
   end
 end

@@ -22,33 +22,33 @@ describe RuboCop::Cop::Chef::ChefModernize::ExecuteTzUtil, :config do
 
   it 'registers an offense when using the execute resource with a command running tzutil' do
     expect_offense(<<~RUBY)
-    execute 'set tz' do
-    ^^^^^^^^^^^^^^^^^^^ Use the timezone resource included in Chef Infra Client 14.6+ instead of shelling out to tzutil
-      command 'tzutil.exe /s UTC'
-    end
+      execute 'set tz' do
+      ^^^^^^^^^^^^^^^^^^^ Use the timezone resource included in Chef Infra Client 14.6+ instead of shelling out to tzutil
+        command 'tzutil.exe /s UTC'
+      end
     RUBY
   end
 
   it 'registers an offense when using the execute resource to run tzutil' do
     expect_offense(<<~RUBY)
-    execute 'tzutil /s UTC'
-    ^^^^^^^^^^^^^^^^^^^^^^^ Use the timezone resource included in Chef Infra Client 14.6+ instead of shelling out to tzutil
+      execute 'tzutil /s UTC'
+      ^^^^^^^^^^^^^^^^^^^^^^^ Use the timezone resource included in Chef Infra Client 14.6+ instead of shelling out to tzutil
     RUBY
   end
 
   it 'registers an offense when using the powershell_script resource to run tzutil' do
     expect_offense(<<~RUBY)
-    powershell_script 'set windows timezone' do
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the timezone resource included in Chef Infra Client 14.6+ instead of shelling out to tzutil
-      code "tzutil.exe /s UTC"
-      not_if { shell_out('tzutil.exe /g').stdout.include?('UTC') }
-    end
+      powershell_script 'set windows timezone' do
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the timezone resource included in Chef Infra Client 14.6+ instead of shelling out to tzutil
+        code "tzutil.exe /s UTC"
+        not_if { shell_out('tzutil.exe /g').stdout.include?('UTC') }
+      end
     RUBY
   end
 
   it "doesn't register an offense when using the timezone resource" do
     expect_no_offenses(<<~RUBY)
-    timezone 'UTC'
+      timezone 'UTC'
     RUBY
   end
 

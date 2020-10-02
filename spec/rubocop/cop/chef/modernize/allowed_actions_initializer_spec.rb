@@ -31,11 +31,11 @@ describe RuboCop::Cop::Chef::ChefModernize::AllowedActionsFromInitialize, :confi
     RUBY
 
     expect_correction(<<~RUBY)
-    allowed_actions [:create, :remove]
+      allowed_actions [:create, :remove]
 
-    def initialize(*args)
-      super
-    end
+      def initialize(*args)
+        super
+      end
     RUBY
   end
 
@@ -49,41 +49,41 @@ describe RuboCop::Cop::Chef::ChefModernize::AllowedActionsFromInitialize, :confi
     RUBY
 
     expect_correction(<<~RUBY)
-    allowed_actions [:create, :remove]
+      allowed_actions [:create, :remove]
 
-    def initialize(*args)
-      super
-    end
+      def initialize(*args)
+        super
+      end
     RUBY
   end
 
   it 'does not register an offense with a poise resource' do
     expect_no_offenses(<<~RUBY)
-    require 'poise'
+      require 'poise'
 
-    module MyCookbook
-      module Resource
-        class MyResource < Chef::Resource
-          include Poise(inversion: true)
-          provides(:consul_installation)
-          actions(:create, :remove)
+      module MyCookbook
+        module Resource
+          class MyResource < Chef::Resource
+            include Poise(inversion: true)
+            provides(:consul_installation)
+            actions(:create, :remove)
+          end
         end
       end
-    end
     RUBY
   end
 
   it 'does not register an offense when adding actions to the parent class' do
     expect_no_offenses(<<~RUBY)
-    def initialize(name, run_context=nil)
-      super(name, run_context)
-      @action = :install
-      @allowed_actions += [:install]
-      @resource_name = :chef_bundle
-      @compile_time = Chef::Config[:chef_gem_compile_time]
-      @gemfile = nil
-      @options = []
-    end
+      def initialize(name, run_context=nil)
+        super(name, run_context)
+        @action = :install
+        @allowed_actions += [:install]
+        @resource_name = :chef_bundle
+        @compile_time = Chef::Config[:chef_gem_compile_time]
+        @gemfile = nil
+        @options = []
+      end
     RUBY
   end
 
@@ -106,10 +106,10 @@ describe RuboCop::Cop::Chef::ChefModernize::AllowedActionsFromInitialize, :confi
 
   it 'does not register an offense with when an initializer containing other variables' do
     expect_no_offenses(<<~RUBY)
-    def initialize(*args)
-      super
-      @action = :create
-    end
+      def initialize(*args)
+        super
+        @action = :create
+      end
     RUBY
   end
 end

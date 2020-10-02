@@ -23,8 +23,8 @@ describe RuboCop::Cop::Chef::ChefRedundantCode::StringPropertyWithNilDefault, :c
 
   it 'registers an offense when a String property has a nil default' do
     expect_offense(<<~RUBY)
-    property :config_file, String, default: nil
-                                   ^^^^^^^^^^^^ Properties have a nil value by default so there is no need to set the default value to nil.
+      property :config_file, String, default: nil
+                                     ^^^^^^^^^^^^ Properties have a nil value by default so there is no need to set the default value to nil.
     RUBY
 
     expect_correction("property :config_file, String\n")
@@ -32,8 +32,8 @@ describe RuboCop::Cop::Chef::ChefRedundantCode::StringPropertyWithNilDefault, :c
 
   it 'registers an offense when a String/NilClass property has a nil default' do
     expect_offense(<<~RUBY)
-    property :config_file, [String, NilClass], default: nil
-                                               ^^^^^^^^^^^^ Properties have a nil value by default so there is no need to set the default value to nil.
+      property :config_file, [String, NilClass], default: nil
+                                                 ^^^^^^^^^^^^ Properties have a nil value by default so there is no need to set the default value to nil.
     RUBY
 
     expect_correction("property :config_file, [String, NilClass]\n")
@@ -41,8 +41,8 @@ describe RuboCop::Cop::Chef::ChefRedundantCode::StringPropertyWithNilDefault, :c
 
   it 'registers an offense when a String/nil property has a nil default' do
     expect_offense(<<~RUBY)
-    property :config_file, [String, nil], default: nil
-                                          ^^^^^^^^^^^^ Properties have a nil value by default so there is no need to set the default value to nil.
+      property :config_file, [String, nil], default: nil
+                                            ^^^^^^^^^^^^ Properties have a nil value by default so there is no need to set the default value to nil.
     RUBY
 
     expect_correction("property :config_file, [String, nil]\n")
@@ -50,7 +50,7 @@ describe RuboCop::Cop::Chef::ChefRedundantCode::StringPropertyWithNilDefault, :c
 
   it "doesn't register an offense when a property has a non-nil default" do
     expect_no_offenses(<<~RUBY)
-    property :bob, String, default: 'foo'
+      property :bob, String, default: 'foo'
     RUBY
   end
 end

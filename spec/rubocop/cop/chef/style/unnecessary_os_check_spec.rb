@@ -56,8 +56,8 @@ describe RuboCop::Cop::Chef::ChefStyle::UnnecessaryOSCheck do
 
   it "registers an offense with %w(netbsd openbsd freebsd).include?(node['os'])" do
     expect_offense(<<~RUBY)
-    %w(netbsd openbsd freebsd).include?(node['os'])
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the platform_family?() helpers instead of node['os] == 'foo' for platform_families that match 1:1 with OS values.
+      %w(netbsd openbsd freebsd).include?(node['os'])
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the platform_family?() helpers instead of node['os] == 'foo' for platform_families that match 1:1 with OS values.
     RUBY
 
     expect_correction(<<~RUBY)

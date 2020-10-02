@@ -22,10 +22,10 @@ describe RuboCop::Cop::Chef::ChefModernize::Definitions, :config do
 
   it 'registers an offense when defining a definition' do
     expect_offense(<<~RUBY)
-    define :foo, :variables => {}, :config_subdir => true do
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Legacy Chef Infra definitions should be rewritten as custom resources to take full advantage of the Chef Infra feature set.
-      apt_update
-    end
+      define :foo, :variables => {}, :config_subdir => true do
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Legacy Chef Infra definitions should be rewritten as custom resources to take full advantage of the Chef Infra feature set.
+        apt_update
+      end
     RUBY
   end
 end

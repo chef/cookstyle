@@ -43,12 +43,12 @@ describe RuboCop::Cop::Chef::ChefRedundantCode::AptRepositoryNotifiesAptUpdate d
 
   it 'does not register an offense with a plain old notification' do
     expect_no_offenses(<<~RUBY)
-    apt_repository 'my repo' do
-      uri 'http://packages.example.com/debian'
-      components %w(stable main)
-      deb_src false
-      notifies :run, 'execute[foo]', :immediately
-    end
-  RUBY
+      apt_repository 'my repo' do
+        uri 'http://packages.example.com/debian'
+        components %w(stable main)
+        deb_src false
+        notifies :run, 'execute[foo]', :immediately
+      end
+    RUBY
   end
 end

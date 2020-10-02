@@ -28,7 +28,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::NamePropertyWithDefaultValue, :co
     RUBY
 
     expect_correction(<<~RUBY)
-    property :foo, String, name_property: true
+      property :foo, String, name_property: true
     RUBY
   end
 
@@ -39,7 +39,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::NamePropertyWithDefaultValue, :co
     RUBY
 
     expect_correction(<<~RUBY)
-    attribute :foo, String, name_attribute: true
+      attribute :foo, String, name_attribute: true
     RUBY
   end
 

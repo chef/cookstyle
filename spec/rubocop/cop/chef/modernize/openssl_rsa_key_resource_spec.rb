@@ -22,24 +22,24 @@ describe RuboCop::Cop::Chef::ChefModernize::OpensslRsaKeyResource, :config do
 
   it 'registers an offense when using the openssl_rsa_key resource' do
     expect_offense(<<~RUBY)
-    openssl_rsa_key '/etc/httpd/ssl/server.key' do
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ The openssl_rsa_key resource was renamed to openssl_rsa_private_key in Chef Infra Client 14.0. The new resource name should be used.
-      key_length 2048
-    end
+      openssl_rsa_key '/etc/httpd/ssl/server.key' do
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ The openssl_rsa_key resource was renamed to openssl_rsa_private_key in Chef Infra Client 14.0. The new resource name should be used.
+        key_length 2048
+      end
     RUBY
 
     expect_correction(<<~RUBY)
-    openssl_rsa_private_key '/etc/httpd/ssl/server.key' do
-      key_length 2048
-    end
+      openssl_rsa_private_key '/etc/httpd/ssl/server.key' do
+        key_length 2048
+      end
     RUBY
   end
 
   it "doesn't register an offense when using the openssl_rsa_private_key resource" do
     expect_no_offenses(<<~RUBY)
-    openssl_rsa_private_key '/etc/httpd/ssl/server.key' do
-      key_length 2048
-    end
+      openssl_rsa_private_key '/etc/httpd/ssl/server.key' do
+        key_length 2048
+      end
     RUBY
   end
 

@@ -40,9 +40,9 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ExecutePathProperty, :config do
 
   it "doesn't register an offense when a non-execute resource has a path property" do
     expect_no_offenses(<<~RUBY)
-    foo 'bar' do
-      path ['/foo/bar']
-    end
+      foo 'bar' do
+        path ['/foo/bar']
+      end
     RUBY
   end
 end

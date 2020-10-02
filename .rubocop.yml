@@ -14,3 +14,7 @@ ChefModernize/FoodcriticComments:
 # reduces memory usage
 Style/FrozenStringLiteralComment:
   Enabled: true
+
+# makes it easier to read the matchers
+Layout/HeredocIndentation:
+  Enabled: true

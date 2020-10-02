@@ -23,24 +23,24 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ResourceInheritsFromCompatResourc
 
   it 'registers an offense when a HWRP inherits from ChefCompat::Resource' do
     expect_offense(<<~RUBY)
-    class AptUpdate < ChefCompat::Resource
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ HWRP style resource should inherit from the 'Chef::Resource' class and not the 'ChefCompat::Resource' class from the deprecated compat_resource cookbook.
-      # some resource code
-    end
+      class AptUpdate < ChefCompat::Resource
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ HWRP style resource should inherit from the 'Chef::Resource' class and not the 'ChefCompat::Resource' class from the deprecated compat_resource cookbook.
+        # some resource code
+      end
     RUBY
 
     expect_correction(<<~RUBY)
-    class AptUpdate < Chef::Resource
-      # some resource code
-    end
+      class AptUpdate < Chef::Resource
+        # some resource code
+      end
     RUBY
   end
 
   it 'does not register an offense when a HWRP inherits from Chef::Resource' do
     expect_no_offenses(<<~RUBY)
-    class AptUpdate < Chef::Resource
-      # some resource code
-    end
+      class AptUpdate < Chef::Resource
+        # some resource code
+      end
     RUBY
   end
 end

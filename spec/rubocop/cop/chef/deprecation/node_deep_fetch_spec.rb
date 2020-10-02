@@ -27,7 +27,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::NodeDeepFetch do
     RUBY
 
     expect_correction(<<~RUBY)
-    node.read("foo")
+      node.read("foo")
     RUBY
   end
 
@@ -38,7 +38,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::NodeDeepFetch do
     RUBY
 
     expect_correction(<<~RUBY)
-    node.read!("foo")
+      node.read!("foo")
     RUBY
   end
 
@@ -49,7 +49,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::NodeDeepFetch do
     RUBY
 
     expect_correction(<<~RUBY)
-    chef_run.node.read("foo")
+      chef_run.node.read("foo")
     RUBY
   end
 
@@ -60,7 +60,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::NodeDeepFetch do
     RUBY
 
     expect_correction(<<~RUBY)
-    chef_run.node.read!("foo")
+      chef_run.node.read!("foo")
     RUBY
   end
 

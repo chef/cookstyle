@@ -87,11 +87,11 @@ RSpec.describe RuboCop::Chef::CookbookHelpers do
     describe 'matches on multiple properties in a resource as an array' do
       let(:resource_source) do
         <<~RUBY
-        service 'if statement' do
-          if platform?('mac_os_x')
-            running true
+          service 'if statement' do
+            if platform?('mac_os_x')
+              running true
+            end
           end
-        end
         RUBY
       end
 
@@ -103,11 +103,11 @@ RSpec.describe RuboCop::Chef::CookbookHelpers do
     describe 'extracts a property from a resource with an if statement' do
       let(:resource_source) do
         <<~RUBY
-        service 'if statement' do
-          if platform?('mac_os_x')
-            running true
+          service 'if statement' do
+            if platform?('mac_os_x')
+              running true
+            end
           end
-        end
         RUBY
       end
 
@@ -119,14 +119,14 @@ RSpec.describe RuboCop::Chef::CookbookHelpers do
     describe 'extracts a property from a resource with a case statement' do
       let(:resource_source) do
         <<~RUBY
-        service 'case statement' do
-          case node['platform']
-          when 'windows'
-            running true
-          else
-            running false
+          service 'case statement' do
+            case node['platform']
+            when 'windows'
+              running true
+            else
+              running false
+            end
           end
-        end
         RUBY
       end
 
@@ -138,18 +138,18 @@ RSpec.describe RuboCop::Chef::CookbookHelpers do
     describe 'extracts a property from a resource with nested conditionals' do
       let(:resource_source) do
         <<~RUBY
-        service 'nested conditionals' do
-          case node['platform']
-          when 'windows'
-            if node['platform_version'].to_f == '6.1'
-              running true
+          service 'nested conditionals' do
+            case node['platform']
+            when 'windows'
+              if node['platform_version'].to_f == '6.1'
+                running true
+              else
+                running false
+              end
             else
-              running false
+              running true
             end
-          else
-            running true
           end
-        end
         RUBY
       end
 
@@ -161,14 +161,14 @@ RSpec.describe RuboCop::Chef::CookbookHelpers do
     describe 'extracts a property from a resource with case statement with an empty when' do
       let(:resource_source) do
         <<~RUBY
-        service 'case statement with an empty when' do
-          case node['platform']
-          when 'windows'
-            running false
-          when 'mac_os_x'
-            # haha there's nothing here
+          service 'case statement with an empty when' do
+            case node['platform']
+            when 'windows'
+              running false
+            when 'mac_os_x'
+              # haha there's nothing here
+            end
           end
-        end
         RUBY
       end
 
@@ -180,11 +180,11 @@ RSpec.describe RuboCop::Chef::CookbookHelpers do
     describe 'extracts a property from a resource with a while loop' do
       let(:resource_source) do
         <<~RUBY
-        service 'while conditional' do
-          while true
-            running false
+          service 'while conditional' do
+            while true
+              running false
+            end
           end
-        end
         RUBY
       end
 
@@ -196,11 +196,11 @@ RSpec.describe RuboCop::Chef::CookbookHelpers do
     describe "doesn't extract methods that look like properties but aren't" do
       let(:resource_source) do
         <<~RUBY
-        service 'while conditional' do
-          while true
-            running false
+          service 'while conditional' do
+            while true
+              running false
+            end
           end
-        end
         RUBY
       end
 
@@ -212,9 +212,9 @@ RSpec.describe RuboCop::Chef::CookbookHelpers do
     describe "doesn't extract methods from blocks that don't look like resources" do
       let(:resource_source) do
         <<~RUBY
-        method_with_a_block_and_no_string_arg do |desired|
-          running false
-        end
+          method_with_a_block_and_no_string_arg do |desired|
+            running false
+          end
         RUBY
       end
 

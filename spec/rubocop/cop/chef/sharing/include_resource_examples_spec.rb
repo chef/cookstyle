@@ -23,8 +23,8 @@ describe RuboCop::Cop::Chef::ChefSharing::IncludeResourceExamples, :config do
 
   it 'registers an offense when a resource does not include examples' do
     expect_offense(<<~RUBY)
-    provides 'foo'
-    ^ Resources should include examples field to allow automated documentation. Requires Chef Infra Client 13.9 or later.
+      provides 'foo'
+      ^ Resources should include examples field to allow automated documentation. Requires Chef Infra Client 13.9 or later.
     RUBY
   end
 

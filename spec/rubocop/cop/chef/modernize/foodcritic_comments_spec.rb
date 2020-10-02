@@ -52,7 +52,7 @@ describe RuboCop::Cop::Chef::ChefModernize::FoodcriticComments do
 
   it "doesn't register an offense when a comment just mentions FCXXX" do
     expect_no_offenses(<<~RUBY)
-    timezone 'UTC' # no need for ~FC123 here anymore
+      timezone 'UTC' # no need for ~FC123 here anymore
     RUBY
   end
 end

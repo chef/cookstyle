@@ -36,11 +36,11 @@ describe RuboCop::Cop::Chef::ChefDeprecations::UsesRunCommandHelper, :config do
 
   it "doesn't register an offense when using the run_command helper if it's defined in the same file" do
     expect_no_offenses(<<~RUBY)
-    run_command(foo)
+      run_command(foo)
 
-    def run_command(bar)
-      baz(bar)
-    end
+      def run_command(bar)
+        baz(bar)
+      end
     RUBY
   end
 
@@ -60,11 +60,11 @@ describe RuboCop::Cop::Chef::ChefDeprecations::UsesRunCommandHelper, :config do
 
   it "doesn't register an offense when using the run_command_with_systems_locale helper if it's defined in the same file" do
     expect_no_offenses(<<~RUBY)
-    run_command_with_systems_locale(foo)
+      run_command_with_systems_locale(foo)
 
-    def run_command_with_systems_locale(bar)
-      baz(bar)
-    end
+      def run_command_with_systems_locale(bar)
+        baz(bar)
+      end
     RUBY
   end
 end

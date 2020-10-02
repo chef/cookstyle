@@ -23,18 +23,18 @@ describe RuboCop::Cop::Chef::ChefDeprecations::LogResourceNotifications, :config
 
   it 'registers an offense when a log resource includes a notification' do
     expect_offense(<<~RUBY)
-    log 'Aggregate notifications using a single log resource' do
-      notifies :restart, 'service[foo]', :delayed
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ In Chef Infra Client 16 the log resource no longer notifies when logging so notifications should not be triggered from log resources. Use the notify_group resource introduced in Chef Infra Client 15.8 instead to aggregate notifications.
-    end
+      log 'Aggregate notifications using a single log resource' do
+        notifies :restart, 'service[foo]', :delayed
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ In Chef Infra Client 16 the log resource no longer notifies when logging so notifications should not be triggered from log resources. Use the notify_group resource introduced in Chef Infra Client 15.8 instead to aggregate notifications.
+      end
     RUBY
   end
 
   it "doesn't register an offense when a log resource doesn't include a notification" do
     expect_no_offenses(<<~RUBY)
-    log 'Just a log resource' do
-      action :write
-    end
+      log 'Just a log resource' do
+        action :write
+      end
     RUBY
   end
 end

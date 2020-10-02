@@ -27,7 +27,7 @@ describe RuboCop::Cop::Chef::ChefSharing::InvalidLicenseString, :config do
     RUBY
 
     expect_correction(<<~RUBY)
-    license 'Apache-2.0'
+      license 'Apache-2.0'
     RUBY
   end
 

@@ -23,35 +23,35 @@ describe RuboCop::Cop::Chef::ChefModernize::LibarchiveFileResource, :config do
 
   it 'registers an offense when using the libarchive_file resource' do
     expect_offense(<<~RUBY)
-    libarchive_file 'Precompiled.zip' do
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the archive_file resource built into Chef Infra Client 15+ instead of the libarchive file resource
-      path "foo/bar.zip"
-      extract_to "/foo/bar"
-    end
+      libarchive_file 'Precompiled.zip' do
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the archive_file resource built into Chef Infra Client 15+ instead of the libarchive file resource
+        path "foo/bar.zip"
+        extract_to "/foo/bar"
+      end
     RUBY
 
     expect_correction(<<~RUBY)
-    archive_file 'Precompiled.zip' do
-      path "foo/bar.zip"
-      extract_to "/foo/bar"
-    end
+      archive_file 'Precompiled.zip' do
+        path "foo/bar.zip"
+        extract_to "/foo/bar"
+      end
     RUBY
   end
 
   it 'registers an offense when notifying a libarchive_file resource' do
     expect_offense(<<~RUBY)
-    remote_file archive_path do
-      action :create_if_missing
-      notifies :extract, 'libarchive_file[extract_yajsw]', :immediately
-                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the archive_file resource built into Chef Infra Client 15+ instead of the libarchive file resource
-    end
+      remote_file archive_path do
+        action :create_if_missing
+        notifies :extract, 'libarchive_file[extract_yajsw]', :immediately
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the archive_file resource built into Chef Infra Client 15+ instead of the libarchive file resource
+      end
     RUBY
 
     expect_correction(<<~RUBY)
-    remote_file archive_path do
-      action :create_if_missing
-      notifies :extract, 'archive_file[extract_yajsw]', :immediately
-    end
+      remote_file archive_path do
+        action :create_if_missing
+        notifies :extract, 'archive_file[extract_yajsw]', :immediately
+      end
     RUBY
   end
 

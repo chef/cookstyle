@@ -23,8 +23,8 @@ describe RuboCop::Cop::Chef::ChefModernize::DependsOnZypperCookbook, :config do
 
   it 'registers an offense when depending on the zypper cookbook' do
     expect_offense(<<~RUBY)
-    depends 'zypper'
-    ^^^^^^^^^^^^^^^^ Don't depend on the zypper cookbook as the zypper_repository resource is built into Chef Infra Client 13.3+
+      depends 'zypper'
+      ^^^^^^^^^^^^^^^^ Don't depend on the zypper cookbook as the zypper_repository resource is built into Chef Infra Client 13.3+
     RUBY
 
     expect_correction("\n")

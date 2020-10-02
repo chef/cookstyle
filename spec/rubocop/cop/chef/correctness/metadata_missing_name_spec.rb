@@ -29,9 +29,9 @@ describe RuboCop::Cop::Chef::ChefCorrectness::MetadataMissingName, :config do
 
   it 'registers an offense when the name method is missing' do
     expect_offense(<<~RUBY, '/foo/bar/metadata.rb')
-    source_url 'http://github.com/something/something'
-    ^ metadata.rb needs to include the name method or it will fail on Chef Infra Client 12 and later.
-    depends 'foo'
+      source_url 'http://github.com/something/something'
+      ^ metadata.rb needs to include the name method or it will fail on Chef Infra Client 12 and later.
+      depends 'foo'
     RUBY
   end
 

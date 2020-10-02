@@ -22,44 +22,44 @@ describe RuboCop::Cop::Chef::ChefModernize::PowerShellGuardInterpreter, :config 
 
   it 'registers an offense when using the guard_interpreter is set to :powershell_script in a powershell_script resource' do
     expect_offense(<<~RUBY)
-    powershell_script 'whatever' do
-      code "mkdir test_dir"
-      guard_interpreter :powershell_script
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ PowerShell is already set as the default guard interpreter for `powershell_script` and `batch` resources in Chef Infra Client 13 and later and does not need to be specified.
-    end
+      powershell_script 'whatever' do
+        code "mkdir test_dir"
+        guard_interpreter :powershell_script
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ PowerShell is already set as the default guard interpreter for `powershell_script` and `batch` resources in Chef Infra Client 13 and later and does not need to be specified.
+      end
     RUBY
 
     expect_correction(<<~RUBY)
-    powershell_script 'whatever' do
-      code "mkdir test_dir"
-    end
+      powershell_script 'whatever' do
+        code "mkdir test_dir"
+      end
     RUBY
   end
 
   it 'registers an offense when using the guard_interpreter is set to :powershell_script in a batch resource' do
     expect_offense(<<~RUBY)
-    batch 'whatever' do
-      code "mkdir test_dir"
-      guard_interpreter :powershell_script
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ PowerShell is already set as the default guard interpreter for `powershell_script` and `batch` resources in Chef Infra Client 13 and later and does not need to be specified.
-    end
+      batch 'whatever' do
+        code "mkdir test_dir"
+        guard_interpreter :powershell_script
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ PowerShell is already set as the default guard interpreter for `powershell_script` and `batch` resources in Chef Infra Client 13 and later and does not need to be specified.
+      end
     RUBY
   end
 
   it "doesn't register an offense when the guard_interpreter is set to something else in powershell_script" do
     expect_no_offenses(<<~RUBY)
-    powershell_script 'whatever' do
-      code "mkdir test_dir"
-      guard_interpreter :foo
-    end
+      powershell_script 'whatever' do
+        code "mkdir test_dir"
+        guard_interpreter :foo
+      end
     RUBY
   end
 
   it "doesn't register an offense when the guard_interpreter is set to PowerShell on another resource" do
     expect_no_offenses(<<~RUBY)
-    execute 'mkdir testdir' do
-      guard_interpreter :powershell_script
-    end
+      execute 'mkdir testdir' do
+        guard_interpreter :powershell_script
+      end
     RUBY
   end
 
@@ -68,10 +68,10 @@ describe RuboCop::Cop::Chef::ChefModernize::PowerShellGuardInterpreter, :config 
 
     it "doesn't register an offense" do
       expect_no_offenses(<<~RUBY)
-      powershell_script 'whatever' do
-        code "mkdir test_dir"
-        guard_interpreter :powershell_script
-      end
+        powershell_script 'whatever' do
+          code "mkdir test_dir"
+          guard_interpreter :powershell_script
+        end
       RUBY
     end
   end

@@ -31,11 +31,11 @@ describe RuboCop::Cop::Chef::ChefModernize::ProvidesFromInitialize, :config do
     RUBY
 
     expect_correction(<<~RUBY)
-    provides :foo
+      provides :foo
 
-    def initialize(*args)
-      super
-    end
+      def initialize(*args)
+        super
+      end
     RUBY
   end
 
@@ -58,10 +58,10 @@ describe RuboCop::Cop::Chef::ChefModernize::ProvidesFromInitialize, :config do
 
   it 'does not register an offense with when an initializer containing other variables' do
     expect_no_offenses(<<~RUBY)
-    def initialize(*args)
-      super
-      @action = :create
-    end
+      def initialize(*args)
+        super
+        @action = :create
+      end
     RUBY
   end
 end

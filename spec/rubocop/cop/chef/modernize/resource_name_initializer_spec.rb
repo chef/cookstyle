@@ -41,8 +41,8 @@ describe RuboCop::Cop::Chef::ChefModernize::ResourceNameFromInitialize, :config 
 
   it 'does not register an offense with an empty initialize method' do
     expect_no_offenses(<<~RUBY)
-    def initialize(*args)
-    end
+      def initialize(*args)
+      end
     RUBY
   end
 end

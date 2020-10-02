@@ -22,14 +22,14 @@ describe RuboCop::Cop::Chef::ChefCorrectness::CookbookUsesNodeSave, :config do
 
   it 'registers an offense when a cookbook uses node.save' do
     expect_offense(<<~RUBY)
-    node.save
-    ^^^^^^^^^ Don't use node.save to save partial node data to the Chef Infra Server mid-run unless it's absolutely necessary. Node.save can result in failed Chef Infra runs appearing in search and increases load on the Chef Infra Server.
+      node.save
+      ^^^^^^^^^ Don't use node.save to save partial node data to the Chef Infra Server mid-run unless it's absolutely necessary. Node.save can result in failed Chef Infra runs appearing in search and increases load on the Chef Infra Server.
     RUBY
   end
 
   it "doesn't register an offense when a cookbook uses another node method" do
     expect_no_offenses(<<~RUBY)
-    node.environment
+      node.environment
     RUBY
   end
 end

@@ -22,13 +22,13 @@ describe RuboCop::Cop::Chef::ChefDeprecations::LaunchdDeprecatedHashProperty, :c
 
   it 'registers an offense when the launchd resource uses the hash property' do
     expect_offense(<<~RUBY)
-    launchd 'call.mom.weekly' do
-      program '/Library/scripts/call_mom.sh'
-      start_calendar_interval 'Weekday' => 7, 'Hourly' => 10
-      hash foo: 'bar'
-      ^^^^^^^^^^^^^^^ The launchd resource's hash property was renamed to plist_hash in Chef Infra Client 13+ to avoid conflicts with Ruby's hash class.
-      time_out 300
-    end
+      launchd 'call.mom.weekly' do
+        program '/Library/scripts/call_mom.sh'
+        start_calendar_interval 'Weekday' => 7, 'Hourly' => 10
+        hash foo: 'bar'
+        ^^^^^^^^^^^^^^^ The launchd resource's hash property was renamed to plist_hash in Chef Infra Client 13+ to avoid conflicts with Ruby's hash class.
+        time_out 300
+      end
     RUBY
 
     expect_correction(<<~RUBY)

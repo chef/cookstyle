@@ -22,18 +22,18 @@ describe RuboCop::Cop::Chef::ChefModernize::CronManageResource, :config do
 
   it 'registers an offense when using the cron_manage resource' do
     expect_offense(<<~RUBY)
-    cron_manage 'mike'
-    ^^^^^^^^^^^^^^^^^^ The cron_manage resource was renamed to cron_access in the 6.1 release of the cron cookbook and later shipped in Chef Infra Client 14.4. The new resource name should be used.
+      cron_manage 'mike'
+      ^^^^^^^^^^^^^^^^^^ The cron_manage resource was renamed to cron_access in the 6.1 release of the cron cookbook and later shipped in Chef Infra Client 14.4. The new resource name should be used.
     RUBY
 
     expect_correction(<<~RUBY)
-    cron_access 'mike'
+      cron_access 'mike'
     RUBY
   end
 
   it "doesn't register an offense when using the cron_access resource" do
     expect_no_offenses(<<~RUBY)
-    cron_access 'mike'
+      cron_access 'mike'
     RUBY
   end
 

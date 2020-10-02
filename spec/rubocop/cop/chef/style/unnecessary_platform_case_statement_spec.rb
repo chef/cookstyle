@@ -70,7 +70,7 @@ describe RuboCop::Cop::Chef::ChefStyle::UnnecessaryPlatformCaseStatement do
       else
         # nothing here
       end
-      RUBY
+    RUBY
   end
 
   it 'handles spaces when setting values with case statements' do
@@ -103,6 +103,6 @@ describe RuboCop::Cop::Chef::ChefStyle::UnnecessaryPlatformCaseStatement do
       else
         log 'nothing to do'
       end
-  RUBY
+    RUBY
   end
 end

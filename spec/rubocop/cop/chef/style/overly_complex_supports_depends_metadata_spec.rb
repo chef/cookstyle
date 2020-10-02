@@ -54,6 +54,6 @@ describe RuboCop::Cop::Chef::ChefStyle::OverlyComplexSupportsDependsMetadata do
       %w( apt yum windows ).each do |cb|
         depends cb
       end
-  RUBY
+    RUBY
   end
 end

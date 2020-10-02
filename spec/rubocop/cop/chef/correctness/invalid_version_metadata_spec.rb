@@ -36,7 +36,7 @@ describe RuboCop::Cop::Chef::ChefCorrectness::InvalidVersionMetadata, :config do
 
   it "doesn't register an offense with a valid version in metadata.rb" do
     expect_no_offenses(<<~RUBY)
-    version '1.2.3'
+      version '1.2.3'
     RUBY
   end
 end

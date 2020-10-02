@@ -45,7 +45,7 @@ describe RuboCop::Cop::Chef::ChefModernize::IncludingAptDefaultRecipe, :config d
 
     it "doesn't register an offense" do
       expect_no_offenses(<<~RUBY)
-      include_recipe 'apt::default'
+        include_recipe 'apt::default'
       RUBY
     end
   end

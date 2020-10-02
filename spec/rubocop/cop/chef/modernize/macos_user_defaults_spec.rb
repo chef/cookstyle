@@ -22,30 +22,30 @@ describe RuboCop::Cop::Chef::ChefModernize::MacOsXUserdefaults, :config do
 
   it 'registers an offense when using the mac_os_x_userdefaults resource' do
     expect_offense(<<~RUBY)
-    mac_os_x_userdefaults 'full keyboard access to all controls' do
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ The mac_os_x_userdefaults resource was renamed to macos_userdefaults when it was added to Chef Infra Client 14.0. The new resource name should be used.
-      domain 'AppleKeyboardUIMode'
-      global true
-      value '2'
-    end
+      mac_os_x_userdefaults 'full keyboard access to all controls' do
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ The mac_os_x_userdefaults resource was renamed to macos_userdefaults when it was added to Chef Infra Client 14.0. The new resource name should be used.
+        domain 'AppleKeyboardUIMode'
+        global true
+        value '2'
+      end
     RUBY
 
     expect_correction(<<~RUBY)
-    macos_userdefaults 'full keyboard access to all controls' do
-      domain 'AppleKeyboardUIMode'
-      global true
-      value '2'
-    end
+      macos_userdefaults 'full keyboard access to all controls' do
+        domain 'AppleKeyboardUIMode'
+        global true
+        value '2'
+      end
     RUBY
   end
 
   it "doesn't register an offense when using the macos_userdefaults resource" do
     expect_no_offenses(<<~RUBY)
-    macos_userdefaults 'full keyboard access to all controls' do
-      domain 'AppleKeyboardUIMode'
-      global true
-      value '2'
-    end
+      macos_userdefaults 'full keyboard access to all controls' do
+        domain 'AppleKeyboardUIMode'
+        global true
+        value '2'
+      end
     RUBY
   end
 

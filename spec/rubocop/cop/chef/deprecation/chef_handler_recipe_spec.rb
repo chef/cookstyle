@@ -23,8 +23,8 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ChefHandlerRecipe, :config do
 
   it 'registers an offense when using include_recipe "chef_handler::default"' do
     expect_offense(<<~RUBY)
-    include_recipe "chef_handler::default"
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ There is no need to include the empty and deprecated chef_handler::default recipe in order to use the chef_handler resource
+      include_recipe "chef_handler::default"
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ There is no need to include the empty and deprecated chef_handler::default recipe in order to use the chef_handler resource
     RUBY
 
     expect_correction("\n")
@@ -32,8 +32,8 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ChefHandlerRecipe, :config do
 
   it 'registers an offense when using include_recipe "chef_handler"' do
     expect_offense(<<~RUBY)
-    include_recipe "chef_handler"
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ There is no need to include the empty and deprecated chef_handler::default recipe in order to use the chef_handler resource
+      include_recipe "chef_handler"
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ There is no need to include the empty and deprecated chef_handler::default recipe in order to use the chef_handler resource
     RUBY
 
     expect_correction("\n")

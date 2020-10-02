@@ -22,8 +22,8 @@ describe RuboCop::Cop::Chef::ChefModernize::IncludingMixinShelloutInResources, :
 
   it 'registers an error when requiring "chef/mixin/shell_out" in a resource' do
     expect_offense(<<~RUBY, '/foo/bar/cookbook/resources/foo.rb')
-    require 'chef/mixin/shell_out'
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ There is no need to include Chef::Mixin::ShellOut or Chef::Mixin::PowershellOut in resources or providers as this is already done by Chef Infra Client 12.4+.
+      require 'chef/mixin/shell_out'
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ There is no need to include Chef::Mixin::ShellOut or Chef::Mixin::PowershellOut in resources or providers as this is already done by Chef Infra Client 12.4+.
     RUBY
 
     expect_correction("\n")
@@ -31,36 +31,36 @@ describe RuboCop::Cop::Chef::ChefModernize::IncludingMixinShelloutInResources, :
 
   it 'registers an error when requiring "chef/mixin/shell_out" in a HWRP inheriting from Chef::Provider' do
     expect_offense(<<~RUBY, '/foo/bar/cookbook/libraries/foo.rb')
-    require 'chef/mixin/shell_out'
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ There is no need to include Chef::Mixin::ShellOut or Chef::Mixin::PowershellOut in resources or providers as this is already done by Chef Infra Client 12.4+.
+      require 'chef/mixin/shell_out'
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ There is no need to include Chef::Mixin::ShellOut or Chef::Mixin::PowershellOut in resources or providers as this is already done by Chef Infra Client 12.4+.
 
-    class Chef
-      class Provider
-        class LvmVolumeGroup < Chef::Provider
+      class Chef
+        class Provider
+          class LvmVolumeGroup < Chef::Provider
+          end
         end
       end
-    end
     RUBY
   end
 
   it 'registers an error when requiring "chef/mixin/shell_out" in a HWRP inheriting from Chef::Provider::LWRPBase' do
     expect_offense(<<~RUBY, '/foo/bar/cookbook/libraries/foo.rb')
-    require 'chef/mixin/shell_out'
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ There is no need to include Chef::Mixin::ShellOut or Chef::Mixin::PowershellOut in resources or providers as this is already done by Chef Infra Client 12.4+.
+      require 'chef/mixin/shell_out'
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ There is no need to include Chef::Mixin::ShellOut or Chef::Mixin::PowershellOut in resources or providers as this is already done by Chef Infra Client 12.4+.
 
-    class Chef
-      class Provider
-        class LvmVolumeGroup < Chef::Provider::LWRPBase
+      class Chef
+        class Provider
+          class LvmVolumeGroup < Chef::Provider::LWRPBase
+          end
         end
       end
-    end
     RUBY
   end
 
   it 'registers an error when including "Chef::Mixin::ShellOut" in a resource' do
     expect_offense(<<~RUBY, '/foo/bar/cookbook/resources/foo.rb')
-    include Chef::Mixin::ShellOut
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ There is no need to include Chef::Mixin::ShellOut or Chef::Mixin::PowershellOut in resources or providers as this is already done by Chef Infra Client 12.4+.
+      include Chef::Mixin::ShellOut
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ There is no need to include Chef::Mixin::ShellOut or Chef::Mixin::PowershellOut in resources or providers as this is already done by Chef Infra Client 12.4+.
     RUBY
 
     expect_correction("\n")
@@ -68,8 +68,8 @@ describe RuboCop::Cop::Chef::ChefModernize::IncludingMixinShelloutInResources, :
 
   it 'registers an error when requiring "chef/mixin/powershell_out" in a resource' do
     expect_offense(<<~RUBY, '/foo/bar/cookbook/resources/foo.rb')
-    require 'chef/mixin/powershell_out'
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ There is no need to include Chef::Mixin::ShellOut or Chef::Mixin::PowershellOut in resources or providers as this is already done by Chef Infra Client 12.4+.
+      require 'chef/mixin/powershell_out'
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ There is no need to include Chef::Mixin::ShellOut or Chef::Mixin::PowershellOut in resources or providers as this is already done by Chef Infra Client 12.4+.
     RUBY
 
     expect_correction("\n")
@@ -77,8 +77,8 @@ describe RuboCop::Cop::Chef::ChefModernize::IncludingMixinShelloutInResources, :
 
   it 'registers an error when including "Chef::Mixin::PowershellOut" in a resource' do
     expect_offense(<<~RUBY, '/foo/bar/cookbook/resources/foo.rb')
-    include Chef::Mixin::PowershellOut
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ There is no need to include Chef::Mixin::ShellOut or Chef::Mixin::PowershellOut in resources or providers as this is already done by Chef Infra Client 12.4+.
+      include Chef::Mixin::PowershellOut
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ There is no need to include Chef::Mixin::ShellOut or Chef::Mixin::PowershellOut in resources or providers as this is already done by Chef Infra Client 12.4+.
     RUBY
 
     expect_correction("\n")
@@ -86,24 +86,24 @@ describe RuboCop::Cop::Chef::ChefModernize::IncludingMixinShelloutInResources, :
 
   it "doesn't register an offense when requiring \"chef/mixin/shell_out\" in a non-HWRP library" do
     expect_no_offenses(<<~RUBY, '/foo/bar/cookbook/libraries/foo.rb')
-    require 'chef/mixin/shell_out'
+      require 'chef/mixin/shell_out'
 
-    class MyCookbook
-      class Helpers
+      class MyCookbook
+        class Helpers
+        end
       end
-    end
     RUBY
   end
 
   it "doesn't register an offense when including Chef::Mixin::Foo" do
     expect_no_offenses(<<~RUBY)
-    include Chef::Mixin::Foo
+      include Chef::Mixin::Foo
     RUBY
   end
 
   it "doesn't register an offense when requiring chef/mixin/foo" do
     expect_no_offenses(<<~RUBY)
-    require 'chef/mixin/foo'
+      require 'chef/mixin/foo'
     RUBY
   end
 end

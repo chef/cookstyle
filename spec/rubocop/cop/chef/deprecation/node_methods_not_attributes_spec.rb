@@ -27,7 +27,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::NodeMethodsInsteadofAttributes, :
     RUBY
 
     expect_correction(<<~RUBY)
-    node['platform']
+      node['platform']
     RUBY
   end
 
@@ -38,7 +38,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::NodeMethodsInsteadofAttributes, :
     RUBY
 
     expect_correction(<<~RUBY)
-    node['platform_family']
+      node['platform_family']
     RUBY
   end
 
@@ -49,7 +49,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::NodeMethodsInsteadofAttributes, :
     RUBY
 
     expect_correction(<<~RUBY)
-    node['platform_version']
+      node['platform_version']
     RUBY
   end
 
@@ -60,7 +60,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::NodeMethodsInsteadofAttributes, :
     RUBY
 
     expect_correction(<<~RUBY)
-    node['fqdn']
+      node['fqdn']
     RUBY
   end
 
@@ -71,7 +71,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::NodeMethodsInsteadofAttributes, :
     RUBY
 
     expect_correction(<<~RUBY)
-    node['hostname']
+      node['hostname']
     RUBY
   end
 end

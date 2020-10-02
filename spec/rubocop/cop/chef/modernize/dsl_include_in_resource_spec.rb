@@ -23,8 +23,8 @@ describe RuboCop::Cop::Chef::ChefModernize::DslIncludeInResource, :config do
 
   it 'registers an error when including "Chef::DSL::Recipe"' do
     expect_offense(<<~RUBY)
-    include Chef::DSL::Recipe
-    ^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 12.4+ includes the Chef::DSL::Recipe in the resource and provider classed by default so there is no need to include this DSL in your resources or providers.
+      include Chef::DSL::Recipe
+      ^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 12.4+ includes the Chef::DSL::Recipe in the resource and provider classed by default so there is no need to include this DSL in your resources or providers.
     RUBY
 
     expect_correction("\n")
@@ -32,8 +32,8 @@ describe RuboCop::Cop::Chef::ChefModernize::DslIncludeInResource, :config do
 
   it 'registers an error when including "Chef::DSL::IncludeRecipe"' do
     expect_offense(<<~RUBY)
-    include Chef::DSL::IncludeRecipe
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 12.4+ includes the Chef::DSL::Recipe in the resource and provider classed by default so there is no need to include this DSL in your resources or providers.
+      include Chef::DSL::IncludeRecipe
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 12.4+ includes the Chef::DSL::Recipe in the resource and provider classed by default so there is no need to include this DSL in your resources or providers.
     RUBY
 
     expect_correction("\n")

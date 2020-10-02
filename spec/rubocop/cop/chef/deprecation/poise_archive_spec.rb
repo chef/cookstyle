@@ -22,18 +22,18 @@ describe RuboCop::Cop::Chef::ChefDeprecations::PoiseArchiveUsage, :config do
 
   it 'registers an offense when using the poise_archive resource' do
     expect_offense(<<~RUBY)
-    poise_archive 'Precompiled.zip' do
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ The poise_archive resource in the deprecated poise-archive should be replaced with the archive_file resource found in Chef Infra Client 15+
-      path "foo/bar.zip"
-      extract_to "/foo/bar"
-      end
+      poise_archive 'Precompiled.zip' do
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ The poise_archive resource in the deprecated poise-archive should be replaced with the archive_file resource found in Chef Infra Client 15+
+        path "foo/bar.zip"
+        extract_to "/foo/bar"
+        end
     RUBY
   end
 
   it 'registers an offense when depending on poise-archive cookbook' do
     expect_offense(<<~RUBY)
-    depends 'poise-archive'
-    ^^^^^^^^^^^^^^^^^^^^^^^ The poise_archive resource in the deprecated poise-archive should be replaced with the archive_file resource found in Chef Infra Client 15+
+      depends 'poise-archive'
+      ^^^^^^^^^^^^^^^^^^^^^^^ The poise_archive resource in the deprecated poise-archive should be replaced with the archive_file resource found in Chef Infra Client 15+
     RUBY
   end
 
