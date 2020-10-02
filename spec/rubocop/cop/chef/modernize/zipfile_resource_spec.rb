@@ -23,18 +23,18 @@ describe RuboCop::Cop::Chef::ChefModernize::ZipfileResource, :config do
 
   it 'registers an offense when depending on the zipfile cookbook' do
     expect_offense(<<~RUBY)
-    depends 'zipfile'
-    ^^^^^^^^^^^^^^^^^ Use the archive_file resource built into Chef Infra Client 15+ instead of the zipfile resource from the zipfile cookbook.
+      depends 'zipfile'
+      ^^^^^^^^^^^^^^^^^ Use the archive_file resource built into Chef Infra Client 15+ instead of the zipfile resource from the zipfile cookbook.
     RUBY
   end
 
   it 'registers an offense when using the zipfile resource' do
     expect_offense(<<~RUBY)
-    zipfile 'extract files' do
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the archive_file resource built into Chef Infra Client 15+ instead of the zipfile resource from the zipfile cookbook.
-      path 'C:\path'
-      source 'C:\file.zip'
-    end
+      zipfile 'extract files' do
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the archive_file resource built into Chef Infra Client 15+ instead of the zipfile resource from the zipfile cookbook.
+        path 'C:\path'
+        source 'C:\file.zip'
+      end
     RUBY
   end
 

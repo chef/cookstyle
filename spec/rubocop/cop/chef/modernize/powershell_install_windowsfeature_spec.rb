@@ -22,19 +22,19 @@ describe RuboCop::Cop::Chef::ChefModernize::PowershellInstallWindowsFeature, :co
 
   it 'registers an offense when using powershell_script to run Install-WindowsFeature' do
     expect_offense(<<~RUBY)
-    powershell_script 'Install Feature' do
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the windows_feature resource built into Chef Infra Client 14+ instead of using Install-WindowsFeature or Add-WindowsFeature in a powershell_script resource
-      code 'Install-WindowsFeature -Name "Net-framework-Core"'
-    end
+      powershell_script 'Install Feature' do
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the windows_feature resource built into Chef Infra Client 14+ instead of using Install-WindowsFeature or Add-WindowsFeature in a powershell_script resource
+        code 'Install-WindowsFeature -Name "Net-framework-Core"'
+      end
     RUBY
   end
 
   it 'registers an offense when using powershell_script to run Add-WindowsFeature' do
     expect_offense(<<~RUBY)
-    powershell_script 'Add Feature' do
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the windows_feature resource built into Chef Infra Client 14+ instead of using Install-WindowsFeature or Add-WindowsFeature in a powershell_script resource
-      code 'Add-WindowsFeature -Name "Net-framework-Core"'
-    end
+      powershell_script 'Add Feature' do
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the windows_feature resource built into Chef Infra Client 14+ instead of using Install-WindowsFeature or Add-WindowsFeature in a powershell_script resource
+        code 'Add-WindowsFeature -Name "Net-framework-Core"'
+      end
     RUBY
   end
 

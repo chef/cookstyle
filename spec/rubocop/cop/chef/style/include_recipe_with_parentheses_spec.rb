@@ -28,7 +28,7 @@ describe RuboCop::Cop::Chef::ChefStyle::IncludeRecipeWithParentheses do
     RUBY
 
     expect_correction(<<~RUBY)
-    include_recipe 'foo'
+      include_recipe 'foo'
     RUBY
   end
 

@@ -50,8 +50,8 @@ describe RuboCop::Cop::Chef::ChefDeprecations::SearchUsesPositionalParameters, :
 
   it "Removes the legacy sort parameter from search queries if it's a nil value" do
     expect_offense(<<~RUBY)
-    search(:node, "*:*", nil, 0)
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Don't use deprecated positional parameters in cookbook search queries.
+      search(:node, "*:*", nil, 0)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Don't use deprecated positional parameters in cookbook search queries.
     RUBY
 
     expect_correction("search(:node, \"*:*\", start: 0)\n")

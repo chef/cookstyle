@@ -27,7 +27,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::NodeSet do
     RUBY
 
     expect_correction(<<~RUBY)
-    node.normal[:foo]
+      node.normal[:foo]
     RUBY
   end
 
@@ -38,7 +38,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::NodeSet do
     RUBY
 
     expect_correction(<<~RUBY)
-    chef_run.node.normal[:foo]
+      chef_run.node.normal[:foo]
     RUBY
   end
 

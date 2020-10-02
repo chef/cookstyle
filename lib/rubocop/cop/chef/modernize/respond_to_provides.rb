@@ -45,16 +45,16 @@ module RuboCop
           end
 
           def_node_matcher :if_respond_to_provides?, <<~PATTERN
-          (if
-            {
-            (send nil? :respond_to?
-              (sym :provides))
+            (if
+              {
+              (send nil? :respond_to?
+                (sym :provides))
 
-            (:defined?
-              (send nil? :provides))
-            }
-            (send nil? :provides
-              (sym _)) ... )
+              (:defined?
+                (send nil? :provides))
+              }
+              (send nil? :provides
+                (sym _)) ... )
           PATTERN
         end
       end

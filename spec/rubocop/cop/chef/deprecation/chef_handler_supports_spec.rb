@@ -22,39 +22,39 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ChefHandlerUsesSupports, :config 
 
   it 'registers an offense when chef_handler uses the supports property' do
     expect_offense(<<~RUBY)
-    chef_handler 'Chef::Handler::ZookeeperHandler' do
-      supports start: true, report: true, exception: true
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the type property instead of the deprecated supports property in the chef_handler resource. The supports property was removed in chef_handler cookbook version 3.0 (June 2017) and Chef Infra Client 14.0.
-    end
+      chef_handler 'Chef::Handler::ZookeeperHandler' do
+        supports start: true, report: true, exception: true
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the type property instead of the deprecated supports property in the chef_handler resource. The supports property was removed in chef_handler cookbook version 3.0 (June 2017) and Chef Infra Client 14.0.
+      end
     RUBY
 
     expect_correction(<<~RUBY)
-    chef_handler 'Chef::Handler::ZookeeperHandler' do
-      type start: true, report: true, exception: true
-    end
+      chef_handler 'Chef::Handler::ZookeeperHandler' do
+        type start: true, report: true, exception: true
+      end
     RUBY
   end
 
   it 'properly autocorrects when chef_handler uses supports(FOO)' do
     expect_offense(<<~RUBY)
-    chef_handler 'Chef::Handler::ZookeeperHandler' do
-      supports({:exception => true})
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the type property instead of the deprecated supports property in the chef_handler resource. The supports property was removed in chef_handler cookbook version 3.0 (June 2017) and Chef Infra Client 14.0.
-    end
+      chef_handler 'Chef::Handler::ZookeeperHandler' do
+        supports({:exception => true})
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the type property instead of the deprecated supports property in the chef_handler resource. The supports property was removed in chef_handler cookbook version 3.0 (June 2017) and Chef Infra Client 14.0.
+      end
     RUBY
 
     expect_correction(<<~RUBY)
-    chef_handler 'Chef::Handler::ZookeeperHandler' do
-      type :exception => true
-    end
+      chef_handler 'Chef::Handler::ZookeeperHandler' do
+        type :exception => true
+      end
     RUBY
   end
 
   it "doesn't register an offense when chef_handler uses the type action" do
     expect_no_offenses(<<~RUBY)
-    chef_handler 'Chef::Handler::ZookeeperHandler' do
-      type start: true, report: true, exception: true
-    end
+      chef_handler 'Chef::Handler::ZookeeperHandler' do
+        type start: true, report: true, exception: true
+      end
     RUBY
   end
 end

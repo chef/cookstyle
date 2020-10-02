@@ -70,10 +70,10 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ChefRewind, :config do
     RUBY
 
     expect_correction(<<~RUBY)
-    edit_resource 'user[postgres]' do
-      home '/var/lib/pgsql/9.2'
-      cookbook 'my-postgresql'
-    end
+      edit_resource 'user[postgres]' do
+        home '/var/lib/pgsql/9.2'
+        cookbook 'my-postgresql'
+      end
     RUBY
   end
 

@@ -22,16 +22,16 @@ describe RuboCop::Cop::Chef::ChefModernize::SetOrReturnInResources, :config do
 
   it 'registers an offense with a resource that uses set_or_return' do
     expect_offense(<<~RUBY)
-    def sp_min(arg = nil)
-      set_or_return(:sp_min, arg, kind_of: Integer)
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Do not use set_or_return within a method to define a property for a resource. Use the property method instead, which supports validation, reporting, and documentation functionality
-    end
+      def sp_min(arg = nil)
+        set_or_return(:sp_min, arg, kind_of: Integer)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Do not use set_or_return within a method to define a property for a resource. Use the property method instead, which supports validation, reporting, and documentation functionality
+      end
     RUBY
   end
 
   it 'does not register an offense with a resource that uses property' do
     expect_no_offenses(<<~RUBY)
-    property :sp_min, Integer
+      property :sp_min, Integer
     RUBY
   end
 end

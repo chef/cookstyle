@@ -22,10 +22,10 @@ describe RuboCop::Cop::Chef::ChefDeprecations::LegacyNotifySyntax, :config do
 
   it 'registers an offense when a resource uses the legacy notification syntax without timing' do
     expect_offense(<<~RUBY)
-    foo 'bar' do
-      notifies :restart, resources(service: 'apache')
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the new-style notification syntax which allows you to notify resources defined later in a recipe or resource.
-    end
+      foo 'bar' do
+        notifies :restart, resources(service: 'apache')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the new-style notification syntax which allows you to notify resources defined later in a recipe or resource.
+      end
     RUBY
 
     expect_correction(<<~RUBY)
@@ -37,69 +37,69 @@ describe RuboCop::Cop::Chef::ChefDeprecations::LegacyNotifySyntax, :config do
 
   it 'registers an offense when a resource uses the legacy notification syntax with timing' do
     expect_offense(<<~RUBY)
-    foo 'bar' do
-      notifies :restart, resources(service: 'apache'), :immediately
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the new-style notification syntax which allows you to notify resources defined later in a recipe or resource.
-    end
+      foo 'bar' do
+        notifies :restart, resources(service: 'apache'), :immediately
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the new-style notification syntax which allows you to notify resources defined later in a recipe or resource.
+      end
     RUBY
 
     expect_correction(<<~RUBY)
-    foo 'bar' do
-      notifies :restart, 'service[apache]', :immediately
-    end
+      foo 'bar' do
+        notifies :restart, 'service[apache]', :immediately
+      end
     RUBY
   end
 
   it 'properly autocorrects legacy notification syntax with a variable for the resource name' do
     expect_offense(<<~'RUBY')
-    foo 'bar' do
-      notifies :enable, resources(service: service_name), :immediately
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the new-style notification syntax which allows you to notify resources defined later in a recipe or resource.
-    end
+      foo 'bar' do
+        notifies :enable, resources(service: service_name), :immediately
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the new-style notification syntax which allows you to notify resources defined later in a recipe or resource.
+      end
     RUBY
 
     expect_correction(<<~'RUBY')
-    foo 'bar' do
-      notifies :enable, "service[#{service_name}]", :immediately
-    end
+      foo 'bar' do
+        notifies :enable, "service[#{service_name}]", :immediately
+      end
     RUBY
   end
 
   it 'detects and autocorrections legacy subscription syntax' do
     expect_offense(<<~'RUBY')
-    foo 'bar' do
-      subscribes :enable, resources(service: service_name), :immediately
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the new-style notification syntax which allows you to notify resources defined later in a recipe or resource.
-    end
+      foo 'bar' do
+        subscribes :enable, resources(service: service_name), :immediately
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the new-style notification syntax which allows you to notify resources defined later in a recipe or resource.
+      end
     RUBY
 
     expect_correction(<<~'RUBY')
-    foo 'bar' do
-      subscribes :enable, "service[#{service_name}]", :immediately
-    end
+      foo 'bar' do
+        subscribes :enable, "service[#{service_name}]", :immediately
+      end
     RUBY
   end
 
   it 'properly autocorrects legacy notification syntax with string interpolation in the resource name' do
     expect_offense(<<~'RUBY')
-    foo 'bar' do
-      notifies :enable, resources(service: "#{node['foo']['bar']}"), :immediately
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the new-style notification syntax which allows you to notify resources defined later in a recipe or resource.
-    end
+      foo 'bar' do
+        notifies :enable, resources(service: "#{node['foo']['bar']}"), :immediately
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the new-style notification syntax which allows you to notify resources defined later in a recipe or resource.
+      end
     RUBY
 
     expect_correction(<<~'RUBY')
-    foo 'bar' do
-      notifies :enable, "service[#{node['foo']['bar']}]", :immediately
-    end
+      foo 'bar' do
+        notifies :enable, "service[#{node['foo']['bar']}]", :immediately
+      end
     RUBY
   end
 
   it "doesn't register an offense when using the modern notifies syntax" do
     expect_no_offenses(<<~RUBY)
-    foo 'bar' do
-      notifies :restart, 'service[apache]'
-    end
+      foo 'bar' do
+        notifies :restart, 'service[apache]'
+      end
     RUBY
   end
 end

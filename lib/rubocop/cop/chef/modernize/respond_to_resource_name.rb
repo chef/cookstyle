@@ -43,7 +43,7 @@ module RuboCop
           end
 
           def_node_matcher :if_respond_to_resource_name?, <<~PATTERN
-          (if (send nil? :respond_to? ( :sym :resource_name ) ) ... )
+            (if (send nil? :respond_to? ( :sym :resource_name ) ) ... )
           PATTERN
         end
       end

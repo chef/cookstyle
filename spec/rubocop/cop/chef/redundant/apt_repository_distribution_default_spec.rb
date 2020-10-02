@@ -63,12 +63,12 @@ describe RuboCop::Cop::Chef::ChefRedundantCode::AptRepositoryDistributionDefault
 
   it 'does not register an offense with a non-default distribution value' do
     expect_no_offenses(<<~RUBY)
-    apt_repository 'my repo' do
-      uri 'http://packages.example.com/debian'
-      components %w(stable main)
-      deb_src false
-      distribution 'stuff'
-    end
-  RUBY
+      apt_repository 'my repo' do
+        uri 'http://packages.example.com/debian'
+        components %w(stable main)
+        deb_src false
+        distribution 'stuff'
+      end
+    RUBY
   end
 end

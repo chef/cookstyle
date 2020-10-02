@@ -22,83 +22,83 @@ describe RuboCop::Cop::Chef::ChefModernize::RespondToResourceName, :config do
 
   it 'registers an offense with a HWRP that uses respond_to? with resource_name' do
     expect_offense(<<~RUBY)
-    class Chef
-      class Resource
-        class Icinga2Apiuser < Chef::Resource
-          identity_attr :name
+      class Chef
+        class Resource
+          class Icinga2Apiuser < Chef::Resource
+            identity_attr :name
 
-          def initialize(name, run_context = nil)
-            super
-            @resource_name = :icinga2_apiuser if respond_to?(:resource_name)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ respond_to?(:resource_name) in resources is no longer necessary in Chef Infra Client 12.5+
-            @provides = :icinga2_apiuser
-            @provider = Chef::Provider::Icinga2Instance
-            @action = :create
-            @allowed_actions = [:create, :delete, :nothing]
-            @name = name
+            def initialize(name, run_context = nil)
+              super
+              @resource_name = :icinga2_apiuser if respond_to?(:resource_name)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ respond_to?(:resource_name) in resources is no longer necessary in Chef Infra Client 12.5+
+              @provides = :icinga2_apiuser
+              @provider = Chef::Provider::Icinga2Instance
+              @action = :create
+              @allowed_actions = [:create, :delete, :nothing]
+              @name = name
+            end
           end
         end
       end
-    end
     RUBY
 
     expect_correction(<<~RUBY)
-    class Chef
-      class Resource
-        class Icinga2Apiuser < Chef::Resource
-          identity_attr :name
+      class Chef
+        class Resource
+          class Icinga2Apiuser < Chef::Resource
+            identity_attr :name
 
-          def initialize(name, run_context = nil)
-            super
-            @resource_name = :icinga2_apiuser
-            @provides = :icinga2_apiuser
-            @provider = Chef::Provider::Icinga2Instance
-            @action = :create
-            @allowed_actions = [:create, :delete, :nothing]
-            @name = name
+            def initialize(name, run_context = nil)
+              super
+              @resource_name = :icinga2_apiuser
+              @provides = :icinga2_apiuser
+              @provider = Chef::Provider::Icinga2Instance
+              @action = :create
+              @allowed_actions = [:create, :delete, :nothing]
+              @name = name
+            end
           end
         end
       end
-    end
     RUBY
   end
 
   it 'does not register an offense with a HWRP does not use respond_to? with resource_name' do
     expect_no_offenses(<<~RUBY)
-    class Chef
-      class Resource
-        class Icinga2Apiuser < Chef::Resource
-          identity_attr :name
+      class Chef
+        class Resource
+          class Icinga2Apiuser < Chef::Resource
+            identity_attr :name
 
-          def initialize(name, run_context = nil)
-            super
-            @resource_name = :icinga2_apiuser
-            @provides = :icinga2_apiuser
-            @provider = Chef::Provider::Icinga2Instance
-            @action = :create
-            @allowed_actions = [:create, :delete, :nothing]
-            @name = name
+            def initialize(name, run_context = nil)
+              super
+              @resource_name = :icinga2_apiuser
+              @provides = :icinga2_apiuser
+              @provider = Chef::Provider::Icinga2Instance
+              @action = :create
+              @allowed_actions = [:create, :delete, :nothing]
+              @name = name
+            end
           end
         end
       end
-    end
     RUBY
   end
 
   it 'registers an offense with a LWRP that uses respond_to? with resource_name' do
     expect_offense(<<~RUBY)
-    resource_name :icinga2_apiuser if respond_to?(:resource_name)
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ respond_to?(:resource_name) in resources is no longer necessary in Chef Infra Client 12.5+
+      resource_name :icinga2_apiuser if respond_to?(:resource_name)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ respond_to?(:resource_name) in resources is no longer necessary in Chef Infra Client 12.5+
     RUBY
 
     expect_correction(<<~RUBY)
-    resource_name :icinga2_apiuser
+      resource_name :icinga2_apiuser
     RUBY
   end
 
   it 'does not register an offense with a LWRP that does not use resource_name' do
     expect_no_offenses(<<~RUBY)
-    resource_name :icinga2_apiuser
+      resource_name :icinga2_apiuser
     RUBY
   end
 end

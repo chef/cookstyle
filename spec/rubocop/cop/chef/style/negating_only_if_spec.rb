@@ -30,9 +30,9 @@ describe RuboCop::Cop::Chef::ChefStyle::NegatingOnlyIf do
     RUBY
 
     expect_correction(<<~RUBY)
-    package 'legacy-sysv-deps' do
-      not_if { foo }
-    end
+      package 'legacy-sysv-deps' do
+        not_if { foo }
+      end
     RUBY
   end
 
@@ -55,28 +55,28 @@ describe RuboCop::Cop::Chef::ChefStyle::NegatingOnlyIf do
 
   it 'does not register an offense when an only_if conditional does not negate ruby' do
     expect_no_offenses(<<~RUBY)
-        package 'legacy-sysv-deps' do
-          only_if { foo }
-        end
-      RUBY
+      package 'legacy-sysv-deps' do
+        only_if { foo }
+      end
+    RUBY
   end
 
   it 'does not register an offense when an only_if conditional negates only a portion of the ruby conditional' do
     expect_no_offenses(<<~RUBY)
-        package 'legacy-sysv-deps' do
-          only_if { foo && !bar }
-        end
-      RUBY
+      package 'legacy-sysv-deps' do
+        only_if { foo && !bar }
+      end
+    RUBY
   end
 
   it 'does not register an offense when an only_if conditional negates within the ruby in an inspec control' do
     expect_no_offenses(<<~RUBY)
-    control 'nagios-daemon-01' do
-      describe service(svc) do
-        it { should be_running }
+      control 'nagios-daemon-01' do
+        describe service(svc) do
+          it { should be_running }
+        end
+        only_if { !(os.redhat? && os[:release].start_with?('6')) }
       end
-      only_if { !(os.redhat? && os[:release].start_with?('6')) }
-    end
-      RUBY
+    RUBY
   end
 end

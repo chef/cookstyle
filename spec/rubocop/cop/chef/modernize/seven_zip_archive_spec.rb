@@ -22,11 +22,11 @@ describe RuboCop::Cop::Chef::ChefModernize::SevenZipArchiveResource, :config do
 
   it 'registers an offense when using the seven_zip_archive resource" recipe' do
     expect_offense(<<~RUBY)
-    seven_zip_archive 'extract files' do
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the archive_file resource built into Chef Infra Client 15+ instead of the seven_zip_archive
-      path 'C:\path'
-      source 'C:\file.zip'
-    end
+      seven_zip_archive 'extract files' do
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the archive_file resource built into Chef Infra Client 15+ instead of the seven_zip_archive
+        path 'C:\path'
+        source 'C:\file.zip'
+      end
     RUBY
   end
 

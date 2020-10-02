@@ -43,6 +43,6 @@ describe RuboCop::Cop::Chef::ChefRedundantCode::DoubleCompileTime do
       chef_gem 'deep_merge' do
         compile_time true
       end.run_action(:install)
-  RUBY
+    RUBY
   end
 end

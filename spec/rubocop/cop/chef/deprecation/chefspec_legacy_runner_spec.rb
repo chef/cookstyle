@@ -22,16 +22,16 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ChefSpecLegacyRunner, :config do
 
   it 'registers an offense when spec calls the coverage reporter' do
     expect_offense(<<~RUBY)
-    describe 'foo::default' do
-      subject { ChefSpec::Runner.new.converge(described_recipe) }
-                ^^^^^^^^^^^^^^^^ Use ChefSpec::SoloRunner or ChefSpec::ServerRunner instead of the deprecated ChefSpec::Runner.
-    end
+      describe 'foo::default' do
+        subject { ChefSpec::Runner.new.converge(described_recipe) }
+                  ^^^^^^^^^^^^^^^^ Use ChefSpec::SoloRunner or ChefSpec::ServerRunner instead of the deprecated ChefSpec::Runner.
+      end
     RUBY
 
     expect_correction(<<~RUBY)
-    describe 'foo::default' do
-      subject { ChefSpec::ServerRunner.new.converge(described_recipe) }
-    end
+      describe 'foo::default' do
+        subject { ChefSpec::ServerRunner.new.converge(described_recipe) }
+      end
     RUBY
   end
 end

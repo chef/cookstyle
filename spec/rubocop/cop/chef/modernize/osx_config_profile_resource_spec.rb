@@ -22,24 +22,24 @@ describe RuboCop::Cop::Chef::ChefModernize::OsxConfigProfileResource, :config do
 
   it 'registers an offense when using the osx_config_profile resource' do
     expect_offense(<<~RUBY)
-    osx_config_profile 'Install screensaver profile' do
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ The osx_config_profile resource was renamed to osx_profile. The new resource name should be used.
-      profile 'screensaver/com.company.screensaver.mobileconfig'
-    end
+      osx_config_profile 'Install screensaver profile' do
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ The osx_config_profile resource was renamed to osx_profile. The new resource name should be used.
+        profile 'screensaver/com.company.screensaver.mobileconfig'
+      end
     RUBY
 
     expect_correction(<<~RUBY)
-    osx_profile 'Install screensaver profile' do
-      profile 'screensaver/com.company.screensaver.mobileconfig'
-    end
+      osx_profile 'Install screensaver profile' do
+        profile 'screensaver/com.company.screensaver.mobileconfig'
+      end
     RUBY
   end
 
   it "doesn't register an offense when using the osx_profile resource" do
     expect_no_offenses(<<~RUBY)
-    osx_profile 'Install screensaver profile' do
-      profile 'screensaver/com.company.screensaver.mobileconfig'
-    end
+      osx_profile 'Install screensaver profile' do
+        profile 'screensaver/com.company.screensaver.mobileconfig'
+      end
     RUBY
   end
 end

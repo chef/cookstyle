@@ -37,7 +37,7 @@ describe RuboCop::Cop::Chef::ChefEffortless::CookbookUsesEnvironments, :config d
 
   it "doesn't register an offense when a cookbook uses another node method" do
     expect_no_offenses(<<~RUBY)
-    node.save
+      node.save
     RUBY
   end
 end

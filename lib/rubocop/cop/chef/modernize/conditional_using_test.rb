@@ -36,7 +36,7 @@ module RuboCop
           RESTRICT_ON_SEND = [:not_if, :only_if].freeze
 
           def_node_matcher :resource_conditional?, <<~PATTERN
-          (send nil? {:not_if :only_if} $str )
+            (send nil? {:not_if :only_if} $str )
           PATTERN
 
           def on_send(node)

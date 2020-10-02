@@ -23,16 +23,16 @@ describe RuboCop::Cop::Chef::ChefSharing::IncludePropertyDescriptions, :config d
 
   it 'registers an offense when a property does not include a description' do
     expect_offense(<<~RUBY)
-    property :different_prop, String, description: 'this one has a description'
-    property :foo, String, name_property: true
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Resource properties should include description fields to allow automated documentation. Requires Chef Infra Client 13.9 or later.
+      property :different_prop, String, description: 'this one has a description'
+      property :foo, String, name_property: true
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Resource properties should include description fields to allow automated documentation. Requires Chef Infra Client 13.9 or later.
     RUBY
   end
 
   it 'registers an offense when a property does not include a description or any other hash items' do
     expect_offense(<<~RUBY)
-    property :foo, String
-    ^^^^^^^^^^^^^^^^^^^^^ Resource properties should include description fields to allow automated documentation. Requires Chef Infra Client 13.9 or later.
+      property :foo, String
+      ^^^^^^^^^^^^^^^^^^^^^ Resource properties should include description fields to allow automated documentation. Requires Chef Infra Client 13.9 or later.
     RUBY
   end
 

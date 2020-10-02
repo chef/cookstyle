@@ -27,7 +27,7 @@ describe RuboCop::Cop::Chef::ChefCorrectness::NodeNormalUnless do
     RUBY
 
     expect_correction(<<~RUBY)
-    node.normal_unless[:foo]
+      node.normal_unless[:foo]
     RUBY
   end
 
@@ -38,7 +38,7 @@ describe RuboCop::Cop::Chef::ChefCorrectness::NodeNormalUnless do
     RUBY
 
     expect_correction(<<~RUBY)
-    chef_run.node.normal_unless[:foo]
+      chef_run.node.normal_unless[:foo]
     RUBY
   end
 

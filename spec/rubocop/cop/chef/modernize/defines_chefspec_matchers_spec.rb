@@ -35,9 +35,9 @@ describe RuboCop::Cop::Chef::ChefModernize::DefinesChefSpecMatchers, :config do
 
   it "doesn't register an offense when checking if another method class is defined" do
     expect_no_offenses(<<~RUBY)
-    if defined?(NotChefSpec)
-      # something would go here right?
-    end
+      if defined?(NotChefSpec)
+        # something would go here right?
+      end
     RUBY
   end
 end

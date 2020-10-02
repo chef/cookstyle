@@ -22,10 +22,10 @@ describe RuboCop::Cop::Chef::ChefModernize::EmptyResourceInitializeMethod, :conf
 
   it 'registers an offense with an empty initialize method' do
     expect_offense(<<~RUBY)
-    def initialize(*args)
-    ^^^^^^^^^^^^^^^^^^^^^ There is no need for an empty initialize method in a resource
-      super
-    end
+      def initialize(*args)
+      ^^^^^^^^^^^^^^^^^^^^^ There is no need for an empty initialize method in a resource
+        super
+      end
     RUBY
 
     expect_correction("\n")
@@ -33,10 +33,10 @@ describe RuboCop::Cop::Chef::ChefModernize::EmptyResourceInitializeMethod, :conf
 
   it "doesn't alert if there's an initializer with real content" do
     expect_no_offenses(<<~RUBY)
-    def initialize(*args)
-      @foo = bar
-      super
-    end
+      def initialize(*args)
+        @foo = bar
+        super
+      end
     RUBY
   end
 end

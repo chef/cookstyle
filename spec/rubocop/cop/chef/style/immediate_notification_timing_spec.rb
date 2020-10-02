@@ -29,17 +29,17 @@ describe RuboCop::Cop::Chef::ChefStyle::ImmediateNotificationTiming do
     RUBY
 
     expect_correction(<<~RUBY)
-    template '/etc/www/configures-apache.conf' do
-      notifies :restart, 'service[apache]', :immediately
-    end
-  RUBY
+      template '/etc/www/configures-apache.conf' do
+        notifies :restart, 'service[apache]', :immediately
+      end
+    RUBY
   end
 
   it 'does not register an offense when notification uses the :immediately timing' do
     expect_no_offenses(<<~RUBY)
-    template '/etc/www/configures-apache.conf' do
-      notifies :restart, 'service[apache]', :immediately
-    end
+      template '/etc/www/configures-apache.conf' do
+        notifies :restart, 'service[apache]', :immediately
+      end
     RUBY
   end
 end

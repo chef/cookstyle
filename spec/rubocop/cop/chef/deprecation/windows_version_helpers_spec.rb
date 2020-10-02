@@ -23,61 +23,61 @@ describe RuboCop::Cop::Chef::ChefDeprecations::WindowsVersionHelpers, :config do
 
   it 'registers an offense when using Windows::VersionHelper nt_version helper' do
     expect_offense(<<~RUBY)
-    if Windows::VersionHelper.nt_version == 10
-       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use node['platform_version'] and node['kernel'] data introduced in Chef Infra Client 14 instead of the deprecated Windows::VersionHelper helpers from the Windows cookbook.
-      puts 'Windows 10'
-    end
+      if Windows::VersionHelper.nt_version == 10
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use node['platform_version'] and node['kernel'] data introduced in Chef Infra Client 14 instead of the deprecated Windows::VersionHelper helpers from the Windows cookbook.
+        puts 'Windows 10'
+      end
     RUBY
 
     expect_correction(<<~RUBY)
-    if node['platform_version'].to_f == 10
-      puts 'Windows 10'
-    end
+      if node['platform_version'].to_f == 10
+        puts 'Windows 10'
+      end
     RUBY
   end
 
   it 'registers an offense when using Windows::VersionHelper server_version? helper' do
     expect_offense(<<~RUBY)
-    if Windows::VersionHelper.server_version?
-       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use node['platform_version'] and node['kernel'] data introduced in Chef Infra Client 14 instead of the deprecated Windows::VersionHelper helpers from the Windows cookbook.
-      puts 'Server Edition'
-    end
+      if Windows::VersionHelper.server_version?
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use node['platform_version'] and node['kernel'] data introduced in Chef Infra Client 14 instead of the deprecated Windows::VersionHelper helpers from the Windows cookbook.
+        puts 'Server Edition'
+      end
     RUBY
 
     expect_correction(<<~RUBY)
-    if node['kernel']['product_type'] == 'Server'
-      puts 'Server Edition'
-    end
+      if node['kernel']['product_type'] == 'Server'
+        puts 'Server Edition'
+      end
     RUBY
   end
 
   it 'registers an offense when using Windows::VersionHelper core_version? helper' do
     expect_offense(<<~RUBY)
-    if Windows::VersionHelper.core_version?
-       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use node['platform_version'] and node['kernel'] data introduced in Chef Infra Client 14 instead of the deprecated Windows::VersionHelper helpers from the Windows cookbook.
-      puts 'Core Edition'
-    end
+      if Windows::VersionHelper.core_version?
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use node['platform_version'] and node['kernel'] data introduced in Chef Infra Client 14 instead of the deprecated Windows::VersionHelper helpers from the Windows cookbook.
+        puts 'Core Edition'
+      end
     RUBY
 
     expect_correction(<<~RUBY)
-    if node['kernel']['server_core']
-      puts 'Core Edition'
-    end
+      if node['kernel']['server_core']
+        puts 'Core Edition'
+      end
     RUBY
   end
 
   it 'registers an offense when using Windows::VersionHelper workstation_version? helper' do
     expect_offense(<<~RUBY)
-    if Windows::VersionHelper.workstation_version?
-       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use node['platform_version'] and node['kernel'] data introduced in Chef Infra Client 14 instead of the deprecated Windows::VersionHelper helpers from the Windows cookbook.
-      puts 'Workstation Edition'
-    end
+      if Windows::VersionHelper.workstation_version?
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use node['platform_version'] and node['kernel'] data introduced in Chef Infra Client 14 instead of the deprecated Windows::VersionHelper helpers from the Windows cookbook.
+        puts 'Workstation Edition'
+      end
     RUBY
 
     expect_correction(<<~RUBY)
-    if node['kernel']['product_type'] == 'Workstation'
-      puts 'Workstation Edition'
-    end
+      if node['kernel']['product_type'] == 'Workstation'
+        puts 'Workstation Edition'
+      end
     RUBY
   end
 end

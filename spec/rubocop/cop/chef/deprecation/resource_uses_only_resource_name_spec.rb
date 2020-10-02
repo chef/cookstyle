@@ -27,24 +27,24 @@ describe RuboCop::Cop::Chef::ChefDeprecations::ResourceUsesOnlyResourceName do
 
   let(:non_match_json) do
     <<~DATA
-    {
-    	"name": "default",
-    	"description": "Installs some stuff",
-    	"maintainer": "Bob Boberson",
-    	"maintainer_email": "bob@example.com",
-    	"license": "Apache-2.0",
-    	"platforms": {},
-    	"dependencies": {},
-    	"recommendations": {},
-    	"suggestions": {},
-    	"conflicting": {},
-    	"providing": {},
-    	"replacing": {},
-    	"attributes": {},
-    	"groupings": {},
-    	"recipes": {},
-    	"version": "1.0.0"
-    }
+      {
+      	"name": "default",
+      	"description": "Installs some stuff",
+      	"maintainer": "Bob Boberson",
+      	"maintainer_email": "bob@example.com",
+      	"license": "Apache-2.0",
+      	"platforms": {},
+      	"dependencies": {},
+      	"recommendations": {},
+      	"suggestions": {},
+      	"conflicting": {},
+      	"providing": {},
+      	"replacing": {},
+      	"attributes": {},
+      	"groupings": {},
+      	"recipes": {},
+      	"version": "1.0.0"
+      }
     DATA
   end
 

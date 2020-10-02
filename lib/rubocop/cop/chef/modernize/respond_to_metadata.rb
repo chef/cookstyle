@@ -69,7 +69,7 @@ module RuboCop
           end
 
           def_node_matcher :if_respond_to?, <<~PATTERN
-          (if (send nil? :respond_to? _ ) ... )
+            (if (send nil? :respond_to? _ ) ... )
           PATTERN
         end
       end
