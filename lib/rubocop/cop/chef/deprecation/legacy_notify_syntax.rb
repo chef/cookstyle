@@ -78,7 +78,7 @@ module RuboCop
                                 else
                                   "\"#{type.source}[\#{#{name.source}}]\""
                                 end
-                new_val = "#{notify_type} #{action.source}, #{service_value}".dup
+                new_val = +"#{notify_type} #{action.source}, #{service_value}"
                 new_val << ", #{timing.first.source}" unless timing.empty?
                 corrector.replace(node, new_val)
               end
