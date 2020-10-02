@@ -1,3 +1,9 @@
+require: rubocop-performance
+
+# enable new cops for rubocop-performance
+AllCops:
+  NewCops: enable
+
 ChefStyle/CommentFormat:
   Exclude:
     - 'lib/rubocop/cop/chef/comments_format.rb'
