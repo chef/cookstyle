@@ -32,8 +32,6 @@ module RuboCop
 
           MSG = "Use currently supported platforms in ChefSpec listed at https://github.com/chefspec/fauxhai/blob/master/PLATFORMS.md. Fauxhai / ChefSpec will perform fuzzy matching on platform version so it's always best to be less specific ie. 10 instead of 10.3"
 
-          Gem::Dependency.new('', ['~> 1.4.5', '>= 1.4.6']).match?('', '1.4.6')
-
           DEPRECATED_MAPPING = {
             'amazon' => {
               '2017.12' => '2',
