@@ -1,3 +1,19 @@
+## Cookstyle 6.20
+
+### RuboCop 0.93.0
+
+RuboCop has been updated to 0.93.0, which includes a large number of bug fixes and performance improvements when scanning large repositories.
+
+### 1 New Ruby Cop
+
+#### Lint/RedundantSafeNavigation
+
+The `Lint/RedundantSafeNavigation` cop detects redundant save navigation operators in order to simplify code. For example `attrs&.respond_to?(:[])` can be simplified to just `attrs.respond_to?(:[])` because `respond_to?` will not error even if attrs is not defined.
+
+`Enabled by default`: True
+
+`Autocorrects`: True
+
 ## Cookstyle 6.19
 
 ### RuboCop 0.92.0
