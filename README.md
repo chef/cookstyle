@@ -12,7 +12,7 @@ Cookstyle is a [code linting](https://en.wikipedia.org/wiki/Lint_%28software%29)
 
 Cookstyle is powered by the [RuboCop](http://www.rubocop.org) linting engine. RuboCop ships with over three-hundred rules, or cops, designed to detect common Ruby coding mistakes and enforce a common coding style. We've customized Cookstyle with a subset of those cops that we believe are perfectly tailored for cookbook development. We also ship **218 Chef Infra specific cops** that catch common cookbook coding mistakes, cleanup portions of code that are no longer necessary, and detect deprecations that prevent cookbooks from running on the latest releases of Chef Infra Client.
 
-For a complete list of Cookstyle rules see the [Cops Documentation](https://github.com/chef/cookstyle/blob/main/docs/cops.md)
+For a complete list of Cookstyle rules see the [Cops Documentation](https://github.com/chef/cookstyle/blob/master/docs/cops.md)
 
 ## Cookstyle vs. RuboCop
 
@@ -22,7 +22,7 @@ How does Cookstyle differ from RuboCop?
 
 Cookbook development differs from that of traditional Ruby software development, so we have tailored the list of built-in cops in RuboCop for cookbook development. For the most part, this means disabling cops deemed not useful for cookbook development. Occasionally, we've changed the configuration of a rule to enforce a different behavior altogether. We've also extended the base RuboCop package with a set of our own Chef Infra-specific cops. These cops are only found in Cookstyle and will help you to write more reliable and future-proof cookbooks.
 
-See the current set of cops in [Cops Documentation](https://github.com/chef/cookstyle/blob/main/docs/cops.md)
+See the current set of cops in [Cops Documentation](https://github.com/chef/cookstyle/blob/master/docs/cops.md)
 
 #### Stable
 
