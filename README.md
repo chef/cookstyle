@@ -129,7 +129,7 @@ We'd love to have your help in developing Cookstyle. See our [Contributing Guide
 
 ## License and Copyright
 
-Copyright 2016-2019, Chef Software, Inc.
+Copyright 2016-2020, Chef Software, Inc.
 
 ```
 Licensed under the Apache License, Version 2.0 (the "License");
