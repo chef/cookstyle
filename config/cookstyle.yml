@@ -2728,3 +2728,7 @@ Style/Dir:
 # Use __FILE__ or __dir__ to simplify expand_paths
 Style/ExpandPathArguments:
   Enabled: true
+
+# Avoid a safe navigation operator if we don't need it
+Lint/RedundantSafeNavigation:
+  Enabled: true
