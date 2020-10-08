@@ -1,21 +1,19 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.20.1 -->
-## [v6.20.1](https://github.com/chef/cookstyle/tree/v6.20.1) (2020-10-08)
-
-#### Merged Pull Requests
-- Add release notes for 6.20 [#775](https://github.com/chef/cookstyle/pull/775) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=6.19.11 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Add release notes for 6.20 [#775](https://github.com/chef/cookstyle/pull/775) ([tas50](https://github.com/tas50)) <!-- 6.20.1 -->
-- Update copyright to bump version [#774](https://github.com/chef/cookstyle/pull/774) ([tas50](https://github.com/tas50)) <!-- 6.20.0 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v6.20.1](https://github.com/chef/cookstyle/tree/v6.20.1) (2020-10-08)
+
+#### Merged Pull Requests
+- Update copyright to bump version [#774](https://github.com/chef/cookstyle/pull/774) ([tas50](https://github.com/tas50))
+- Add release notes for 6.20 [#775](https://github.com/chef/cookstyle/pull/775) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v6.19.11](https://github.com/chef/cookstyle/tree/v6.19.11) (2020-10-02)
 
 #### Merged Pull Requests
@@ -25,7 +23,6 @@
 - Use + instead of dup to unfreeze a string [#769](https://github.com/chef/cookstyle/pull/769) ([tas50](https://github.com/tas50))
 - Ident all the heredocs [#770](https://github.com/chef/cookstyle/pull/770) ([tas50](https://github.com/tas50))
 - Enable rubocop-performance in CI [#771](https://github.com/chef/cookstyle/pull/771) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v6.19.5](https://github.com/chef/cookstyle/tree/v6.19.5) (2020-09-28)
 
