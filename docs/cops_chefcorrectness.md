@@ -784,6 +784,39 @@ Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefcorrectnessnotifiesactionnotsymbol](https://rubystyle.guide#chefcorrectnessnotifiesactionnotsymbol)
 
+## ChefCorrectness/OctalModeAsString
+
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
+
+Don't represent file modes as Strings containing octal values.
+
+### Examples
+
+```ruby
+# bad
+file '/etc/some_file' do
+  mode '0o755'
+end
+
+# good
+file '/etc/some_file' do
+  mode '0755'
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `6.21.0` | String
+Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
+
+### References
+
+* [https://rubystyle.guide#chefcorrectnessoctalmodeasstring](https://rubystyle.guide#chefcorrectnessoctalmodeasstring)
+
 ## ChefCorrectness/OpenSSLPasswordHelpers
 
 Enabled by default | Supports autocorrection | Target Chef Version

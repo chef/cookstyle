@@ -25,6 +25,7 @@
 * [ChefCorrectness/NodeNormal](cops_chefcorrectness.md#chefcorrectnessnodenormal)
 * [ChefCorrectness/NodeNormalUnless](cops_chefcorrectness.md#chefcorrectnessnodenormalunless)
 * [ChefCorrectness/NotifiesActionNotSymbol](cops_chefcorrectness.md#chefcorrectnessnotifiesactionnotsymbol)
+* [ChefCorrectness/OctalModeAsString](cops_chefcorrectness.md#chefcorrectnessoctalmodeasstring)
 * [ChefCorrectness/OpenSSLPasswordHelpers](cops_chefcorrectness.md#chefcorrectnessopensslpasswordhelpers)
 * [ChefCorrectness/PowershellScriptDeleteFile](cops_chefcorrectness.md#chefcorrectnesspowershellscriptdeletefile)
 * [ChefCorrectness/PropertyWithoutType](cops_chefcorrectness.md#chefcorrectnesspropertywithouttype)

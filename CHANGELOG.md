@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 6.20.3 -->
+## [v6.20.3](https://github.com/chef/cookstyle/tree/v6.20.3) (2020-10-15)
+
+#### Merged Pull Requests
+- Add new ChefCorrectness/OctalModeAsString cop [#777](https://github.com/chef/cookstyle/pull/777) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=6.20.2 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Add new ChefCorrectness/OctalModeAsString cop [#777](https://github.com/chef/cookstyle/pull/777) ([tas50](https://github.com/tas50)) <!-- 6.20.3 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
