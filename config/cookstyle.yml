@@ -469,6 +469,16 @@ ChefCorrectness/PropertyWithoutType:
     - '**/libraries/*.rb'
     - '**/resources/*.rb'
 
+ChefCorrectness/OctalModeAsString:
+  Description: Don't represent file modes as strings containing octal values. Use standard base 10 file modes instead.
+  StyleGuide: '#chefcorrectnessoctalmodeasstring'
+  Enabled: true
+  VersionAdded: '6.21.0'
+  Exclude:
+    - '**/attributes/*.rb'
+    - '**/metadata.rb'
+    - '**/Berksfile'
+
 ###############################
 # ChefSharing: Issues that prevent sharing code with other teams or with the Chef community in general
 ###############################
