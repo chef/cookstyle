@@ -1,27 +1,24 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.21.1 -->
-## [v6.21.1](https://github.com/chef/cookstyle/tree/v6.21.1) (2020-10-15)
-
-#### Merged Pull Requests
-- Add release notes for 6.21 [#779](https://github.com/chef/cookstyle/pull/779) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=6.20.2 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Add release notes for 6.21 [#779](https://github.com/chef/cookstyle/pull/779) ([tas50](https://github.com/tas50)) <!-- 6.21.1 -->
-- Add ChefDeprecations/UseYamlDump cop [#778](https://github.com/chef/cookstyle/pull/778) ([tas50](https://github.com/tas50)) <!-- 6.21.0 -->
-- Add new ChefCorrectness/OctalModeAsString cop [#777](https://github.com/chef/cookstyle/pull/777) ([tas50](https://github.com/tas50)) <!-- 6.20.3 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v6.21.1](https://github.com/chef/cookstyle/tree/v6.21.1) (2020-10-15)
+
+#### Merged Pull Requests
+- Add new ChefCorrectness/OctalModeAsString cop [#777](https://github.com/chef/cookstyle/pull/777) ([tas50](https://github.com/tas50))
+- Add ChefDeprecations/UseYamlDump cop [#778](https://github.com/chef/cookstyle/pull/778) ([tas50](https://github.com/tas50))
+- Add release notes for 6.21 [#779](https://github.com/chef/cookstyle/pull/779) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v6.20.2](https://github.com/chef/cookstyle/tree/v6.20.2) (2020-10-12)
 
 #### Merged Pull Requests
 - Update RuboCop to 0.93.1 [#776](https://github.com/chef/cookstyle/pull/776) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v6.20.1](https://github.com/chef/cookstyle/tree/v6.20.1) (2020-10-08)
 
