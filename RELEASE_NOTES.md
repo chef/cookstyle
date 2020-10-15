@@ -1,3 +1,23 @@
+## Cookstyle 6.21
+
+### 2 New Chef Infra Cops
+
+#### ChefCorrectness/OctalModeAsString
+
+The `ChefCorrectness/OctalModeAsString` cop detects `mode` properties that incorrectly use a string to represent an octal value. We highly recommend using strings which contain a base 10 mode value, but even if you want to use octal values, they can't be passed as strings.
+
+`Enabled by default`: True
+
+`Autocorrects`: False
+
+#### ChefDeprecations/UseYamlDump
+
+The `ChefDeprecations/UseYamlDump` cop detects cookbooks that use the `.to_yaml` method. Chef Infra Client 16.5 introduced performance enhancements to Ruby library loading and due to the underlying implementation of Ruby's `.to_yaml` method, it does not automatically load the `yaml` library. We recommend using `YAML.dump()` instead, which is functionally equivalent, and also properly loads the `yaml` library.
+
+`Enabled by default`: True
+
+`Autocorrects`: True
+
 ## Cookstyle 6.20
 
 ### RuboCop 0.93.0
