@@ -95,6 +95,7 @@
 * [ChefDeprecations/SearchUsesPositionalParameters](cops_chefdeprecations.md#chefdeprecationssearchusespositionalparameters)
 * [ChefDeprecations/UseAutomaticResourceName](cops_chefdeprecations.md#chefdeprecationsuseautomaticresourcename)
 * [ChefDeprecations/UseInlineResourcesDefined](cops_chefdeprecations.md#chefdeprecationsuseinlineresourcesdefined)
+* [ChefDeprecations/UseYamlDump](cops_chefdeprecations.md#chefdeprecationsuseyamldump)
 * [ChefDeprecations/UserDeprecatedSupportsProperty](cops_chefdeprecations.md#chefdeprecationsuserdeprecatedsupportsproperty)
 * [ChefDeprecations/UsesChefRESTHelpers](cops_chefdeprecations.md#chefdeprecationsuseschefresthelpers)
 * [ChefDeprecations/UsesDeprecatedMixins](cops_chefdeprecations.md#chefdeprecationsusesdeprecatedmixins)
