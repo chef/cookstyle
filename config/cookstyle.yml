@@ -2493,10 +2493,9 @@ Style/EachForSimpleLoop:
 Style/EmptyCaseCondition:
   Enabled: true
 
-# == 0 is more performant than .zero? and .zero? also introduced several regressions
+# It doesn't matter if people use the friendly helpers or not for overall readability
 Style/NumericPredicate:
-  Enabled: true
-  EnforcedStyle: comparison
+  Enabled: false
 
 # this is bad %w(something     another_thing   one_more)
 Layout/SpaceInsideArrayPercentLiteral:
