@@ -47,12 +47,7 @@ describe RuboCop::Cop::Chef::Deprecations::IncludingXMLRubyRecipe, :config do
       end
     RUBY
 
-    expect_correction(<<~RUBY)
-      if foo == bar
-        baz
-
-      end
-    RUBY
+    expect_correction("if foo == bar\n  baz\n  \nend\n")
   end
 
   it "doesn't register an offense when including any other recipe" do

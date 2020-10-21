@@ -5,7 +5,7 @@ module RuboCop
   class CommentConfig
     remove_const('COMMENT_DIRECTIVE_REGEXP')
     COMMENT_DIRECTIVE_REGEXP = Regexp.new(
-      ('# (?:rubocop|cookstyle) : ((?:dis|en)able)\b ' + COPS_PATTERN).gsub(' ', '\s*')
+      "# (?:rubocop|cookstyle): ((?:disable|enable|todo))\\b #{COPS_PATTERN}".gsub(' ', '\s*')
     )
   end
 end

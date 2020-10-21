@@ -1334,7 +1334,7 @@ Layout/TrailingWhitespace:
   StyleGuide: '#no-trailing-whitespace'
   Enabled: true
   VersionAdded: '0.49'
-  VersionChanged: '0.83'
+  VersionChanged: '1.0'
   AllowInHeredoc: false
 
 #################### Lint ##################################
@@ -1454,6 +1454,11 @@ Lint/DuplicateMethods:
   Enabled: true
   VersionAdded: '0.29'
 
+Lint/DuplicateRegexpCharacterClassElement:
+  Description: 'Checks for duplicate elements in Regexp character classes.'
+  Enabled: pending
+  VersionAdded: '1.1'
+
 Lint/DuplicateRequire:
   Description: 'Check for duplicate `require`s and `require_relative`s.'
   Enabled: true
@@ -1473,6 +1478,12 @@ Lint/ElseLayout:
   Description: 'Check for odd code arrangement in an else block.'
   Enabled: true
   VersionAdded: '0.17'
+
+Lint/EmptyBlock:
+  Description: 'This cop checks for blocks without a body.'
+  Enabled: pending
+  VersionAdded: '1.1'
+  AllowComments: true
 
 Lint/EmptyConditionalBody:
   Description: 'This cop checks for the presence of `if`, `elsif` and `unless` branches without a body.'
@@ -1647,7 +1658,8 @@ Lint/MultipleComparison:
   Description: "Use `&&` operator to compare multiple values."
   Enabled: true
   VersionAdded: '0.47'
-  VersionChanged: '0.77'
+  VersionChanged: '1.1'
+  AllowMethodComparison: true
 
 Lint/NestedMethodDefinition:
   Description: 'Do not use nested method definitions.'
@@ -1682,8 +1694,12 @@ Lint/NumberConversion:
   Description: 'Checks unsafe usage of number conversion methods.'
   Enabled: false
   VersionAdded: '0.53'
-  VersionChanged: '0.70'
+  VersionChanged: '1.1'
   SafeAutoCorrect: false
+  IgnoredMethods: []
+  IgnoredClasses:
+    - Time
+    - DateTime
 
 Lint/OrderedMagicComments:
   Description: 'Checks the proper ordering of magic comments and whether a magic comment is not placed before a shebang.'
@@ -1910,6 +1926,11 @@ Lint/Syntax:
   VersionAdded: '0.9'
 
 
+Lint/ToEnumArguments:
+  Description: 'This cop ensures that `to_enum`/`enum_for`, called for the current method, has correct arguments.'
+  Enabled: pending
+  VersionAdded: '1.1'
+
 Lint/ToJSON:
   Description: 'Ensure #to_json includes an optional argument.'
   Enabled: true
@@ -1935,6 +1956,11 @@ Lint/UnifiedInteger:
   Description: 'Use Integer instead of Fixnum or Bignum.'
   Enabled: true
   VersionAdded: '0.43'
+
+Lint/UnmodifiedReduceAccumulator:
+  Description: Checks for `reduce` or `inject` blocks that do not update the accumulator each iteration.
+  Enabled: pending
+  VersionAdded: '1.1'
 
 Lint/UnreachableCode:
   Description: 'Unreachable code.'
@@ -2478,6 +2504,13 @@ Style/AndOr:
     - always
     - conditionals
 
+Style/ArgumentsForwarding:
+  Description: 'Use arguments forwarding.'
+  StyleGuide: '#arguments-forwarding'
+  Enabled: pending
+  AllowOnlyRestArgument: true
+  VersionAdded: '1.1'
+
 Style/ArrayCoercion:
   Description: >-
                   Use Array() instead of explicit Array check or [*var], when dealing
@@ -2917,6 +2950,14 @@ Style/DisableCopsWithinSourceCodeDirective:
                  Forbids disabling/enabling cops within source code.
   Enabled: false
   VersionAdded: '0.82'
+
+Style/DocumentDynamicEvalDefinition:
+  Description: >-
+                When using `class_eval` (or other `eval`) with string interpolation,
+                add a comment block showing its appearance if interpolated.
+  StyleGuide: '#eval-comment-docs'
+  Enabled: pending
+  VersionAdded: '1.1'
 
 Style/Documentation:
   Description: 'Document classes and non-namespace modules.'
@@ -3535,6 +3576,7 @@ Style/MultipleComparison:
                  use Array#include? instead.
   Enabled: true
   VersionAdded: '0.49'
+  VersionChanged: '1.1'
 
 Style/MutableConstant:
   Description: 'Do not assign mutable objects to constants.'
@@ -4225,6 +4267,13 @@ Style/StructInheritance:
   Enabled: true
   VersionAdded: '0.29'
   VersionChanged: '0.86'
+
+Style/SwapValues:
+  Description: 'This cop enforces the use of shorthand-style swapping of 2 variables.'
+  StyleGuide: '#values-swapping'
+  Enabled: pending
+  VersionAdded: '1.1'
+  SafeAutoCorrect: false
 
 Style/SymbolArray:
   Description: 'Use %i or %I for arrays of symbols.'

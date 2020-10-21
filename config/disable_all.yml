@@ -237,6 +237,8 @@ Lint/DuplicateHashKey:
   Enabled: false
 Lint/DuplicateMethods:
   Enabled: false
+Lint/DuplicateRegexpCharacterClassElement:
+  Enabled: false
 Lint/DuplicateRequire:
   Enabled: false
 Lint/DuplicateRescueException:
@@ -244,6 +246,8 @@ Lint/DuplicateRescueException:
 Lint/EachWithObjectArgument:
   Enabled: false
 Lint/ElseLayout:
+  Enabled: false
+Lint/EmptyBlock:
   Enabled: false
 Lint/EmptyConditionalBody:
   Enabled: false
@@ -373,6 +377,8 @@ Lint/SuppressedException:
   Enabled: false
 Lint/Syntax:
   Enabled: false
+Lint/ToEnumArguments:
+  Enabled: false
 Lint/ToJSON:
   Enabled: false
 Lint/TopLevelReturnWithArgument:
@@ -382,6 +388,8 @@ Lint/TrailingCommaInAttributeDeclaration:
 Lint/UnderscorePrefixedVariableName:
   Enabled: false
 Lint/UnifiedInteger:
+  Enabled: false
+Lint/UnmodifiedReduceAccumulator:
   Enabled: false
 Lint/UnreachableCode:
   Enabled: false
@@ -467,6 +475,8 @@ Style/Alias:
   Enabled: false
 Style/AndOr:
   Enabled: false
+Style/ArgumentsForwarding:
+  Enabled: false
 Style/ArrayCoercion:
   Enabled: false
 Style/ArrayJoin:
@@ -536,6 +546,8 @@ Style/DisableCopsWithinSourceCodeDirective:
 Style/DocumentationMethod:
   Enabled: false
 Style/Documentation:
+  Enabled: false
+Style/DocumentDynamicEvalDefinition:
   Enabled: false
 Style/DoubleCopDisableDirective:
   Enabled: false
@@ -806,6 +818,8 @@ Style/StringMethods:
 Style/Strip:
   Enabled: false
 Style/StructInheritance:
+  Enabled: false
+Style/SwapValues:
   Enabled: false
 Style/SymbolArray:
   Enabled: false
