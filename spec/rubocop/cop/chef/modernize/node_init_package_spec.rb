@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefModernize::NodeInitPackage, :config do
+describe RuboCop::Cop::Chef::Modernize::NodeInitPackage, :config do
   subject(:cop) { described_class.new(config) }
 
   it "registers an offense with ::File.open('/proc/1/comm').gets.chomp" do

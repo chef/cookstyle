@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefDeprecations::DeprecatedChefSpecPlatform, :config do
+describe RuboCop::Cop::Chef::Deprecations::DeprecatedChefSpecPlatform, :config do
   subject(:cop) { described_class.new(config) }
 
   it "registers an offense when spec calls for Ubuntu 14.04, but doesn't autocorrect" do

@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefStyle::NegatingOnlyIf do
+describe RuboCop::Cop::Chef::Style::NegatingOnlyIf do
   subject(:cop) { described_class.new }
 
   it 'registers an offense when a only_if conditional negates ruby' do

@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefModernize
+      module Modernize
         # The osx_config_profile resource was renamed to osx_profile.
         # The new resource name should be used.
         #

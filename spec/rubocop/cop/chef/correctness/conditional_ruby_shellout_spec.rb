@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefCorrectness::ConditionalRubyShellout do
+describe RuboCop::Cop::Chef::Correctness::ConditionalRubyShellout do
   subject(:cop) { described_class.new }
 
   it 'registers an offense with a not_if that shells out using system' do

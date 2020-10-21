@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefModernize::ProvidesFromInitialize, :config do
+describe RuboCop::Cop::Chef::Modernize::ProvidesFromInitialize, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense with a resource that sets the @provides variable in an initializer' do

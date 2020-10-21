@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefCorrectness::DnfPackageAllowDowngrades do
+describe RuboCop::Cop::Chef::Correctness::DnfPackageAllowDowngrades do
   subject(:cop) { described_class.new }
 
   it 'registers an offense when a dnf_package resource uses the allow_downgrades property' do

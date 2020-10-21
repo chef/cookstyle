@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefRedundantCode
+      module RedundantCode
         # Use the :create_if_missing action instead of not_if with a ::File.exist(FOO) check.
         #
         # @example

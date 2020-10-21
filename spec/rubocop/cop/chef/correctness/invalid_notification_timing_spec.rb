@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefCorrectness::InvalidNotificationTiming do
+describe RuboCop::Cop::Chef::Correctness::InvalidNotificationTiming do
   subject(:cop) { described_class.new }
 
   it 'registers an offense with an invalid notification timing' do

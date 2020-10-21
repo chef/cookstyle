@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefCorrectness::InvalidDefaultAction do
+describe RuboCop::Cop::Chef::Correctness::InvalidDefaultAction do
   subject(:cop) { described_class.new }
 
   it 'registers an offense when default action is a string' do

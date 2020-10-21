@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefDeprecations::CookbooksDependsOnSelf, :config do
+describe RuboCop::Cop::Chef::Deprecations::CookbooksDependsOnSelf, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when a cookbook depends on itself' do

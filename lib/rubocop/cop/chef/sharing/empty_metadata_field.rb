@@ -19,7 +19,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefSharing
+      module Sharing
         # metadata.rb should not include fields with an empty string. Either don't include the field or add a value.
         #
         # @example

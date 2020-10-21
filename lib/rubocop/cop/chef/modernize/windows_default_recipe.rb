@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefModernize
+      module Modernize
         # Don't include the windows default recipe that is either full of gem install that are part of the Chef Infra Client, or empty (depends on version).
         #
         # @example

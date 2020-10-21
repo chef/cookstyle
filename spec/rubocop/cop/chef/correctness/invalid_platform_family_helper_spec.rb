@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefCorrectness::InvalidPlatformFamilyHelper, :config do
+describe RuboCop::Cop::Chef::Correctness::InvalidPlatformFamilyHelper, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when platform_family? passes "redhat"' do

@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefCorrectness::InvalidPlatformFamilyInCase, :config do
+describe RuboCop::Cop::Chef::Correctness::InvalidPlatformFamilyInCase, :config do
   subject(:cop) { described_class.new(config) }
 
   it "registers an offense if case node['platform_family'] checks for an invalid platform_family" do

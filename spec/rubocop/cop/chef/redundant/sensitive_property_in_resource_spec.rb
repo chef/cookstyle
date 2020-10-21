@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefRedundantCode::SensitivePropertyInResource, :config do
+describe RuboCop::Cop::Chef::RedundantCode::SensitivePropertyInResource, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when a resource has a sensitive property with a default of false' do

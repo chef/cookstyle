@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefStyle
+      module Style
         # When setting the allowed types for a resource to accept either true or false values it's much simpler to use true and false instead of TrueClass and FalseClass.
         #
         # @example

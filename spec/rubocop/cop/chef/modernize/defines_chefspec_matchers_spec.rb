@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefModernize::DefinesChefSpecMatchers, :config do
+describe RuboCop::Cop::Chef::Modernize::DefinesChefSpecMatchers, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when defining a ChefSpec matcher' do

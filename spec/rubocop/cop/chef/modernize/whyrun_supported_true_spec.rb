@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefModernize::WhyRunSupportedTrue, :config do
+describe RuboCop::Cop::Chef::Modernize::WhyRunSupportedTrue, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when a resource defines whyrun_supported? to return true' do

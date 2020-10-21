@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefDeprecations::ExecutePathProperty, :config do
+describe RuboCop::Cop::Chef::Deprecations::ExecutePathProperty, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when an execute resource has a String path property' do

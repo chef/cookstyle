@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefModernize
+      module Modernize
         # Use ::File.exist?('/foo/bar') instead of the slower 'test -f /foo/bar' which requires shelling out
         #
         # @example

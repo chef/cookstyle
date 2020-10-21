@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefRedundantCode::UseCreateIfMissing, :config do
+describe RuboCop::Cop::Chef::RedundantCode::UseCreateIfMissing, :config do
   subject(:cop) { described_class.new(config) }
 
   %w(cookbook_file file remote_directory cron_d remote_file template).each do |cb|

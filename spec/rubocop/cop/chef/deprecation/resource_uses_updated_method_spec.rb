@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefDeprecations::ResourceUsesUpdatedMethod, :config do
+describe RuboCop::Cop::Chef::Deprecations::ResourceUsesUpdatedMethod, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when a resource uses update method' do

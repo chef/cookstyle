@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefModernize::IfProvidesDefaultAction, :config do
+describe RuboCop::Cop::Chef::Modernize::IfProvidesDefaultAction, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense with a HWRP specifies the default_action in the initializer' do

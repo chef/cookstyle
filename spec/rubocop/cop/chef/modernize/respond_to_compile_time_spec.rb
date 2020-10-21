@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefModernize::RespondToCompileTime, :config do
+describe RuboCop::Cop::Chef::Modernize::RespondToCompileTime, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an error when using: compile_time true if Chef::Resource::ChefGem.method_defined?(:compile_time)' do

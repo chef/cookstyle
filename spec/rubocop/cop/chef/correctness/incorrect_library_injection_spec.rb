@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefCorrectness::IncorrectLibraryInjection do
+describe RuboCop::Cop::Chef::Correctness::IncorrectLibraryInjection do
   subject(:cop) { described_class.new }
 
   it 'registers an offense when calling ::Chef::Recipe.send' do

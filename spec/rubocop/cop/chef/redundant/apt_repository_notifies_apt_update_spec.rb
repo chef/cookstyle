@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefRedundantCode::AptRepositoryNotifiesAptUpdate do
+describe RuboCop::Cop::Chef::RedundantCode::AptRepositoryNotifiesAptUpdate do
   subject(:cop) { described_class.new }
 
   it 'registers an offense when apt_repository notifies execute[apt-get update]' do

@@ -19,7 +19,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefStyle
+      module Style
         # Replaces double spaces between sentences with a single space.
         # Note: This is DISABLED by default.
         class CommentSentenceSpacing < Base

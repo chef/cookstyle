@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefModernize::OsxConfigProfileResource, :config do
+describe RuboCop::Cop::Chef::Modernize::OsxConfigProfileResource, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when using the osx_config_profile resource' do

@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefCorrectness::PropertyWithoutType do
+describe RuboCop::Cop::Chef::Correctness::PropertyWithoutType do
   subject(:cop) { described_class.new }
 
   it 'registers an offense when an property has no type' do

@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefCorrectness
+      module Correctness
         # Resource properties or attributes should always define a type to help users understand the correct allowed values.
         #
         # @example

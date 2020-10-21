@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefCorrectness
+      module Correctness
         # Pass valid platform families to the platform_family? helper.
         #
         # @example

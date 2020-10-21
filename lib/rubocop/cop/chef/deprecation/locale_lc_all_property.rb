@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefDeprecations
+      module Deprecations
         # The local resource's lc_all property has been deprecated and will be removed in Chef Infra Client 17
         #
         # @example

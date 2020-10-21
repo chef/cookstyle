@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefModernize::RespondToResourceName, :config do
+describe RuboCop::Cop::Chef::Modernize::RespondToResourceName, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense with a HWRP that uses respond_to? with resource_name' do

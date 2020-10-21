@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefCorrectness::ScopedFileExist do
+describe RuboCop::Cop::Chef::Correctness::ScopedFileExist do
   subject(:cop) { described_class.new }
 
   it 'registers an offense when not scoping File.exist? in a only_if block' do

@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefStyle
+      module Style
         # Use :immediately instead of :immediate for resource notification timing
         #
         # @example

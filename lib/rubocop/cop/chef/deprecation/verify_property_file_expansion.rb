@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefDeprecations
+      module Deprecations
         # In Chef Infra Client 13 the "file" variable for use within the verify property was replaced with the "path" variable.
         #
         # @example

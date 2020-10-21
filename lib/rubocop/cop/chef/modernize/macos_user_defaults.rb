@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefModernize
+      module Modernize
         # The mac_os_x_userdefaults resource was renamed to macos_userdefaults when it was added to Chef Infra Client
         # 14.0. The new resource name should be used.
         #

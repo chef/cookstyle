@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefModernize::Definitions, :config do
+describe RuboCop::Cop::Chef::Modernize::Definitions, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when defining a definition' do

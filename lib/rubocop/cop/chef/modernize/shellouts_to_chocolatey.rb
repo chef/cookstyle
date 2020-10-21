@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefModernize
+      module Modernize
         # Use the Chocolatey resources built into Chef Infra Client instead of shelling out to the choco command
         #
         # @example

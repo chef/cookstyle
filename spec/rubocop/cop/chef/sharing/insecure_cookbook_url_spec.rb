@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefSharing::InsecureCookbookURL, :config do
+describe RuboCop::Cop::Chef::Sharing::InsecureCookbookURL, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when a cookbook sets its source_url to "http://github.com/something/something"' do

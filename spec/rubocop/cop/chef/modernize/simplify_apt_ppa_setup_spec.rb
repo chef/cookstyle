@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefModernize::SimplifyAptPpaSetup, :config do
+describe RuboCop::Cop::Chef::Modernize::SimplifyAptPpaSetup, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense and apt_repository contains a PPA repo in http(s) form' do

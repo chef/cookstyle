@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefModernize::ResourceNameFromInitialize, :config do
+describe RuboCop::Cop::Chef::Modernize::ResourceNameFromInitialize, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense with a HWRP specifies the resource_name in the initializer' do

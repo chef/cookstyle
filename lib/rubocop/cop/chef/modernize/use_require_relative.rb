@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefModernize
+      module Modernize
         # Instead of using require with a File.expand_path and __FILE__ use the simpler require_relative method.
         #
         # @example

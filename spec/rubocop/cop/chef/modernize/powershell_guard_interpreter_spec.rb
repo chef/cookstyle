@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefModernize::PowerShellGuardInterpreter, :config do
+describe RuboCop::Cop::Chef::Modernize::PowerShellGuardInterpreter, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when using the guard_interpreter is set to :powershell_script in a powershell_script resource' do

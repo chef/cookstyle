@@ -19,7 +19,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefDeprecations
+      module Deprecations
         # Make sure ignore_failure is used instead of epic_fail
         #
         # @example

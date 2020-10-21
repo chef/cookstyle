@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefModernize::CronManageResource, :config do
+describe RuboCop::Cop::Chef::Modernize::CronManageResource, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when using the cron_manage resource' do

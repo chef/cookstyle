@@ -19,7 +19,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefDeprecations
+      module Deprecations
         # Use the :run action in the ruby_block resource instead of the deprecated :create action
         #
         # @example

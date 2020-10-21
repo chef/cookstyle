@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefModernize
+      module Modernize
         # whyrun_supported? no longer needs to be set to true as that is the default in Chef Infra Client 13+
         #
         # @example

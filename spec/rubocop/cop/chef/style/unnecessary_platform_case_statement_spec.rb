@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefStyle::UnnecessaryPlatformCaseStatement do
+describe RuboCop::Cop::Chef::Style::UnnecessaryPlatformCaseStatement do
   subject(:cop) { described_class.new }
 
   it 'registers an offense when checking platform with a single condition case statement' do

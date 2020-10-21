@@ -19,7 +19,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefDeprecations
+      module Deprecations
         # In Chef Infra Client 13 and later the `windows_package` resource's `installer_type` property must be a symbol.
         #
         # @example

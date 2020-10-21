@@ -29,7 +29,7 @@ module RuboCop
       #   # good
       #   default_action :create
       #
-      module ChefCorrectness
+      module Correctness
         class InvalidDefaultAction < Base
           MSG = 'Default actions in resources should be symbols or an array of symbols.'
           RESTRICT_ON_SEND = [:default_action].freeze

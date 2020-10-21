@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefRedundantCode
+      module RedundantCode
         # There is no need to define a property or attribute named :name in a resource as Chef Infra defines this on all resources by default.
         #
         # @example

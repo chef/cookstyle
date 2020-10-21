@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefModernize::UseRequireRelative, :config do
+describe RuboCop::Cop::Chef::Modernize::UseRequireRelative, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when using require with File.expand_path and __FILE__' do

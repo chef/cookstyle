@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefDeprecations::PartialSearchHelperUsage, :config do
+describe RuboCop::Cop::Chef::Deprecations::PartialSearchHelperUsage, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when using the partial_search helper' do

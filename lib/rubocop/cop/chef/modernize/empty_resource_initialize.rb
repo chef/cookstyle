@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefModernize
+      module Modernize
         # There is no need for an empty initialize method in a resource
         #
         # @example

@@ -19,7 +19,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefDeprecations
+      module Deprecations
         # Don't use deprecated Chef::ShellOut which was removed in Chef Infra Client 13.
         # Use Mixlib::ShellOut instead, which behaves identically or convert to the shell_out
         # helper provided in chef-utils.

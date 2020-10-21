@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefRedundantCode:: PropertySplatRegex, :config do
+describe RuboCop::Cop::Chef::RedundantCode:: PropertySplatRegex, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when a property includes regex: /.*/' do

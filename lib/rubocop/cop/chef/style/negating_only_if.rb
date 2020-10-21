@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefStyle
+      module Style
         # Instead of using only_if conditionals with ! to negate the returned value, use not_if which is easier to read
         #
         # @example

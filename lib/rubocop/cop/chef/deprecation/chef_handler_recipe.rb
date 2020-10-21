@@ -19,7 +19,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefDeprecations
+      module Deprecations
         # There is no need to include the empty and deprecated chef_handler::default recipe in order to use the chef_handler resource
         #
         # @example

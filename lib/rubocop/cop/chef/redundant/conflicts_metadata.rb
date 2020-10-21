@@ -19,7 +19,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefRedundantCode
+      module RedundantCode
         # The conflicts metadata.rb method is not used and is unnecessary in cookbooks.
         #
         # @example

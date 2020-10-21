@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefModernize
+      module Modernize
         # Chef Infra Client 15.0 and later includes a windows_uac resource that should be used to set Windows UAC values instead of setting registry keys directly.
         #
         #   # bad
@@ -37,7 +37,7 @@ module RuboCop
         #    consent_behavior_admins :no_prompt
         #  end
         #
-        class WindowsRegistryUAC < Cop
+        class WindowsRegistryUAC < Base
           include RuboCop::Chef::CookbookHelpers
           extend TargetChefVersion
 
@@ -53,7 +53,7 @@ module RuboCop
 
             # use source instead of .value in case there's string interpolation which adds a complex dstr type
             # with a nested string and a begin. Source allows us to avoid a lot of defensive programming here
-            add_offense(node, location: :expression, message: MSG, severity: :refactor)
+            add_offense(node, message: MSG, severity: :refactor)
           end
 
           # block execute resources
@@ -61,7 +61,7 @@ module RuboCop
             match_property_in_resource?(:registry_key, 'key', node) do |key_prop|
               property_data = method_arg_ast_to_string(key_prop)
               return unless property_data && property_data.match?(/(HKLM|HKEY_LOCAL_MACHINE)\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System/i)
-              add_offense(node, location: :expression, message: MSG, severity: :refactor)
+              add_offense(node, message: MSG, severity: :refactor)
             end
           end
         end

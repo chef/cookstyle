@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefEffortless::SearchForEnvironmentsOrRoles, :config do
+describe RuboCop::Cop::Chef::Effortless::SearchForEnvironmentsOrRoles, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when search query contains chef_environment' do

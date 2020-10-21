@@ -19,7 +19,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefRedundantCode
+      module RedundantCode
         # You can pass multiple values to the platform? and platform_family? helpers instead of calling the helpers multiple times.
         #
         # @example

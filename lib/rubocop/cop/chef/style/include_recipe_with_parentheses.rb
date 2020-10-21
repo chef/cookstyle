@@ -19,7 +19,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefStyle
+      module Style
         # There is no need to wrap the recipe in parentheses when using the include_recipe helper.
         #
         # @example

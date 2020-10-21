@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefStyle::OverlyComplexSupportsDependsMetadata do
+describe RuboCop::Cop::Chef::Style::OverlyComplexSupportsDependsMetadata do
   subject(:cop) { described_class.new }
 
   it 'registers an offense when defining two supports in an array' do

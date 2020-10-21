@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefEffortless
+      module Effortless
         # Neither Policyfiles or Effortless Infra which is based on Policyfiles supports Chef Environments
         #
         # @example

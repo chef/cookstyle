@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefCorrectness::LazyInResourceGuard do
+describe RuboCop::Cop::Chef::Correctness::LazyInResourceGuard do
   subject(:cop) { described_class.new }
 
   it 'registers an offense with a resource guard uses lazy' do

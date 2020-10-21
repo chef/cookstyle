@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefModernize
+      module Modernize
         # Use Chef InSpec for testing instead of the Minitest Handler cookbook pattern.
         #
         # @example

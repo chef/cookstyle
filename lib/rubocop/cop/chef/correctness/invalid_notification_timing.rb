@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefCorrectness
+      module Correctness
         # Valid notification timings are :immediately, :immediate (alias for :immediately), :delayed, and :before.
         #
         # @example

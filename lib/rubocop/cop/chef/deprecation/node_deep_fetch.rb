@@ -17,7 +17,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefDeprecations
+      module Deprecations
         # The node.deep_fetch method has been removed from Chef-Sugar, and must be replaced by the node.read API.
         #
         # @example

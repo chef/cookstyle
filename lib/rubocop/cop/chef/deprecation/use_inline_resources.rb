@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefDeprecations
+      module Deprecations
         # use_inline_resources became the default in Chef Infra Client 13+ and no longer needs
         # to be called in resources
         #

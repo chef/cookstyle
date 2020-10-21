@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefStyle
+      module Style
         # Use strings to represent file modes to avoid confusion between octal and base 10 integer formats.
         #
         # @example

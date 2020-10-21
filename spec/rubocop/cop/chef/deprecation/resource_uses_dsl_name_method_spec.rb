@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefDeprecations::ResourceUsesDslNameMethod, :config do
+describe RuboCop::Cop::Chef::Deprecations::ResourceUsesDslNameMethod, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when a resource uses the dsl_name method' do

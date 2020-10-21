@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefDeprecations::EpicFail do
+describe RuboCop::Cop::Chef::Deprecations::EpicFail do
   subject(:cop) { described_class.new }
 
   it 'registers an offense when using epic_fail' do

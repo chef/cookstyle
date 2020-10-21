@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefCorrectness::TmpPath, :config do
+describe RuboCop::Cop::Chef::Correctness::TmpPath, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when hardcoding a path in /tmp' do

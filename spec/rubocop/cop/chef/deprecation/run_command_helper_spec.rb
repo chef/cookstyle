@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefDeprecations::UsesRunCommandHelper, :config do
+describe RuboCop::Cop::Chef::Deprecations::UsesRunCommandHelper, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when a cookbook uses the run_command helper' do

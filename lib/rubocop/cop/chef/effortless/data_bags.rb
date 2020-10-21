@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefEffortless
+      module Effortless
         # Data bags cannot be used with the Effortless Infra pattern
         #
         # @example

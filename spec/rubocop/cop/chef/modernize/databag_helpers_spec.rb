@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefModernize::DatabagHelpers, :config do
+describe RuboCop::Cop::Chef::Modernize::DatabagHelpers, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when using Chef::DataBagItem.load' do

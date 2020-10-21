@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefModernize::FoodcriticComments do
+describe RuboCop::Cop::Chef::Modernize::FoodcriticComments do
   subject(:cop) { described_class.new }
 
   it 'registers an offense with a foodcritic inline comment' do

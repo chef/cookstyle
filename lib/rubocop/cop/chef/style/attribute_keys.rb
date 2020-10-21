@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefStyle
+      module Style
         # Check which style of keys are used to access node attributes.
         #
         # There are two supported styles: "symbols" and "strings".

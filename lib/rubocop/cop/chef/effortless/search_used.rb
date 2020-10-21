@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefEffortless
+      module Effortless
         # Search is not compatible with the Effortless Infra pattern
         #
         # @example

@@ -19,7 +19,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefStyle
+      module Style
         # Checks for default copyright comments from the chef generator cookbook command
         #
         # @example

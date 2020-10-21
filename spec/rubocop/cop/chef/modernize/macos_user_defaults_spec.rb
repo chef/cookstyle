@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefModernize::MacOsXUserdefaults, :config do
+describe RuboCop::Cop::Chef::Modernize::MacOsXUserdefaults, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when using the mac_os_x_userdefaults resource' do

@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefDeprecations::UsesChefRESTHelpers, :config do
+describe RuboCop::Cop::Chef::Deprecations::UsesChefRESTHelpers, :config do
   subject(:cop) { described_class.new(config) }
 
   it "registers an offense when requiring 'chef/rest'" do

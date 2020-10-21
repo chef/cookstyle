@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefRedundantCode
+      module RedundantCode
         # There is no need to notify an apt-get update when an apt_repository is created as this is done automatically by the apt_repository resource.
         #
         #   # bad
