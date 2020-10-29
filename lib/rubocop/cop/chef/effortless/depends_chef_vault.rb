@@ -19,7 +19,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefEffortless
+      module Effortless
         # Chef Vault is not supported in the Effortless pattern, so usage of Chef Vault must be shifted to another secrets management solution before leveraging the Effortless pattern.
         #
         # @example

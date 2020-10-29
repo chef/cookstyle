@@ -156,16 +156,15 @@ begin
     end
 
     def print_cops_of_department(cops, department, config)
-      selected_cops = cops_of_department(cops, department).select do |cop|
-        cop.to_s.start_with?('RuboCop::Cop::Chef')
-      end
-      return if selected_cops.empty?
+      selected_cops = cops_of_department(cops, department)
+
+      return if selected_cops.count == 0
 
       content = +"# #{department}\n"
       selected_cops.each do |cop|
         content << print_cop_with_doc(cop, config)
       end
-      file_name = "#{Dir.pwd}/docs/cops_#{department.downcase}.md"
+      file_name = "#{Dir.pwd}/docs/cops_#{department.to_s.downcase.tr('/', '_')}.md"
       File.open(file_name, 'w') do |file|
         puts "* generated #{file_name}"
         file.write(content.strip + "\n")
@@ -188,14 +187,11 @@ begin
     end
 
     def table_of_content_for_department(cops, department)
-      selected_cops = cops_of_department(cops, department.to_sym).select do |cop|
-        cop.to_s.start_with?('RuboCop::Cop::Chef')
-      end
-      return if selected_cops.empty?
+      selected_cops = cops_of_department(cops, department)
+      return if selected_cops.count == 0
 
-      type_title = department[0].upcase + department[1..-1]
-      filename = "cops_#{department.downcase}.md"
-      content = +"#### Department [#{type_title}](#{filename})\n\n"
+      filename = "cops_#{department.to_s.downcase.tr('/', '_')}.md"
+      content = +"#### Department [#{department.to_s}](#{filename})\n\n"
       selected_cops.each do |cop|
         anchor = cop.cop_name.sub('/', '').downcase
         content << "* [#{cop.cop_name}](#{filename}##{anchor})\n"
@@ -204,41 +200,31 @@ begin
       content
     end
 
-    def print_table_of_contents(cops)
+    def print_table_of_contents(cops, departments)
       path = "#{Dir.pwd}/docs/cops.md"
-      original = File.read(path)
+
       content = +"<!-- START_COP_LIST -->\n"
 
-      content << table_contents(cops)
-
+      content << departments
+                 .map { |department| table_of_content_for_department(cops, department) }
+                 .reject(&:nil?)
+                 .join("\n")
       content << "\n<!-- END_COP_LIST -->"
 
-      content = original.sub(
-        /<!-- START_COP_LIST -->.+<!-- END_COP_LIST -->/m, content
-      )
       File.write(path, content)
     end
 
-    def table_contents(cops)
-      cops
-        .departments
-        .map(&:to_s)
-        .sort
-        .map { |department| table_of_content_for_department(cops, department) }
-        .reject(&:nil?)
-        .join("\n")
-    end
-
     def main
-      cops   = RuboCop::Cop::Cop.registry
+      all_cops = RuboCop::Cop::Cop.registry
+      chef_departments = all_cops.departments.select { |d| d.start_with?('Chef') }.sort
       config = RuboCop::ConfigLoader.load_file('config/default.yml')
 
       YARD::Registry.load!
-      cops.departments.sort!.each do |department|
-        print_cops_of_department(cops, department, config)
+      chef_departments.each do |department|
+        print_cops_of_department(all_cops, department, config)
       end
 
-      print_table_of_contents(cops)
+      print_table_of_contents(all_cops, chef_departments)
     ensure
       RuboCop::ConfigLoader.default_configuration = nil
     end

@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefDeprecations::DeprecatedYumRepositoryProperties, :config do
+describe RuboCop::Cop::Chef::Deprecations::DeprecatedYumRepositoryProperties, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when the using legacy yum_repository properties' do

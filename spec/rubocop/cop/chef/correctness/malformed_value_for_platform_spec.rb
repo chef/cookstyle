@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefCorrectness::MalformedPlatformValueForPlatformHelper, :config do
+describe RuboCop::Cop::Chef::Correctness::MalformedPlatformValueForPlatformHelper, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when passing 2+ different hashes' do

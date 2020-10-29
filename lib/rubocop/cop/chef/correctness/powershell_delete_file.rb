@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefCorrectness
+      module Correctness
         # Use the `file` or `directory` resources built into Chef Infra Client with the :delete action to remove files/directories instead of using Remove-Item in a powershell_script resource
         #
         # @example

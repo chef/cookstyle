@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefCorrectness
+      module Correctness
         # Don't represent file modes as Strings containing octal values.
         #
         # @example

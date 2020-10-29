@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefCorrectness
+      module Correctness
         # The macos_userdefaults resource prior to Chef Infra Client 16.3 would silently continue if invalid types were passed resulting in unexpected behavior. Valid values are: "array", "bool", "dict", "float", "int", and "string".
         #
         # @example

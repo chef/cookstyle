@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefSharing::EmptyMetadataField, :config do
+describe RuboCop::Cop::Chef::Sharing::EmptyMetadataField, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when a metadata.rb contains a field with an empty string' do

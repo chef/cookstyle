@@ -19,7 +19,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefCorrectness
+      module Correctness
         # Versions used in metadata.rb supports calls should be floats not integers.
         #
         # @example

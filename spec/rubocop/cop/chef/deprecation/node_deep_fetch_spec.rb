@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefDeprecations::NodeDeepFetch do
+describe RuboCop::Cop::Chef::Deprecations::NodeDeepFetch do
   subject(:cop) { described_class.new }
 
   it 'registers an offense on using node.deep_fetch' do

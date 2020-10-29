@@ -18,16 +18,22 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefRedundantCode
-        # There is no need to set a property to desired_state: true as all properties have a desired_state of true by default.
+      module RedundantCode
+        # There is no need to set a property/attribute to desired_state: true as all properties/attributes have a desired_state of true by default.
         #
         # @example
         #
         #   # bad
         #   property :foo, String, desired_state: true
+        #   attribute :foo, String, desired_state: true
         #
-        class UnnecessaryDesiredState < Cop
+        #   # good
+        #   property :foo, String
+        #   attribute :foo, String
+        #
+        class UnnecessaryDesiredState < Base
           include RangeHelp
+          extend AutoCorrector
 
           MSG = 'There is no need to set a property to desired_state: true as all properties have a desired_state of true by default.'
           RESTRICT_ON_SEND = [:property, :attribute].freeze
@@ -39,17 +45,12 @@ module RuboCop
           def on_send(node)
             property?(node) do |hash_vals|
               hash_vals.each_pair do |k, v|
-                if k == s(:sym, :desired_state) && v == s(:true) # cookstyle: disable Lint/BooleanSymbol
-                  add_offense(v.parent, location: :expression, message: MSG, severity: :refactor)
+                next unless k == s(:sym, :desired_state) && v == s(:true) # cookstyle: disable Lint/BooleanSymbol
+                add_offense(v.parent, message: MSG, severity: :refactor) do |corrector|
+                  range = range_with_surrounding_comma(range_with_surrounding_space(range: v.parent.loc.expression, side: :left), :left)
+                  corrector.remove(range)
                 end
               end
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              range = range_with_surrounding_comma(range_with_surrounding_space(range: node.loc.expression, side: :left), :left)
-              corrector.remove(range)
             end
           end
         end

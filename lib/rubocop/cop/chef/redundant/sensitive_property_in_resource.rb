@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefRedundantCode
+      module RedundantCode
         # Every Chef Infra resource already includes a sensitive property with a default value of false.
         #
         # # bad

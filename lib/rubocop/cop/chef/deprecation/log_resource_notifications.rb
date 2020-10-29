@@ -19,7 +19,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefDeprecations
+      module Deprecations
         # In Chef Infra Client 16 the log resource no longer notifies when logging so notifications should not be triggered from log resources. Use the notify_group resource introduced in Chef Infra Client 15.8 instead to aggregate notifications.
         #
         # @example
@@ -44,7 +44,7 @@ module RuboCop
         #     notifies :restart, 'service[foo]', :delayed
         #   end
         #
-        class LogResourceNotifications < Cop
+        class LogResourceNotifications < Base
           include RuboCop::Chef::CookbookHelpers
           extend TargetChefVersion
 
@@ -54,7 +54,7 @@ module RuboCop
 
           def on_block(node)
             match_property_in_resource?(:log, 'notifies', node) do |prop_node|
-              add_offense(prop_node, location: :expression, message: MSG, severity: :warning)
+              add_offense(prop_node, message: MSG, severity: :warning)
             end
           end
         end

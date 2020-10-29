@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefDeprecations
+      module Deprecations
         # Use `platform?('windows')` instead of the legacy `Chef::Platform.windows?` helper
         #
         # @example

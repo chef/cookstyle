@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefDeprecations
+      module Deprecations
         # The poise_archive resource in the deprecated poise-archive should be replaced with the archive_file resource found in Chef Infra Client 15+.
         #
         # @example

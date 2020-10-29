@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefStyle
+      module Style
         # When checking the major version number of a platform you can take the node['platform_version'] attribute and transform it to an integer to strip it down to just the major version number. This simple way of determining the major version number of a platform should be used instead of splitting the platform into multiple fields with '.' as the delimiter.
         #
         # @example

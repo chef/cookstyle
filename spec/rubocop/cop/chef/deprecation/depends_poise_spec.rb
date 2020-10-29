@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefDeprecations::CookbookDependsOnPoise, :config do
+describe RuboCop::Cop::Chef::Deprecations::CookbookDependsOnPoise, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when a cookbook depends on "poise"' do

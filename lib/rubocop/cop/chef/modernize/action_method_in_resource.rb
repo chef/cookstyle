@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefModernize
+      module Modernize
         # Use the custom resource language's `action :my_action` blocks instead of creating actions with methods.
         #
         # @example

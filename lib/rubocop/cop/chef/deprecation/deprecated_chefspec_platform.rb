@@ -19,7 +19,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefDeprecations
+      module Deprecations
         # Use currently supported platforms in ChefSpec listed at https://github.com/chefspec/fauxhai/blob/master/PLATFORMS.md. Fauxhai / ChefSpec will perform fuzzy matching on platform version so it's always best to be less specific ie. 10 instead of 10.3
         #
         # @example

@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefDeprecations::ResourceUsesOnlyResourceName do
+describe RuboCop::Cop::Chef::Deprecations::ResourceUsesOnlyResourceName do
   subject(:cop) { described_class.new }
 
   before do

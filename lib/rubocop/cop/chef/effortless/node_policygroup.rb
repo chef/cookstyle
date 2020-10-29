@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefEffortless
+      module Effortless
         # Effortless Infra does not support Policyfile's Policygroup feature
         #
         # @example

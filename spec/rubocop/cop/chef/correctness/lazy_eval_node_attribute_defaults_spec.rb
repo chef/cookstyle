@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefCorrectness::LazyEvalNodeAttributeDefaults do
+describe RuboCop::Cop::Chef::Correctness::LazyEvalNodeAttributeDefaults do
   subject(:cop) { described_class.new }
 
   it 'registers an offense when a property includes a non-lazy attribute as a default' do

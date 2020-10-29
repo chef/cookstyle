@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefDeprecations::ChocolateyPackageUninstallAction, :config do
+describe RuboCop::Cop::Chef::Deprecations::ChocolateyPackageUninstallAction, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when chocolatey_package uses the :uninstall action' do

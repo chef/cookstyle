@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefDeprecations
+      module Deprecations
         # Use the new-style notification syntax which allows you to notify resources defined later in a recipe or resource.
         #
         # @example

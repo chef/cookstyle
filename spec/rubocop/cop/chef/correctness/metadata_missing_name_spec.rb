@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefCorrectness::MetadataMissingName, :config do
+describe RuboCop::Cop::Chef::Correctness::MetadataMissingName, :config do
   subject(:cop) { described_class.new(config) }
 
   # prior to Rubocop 0.87 the autocorrect was not with expect_offense

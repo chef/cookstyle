@@ -19,7 +19,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefCorrectness
+      module Correctness
         # metadata.rb supports methods should contain valid platforms.
         #
         # @example

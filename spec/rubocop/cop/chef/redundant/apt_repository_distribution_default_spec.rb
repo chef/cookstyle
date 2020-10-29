@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefRedundantCode::AptRepositoryDistributionDefault do
+describe RuboCop::Cop::Chef::RedundantCode::AptRepositoryDistributionDefault do
   subject(:cop) { described_class.new }
 
   it "registers an offense when apt_repository sets the distribution to node['lsb']['codename']" do

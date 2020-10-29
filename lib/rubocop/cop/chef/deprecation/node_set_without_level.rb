@@ -17,7 +17,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefDeprecations
+      module Deprecations
         # When setting a node attribute in Chef Infra Client 11 and later you must specify the precedence level.
         #
         # @example

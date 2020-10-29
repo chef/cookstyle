@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefModernize::ExecuteTzUtil, :config do
+describe RuboCop::Cop::Chef::Modernize::ExecuteTzUtil, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when using the execute resource with a command running tzutil' do

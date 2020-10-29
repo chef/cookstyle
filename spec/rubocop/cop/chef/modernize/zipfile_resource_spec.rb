@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefModernize::ZipfileResource, :config do
+describe RuboCop::Cop::Chef::Modernize::ZipfileResource, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when depending on the zipfile cookbook' do

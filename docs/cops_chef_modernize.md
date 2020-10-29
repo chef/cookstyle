@@ -1,6 +1,6 @@
-# ChefModernize
+# Chef/Modernize
 
-## ChefModernize/ActionMethodInResource
+## Chef/Modernize/ActionMethodInResource
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -33,7 +33,7 @@ Include | `**/resources/*.rb`, `**/providers/*.rb`, `**/libraries/*.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizeactionmethodinresource](https://rubystyle.guide#chefmodernizeactionmethodinresource)
 
-## ChefModernize/AllowedActionsFromInitialize
+## Chef/Modernize/AllowedActionsFromInitialize
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -71,7 +71,7 @@ Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizeallowedactionsfrominitialize](https://rubystyle.guide#chefmodernizeallowedactionsfrominitialize)
 
-## ChefModernize/ChefGemNokogiri
+## Chef/Modernize/ChefGemNokogiri
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -97,7 +97,7 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizechefgemnokogiri](https://rubystyle.guide#chefmodernizechefgemnokogiri)
 
-## ChefModernize/ConditionalUsingTest
+## Chef/Modernize/ConditionalUsingTest
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -126,7 +126,7 @@ Exclude | `**/metadata.rb`, `**/Berksfile`, `**/attributes/*.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizeconditionalusingtest](https://rubystyle.guide#chefmodernizeconditionalusingtest)
 
-## ChefModernize/CronDFileOrTemplate
+## Chef/Modernize/CronDFileOrTemplate
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -186,7 +186,7 @@ Exclude | `**/metadata.rb`, `**/Berksfile`, `**/attributes/*.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizecrondfileortemplate](https://rubystyle.guide#chefmodernizecrondfileortemplate)
 
-## ChefModernize/CronManageResource
+## Chef/Modernize/CronManageResource
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -213,7 +213,7 @@ Exclude | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizecronmanageresource](https://rubystyle.guide#chefmodernizecronmanageresource)
 
-## ChefModernize/CustomResourceWithAttributes
+## Chef/Modernize/CustomResourceWithAttributes
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -252,7 +252,7 @@ Include | `**/resources/*.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizecustomresourcewithattributes](https://rubystyle.guide#chefmodernizecustomresourcewithattributes)
 
-## ChefModernize/DatabagHelpers
+## Chef/Modernize/DatabagHelpers
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -283,7 +283,7 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefmodernizedatabaghelpers](https://rubystyle.guide#chefmodernizedatabaghelpers)
 
-## ChefModernize/DefaultActionFromInitialize
+## Chef/Modernize/DefaultActionFromInitialize
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -321,7 +321,7 @@ Include | `**/resources/*.rb`, `**/providers/*.rb`, `**/libraries/*.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizedefaultactionfrominitialize](https://rubystyle.guide#chefmodernizedefaultactionfrominitialize)
 
-## ChefModernize/DefinesChefSpecMatchers
+## Chef/Modernize/DefinesChefSpecMatchers
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -351,7 +351,7 @@ Include | `**/libraries/*.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizedefineschefspecmatchers](https://rubystyle.guide#chefmodernizedefineschefspecmatchers)
 
-## ChefModernize/Definitions
+## Chef/Modernize/Definitions
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -370,7 +370,7 @@ Include | `**/definitions/*.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizedefinitions](https://rubystyle.guide#chefmodernizedefinitions)
 
-## ChefModernize/DependsOnZypperCookbook
+## Chef/Modernize/DependsOnZypperCookbook
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -396,7 +396,7 @@ Exclude | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizedependsonzyppercookbook](https://rubystyle.guide#chefmodernizedependsonzyppercookbook)
 
-## ChefModernize/DslIncludeInResource
+## Chef/Modernize/DslIncludeInResource
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -419,7 +419,7 @@ Include | `**/resources/*.rb`, `**/providers/*.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizedslincludeinresource](https://rubystyle.guide#chefmodernizedslincludeinresource)
 
-## ChefModernize/EmptyResourceInitializeMethod
+## Chef/Modernize/EmptyResourceInitializeMethod
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -447,7 +447,7 @@ Include | `**/resources/*.rb`, `**/providers/*.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizeemptyresourceinitializemethod](https://rubystyle.guide#chefmodernizeemptyresourceinitializemethod)
 
-## ChefModernize/ExecuteAptUpdate
+## Chef/Modernize/ExecuteAptUpdate
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -487,7 +487,7 @@ Exclude | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizeexecuteaptupdate](https://rubystyle.guide#chefmodernizeexecuteaptupdate)
 
-## ChefModernize/ExecuteScExe
+## Chef/Modernize/ExecuteScExe
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -517,7 +517,7 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefmodernizeexecutescexe](https://rubystyle.guide#chefmodernizeexecutescexe)
 
-## ChefModernize/ExecuteSleep
+## Chef/Modernize/ExecuteSleep
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -551,7 +551,7 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefmodernizeexecutesleep](https://rubystyle.guide#chefmodernizeexecutesleep)
 
-## ChefModernize/ExecuteSysctl
+## Chef/Modernize/ExecuteSysctl
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -585,7 +585,7 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefmodernizeexecutesysctl](https://rubystyle.guide#chefmodernizeexecutesysctl)
 
-## ChefModernize/ExecuteTzUtil
+## Chef/Modernize/ExecuteTzUtil
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -620,7 +620,7 @@ Exclude | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizeexecutetzutil](https://rubystyle.guide#chefmodernizeexecutetzutil)
 
-## ChefModernize/FoodcriticComments
+## Chef/Modernize/FoodcriticComments
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -646,7 +646,7 @@ Exclude | `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefmodernizefoodcriticcomments](https://rubystyle.guide#chefmodernizefoodcriticcomments)
 
-## ChefModernize/IfProvidesDefaultAction
+## Chef/Modernize/IfProvidesDefaultAction
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -675,7 +675,7 @@ Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizeifprovidesdefaultaction](https://rubystyle.guide#chefmodernizeifprovidesdefaultaction)
 
-## ChefModernize/IncludingAptDefaultRecipe
+## Chef/Modernize/IncludingAptDefaultRecipe
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -705,7 +705,7 @@ Exclude | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizeincludingaptdefaultrecipe](https://rubystyle.guide#chefmodernizeincludingaptdefaultrecipe)
 
-## ChefModernize/IncludingMixinShelloutInResources
+## Chef/Modernize/IncludingMixinShelloutInResources
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -734,7 +734,7 @@ Include | `**/resources/*.rb`, `**/providers/*.rb`, `**/libraries/*.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizeincludingmixinshelloutinresources](https://rubystyle.guide#chefmodernizeincludingmixinshelloutinresources)
 
-## ChefModernize/IncludingOhaiDefaultRecipe
+## Chef/Modernize/IncludingOhaiDefaultRecipe
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -764,7 +764,7 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefmodernizeincludingohaidefaultrecipe](https://rubystyle.guide#chefmodernizeincludingohaidefaultrecipe)
 
-## ChefModernize/IncludingWindowsDefaultRecipe
+## Chef/Modernize/IncludingWindowsDefaultRecipe
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -791,7 +791,7 @@ Exclude | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizeincludingwindowsdefaultrecipe](https://rubystyle.guide#chefmodernizeincludingwindowsdefaultrecipe)
 
-## ChefModernize/LegacyBerksfileSource
+## Chef/Modernize/LegacyBerksfileSource
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -825,7 +825,7 @@ Include | `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefmodernizelegacyberksfilesource](https://rubystyle.guide#chefmodernizelegacyberksfilesource)
 
-## ChefModernize/LibarchiveFileResource
+## Chef/Modernize/LibarchiveFileResource
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -858,7 +858,7 @@ Exclude | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizelibarchivefileresource](https://rubystyle.guide#chefmodernizelibarchivefileresource)
 
-## ChefModernize/MacOsXUserdefaults
+## Chef/Modernize/MacOsXUserdefaults
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -892,7 +892,7 @@ Exclude | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizemacosxuserdefaults](https://rubystyle.guide#chefmodernizemacosxuserdefaults)
 
-## ChefModernize/MinitestHandlerUsage
+## Chef/Modernize/MinitestHandlerUsage
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -918,7 +918,7 @@ Include | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizeminitesthandlerusage](https://rubystyle.guide#chefmodernizeminitesthandlerusage)
 
-## ChefModernize/NodeInitPackage
+## Chef/Modernize/NodeInitPackage
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -957,7 +957,7 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefmodernizenodeinitpackage](https://rubystyle.guide#chefmodernizenodeinitpackage)
 
-## ChefModernize/NodeRolesInclude
+## Chef/Modernize/NodeRolesInclude
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -986,7 +986,7 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefmodernizenoderolesinclude](https://rubystyle.guide#chefmodernizenoderolesinclude)
 
-## ChefModernize/OpensslRsaKeyResource
+## Chef/Modernize/OpensslRsaKeyResource
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1016,7 +1016,7 @@ Exclude | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizeopensslrsakeyresource](https://rubystyle.guide#chefmodernizeopensslrsakeyresource)
 
-## ChefModernize/OpensslX509Resource
+## Chef/Modernize/OpensslX509Resource
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1052,7 +1052,7 @@ Exclude | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizeopensslx509resource](https://rubystyle.guide#chefmodernizeopensslx509resource)
 
-## ChefModernize/OsxConfigProfileResource
+## Chef/Modernize/OsxConfigProfileResource
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1082,7 +1082,7 @@ Exclude | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizeosxconfigprofileresource](https://rubystyle.guide#chefmodernizeosxconfigprofileresource)
 
-## ChefModernize/PowerShellGuardInterpreter
+## Chef/Modernize/PowerShellGuardInterpreter
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1125,7 +1125,7 @@ Exclude | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizepowershellguardinterpreter](https://rubystyle.guide#chefmodernizepowershellguardinterpreter)
 
-## ChefModernize/PowershellInstallPackage
+## Chef/Modernize/PowershellInstallPackage
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1157,7 +1157,7 @@ Exclude | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizepowershellinstallpackage](https://rubystyle.guide#chefmodernizepowershellinstallpackage)
 
-## ChefModernize/PowershellInstallWindowsFeature
+## Chef/Modernize/PowershellInstallWindowsFeature
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1192,7 +1192,7 @@ Exclude | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizepowershellinstallwindowsfeature](https://rubystyle.guide#chefmodernizepowershellinstallwindowsfeature)
 
-## ChefModernize/PowershellScriptExpandArchive
+## Chef/Modernize/PowershellScriptExpandArchive
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1221,7 +1221,7 @@ Exclude | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizepowershellscriptexpandarchive](https://rubystyle.guide#chefmodernizepowershellscriptexpandarchive)
 
-## ChefModernize/PropertyWithNameAttribute
+## Chef/Modernize/PropertyWithNameAttribute
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1251,7 +1251,7 @@ Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizepropertywithnameattribute](https://rubystyle.guide#chefmodernizepropertywithnameattribute)
 
-## ChefModernize/ProvidesFromInitialize
+## Chef/Modernize/ProvidesFromInitialize
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1283,7 +1283,7 @@ Include | `**/resources/*.rb`, `**/providers/*.rb`, `**/libraries/*.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizeprovidesfrominitialize](https://rubystyle.guide#chefmodernizeprovidesfrominitialize)
 
-## ChefModernize/ResourceForcingCompileTime
+## Chef/Modernize/ResourceForcingCompileTime
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1316,7 +1316,7 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefmodernizeresourceforcingcompiletime](https://rubystyle.guide#chefmodernizeresourceforcingcompiletime)
 
-## ChefModernize/ResourceNameFromInitialize
+## Chef/Modernize/ResourceNameFromInitialize
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1348,7 +1348,7 @@ Include | `**/resources/*.rb`, `**/providers/*.rb`, `**/libraries/*.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizeresourcenamefrominitialize](https://rubystyle.guide#chefmodernizeresourcenamefrominitialize)
 
-## ChefModernize/RespondToCompileTime
+## Chef/Modernize/RespondToCompileTime
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1389,7 +1389,7 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefmodernizeresondtocompiletime](https://rubystyle.guide#chefmodernizeresondtocompiletime)
 
-## ChefModernize/RespondToInMetadata
+## Chef/Modernize/RespondToInMetadata
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1424,7 +1424,7 @@ Include | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizerespondtoinmetadata](https://rubystyle.guide#chefmodernizerespondtoinmetadata)
 
-## ChefModernize/RespondToProvides
+## Chef/Modernize/RespondToProvides
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1455,7 +1455,7 @@ Include | `**/providers/*.rb`, `**/libraries/*.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizerespondtoprovides](https://rubystyle.guide#chefmodernizerespondtoprovides)
 
-## ChefModernize/RespondToResourceName
+## Chef/Modernize/RespondToResourceName
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1484,7 +1484,7 @@ Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizerespondtoresourcename](https://rubystyle.guide#chefmodernizerespondtoresourcename)
 
-## ChefModernize/SetOrReturnInResources
+## Chef/Modernize/SetOrReturnInResources
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1521,7 +1521,7 @@ Include | `**/resources/*.rb`, `**/libraries/*.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizesetorreturninresources](https://rubystyle.guide#chefmodernizesetorreturninresources)
 
-## ChefModernize/SevenZipArchiveResource
+## Chef/Modernize/SevenZipArchiveResource
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1549,7 +1549,7 @@ Exclude | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizesevenziparchiveresource](https://rubystyle.guide#chefmodernizesevenziparchiveresource)
 
-## ChefModernize/ShellOutHelper
+## Chef/Modernize/ShellOutHelper
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1578,7 +1578,7 @@ Exclude | `**/metadata.rb`, `**/Berksfile`, `**/libraries/*.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizeshellouthelper](https://rubystyle.guide#chefmodernizeshellouthelper)
 
-## ChefModernize/ShellOutToChocolatey
+## Chef/Modernize/ShellOutToChocolatey
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1611,7 +1611,7 @@ Exclude | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizeshellouttochocolatey](https://rubystyle.guide#chefmodernizeshellouttochocolatey)
 
-## ChefModernize/SimplifyAptPpaSetup
+## Chef/Modernize/SimplifyAptPpaSetup
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1650,7 +1650,7 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefmodernizesimplifyaptppasetup](https://rubystyle.guide#chefmodernizesimplifyaptppasetup)
 
-## ChefModernize/SysctlParamResource
+## Chef/Modernize/SysctlParamResource
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1679,7 +1679,7 @@ Exclude | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizesysctlparamresource](https://rubystyle.guide#chefmodernizesysctlparamresource)
 
-## ChefModernize/UnnecessaryDependsChef14
+## Chef/Modernize/UnnecessaryDependsChef14
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1711,7 +1711,7 @@ Include | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizeunnecessarydependschef14](https://rubystyle.guide#chefmodernizeunnecessarydependschef14)
 
-## ChefModernize/UnnecessaryMixlibShelloutRequire
+## Chef/Modernize/UnnecessaryMixlibShelloutRequire
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1737,7 +1737,7 @@ Include | `**/resources/*.rb`, `**/providers/*.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizeunnecessarymixlibshelloutrequire](https://rubystyle.guide#chefmodernizeunnecessarymixlibshelloutrequire)
 
-## ChefModernize/UseBuildEssentialResource
+## Chef/Modernize/UseBuildEssentialResource
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1768,7 +1768,7 @@ Exclude | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizeusebuildessentialresource](https://rubystyle.guide#chefmodernizeusebuildessentialresource)
 
-## ChefModernize/UseMultipackageInstalls
+## Chef/Modernize/UseMultipackageInstalls
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1801,7 +1801,7 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefmodernizeusemultipackageinstalls](https://rubystyle.guide#chefmodernizeusemultipackageinstalls)
 
-## ChefModernize/UseRequireRelative
+## Chef/Modernize/UseRequireRelative
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1830,7 +1830,7 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefmodernizeuserequirerelative](https://rubystyle.guide#chefmodernizeuserequirerelative)
 
-## ChefModernize/UsesZypperRepo
+## Chef/Modernize/UsesZypperRepo
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1869,7 +1869,7 @@ Exclude | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizeuseszypperrepo](https://rubystyle.guide#chefmodernizeuseszypperrepo)
 
-## ChefModernize/WhyRunSupportedTrue
+## Chef/Modernize/WhyRunSupportedTrue
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1897,7 +1897,7 @@ Include | `**/resources/*.rb`, `**/providers/*.rb`, `**/libraries/*.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizewhyrunsupportedtrue](https://rubystyle.guide#chefmodernizewhyrunsupportedtrue)
 
-## ChefModernize/WindowsRegistryUAC
+## Chef/Modernize/WindowsRegistryUAC
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1932,7 +1932,7 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefmodernizewindowsregistryuac](https://rubystyle.guide#chefmodernizewindowsregistryuac)
 
-## ChefModernize/WindowsScResource
+## Chef/Modernize/WindowsScResource
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1963,7 +1963,7 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefmodernizewindowsscresource](https://rubystyle.guide#chefmodernizewindowsscresource)
 
-## ChefModernize/WindowsZipfileUsage
+## Chef/Modernize/WindowsZipfileUsage
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1991,7 +1991,7 @@ Exclude | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefmodernizewindowszipfileusage](https://rubystyle.guide#chefmodernizewindowszipfileusage)
 
-## ChefModernize/ZipfileResource
+## Chef/Modernize/ZipfileResource
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---

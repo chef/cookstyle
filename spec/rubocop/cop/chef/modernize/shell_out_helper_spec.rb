@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefModernize::ShellOutHelper, :config do
+describe RuboCop::Cop::Chef::Modernize::ShellOutHelper, :config do
   subject(:cop) { described_class.new(config) }
 
   it "registers an offense when a resource runs Mixlib::ShellOut.new('foo').run_command" do

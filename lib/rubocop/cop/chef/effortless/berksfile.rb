@@ -19,7 +19,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefEffortless
+      module Effortless
         # Policyfiles should be used for cookbook dependency solving instead of a Berkshelf Berksfile.
         #
         class Berksfile < Base

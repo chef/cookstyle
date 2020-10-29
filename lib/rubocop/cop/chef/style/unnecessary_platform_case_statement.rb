@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefStyle
+      module Style
         # Use the platform?() and platform_family?() helpers instead of a case statement that only includes a single when statement.
         #
         # @example

@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefDeprecations::WindowsFeatureServermanagercmd, :config do
+describe RuboCop::Cop::Chef::Deprecations::WindowsFeatureServermanagercmd, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when windows_feature sets install_method to :servermanagercmd' do

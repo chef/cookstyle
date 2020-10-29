@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefDeprecations::ErlCallResource do
+describe RuboCop::Cop::Chef::Deprecations::ErlCallResource do
   subject(:cop) { described_class.new }
 
   it 'registers an offense when using the easy_install resource' do

@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefDeprecations::IncludingXMLRubyRecipe, :config do
+describe RuboCop::Cop::Chef::Deprecations::IncludingXMLRubyRecipe, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when including the "xml::ruby" recipe' do
@@ -47,12 +47,7 @@ describe RuboCop::Cop::Chef::ChefDeprecations::IncludingXMLRubyRecipe, :config d
       end
     RUBY
 
-    expect_correction(<<~RUBY)
-      if foo == bar
-        baz
-        
-      end
-    RUBY
+    expect_correction("if foo == bar\n  baz\n  \nend\n")
   end
 
   it "doesn't register an offense when including any other recipe" do

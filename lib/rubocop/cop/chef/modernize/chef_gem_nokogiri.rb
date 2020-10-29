@@ -19,7 +19,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefModernize
+      module Modernize
         # The nokogiri gem ships in Chef Infra Client 12+ and does not need to be installed before being used
         #
         # @example

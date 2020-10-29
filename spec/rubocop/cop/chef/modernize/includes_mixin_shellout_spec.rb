@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefModernize::IncludingMixinShelloutInResources, :config do
+describe RuboCop::Cop::Chef::Modernize::IncludingMixinShelloutInResources, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an error when requiring "chef/mixin/shell_out" in a resource' do

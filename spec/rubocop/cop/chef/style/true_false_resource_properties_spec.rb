@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefStyle::TrueClassFalseClassResourceProperties do
+describe RuboCop::Cop::Chef::Style::TrueClassFalseClassResourceProperties do
   subject(:cop) { described_class.new }
 
   it 'registers an offense when a resource specifies the type of TrueClass, FalseClass' do

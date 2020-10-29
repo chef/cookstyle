@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefStyle::UsePlatformHelpers do
+describe RuboCop::Cop::Chef::Style::UsePlatformHelpers do
   subject(:cop) { described_class.new }
 
   it "registers an offense when checking platform using node['platform']" do

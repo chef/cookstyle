@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefEffortless::CookbookUsesRoles, :config do
+describe RuboCop::Cop::Chef::Effortless::CookbookUsesRoles, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when node.role? is used' do

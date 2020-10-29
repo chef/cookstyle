@@ -19,7 +19,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefModernize
+      module Modernize
         # Use the archive_file resource built into Chef Infra Client 15+ instead of the seven_zip_archive
         #
         # @example

@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefRedundantCode
+      module RedundantCode
         # When using properties in a custom resource you shouldn't set a property to
         # be both required and a name_property. Name properties are a way to optionally
         # override the name given to the resource block in cookbook code. In your resource

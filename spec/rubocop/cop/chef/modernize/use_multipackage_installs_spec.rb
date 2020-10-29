@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefModernize::UseMultipackageInstalls, :config do
+describe RuboCop::Cop::Chef::Modernize::UseMultipackageInstalls, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when iterating over an array of packages in a case statement' do

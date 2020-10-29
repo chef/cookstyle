@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefCorrectness::InvalidVersionMetadata, :config do
+describe RuboCop::Cop::Chef::Correctness::InvalidVersionMetadata, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when a cookbook sets has an invalid version in metadata.rb' do

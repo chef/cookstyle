@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefStyle::AttributeKeys, :config do
+describe RuboCop::Cop::Chef::Style::AttributeKeys, :config do
   subject(:cop) { described_class.new(config) }
 
   context 'when EnforcedStyle is `symbols`' do

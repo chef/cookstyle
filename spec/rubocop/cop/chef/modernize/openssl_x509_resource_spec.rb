@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefModernize::OpensslX509Resource, :config do
+describe RuboCop::Cop::Chef::Modernize::OpensslX509Resource, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when using the openssl_x509 resource' do

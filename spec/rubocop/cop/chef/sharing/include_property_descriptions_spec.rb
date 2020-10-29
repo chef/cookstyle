@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefSharing::IncludePropertyDescriptions, :config do
+describe RuboCop::Cop::Chef::Sharing::IncludePropertyDescriptions, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when a property does not include a description' do

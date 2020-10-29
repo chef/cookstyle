@@ -19,7 +19,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefDeprecations
+      module Deprecations
         # In Chef Infra Client 13 and later you must set path env vars in execute resources using the `environment` property not the legacy `path` property.
         #
         # @example

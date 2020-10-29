@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefDeprecations::ChefSpecCoverageReport, :config do
+describe RuboCop::Cop::Chef::Deprecations::ChefSpecCoverageReport, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when spec calls the coverage reporter' do

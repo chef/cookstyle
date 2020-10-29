@@ -19,7 +19,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefModernize
+      module Modernize
         # Use the built-in `shell_out` helper available in Chef Infra Client 12.11+ instead of calling `Mixlib::ShellOut.new('foo').run_command`.
         #
         # @example

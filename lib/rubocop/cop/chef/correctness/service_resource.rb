@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefCorrectness
+      module Correctness
         # Use a service resource to start and stop services
         #
         # @example when command starts a service

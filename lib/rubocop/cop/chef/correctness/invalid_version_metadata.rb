@@ -19,7 +19,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefCorrectness
+      module Correctness
         # Cookbook metadata.rb version field should follow X.Y.Z version format.
         #
         # @example

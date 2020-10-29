@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefCorrectness::OpenSSLPasswordHelpers do
+describe RuboCop::Cop::Chef::Correctness::OpenSSLPasswordHelpers do
   subject(:cop) { described_class.new }
 
   it 'registers an offense when including Opscode::OpenSSL::Password' do

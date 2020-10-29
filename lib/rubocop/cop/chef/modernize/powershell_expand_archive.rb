@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefModernize
+      module Modernize
         # Use the archive_file resource built into Chef Infra Client 15+ instead of using the powershell_script
         # resource to run Expand-Archive
         #

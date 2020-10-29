@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefSharing::IncludeResourceDescriptions, :config do
+describe RuboCop::Cop::Chef::Sharing::IncludeResourceDescriptions, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when a resource does not include a description' do

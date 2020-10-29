@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefModernize
+      module Modernize
         # if defined?(default_action) is no longer necessary in Chef Resources as default_action shipped in Chef 10.8.
         #
         # @example

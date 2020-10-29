@@ -24,8 +24,8 @@ RSpec.describe RuboCop::CommentConfig do
   describe '#cop_enabled_at_line?' do
     let(:source) do
       [
-        'node.normal[:foo] # rubocop: disable ChefCorrectness/Bar',
-        'node.normal[:foo] # cookstyle: disable ChefCorrectness/Foo',
+        'node.normal[:foo] # rubocop: disable Chef/Correctness/Bar',
+        'node.normal[:foo] # cookstyle: disable Chef/Correctness/Foo',
       ].join("\n")
     end
 
@@ -37,11 +37,11 @@ RSpec.describe RuboCop::CommentConfig do
     end
 
     it 'supports disabling cops with the rubocop: disable comment' do
-      expect(disabled_lines_of_cop('ChefCorrectness/Bar')).to eq([1])
+      expect(disabled_lines_of_cop('Chef/Correctness/Bar')).to eq([1])
     end
 
     it 'supports disabling cops with the cookstyle: disable comment' do
-      expect(disabled_lines_of_cop('ChefCorrectness/Foo')).to eq([2])
+      expect(disabled_lines_of_cop('Chef/Correctness/Foo')).to eq([2])
     end
   end
 end

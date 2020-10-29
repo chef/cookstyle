@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefRedundantCode
+      module RedundantCode
         # There is no need to pass `distribution node['lsb']['codename']` to an apt_repository resource as this is done automatically by the apt_repository resource.
         #
         #   # bad

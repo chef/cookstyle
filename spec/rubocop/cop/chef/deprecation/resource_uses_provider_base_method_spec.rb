@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefDeprecations::ResourceUsesProviderBaseMethod, :config do
+describe RuboCop::Cop::Chef::Deprecations::ResourceUsesProviderBaseMethod, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when a resource uses the provider_base method' do

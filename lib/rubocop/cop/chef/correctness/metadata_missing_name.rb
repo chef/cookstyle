@@ -26,7 +26,7 @@ module RuboCop
       #   # good
       #   name 'foo'
       #
-      module ChefCorrectness
+      module Correctness
         class MetadataMissingName < Base
           include RangeHelp
 

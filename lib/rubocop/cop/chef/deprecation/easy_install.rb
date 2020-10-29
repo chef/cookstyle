@@ -19,7 +19,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefDeprecations
+      module Deprecations
         # Don't use the deprecated easy_install resource removed in Chef Infra Client 13
         #
         # @example

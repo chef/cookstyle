@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefRedundantCode
+      module RedundantCode
         # Chef Infra Client provides the :nothing action by default for every resource. There is no need to define a :nothing action in your resource code.
         #
         # @example

@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefDeprecations::WindowsTaskChangeAction, :config do
+describe RuboCop::Cop::Chef::Deprecations::WindowsTaskChangeAction, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when windows_task uses the :change action' do

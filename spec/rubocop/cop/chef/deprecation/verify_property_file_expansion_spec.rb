@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefDeprecations::VerifyPropertyUsesFileExpansion, :config do
+describe RuboCop::Cop::Chef::Deprecations::VerifyPropertyUsesFileExpansion, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when using the file variable in the verify property' do

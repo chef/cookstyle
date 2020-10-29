@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefModernize
+      module Modernize
         # ChefSpec 7.1 and later auto generate ChefSpec matchers. Matchers in cookbooks can now be removed.
         #
         # @example

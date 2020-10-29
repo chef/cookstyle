@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefDeprecations::PowershellCookbookHelpers, :config do
+describe RuboCop::Cop::Chef::Deprecations::PowershellCookbookHelpers, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense with Powershell::VersionHelper.powershell_version?' do

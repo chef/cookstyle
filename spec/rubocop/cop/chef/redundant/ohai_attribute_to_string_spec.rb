@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefRedundantCode::OhaiAttributeToString, :config do
+describe RuboCop::Cop::Chef::RedundantCode::OhaiAttributeToString, :config do
   subject(:cop) { described_class.new(config) }
 
   it "registers an offense with node['platform'].to_s" do

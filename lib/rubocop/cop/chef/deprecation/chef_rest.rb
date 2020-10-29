@@ -19,7 +19,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefDeprecations
+      module Deprecations
         # Chef::REST was removed in Chef Infra Client 13.
         #
         # @example

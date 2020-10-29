@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefModernize::UseBuildEssentialResource, :config do
+describe RuboCop::Cop::Chef::Modernize::UseBuildEssentialResource, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when including the "build-essential" recipe' do

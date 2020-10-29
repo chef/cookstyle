@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefCorrectness::SupportsMustBeFloat do
+describe RuboCop::Cop::Chef::Correctness::SupportsMustBeFloat do
   subject(:cop) { described_class.new }
 
   it 'registers an offense when a version constraint uses an integer' do

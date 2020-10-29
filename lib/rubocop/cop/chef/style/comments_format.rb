@@ -19,7 +19,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefStyle
+      module Style
         # Checks for incorrectly formatted headers
         #
         # @example

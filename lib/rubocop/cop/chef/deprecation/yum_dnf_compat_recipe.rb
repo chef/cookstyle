@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefDeprecations
+      module Deprecations
         # Don't include the deprecated yum DNF compatibility recipe, which is no longer necessary
         # as Chef Infra Client includes DNF package support
         #

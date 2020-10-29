@@ -19,7 +19,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefDeprecations
+      module Deprecations
         # Make sure to use include_recipe instead of require_recipe
         #
         # @example

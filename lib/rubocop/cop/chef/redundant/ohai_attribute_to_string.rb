@@ -19,7 +19,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefRedundantCode
+      module RedundantCode
         # Many Ohai node attributes are already strings and don't need to be cast to strings again
         #
         # @example

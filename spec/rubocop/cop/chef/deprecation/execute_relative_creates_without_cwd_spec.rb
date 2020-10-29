@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefDeprecations::ExecuteRelativeCreatesWithoutCwd, :config do
+describe RuboCop::Cop::Chef::Deprecations::ExecuteRelativeCreatesWithoutCwd, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when an execute resource has a relative creates property' do

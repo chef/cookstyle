@@ -19,7 +19,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefCorrectness
+      module Correctness
         # The :nothing action is often typo'd as :none
         #
         # @example

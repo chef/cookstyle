@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefRedundantCode::ConflictsMetadata, :config do
+describe RuboCop::Cop::Chef::RedundantCode::ConflictsMetadata, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when metadata uses "conflicts"' do

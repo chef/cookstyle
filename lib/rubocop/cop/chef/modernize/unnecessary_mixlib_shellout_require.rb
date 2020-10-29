@@ -19,7 +19,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefModernize
+      module Modernize
         # Chef Infra Client 12.4+ includes mixlib/shellout automatically in resources and providers.
         #
         # @example

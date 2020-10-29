@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefCorrectness::PowershellScriptDeleteFile, :config do
+describe RuboCop::Cop::Chef::Correctness::PowershellScriptDeleteFile, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when when using powershell_script to run Remove-File' do

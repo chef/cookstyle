@@ -19,7 +19,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefStyle
+      module Style
         # Checks for comments that mention "Chef" without context. Do you mean Chef Infra or Chef Software?
         #
         # @example

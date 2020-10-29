@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefEffortless::ChefVaultUsed, :config do
+describe RuboCop::Cop::Chef::Effortless::ChefVaultUsed, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when requiring chef-vault' do

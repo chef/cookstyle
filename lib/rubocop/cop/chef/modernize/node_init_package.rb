@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefModernize
+      module Modernize
         # Use node['init_package'] to check for systemd instead of reading the contents of '/proc/1/comm'
         #
         # @example

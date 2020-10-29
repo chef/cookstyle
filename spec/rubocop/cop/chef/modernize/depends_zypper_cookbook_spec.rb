@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefModernize::DependsOnZypperCookbook, :config do
+describe RuboCop::Cop::Chef::Modernize::DependsOnZypperCookbook, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when depending on the zypper cookbook' do

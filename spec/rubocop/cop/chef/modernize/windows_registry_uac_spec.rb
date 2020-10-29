@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefModernize::WindowsRegistryUAC, :config do
+describe RuboCop::Cop::Chef::Modernize::WindowsRegistryUAC, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when a sets UAC config via registry_key' do

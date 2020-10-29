@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefModernize
+      module Modernize
         # Provides should be set using the `provides` resource DSL method instead of instead of setting @provides in the initialize method.
         #
         # @example

@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefDeprecations
+      module Deprecations
         # The supports property was removed in Chef Infra Client 13 in favor of individual 'manage_home' and 'non_unique' properties.
         #
         # @example

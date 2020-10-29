@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefRedundantCode
+      module RedundantCode
         # Properties have a nil value by default so there is no need to set the default value to nil.
         #
         # @example

@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefModernize::IncludingAptDefaultRecipe, :config do
+describe RuboCop::Cop::Chef::Modernize::IncludingAptDefaultRecipe, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when including the "apt" recipe' do

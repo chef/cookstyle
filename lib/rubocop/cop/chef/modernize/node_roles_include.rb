@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefModernize
+      module Modernize
         # Use `node.role?('foo')` to check if a node includes a role instead of `node['roles'].include?('foo')`.
         #
         # @example

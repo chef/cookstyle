@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefCorrectness::OctalModeAsString do
+describe RuboCop::Cop::Chef::Correctness::OctalModeAsString do
   subject(:cop) { described_class.new }
 
   it 'registers an offense with an octal string mode' do

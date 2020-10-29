@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefDeprecations
+      module Deprecations
         # The :change action in the windows_task resource was removed when windows_task was added to Chef Infra Client 13+
         # The default action of :create should can now be used to create an update tasks.
         #

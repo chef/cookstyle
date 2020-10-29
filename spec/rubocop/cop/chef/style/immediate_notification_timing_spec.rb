@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefStyle::ImmediateNotificationTiming do
+describe RuboCop::Cop::Chef::Style::ImmediateNotificationTiming do
   subject(:cop) { described_class.new }
 
   it 'registers an offense when notification uses the :immediate timing' do

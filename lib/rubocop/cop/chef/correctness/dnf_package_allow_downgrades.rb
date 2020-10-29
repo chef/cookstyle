@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefCorrectness
+      module Correctness
         # dnf_package does not support the allow_downgrades property
         #
         # @example

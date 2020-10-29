@@ -1,6 +1,6 @@
-# ChefEffortless
+# Chef/Effortless
 
-## ChefEffortless/Berksfile
+## Chef/Effortless/Berksfile
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -19,7 +19,7 @@ Include | `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefeffortlessberksfile](https://rubystyle.guide#chefeffortlessberksfile)
 
-## ChefEffortless/ChefVaultUsed
+## Chef/Effortless/ChefVaultUsed
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -60,7 +60,7 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefeffortlesscookbookuseschefvault](https://rubystyle.guide#chefeffortlesscookbookuseschefvault)
 
-## ChefEffortless/CookbookUsesDatabags
+## Chef/Effortless/CookbookUsesDatabags
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -87,7 +87,7 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefeffortlesscookbookusesdatabags](https://rubystyle.guide#chefeffortlesscookbookusesdatabags)
 
-## ChefEffortless/CookbookUsesEnvironments
+## Chef/Effortless/CookbookUsesEnvironments
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -114,7 +114,7 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefeffortlesscookbookusesenvironments](https://rubystyle.guide#chefeffortlesscookbookusesenvironments)
 
-## ChefEffortless/CookbookUsesPolicygroups
+## Chef/Effortless/CookbookUsesPolicygroups
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -140,7 +140,7 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefeffortlesscookbookusespolicygroups](https://rubystyle.guide#chefeffortlesscookbookusespolicygroups)
 
-## ChefEffortless/CookbookUsesRoles
+## Chef/Effortless/CookbookUsesRoles
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -167,7 +167,7 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefeffortlesscookbookusesroles](https://rubystyle.guide#chefeffortlesscookbookusesroles)
 
-## ChefEffortless/CookbookUsesSearch
+## Chef/Effortless/CookbookUsesSearch
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -193,7 +193,7 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefeffortlesscookbookusessearch](https://rubystyle.guide#chefeffortlesscookbookusessearch)
 
-## ChefEffortless/DependsChefVault
+## Chef/Effortless/DependsChefVault
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -219,7 +219,7 @@ Include | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefeffortlesscookbookdependschefvault](https://rubystyle.guide#chefeffortlesscookbookdependschefvault)
 
-## ChefEffortless/SearchForEnvironmentsOrRoles
+## Chef/Effortless/SearchForEnvironmentsOrRoles
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---

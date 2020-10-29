@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefDeprecations
+      module Deprecations
         # Legacy Chef::PartialSearch class usage should be updated to use the `search` helper instead with the `filter_result` key.
         #
         # @example

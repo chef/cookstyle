@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefModernize
+      module Modernize
         # The zypper_repo resource was renamed zypper_repository when it was added to Chef Infra Client 13.3.
         #
         # @example

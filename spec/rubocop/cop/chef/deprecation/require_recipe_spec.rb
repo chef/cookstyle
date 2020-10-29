@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefDeprecations::RequireRecipe, :config do
+describe RuboCop::Cop::Chef::Deprecations::RequireRecipe, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when require_recipe is used' do

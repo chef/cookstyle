@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::ChefModernize::CustomResourceWithAttributes, :config do
+describe RuboCop::Cop::Chef::Modernize::CustomResourceWithAttributes, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense with a custom resource that contains attributes' do

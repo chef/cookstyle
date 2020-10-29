@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefDeprecations
+      module Deprecations
         # Legacy partial_search usage should be updated to use :filter_result in the search helper instead
         #
         # @example

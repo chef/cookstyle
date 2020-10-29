@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefSharing
+      module Sharing
         # Resources should include description fields to allow automated documentation. Requires Chef Infra Client 13.9 or later.
         #
         # @example

@@ -1,6 +1,6 @@
-# ChefDeprecations
+# Chef/Deprecations
 
-## ChefDeprecations/ChefDKGenerators
+## Chef/Deprecations/ChefDKGenerators
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -37,7 +37,7 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefdeprecationschefdkgenerators](https://rubystyle.guide#chefdeprecationschefdkgenerators)
 
-## ChefDeprecations/ChefHandlerRecipe
+## Chef/Deprecations/ChefHandlerRecipe
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -64,7 +64,7 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefdeprecationschefhandlerrecipe](https://rubystyle.guide#chefdeprecationschefhandlerrecipe)
 
-## ChefDeprecations/ChefHandlerUsesSupports
+## Chef/Deprecations/ChefHandlerUsesSupports
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -97,7 +97,7 @@ Exclude | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationschefhandlerusessupports](https://rubystyle.guide#chefdeprecationschefhandlerusessupports)
 
-## ChefDeprecations/ChefRewind
+## Chef/Deprecations/ChefRewind
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -131,7 +131,7 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationschefrewind](https://rubystyle.guide#chefdeprecationschefrewind)
 
-## ChefDeprecations/ChefShellout
+## Chef/Deprecations/ChefShellout
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -166,7 +166,7 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefdeprecationschefshellout](https://rubystyle.guide#chefdeprecationschefshellout)
 
-## ChefDeprecations/ChefSpecCoverageReport
+## Chef/Deprecations/ChefSpecCoverageReport
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -193,7 +193,7 @@ Include | `**/spec/*.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationschefspeccoveragereport](https://rubystyle.guide#chefdeprecationschefspeccoveragereport)
 
-## ChefDeprecations/ChefSpecLegacyRunner
+## Chef/Deprecations/ChefSpecLegacyRunner
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -232,7 +232,7 @@ Include | `**/spec/*.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationschefspeclegacyrunner](https://rubystyle.guide#chefdeprecationschefspeclegacyrunner)
 
-## ChefDeprecations/ChefWindowsPlatformHelper
+## Chef/Deprecations/ChefWindowsPlatformHelper
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -262,7 +262,7 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefdeprecationschefwindowsplatformhelper](https://rubystyle.guide#chefdeprecationschefwindowsplatformhelper)
 
-## ChefDeprecations/Cheffile
+## Chef/Deprecations/Cheffile
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -281,7 +281,7 @@ Include | `**/Cheffile` | Array
 
 * [https://rubystyle.guide#chefdeprecationscheffile](https://rubystyle.guide#chefdeprecationscheffile)
 
-## ChefDeprecations/ChocolateyPackageUninstallAction
+## Chef/Deprecations/ChocolateyPackageUninstallAction
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -314,7 +314,7 @@ Exclude | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationschocolateypackageuninstallaction](https://rubystyle.guide#chefdeprecationschocolateypackageuninstallaction)
 
-## ChefDeprecations/CookbookDependsOnCompatResource
+## Chef/Deprecations/CookbookDependsOnCompatResource
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -340,7 +340,7 @@ Include | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationscookbookdependsoncompatresource](https://rubystyle.guide#chefdeprecationscookbookdependsoncompatresource)
 
-## ChefDeprecations/CookbookDependsOnPartialSearch
+## Chef/Deprecations/CookbookDependsOnPartialSearch
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -366,7 +366,7 @@ Include | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationscookbookdependsonpartialsearch](https://rubystyle.guide#chefdeprecationscookbookdependsonpartialsearch)
 
-## ChefDeprecations/CookbookDependsOnPoise
+## Chef/Deprecations/CookbookDependsOnPoise
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -393,7 +393,7 @@ Include | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationscookbookdependsonpoise](https://rubystyle.guide#chefdeprecationscookbookdependsonpoise)
 
-## ChefDeprecations/CookbooksDependsOnSelf
+## Chef/Deprecations/CookbooksDependsOnSelf
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -413,7 +413,7 @@ Include | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationscookbooksdependonself](https://rubystyle.guide#chefdeprecationscookbooksdependonself)
 
-## ChefDeprecations/DeprecatedChefSpecPlatform
+## Chef/Deprecations/DeprecatedChefSpecPlatform
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -438,7 +438,7 @@ Include | `**/spec/**/*.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationsdeprecatedchefspecplatform](https://rubystyle.guide#chefdeprecationsdeprecatedchefspecplatform)
 
-## ChefDeprecations/DeprecatedPlatformMethods
+## Chef/Deprecations/DeprecatedPlatformMethods
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -480,7 +480,7 @@ Include | `**/libraries/*.rb`, `**/resources/*.rb`, `**/providers/*.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationsdeprecatedplatformmethods](https://rubystyle.guide#chefdeprecationsdeprecatedplatformmethods)
 
-## ChefDeprecations/DeprecatedShelloutMethods
+## Chef/Deprecations/DeprecatedShelloutMethods
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -518,7 +518,7 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefdeprecationsdeprecatedshelloutmethods](https://rubystyle.guide#chefdeprecationsdeprecatedshelloutmethods)
 
-## ChefDeprecations/DeprecatedWindowsVersionCheck
+## Chef/Deprecations/DeprecatedWindowsVersionCheck
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -546,7 +546,7 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefdeprecationsdeprecatedwindowsversioncheck](https://rubystyle.guide#chefdeprecationsdeprecatedwindowsversioncheck)
 
-## ChefDeprecations/DeprecatedYumRepositoryProperties
+## Chef/Deprecations/DeprecatedYumRepositoryProperties
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -587,7 +587,7 @@ Exclude | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationsdeprecatedyumrepositoryproperties](https://rubystyle.guide#chefdeprecationsdeprecatedyumrepositoryproperties)
 
-## ChefDeprecations/EOLAuditModeUsage
+## Chef/Deprecations/EOLAuditModeUsage
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -619,7 +619,7 @@ Exclude | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationseolauditmodeusage](https://rubystyle.guide#chefdeprecationseolauditmodeusage)
 
-## ChefDeprecations/EasyInstallResource
+## Chef/Deprecations/EasyInstallResource
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -647,7 +647,7 @@ Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefdeprecationseasyinstallresource](https://rubystyle.guide#chefdeprecationseasyinstallresource)
 
-## ChefDeprecations/EpicFail
+## Chef/Deprecations/EpicFail
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -680,7 +680,7 @@ Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefdeprecationsepicfail](https://rubystyle.guide#chefdeprecationsepicfail)
 
-## ChefDeprecations/ErlCallResource
+## Chef/Deprecations/ErlCallResource
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -708,7 +708,7 @@ Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefdeprecationserlcallresource](https://rubystyle.guide#chefdeprecationserlcallresource)
 
-## ChefDeprecations/ExecutePathProperty
+## Chef/Deprecations/ExecutePathProperty
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -741,7 +741,7 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefdeprecationsexecutepathproperty](https://rubystyle.guide#chefdeprecationsexecutepathproperty)
 
-## ChefDeprecations/ExecuteRelativeCreatesWithoutCwd
+## Chef/Deprecations/ExecuteRelativeCreatesWithoutCwd
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -779,7 +779,7 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefdeprecationsexecuterelativecreateswithoutcwd](https://rubystyle.guide#chefdeprecationsexecuterelativecreateswithoutcwd)
 
-## ChefDeprecations/HWRPWithoutProvides
+## Chef/Deprecations/HWRPWithoutProvides
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -861,7 +861,7 @@ Include | `**/libraries/*.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationsresourcewithoutnameorprovides](https://rubystyle.guide#chefdeprecationsresourcewithoutnameorprovides)
 
-## ChefDeprecations/IncludingXMLRubyRecipe
+## Chef/Deprecations/IncludingXMLRubyRecipe
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -887,7 +887,7 @@ Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefdeprecationsincludingxmlrubyrecipe](https://rubystyle.guide#chefdeprecationsincludingxmlrubyrecipe)
 
-## ChefDeprecations/IncludingYumDNFCompatRecipe
+## Chef/Deprecations/IncludingYumDNFCompatRecipe
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -914,7 +914,7 @@ Exclude | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationsincludingyumdnfcompatrecipe](https://rubystyle.guide#chefdeprecationsincludingyumdnfcompatrecipe)
 
-## ChefDeprecations/LaunchdDeprecatedHashProperty
+## Chef/Deprecations/LaunchdDeprecatedHashProperty
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -947,7 +947,7 @@ Exclude | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationslaunchddeprecatedhashproperty](https://rubystyle.guide#chefdeprecationslaunchddeprecatedhashproperty)
 
-## ChefDeprecations/LegacyNotifySyntax
+## Chef/Deprecations/LegacyNotifySyntax
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1004,7 +1004,7 @@ Exclude | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationslegacynotifysyntax](https://rubystyle.guide#chefdeprecationslegacynotifysyntax)
 
-## ChefDeprecations/LegacyYumCookbookRecipes
+## Chef/Deprecations/LegacyYumCookbookRecipes
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1037,7 +1037,7 @@ Exclude | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationslegacyyumcookbookrecipes](https://rubystyle.guide#chefdeprecationslegacyyumcookbookrecipes)
 
-## ChefDeprecations/LocaleDeprecatedLcAllProperty
+## Chef/Deprecations/LocaleDeprecatedLcAllProperty
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1066,7 +1066,7 @@ Exclude | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationslocaledeprecatedlcallproperty](https://rubystyle.guide#chefdeprecationslocaledeprecatedlcallproperty)
 
-## ChefDeprecations/LogResourceNotifications
+## Chef/Deprecations/LogResourceNotifications
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1109,7 +1109,7 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefdeprecationslogresourcenotifications](https://rubystyle.guide#chefdeprecationslogresourcenotifications)
 
-## ChefDeprecations/MacosUserdefaultsGlobalProperty
+## Chef/Deprecations/MacosUserdefaultsGlobalProperty
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1145,7 +1145,7 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefdeprecationsmacosuserdefaultsglobalproperty](https://rubystyle.guide#chefdeprecationsmacosuserdefaultsglobalproperty)
 
-## ChefDeprecations/NamePropertyWithDefaultValue
+## Chef/Deprecations/NamePropertyWithDefaultValue
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1176,7 +1176,7 @@ Include | `**/libraries/*.rb`, `**/resources/*.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationsnamepropertywithdefaultvalue](https://rubystyle.guide#chefdeprecationsnamepropertywithdefaultvalue)
 
-## ChefDeprecations/NodeDeepFetch
+## Chef/Deprecations/NodeDeepFetch
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1211,7 +1211,7 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefdeprecationsnodedeepfetch](https://rubystyle.guide#chefdeprecationsnodedeepfetch)
 
-## ChefDeprecations/NodeMethodsInsteadofAttributes
+## Chef/Deprecations/NodeMethodsInsteadofAttributes
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1248,7 +1248,7 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefdeprecationsnodemethodsinsteadofattributes](https://rubystyle.guide#chefdeprecationsnodemethodsinsteadofattributes)
 
-## ChefDeprecations/NodeSet
+## Chef/Deprecations/NodeSet
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1279,7 +1279,7 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefdeprecationsnodeset](https://rubystyle.guide#chefdeprecationsnodeset)
 
-## ChefDeprecations/NodeSetUnless
+## Chef/Deprecations/NodeSetUnless
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1310,7 +1310,7 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefdeprecationsnodesetunless](https://rubystyle.guide#chefdeprecationsnodesetunless)
 
-## ChefDeprecations/NodeSetWithoutLevel
+## Chef/Deprecations/NodeSetWithoutLevel
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1345,7 +1345,7 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationsnodesetwithoutlevel](https://rubystyle.guide#chefdeprecationsnodesetwithoutlevel)
 
-## ChefDeprecations/PartialSearchClassUsage
+## Chef/Deprecations/PartialSearchClassUsage
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1392,7 +1392,7 @@ Exclude | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationspartialsearchclassusage](https://rubystyle.guide#chefdeprecationspartialsearchclassusage)
 
-## ChefDeprecations/PartialSearchHelperUsage
+## Chef/Deprecations/PartialSearchHelperUsage
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1439,7 +1439,7 @@ Exclude | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationspartialsearchhelperusage](https://rubystyle.guide#chefdeprecationspartialsearchhelperusage)
 
-## ChefDeprecations/PoiseArchiveUsage
+## Chef/Deprecations/PoiseArchiveUsage
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1471,7 +1471,7 @@ VersionAdded | `5.11.0` | String
 
 * [https://rubystyle.guide#chefdeprecationspoisearchiveusage](https://rubystyle.guide#chefdeprecationspoisearchiveusage)
 
-## ChefDeprecations/PowershellCookbookHelpers
+## Chef/Deprecations/PowershellCookbookHelpers
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1503,7 +1503,7 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefdeprecationspowershellcookbookhelpers](https://rubystyle.guide#chefdeprecationspowershellcookbookhelpers)
 
-## ChefDeprecations/RequireRecipe
+## Chef/Deprecations/RequireRecipe
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1532,7 +1532,7 @@ Exclude | `**/attributes/*.rb`, `**/metadata.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefdeprecationsrequirerecipe](https://rubystyle.guide#chefdeprecationsrequirerecipe)
 
-## ChefDeprecations/ResourceInheritsFromCompatResource
+## Chef/Deprecations/ResourceInheritsFromCompatResource
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1568,7 +1568,7 @@ Include | `**/libraries/*.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationsresourceinheritsfromcompatresource](https://rubystyle.guide#chefdeprecationsresourceinheritsfromcompatresource)
 
-## ChefDeprecations/ResourceOverridesProvidesMethod
+## Chef/Deprecations/ResourceOverridesProvidesMethod
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1599,7 +1599,7 @@ Include | `**/libraries/*.rb`, `**/providers/*.rb`, `**/resources/*.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationsresourceoverridesprovidesmethod](https://rubystyle.guide#chefdeprecationsresourceoverridesprovidesmethod)
 
-## ChefDeprecations/ResourceUsesDslNameMethod
+## Chef/Deprecations/ResourceUsesDslNameMethod
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1628,7 +1628,7 @@ Include | `**/libraries/*.rb`, `**/providers/*.rb`, `**/resources/*.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationsresourceusesdslnamemethod](https://rubystyle.guide#chefdeprecationsresourceusesdslnamemethod)
 
-## ChefDeprecations/ResourceUsesOnlyResourceName
+## Chef/Deprecations/ResourceUsesOnlyResourceName
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1655,7 +1655,7 @@ Include | `**/libraries/*.rb`, `**/resources/*.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationsresourceusesonlyresourcename](https://rubystyle.guide#chefdeprecationsresourceusesonlyresourcename)
 
-## ChefDeprecations/ResourceUsesProviderBaseMethod
+## Chef/Deprecations/ResourceUsesProviderBaseMethod
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1681,7 +1681,7 @@ Include | `**/libraries/*.rb`, `**/resources/*.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationsresourceusesproviderbasemethod](https://rubystyle.guide#chefdeprecationsresourceusesproviderbasemethod)
 
-## ChefDeprecations/ResourceUsesUpdatedMethod
+## Chef/Deprecations/ResourceUsesUpdatedMethod
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1715,7 +1715,7 @@ Include | `**/libraries/*.rb`, `**/providers/*.rb`, `**/resources/*.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationsresourceusesupdatedmethod](https://rubystyle.guide#chefdeprecationsresourceusesupdatedmethod)
 
-## ChefDeprecations/Ruby27KeywordArgumentWarnings
+## Chef/Deprecations/Ruby27KeywordArgumentWarnings
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1746,7 +1746,7 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefdeprecationsruby27keywordargumentwarnings](https://rubystyle.guide#chefdeprecationsruby27keywordargumentwarnings)
 
-## ChefDeprecations/RubyBlockCreateAction
+## Chef/Deprecations/RubyBlockCreateAction
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1785,7 +1785,7 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefdeprecationsrubyblockcreateaction](https://rubystyle.guide#chefdeprecationsrubyblockcreateaction)
 
-## ChefDeprecations/SearchUsesPositionalParameters
+## Chef/Deprecations/SearchUsesPositionalParameters
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1809,7 +1809,7 @@ Exclude | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationssearchusespositionalparameters](https://rubystyle.guide#chefdeprecationssearchusespositionalparameters)
 
-## ChefDeprecations/UseAutomaticResourceName
+## Chef/Deprecations/UseAutomaticResourceName
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1841,7 +1841,7 @@ Include | `**/libraries/*.rb`, `**/resources/*.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationsuseautomaticresourcename](https://rubystyle.guide#chefdeprecationsuseautomaticresourcename)
 
-## ChefDeprecations/UseInlineResourcesDefined
+## Chef/Deprecations/UseInlineResourcesDefined
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1870,7 +1870,7 @@ Include | `**/libraries/*.rb`, `**/providers/*.rb`, `**/resources/*.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationsuseinlineresourcesdefined](https://rubystyle.guide#chefdeprecationsuseinlineresourcesdefined)
 
-## ChefDeprecations/UseYamlDump
+## Chef/Deprecations/UseYamlDump
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1898,7 +1898,7 @@ VersionAdded | `6.21.0` | String
 
 * [https://rubystyle.guide#chefdeprecationsuseyamldump](https://rubystyle.guide#chefdeprecationsuseyamldump)
 
-## ChefDeprecations/UserDeprecatedSupportsProperty
+## Chef/Deprecations/UserDeprecatedSupportsProperty
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1939,7 +1939,7 @@ Exclude | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationsuserdeprecatedsupportsproperty](https://rubystyle.guide#chefdeprecationsuserdeprecatedsupportsproperty)
 
-## ChefDeprecations/UsesChefRESTHelpers
+## Chef/Deprecations/UsesChefRESTHelpers
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1966,7 +1966,7 @@ Exclude | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationsuseschefresthelpers](https://rubystyle.guide#chefdeprecationsuseschefresthelpers)
 
-## ChefDeprecations/UsesDeprecatedMixins
+## Chef/Deprecations/UsesDeprecatedMixins
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -1999,7 +1999,7 @@ Include | `**/libraries/*.rb`, `**/providers/*.rb`, `**/resources/*.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationsusesdeprecatedmixins](https://rubystyle.guide#chefdeprecationsusesdeprecatedmixins)
 
-## ChefDeprecations/UsesRunCommandHelper
+## Chef/Deprecations/UsesRunCommandHelper
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -2032,7 +2032,7 @@ Exclude | `**/metadata.rb`, `Rakefile` | Array
 
 * [https://rubystyle.guide#chefdeprecationsusesruncommandhelper](https://rubystyle.guide#chefdeprecationsusesruncommandhelper)
 
-## ChefDeprecations/VerifyPropertyUsesFileExpansion
+## Chef/Deprecations/VerifyPropertyUsesFileExpansion
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -2065,7 +2065,7 @@ Exclude | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationsverifypropertyusesfileexpansion](https://rubystyle.guide#chefdeprecationsverifypropertyusesfileexpansion)
 
-## ChefDeprecations/WindowsFeatureServermanagercmd
+## Chef/Deprecations/WindowsFeatureServermanagercmd
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -2106,7 +2106,7 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefdeprecationswindowsfeatureservermanagercmd](https://rubystyle.guide#chefdeprecationswindowsfeatureservermanagercmd)
 
-## ChefDeprecations/WindowsPackageInstallerTypeString
+## Chef/Deprecations/WindowsPackageInstallerTypeString
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -2143,7 +2143,7 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefdeprecationswindowspackageinstallertypestring](https://rubystyle.guide#chefdeprecationswindowspackageinstallertypestring)
 
-## ChefDeprecations/WindowsTaskChangeAction
+## Chef/Deprecations/WindowsTaskChangeAction
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -2183,7 +2183,7 @@ Exclude | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationswindowstaskchangeaction](https://rubystyle.guide#chefdeprecationswindowstaskchangeaction)
 
-## ChefDeprecations/WindowsVersionHelpers
+## Chef/Deprecations/WindowsVersionHelpers
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---

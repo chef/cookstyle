@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefDeprecations
+      module Deprecations
         # In the cookbook search helper you need to use named parameters (key/value style) other than the first (type) and second (query string) values.
         #
         # @example

@@ -18,7 +18,7 @@
 module RuboCop
   module Cop
     module Chef
-      module ChefCorrectness
+      module Correctness
         # Use file_cache_path rather than hard-coding tmp paths
         #
         # @example downloading a large file into /tmp/
