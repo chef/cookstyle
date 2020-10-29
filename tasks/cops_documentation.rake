@@ -202,7 +202,7 @@ begin
 
     def print_table_of_contents(cops, departments)
       path = "#{Dir.pwd}/docs/cops.md"
-      original = File.read(path)
+
       content = +"<!-- START_COP_LIST -->\n"
 
       content << departments
