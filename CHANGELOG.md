@@ -7,23 +7,27 @@
 - Remove the release branch constraints [#782](https://github.com/chef/cookstyle/pull/782) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup since=6.21.1 -->
+<!-- release_rollup since=7.0.0 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
 - Remove the release branch constraints [#782](https://github.com/chef/cookstyle/pull/782) ([tas50](https://github.com/tas50)) <!-- 7.0.1 -->
-- Update to RuboCop 1.1 [#781](https://github.com/chef/cookstyle/pull/781) ([tas50](https://github.com/tas50)) <!-- 7.0.0 -->
-- Disable Style/NumericPredicate [#780](https://github.com/chef/cookstyle/pull/780) ([tas50](https://github.com/tas50)) <!-- 6.21.2 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v7.0.0](https://github.com/chef/cookstyle/tree/v7.0.0) (2020-10-29)
+
+#### Merged Pull Requests
+- Disable Style/NumericPredicate [#780](https://github.com/chef/cookstyle/pull/780) ([tas50](https://github.com/tas50))
+- Update to RuboCop 1.1 [#781](https://github.com/chef/cookstyle/pull/781) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v6.21.1](https://github.com/chef/cookstyle/tree/v6.21.1) (2020-10-15)
 
 #### Merged Pull Requests
 - Add new ChefCorrectness/OctalModeAsString cop [#777](https://github.com/chef/cookstyle/pull/777) ([tas50](https://github.com/tas50))
 - Add ChefDeprecations/UseYamlDump cop [#778](https://github.com/chef/cookstyle/pull/778) ([tas50](https://github.com/tas50))
 - Add release notes for 6.21 [#779](https://github.com/chef/cookstyle/pull/779) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v6.20.2](https://github.com/chef/cookstyle/tree/v6.20.2) (2020-10-12)
 
