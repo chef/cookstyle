@@ -216,7 +216,7 @@ begin
 
     def main
       all_cops = RuboCop::Cop::Cop.registry
-      chef_departments = all_cops.departments.reject { |d| !d.start_with?('Chef') }.sort
+      chef_departments = all_cops.departments.select { |d| d.start_with?('Chef') }.sort
       config = RuboCop::ConfigLoader.load_file('config/default.yml')
 
       YARD::Registry.load!
