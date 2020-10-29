@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 6.21.2 -->
-## [v6.21.2](https://github.com/chef/cookstyle/tree/v6.21.2) (2020-10-16)
+ <!-- latest_release 7.0.0 -->
+## [v7.0.0](https://github.com/chef/cookstyle/tree/v7.0.0) (2020-10-29)
 
 #### Merged Pull Requests
-- Disable Style/NumericPredicate [#780](https://github.com/chef/cookstyle/pull/780) ([tas50](https://github.com/tas50))
+- Update to RuboCop 1.1 [#781](https://github.com/chef/cookstyle/pull/781) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=6.21.1 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Update to RuboCop 1.1 [#781](https://github.com/chef/cookstyle/pull/781) ([tas50](https://github.com/tas50)) <!-- 7.0.0 -->
 - Disable Style/NumericPredicate [#780](https://github.com/chef/cookstyle/pull/780) ([tas50](https://github.com/tas50)) <!-- 6.21.2 -->
 <!-- release_rollup -->
 
