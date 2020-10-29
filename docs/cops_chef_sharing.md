@@ -1,6 +1,6 @@
-# ChefSharing
+# Chef/Sharing
 
-## ChefSharing/DefaultMetadataMaintainer
+## Chef/Sharing/DefaultMetadataMaintainer
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -33,7 +33,7 @@ Include | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefsharingdefaultmetadatamaintainer](https://rubystyle.guide#chefsharingdefaultmetadatamaintainer)
 
-## ChefSharing/EmptyMetadataField
+## Chef/Sharing/EmptyMetadataField
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -63,7 +63,7 @@ Include | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefsharingemptymetadatafield](https://rubystyle.guide#chefsharingemptymetadatafield)
 
-## ChefSharing/IncludePropertyDescriptions
+## Chef/Sharing/IncludePropertyDescriptions
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -92,7 +92,7 @@ Include | `**/libraries/*.rb`, `**/resources/*.rb` | Array
 
 * [https://rubystyle.guide#chefsharingincludepropetydescriptions](https://rubystyle.guide#chefsharingincludepropetydescriptions)
 
-## ChefSharing/IncludeResourceDescriptions
+## Chef/Sharing/IncludeResourceDescriptions
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -119,7 +119,7 @@ Include | `**/resources/*.rb` | Array
 
 * [https://rubystyle.guide#chefsharingincluderesourcedescriptions](https://rubystyle.guide#chefsharingincluderesourcedescriptions)
 
-## ChefSharing/IncludeResourceExamples
+## Chef/Sharing/IncludeResourceExamples
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -154,7 +154,7 @@ Include | `**/resources/*.rb` | Array
 
 * [https://rubystyle.guide#chefsharingincluderesourceexamples](https://rubystyle.guide#chefsharingincluderesourceexamples)
 
-## ChefSharing/InsecureCookbookURL
+## Chef/Sharing/InsecureCookbookURL
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
@@ -188,7 +188,7 @@ Include | `**/metadata.rb` | Array
 
 * [https://rubystyle.guide#chefsharinginsecurecookbookurl](https://rubystyle.guide#chefsharinginsecurecookbookurl)
 
-## ChefSharing/InvalidLicenseString
+## Chef/Sharing/InvalidLicenseString
 
 Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
