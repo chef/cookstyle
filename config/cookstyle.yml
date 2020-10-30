@@ -1137,6 +1137,14 @@ Chef/Deprecations/UseYamlDump:
   Enabled: true
   VersionAdded: '6.21.0'
 
+Chef/Deprecations/LibrarianChefSpec:
+  Description: The Librarian-Chef depsolving project is no longer maintained and ChefSpec should not use Librarian-Chef for cookbook depsolving. Consider using Policyfiles instead.
+  StyleGuide: '#chefdeprecationslibrarianchefspec'
+  Enabled: true
+  VersionAdded: '7.1.0'
+  Include:
+    - '**/specs/*.rb'
+
 ###############################
 # Chef/Modernize: Cleaning up legacy code and using new built-in resources
 ###############################
