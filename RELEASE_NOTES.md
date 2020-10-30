@@ -1,3 +1,19 @@
+## Cookstyle 7.0
+
+### New Cop Naming Format
+
+Cookstyle 7.0 upgrades to the RuboCop 1.0 engine. This new release of RuboCop has enabled us to improve the naming scheme for Cookstyle cops. Previously all Cookstyle cops started with `Chef` and then included the description of what the department actually did such as `ChefDeprecations`, which was for deprecation cops. Cop names are now three parts instead of two so `ChefDeprecations/SomeCop` becomes `Chef/Deprecations/SomeCop`. Why the change? Using this format makes it much easier to enable just the Chef specific cops in Cookstyle without having to list each individual department. Now you can run `cookstyle --only Chef` to see just Chef Infra related cops without the additional few hundred Ruby specific cops provided by RuboCop. Cookstyle will automatically migrate any comments to the new department names, but anything in your .rubocop.yml will need to be updated manually.
+
+#### New Name Mapping
+
+- ChefCorrectness -> Chef/Correctness
+- ChefDeprecations -> Chef/Deprecations
+- ChefEffortless -> Chef/Effortless
+- ChefModernize -> Chef/Modernize
+- RedundantCode -> Chef/RedundantCode
+- ChefSharing -> Chef/Sharing
+- ChefStyle -> Chef/Style
+
 ## Cookstyle 6.21
 
 ### 2 New Chef Infra Cops
