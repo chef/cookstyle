@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.0.1 -->
-## [v7.0.1](https://github.com/chef/cookstyle/tree/v7.0.1) (2020-10-29)
+ <!-- latest_release 7.0.2 -->
+## [v7.0.2](https://github.com/chef/cookstyle/tree/v7.0.2) (2020-10-30)
 
 #### Merged Pull Requests
-- Remove the release branch constraints [#782](https://github.com/chef/cookstyle/pull/782) ([tas50](https://github.com/tas50))
+- Add a new Chef/Deprecations/LibrarianChefSpec cop [#783](https://github.com/chef/cookstyle/pull/783) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.0.0 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add a new Chef/Deprecations/LibrarianChefSpec cop [#783](https://github.com/chef/cookstyle/pull/783) ([tas50](https://github.com/tas50)) <!-- 7.0.2 -->
 - Remove the release branch constraints [#782](https://github.com/chef/cookstyle/pull/782) ([tas50](https://github.com/tas50)) <!-- 7.0.1 -->
 <!-- release_rollup -->
 
