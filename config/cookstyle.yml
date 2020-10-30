@@ -1145,6 +1145,15 @@ Chef/Deprecations/LibrarianChefSpec:
   Include:
     - '**/specs/*.rb'
 
+Chef/Deprecations/FoodcriticTesting:
+  Description: The Foodcritic cookbook linter has been deprecated and should no longer be used for validating cookbooks
+  StyleGuide: '#chefdeprecationsfoodcritictesting'
+  Enabled: true
+  VersionAdded: '7.1.0'
+  Include:
+    - '**/Rakefile'
+    - '**/Gemfile'
+
 ###############################
 # Chef/Modernize: Cleaning up legacy code and using new built-in resources
 ###############################
