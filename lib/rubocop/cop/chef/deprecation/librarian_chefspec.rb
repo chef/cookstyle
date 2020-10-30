@@ -27,7 +27,6 @@ module RuboCop
         #   require 'chefspec/librarian'
         #
         class LibrarianChefSpec < Base
-          extend AutoCorrector
           MSG = 'The Librarian-Chef depsolving project is no longer maintained and ChefSpec should not use Librarian-Chef for cookbook depsolving. Consider using Policyfiles instead.'
           RESTRICT_ON_SEND = [:require].freeze
 
