@@ -55,6 +55,15 @@ describe RuboCop::Cop::Chef::Modernize::UseMultipackageInstalls, :config do
     RUBY
   end
 
+  it 'does not fail if the when is a regex' do
+    expect_no_offenses(<<~RUBY)
+      case node['platform_family']
+      when /debian/
+        package 'it-is-fine'
+      end
+    RUBY
+  end
+
   it 'registers an offense when iterating over an array of packages in a case statement with a non-block package resource' do
     expect_offense(<<~RUBY)
       case node['platform']

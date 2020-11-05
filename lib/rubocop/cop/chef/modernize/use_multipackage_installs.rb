@@ -78,7 +78,8 @@ module RuboCop
           # see if all platforms in the when condition are multi-package compliant
           def multipackage_platforms?(condition_obj)
             condition_obj.all? do |p|
-              MULTIPACKAGE_PLATS.include?(p.value)
+              # make sure it's a string (not a regex) and it's in the array
+              p.str_type? && MULTIPACKAGE_PLATS.include?(p.value)
             end
           end
 
