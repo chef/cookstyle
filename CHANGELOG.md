@@ -1,9 +1,10 @@
 # Cookstyle Changelog
 
- <!-- latest_release unreleased -->
-## Unreleased
+ <!-- latest_release 7.1.3 -->
+## [v7.1.3](https://github.com/chef/cookstyle/tree/v7.1.3) (2020-11-05)
 
 #### Merged Pull Requests
+- Remove extra dev deps [#793](https://github.com/chef/cookstyle/pull/793) ([tas50](https://github.com/tas50))
 - Add release notes for Cookstyle 7.1 [#794](https://github.com/chef/cookstyle/pull/794) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
@@ -11,6 +12,7 @@
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Remove extra dev deps [#793](https://github.com/chef/cookstyle/pull/793) ([tas50](https://github.com/tas50)) <!-- 7.1.3 -->
 - Add release notes for Cookstyle 7.1 [#794](https://github.com/chef/cookstyle/pull/794) ([tas50](https://github.com/tas50)) <!-- 7.1.2 -->
 <!-- release_rollup -->
 
