@@ -26,9 +26,6 @@ group :rubocop_gems do
 end
 
 group :development do
-  gem 'adamantium'
-  gem 'anima'
-  gem 'concord'
   gem 'rake'
   gem 'rspec', '>= 3.4'
 end
