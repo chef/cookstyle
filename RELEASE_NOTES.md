@@ -1,3 +1,51 @@
+## Cookstyle 7.1
+
+### RuboCop 1.2.0
+
+RuboCop has been updated to 1.2.0, which includes bug fixes and improvements for many of RuboCop's built in Ruby cops.
+
+### 2 New Chef Infra Cops
+
+#### Chef/Deprecations/FoodcriticTesting
+
+The `Chef/Deprecations/FoodcriticTesting` cop detects cookbooks with a Gemfile that requires Foodcritic or any code, such as a Rakefile/Guardfile, that requires the Foodcritic gem. Foodcritic is no longer supported and has been significantly eclipsed in functionality by Cookstyle. Any existing Rakefile or Guardfile tests for Foodcritic should be updated to use Cookstyle instead.
+
+`Enabled by default`: True
+
+`Autocorrects`: False
+
+#### Chef/Deprecations/LibrarianChefSpec
+
+The `Chef/Deprecations/LibrarianChefSpec` cop detects ChefSpec tests that require the legacy `chefspec/librarian` library. Librarian Chef is no longer supported and users should migrate to Berkshelf or Policyfiles.
+
+`Enabled by default`: True
+
+`Autocorrects`: True
+
+### 1 New Ruby Cop
+
+The `Style/CollectionCompact` cop detects code that removes `nil` values from Hashes or Arrays using a Ruby block when this can be done with the `compact` method instead.
+
+`Examples:`
+
+Overly complex nil removals:
+
+```ruby
+array.reject { |e| e.nil? }
+array.select { |e| !e.nil? }
+```
+
+Simpler nil removal:
+
+```ruby
+array.compact
+```
+
+### Other Improvements
+
+- The `Chef/Modernize/UseMultipackageInstalls` cop no longer fails if the `when` condition uses a Regex instead of a String.
+- The `Chef/Modernize/UseMultipackageInstalls` cop detects overly complex arrays of package resources if the `when` condition contains code other than the package resources.
+
 ## Cookstyle 7.0
 
 ### New Cop Naming Format
