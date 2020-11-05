@@ -2764,3 +2764,7 @@ Style/ExpandPathArguments:
 # Avoid a safe navigation operator if we don't need it
 Lint/RedundantSafeNavigation:
   Enabled: true
+
+# Avoid using blocks to remove nils from a Hash/Array
+Style/CollectionCompact:
+  Enabled: true
