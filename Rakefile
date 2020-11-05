@@ -14,7 +14,7 @@ task :vendor do
   cp(src.join('default.yml'), dst.join('upstream.yml'))
 
   require 'rubocop'
-  require 'yaml'
+  require 'yaml' unless defined?(YAML)
   cfg = RuboCop::Cop::Cop.all.each_with_object({}) { |cop, acc| acc[cop.cop_name] = { 'Enabled' => false } unless cop.cop_name.start_with?('Chef'); }
   File.open(dst.join('disable_all.yml'), 'w') { |fh| fh.write YAML.dump(cfg) }
 
@@ -42,7 +42,7 @@ end
 desc 'Ensure that all cops are defined in the cookstyle.yml config'
 task :validate_config do
   require 'cookstyle'
-  require 'yaml'
+  require 'yaml' unless defined?(YAML)
   status = 0
   config = YAML.load_file('config/cookstyle.yml')
 
