@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.1.0 -->
-## [v7.1.0](https://github.com/chef/cookstyle/tree/v7.1.0) (2020-11-05)
+ <!-- latest_release 7.1.1 -->
+## [v7.1.1](https://github.com/chef/cookstyle/tree/v7.1.1) (2020-11-05)
 
 #### Merged Pull Requests
-- Update to RuboCop 1.2.0 [#791](https://github.com/chef/cookstyle/pull/791) ([tas50](https://github.com/tas50))
+- Enable Style/CollectionCompact [#792](https://github.com/chef/cookstyle/pull/792) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.0.0 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Enable Style/CollectionCompact [#792](https://github.com/chef/cookstyle/pull/792) ([tas50](https://github.com/tas50)) <!-- 7.1.1 -->
 - Update to RuboCop 1.2.0 [#791](https://github.com/chef/cookstyle/pull/791) ([tas50](https://github.com/tas50)) <!-- 7.1.0 -->
 - Add new Chef/Deprecations/FoodcriticTesting cop [#785](https://github.com/chef/cookstyle/pull/785) ([tas50](https://github.com/tas50)) <!-- 7.0.3 -->
 - Add a new Chef/Deprecations/LibrarianChefSpec cop [#783](https://github.com/chef/cookstyle/pull/783) ([tas50](https://github.com/tas50)) <!-- 7.0.2 -->
