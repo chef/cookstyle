@@ -43,7 +43,7 @@ array.compact
 
 ### Other Improvements
 
-- The `Chef/Modernize/UseMultipackageInstalls` cop no longer fails if the `when` condition uses a Regex instead of a String/
+- The `Chef/Modernize/UseMultipackageInstalls` cop no longer fails if the `when` condition uses a Regex instead of a String.
 - The `Chef/Modernize/UseMultipackageInstalls` cop detects overly complex arrays of package resources if the `when` condition contains code other than the package resources.
 
 ## Cookstyle 7.0
