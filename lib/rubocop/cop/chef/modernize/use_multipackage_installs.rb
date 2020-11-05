@@ -60,8 +60,8 @@ module RuboCop
                     (lvar _))}) nil?)
           PATTERN
 
-          def_node_matcher :package_array_install?, <<-PATTERN
-          (block
+          def_node_search :package_array_install, <<-PATTERN
+          $(block
             (send
               $(array ... ) :each)
             (args ... )
@@ -84,21 +84,24 @@ module RuboCop
 
           def on_when(node)
             return unless platform_or_platform_family?(node.parent.condition) &&
-                          package_array_install?(node.body) &&
                           multipackage_platforms?(node.conditions)
-            check_offense(node.body)
+            return if node.body.nil? # don't blow up on empty whens
+
+            package_array_install(node.body) do |install_block, pkgs|
+              add_offense(install_block, message: MSG, severity: :refactor) do |corrector|
+                corrector.replace(install_block, "package #{pkgs.source}")
+              end
+            end
           end
 
           def on_if(node)
             platform_helper?(node) do |plats, blk, _pkgs|
-              check_offense(blk) if multipackage_platforms?(plats)
-            end
-          end
+              return unless multipackage_platforms?(plats)
 
-          def check_offense(node)
-            add_offense(node, message: MSG, severity: :refactor) do |corrector|
-              package_array_install?(node) do |vals|
-                corrector.replace(node, "package #{vals.source}")
+              add_offense(blk, message: MSG, severity: :refactor) do |corrector|
+                package_array_install(blk) do |install_block, pkgs|
+                  corrector.replace(install_block, "package #{pkgs.source}")
+                end
               end
             end
           end

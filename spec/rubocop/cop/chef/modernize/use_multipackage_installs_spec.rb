@@ -25,6 +25,8 @@ describe RuboCop::Cop::Chef::Modernize::UseMultipackageInstalls, :config do
     expect_offense(<<~RUBY)
       case node['platform']
       when 'ubuntu'
+        include_recipe 'apt'
+
         %w(bmon htop vim curl).each do |pkg|
         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Pass an array of packages to package resources instead of iterating over an array of packages when using multi-package capable package subsystem such as apt, yum, chocolatey, dnf, or zypper. Multi-package installs are faster and simplify logs.
           package pkg do
@@ -37,7 +39,18 @@ describe RuboCop::Cop::Chef::Modernize::UseMultipackageInstalls, :config do
     expect_correction(<<~RUBY)
       case node['platform']
       when 'ubuntu'
+        include_recipe 'apt'
+
         package %w(bmon htop vim curl)
+      end
+    RUBY
+  end
+
+  it 'does not fail with an empty when statement' do
+    expect_no_offenses(<<~RUBY)
+      case node['platform_family']
+      when 'debian'
+        # nothing here
       end
     RUBY
   end
