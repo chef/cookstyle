@@ -307,6 +307,8 @@ Lint/NestedPercentLiteral:
   Enabled: false
 Lint/NextWithoutAccumulator:
   Enabled: false
+Lint/NoReturnInBeginEndBlocks:
+  Enabled: false
 Lint/NonDeterministicRequireOrder:
   Enabled: false
 Lint/NonLocalExitFromIterator:
@@ -515,6 +517,8 @@ Style/ClassMethodsDefinitions:
   Enabled: false
 Style/ClassVars:
   Enabled: false
+Style/CollectionCompact:
+  Enabled: false
 Style/CollectionMethods:
   Enabled: false
 Style/ColonMethodCall:
@@ -688,6 +692,8 @@ Style/MultipleComparison:
 Style/MutableConstant:
   Enabled: false
 Style/NegatedIf:
+  Enabled: false
+Style/NegatedIfElseCondition:
   Enabled: false
 Style/NegatedUnless:
   Enabled: false

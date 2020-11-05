@@ -1478,6 +1478,7 @@ Lint/ElseLayout:
   Description: 'Check for odd code arrangement in an else block.'
   Enabled: true
   VersionAdded: '0.17'
+  VersionChanged: '1.2'
 
 Lint/EmptyBlock:
   Description: 'This cop checks for blocks without a body.'
@@ -1678,6 +1679,11 @@ Lint/NextWithoutAccumulator:
                   in a `reduce`/`inject` block.
   Enabled: true
   VersionAdded: '0.36'
+
+Lint/NoReturnInBeginEndBlocks:
+  Description: 'Do not `return` inside `begin..end` blocks in assignment contexts.'
+  Enabled: pending
+  VersionAdded: '1.2'
 
 Lint/NonDeterministicRequireOrder:
   Description: 'Always sort arrays returned by Dir.glob when requiring files.'
@@ -2036,8 +2042,9 @@ Lint/UselessMethodDefinition:
 Lint/UselessSetterCall:
   Description: 'Checks for useless setter call to a local variable.'
   Enabled: true
+  SafeAutoCorrect: false
   VersionAdded: '0.13'
-  VersionChanged: '0.80'
+  VersionChanged: '1.2'
   Safe: false
 
 Lint/UselessTimes:
@@ -2181,6 +2188,7 @@ Naming/BinaryOperatorParameterName:
   StyleGuide: '#other-arg'
   Enabled: true
   VersionAdded: '0.50'
+  VersionChanged: '1.2'
 
 Naming/BlockParameterName:
   Description: >-
@@ -2287,6 +2295,7 @@ Naming/HeredocDelimiterCase:
   StyleGuide: '#heredoc-delimiters'
   Enabled: true
   VersionAdded: '0.50'
+  VersionChanged: '1.2'
   EnforcedStyle: uppercase
   SupportedStyles:
     - lowercase
@@ -2305,7 +2314,7 @@ Naming/MemoizedInstanceVariableName:
     Memoized method name should match memo instance variable name.
   Enabled: true
   VersionAdded: '0.53'
-  VersionChanged: '0.58'
+  VersionChanged: '1.2'
   EnforcedStyleForLeadingUnderscores: disallowed
   SupportedStylesForLeadingUnderscores:
     - disallowed
@@ -2403,14 +2412,18 @@ Naming/VariableName:
     - camelCase
 
 Naming/VariableNumber:
-  Description: 'Use the configured style when numbering variables.'
+  Description: 'Use the configured style when numbering symbols, methods and variables.'
+  StyleGuide: '#snake-case-symbols-methods-vars-with-numbers'
   Enabled: true
   VersionAdded: '0.50'
+  VersionChanged: '1.2'
   EnforcedStyle: normalcase
   SupportedStyles:
     - snake_case
     - normalcase
     - non_integer
+  CheckMethodNames: true
+  CheckSymbols: true
 
 #################### Security ##############################
 
@@ -2789,6 +2802,11 @@ Style/ClassVars:
   Enabled: true
   VersionAdded: '0.13'
 
+Style/CollectionCompact:
+  Description: 'Use `{Array,Hash}#{compact,compact!}` instead of custom logic to reject nils.'
+  Enabled: pending
+  VersionAdded: '1.2'
+
 # Align with the style guide.
 Style/CollectionMethods:
   Description: 'Preferred collection methods.'
@@ -2986,7 +3004,7 @@ Style/DoubleNegation:
   StyleGuide: '#no-bang-bang'
   Enabled: true
   VersionAdded: '0.19'
-  VersionChanged: '0.84'
+  VersionChanged: '1.2'
   EnforcedStyle: allowed_in_returns
   SafeAutoCorrect: false
   SupportedStyles:
@@ -3611,6 +3629,13 @@ Style/NegatedIf:
     - prefix
     - postfix
 
+Style/NegatedIfElseCondition:
+  Description: >-
+                This cop checks for uses of `if-else` and ternary operators with a negated condition
+                which can be simplified by inverting condition and swapping branches.
+  Enabled: pending
+  VersionAdded: '1.2'
+
 Style/NegatedUnless:
   Description: 'Favor if over unless for negative conditions.'
   StyleGuide: '#if-for-negatives'
@@ -3888,11 +3913,12 @@ Style/RaiseArgs:
   StyleGuide: '#exception-class-messages'
   Enabled: true
   VersionAdded: '0.14'
-  VersionChanged: '0.40'
+  VersionChanged: '1.2'
   EnforcedStyle: exploded
   SupportedStyles:
     - compact # raise Exception.new(msg)
     - exploded # raise Exception, msg
+  AllowedCompactTypes: []
 
 Style/RandomWithOffset:
   Description: >-
