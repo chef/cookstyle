@@ -14,6 +14,7 @@ Please try to select as few as possible.
 - [ ] Chef/Style - A cop that alerts to a style best practice
 - [ ] Chef/Modernize - A cop that alerts when a cookbook can be simplified or modernized with new functionality
 - [ ] Chef/Effortless - A cop that alerts on code that must be resolved to move to the Effortless pattern
+- [ ] Chef/RedundantCode - A cop that detects redundant code regardless of Chef Infra release
 
 ### Describe the new cop:
 <!---  Why is a new Cookstyle Cop necessary? -->
