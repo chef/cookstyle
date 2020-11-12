@@ -11,7 +11,7 @@ AllCops:
 ###############################
 
 Chef/Style:
-  StyleGuideBaseURL: https://github.com/chef/cookstyle/blob/master/docs/cops_chefstyle.md
+  StyleGuideBaseURL: https://github.com/chef/cookstyle/blob/master/docs/cops_chef_style.md
 
 Chef/Style/AttributeKeys:
   Description: Check which style of keys are used to access node attributes.
@@ -155,7 +155,7 @@ Chef/Style/IncludeRecipeWithParentheses:
 ###############################
 
 Chef/Correctness:
-  StyleGuideBaseURL: https://github.com/chef/cookstyle/blob/master/docs/cops_chefcorrectness.md
+  StyleGuideBaseURL: https://github.com/chef/cookstyle/blob/master/docs/cops_chef_correctness.md
 
 Chef/Correctness/ServiceResource:
   Description: Use a service resource to start and stop services instead of execute resources
@@ -484,7 +484,7 @@ Chef/Correctness/OctalModeAsString:
 ###############################
 
 Chef/Sharing:
-  StyleGuideBaseURL: https://github.com/chef/cookstyle/blob/master/docs/cops_chefsharing.md
+  StyleGuideBaseURL: https://github.com/chef/cookstyle/blob/master/docs/cops_chef_sharing.md
 
 Chef/Sharing/InsecureCookbookURL:
   Description: Insecure http Github or Gitlab URLs for metadata source_url/issues_url fields
@@ -552,7 +552,7 @@ Chef/Sharing/IncludeResourceExamples:
 ###############################
 
 Chef/Deprecations:
-  StyleGuideBaseURL: https://github.com/chef/cookstyle/blob/master/docs/cops_chefdeprecations.md
+  StyleGuideBaseURL: https://github.com/chef/cookstyle/blob/master/docs/cops_chef_deprecations.md
 
 Chef/Deprecations/NodeDeepFetch:
   Description: Do not use the deprecated chef-sugar node.deep_fetch methods
@@ -1159,7 +1159,7 @@ Chef/Deprecations/FoodcriticTesting:
 ###############################
 
 Chef/Modernize:
-  StyleGuideBaseURL: https://github.com/chef/cookstyle/blob/master/docs/cops_chefmodernize.md
+  StyleGuideBaseURL: https://github.com/chef/cookstyle/blob/master/docs/cops_chef_modernize.md
 
 Chef/Modernize/LegacyBerksfileSource:
   Description: Do not use legacy Berksfile community sources. Use Chef Supermarket instead.
@@ -1721,7 +1721,7 @@ Chef/Modernize/ActionMethodInResource:
 ###############################
 
 Chef/RedundantCode:
-  StyleGuideBaseURL: https://github.com/chef/cookstyle/blob/master/docs/cops_chefredundantcode.md
+  StyleGuideBaseURL: https://github.com/chef/cookstyle/blob/master/docs/cops_chef_redundantcode.md
 
 Chef/RedundantCode/ConflictsMetadata:
   Description: Don't use the deprecated 'conflicts' metadata value
@@ -1943,7 +1943,7 @@ Chef/RedundantCode/DoubleCompileTime:
 ###############################
 
 Chef/Effortless:
-  StyleGuideBaseURL: https://github.com/chef/cookstyle/blob/master/docs/cops_chefeffortless.md
+  StyleGuideBaseURL: https://github.com/chef/cookstyle/blob/master/docs/cops_chef_effortless.md
 
 Chef/Effortless/CookbookUsesSearch:
   Description: Cookbook uses search, which cannot be used in the Effortless Infra pattern
