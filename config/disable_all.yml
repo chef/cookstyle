@@ -229,6 +229,8 @@ Lint/DeprecatedOpenSSLConstant:
   Enabled: false
 Lint/DisjunctiveAssignmentInConstructor:
   Enabled: false
+Lint/DuplicateBranch:
+  Enabled: false
 Lint/DuplicateCaseCondition:
   Enabled: false
 Lint/DuplicateElsifCondition:
@@ -248,6 +250,8 @@ Lint/EachWithObjectArgument:
 Lint/ElseLayout:
   Enabled: false
 Lint/EmptyBlock:
+  Enabled: false
+Lint/EmptyClass:
   Enabled: false
 Lint/EmptyConditionalBody:
   Enabled: false
@@ -657,6 +661,8 @@ Style/RedundantSelfAssignment:
   Enabled: false
 Style/SoleNestedConditional:
   Enabled: false
+Style/StaticClass:
+  Enabled: false
 Style/MethodCalledOnDoEndBlock:
   Enabled: false
 Style/MethodDefParentheses:
@@ -708,6 +714,8 @@ Style/NestedTernaryOperator:
 Style/Next:
   Enabled: false
 Style/NilComparison:
+  Enabled: false
+Style/NilLambda:
   Enabled: false
 Style/NonNilCheck:
   Enabled: false
