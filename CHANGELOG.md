@@ -1,24 +1,22 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.2.1 -->
-## [v7.2.1](https://github.com/chef/cookstyle/tree/v7.2.1) (2020-11-16)
-
-#### Merged Pull Requests
-- Update RuboCop to 1.3.1 [#798](https://github.com/chef/cookstyle/pull/798) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=7.1.2 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Update RuboCop to 1.3.1 [#798](https://github.com/chef/cookstyle/pull/798) ([tas50](https://github.com/tas50)) <!-- 7.2.1 -->
-- Update RuboCop to 1.3.0 [#797](https://github.com/chef/cookstyle/pull/797) ([tas50](https://github.com/tas50)) <!-- 7.2.0 -->
-- cookstyle.yml - Update the broken StyleGuideBaseURL values [#796](https://github.com/chef/cookstyle/pull/796) ([jamesnearn](https://github.com/jamesnearn)) <!-- 7.1.4 -->
-- Remove extra dev deps [#793](https://github.com/chef/cookstyle/pull/793) ([tas50](https://github.com/tas50)) <!-- 7.1.3 -->
-- Add release notes for Cookstyle 7.1 [#794](https://github.com/chef/cookstyle/pull/794) ([tas50](https://github.com/tas50)) <!-- 7.1.2 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v7.2.1](https://github.com/chef/cookstyle/tree/v7.2.1) (2020-11-16)
+
+#### Merged Pull Requests
+- Add release notes for Cookstyle 7.1 [#794](https://github.com/chef/cookstyle/pull/794) ([tas50](https://github.com/tas50))
+- Remove extra dev deps [#793](https://github.com/chef/cookstyle/pull/793) ([tas50](https://github.com/tas50))
+- cookstyle.yml - Update the broken StyleGuideBaseURL values [#796](https://github.com/chef/cookstyle/pull/796) ([jamesnearn](https://github.com/jamesnearn))
+- Update RuboCop to 1.3.0 [#797](https://github.com/chef/cookstyle/pull/797) ([tas50](https://github.com/tas50))
+- Update RuboCop to 1.3.1 [#798](https://github.com/chef/cookstyle/pull/798) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v7.1.2](https://github.com/chef/cookstyle/tree/v7.1.2) (2020-11-05)
 
 #### Merged Pull Requests
@@ -28,7 +26,6 @@
 - Update to RuboCop 1.2.0 [#791](https://github.com/chef/cookstyle/pull/791) ([tas50](https://github.com/tas50))
 - Enable Style/CollectionCompact [#792](https://github.com/chef/cookstyle/pull/792) ([tas50](https://github.com/tas50))
 - Handle more multipackage scenarios [#790](https://github.com/chef/cookstyle/pull/790) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v7.0.0](https://github.com/chef/cookstyle/tree/v7.0.0) (2020-10-29)
 
