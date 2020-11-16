@@ -1,3 +1,9 @@
+## Cookstyle 7.2
+
+### RuboCop 1.3.1
+
+RuboCop has been updated to 1.3.1, which includes bug fixes and improvements for many of RuboCop's built in Ruby cops.
+
 ## Cookstyle 7.1
 
 ### RuboCop 1.2.0
