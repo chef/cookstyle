@@ -3,7 +3,7 @@ require 'rubocop'
 require 'rubocop/rspec/support'
 
 spec_helper_glob = File.expand_path('{support,shared}/*.rb', __dir__)
-Dir.glob(spec_helper_glob).each(&method(:require))
+Dir.glob(spec_helper_glob).each { |spec_file| require spec_file }
 
 RSpec.configure do |config|
   # Basic configuration
