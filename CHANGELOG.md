@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.2.0 -->
-## [v7.2.0](https://github.com/chef/cookstyle/tree/v7.2.0) (2020-11-12)
+ <!-- latest_release 7.2.1 -->
+## [v7.2.1](https://github.com/chef/cookstyle/tree/v7.2.1) (2020-11-16)
 
 #### Merged Pull Requests
-- Update RuboCop to 1.3.0 [#797](https://github.com/chef/cookstyle/pull/797) ([tas50](https://github.com/tas50))
+- Update RuboCop to 1.3.1 [#798](https://github.com/chef/cookstyle/pull/798) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.1.2 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Update RuboCop to 1.3.1 [#798](https://github.com/chef/cookstyle/pull/798) ([tas50](https://github.com/tas50)) <!-- 7.2.1 -->
 - Update RuboCop to 1.3.0 [#797](https://github.com/chef/cookstyle/pull/797) ([tas50](https://github.com/tas50)) <!-- 7.2.0 -->
 - cookstyle.yml - Update the broken StyleGuideBaseURL values [#796](https://github.com/chef/cookstyle/pull/796) ([jamesnearn](https://github.com/jamesnearn)) <!-- 7.1.4 -->
 - Remove extra dev deps [#793](https://github.com/chef/cookstyle/pull/793) ([tas50](https://github.com/tas50)) <!-- 7.1.3 -->
