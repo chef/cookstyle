@@ -2439,10 +2439,9 @@ Metrics/BlockNesting:
 Metrics/ParameterLists:
   Enabled: false
 
-# This updates how we send helpers into the Chef recipe/resource classes and makes WAY more sense
-# Chef::Recipe.send(:include, ::Apt::Helpers) -> Chef::Recipe.include ::Apt::Helpers
+# The warning message from this is misleading and can lead to wrong but syntactically valid code.
 Lint/SendWithMixinArgument:
-  Enabled: true
+  Enabled: false
 
 # this migrates old # rubocop: comments to use the latest namespaces, which prevents a ton of spam during cookstyle runs
 Migration/DepartmentName:
