@@ -463,6 +463,10 @@ Layout/EmptyLineBetweenDefs:
   StyleGuide: '#empty-lines-between-methods'
   Enabled: true
   VersionAdded: '0.49'
+  VersionChanged: '1.4'
+  EmptyLineBetweenMethodDefs: true
+  EmptyLineBetweenClassDefs: true
+  EmptyLineBetweenModuleDefs: true
   # If `true`, this parameter means that single line method definitions don't
   # need an empty line between them.
   AllowAdjacentOneLineDefs: false
@@ -891,8 +895,8 @@ Layout/LineLength:
   StyleGuide: '#max-line-length'
   Enabled: true
   VersionAdded: '0.25'
-  VersionChanged: '1.3'
-  AutoCorrect: false
+  VersionChanged: '1.4'
+  AutoCorrect: true
   Max: 120
   # To make it possible to copy or click on URIs in the code, we allow lines
   # containing a URI to be longer than Max.
@@ -1684,6 +1688,7 @@ Lint/MissingSuper:
                   without calls to `super`'.
   Enabled: true
   VersionAdded: '0.89'
+  VersionChanged: '1.4'
 
 Lint/MixedRegexpCaptureTypes:
   Description: 'Do not mix named captures and numbered captures in a Regexp literal.'
@@ -3975,6 +3980,17 @@ Style/RandomWithOffset:
   StyleGuide: '#random-numbers'
   Enabled: true
   VersionAdded: '0.52'
+
+Style/RedundantArgument:
+  Description: 'Check for a redundant argument passed to certain methods.'
+  Enabled: pending
+  Safe: false
+  VersionAdded: '1.4'
+  Methods:
+    # Array#join
+    join: ''
+    # String#split
+    split: ' '
 
 Style/RedundantAssignment:
   Description: 'Checks for redundant assignment before returning.'

@@ -755,6 +755,8 @@ Style/RaiseArgs:
   Enabled: false
 Style/RandomWithOffset:
   Enabled: false
+Style/RedundantArgument:
+  Enabled: false
 Style/RedundantBegin:
   Enabled: false
 Style/RedundantCapitalW:
