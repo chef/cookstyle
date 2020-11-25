@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.2.2 -->
-## [v7.2.2](https://github.com/chef/cookstyle/tree/v7.2.2) (2020-11-23)
+ <!-- latest_release 7.3.0 -->
+## [v7.3.0](https://github.com/chef/cookstyle/tree/v7.3.0) (2020-11-25)
 
 #### Merged Pull Requests
-- Disable cop with potentially misleading warning message. [#799](https://github.com/chef/cookstyle/pull/799) ([phiggins](https://github.com/phiggins))
+- Bump RuboCop to 1.4.1 [#800](https://github.com/chef/cookstyle/pull/800) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.2.1 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Bump RuboCop to 1.4.1 [#800](https://github.com/chef/cookstyle/pull/800) ([tas50](https://github.com/tas50)) <!-- 7.3.0 -->
 - Disable cop with potentially misleading warning message. [#799](https://github.com/chef/cookstyle/pull/799) ([phiggins](https://github.com/phiggins)) <!-- 7.2.2 -->
 <!-- release_rollup -->
 
