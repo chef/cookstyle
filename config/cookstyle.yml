@@ -2096,6 +2096,7 @@ Style/EmptyElse:
   Enabled: true
 Layout/EmptyLineBetweenDefs:
   Enabled: true
+  AllowAdjacentOneLineDefs: true
 Layout/EmptyLines:
   Enabled: true
 Layout/EmptyLinesAroundAccessModifier:
