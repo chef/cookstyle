@@ -819,7 +819,8 @@ Chef/Deprecations/UsesRunCommandHelper:
   VersionAdded: '5.9.0'
   Exclude:
     - '**/metadata.rb'
-    - 'Rakefile'
+    - '**/Berksfile'
+    - '**/Rakefile'
 
 Chef/Deprecations/ChefHandlerUsesSupports:
   Description: Use the type property instead of the deprecated supports property in the chef_handler resource. The supports property was removed in chef_handler cookbook version 3.0 (June 2017) and Chef Infra Client 14.0.
@@ -836,6 +837,8 @@ Chef/Deprecations/DeprecatedYumRepositoryProperties:
   VersionAdded: '5.10.0'
   Exclude:
     - '**/metadata.rb'
+    - '**/attributes/*.rb'
+    - '**/Berksfile'
 
 Chef/Deprecations/EOLAuditModeUsage:
   Description: The beta Audit Mode feature in Chef Infra Client was removed in Chef Infra Client 15.0. Users should instead use InSpec and the audit cookbook. See https://www.inspec.io/ for more informmation.
@@ -844,6 +847,8 @@ Chef/Deprecations/EOLAuditModeUsage:
   VersionAdded: '5.10.0'
   Exclude:
     - '**/metadata.rb'
+    - '**/attributes/*.rb'
+    - '**/Berksfile'
 
 Chef/Deprecations/ResourceInheritsFromCompatResource:
   Description: HWRP style resource should inherit from the 'Chef::Resource' class and not the 'ChefCompat::Resource' class from the deprecated compat_resource cookbook.
@@ -860,12 +865,18 @@ Chef/Deprecations/VerifyPropertyUsesFileExpansion:
   VersionAdded: '5.10.0'
   Exclude:
     - '**/metadata.rb'
+    - '**/attributes/*.rb'
+    - '**/Berksfile'
 
 Chef/Deprecations/PoiseArchiveUsage:
   Description: The poise_archive resource in the deprecated poise-archive should be replaced with the archive_file resource found in Chef Infra Client 15+.
   StyleGuide: '#chefdeprecationspoisearchiveusage'
   Enabled: true
   VersionAdded: '5.11.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/attributes/*.rb'
+    - '**/Berksfile'
 
 Chef/Deprecations/PartialSearchHelperUsage:
   Description: Legacy partial_search usage should be updated to use :filter_result in the search helper instead.
@@ -906,6 +917,8 @@ Chef/Deprecations/LegacyNotifySyntax:
   VersionAdded: '5.13.0'
   Exclude:
     - '**/metadata.rb'
+    - '**/attributes/*.rb'
+    - '**/Berksfile'
 
 Chef/Deprecations/NodeSetWithoutLevel:
   Description: When setting a node attribute in Chef Infra Client 11 and later you must specify the precedence level.
