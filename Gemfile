@@ -29,6 +29,3 @@ group :development do
   gem 'rake'
   gem 'rspec', '>= 3.4'
 end
-
-# pin until we drop ruby 2.4 and then remove this entirely
-gem 'parallel', '< 1.20'
