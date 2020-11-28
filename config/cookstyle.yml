@@ -1714,7 +1714,6 @@ Chef/Modernize/ActionMethodInResource:
   Include:
     - '**/resources/*.rb'
     - '**/providers/*.rb'
-    - '**/libraries/*.rb'
 
 ###############################
 # Chef/RedundantCode: Cleanup unnecessary code in your cookbooks regardless of Chef Infra Client release
