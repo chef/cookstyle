@@ -1234,6 +1234,7 @@ Chef/Modernize/RespondToProvides:
   VersionAdded: '5.2.0'
   Include:
     - '**/providers/*.rb'
+    - '**/resources/*.rb'
     - '**/libraries/*.rb'
 
 Chef/Modernize/SetOrReturnInResources:
