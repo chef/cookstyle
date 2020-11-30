@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.3.6 -->
-## [v7.3.6](https://github.com/chef/cookstyle/tree/v7.3.6) (2020-11-30)
+ <!-- latest_release 7.3.7 -->
+## [v7.3.7](https://github.com/chef/cookstyle/tree/v7.3.7) (2020-11-30)
 
 #### Merged Pull Requests
-- Run Chef/Modernize/RespondToProvides in resources as well [#808](https://github.com/chef/cookstyle/pull/808) ([tas50](https://github.com/tas50))
+- Update Chef/Style/CommentSentenceSpacing to use the new RuboCop methods [#807](https://github.com/chef/cookstyle/pull/807) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.2.1 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Update Chef/Style/CommentSentenceSpacing to use the new RuboCop methods [#807](https://github.com/chef/cookstyle/pull/807) ([tas50](https://github.com/tas50)) <!-- 7.3.7 -->
 - Run Chef/Modernize/RespondToProvides in resources as well [#808](https://github.com/chef/cookstyle/pull/808) ([tas50](https://github.com/tas50)) <!-- 7.3.6 -->
 - Add new Chef/Deprecations/DeprecatedYumRepositoryActions cop [#804](https://github.com/chef/cookstyle/pull/804) ([tas50](https://github.com/tas50)) <!-- 7.3.5 -->
 - Exclude more files in our cops to speed them up [#803](https://github.com/chef/cookstyle/pull/803) ([tas50](https://github.com/tas50)) <!-- 7.3.4 -->
