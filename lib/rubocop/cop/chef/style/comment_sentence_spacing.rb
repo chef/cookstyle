@@ -26,7 +26,7 @@ module RuboCop
           extend AutoCorrector
           MSG = 'Use a single space after sentences in comments'
 
-          def investigate(processed_source)
+          def on_new_investigation
             return unless processed_source.ast
 
             processed_source.comments.each do |comment|
