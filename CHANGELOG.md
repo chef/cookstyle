@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.3.3 -->
-## [v7.3.3](https://github.com/chef/cookstyle/tree/v7.3.3) (2020-11-30)
+ <!-- latest_release 7.3.4 -->
+## [v7.3.4](https://github.com/chef/cookstyle/tree/v7.3.4) (2020-11-30)
 
 #### Merged Pull Requests
-- Don&#39;t use DSL actions in HWRPs [#802](https://github.com/chef/cookstyle/pull/802) ([tas50](https://github.com/tas50))
+- Exclude more files in our cops to speed them up [#803](https://github.com/chef/cookstyle/pull/803) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.2.1 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Exclude more files in our cops to speed them up [#803](https://github.com/chef/cookstyle/pull/803) ([tas50](https://github.com/tas50)) <!-- 7.3.4 -->
 - Don&#39;t use DSL actions in HWRPs [#802](https://github.com/chef/cookstyle/pull/802) ([tas50](https://github.com/tas50)) <!-- 7.3.3 -->
 - Unpin parallel gem since it supports Ruby 2.4 again [#806](https://github.com/chef/cookstyle/pull/806) ([tas50](https://github.com/tas50)) <!-- 7.3.2 -->
 - Update RuboCop to 1.4.2 [#801](https://github.com/chef/cookstyle/pull/801) ([tas50](https://github.com/tas50)) <!-- 7.3.1 -->
