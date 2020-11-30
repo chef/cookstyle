@@ -1155,7 +1155,7 @@ Chef/Deprecations/FoodcriticTesting:
     - '**/Gemfile'
 
 Chef/Deprecations/DeprecatedYumRepositoryActions:
-  Description: With the release of Chef Infra Client 12.14 and the yum cookbook 3.0 several properties in the yum_repository resource the actions the yum_repository resource actions were renamed. The `add` action became `create` and `delete` became `remove` to better match other resources in Chef Infra Client.
+  Description: With the release of Chef Infra Client 12.14 and the yum cookbook 3.0 several actions in the yum_repository resource actions were renamed. The `add` action became `create` and `delete` became `remove` to better match other resources in Chef Infra Client.
   StyleGuide: '#chefdeprecationsdeprecatedyumrepositoryactions'
   Enabled: true
   VersionAdded: '7.3.0'
