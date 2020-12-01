@@ -1,31 +1,29 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.3.10 -->
-## [v7.3.10](https://github.com/chef/cookstyle/tree/v7.3.10) (2020-12-01)
-
-#### Merged Pull Requests
-- Add additional deprecated Fauxhai platforms [#811](https://github.com/chef/cookstyle/pull/811) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=7.2.1 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Add additional deprecated Fauxhai platforms [#811](https://github.com/chef/cookstyle/pull/811) ([tas50](https://github.com/tas50)) <!-- 7.3.10 -->
-- Update to RuboCop 1.5.0 [#810](https://github.com/chef/cookstyle/pull/810) ([tas50](https://github.com/tas50)) <!-- 7.3.9 -->
-- Add new Chef/Deprecations/ChefSugarHelpers cop [#805](https://github.com/chef/cookstyle/pull/805) ([tas50](https://github.com/tas50)) <!-- 7.3.8 -->
-- Update Chef/Style/CommentSentenceSpacing to use the new RuboCop methods [#807](https://github.com/chef/cookstyle/pull/807) ([tas50](https://github.com/tas50)) <!-- 7.3.7 -->
-- Run Chef/Modernize/RespondToProvides in resources as well [#808](https://github.com/chef/cookstyle/pull/808) ([tas50](https://github.com/tas50)) <!-- 7.3.6 -->
-- Add new Chef/Deprecations/DeprecatedYumRepositoryActions cop [#804](https://github.com/chef/cookstyle/pull/804) ([tas50](https://github.com/tas50)) <!-- 7.3.5 -->
-- Exclude more files in our cops to speed them up [#803](https://github.com/chef/cookstyle/pull/803) ([tas50](https://github.com/tas50)) <!-- 7.3.4 -->
-- Don&#39;t use DSL actions in HWRPs [#802](https://github.com/chef/cookstyle/pull/802) ([tas50](https://github.com/tas50)) <!-- 7.3.3 -->
-- Unpin parallel gem since it supports Ruby 2.4 again [#806](https://github.com/chef/cookstyle/pull/806) ([tas50](https://github.com/tas50)) <!-- 7.3.2 -->
-- Update RuboCop to 1.4.2 [#801](https://github.com/chef/cookstyle/pull/801) ([tas50](https://github.com/tas50)) <!-- 7.3.1 -->
-- Bump RuboCop to 1.4.1 [#800](https://github.com/chef/cookstyle/pull/800) ([tas50](https://github.com/tas50)) <!-- 7.3.0 -->
-- Disable cop with potentially misleading warning message. [#799](https://github.com/chef/cookstyle/pull/799) ([phiggins](https://github.com/phiggins)) <!-- 7.2.2 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v7.3.10](https://github.com/chef/cookstyle/tree/v7.3.10) (2020-12-01)
+
+#### Merged Pull Requests
+- Disable cop with potentially misleading warning message. [#799](https://github.com/chef/cookstyle/pull/799) ([phiggins](https://github.com/phiggins))
+- Bump RuboCop to 1.4.1 [#800](https://github.com/chef/cookstyle/pull/800) ([tas50](https://github.com/tas50))
+- Update RuboCop to 1.4.2 [#801](https://github.com/chef/cookstyle/pull/801) ([tas50](https://github.com/tas50))
+- Unpin parallel gem since it supports Ruby 2.4 again [#806](https://github.com/chef/cookstyle/pull/806) ([tas50](https://github.com/tas50))
+- Don&#39;t use DSL actions in HWRPs [#802](https://github.com/chef/cookstyle/pull/802) ([tas50](https://github.com/tas50))
+- Exclude more files in our cops to speed them up [#803](https://github.com/chef/cookstyle/pull/803) ([tas50](https://github.com/tas50))
+- Add new Chef/Deprecations/DeprecatedYumRepositoryActions cop [#804](https://github.com/chef/cookstyle/pull/804) ([tas50](https://github.com/tas50))
+- Run Chef/Modernize/RespondToProvides in resources as well [#808](https://github.com/chef/cookstyle/pull/808) ([tas50](https://github.com/tas50))
+- Update Chef/Style/CommentSentenceSpacing to use the new RuboCop methods [#807](https://github.com/chef/cookstyle/pull/807) ([tas50](https://github.com/tas50))
+- Add new Chef/Deprecations/ChefSugarHelpers cop [#805](https://github.com/chef/cookstyle/pull/805) ([tas50](https://github.com/tas50))
+- Update to RuboCop 1.5.0 [#810](https://github.com/chef/cookstyle/pull/810) ([tas50](https://github.com/tas50))
+- Add additional deprecated Fauxhai platforms [#811](https://github.com/chef/cookstyle/pull/811) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v7.2.1](https://github.com/chef/cookstyle/tree/v7.2.1) (2020-11-16)
 
 #### Merged Pull Requests
@@ -34,7 +32,6 @@
 - cookstyle.yml - Update the broken StyleGuideBaseURL values [#796](https://github.com/chef/cookstyle/pull/796) ([jamesnearn](https://github.com/jamesnearn))
 - Update RuboCop to 1.3.0 [#797](https://github.com/chef/cookstyle/pull/797) ([tas50](https://github.com/tas50))
 - Update RuboCop to 1.3.1 [#798](https://github.com/chef/cookstyle/pull/798) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v7.1.2](https://github.com/chef/cookstyle/tree/v7.1.2) (2020-11-05)
 
