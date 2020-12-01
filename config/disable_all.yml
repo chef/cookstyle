@@ -393,6 +393,8 @@ Lint/TrailingCommaInAttributeDeclaration:
   Enabled: false
 Lint/UnderscorePrefixedVariableName:
   Enabled: false
+Lint/UnexpectedBlockArity:
+  Enabled: false
 Lint/UnifiedInteger:
   Enabled: false
 Lint/UnmodifiedReduceAccumulator:
