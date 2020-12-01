@@ -1,3 +1,52 @@
+## Cookstyle 7.3
+
+## RuboCop 1.5.0
+
+RuboCop has been updated to 1.5.0, which includes bug fixes and improvements for many of RuboCop's built in Ruby cops.
+
+### 2 New Chef Infra Cops
+
+#### Chef/Deprecations/ChefSugarHelpers
+
+The `Chef/Deprecations/ChefSugarHelpers` cop detects cookbooks that use helpers from the deprecated `chef-sugar` project that have not been moved into the Chef Infra Client itself. Chef Sugar functionality was mostly merged into Chef Infra Client, but we do not plan to move some helpers with limited or dated value.
+
+##### Legacy Helpers
+
+- vagrant_key?
+- vagrant_domain?
+- vagrant_user?
+- require_chef_gem
+- best_ip_for(node)
+- nexus?
+- ios_xr?
+- ruby_20?
+- ruby_19?
+- includes_recipe?('foo::bar')
+- wrlinux?
+- dev_null
+- nexentacore_platform?
+- opensolaris_platform?
+- nexentacore?
+- opensolaris?
+
+#### Chef/Deprecations/DeprecatedYumRepositoryActions
+
+The `Chef/Deprecations/DeprecatedYumRepositoryActions` cop detects legacy `yum_repository` actions replaced with the release of Chef Infra Client 12.14 and the yum cookbook 3.0.
+
+##### Legacy Actions
+
+- :add -> :create
+- :delete -> :remove
+
+### Other Improvements
+
+- The `Lint/SendWithMixinArgument` cop has been disabled as the correction necessary to resolve the warning is not clear.
+- The `Chef/Modernize/RespondToProvides` now checks custom resources for `.respond_to?(:provides)`.
+- The `Chef/Modernize/ActionMethodInResource` cop has been updated to skip HWRPs where it would cause errors in some releases of Chef Infra Client.
+- Cookstyle now skips additional files when executing cops in order to speed up Cookstyle scan times.
+- Fixed a failure running `Chef/Style/CommentSentenceSpacing`.
+- The `Chef/Deprecations/DeprecatedChefSpecPlatform` cop has been updated to detect ChefSpec tests using macOS 10.13 and Debian 8 Fauxhai data, which is now deprecated.
+
 ## Cookstyle 7.2
 
 ### RuboCop 1.3.1
