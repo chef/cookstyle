@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.3.9 -->
-## [v7.3.9](https://github.com/chef/cookstyle/tree/v7.3.9) (2020-12-01)
+ <!-- latest_release 7.3.10 -->
+## [v7.3.10](https://github.com/chef/cookstyle/tree/v7.3.10) (2020-12-01)
 
 #### Merged Pull Requests
-- Update to RuboCop 1.5.0 [#810](https://github.com/chef/cookstyle/pull/810) ([tas50](https://github.com/tas50))
+- Add additional deprecated Fauxhai platforms [#811](https://github.com/chef/cookstyle/pull/811) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.2.1 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add additional deprecated Fauxhai platforms [#811](https://github.com/chef/cookstyle/pull/811) ([tas50](https://github.com/tas50)) <!-- 7.3.10 -->
 - Update to RuboCop 1.5.0 [#810](https://github.com/chef/cookstyle/pull/810) ([tas50](https://github.com/tas50)) <!-- 7.3.9 -->
 - Add new Chef/Deprecations/ChefSugarHelpers cop [#805](https://github.com/chef/cookstyle/pull/805) ([tas50](https://github.com/tas50)) <!-- 7.3.8 -->
 - Update Chef/Style/CommentSentenceSpacing to use the new RuboCop methods [#807](https://github.com/chef/cookstyle/pull/807) ([tas50](https://github.com/tas50)) <!-- 7.3.7 -->
