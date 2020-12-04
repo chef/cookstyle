@@ -11,8 +11,6 @@ group :debug do
 end
 
 group :docs do
-  gem 'github-markup'
-  gem 'redcarpet'
   gem 'yard'
 end
 
