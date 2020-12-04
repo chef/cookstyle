@@ -19,7 +19,7 @@ task :vendor do
   File.open(dst.join('disable_all.yml'), 'w') { |fh| fh.write YAML.dump(cfg) }
 
   sh %(git add #{dst}/{upstream,disable_all}.yml)
-  sh %(git commit -m "Vendor rubocop-#{upstream.version} upstream configuration.")
+  sh %(git commit -m "Vendor rubocop-#{upstream.version} upstream configuration." -m "Obvious fix; these changes are the result of automation not creative thinking.")
 end
 
 require 'cookstyle'
