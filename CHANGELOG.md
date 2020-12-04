@@ -1,20 +1,18 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.3.11 -->
+ <!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v7.3.11](https://github.com/chef/cookstyle/tree/v7.3.11) (2020-12-04)
 
 #### Merged Pull Requests
 - Update RuboCop to 1.5.2 [#812](https://github.com/chef/cookstyle/pull/812) ([tas50](https://github.com/tas50))
-<!-- latest_release -->
-
-<!-- release_rollup since=7.3.10 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Update RuboCop to 1.5.2 [#812](https://github.com/chef/cookstyle/pull/812) ([tas50](https://github.com/tas50)) <!-- 7.3.11 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v7.3.10](https://github.com/chef/cookstyle/tree/v7.3.10) (2020-12-01)
 
 #### Merged Pull Requests
@@ -30,7 +28,6 @@
 - Add new Chef/Deprecations/ChefSugarHelpers cop [#805](https://github.com/chef/cookstyle/pull/805) ([tas50](https://github.com/tas50))
 - Update to RuboCop 1.5.0 [#810](https://github.com/chef/cookstyle/pull/810) ([tas50](https://github.com/tas50))
 - Add additional deprecated Fauxhai platforms [#811](https://github.com/chef/cookstyle/pull/811) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v7.2.1](https://github.com/chef/cookstyle/tree/v7.2.1) (2020-11-16)
 
