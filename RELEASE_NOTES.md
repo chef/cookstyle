@@ -1,3 +1,9 @@
+## Cookstyle 7.4
+
+## RuboCop 1.6.1
+
+The RuboCop engine that powers Cookstyle has been updated to 1.6.1. This new release enables autocorrection in several existing cops, improves messages when using incorrect department names in configuration files, and resolves several detection errors.
+
 ## Cookstyle 7.3
 
 ## RuboCop 1.5.0
