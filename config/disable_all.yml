@@ -169,6 +169,8 @@ Layout/SpaceAroundOperators:
   Enabled: false
 Layout/SpaceBeforeBlockBraces:
   Enabled: false
+Layout/SpaceBeforeBrackets:
+  Enabled: false
 Layout/SpaceBeforeComma:
   Enabled: false
 Layout/SpaceBeforeComment:
@@ -200,6 +202,8 @@ Layout/SpaceInsideStringInterpolation:
 Layout/TrailingEmptyLines:
   Enabled: false
 Layout/TrailingWhitespace:
+  Enabled: false
+Lint/AmbiguousAssignment:
   Enabled: false
 Lint/AmbiguousBlockAssociation:
   Enabled: false
@@ -612,6 +616,8 @@ Style/GuardClause:
 Style/HashAsLastArrayItem:
   Enabled: false
 Style/HashEachMethods:
+  Enabled: false
+Style/HashExcept:
   Enabled: false
 Style/HashLikeCase:
   Enabled: false
