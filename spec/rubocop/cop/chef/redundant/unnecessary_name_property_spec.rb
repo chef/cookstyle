@@ -57,6 +57,15 @@ describe RuboCop::Cop::Chef::RedundantCode::UnnecessaryNameProperty, :config do
     expect_correction("\n")
   end
 
+  it 'registers an offense when a resource has a attribute called name that is a name_attribute in non-standard order' do
+    expect_offense(<<~RUBY)
+      attribute :name, name_attribute: true, kind_of: String
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ There is no need to define a property or attribute named :name in a resource as Chef Infra defines this on all resources by default.
+    RUBY
+
+    expect_correction("\n")
+  end
+
   it 'does not register an offense when when a resource defined the name property with a default value' do
     expect_no_offenses(<<~RUBY)
       property :name, String, default: ''
