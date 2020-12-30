@@ -1,3 +1,13 @@
+## Cookstyle 7.5
+
+## RuboCop 1.7.0
+
+The RuboCop engine that powers Cookstyle has been updated to 1.7.0. This new release improves autocorrection and resolves several detection errors.
+
+### Other Improvements
+
+- The `Chef/RedundantCode/UnnecessaryNameProperty` has been improved to detect additional cases where an unnecessary name property is defined in a resource.
+
 ## Cookstyle 7.4
 
 ## RuboCop 1.6.1
