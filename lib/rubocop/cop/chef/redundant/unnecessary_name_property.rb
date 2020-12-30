@@ -28,6 +28,7 @@ module RuboCop
         #   property :name, String, name_property: true
         #   attribute :name, kind_of: String
         #   attribute :name, kind_of: String, name_attribute: true
+        #   attribute :name, name_attribute: true, kind_of: String
         #
         class UnnecessaryNameProperty < Base
           extend AutoCorrector
@@ -35,36 +36,25 @@ module RuboCop
           MSG = 'There is no need to define a property or attribute named :name in a resource as Chef Infra defines this on all resources by default.'
           RESTRICT_ON_SEND = [:property, :attribute].freeze
 
-          def_node_matcher :name_attribute?, <<-PATTERN
-          (send nil? :attribute
-            (sym :name)
-            (hash
-              (pair
-                (sym :kind_of)
-                (const nil? :String))
-              (pair
-                (sym :name_attribute)
-                (true))?))
-          PATTERN
-
           def_node_matcher :name_property?, <<-PATTERN
-            (send nil? :property
-              (sym :name)
-              (const nil? :String)
-              (hash
-                (pair
-                  (sym :name_property)
-                  (true)))?)
+          (send nil? {:attribute :property}
+            (sym :name)
+            (const nil? :String)?
+            (hash $...)?
+          )
           PATTERN
 
           def on_send(node)
-            name_property?(node) do
-              add_offense(node, message: MSG, severity: :refactor) do |corrector|
-                corrector.remove(node.source_range)
+            name_property?(node) do |hash_vals|
+              # It's perfectly valid to redefine the name property if you give it non-default values
+              # We do this in a few of our core resources where we give it a default value of "" for nameless resources
+              # If there are hash vals in this attribute/property compare them with the default keys and if there's anything
+              # else return so we don't alert
+              unless hash_vals.empty?
+                hash_keys = hash_vals.first.map { |x| x.key.value }
+                return unless (hash_keys - [:kind_of, :name_attribute, :name_property]).empty?
               end
-            end
 
-            name_attribute?(node) do
               add_offense(node, message: MSG, severity: :refactor) do |corrector|
                 corrector.remove(node.source_range)
               end
