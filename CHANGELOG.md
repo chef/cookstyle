@@ -1,26 +1,23 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.5.1 -->
-## [v7.5.1](https://github.com/chef/cookstyle/tree/v7.5.1) (2020-12-30)
-
-#### Merged Pull Requests
-- Update UnnecessaryNameProperty to not care about order [#815](https://github.com/chef/cookstyle/pull/815) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=7.4.0 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Update UnnecessaryNameProperty to not care about order [#815](https://github.com/chef/cookstyle/pull/815) ([tas50](https://github.com/tas50)) <!-- 7.5.1 -->
-- Update RuboCop to 1.7.0 [#814](https://github.com/chef/cookstyle/pull/814) ([tas50](https://github.com/tas50)) <!-- 7.5.0 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v7.5.1](https://github.com/chef/cookstyle/tree/v7.5.1) (2020-12-30)
+
+#### Merged Pull Requests
+- Update RuboCop to 1.7.0 [#814](https://github.com/chef/cookstyle/pull/814) ([tas50](https://github.com/tas50))
+- Update UnnecessaryNameProperty to not care about order [#815](https://github.com/chef/cookstyle/pull/815) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v7.4.0](https://github.com/chef/cookstyle/tree/v7.4.0) (2020-12-21)
 
 #### Merged Pull Requests
 - Update RuboCop to 1.6.2 [#813](https://github.com/chef/cookstyle/pull/813) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v7.3.11](https://github.com/chef/cookstyle/tree/v7.3.11) (2020-12-04)
 
