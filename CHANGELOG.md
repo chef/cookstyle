@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 7.5.2 -->
+## [v7.5.2](https://github.com/chef/cookstyle/tree/v7.5.2) (2020-12-31)
+
+#### Merged Pull Requests
+- TrailingBlankLines was renamed TrailingEmptyLines [#817](https://github.com/chef/cookstyle/pull/817) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=7.5.1 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- TrailingBlankLines was renamed TrailingEmptyLines [#817](https://github.com/chef/cookstyle/pull/817) ([tas50](https://github.com/tas50)) <!-- 7.5.2 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
