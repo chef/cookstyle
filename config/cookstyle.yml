@@ -2324,7 +2324,7 @@ Style/SymbolLiteral:
   Enabled: true
 Layout/IndentationStyle:
   Enabled: true
-Layout/TrailingBlankLines:
+Layout/TrailingEmptyLines:
   Enabled: true
 Style/TrailingCommaInArguments:
   Enabled: true
