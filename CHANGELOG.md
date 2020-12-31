@@ -1,25 +1,22 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.5.3 -->
+ <!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v7.5.3](https://github.com/chef/cookstyle/tree/v7.5.3) (2020-12-31)
 
 #### Merged Pull Requests
 - Update the list of deprecated fauxhai platforms [#818](https://github.com/chef/cookstyle/pull/818) ([tas50](https://github.com/tas50))
-<!-- latest_release -->
-
-<!-- release_rollup since=7.5.2 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Update the list of deprecated fauxhai platforms [#818](https://github.com/chef/cookstyle/pull/818) ([tas50](https://github.com/tas50)) <!-- 7.5.3 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v7.5.2](https://github.com/chef/cookstyle/tree/v7.5.2) (2020-12-31)
 
 #### Merged Pull Requests
 - TrailingBlankLines was renamed TrailingEmptyLines [#817](https://github.com/chef/cookstyle/pull/817) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v7.5.1](https://github.com/chef/cookstyle/tree/v7.5.1) (2020-12-30)
 
