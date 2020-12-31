@@ -1,26 +1,23 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.5.2 -->
+ <!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v7.5.2](https://github.com/chef/cookstyle/tree/v7.5.2) (2020-12-31)
 
 #### Merged Pull Requests
 - TrailingBlankLines was renamed TrailingEmptyLines [#817](https://github.com/chef/cookstyle/pull/817) ([tas50](https://github.com/tas50))
-<!-- latest_release -->
-
-<!-- release_rollup since=7.5.1 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- TrailingBlankLines was renamed TrailingEmptyLines [#817](https://github.com/chef/cookstyle/pull/817) ([tas50](https://github.com/tas50)) <!-- 7.5.2 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v7.5.1](https://github.com/chef/cookstyle/tree/v7.5.1) (2020-12-30)
 
 #### Merged Pull Requests
 - Update RuboCop to 1.7.0 [#814](https://github.com/chef/cookstyle/pull/814) ([tas50](https://github.com/tas50))
 - Update UnnecessaryNameProperty to not care about order [#815](https://github.com/chef/cookstyle/pull/815) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v7.4.0](https://github.com/chef/cookstyle/tree/v7.4.0) (2020-12-21)
 
