@@ -229,6 +229,8 @@ Lint/Debugger:
   Enabled: false
 Lint/DeprecatedClassMethods:
   Enabled: false
+Lint/DeprecatedConstants:
+  Enabled: false
 Lint/DeprecatedOpenSSLConstant:
   Enabled: false
 Lint/DisjunctiveAssignmentInConstructor:
@@ -295,6 +297,8 @@ Lint/IneffectiveAccessModifier:
   Enabled: false
 Lint/InterpolationCheck:
   Enabled: false
+Lint/LambdaWithoutLiteralBlock:
+  Enabled: false
 Lint/LiteralAsCondition:
   Enabled: false
 Lint/LiteralInInterpolation:
@@ -323,6 +327,10 @@ Lint/NonLocalExitFromIterator:
   Enabled: false
 Lint/NumberConversion:
   Enabled: false
+Lint/NumberedParameterAssignment:
+  Enabled: false
+Lint/OrAssignmentToConstant:
+  Enabled: false
 Lint/OrderedMagicComments:
   Enabled: false
 Lint/OutOfRangeRegexpRef:
@@ -340,6 +348,8 @@ Lint/RandOne:
 Lint/RedundantCopDisableDirective:
   Enabled: false
 Lint/RedundantCopEnableDirective:
+  Enabled: false
+Lint/RedundantDirGlobSort:
   Enabled: false
 Lint/RedundantRequireStatement:
   Enabled: false
@@ -385,6 +395,8 @@ Lint/StructNewOverride:
   Enabled: false
 Lint/SuppressedException:
   Enabled: false
+Lint/SymbolConversion:
+  Enabled: false
 Lint/Syntax:
   Enabled: false
 Lint/ToEnumArguments:
@@ -394,6 +406,8 @@ Lint/ToJSON:
 Lint/TopLevelReturnWithArgument:
   Enabled: false
 Lint/TrailingCommaInAttributeDeclaration:
+  Enabled: false
+Lint/TripleQuotes:
   Enabled: false
 Lint/UnderscorePrefixedVariableName:
   Enabled: false
@@ -583,6 +597,8 @@ Style/EmptyLiteral:
   Enabled: false
 Style/EmptyMethod:
   Enabled: false
+Style/EndlessMethod:
+  Enabled: false
 Style/Encoding:
   Enabled: false
 Style/EndBlock:
@@ -634,6 +650,8 @@ Style/IfInsideElse:
 Style/IfUnlessModifier:
   Enabled: false
 Style/IfUnlessModifierOfIfUnless:
+  Enabled: false
+Style/IfWithBooleanLiteralBranches:
   Enabled: false
 Style/IfWithSemicolon:
   Enabled: false
