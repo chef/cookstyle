@@ -2803,3 +2803,7 @@ Lint/RedundantSafeNavigation:
 # Avoid using blocks to remove nils from a Hash/Array
 Style/CollectionCompact:
   Enabled: true
+
+# eventually these constants are going to break code so fix them
+Lint/DeprecatedConstants:
+  Enabled: true
