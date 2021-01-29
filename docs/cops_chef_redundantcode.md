@@ -677,6 +677,7 @@ property :name, String
 property :name, String, name_property: true
 attribute :name, kind_of: String
 attribute :name, kind_of: String, name_attribute: true
+attribute :name, name_attribute: true, kind_of: String
 ```
 
 ### Configurable attributes

@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 7.5.4 -->
+## [v7.5.4](https://github.com/chef/cookstyle/tree/v7.5.4) (2021-01-29)
+
+#### Merged Pull Requests
+- Update dstr handling for new rubocop-ast [#820](https://github.com/chef/cookstyle/pull/820) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=7.5.3 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Update dstr handling for new rubocop-ast [#820](https://github.com/chef/cookstyle/pull/820) ([tas50](https://github.com/tas50)) <!-- 7.5.4 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
