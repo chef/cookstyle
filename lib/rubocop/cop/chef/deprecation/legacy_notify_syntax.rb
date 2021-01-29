@@ -74,7 +74,7 @@ module RuboCop
                                 when :str
                                   "'#{type.source}[#{name.value}]'"
                                 when :dstr
-                                  "\"#{type.source}[#{name.value.source}]\""
+                                  "\"#{type.source}[#{name.value}]\""
                                 else
                                   "\"#{type.source}[\#{#{name.source}}]\""
                                 end
