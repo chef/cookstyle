@@ -232,6 +232,25 @@ Include | `**/spec/*.rb` | Array
 
 * [https://rubystyle.guide#chefdeprecationschefspeclegacyrunner](https://rubystyle.guide#chefdeprecationschefspeclegacyrunner)
 
+## Chef/Deprecations/ChefSugarHelpers
+
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
+
+No documentation
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `7.3.0` | String
+Exclude | `**/metadata.rb`, `**/Berksfile`, `**/Rakefile` | Array
+
+### References
+
+* [https://rubystyle.guide#chefdeprecationschefsugarhelpers](https://rubystyle.guide#chefdeprecationschefsugarhelpers)
+
 ## Chef/Deprecations/ChefWindowsPlatformHelper
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -546,6 +565,45 @@ Exclude | `**/metadata.rb`, `**/Berksfile` | Array
 
 * [https://rubystyle.guide#chefdeprecationsdeprecatedwindowsversioncheck](https://rubystyle.guide#chefdeprecationsdeprecatedwindowsversioncheck)
 
+## Chef/Deprecations/DeprecatedYumRepositoryActions
+
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | Yes | 12.14+
+
+With the release of Chef Infra Client 12.14 and the yum cookbook 3.0 the actions the yum_repository resource actions were renamed. The `add` action became `create` and `delete` became `remove` to better match other resources in Chef Infra Client.
+
+### Examples
+
+```ruby
+# bad
+yum_repository 'OurCo' do
+  description 'OurCo yum repository'
+  baseurl 'http://artifacts.ourco.org/foo/bar'
+  gpgkey 'http://artifacts.ourco.org/pub/yum/RPM-GPG-KEY-OURCO-6'
+  action :add
+end
+
+# good
+yum_repository 'OurCo' do
+  description 'OurCo yum repository'
+  baseurl 'http://artifacts.ourco.org/foo/bar'
+  gpgkey 'http://artifacts.ourco.org/pub/yum/RPM-GPG-KEY-OURCO-6'
+  action :create
+end
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `7.3.0` | String
+Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile`, `**/Rakefile` | Array
+
+### References
+
+* [https://rubystyle.guide#chefdeprecationsdeprecatedyumrepositoryactions](https://rubystyle.guide#chefdeprecationsdeprecatedyumrepositoryactions)
+
 ## Chef/Deprecations/DeprecatedYumRepositoryProperties
 
 Enabled by default | Supports autocorrection | Target Chef Version
@@ -581,7 +639,7 @@ end
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.10.0` | String
-Exclude | `**/metadata.rb` | Array
+Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
 ### References
 
@@ -613,7 +671,7 @@ end
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.10.0` | String
-Exclude | `**/metadata.rb` | Array
+Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
 ### References
 
@@ -778,6 +836,33 @@ Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 ### References
 
 * [https://rubystyle.guide#chefdeprecationsexecuterelativecreateswithoutcwd](https://rubystyle.guide#chefdeprecationsexecuterelativecreateswithoutcwd)
+
+## Chef/Deprecations/FoodcriticTesting
+
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
+
+The Foodcritic cookbook linter has been deprecated and should no longer be used for validating cookbooks.
+
+### Examples
+
+```ruby
+# bad
+gem 'foodcritic'
+require 'foodcritic'
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `7.1.0` | String
+Include | `**/Rakefile`, `**/Gemfile` | Array
+
+### References
+
+* [https://rubystyle.guide#chefdeprecationsfoodcritictesting](https://rubystyle.guide#chefdeprecationsfoodcritictesting)
 
 ## Chef/Deprecations/HWRPWithoutProvides
 
@@ -998,7 +1083,7 @@ end
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.13.0` | String
-Exclude | `**/metadata.rb` | Array
+Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
 ### References
 
@@ -1036,6 +1121,32 @@ Exclude | `**/metadata.rb` | Array
 ### References
 
 * [https://rubystyle.guide#chefdeprecationslegacyyumcookbookrecipes](https://rubystyle.guide#chefdeprecationslegacyyumcookbookrecipes)
+
+## Chef/Deprecations/LibrarianChefSpec
+
+Enabled by default | Supports autocorrection | Target Chef Version
+--- | --- | ---
+Enabled | No | All Versions
+
+The Librarian-Chef depsolving project is no longer maintained and a Cheffile should not be used for cookbook depsolving. Consider using Policyfiles instead.
+
+### Examples
+
+```ruby
+# bad
+require 'chefspec/librarian'
+```
+
+### Configurable attributes
+
+Name | Default value | Configurable values
+--- | --- | ---
+VersionAdded | `7.1.0` | String
+Include | `**/specs/*.rb` | Array
+
+### References
+
+* [https://rubystyle.guide#chefdeprecationslibrarianchefspec](https://rubystyle.guide#chefdeprecationslibrarianchefspec)
 
 ## Chef/Deprecations/LocaleDeprecatedLcAllProperty
 
@@ -1466,6 +1577,7 @@ end
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.11.0` | String
+Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
 ### References
 
@@ -2026,7 +2138,7 @@ shell_out!('/bin/foo')
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.9.0` | String
-Exclude | `**/metadata.rb`, `Rakefile` | Array
+Exclude | `**/metadata.rb`, `**/Berksfile`, `**/Rakefile` | Array
 
 ### References
 
@@ -2059,7 +2171,7 @@ end
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.10.0` | String
-Exclude | `**/metadata.rb` | Array
+Exclude | `**/metadata.rb`, `**/attributes/*.rb`, `**/Berksfile` | Array
 
 ### References
 

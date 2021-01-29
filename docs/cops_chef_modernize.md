@@ -27,7 +27,7 @@ end
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `6.13.0` | String
-Include | `**/resources/*.rb`, `**/providers/*.rb`, `**/libraries/*.rb` | Array
+Include | `**/resources/*.rb`, `**/providers/*.rb` | Array
 
 ### References
 
@@ -1449,7 +1449,7 @@ provides :foo
 Name | Default value | Configurable values
 --- | --- | ---
 VersionAdded | `5.2.0` | String
-Include | `**/providers/*.rb`, `**/libraries/*.rb` | Array
+Include | `**/providers/*.rb`, `**/resources/*.rb`, `**/libraries/*.rb` | Array
 
 ### References
 
