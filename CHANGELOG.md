@@ -1,27 +1,24 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.6.1 -->
-## [v7.6.1](https://github.com/chef/cookstyle/tree/v7.6.1) (2021-01-29)
-
-#### Merged Pull Requests
-- Enable Lint/DeprecatedConstants [#821](https://github.com/chef/cookstyle/pull/821) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=7.5.3 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Enable Lint/DeprecatedConstants [#821](https://github.com/chef/cookstyle/pull/821) ([tas50](https://github.com/tas50)) <!-- 7.6.1 -->
-- Update RuboCop engine from 1.7 to 1.9 [#819](https://github.com/chef/cookstyle/pull/819) ([tas50](https://github.com/tas50)) <!-- 7.6.0 -->
-- Update dstr handling for new rubocop-ast [#820](https://github.com/chef/cookstyle/pull/820) ([tas50](https://github.com/tas50)) <!-- 7.5.4 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v7.6.1](https://github.com/chef/cookstyle/tree/v7.6.1) (2021-01-29)
+
+#### Merged Pull Requests
+- Update dstr handling for new rubocop-ast [#820](https://github.com/chef/cookstyle/pull/820) ([tas50](https://github.com/tas50))
+- Update RuboCop engine from 1.7 to 1.9 [#819](https://github.com/chef/cookstyle/pull/819) ([tas50](https://github.com/tas50))
+- Enable Lint/DeprecatedConstants [#821](https://github.com/chef/cookstyle/pull/821) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v7.5.3](https://github.com/chef/cookstyle/tree/v7.5.3) (2020-12-31)
 
 #### Merged Pull Requests
 - Update the list of deprecated fauxhai platforms [#818](https://github.com/chef/cookstyle/pull/818) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v7.5.2](https://github.com/chef/cookstyle/tree/v7.5.2) (2020-12-31)
 
