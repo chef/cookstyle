@@ -1,3 +1,15 @@
+## Cookstyle 7.6
+
+## RuboCop 1.9.0
+
+The RuboCop engine that powers Cookstyle has been updated to 1.7.0. This new release improves autocorrection and resolves a large number of detection errors.
+
+### 1 New Ruby Cops
+
+#### Lint/DeprecatedConstants
+
+The `Lint/DeprecatedConstants` cop detects legacy constant values `TRUE`, `FALSE`, and `NIL` that were deprecated in Ruby 2.4 (Chef Infra Client 13).
+
 ## Cookstyle 7.5
 
 ## RuboCop 1.7.0
