@@ -2,7 +2,7 @@
 
 ## RuboCop 1.9.0
 
-The RuboCop engine that powers Cookstyle has been updated to 1.7.0. This new release improves autocorrection and resolves a large number of detection errors.
+The RuboCop engine that powers Cookstyle has been updated to 1.9.0. This new release improves autocorrection and resolves a large number of detection errors.
 
 ### 1 New Ruby Cops
 
