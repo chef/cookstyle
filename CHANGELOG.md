@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.7.0 -->
-## [v7.7.0](https://github.com/chef/cookstyle/tree/v7.7.0) (2021-01-31)
+ <!-- latest_release 7.7.1 -->
+## [v7.7.1](https://github.com/chef/cookstyle/tree/v7.7.1) (2021-01-31)
 
 #### Merged Pull Requests
-- Update the list of SPDX license strings [#824](https://github.com/chef/cookstyle/pull/824) ([tas50](https://github.com/tas50))
+- Always enable the styleguide links to provide better docs [#823](https://github.com/chef/cookstyle/pull/823) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.6.1 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Always enable the styleguide links to provide better docs [#823](https://github.com/chef/cookstyle/pull/823) ([tas50](https://github.com/tas50)) <!-- 7.7.1 -->
 - Update the list of SPDX license strings [#824](https://github.com/chef/cookstyle/pull/824) ([tas50](https://github.com/tas50)) <!-- 7.7.0 -->
 <!-- release_rollup -->
 
