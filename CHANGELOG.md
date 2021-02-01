@@ -1,29 +1,26 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.7.2 -->
-## [v7.7.2](https://github.com/chef/cookstyle/tree/v7.7.2) (2021-02-01)
-
-#### Merged Pull Requests
-- Update RuboCop to 1.9.1 [#825](https://github.com/chef/cookstyle/pull/825) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=7.6.1 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Update RuboCop to 1.9.1 [#825](https://github.com/chef/cookstyle/pull/825) ([tas50](https://github.com/tas50)) <!-- 7.7.2 -->
-- Always enable the styleguide links to provide better docs [#823](https://github.com/chef/cookstyle/pull/823) ([tas50](https://github.com/tas50)) <!-- 7.7.1 -->
-- Update the list of SPDX license strings [#824](https://github.com/chef/cookstyle/pull/824) ([tas50](https://github.com/tas50)) <!-- 7.7.0 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v7.7.2](https://github.com/chef/cookstyle/tree/v7.7.2) (2021-02-01)
+
+#### Merged Pull Requests
+- Update the list of SPDX license strings [#824](https://github.com/chef/cookstyle/pull/824) ([tas50](https://github.com/tas50))
+- Always enable the styleguide links to provide better docs [#823](https://github.com/chef/cookstyle/pull/823) ([tas50](https://github.com/tas50))
+- Update RuboCop to 1.9.1 [#825](https://github.com/chef/cookstyle/pull/825) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v7.6.1](https://github.com/chef/cookstyle/tree/v7.6.1) (2021-01-29)
 
 #### Merged Pull Requests
 - Update dstr handling for new rubocop-ast [#820](https://github.com/chef/cookstyle/pull/820) ([tas50](https://github.com/tas50))
 - Update RuboCop engine from 1.7 to 1.9 [#819](https://github.com/chef/cookstyle/pull/819) ([tas50](https://github.com/tas50))
 - Enable Lint/DeprecatedConstants [#821](https://github.com/chef/cookstyle/pull/821) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v7.5.3](https://github.com/chef/cookstyle/tree/v7.5.3) (2020-12-31)
 
