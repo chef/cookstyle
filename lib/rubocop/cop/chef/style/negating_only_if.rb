@@ -23,12 +23,12 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #   package 'legacy-sysv-deps' do
         #     only_if { !systemd }
         #   end
         #
-        #   # good
+        #   #### correct
         #   package 'legacy-sysv-deps' do
         #     not_if { systemd }
         #   end

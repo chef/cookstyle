@@ -23,13 +23,13 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #   def initialize(*args)
         #     super
         #     @resource_name = :foo
         #   end
         #
-        #  # good
+        #  #### correct
         #  resource_name :create
 
         class ResourceNameFromInitialize < Base

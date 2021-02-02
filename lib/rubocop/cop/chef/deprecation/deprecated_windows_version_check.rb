@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #   if older_than_win_2012_or_8?
         #     # do some legacy things
         #   end

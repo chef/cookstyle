@@ -21,7 +21,7 @@ module RuboCop
       module Modernize
         # Chef Infra Client 12.4+ includes the Chef::DSL::Recipe in the resource and provider classed by default so there is no need to include this DSL in your resources or providers.
         #
-        #   # bad
+        #   #### incorrect
         #   include Chef::DSL::Recipe
         #   include Chef::DSL::IncludeRecipe
         #

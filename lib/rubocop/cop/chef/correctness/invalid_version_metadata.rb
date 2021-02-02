@@ -24,10 +24,10 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #   version '1.2.3.4'
         #
-        #   # good
+        #   #### correct
         #   version '1.2.3'
         #
         class InvalidVersionMetadata < Base

@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #  # bad
+        #  #### incorrect
         #    apt_repository 'atom-ppa' do
         #      uri 'http://ppa.launchpad.net/webupd8team/atom/ubuntu'
         #      components ['main']
@@ -32,7 +32,7 @@ module RuboCop
         #      key 'C2518248EEA14886'
         #    end
         #
-        #  # good
+        #  #### correct
         #    apt_repository 'atom-ppa' do
         #      uri 'ppa:webupd8team/atom'
         #      components ['main']

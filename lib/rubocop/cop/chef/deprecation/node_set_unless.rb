@@ -24,10 +24,10 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #   node.set_unless['foo'] = true
         #
-        #   # good
+        #   #### correct
         #   node.normal_unless['foo'] = true
         #
         class NodeSetUnless < Base

@@ -22,7 +22,7 @@ module RuboCop
         # The openssl_x509 resource was renamed to openssl_x509_certificate in Chef Infra Client 14.4.
         # The new resource name should be used.
         #
-        #   # bad
+        #   #### incorrect
         #   openssl_x509 '/etc/httpd/ssl/mycert.pem' do
         #     common_name 'www.f00bar.com'
         #     org 'Foo Bar'
@@ -30,7 +30,7 @@ module RuboCop
         #     country 'US'
         #   end
         #
-        #   # good
+        #   #### correct
         #   openssl_x509_certificate '/etc/httpd/ssl/mycert.pem' do
         #     common_name 'www.f00bar.com'
         #     org 'Foo Bar'

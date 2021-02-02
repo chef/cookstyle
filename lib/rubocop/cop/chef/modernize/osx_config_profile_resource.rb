@@ -22,12 +22,12 @@ module RuboCop
         # The osx_config_profile resource was renamed to osx_profile.
         # The new resource name should be used.
         #
-        #   # bad
+        #   #### incorrect
         #   osx_config_profile 'Install screensaver profile' do
         #     profile 'screensaver/com.company.screensaver.mobileconfig'
         #   end
         #
-        #   # good
+        #   #### correct
         #   osx_profile 'Install screensaver profile' do
         #     profile 'screensaver/com.company.screensaver.mobileconfig'
         #   end

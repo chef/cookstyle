@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #   depends 'zypper'
         #
         class DependsOnZypperCookbook < Base

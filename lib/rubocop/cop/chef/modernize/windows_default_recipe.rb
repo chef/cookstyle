@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #   include_recipe 'windows::default'
         #   include_recipe 'windows'
         #

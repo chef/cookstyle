@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #
         #   at_exit { ChefSpec::Coverage.report! }
         #

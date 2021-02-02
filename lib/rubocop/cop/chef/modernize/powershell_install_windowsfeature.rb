@@ -24,12 +24,12 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #   powershell_script 'Install Feature' do
         #     code 'Install-WindowsFeature -Name "Net-framework-Core"'
         #   end
         #
-        #  # good
+        #  #### correct
         #  windows_feature 'Net-framework-Core' do
         #    action :install
         #    install_method :windows_feature_powershell

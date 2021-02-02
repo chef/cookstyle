@@ -24,12 +24,12 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #   libarchive_file "C:\file.zip" do
         #     path 'C:\expand_here'
         #   end
         #
-        #   # good
+        #   #### correct
         #   archive_file "C:\file.zip" do
         #     path 'C:\expand_here'
         #   end

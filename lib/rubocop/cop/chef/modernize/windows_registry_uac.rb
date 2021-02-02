@@ -21,7 +21,7 @@ module RuboCop
       module Modernize
         # Chef Infra Client 15.0 and later includes a windows_uac resource that should be used to set Windows UAC values instead of setting registry keys directly.
         #
-        #   # bad
+        #   #### incorrect
         #   registry_key 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System' do
         #     values [{ name: 'EnableLUA', type: :dword, data: 0 },
         #             { name: 'PromptOnSecureDesktop', type: :dword, data: 0 },
@@ -30,7 +30,7 @@ module RuboCop
         #     action :create
         #   end
         #
-        #  # good
+        #  #### correct
         #  windows_uac 'Set Windows UAC settings' do
         #    enable_uac false
         #    prompt_on_secure_desktop true

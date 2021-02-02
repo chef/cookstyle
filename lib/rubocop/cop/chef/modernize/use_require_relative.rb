@@ -23,10 +23,10 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #   require File.expand_path('../../libraries/helpers', __FILE__)
         #
-        #   # good
+        #   #### correct
         #   require_relative '../libraries/helpers'
         #
         class UseRequireRelative < Base

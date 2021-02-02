@@ -25,12 +25,12 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #   service 'foo' do
         #    name 'bar'
         #   end
         #
-        #   # good
+        #   #### correct
         #   service 'foo' do
         #    service_name 'bar'
         #   end

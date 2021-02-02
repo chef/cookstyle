@@ -23,19 +23,19 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #   def initialize(*args)
         #     super
         #     @action = :create
         #   end
         #
-        #   # bad
+        #   #### incorrect
         #   def initialize(*args)
         #     super
         #     @default_action = :create
         #   end
         #
-        #  # good
+        #  #### correct
         #  default_action :create
 
         class DefaultActionFromInitialize < Base

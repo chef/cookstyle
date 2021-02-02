@@ -24,10 +24,10 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #   node.set['foo'] = true
         #
-        #   # good
+        #   #### correct
         #   node.normal['foo'] = true
         #
         class NodeSet < Base

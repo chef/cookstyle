@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad in metadata.rb:
+        #   #### incorrect in metadata.rb:
         #
         #    attribute 'zookeeper_bridge/server',
         #              display_name: 'zookeeper server',

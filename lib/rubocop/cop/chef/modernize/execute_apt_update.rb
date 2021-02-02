@@ -22,7 +22,7 @@ module RuboCop
         # Instead of using the execute resource to to run the `apt-get update` use Chef Infra Client's built-n
         # apt_update resource which is available in Chef Infra Client 12.7 and later.
         #
-        #   # bad
+        #   #### incorrect
         #   execute 'apt-get update'
         #
         #   execute 'Apt all the apt cache' do
@@ -33,7 +33,7 @@ module RuboCop
         #     notifies :run, 'execute[apt-get update]', :immediately
         #   end
         #
-        #   # good
+        #   #### correct
         #   apt_update
         #
         #   apt_update 'update apt cache'

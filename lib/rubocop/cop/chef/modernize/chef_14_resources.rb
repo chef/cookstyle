@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #   depends 'build-essential'
         #   depends 'chef_handler'
         #   depends 'chef_hostname'

@@ -21,7 +21,7 @@ module RuboCop
       module RedundantCode
         # There is no need to notify an apt-get update when an apt_repository is created as this is done automatically by the apt_repository resource.
         #
-        #   # bad
+        #   #### incorrect
         #   apt_repository 'my repo' do
         #     uri 'http://packages.example.com/debian'
         #     components %w(stable main)
@@ -29,7 +29,7 @@ module RuboCop
         #     notifies :run, 'execute[apt-get update]', :immediately
         #   end
         #
-        #   # good
+        #   #### correct
         #   apt_repository 'my repo' do
         #     uri 'http://packages.example.com/debian'
         #     components %w(stable main)

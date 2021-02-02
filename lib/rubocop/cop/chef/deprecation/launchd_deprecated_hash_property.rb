@@ -23,12 +23,12 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #   launchd 'foo' do
         #     hash foo: 'bar'
         #   end
         #
-        #   # good
+        #   #### correct
         #   launchd 'foo' do
         #     plist_hash foo: 'bar'
         #   end

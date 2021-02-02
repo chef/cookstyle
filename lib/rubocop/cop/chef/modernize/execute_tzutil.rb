@@ -22,7 +22,7 @@ module RuboCop
         # Instead of using the execute or powershell_script resources to to run the `tzutil` command, use
         # Chef Infra Client's built-in timezone resource which is available in Chef Infra Client 14.6 and later.
         #
-        #   # bad
+        #   #### incorrect
         #   execute 'set tz' do
         #     command 'tzutil.exe /s UTC'
         #   end
@@ -34,7 +34,7 @@ module RuboCop
         #     not_if { shell_out('tzutil.exe /g').stdout.include?('UTC') }
         #   end
         #
-        #   # good
+        #   #### correct
         #   timezone 'UTC'
         #
         class ExecuteTzUtil < Base

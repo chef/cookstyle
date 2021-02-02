@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad (assuming current year is 2019)
+        #   #### incorrect (assuming current year is 2019)
         #   Copyright:: 2013-2019 Opscode, Inc.
         #   Copyright:: 2013-2019 Chef Inc.
         #   Copyright:: 2013-2019 Chef Software Inc.
@@ -33,7 +33,7 @@ module RuboCop
         #   Copyright:: Tim Smith
         #   Copyright:: Copyright (c) 2015-2019 Chef Software, Inc.
         #
-        #   # good (assuming current year is 2019)
+        #   #### correct (assuming current year is 2019)
         #   Copyright:: 2013-2019 Chef Software, Inc.
         #   Copyright:: 2013-2019 Tim Smith
         #   Copyright:: 2019 37Signals, Inc.

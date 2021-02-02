@@ -23,13 +23,13 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #   node['os'] == 'darwin'
         #   node['os'] == 'windows'
         #   node['os'].eql?('aix')
         #   %w(netbsd openbsd freebsd).include?(node['os'])
         #
-        #   # good
+        #   #### correct
         #   platform_family?('mac_os_x')
         #   platform_family?('windows')
         #   platform_family?('aix')

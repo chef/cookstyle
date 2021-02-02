@@ -26,14 +26,14 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #   attribute :something, String
         #
         #   action :create do
         #     # some action code because we're in a custom resource
         #   end
         #
-        #   # good
+        #   #### correct
         #   property :something, String
         #
         #   action :create do

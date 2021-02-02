@@ -18,12 +18,22 @@ begin
     File.open('README.md', 'w') { |file| file.write(contents) }
   end
 
+  ###### SHARED DOCS HELPERS GO HERE ########
+  ###### WHEN WE REMOVE THE MD DOCS IN THIS REPO MOVE THESE ######
+  def cops_of_department(cops, department)
+    cops.with_department(department).sort!
+  end
+
+  def code_example(ruby_code)
+    content = +"```ruby\n"
+    content << ruby_code.text.strip
+    content << "\n```\n"
+    content
+  end
+  ###### END SHARED DOCS HELPERS GO HERE ########
+
   desc 'Generate docs of all cops departments'
   task generate_cops_documentation: :yard_for_generate_documentation do
-    def cops_of_department(cops, department)
-      cops.with_department(department).sort!
-    end
-
     def cops_body(config, cop, description, examples_objects, pars)
       content = h2(cop.cop_name)
       content << properties(config, cop)
@@ -32,6 +42,22 @@ begin
       content << configurations(pars)
       content << references(config, cop)
       content
+    end
+
+    def print_cops_of_department(cops, department, config)
+      selected_cops = cops_of_department(cops, department)
+
+      return if selected_cops.count == 0
+
+      content = +"# #{department}\n"
+      selected_cops.each do |cop|
+        content << print_cop_with_doc(cop, config)
+      end
+      file_name = "#{Dir.pwd}/docs/cops_#{department.to_s.downcase.tr('/', '_')}.md"
+      File.open(file_name, 'w') do |file|
+        puts "* generated #{file_name}"
+        file.write(content.strip + "\n")
+      end
     end
 
     def examples(examples_object)
@@ -69,15 +95,6 @@ begin
     def h4(title)
       content = +"#### #{title}\n"
       content << "\n"
-      content
-    end
-
-    def code_example(ruby_code)
-      content = +"```ruby\n"
-      content << ruby_code.text
-                          .gsub('@good', '# good')
-                          .gsub('@bad', '# bad').strip
-      content << "\n```\n"
       content
     end
 
@@ -155,22 +172,6 @@ begin
       content
     end
 
-    def print_cops_of_department(cops, department, config)
-      selected_cops = cops_of_department(cops, department)
-
-      return if selected_cops.count == 0
-
-      content = +"# #{department}\n"
-      selected_cops.each do |cop|
-        content << print_cop_with_doc(cop, config)
-      end
-      file_name = "#{Dir.pwd}/docs/cops_#{department.to_s.downcase.tr('/', '_')}.md"
-      File.open(file_name, 'w') do |file|
-        puts "* generated #{file_name}"
-        file.write(content.strip + "\n")
-      end
-    end
-
     def print_cop_with_doc(cop, config)
       t = config.for_cop(cop)
       non_display_keys = %w(Description Enabled StyleGuide Reference)
@@ -227,6 +228,54 @@ begin
       print_table_of_contents(all_cops, chef_departments)
     ensure
       RuboCop::ConfigLoader.default_configuration = nil
+    end
+
+    main
+  end
+
+  desc 'Generate yaml format docs of all Chef cops for docs.chef.io'
+  task generate_cops_yml_documentation: :yard_for_generate_documentation do
+    def write_yml(data)
+      file_name = "#{Dir.pwd}/docs-chef-io/data/cookstyle/cops_#{data['name'].to_s.downcase.tr('/', '_')}.yml"
+      File.open(file_name, 'w') do |file|
+        puts "* generated #{file_name}"
+        file.write(YAML.dump(data))
+      end
+    end
+
+    def examples(code_object)
+      ex = code_object.tags('example').first.text
+      ex.gsub!('#### incorrect', "#### incorrect\n\n```ruby")
+      ex.gsub!("\n#### correct", "```\n\n#### correct\n\n```ruby")
+      ex << "\n```"
+    rescue NoMethodError
+      nil
+    end
+
+    def main
+      require 'yaml' unless defined?(YAML)
+      all_cops = RuboCop::Cop::Cop.registry
+      chef_departments = all_cops.departments.select { |d| d.start_with?('Chef') }.sort
+
+      YARD::Registry.load!
+      # for each department starting with "Chef"
+      chef_departments.each do |department|
+        # for each cop in the department from the list of all cops
+        cops_of_department(all_cops, department).each do |cop|
+          YARD::Registry.all(:class).detect do |code_object|
+            # find the yard data that matches our cop
+            next unless RuboCop::Cop::Badge.for(code_object.to_s) == cop.badge
+
+            cop_data = {}
+            cop_data['name'] = cop.cop_name
+            cop_data['department'] = cop.department.to_s
+            cop_data['description'] = code_object.docstring.to_s unless code_object.docstring.blank?
+            cop_data['examples'] = examples(code_object)
+
+            write_yml(cop_data)
+          end
+        end
+      end
     end
 
     main

@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #   require 'chef/mixin/shell_out'
         #   include Chef::Mixin::ShellOut
         #   require 'chef/mixin/powershell_out'

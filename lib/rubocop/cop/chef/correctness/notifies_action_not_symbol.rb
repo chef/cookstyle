@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #   execute 'some command' do
         #     notifies 'restart', 'service[httpd]', 'delayed'
         #   end
@@ -33,7 +33,7 @@ module RuboCop
         #     subscribes 'restart', 'service[httpd]', 'delayed'
         #   end
         #
-        #   # good
+        #   #### correct
         #   execute 'some command' do
         #     notifies :restart, 'service[httpd]', 'delayed'
         #   end

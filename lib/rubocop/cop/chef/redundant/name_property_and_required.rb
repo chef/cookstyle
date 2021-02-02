@@ -52,11 +52,11 @@ module RuboCop
         # @example
         #
         #
-        #   # bad
+        #   #### incorrect
         #   property :config_file, String, required: true, name_property: true
         #   attribute :config_file, String, required: true, name_attribute: true
         #
-        #   # good
+        #   #### correct
         #   property :config_file, String, required: true
         #
         class NamePropertyIsRequired < Base
