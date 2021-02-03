@@ -19,15 +19,17 @@ module RuboCop
   module Cop
     module Chef
       module Modernize
-        # The sc_windows resource from the sc cookbook allowed for the creation of windows services on legacy Chef Infra Client releases. Chef Infra Client 14.0 and later includes :create, :delete, and :configure actions without the need for additional cookbook dependencies. See the windows_service documentation at https://docs.chef.io/resource_windows_service.html for additional details on creating services with the windows_service resource.
+        # The sc_windows resource from the sc cookbook allowed for the creation of windows services on legacy Chef Infra Client releases. Chef Infra Client 14.0 and later includes :create, :delete, and :configure actions without the need for additional cookbook dependencies. See the windows_service documentation at https://docs.chef.io/resources/windows_service for additional details on creating services with the windows_service resource.
         #
-        #   # bad
+        # @example
+        #
+        #   #### incorrect
         #   sc_windows 'chef-client' do
         #     path "C:\\opscode\\chef\\bin"
         #     action :create
         #   end
         #
-        #   # good
+        #   #### correct
         #   windows_service 'chef-client' do
         #     action :create
         #     binary_path_name "C:\\opscode\\chef\\bin"
@@ -38,7 +40,7 @@ module RuboCop
 
           minimum_target_chef_version '14.0'
 
-          MSG = 'Chef Infra Client 14.0 and later includes :create, :delete, and :configure actions without the need for the sc cookbook dependency. See the windows_service documentation at https://docs.chef.io/resource_windows_service.html for additional details.'
+          MSG = 'Chef Infra Client 14.0 and later includes :create, :delete, and :configure actions without the need for the sc cookbook dependency. See the windows_service documentation at https://docs.chef.io/resources/windows_service for additional details.'
           RESTRICT_ON_SEND = [:sc_windows].freeze
 
           def on_send(node)

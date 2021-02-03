@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #   locale 'set locale' do
         #     lang 'en_gb.utf-8'
         #     lc_all 'en_gb.utf-8'

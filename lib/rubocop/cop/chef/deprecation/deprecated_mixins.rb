@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #   include Chef::Mixin::LanguageIncludeAttribute
         #   include Chef::Mixin::RecipeDefinitionDSLCore
         #   include Chef::Mixin::LanguageIncludeRecipe

@@ -19,12 +19,11 @@ module RuboCop
   module Cop
     module Chef
       module Modernize
-        # It is not longer necessary respond_to?(:foo) or defined?(foo) in metadata. This was used to support new metadata
-        # methods in Chef 11 and early versions of Chef 12.
+        # It is not longer necessary respond_to?(:foo) or defined?(foo) in metadata. This was used to support new metadata methods in Chef 11 and early versions of Chef 12.
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #   chef_version '>= 13' if respond_to?(:chef_version)
         #   chef_version '>= 13' if defined?(chef_version)
         #   chef_version '>= 13' unless defined?(Ridley::Chef::Cookbook::Metadata)
@@ -32,7 +31,7 @@ module RuboCop
         #     chef_version '>= 13'
         #   end
         #
-        #   # good
+        #   #### correct
         #   chef_version '>= 13'
         #
         class RespondToInMetadata < Base

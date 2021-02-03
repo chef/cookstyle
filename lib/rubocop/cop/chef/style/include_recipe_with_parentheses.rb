@@ -24,10 +24,10 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #   include_recipe('foo::bar')
         #
-        #   # good
+        #   #### correct
         #   include_recipe 'foo::bar'
         #
         class IncludeRecipeWithParentheses < Base

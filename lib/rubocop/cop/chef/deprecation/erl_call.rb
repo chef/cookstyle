@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #   erl_call "foo" do
         #     bar
         #   end

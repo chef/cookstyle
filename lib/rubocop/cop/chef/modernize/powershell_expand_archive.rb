@@ -19,12 +19,11 @@ module RuboCop
   module Cop
     module Chef
       module Modernize
-        # Use the archive_file resource built into Chef Infra Client 15+ instead of using the powershell_script
-        # resource to run Expand-Archive
+        # Use the archive_file resource built into Chef Infra Client 15+ instead of using the powershell_script resource to run Expand-Archive
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #   powershell_script 'Expand website' do
         #     code 'Expand-Archive "C:\\file.zip" -DestinationPath "C:\\inetpub\\wwwroot\\" -Force'
         #   end

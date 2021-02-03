@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #   search(:node, 'run_list:recipe\[bacula\:\:server\]')
         #
         class CookbookUsesSearch < Base

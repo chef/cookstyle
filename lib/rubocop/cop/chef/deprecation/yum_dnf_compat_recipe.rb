@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #   include_recipe 'yum::dnf_yum_compat'
         #
         class IncludingYumDNFCompatRecipe < Base

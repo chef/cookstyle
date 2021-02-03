@@ -19,18 +19,18 @@ module RuboCop
   module Cop
     module Chef
       module Correctness
-        # A resource guard (not_if/only_if) that is a string should not be wrapped in {}. Wrapping a guard string in {} causes it be executed as Ruby code which will always returns true instead of a shell command that will actually run.
+        # A resource guard (not_if/only_if) that is a string should not be wrapped in {}. Wrapping a guard string in {} causes it to be executed as Ruby code which will always returns true instead of a shell command that will actually run.
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #   template '/etc/foo' do
         #     mode '0644'
         #     source 'foo.erb'
         #     only_if { 'test -f /etc/foo' }
         #   end
         #
-        #   # good
+        #   #### correct
         #   template '/etc/foo' do
         #     mode '0644'
         #     source 'foo.erb'
@@ -40,7 +40,7 @@ module RuboCop
         class BlockGuardWithOnlyString < Base
           extend AutoCorrector
 
-          MSG = 'A resource guard (not_if/only_if) that is a string should not be wrapped in {}. Wrapping a guard string in {} causes it be executed as Ruby code which will always returns true instead of a shell command that will actually run.'
+          MSG = 'A resource guard (not_if/only_if) that is a string should not be wrapped in {}. Wrapping a guard string in {} causes it to be executed as Ruby code which will always returns true instead of a shell command that will actually run.'
 
           def_node_matcher :block_guard_with_only_string?, <<-PATTERN
             (block (send nil? ${:not_if :only_if}) (args) (str $_) )

@@ -24,7 +24,7 @@ describe RuboCop::Cop::Chef::Modernize::ExecuteScExe, :config do
   it "registers an offense when running execute 'sleep 60'" do
     expect_offense(<<~RUBY)
       execute "Delete chef-client service" do
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 14.0 and later includes :create, :delete, and :configure actions with the full idempotency of the windows_service resource. See the windows_service documentation at https://docs.chef.io/resource_windows_service.html for additional details on creating services with the windows_service resource
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 14.0 and later includes :create, :delete, and :configure actions with the full idempotency of the windows_service resource. See the windows_service documentation at https://docs.chef.io/resources/windows_service for additional details on creating services with the windows_service resource
         command "sc.exe delete chef-client"
         action :run
       end

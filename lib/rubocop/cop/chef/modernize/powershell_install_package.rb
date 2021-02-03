@@ -19,17 +19,16 @@ module RuboCop
   module Cop
     module Chef
       module Modernize
-        # Use the powershell_package resource built into Chef Infra Client instead of the powershell_script
-        # resource to run Install-Package
+        # Use the powershell_package resource built into Chef Infra Client instead of the powershell_script resource to run Install-Package
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #   powershell_script 'Expand website' do
         #     code 'Install-Package -Name docker'
         #   end
         #
-        #  # good
+        #  #### correct
         #  powershell_package 'docker'
         #
         class PowershellInstallPackage < Base

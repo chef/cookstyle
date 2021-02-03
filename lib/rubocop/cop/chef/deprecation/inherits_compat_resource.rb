@@ -24,12 +24,12 @@ module RuboCop
         #
         # @example
         #
-        #  # bad
+        #  #### incorrect
         #  class AptUpdate < ChefCompat::Resource
         #    # some resource code
         #  end
         #
-        #  # good
+        #  #### correct
         #  class AptUpdate < Chef::Resource
         #    # some resource code
         #  end

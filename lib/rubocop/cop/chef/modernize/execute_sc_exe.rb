@@ -19,15 +19,17 @@ module RuboCop
   module Cop
     module Chef
       module Modernize
-        # Chef Infra Client 14.0 and later includes :create, :delete, and :configure actions with the full idempotency of the windows_service resource. See the windows_service documentation at https://docs.chef.io/resource_windows_service.html for additional details on creating services with the windows_service resource.
+        # Chef Infra Client 14.0 and later includes :create, :delete, and :configure actions with the full idempotency of the windows_service resource. See the windows_service documentation at https://docs.chef.io/resources/windows_service for additional details on creating services with the windows_service resource.
         #
-        #   # bad
+        # @example
+        #
+        #   #### incorrect
         #   execute "Delete chef-client service" do
         #     command "sc.exe delete chef-client"
         #     action :run
         #   end
         #
-        #   # good
+        #   #### correct
         #   windows_service 'chef-client' do
         #     action :delete
         #   end
@@ -38,7 +40,7 @@ module RuboCop
 
           minimum_target_chef_version '14.0'
 
-          MSG = 'Chef Infra Client 14.0 and later includes :create, :delete, and :configure actions with the full idempotency of the windows_service resource. See the windows_service documentation at https://docs.chef.io/resource_windows_service.html for additional details on creating services with the windows_service resource'
+          MSG = 'Chef Infra Client 14.0 and later includes :create, :delete, and :configure actions with the full idempotency of the windows_service resource. See the windows_service documentation at https://docs.chef.io/resources/windows_service for additional details on creating services with the windows_service resource'
           RESTRICT_ON_SEND = [:execute].freeze
 
           # non block execute resources

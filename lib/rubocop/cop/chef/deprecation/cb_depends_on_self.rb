@@ -23,11 +23,11 @@ module RuboCop
       #
       # @example
       #
-      #   # bad
+      #   #### incorrect
       #   name 'foo'
       #   depends 'foo'
       #
-      #   # good
+      #   #### correct
       #   name 'foo'
       #
       module Deprecations

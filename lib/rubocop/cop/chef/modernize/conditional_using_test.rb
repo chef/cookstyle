@@ -23,10 +23,10 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #   only_if 'test -f /bin/foo'
         #
-        #   # good
+        #   #### correct
         #   only_if { ::File.exist?('bin/foo') }
         #
         class ConditionalUsingTest < Base

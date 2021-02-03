@@ -19,17 +19,16 @@ module RuboCop
   module Cop
     module Chef
       module Modernize
-        # Use the windows_feature resource built into Chef Infra Client 14+ instead of the powershell_script resource
-        # to run Install-WindowsFeature or Add-WindowsFeature
+        # Use the windows_feature resource built into Chef Infra Client 14+ instead of the powershell_script resource to run Install-WindowsFeature or Add-WindowsFeature
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #   powershell_script 'Install Feature' do
         #     code 'Install-WindowsFeature -Name "Net-framework-Core"'
         #   end
         #
-        #  # good
+        #  #### correct
         #  windows_feature 'Net-framework-Core' do
         #    action :install
         #    install_method :windows_feature_powershell

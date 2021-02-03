@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #   user "betty" do
         #     supports({
         #       manage_home: true,
@@ -35,7 +35,7 @@ module RuboCop
         #     supports :manage_home => true
         #   end
         #
-        #   # good
+        #   #### correct
         #   user "betty" do
         #     manage_home true
         #     non_unique true

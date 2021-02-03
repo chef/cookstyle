@@ -19,15 +19,16 @@ module RuboCop
   module Cop
     module Chef
       module Modernize
-        # The osx_config_profile resource was renamed to osx_profile.
-        # The new resource name should be used.
+        # The osx_config_profile resource was renamed to osx_profile. The new resource name should be used.
         #
-        #   # bad
+        # @example
+        #
+        #   #### incorrect
         #   osx_config_profile 'Install screensaver profile' do
         #     profile 'screensaver/com.company.screensaver.mobileconfig'
         #   end
         #
-        #   # good
+        #   #### correct
         #   osx_profile 'Install screensaver profile' do
         #     profile 'screensaver/com.company.screensaver.mobileconfig'
         #   end

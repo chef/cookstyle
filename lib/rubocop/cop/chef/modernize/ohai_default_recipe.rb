@@ -19,13 +19,11 @@ module RuboCop
   module Cop
     module Chef
       module Modernize
-        # The Ohai default recipe previously allowed a user to ship custom Ohai plugins to a system by including them
-        # in a directory in the Ohai cookbook. This functionality was replaced with the ohai_plugin resource, which
-        # should be used instead as it doesn't require forking the ohai cookbook.
+        # The Ohai default recipe previously allowed a user to ship custom Ohai plugins to a system by including them in a directory in the Ohai cookbook. This functionality was replaced with the ohai_plugin resource, which should be used instead as it doesn't require forking the ohai cookbook.
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #   include_recipe 'ohai::default'
         #   include_recipe 'ohai'
         #

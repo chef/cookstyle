@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #   long_description 'this is my cookbook and this description will never be seen'
         #
         class LongDescriptionMetadata < Base

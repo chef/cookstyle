@@ -24,12 +24,12 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #   package "foo" do
         #     epic_fail true
         #   end
         #
-        #   # good
+        #   #### correct
         #   package "foo" do
         #     ignore_failure true
         #   end

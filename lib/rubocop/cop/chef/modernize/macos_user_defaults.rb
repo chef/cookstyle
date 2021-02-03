@@ -19,17 +19,18 @@ module RuboCop
   module Cop
     module Chef
       module Modernize
-        # The mac_os_x_userdefaults resource was renamed to macos_userdefaults when it was added to Chef Infra Client
-        # 14.0. The new resource name should be used.
+        # The mac_os_x_userdefaults resource was renamed to macos_userdefaults when it was added to Chef Infra Client 14.0. The new resource name should be used.
         #
-        #   # bad
+        # @example
+        #
+        #   #### incorrect
         #   mac_os_x_userdefaults 'full keyboard access to all controls' do
         #     domain 'AppleKeyboardUIMode'
         #     global true
         #     value '2'
         #   end
         #
-        #   # good
+        #   #### correct
         #   macos_userdefaults 'full keyboard access to all controls' do
         #     domain 'AppleKeyboardUIMode'
         #     global true

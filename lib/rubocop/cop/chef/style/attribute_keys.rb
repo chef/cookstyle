@@ -25,19 +25,19 @@ module RuboCop
         #
         # @example when configuration is `EnforcedStyle: symbols`
         #
-        #   # bad
+        #   #### incorrect
         #   node['foo']
         #   node["foo"]
         #
-        #   # good
+        #   #### correct
         #   node[:foo]
         #
         # @example when configuration is `EnforcedStyle: strings`
         #
-        #   # bad
+        #   #### incorrect
         #   node[:foo]
         #
-        #   # good
+        #   #### correct
         #   node['foo']
         #   node["foo"]
         #

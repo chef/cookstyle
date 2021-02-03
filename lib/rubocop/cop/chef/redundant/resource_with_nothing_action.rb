@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #   action :nothing
         #     # let's do nothing
         #   end

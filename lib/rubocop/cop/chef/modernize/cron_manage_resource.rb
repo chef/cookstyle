@@ -19,14 +19,14 @@ module RuboCop
   module Cop
     module Chef
       module Modernize
-        # The cron_manage resource was renamed to cron_access in the 6.1 release of the cron
-        # cookbook, and later shipped in Chef Infra Client 14.4. The new resource name should
-        # be used.
+        # The cron_manage resource was renamed to cron_access in the 6.1 release of the cron cookbook, and later shipped in Chef Infra Client 14.4. The new resource name should be used.
         #
-        #   # bad
+        # @example
+        #
+        #   #### incorrect
         #   cron_manage 'mike'
         #
-        #   # good
+        #   #### correct
         #   cron_access 'mike'
         #
         class CronManageResource < Base

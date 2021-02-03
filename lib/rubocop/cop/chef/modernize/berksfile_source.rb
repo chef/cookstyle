@@ -19,19 +19,17 @@ module RuboCop
   module Cop
     module Chef
       module Modernize
-        # Over the course of years there have been many different valid community site / Supermarket
-        # URLs to use in a cookbook's Berksfile. These old URLs continue to function via redirects,
-        # but should be updated to point to the latest Supermarket URL.
+        # There have been many different valid community site / Supermarket URLs to use in a cookbook's Berksfile. These old URLs continue to function via redirects, but should be updated to point to the latest Supermarket URL.
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #   source 'http://community.opscode.com/api/v3'
         #   source 'https://supermarket.getchef.com'
         #   source 'https://api.berkshelf.com'
         #   site :opscode
         #
-        #   # good
+        #   #### correct
         #   source 'https://supermarket.chef.io'
         #
         class LegacyBerksfileSource < Base

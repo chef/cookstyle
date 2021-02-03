@@ -20,13 +20,11 @@ module RuboCop
   module Cop
     module Chef
       module Modernize
-        # set_or_return within a method should not be used to define property in a resource. Instead use
-        # the property method which properly validates and defines properties in a way that works with
-        # reporting and documentation functionality in Chef Infra Client
+        # set_or_return within a method should not be used to define property in a resource. Instead use the property method which properly validates and defines properties in a way that works with reporting and documentation functionality in Chef Infra Client
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #    def severity(arg = nil)
         #      set_or_return(
         #        :severity, arg,
@@ -35,7 +33,7 @@ module RuboCop
         #      )
         #    end
         #
-        #   # good
+        #   #### correct
         #   property :severity, String
         #
         class SetOrReturnInResources < Base

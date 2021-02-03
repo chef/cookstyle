@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad in metadata.rb:
+        #   #### incorrect in metadata.rb:
         #
         #   suggests "another_cookbook"
         #

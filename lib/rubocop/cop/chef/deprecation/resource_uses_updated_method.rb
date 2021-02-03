@@ -19,16 +19,16 @@ module RuboCop
   module Cop
     module Chef
       module Deprecations
-        # Don't call the deprecated updated= method in a resource to set the resource to updated. This method was removed from Chef Infra Client 13 and this will now cause an error. Instead wrap code that updated the state of the node in a converge_by block. Documentation on using the converge_by block can be found at https://docs.chef.io/custom_resources.html.
+        # Don't call the deprecated `updated=` method in a resource to set the resource to updated. This method was removed from Chef Infra Client 13 and this will now cause an error. Instead wrap code that updated the state of the node in a `converge_by` block. Documentation on using the `converge_by` block can be found at https://docs.chef.io/custom_resources/.
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #   action :foo do
         #     updated = true
         #   end
         #
-        #   # good
+        #   #### correct
         #   action :foo do
         #     converge_by('resource did something) do
         #       # code that causes the resource to converge

@@ -75,4 +75,5 @@ task :console do
   ARGV.clear
   IRB.start
 end
+
 task default: [:style, :spec, :validate_config]

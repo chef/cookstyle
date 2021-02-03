@@ -20,20 +20,18 @@ module RuboCop
   module Cop
     module Chef
       module Modernize
-        # In HWRPs and LWRPs you defined attributes, but custom resources changed the name to
-        # be properties to avoid confusion with chef recipe attributes. When writing a custom resource
-        # they should be called properties even though the two are aliased.
+        # In HWRPs and LWRPs you defined attributes, but custom resources changed the name to be properties to avoid confusion with chef recipe attributes. When writing a custom resource they should be called properties even though the two are aliased.
         #
         # @example
         #
-        #   # bad
+        #   #### incorrect
         #   attribute :something, String
         #
         #   action :create do
         #     # some action code because we're in a custom resource
         #   end
         #
-        #   # good
+        #   #### correct
         #   property :something, String
         #
         #   action :create do

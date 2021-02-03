@@ -21,12 +21,14 @@ module RuboCop
       module Modernize
         # The sysctl_param resource was renamed to sysctl when it was added to Chef Infra Client 14.0. The new resource name should be used.
         #
-        #   # bad
+        # @example
+        #
+        #   #### incorrect
         #   sysctl_param 'fs.aio-max-nr' do
         #     value '1048576'
         #   end
         #
-        #   # good
+        #   #### correct
         #   sysctl 'fs.aio-max-nr' do
         #     value '1048576'
         #   end

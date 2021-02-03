@@ -21,13 +21,15 @@ module RuboCop
       module RedundantCode
         # If a resource includes the `compile_time` property there's no need to also use `.run_action(:some_action)` on the resource block
         #
-        #   # bad
+        # @example
+        #
+        #   #### incorrect
         #   chef_gem 'deep_merge' do
         #     action :nothing
         #     compile_time true
         #   end.run_action(:install)
         #
-        #   # good
+        #   #### correct
         #   chef_gem 'deep_merge' do
         #     action :install
         #     compile_time true
