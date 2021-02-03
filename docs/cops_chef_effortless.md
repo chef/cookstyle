@@ -30,22 +30,22 @@ Chef Vault is not supported in the Effortless pattern, so usage of Chef Vault mu
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 require 'chef-vault'
 
-# bad
+#### incorrect
 ChefVault::Item
 
-# bad
+#### incorrect
 include_recipe 'chef-vault'
 
-# bad
+#### incorrect
 chef_gem 'chef-vault'
 
-# bad
+#### incorrect
 chef_vault_item_for_environment(arg, arg1)
 
-# bad
+#### incorrect
 chef_vault_item(arg, arg1)
 ```
 
@@ -71,7 +71,7 @@ Data bags cannot be used with the Effortless Infra pattern
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 data_bag_item('admins', login)
 data_bag(data_bag_name)
 ```
@@ -98,7 +98,7 @@ Neither Policyfiles or Effortless Infra which is based on Policyfiles supports C
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 node.environment == "production"
 node.chef_environment == "production"
 ```
@@ -125,7 +125,7 @@ Effortless Infra does not support Policyfile's Policygroup feature
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 node.policy_group == "foo"
 ```
 
@@ -151,7 +151,7 @@ Neither Policyfiles or Effortless Infra which is based on Policyfiles supports C
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 node.role?('web_server')
 node.roles.include?('web_server')
 ```
@@ -178,7 +178,7 @@ Search is not compatible with the Effortless Infra pattern
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 search(:node, 'run_list:recipe\[bacula\:\:server\]')
 ```
 
@@ -204,7 +204,7 @@ Chef Vault is not supported in the Effortless pattern, so usage of Chef Vault mu
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 depends 'chef-vault'
 ```
 
@@ -230,7 +230,7 @@ Policyfiles (and Effortless) do not use environments or roles so searching for t
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 search(:node, 'chef_environment:foo')
 search(:node, 'role:bar')
 ```

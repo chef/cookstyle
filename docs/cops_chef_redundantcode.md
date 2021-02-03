@@ -8,20 +8,24 @@ Enabled | Yes | All Versions
 
 There is no need to pass `distribution node['lsb']['codename']` to an apt_repository resource as this is done automatically by the apt_repository resource.
 
-  # bad
-  apt_repository 'my repo' do
-    uri 'http://packages.example.com/debian'
-    components %w(stable main)
-    deb_src false
-    distribution node['lsb']['codename']
-  end
+### Examples
 
-  # good
-  apt_repository 'my repo' do
-    uri 'http://packages.example.com/debian'
-    components %w(stable main)
-    deb_src false
-  end
+```ruby
+#### incorrect
+apt_repository 'my repo' do
+  uri 'http://packages.example.com/debian'
+  components %w(stable main)
+  deb_src false
+  distribution node['lsb']['codename']
+end
+
+#### correct
+apt_repository 'my repo' do
+  uri 'http://packages.example.com/debian'
+  components %w(stable main)
+  deb_src false
+end
+```
 
 ### Configurable attributes
 
@@ -42,20 +46,24 @@ Enabled | Yes | All Versions
 
 There is no need to notify an apt-get update when an apt_repository is created as this is done automatically by the apt_repository resource.
 
-  # bad
-  apt_repository 'my repo' do
-    uri 'http://packages.example.com/debian'
-    components %w(stable main)
-    deb_src false
-    notifies :run, 'execute[apt-get update]', :immediately
-  end
+### Examples
 
-  # good
-  apt_repository 'my repo' do
-    uri 'http://packages.example.com/debian'
-    components %w(stable main)
-    deb_src false
-  end
+```ruby
+#### incorrect
+apt_repository 'my repo' do
+  uri 'http://packages.example.com/debian'
+  components %w(stable main)
+  deb_src false
+  notifies :run, 'execute[apt-get update]', :immediately
+end
+
+#### correct
+apt_repository 'my repo' do
+  uri 'http://packages.example.com/debian'
+  components %w(stable main)
+  deb_src false
+end
+```
 
 ### Configurable attributes
 
@@ -79,7 +87,7 @@ The attribute metadata.rb method is not used and is unnecessary in cookbooks.
 ### Examples
 
 ```ruby
-# bad in metadata.rb:
+#### incorrect in metadata.rb:
 
  attribute 'zookeeper_bridge/server',
            display_name: 'zookeeper server',
@@ -112,7 +120,7 @@ The conflicts metadata.rb method is not used and is unnecessary in cookbooks.
 ### Examples
 
 ```ruby
-# bad in metadata.rb:
+#### incorrect in metadata.rb:
 
 conflicts "another_cookbook"
 ```
@@ -140,7 +148,7 @@ It is not necessary to set `actions` or `allowed_actions` in custom resources as
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 allowed_actions [:create, :remove]
 
 # also bad
@@ -167,17 +175,21 @@ Enabled | Yes | All Versions
 
 If a resource includes the `compile_time` property there's no need to also use `.run_action(:some_action)` on the resource block
 
-  # bad
-  chef_gem 'deep_merge' do
-    action :nothing
-    compile_time true
-  end.run_action(:install)
+### Examples
 
-  # good
-  chef_gem 'deep_merge' do
-    action :install
-    compile_time true
-  end
+```ruby
+#### incorrect
+chef_gem 'deep_merge' do
+  action :nothing
+  compile_time true
+end.run_action(:install)
+
+#### correct
+chef_gem 'deep_merge' do
+  action :install
+  compile_time true
+end
+```
 
 ### Configurable attributes
 
@@ -201,7 +213,7 @@ The grouping metadata.rb method is not used and is unnecessary in cookbooks.
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 grouping 'windows_log_rotate', title: 'Demonstration cookbook with code to switch loggers'
 ```
 
@@ -227,7 +239,7 @@ The long_description metadata.rb method is not used and is unnecessary in cookbo
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 long_description 'this is my cookbook and this description will never be seen'
 ```
 
@@ -254,11 +266,11 @@ You can pass multiple values to the platform? and platform_family? helpers inste
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 platform?('redhat') || platform?('ubuntu')
 platform_family?('debian') || platform_family?('rhel')
 
-# good
+#### correct
 platform?('redhat', 'ubuntu')
 platform_family?('debian', 'rhel')
 ```
@@ -312,11 +324,11 @@ then it should just be made a required property and not a name_property.
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 property :config_file, String, required: true, name_property: true
 attribute :config_file, String, required: true, name_attribute: true
 
-# good
+#### correct
 property :config_file, String, required: true
 ```
 
@@ -343,7 +355,7 @@ Many Ohai node attributes are already strings and don't need to be cast to strin
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 node['platform'].to_s
 node['platform_family'].to_s
 node['platform_version'].to_s
@@ -352,7 +364,7 @@ node['hostname'].to_s
 node['os'].to_s
 node['name'].to_s
 
-# good
+#### correct
 node['platform']
 node['platform_family']
 node['platform_version']
@@ -384,11 +396,11 @@ When a property has a type of String it can accept any string. There is no need 
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 property :config_file, String, regex: /.*/
 attribute :config_file, String, regex: /.*/
 
-# good
+#### correct
 property :config_file, String
 attribute :config_file, String
 ```
@@ -418,10 +430,10 @@ Infra Client 13+ this became an error.
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 property :bob, String, required: true, default: 'foo'
 
-# good
+#### correct
 property :bob, String, required: true
 ```
 
@@ -448,7 +460,7 @@ The provides metadata.rb method is not used and is unnecessary in cookbooks.
 ### Examples
 
 ```ruby
-# bad in metadata.rb:
+#### incorrect in metadata.rb:
 
 provides "some_thing"
 ```
@@ -476,7 +488,7 @@ The recipe metadata.rb method is not used and is unnecessary in cookbooks. Recip
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 recipe 'openldap::default', 'Install and configure OpenLDAP'
 ```
 
@@ -503,7 +515,7 @@ The replaces metadata.rb method is not used and is unnecessary in cookbooks. Rep
 ### Examples
 
 ```ruby
-# bad in metadata.rb:
+#### incorrect in metadata.rb:
 
 replaces "another_cookbook"
 ```
@@ -531,7 +543,7 @@ Chef Infra Client provides the :nothing action by default for every resource. Th
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 action :nothing
   # let's do nothing
 end
@@ -557,7 +569,7 @@ Enabled | Yes | All Versions
 
 Every Chef Infra resource already includes a sensitive property with a default value of false.
 
-# bad
+#### incorrect
 property :sensitive, [true, false], default: false
 
 ### Configurable attributes
@@ -582,11 +594,11 @@ Properties have a nil value by default so there is no need to set the default va
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 property :config_file, String, default: nil
 property :config_file, [String, NilClass], default: nil
 
-# good
+#### correct
 property :config_file, String
 property :config_file, [String, NilClass]
 ```
@@ -613,7 +625,7 @@ The suggests metadata.rb method is not used and is unnecessary in cookbooks.
 ### Examples
 
 ```ruby
-# bad in metadata.rb:
+#### incorrect in metadata.rb:
 
 suggests "another_cookbook"
 ```
@@ -641,11 +653,11 @@ There is no need to set a property/attribute to desired_state: true as all prope
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 property :foo, String, desired_state: true
 attribute :foo, String, desired_state: true
 
-# good
+#### correct
 property :foo, String
 attribute :foo, String
 ```
@@ -672,7 +684,7 @@ There is no need to define a property or attribute named :name in a resource as 
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 property :name, String
 property :name, String, name_property: true
 attribute :name, kind_of: String
@@ -703,7 +715,7 @@ Use the :create_if_missing action instead of not_if with a ::File.exist(FOO) che
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 cookbook_file '/logs/foo/error.log' do
   source 'error.log'
   owner 'root'
@@ -712,7 +724,7 @@ cookbook_file '/logs/foo/error.log' do
   not_if { ::File.exists?('/logs/foo/error.log') }
 end
 
-# good
+#### correct
 cookbook_file '/logs/foo/error.log' do
   source 'error.log'
   owner 'root'

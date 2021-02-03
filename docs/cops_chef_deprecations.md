@@ -11,14 +11,14 @@ Chef Workstation 0.8 and later renamed the ChefDK module used when writing custo
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 ChefDK::CLI
 ChefDK::Generator::TemplateHelper
 module ChefDK
   ...
 end
 
-# good
+#### correct
 ChefCLI::CLI
 ChefCLI::Generator::TemplateHelper
 module ChefCLI
@@ -48,7 +48,7 @@ There is no need to include the empty and deprecated chef_handler::default recip
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 include_recipe 'chef_handler'
 include_recipe 'chef_handler::default'
 ```
@@ -75,12 +75,12 @@ Use the type property instead of the deprecated supports property in the chef_ha
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 chef_handler 'whatever' do
   supports start: true, report: true, exception: true
 end0
 
-# good
+#### correct
 chef_handler 'whatever' do
   type start: true, report: true, exception: true
 end
@@ -144,12 +144,12 @@ helper provided in chef-utils.
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 include Chef::ShellOut
 require 'chef/shellout'
 Chef::ShellOut.new('some_command')
 
-# good
+#### correct
 include Mixlib::ShellOut
 require 'mixlib/shellout'
 Mixlib::ShellOut.new('some_command')
@@ -177,7 +177,7 @@ Don't use the deprecated ChefSpec Coverage report functionality in your specs. T
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 
 at_exit { ChefSpec::Coverage.report! }
 ```
@@ -204,7 +204,7 @@ Use ChefSpec::SoloRunner or ChefSpec::ServerRunner instead of the deprecated Che
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 
 describe 'foo::default' do
   subject { ChefSpec::Runner.new.converge(described_recipe) }
@@ -212,7 +212,7 @@ describe 'foo::default' do
   # some spec code
 end
 
-# good
+#### correct
 
 describe 'foo::default' do
   subject { ChefSpec::ServerRunner.new.converge(described_recipe) }
@@ -262,10 +262,10 @@ Use `platform?('windows')` instead of the legacy `Chef::Platform.windows?` helpe
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 Chef::Platform.windows?
 
-# good
+#### correct
 platform?('windows')
 platform_family?('windows')
 ```
@@ -311,12 +311,12 @@ Use the :remove action in the chocolatey_package resource instead of :uninstall 
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 chocolatey_package 'nginx' do
   action :uninstall
 end
 
-# good
+#### correct
 chocolatey_package 'nginx' do
   action :remove
 end
@@ -344,7 +344,7 @@ Don't depend on the deprecated compat_resource cookbook made obsolete by Chef In
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 depends 'compat_resource'
 ```
 
@@ -370,7 +370,7 @@ Don't depend on the partial_search cookbook made obsolete by Chef Infra Client 1
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 depends 'partial_search'
 ```
 
@@ -396,7 +396,7 @@ Cookbooks should not depend on the deprecated Poise framework cookbooks. They sh
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 depends 'poise'
 depends 'poise-service'
 ```
@@ -468,7 +468,7 @@ Use provider_for_action or provides instead of the deprecated Chef::Platform met
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 resource = Chef::Resource::File.new("/tmp/foo.xyz", run_context)
 provider = Chef::Platform.provider_for_resource(resource, :create)
 
@@ -480,7 +480,7 @@ provider = Chef::Platform.find_provider_for_node(node, resource)
 
 Chef::Platform.set :platform => :mac_os_x, :resource => :package, :provider => Chef::Provider::Package::Homebrew
 
-# good
+#### correct
 resource = Chef::Resource::File.new("/tmp/foo.xyz", run_context)
 provider = resource.provider_for_action(:create)
 
@@ -510,7 +510,7 @@ The large number of shell_out helper methods in Chef Infra Client has been reduc
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 shell_out_compact('foo')
 shell_out_compact!('foo')
 shell_out_with_timeout('foo')
@@ -520,7 +520,7 @@ shell_out_with_systems_locale!('foo')
 shell_out_compact_timeout('foo')
 shell_out_compact_timeout!('foo')
 
-# good
+#### correct
 shell_out('foo')
 shell_out!('foo')
 shell_out!('foo', default_env: false) # replaces shell_out_with_systems_locale
@@ -548,7 +548,7 @@ Don't use the deprecated older_than_win_2012_or_8? helper. Windows versions befo
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 if older_than_win_2012_or_8?
   # do some legacy things
 end
@@ -576,7 +576,7 @@ With the release of Chef Infra Client 12.14 and the yum cookbook 3.0 the actions
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 yum_repository 'OurCo' do
   description 'OurCo yum repository'
   baseurl 'http://artifacts.ourco.org/foo/bar'
@@ -584,7 +584,7 @@ yum_repository 'OurCo' do
   action :add
 end
 
-# good
+#### correct
 yum_repository 'OurCo' do
   description 'OurCo yum repository'
   baseurl 'http://artifacts.ourco.org/foo/bar'
@@ -615,7 +615,7 @@ With the release of Chef Infra Client 12.14 and the yum cookbook 3.0 several pro
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 yum_repository 'OurCo' do
   description 'OurCo yum repository'
   url 'http://artifacts.ourco.org/foo/bar'
@@ -624,7 +624,7 @@ yum_repository 'OurCo' do
   action :create
 end
 
-# good
+#### correct
 yum_repository 'OurCo' do
   description 'OurCo yum repository'
   baseurl 'http://artifacts.ourco.org/foo/bar'
@@ -656,7 +656,7 @@ The beta Audit Mode for Chef Infra Client was removed in Chef Infra Client 15.0.
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 control_group 'Baseline' do
   control 'SSH' do
     it 'should be listening on port 22' do
@@ -688,7 +688,7 @@ Don't use the deprecated easy_install resource removed in Chef Infra Client 13
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 easy_install "my_thing" do
   bar
 end
@@ -716,12 +716,12 @@ Make sure ignore_failure is used instead of epic_fail
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 package "foo" do
   epic_fail true
 end
 
-# good
+#### correct
 package "foo" do
   ignore_failure true
 end
@@ -749,7 +749,7 @@ Don't use the deprecated erl_call resource
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 erl_call "foo" do
   bar
 end
@@ -777,12 +777,12 @@ In Chef Infra Client 13 and later you must set path env vars in execute resource
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 execute 'some_cmd' do
   path '/foo/bar'
 end
 
-# good
+#### correct
 execute 'some_cmd' do
   environment {path: '/foo/bar'}
 end
@@ -810,12 +810,12 @@ In Chef Infra Client 13 and later you must either specific an absolute path when
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 execute 'some_cmd' do
   creates 'something'
 end
 
-# good
+#### correct
 execute 'some_cmd' do
   creates '/tmp/something'
 end
@@ -848,7 +848,7 @@ The Foodcritic cookbook linter has been deprecated and should no longer be used 
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 gem 'foodcritic'
 require 'foodcritic'
 ```
@@ -872,7 +872,7 @@ Enabled | Yes | All Versions
 
 Chef Infra Client 16 and later a legacy HWRP resource must use `provides` to define how the resource is called in recipes or other resources. To maintain compatibility with Chef Infra Client < 16 use both `resource_name` and `provides`.
 
- # good when Chef Infra Client < 15 (but compatible with 16+ as well)
+ #### correct when Chef Infra Client < 15 (but compatible with 16+ as well)
   class Chef
     class Resource
       class UlimitRule < Chef::Resource
@@ -887,7 +887,7 @@ Chef Infra Client 16 and later a legacy HWRP resource must use `provides` to def
     end
   end
 
- # good when Chef Infra Client 16+
+ #### correct when Chef Infra Client 16+
   class Chef
     class Resource
       class UlimitRule < Chef::Resource
@@ -907,7 +907,7 @@ Chef Infra Client 16 and later a legacy HWRP resource must use `provides` to def
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 class Chef
   class Resource
     class UlimitRule < Chef::Resource
@@ -919,7 +919,7 @@ class Chef
   end
 end
 
-# bad
+#### incorrect
 class Chef
   class Resource
     class UlimitRule < Chef::Resource
@@ -957,7 +957,7 @@ Do not include the deprecated xml::ruby recipe to install the nokogiri gem. Chef
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 include_recipe 'xml::ruby'
 ```
 
@@ -984,7 +984,7 @@ as Chef Infra Client includes DNF package support
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 include_recipe 'yum::dnf_yum_compat'
 ```
 
@@ -1010,12 +1010,12 @@ The launchd resource's hash property was renamed to plist_hash in Chef Infra Cli
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 launchd 'foo' do
   hash foo: 'bar'
 end
 
-# good
+#### correct
 launchd 'foo' do
   plist_hash foo: 'bar'
 end
@@ -1043,7 +1043,7 @@ Use the new-style notification syntax which allows you to notify resources defin
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 template '/etc/www/configures-apache.conf' do
   notifies :restart, resources(service: 'apache')
 end
@@ -1060,7 +1060,7 @@ template '/etc/www/configures-apache.conf' do
   subscribes :restart, resources(service: service_name_variable), :immediately
 end
 
-# good
+#### correct
 template '/etc/www/configures-apache.conf' do
   notifies :restart, 'service[apache]'
 end
@@ -1102,7 +1102,7 @@ should be used instead as it doesn't require forking the ohai cookbook.
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 include_recipe 'yum::elrepo'
 include_recipe 'yum::epel'
 include_recipe 'yum::ius'
@@ -1133,7 +1133,7 @@ The Librarian-Chef depsolving project is no longer maintained and a Cheffile sho
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 require 'chefspec/librarian'
 ```
 
@@ -1159,7 +1159,7 @@ The local resource's lc_all property has been deprecated and will be removed in 
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 locale 'set locale' do
   lang 'en_gb.utf-8'
   lc_all 'en_gb.utf-8'
@@ -1188,7 +1188,7 @@ In Chef Infra Client 16 the log resource no longer notifies when logging so noti
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 template '/etc/foo' do
   source 'bar.erb'
   notifies :write, 'log[Aggregate notifications using a single log resource]', :immediately
@@ -1198,7 +1198,7 @@ log 'Aggregate notifications using a single log resource' do
   notifies :restart, 'service[foo]', :delayed
 end
 
-# good
+#### correct
 template '/etc/foo' do
   source 'bar.erb'
   notifies :run, 'notify_group[Aggregate notifications using a single notify_group resource]', :immediately
@@ -1231,14 +1231,14 @@ The `global` property in the macos_userdefaults resource was deprecated in Chef 
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 macos_userdefaults 'set a value' do
   global true
   key 'key'
   value 'value'
 end
 
-# good
+#### correct
 macos_userdefaults 'set a value' do
   key 'key'
   value 'value'
@@ -1267,11 +1267,11 @@ A resource property (or attribute) can't be marked as a name_property (or name_a
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 property :config_file, String, default: 'foo', name_property: true
 attribute :config_file, String, default: 'foo', name_attribute: true
 
-# good
+#### correct
 property :config_file, String, name_property: true
 attribute :config_file, String, name_attribute: true
 ```
@@ -1298,16 +1298,16 @@ The node.deep_fetch method has been removed from Chef-Sugar, and must be replace
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 node.deep_fetch("foo")
 
-# good
+#### correct
 node.read("foo")
 
-# bad
+#### incorrect
 node.deep_fetch!("foo")
 
-# good
+#### correct
 node.read!("foo")
 ```
 
@@ -1333,14 +1333,14 @@ Use node attributes to access data provided by Ohai instead of using node method
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 node.fqdn
 node.platform
 node.platform_family
 node.platform_version
 node.hostname
 
-# good
+#### correct
 node['fqdn']
 node['platform']
 node['platform_family']
@@ -1372,10 +1372,10 @@ This cop will autocorrect code to use node.normal, which is functionally identic
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 node.set['foo'] = true
 
-# good
+#### correct
 node.normal['foo'] = true
 ```
 
@@ -1403,10 +1403,10 @@ This cop will autocorrect code to use node.normal_unless, which is functionally 
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 node.set_unless['foo'] = true
 
-# good
+#### correct
 node.normal_unless['foo'] = true
 ```
 
@@ -1432,13 +1432,13 @@ When setting a node attribute in Chef Infra Client 11 and later you must specify
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 node['foo']['bar'] = 1
 node['foo']['bar'] << 1
 node['foo']['bar'] += 1
 node['foo']['bar'] -= 1
 
-# good
+#### correct
 node.default['foo']['bar'] = 1
 node.default['foo']['bar'] << 1
 node.default['foo']['bar'] += 1
@@ -1467,7 +1467,7 @@ Legacy Chef::PartialSearch class usage should be updated to use the `search` hel
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 ::Chef::PartialSearch.new.search((:node, 'role:web',
   keys: { 'name' => [ 'name' ],
           'ip' => [ 'ipaddress' ],
@@ -1479,7 +1479,7 @@ Legacy Chef::PartialSearch class usage should be updated to use the `search` hel
   puts result['kernel_version']
 end
 
-# good
+#### correct
 search(:node, 'role:web',
   filter_result: { 'name' => [ 'name' ],
                    'ip' => [ 'ipaddress' ],
@@ -1514,7 +1514,7 @@ Legacy partial_search usage should be updated to use :filter_result in the searc
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 partial_search(:node, 'role:web',
   keys: { 'name' => [ 'name' ],
           'ip' => [ 'ipaddress' ],
@@ -1526,7 +1526,7 @@ partial_search(:node, 'role:web',
   puts result['kernel_version']
 end
 
-# good
+#### correct
 search(:node, 'role:web',
   filter_result: { 'name' => [ 'name' ],
                    'ip' => [ 'ipaddress' ],
@@ -1561,12 +1561,12 @@ The poise_archive resource in the deprecated poise-archive should be replaced wi
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 poise_archive 'https://example.com/myapp.tgz' do
   destination '/opt/my_app'
 end
 
-# good
+#### correct
 archive_file 'https://example.com/myapp.tgz' do
   destination '/opt/my_app'
 end
@@ -1594,10 +1594,10 @@ Use `node['powershell']['version']` or the new `powershell_version` helper avail
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 Powershell::VersionHelper.powershell_version?('4.0')
 
-# good
+#### correct
 node['powershell']['version'].to_f == 4.0
 
 # better (Chef Infra Client 15.8+)
@@ -1626,10 +1626,10 @@ Make sure to use include_recipe instead of require_recipe
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 require_recipe 'foo'
 
-# good
+#### correct
 include_recipe 'foo'
 ```
 
@@ -1655,12 +1655,12 @@ Resources written in the class based HWRP style should inherit from the 'Chef::R
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 class AptUpdate < ChefCompat::Resource
   # some resource code
 end
 
-# good
+#### correct
 class AptUpdate < Chef::Resource
   # some resource code
 end
@@ -1691,12 +1691,12 @@ Some providers in resources override the provides? method, used to check whether
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 def provides?
  true
 end
 
-# good
+#### correct
 provides :SOME_PROVIDER_NAME
 ```
 
@@ -1722,10 +1722,10 @@ Don't use the dsl_name method in a resource to find the name of the resource. Us
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 my_resource = MyResource.dsl_name
 
-# good
+#### correct
 my_resource = MyResource.resource_name
 ```
 
@@ -1751,7 +1751,7 @@ Starting with Chef Infra Client 16, using `resource_name` without also using `pr
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 mycookbook/resources/myresource.rb:
 resource_name :mycookbook_myresource
 ```
@@ -1778,7 +1778,7 @@ The Resource.provider_base allows the developer to specify within a resource a m
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 provider_base ::Chef::Provider::SomethingSomething
 ```
 
@@ -1799,17 +1799,17 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Disabled | No | All Versions
 
-Don't call the deprecated updated= method in a resource to set the resource to updated. This method was removed from Chef Infra Client 13 and this will now cause an error. Instead wrap code that updated the state of the node in a converge_by block. Documentation on using the converge_by block can be found at https://docs.chef.io/custom_resources.html.
+Don't call the deprecated `updated=` method in a resource to set the resource to updated. This method was removed from Chef Infra Client 13 and this will now cause an error. Instead wrap code that updated the state of the node in a `converge_by` block. Documentation on using the `converge_by` block can be found at https://docs.chef.io/custom_resources/.
 
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 action :foo do
   updated = true
 end
 
-# good
+#### correct
 action :foo do
   converge_by('resource did something) do
     # code that causes the resource to converge
@@ -1838,11 +1838,11 @@ Pass options to shell_out helpers without the brackets to avoid Ruby 2.7 depreca
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 shell_out!('hostnamectl status', { returns: [0, 1] })
 shell_out('hostnamectl status', { returns: [0, 1] })
 
-# good
+#### correct
 shell_out!('hostnamectl status', returns: [0, 1])
 shell_out('hostnamectl status', returns: [0, 1])
 ```
@@ -1869,7 +1869,7 @@ Use the :run action in the ruby_block resource instead of the deprecated :create
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 ruby_block 'my special ruby block' do
   block do
     puts 'running'
@@ -1877,7 +1877,7 @@ ruby_block 'my special ruby block' do
   action :create
 end
 
-# good
+#### correct
 ruby_block 'my special ruby block' do
   block do
     puts 'running'
@@ -1903,7 +1903,7 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Enabled | Yes | All Versions
 
-good
+correct
 
 query(:node, '*:*')
  search(:node, '*:*', start: 0, rows: 1000, filter_result: { :ip_address => ["ipaddress"] })
@@ -1932,7 +1932,7 @@ The use_automatic_resource_name method was removed in Chef Infra Client 16. The 
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 module MyCookbook
   class MyCookbookService < Chef::Resource
     use_automatic_resource_name
@@ -1965,7 +1965,7 @@ to be called in resources
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 use_inline_resources
 use_inline_resources if defined?(use_inline_resources)
 use_inline_resources if respond_to?(:use_inline_resources)
@@ -1993,10 +1993,10 @@ Chef Infra Client 16.5 introduced performance enhancements to Ruby library loadi
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 {"foo" => "bar"}.to_yaml
 
-# good
+#### correct
 YAML.dump({"foo" => "bar"})
 ```
 
@@ -2021,7 +2021,7 @@ The supports property was removed in Chef Infra Client 13 in favor of individual
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 user "betty" do
   supports({
     manage_home: true,
@@ -2033,7 +2033,7 @@ user 'betty' do
   supports :manage_home => true
 end
 
-# good
+#### correct
 user "betty" do
   manage_home true
   non_unique true
@@ -2062,7 +2062,7 @@ Chef::REST was removed in Chef Infra Client 13.
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 require 'chef/rest'
 Chef::REST::RESTRequest.new(:GET, FOO, nil).call
 ```
@@ -2089,7 +2089,7 @@ Don't use deprecated Mixins no longer included in Chef Infra Client 14 and later
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 include Chef::Mixin::LanguageIncludeAttribute
 include Chef::Mixin::RecipeDefinitionDSLCore
 include Chef::Mixin::LanguageIncludeRecipe
@@ -2122,14 +2122,14 @@ Use 'shell_out!' instead of the legacy 'run_command' or 'run_command_with_system
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 require 'chef/mixin/command'
 include Chef::Mixin::Command
 
 run_command('/bin/foo')
 run_command_with_systems_locale('/bin/foo')
 
-# good
+#### correct
 shell_out!('/bin/foo')
 ```
 
@@ -2155,12 +2155,12 @@ In Chef Infra Client 13 the "file" variable for use within the verify property w
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 file '/etc/nginx.conf' do
   verify 'nginx -t -c %{file}'
 end
 
-# good
+#### correct
 file '/etc/nginx.conf' do
   verify 'nginx -t -c %{path}'
 end
@@ -2188,12 +2188,12 @@ The `windows_feature` resource no longer supports setting the `install_method` t
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 windows_feature 'DHCP' do
   install_method :servermanagercmd
 end
 
-# good
+#### correct
 windows_feature 'DHCP' do
   install_method :windows_feature_dism
 end
@@ -2229,14 +2229,14 @@ In Chef Infra Client 13 and later the `windows_package` resource's `installer_ty
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 windows_package 'AppveyorDeploymentAgent' do
   source 'https://www.example.com/appveyor.msi'
   installer_type 'msi'
   options "/quiet /qn /norestart /log install.log"
 end
 
-# good
+#### correct
 windows_package 'AppveyorDeploymentAgent' do
   source 'https://www.example.com/appveyor.msi'
   installer_type :msi
@@ -2267,7 +2267,7 @@ The default action of :create should can now be used to create an update tasks.
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 windows_task 'chef ad-join leave start time' do
   task_name 'chef ad-join leave'
   start_day '06/09/2016'
@@ -2275,7 +2275,7 @@ windows_task 'chef ad-join leave start time' do
   action [:change, :create]
 end
 
-# good
+#### correct
 windows_task 'chef ad-join leave start time' do
   task_name 'chef ad-join leave'
   start_day '06/09/2016'
@@ -2306,13 +2306,13 @@ Use node['platform_version'] and node['kernel'] data instead of the deprecated W
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 Windows::VersionHelper.nt_version
 Windows::VersionHelper.server_version?
 Windows::VersionHelper.core_version?
 Windows::VersionHelper.workstation_version?
 
-# good
+#### correct
 node['platform_version'].to_f
 node['kernel']['product_type'] == 'Server'
 node['kernel']['server_core']

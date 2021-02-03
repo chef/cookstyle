@@ -11,12 +11,12 @@ Metadata contains default maintainer information from the `chef generate cookboo
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 maintainer 'YOUR_COMPANY_NAME'
 maintainer_email 'YOUR_EMAIL'
 maintainer 'The Authors'
 maintainer_email 'you@example.com'
-# good
+#### correct
 maintainer 'Bob Bobberson'
 maintainer_email 'bob@bobberson.com'
 ```
@@ -44,10 +44,10 @@ metadata.rb should not include fields with an empty string. Either don't include
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 license ''
 
-# good
+#### correct
 license 'Apache-2.0'
 ```
 
@@ -74,10 +74,10 @@ Resource properties should include description fields to allow automated documen
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 property :foo, String
 
-# good
+#### correct
 property :foo, String, description: "Set the important thing to..."
 ```
 
@@ -103,7 +103,7 @@ Resources should include description fields to allow automated documentation. Re
 ### Examples
 
 ```ruby
-# good
+#### correct
 resource_name :foo
 description "The foo resource is used to do..."
 ```
@@ -130,7 +130,7 @@ Resources should include examples field to allow automated documentation. Requir
 ### Examples
 
 ```ruby
-# good
+#### correct
 examples <<~DOC
   **Specify a global domain value**
 
@@ -165,13 +165,13 @@ Use secure Github and Gitlab URLs for source_url and issues_url
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 source_url 'http://github.com/something/something'
 source_url 'http://www.github.com/something/something'
 source_url 'http://www.gitlab.com/something/something'
 source_url 'http://gitlab.com/something/something'
 
-# good
+#### correct
 source_url 'http://github.com/something/something'
 source_url 'http://gitlab.com/something/something'
 ```
@@ -207,10 +207,10 @@ licenses = json_data['licenses'].map {|l| l['licenseId'] }.sort
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 license 'Apache 2.0'
 
-# good
+#### correct
 license 'Apache-2.0'
 license 'all rights reserved'
 ```

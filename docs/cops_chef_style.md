@@ -15,20 +15,20 @@ There are two supported styles: "symbols" and "strings".
 #### when configuration is `EnforcedStyle: symbols`
 
 ```ruby
-# bad
+#### incorrect
 node['foo']
 node["foo"]
 
-# good
+#### correct
 node[:foo]
 ```
 #### when configuration is `EnforcedStyle: strings`
 
 ```ruby
-# bad
+#### incorrect
 node[:foo]
 
-# good
+#### correct
 node['foo']
 node["foo"]
 ```
@@ -56,11 +56,11 @@ Checks for comments that mention "Chef" without context. Do you mean Chef Infra 
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 Chef makes software
 Chef configures your systems
 
-# good
+#### correct
 Chef Software makes software
 Chef Infra configures your systems
 ```
@@ -86,7 +86,7 @@ Checks for incorrectly formatted headers
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 Copyright 2013-2016 Chef Software, Inc.
 Recipe default.rb
 Attributes default.rb
@@ -95,7 +95,7 @@ Cookbook tomcat
 Cookbook Name:: Tomcat
 Attributes File:: default
 
-# good
+#### correct
 Copyright:: 2013-2016 Chef Software, Inc.
 Recipe:: default.rb
 Attributes:: default.rb
@@ -144,18 +144,18 @@ Checks for incorrectly formatted copyright comments.
 ### Examples
 
 ```ruby
-# bad (assuming current year is 2019)
-Copyright:: 2013-2019 Opscode, Inc.
-Copyright:: 2013-2019 Chef Inc.
-Copyright:: 2013-2019 Chef Software Inc.
-Copyright:: 2009-2010 2013-2019 Chef Software Inc.
+#### incorrect
+Copyright:: 2013-2022 Opscode, Inc.
+Copyright:: 2013-2022 Chef Inc.
+Copyright:: 2013-2022 Chef Software Inc.
+Copyright:: 2009-2010 2013-2022 Chef Software Inc.
 Copyright:: Chef Software Inc.
 Copyright:: Tim Smith
-Copyright:: Copyright (c) 2015-2019 Chef Software, Inc.
+Copyright:: Copyright (c) 2015-2022 Chef Software, Inc.
 
-# good (assuming current year is 2019)
-Copyright:: 2013-2019 Chef Software, Inc.
-Copyright:: 2013-2019 Tim Smith
+#### correct
+Copyright:: 2013-2022 Chef Software, Inc.
+Copyright:: 2013-2022 Tim Smith
 Copyright:: 2019 37Signals, Inc.
 ```
 
@@ -180,11 +180,11 @@ Checks for default copyright comments from the chef generator cookbook command
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 Copyright:: 2019 YOUR_NAME
 Copyright:: 2019 YOUR_COMPANY_NAME
 
-# good
+#### correct
 Copyright:: 2019 Tim Smith
 Copyright:: 2019 Chef Software, Inc.
 ```
@@ -210,7 +210,7 @@ Use strings to represent file modes to avoid confusion between octal and base 10
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 remote_directory '/etc/my.conf' do
   content 'some content'
   mode 0600
@@ -224,7 +224,7 @@ remote_directory 'handler' do
   action :create
 end
 
-# good
+#### correct
 remote_directory '/etc/my.conf' do
   content 'some content'
   mode '600'
@@ -261,13 +261,13 @@ Use :immediately instead of :immediate for resource notification timing
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 
 template '/etc/www/configures-apache.conf' do
   notifies :restart, 'service[apache]', :immediate
 end
 
-# good
+#### correct
 
 template '/etc/www/configures-apache.conf' do
   notifies :restart, 'service[apache]', :immediately
@@ -296,10 +296,10 @@ There is no need to wrap the recipe in parentheses when using the include_recipe
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 include_recipe('foo::bar')
 
-# good
+#### correct
 include_recipe 'foo::bar'
 ```
 
@@ -325,12 +325,12 @@ Instead of using only_if conditionals with ! to negate the returned value, use n
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 package 'legacy-sysv-deps' do
   only_if { !systemd }
 end
 
-# good
+#### correct
 package 'legacy-sysv-deps' do
   not_if { systemd }
 end
@@ -358,7 +358,7 @@ Don't loop over an array to set cookbook dependencies or supported platforms if 
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 
 %w( debian ubuntu ).each do |os|
   supports os
@@ -368,7 +368,7 @@ end
   depends cb
 end
 
-# good
+#### correct
 
 supports 'debian'
 supports 'ubuntu'
@@ -399,13 +399,13 @@ When checking the major version number of a platform you can take the node['plat
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 node['platform_version'].split('.').first
 node['platform_version'].split('.')[0]
 node['platform_version'].split('.').first.to_i
 node['platform_version'].split('.')[0].to_i
 
-# good
+#### correct
 
 # check to see if we're on RHEL 7 on a RHEL 7.6 node where node['platform_version] is 7.6.1810
 if node['platform_version'].to_i == 7
@@ -433,10 +433,10 @@ When setting the allowed types for a resource to accept either true or false val
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 property :foo, [TrueClass, FalseClass]
 
-# good
+#### correct
 property :foo, [true, false]
 ```
 
@@ -462,13 +462,13 @@ Use the platform_family?() helpers instead of node['os] == 'foo' for platform_fa
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 node['os'] == 'darwin'
 node['os'] == 'windows'
 node['os'].eql?('aix')
 %w(netbsd openbsd freebsd).include?(node['os'])
 
-# good
+#### correct
 platform_family?('mac_os_x')
 platform_family?('windows')
 platform_family?('aix')
@@ -497,7 +497,7 @@ Use the platform?() and platform_family?() helpers instead of a case statement t
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 case node['platform']
 when 'ubuntu'
   log "We're on Ubuntu"
@@ -509,7 +509,7 @@ when 'rhel'
   include_recipe 'yum'
 end
 
-# good
+#### correct
 if platform?('ubuntu')
   log "We're on Ubuntu"
   apt_update
@@ -540,7 +540,7 @@ Use the platform?() and platform_family?() helpers instead of node['platform] ==
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 node['platform'] == 'ubuntu'
 node['platform_family'] == 'debian'
 node['platform'] != 'ubuntu'
@@ -548,7 +548,7 @@ node['platform_family'] != 'debian'
 %w(rhel suse).include?(node['platform_family'])
 node['platform'].eql?('ubuntu')
 
-# good
+#### correct
 platform?('ubuntu')
 !platform?('ubuntu')
 platform_family?('debian')

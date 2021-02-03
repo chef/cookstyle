@@ -11,12 +11,12 @@ Use the custom resource language's `action :my_action` blocks instead of creatin
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 def action_create
  # :create action code here
 end
 
-# good
+#### correct
 action :create do
  # :create action code here
 end
@@ -44,7 +44,7 @@ The allowed actions can now be specified using the `allowed_actions` helper inst
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 def initialize(*args)
   super
   @actions = [ :create, :add ]
@@ -56,7 +56,7 @@ def initialize(*args)
   @allowed_actions = [ :create, :add ]
 end
 
-# good
+#### correct
 allowed_actions [ :create, :add ]
 ```
 
@@ -82,7 +82,7 @@ The nokogiri gem ships in Chef Infra Client 12+ and does not need to be installe
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 chef_gem 'nokogiri'
 ```
 
@@ -108,10 +108,10 @@ Use ::File.exist?('/foo/bar') instead of the slower 'test -f /foo/bar' which req
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 only_if 'test -f /bin/foo'
 
-# good
+#### correct
 only_if { ::File.exist?('bin/foo') }
 ```
 
@@ -137,7 +137,7 @@ Use the cron_d resource that ships with Chef Infra Client 14.4+ instead of manua
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 template '/etc/cron.d/backup' do
   source 'cron_backup_job.erb'
   owner 'root'
@@ -162,7 +162,7 @@ file '/etc/cron.d/blogs' do
   action :delete
 end
 
-# good
+#### correct
 cron_d 'backup' do
   minute '1'
   hour '1'
@@ -192,15 +192,17 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Enabled | Yes | 14.4+
 
-The cron_manage resource was renamed to cron_access in the 6.1 release of the cron
-cookbook, and later shipped in Chef Infra Client 14.4. The new resource name should
-be used.
+The cron_manage resource was renamed to cron_access in the 6.1 release of the cron cookbook, and later shipped in Chef Infra Client 14.4. The new resource name should be used.
 
-  # bad
-  cron_manage 'mike'
+### Examples
 
-  # good
-  cron_access 'mike'
+```ruby
+#### incorrect
+cron_manage 'mike'
+
+#### correct
+cron_access 'mike'
+```
 
 ### Configurable attributes
 
@@ -219,21 +221,19 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Enabled | Yes | All Versions
 
-In HWRPs and LWRPs you defined attributes, but custom resources changed the name to
-be properties to avoid confusion with chef recipe attributes. When writing a custom resource
-they should be called properties even though the two are aliased.
+In HWRPs and LWRPs you defined attributes, but custom resources changed the name to be properties to avoid confusion with chef recipe attributes. When writing a custom resource they should be called properties even though the two are aliased.
 
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 attribute :something, String
 
 action :create do
   # some action code because we're in a custom resource
 end
 
-# good
+#### correct
 property :something, String
 
 action :create do
@@ -263,11 +263,11 @@ Use the `data_bag_item` helper instead of `Chef::DataBagItem.load` or `Chef::Enc
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 plain_text_data = Chef::DataBagItem.load('foo', 'bar')
 encrypted_data = Chef::EncryptedDataBagItem.load('foo2', 'bar2')
 
-# good
+#### correct
 plain_text_data = data_bag_item('foo', 'bar')
 encrypted_data = data_bag_item('foo2', 'bar2')
 ```
@@ -291,19 +291,19 @@ Enabled | Yes | All Versions
 
 The default actions can now be specified using the `default_action` helper instead of using the @action variable in the resource provider initialize method. In general we recommend against writing HWRPs, but if HWRPs are necessary you should utilize as much of the resource DSL as possible.
 
- # good
+ #### correct
  default_action :create
 
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 def initialize(*args)
   super
   @action = :create
 end
 
-# bad
+#### incorrect
 def initialize(*args)
   super
   @default_action = :create
@@ -332,7 +332,7 @@ ChefSpec 7.1 and later auto generate ChefSpec matchers. Matchers in cookbooks ca
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 if defined?(ChefSpec)
   def create_yum_repository(resource_name)
     ChefSpec::Matchers::ResourceMatcher.new(:yum_repository, :create, resource_name)
@@ -381,7 +381,7 @@ Don't depend on the zypper cookbook as the zypper_repository resource is built i
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 depends 'zypper'
 ```
 
@@ -404,9 +404,13 @@ Enabled | Yes | All Versions
 
 Chef Infra Client 12.4+ includes the Chef::DSL::Recipe in the resource and provider classed by default so there is no need to include this DSL in your resources or providers.
 
-  # bad
-  include Chef::DSL::Recipe
-  include Chef::DSL::IncludeRecipe
+### Examples
+
+```ruby
+#### incorrect
+include Chef::DSL::Recipe
+include Chef::DSL::IncludeRecipe
+```
 
 ### Configurable attributes
 
@@ -430,7 +434,7 @@ There is no need for an empty initialize method in a resource
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 def initialize(*args)
   super
 end
@@ -453,28 +457,31 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Enabled | Yes | All Versions
 
-Instead of using the execute resource to to run the `apt-get update` use Chef Infra Client's built-n
-apt_update resource which is available in Chef Infra Client 12.7 and later.
+Instead of using the execute resource to run the `apt-get update` use Chef Infra Client's built-n apt_update resource which is available in Chef Infra Client 12.7 and later.
 
-  # bad
-  execute 'apt-get update'
+### Examples
 
-  execute 'Apt all the apt cache' do
-    command 'apt-get update'
-  end
+```ruby
+#### incorrect
+execute 'apt-get update'
 
-  execute 'some execute resource' do
-    notifies :run, 'execute[apt-get update]', :immediately
-  end
+execute 'Apt all the apt cache' do
+  command 'apt-get update'
+end
 
-  # good
-  apt_update
+execute 'some execute resource' do
+  notifies :run, 'execute[apt-get update]', :immediately
+end
 
-  apt_update 'update apt cache'
+#### correct
+apt_update
 
-  execute 'some execute resource' do
-    notifies :update, 'apt_update[update apt cache]', :immediately
-  end
+apt_update 'update apt cache'
+
+execute 'some execute resource' do
+  notifies :update, 'apt_update[update apt cache]', :immediately
+end
+```
 
 ### Configurable attributes
 
@@ -493,18 +500,22 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Enabled | No | 14.0+
 
-Chef Infra Client 14.0 and later includes :create, :delete, and :configure actions with the full idempotency of the windows_service resource. See the windows_service documentation at https://docs.chef.io/resource_windows_service.html for additional details on creating services with the windows_service resource.
+Chef Infra Client 14.0 and later includes :create, :delete, and :configure actions with the full idempotency of the windows_service resource. See the windows_service documentation at https://docs.chef.io/resources/windows_service for additional details on creating services with the windows_service resource.
 
-  # bad
-  execute "Delete chef-client service" do
-    command "sc.exe delete chef-client"
-    action :run
-  end
+### Examples
 
-  # good
-  windows_service 'chef-client' do
-    action :delete
-  end
+```ruby
+#### incorrect
+execute "Delete chef-client service" do
+  command "sc.exe delete chef-client"
+  action :run
+end
+
+#### correct
+windows_service 'chef-client' do
+  action :delete
+end
+```
 
 ### Configurable attributes
 
@@ -525,20 +536,24 @@ Enabled | No | 15.5+
 
 Chef Infra Client 15.5 and later include a chef_sleep resource that should be used to sleep between executing resources if necessary instead of using the bash or execute resources to run the sleep command.
 
-  # bad
-  execute "sleep 60" do
-    command "sleep 60"
-    action :run
-  end
+### Examples
 
-  bash 'sleep' do
-    user 'root'
-    cwd '/tmp'
-    code 'sleep 60'
-  end
+```ruby
+#### incorrect
+execute "sleep 60" do
+  command "sleep 60"
+  action :run
+end
 
-  # good
-  chef_sleep '60'
+bash 'sleep' do
+  user 'root'
+  cwd '/tmp'
+  code 'sleep 60'
+end
+
+#### correct
+chef_sleep '60'
+```
 
 ### Configurable attributes
 
@@ -559,20 +574,24 @@ Enabled | No | 14.0+
 
 Chef Infra Client 14.0 and later includes a sysctl resource that should be used to idempotently load sysctl values instead of templating files and using execute to load them.
 
-  # bad
-  file '/etc/sysctl.d/ipv4.conf' do
-    notifies :run, 'execute[sysctl -p /etc/sysctl.d/ipv4.conf]', :immediately
-    content '9000 65500'
-  end
+### Examples
 
-  execute 'sysctl -p /etc/sysctl.d/ipv4.conf' do
-    action :nothing
-  end
+```ruby
+#### incorrect
+file '/etc/sysctl.d/ipv4.conf' do
+  notifies :run, 'execute[sysctl -p /etc/sysctl.d/ipv4.conf]', :immediately
+  content '9000 65500'
+end
 
-  # good
-  sysctl 'net.ipv4.ip_local_port_range' do
-    value '9000 65500'
-  end
+execute 'sysctl -p /etc/sysctl.d/ipv4.conf' do
+  action :nothing
+end
+
+#### correct
+sysctl 'net.ipv4.ip_local_port_range' do
+  value '9000 65500'
+end
+```
 
 ### Configurable attributes
 
@@ -591,23 +610,26 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Enabled | No | 14.6+
 
-Instead of using the execute or powershell_script resources to to run the `tzutil` command, use
-Chef Infra Client's built-in timezone resource which is available in Chef Infra Client 14.6 and later.
+Instead of using the execute or powershell_script resources to run the `tzutil` command, use Chef Infra Client's built-in timezone resource which is available in Chef Infra Client 14.6 and later.
 
-  # bad
-  execute 'set tz' do
-    command 'tzutil.exe /s UTC'
-  end
+### Examples
 
-  execute 'tzutil /s UTC'
+```ruby
+#### incorrect
+execute 'set tz' do
+  command 'tzutil.exe /s UTC'
+end
 
-  powershell_script 'set windows timezone' do
-    code "tzutil.exe /s UTC"
-    not_if { shell_out('tzutil.exe /g').stdout.include?('UTC') }
-  end
+execute 'tzutil /s UTC'
 
-  # good
-  timezone 'UTC'
+powershell_script 'set windows timezone' do
+  code "tzutil.exe /s UTC"
+  not_if { shell_out('tzutil.exe /g').stdout.include?('UTC') }
+end
+
+#### correct
+timezone 'UTC'
+```
 
 ### Configurable attributes
 
@@ -631,7 +653,7 @@ Remove legacy code comments that disable Foodcritic rules. These comments are no
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 # ~FC013
 ```
 
@@ -657,10 +679,10 @@ if defined?(default_action) is no longer necessary in Chef Resources as default_
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 default_action :foo if defined?(default_action)
 
-# good
+#### correct
 default_action :foo
 ```
 
@@ -686,11 +708,11 @@ For many users the apt::default cookbook is used only to update apt's package ca
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 include_recipe 'apt::default'
 include_recipe 'apt'
 
-# good
+#### correct
 apt_update
 ```
 
@@ -716,7 +738,7 @@ There is no need to include Chef::Mixin::ShellOut or Chef::Mixin::PowershellOut 
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 require 'chef/mixin/shell_out'
 include Chef::Mixin::ShellOut
 require 'chef/mixin/powershell_out'
@@ -740,14 +762,12 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Enabled | No | All Versions
 
-The Ohai default recipe previously allowed a user to ship custom Ohai plugins to a system by including them
-in a directory in the Ohai cookbook. This functionality was replaced with the ohai_plugin resource, which
-should be used instead as it doesn't require forking the ohai cookbook.
+The Ohai default recipe previously allowed a user to ship custom Ohai plugins to a system by including them in a directory in the Ohai cookbook. This functionality was replaced with the ohai_plugin resource, which should be used instead as it doesn't require forking the ohai cookbook.
 
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 include_recipe 'ohai::default'
 include_recipe 'ohai'
 ```
@@ -775,7 +795,7 @@ Don't include the windows default recipe that is either full of gem install that
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 include_recipe 'windows::default'
 include_recipe 'windows'
 ```
@@ -797,20 +817,18 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Enabled | Yes | All Versions
 
-Over the course of years there have been many different valid community site / Supermarket
-URLs to use in a cookbook's Berksfile. These old URLs continue to function via redirects,
-but should be updated to point to the latest Supermarket URL.
+There have been many different valid community site / Supermarket URLs to use in a cookbook's Berksfile. These old URLs continue to function via redirects, but should be updated to point to the latest Supermarket URL.
 
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 source 'http://community.opscode.com/api/v3'
 source 'https://supermarket.getchef.com'
 source 'https://api.berkshelf.com'
 site :opscode
 
-# good
+#### correct
 source 'https://supermarket.chef.io'
 ```
 
@@ -836,12 +854,12 @@ Use the archive_file resource built into Chef Infra Client 15+ instead of the li
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 libarchive_file "C:\file.zip" do
   path 'C:\expand_here'
 end
 
-# good
+#### correct
 archive_file "C:\file.zip" do
   path 'C:\expand_here'
 end
@@ -864,22 +882,25 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Enabled | Yes | 14.0+
 
-The mac_os_x_userdefaults resource was renamed to macos_userdefaults when it was added to Chef Infra Client
-14.0. The new resource name should be used.
+The mac_os_x_userdefaults resource was renamed to macos_userdefaults when it was added to Chef Infra Client 14.0. The new resource name should be used.
 
-  # bad
-  mac_os_x_userdefaults 'full keyboard access to all controls' do
-    domain 'AppleKeyboardUIMode'
-    global true
-    value '2'
-  end
+### Examples
 
-  # good
-  macos_userdefaults 'full keyboard access to all controls' do
-    domain 'AppleKeyboardUIMode'
-    global true
-    value '2'
-  end
+```ruby
+#### incorrect
+mac_os_x_userdefaults 'full keyboard access to all controls' do
+  domain 'AppleKeyboardUIMode'
+  global true
+  value '2'
+end
+
+#### correct
+macos_userdefaults 'full keyboard access to all controls' do
+  domain 'AppleKeyboardUIMode'
+  global true
+  value '2'
+end
+```
 
 ### Configurable attributes
 
@@ -903,7 +924,7 @@ Use Chef InSpec for testing instead of the Minitest Handler cookbook pattern.
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 depends 'minitest-handler'
 ```
 
@@ -929,7 +950,7 @@ Use node['init_package'] to check for systemd instead of reading the contents of
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 ::File.open('/proc/1/comm').gets.chomp == 'systemd'
 ::File.open('/proc/1/comm').chomp == 'systemd'
 File.open('/proc/1/comm').gets.chomp == 'systemd'
@@ -941,7 +962,7 @@ IO.read('/proc/1/comm').gets.chomp == 'systemd'
 File.exist?('/proc/1/comm') && File.open('/proc/1/comm').chomp == 'systemd'
 only_if 'test -f /bin/systemctl && /bin/systemctl'
 
-# good
+#### correct
 node['init_package'] == 'systemd'
 only_if { node['init_package'] == 'systemd' }
 ```
@@ -968,10 +989,10 @@ Use `node.role?('foo')` to check if a node includes a role instead of `node['rol
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 node['roles'].include?('foo')
 
-# good
+#### correct
 node.role?('foo')
 ```
 
@@ -992,18 +1013,21 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Enabled | Yes | 14.0+
 
-The openssl_rsa_key resource was renamed to openssl_rsa_private_key in Chef
-Infra Client 14.0. The new resource name should be used.
+The openssl_rsa_key resource was renamed to openssl_rsa_private_key in Chef Infra Client 14.0. The new resource name should be used.
 
-  # bad
-  openssl_rsa_key '/etc/httpd/ssl/server.key' do
-    key_length 2048
-  end
+### Examples
 
-  # good
-  openssl_rsa_private_key '/etc/httpd/ssl/server.key' do
-    key_length 2048
-  end
+```ruby
+#### incorrect
+openssl_rsa_key '/etc/httpd/ssl/server.key' do
+  key_length 2048
+end
+
+#### correct
+openssl_rsa_private_key '/etc/httpd/ssl/server.key' do
+  key_length 2048
+end
+```
 
 ### Configurable attributes
 
@@ -1022,24 +1046,27 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Enabled | Yes | 14.4+
 
-The openssl_x509 resource was renamed to openssl_x509_certificate in Chef Infra Client 14.4.
-The new resource name should be used.
+The openssl_x509 resource was renamed to openssl_x509_certificate in Chef Infra Client 14.4. The new resource name should be used.
 
-  # bad
-  openssl_x509 '/etc/httpd/ssl/mycert.pem' do
-    common_name 'www.f00bar.com'
-    org 'Foo Bar'
-    org_unit 'Lab'
-    country 'US'
-  end
+### Examples
 
-  # good
-  openssl_x509_certificate '/etc/httpd/ssl/mycert.pem' do
-    common_name 'www.f00bar.com'
-    org 'Foo Bar'
-    org_unit 'Lab'
-    country 'US'
-  end
+```ruby
+#### incorrect
+openssl_x509 '/etc/httpd/ssl/mycert.pem' do
+  common_name 'www.f00bar.com'
+  org 'Foo Bar'
+  org_unit 'Lab'
+  country 'US'
+end
+
+#### correct
+openssl_x509_certificate '/etc/httpd/ssl/mycert.pem' do
+  common_name 'www.f00bar.com'
+  org 'Foo Bar'
+  org_unit 'Lab'
+  country 'US'
+end
+```
 
 ### Configurable attributes
 
@@ -1058,18 +1085,21 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Enabled | Yes | All Versions
 
-The osx_config_profile resource was renamed to osx_profile.
-The new resource name should be used.
+The osx_config_profile resource was renamed to osx_profile. The new resource name should be used.
 
-  # bad
-  osx_config_profile 'Install screensaver profile' do
-    profile 'screensaver/com.company.screensaver.mobileconfig'
-  end
+### Examples
 
-  # good
-  osx_profile 'Install screensaver profile' do
-    profile 'screensaver/com.company.screensaver.mobileconfig'
-  end
+```ruby
+#### incorrect
+osx_config_profile 'Install screensaver profile' do
+  profile 'screensaver/com.company.screensaver.mobileconfig'
+end
+
+#### correct
+osx_profile 'Install screensaver profile' do
+  profile 'screensaver/com.company.screensaver.mobileconfig'
+end
+```
 
 ### Configurable attributes
 
@@ -1093,7 +1123,7 @@ PowerShell is already set as the default guard interpreter for `powershell_scrip
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 powershell_script 'Create Directory' do
   code "New-Item -ItemType Directory -Force -Path C:\mydir"
   guard_interpreter :powershell_script
@@ -1104,7 +1134,7 @@ batch 'Create Directory' do
   guard_interpreter :powershell_script
 end
 
-# good
+#### correct
 powershell_script 'Create Directory' do
   code "New-Item -ItemType Directory -Force -Path C:\mydir"
 end
@@ -1131,16 +1161,15 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Enabled | No | 12.16+
 
-Use the powershell_package resource built into Chef Infra Client instead of the powershell_script
-resource to run Install-Package
+Use the powershell_package resource built into Chef Infra Client instead of the powershell_script resource to run Install-Package
 
- # good
+ #### correct
  powershell_package 'docker'
 
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 powershell_script 'Expand website' do
   code 'Install-Package -Name docker'
 end
@@ -1163,10 +1192,9 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Enabled | No | 14.0+
 
-Use the windows_feature resource built into Chef Infra Client 14+ instead of the powershell_script resource
-to run Install-WindowsFeature or Add-WindowsFeature
+Use the windows_feature resource built into Chef Infra Client 14+ instead of the powershell_script resource to run Install-WindowsFeature or Add-WindowsFeature
 
- # good
+ #### correct
  windows_feature 'Net-framework-Core' do
    action :install
    install_method :windows_feature_powershell
@@ -1175,7 +1203,7 @@ to run Install-WindowsFeature or Add-WindowsFeature
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 powershell_script 'Install Feature' do
   code 'Install-WindowsFeature -Name "Net-framework-Core"'
 end
@@ -1198,13 +1226,12 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Enabled | No | 15.0+
 
-Use the archive_file resource built into Chef Infra Client 15+ instead of using the powershell_script
-resource to run Expand-Archive
+Use the archive_file resource built into Chef Infra Client 15+ instead of using the powershell_script resource to run Expand-Archive
 
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 powershell_script 'Expand website' do
   code 'Expand-Archive "C:\\file.zip" -DestinationPath "C:\\inetpub\\wwwroot\\" -Force'
 end
@@ -1232,10 +1259,10 @@ When using properties in a custom resource you should use name_property not the 
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 property :bob, String, name_attribute: true
 
-# good
+#### correct
 property :bob, String, name_property: true
 ```
 
@@ -1262,13 +1289,13 @@ Provides should be set using the `provides` resource DSL method instead of inste
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 def initialize(*args)
   super
   @provides = :foo
 end
 
-# good
+#### correct
 provides :foo
 ```
 
@@ -1294,12 +1321,12 @@ The hostname, build_essential, chef_gem, and ohai_hint resources include 'compil
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 build_essential 'install build tools' do
  action :nothing
 end.run_action(:install)
 
-# good
+#### correct
 build_essential 'install build tools' do
  compile_time true
 end
@@ -1324,13 +1351,13 @@ Enabled | Yes | All Versions
 
 The resource name can now be specified using the `resource_name` helper instead of using the @resource_name variable in the resource provider initialize method. In general we recommend against writing HWRPs, but if HWRPs are necessary you should utilize as much of the resource DSL as possible.
 
- # good
+ #### correct
  resource_name :create
 
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 def initialize(*args)
   super
   @resource_name = :foo
@@ -1356,27 +1383,31 @@ Enabled | Yes | 12.1+
 
 There is no need to check if the chef_gem resource supports compile_time as Chef Infra Client 12.1 and later support the compile_time property.
 
-  # bad
-  chef_gem 'ultradns-sdk' do
-    compile_time true if Chef::Resource::ChefGem.method_defined?(:compile_time)
-    action :nothing
-  end
+### Examples
 
-  chef_gem 'ultradns-sdk' do
-    compile_time true if Chef::Resource::ChefGem.instance_methods(false).include?(:compile_time)
-    action :nothing
-  end
+```ruby
+#### incorrect
+chef_gem 'ultradns-sdk' do
+  compile_time true if Chef::Resource::ChefGem.method_defined?(:compile_time)
+  action :nothing
+end
 
-  chef_gem 'ultradns-sdk' do
-    compile_time true if respond_to?(:compile_time)
-    action :nothing
-  end
+chef_gem 'ultradns-sdk' do
+  compile_time true if Chef::Resource::ChefGem.instance_methods(false).include?(:compile_time)
+  action :nothing
+end
 
-  # good
-  chef_gem 'ultradns-sdk' do
-    compile_time true
-    action :nothing
-  end
+chef_gem 'ultradns-sdk' do
+  compile_time true if respond_to?(:compile_time)
+  action :nothing
+end
+
+#### correct
+chef_gem 'ultradns-sdk' do
+  compile_time true
+  action :nothing
+end
+```
 
 ### Configurable attributes
 
@@ -1395,13 +1426,12 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Enabled | Yes | 12.15+
 
-It is not longer necessary respond_to?(:foo) or defined?(foo) in metadata. This was used to support new metadata
-methods in Chef 11 and early versions of Chef 12.
+It is not longer necessary respond_to?(:foo) or defined?(foo) in metadata. This was used to support new metadata methods in Chef 11 and early versions of Chef 12.
 
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 chef_version '>= 13' if respond_to?(:chef_version)
 chef_version '>= 13' if defined?(chef_version)
 chef_version '>= 13' unless defined?(Ridley::Chef::Cookbook::Metadata)
@@ -1409,7 +1439,7 @@ if defined(chef_version)
   chef_version '>= 13'
 end
 
-# good
+#### correct
 chef_version '>= 13'
 ```
 
@@ -1435,12 +1465,12 @@ In Chef Infra Client 12+ is is no longer necessary to gate the use of the provid
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 provides :foo if respond_to?(:provides)
 
 provides :foo if defined? provides
 
-# good
+#### correct
 provides :foo
 ```
 
@@ -1466,10 +1496,10 @@ Chef Infra Client 12.5 introduced the resource_name method for resources. Many c
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 resource_name :foo if respond_to?(:resource_name)
 
-# good
+#### correct
 resource_name :foo
 ```
 
@@ -1490,14 +1520,12 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Enabled | No | All Versions
 
-set_or_return within a method should not be used to define property in a resource. Instead use
-the property method which properly validates and defines properties in a way that works with
-reporting and documentation functionality in Chef Infra Client
+set_or_return within a method should not be used to define property in a resource. Instead use the property method which properly validates and defines properties in a way that works with reporting and documentation functionality in Chef Infra Client
 
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
  def severity(arg = nil)
    set_or_return(
      :severity, arg,
@@ -1506,7 +1534,7 @@ reporting and documentation functionality in Chef Infra Client
    )
  end
 
-# good
+#### correct
 property :severity, String
 ```
 
@@ -1532,7 +1560,7 @@ Use the archive_file resource built into Chef Infra Client 15+ instead of the se
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 seven_zip_archive "C:\file.zip" do
   path 'C:\expand_here'
 end
@@ -1560,10 +1588,10 @@ Use the built-in `shell_out` helper available in Chef Infra Client 12.11+ instea
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 Mixlib::ShellOut.new('foo').run_command
 
-# good
+#### correct
 shell_out('foo')
 ```
 
@@ -1594,7 +1622,7 @@ Use the Chocolatey resources built into Chef Infra Client instead of shelling ou
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 execute 'install package foo' do
   command "choco install --source=artifactory \"foo\" -y --no-progress --ignore-package-exit-codes"
 end
@@ -1622,7 +1650,7 @@ The apt_repository resource allows setting up PPAs without using the full URL to
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
   apt_repository 'atom-ppa' do
     uri 'http://ppa.launchpad.net/webupd8team/atom/ubuntu'
     components ['main']
@@ -1630,7 +1658,7 @@ The apt_repository resource allows setting up PPAs without using the full URL to
     key 'C2518248EEA14886'
   end
 
-# good
+#### correct
   apt_repository 'atom-ppa' do
     uri 'ppa:webupd8team/atom'
     components ['main']
@@ -1658,15 +1686,19 @@ Enabled | Yes | 14.0+
 
 The sysctl_param resource was renamed to sysctl when it was added to Chef Infra Client 14.0. The new resource name should be used.
 
-  # bad
-  sysctl_param 'fs.aio-max-nr' do
-    value '1048576'
-  end
+### Examples
 
-  # good
-  sysctl 'fs.aio-max-nr' do
-    value '1048576'
-  end
+```ruby
+#### incorrect
+sysctl_param 'fs.aio-max-nr' do
+  value '1048576'
+end
+
+#### correct
+sysctl 'fs.aio-max-nr' do
+  value '1048576'
+end
+```
 
 ### Configurable attributes
 
@@ -1690,7 +1722,7 @@ Don't depend on cookbooks made obsolete by Chef Infra Client 14+. These communit
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 depends 'build-essential'
 depends 'chef_handler'
 depends 'chef_hostname'
@@ -1722,7 +1754,7 @@ Chef Infra Client 12.4+ includes mixlib/shellout automatically in resources and 
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 require 'mixlib/shellout'
 ```
 
@@ -1748,12 +1780,12 @@ Use the build_essential resource from the build-essential cookbook 5.0+ or Chef 
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 depends 'build-essential'
 include_recipe 'build-essential::default'
 include_recipe 'build-essential'
 
-# good
+#### correct
 build_essential 'install compilation tools'
 ```
 
@@ -1779,14 +1811,14 @@ Pass an array of packages to package resources instead of iterating over an arra
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 %w(bmon htop vim curl).each do |pkg|
   package pkg do
     action :install
   end
 end
 
-# good
+#### correct
 package %w(bmon htop vim curl)
 ```
 
@@ -1812,10 +1844,10 @@ Instead of using require with a File.expand_path and __FILE__ use the simpler re
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 require File.expand_path('../../libraries/helpers', __FILE__)
 
-# good
+#### correct
 require_relative '../libraries/helpers'
 ```
 
@@ -1841,7 +1873,7 @@ The zypper_repo resource was renamed zypper_repository when it was added to Chef
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 zypper_repo 'apache' do
   baseurl 'http://download.opensuse.org/repositories/Apache'
   path '/openSUSE_Leap_42.2'
@@ -1849,7 +1881,7 @@ zypper_repo 'apache' do
   priority '100'
 end
 
-# good
+#### correct
 zypper_repository 'apache' do
   baseurl 'http://download.opensuse.org/repositories/Apache'
   path '/openSUSE_Leap_42.2'
@@ -1880,7 +1912,7 @@ whyrun_supported? no longer needs to be set to true as that is the default in Ch
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 def whyrun_supported?
  true
 end
@@ -1905,21 +1937,25 @@ Enabled | No | 15.0+
 
 Chef Infra Client 15.0 and later includes a windows_uac resource that should be used to set Windows UAC values instead of setting registry keys directly.
 
-  # bad
-  registry_key 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System' do
-    values [{ name: 'EnableLUA', type: :dword, data: 0 },
-            { name: 'PromptOnSecureDesktop', type: :dword, data: 0 },
-            { name: 'ConsentPromptBehaviorAdmin', type: :dword, data: 0 },
-           ]
-    action :create
-  end
-
- # good
+ #### correct
  windows_uac 'Set Windows UAC settings' do
    enable_uac false
    prompt_on_secure_desktop true
    consent_behavior_admins :no_prompt
  end
+
+### Examples
+
+```ruby
+#### incorrect
+registry_key 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System' do
+  values [{ name: 'EnableLUA', type: :dword, data: 0 },
+          { name: 'PromptOnSecureDesktop', type: :dword, data: 0 },
+          { name: 'ConsentPromptBehaviorAdmin', type: :dword, data: 0 },
+         ]
+  action :create
+end
+```
 
 ### Configurable attributes
 
@@ -1938,19 +1974,23 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Enabled | No | 14.0+
 
-The sc_windows resource from the sc cookbook allowed for the creation of windows services on legacy Chef Infra Client releases. Chef Infra Client 14.0 and later includes :create, :delete, and :configure actions without the need for additional cookbook dependencies. See the windows_service documentation at https://docs.chef.io/resource_windows_service.html for additional details on creating services with the windows_service resource.
+The sc_windows resource from the sc cookbook allowed for the creation of windows services on legacy Chef Infra Client releases. Chef Infra Client 14.0 and later includes :create, :delete, and :configure actions without the need for additional cookbook dependencies. See the windows_service documentation at https://docs.chef.io/resources/windows_service for additional details on creating services with the windows_service resource.
 
-  # bad
-  sc_windows 'chef-client' do
-    path "C:\\opscode\\chef\\bin"
-    action :create
-  end
+### Examples
 
-  # good
-  windows_service 'chef-client' do
-    action :create
-    binary_path_name "C:\\opscode\\chef\\bin"
-  end
+```ruby
+#### incorrect
+sc_windows 'chef-client' do
+  path "C:\\opscode\\chef\\bin"
+  action :create
+end
+
+#### correct
+windows_service 'chef-client' do
+  action :create
+  binary_path_name "C:\\opscode\\chef\\bin"
+end
+```
 
 ### Configurable attributes
 
@@ -1974,7 +2014,7 @@ Use the archive_file resource built into Chef Infra Client 15+ instead of the wi
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 windows_zipfile 'C:\\files\\' do
   source 'C:\\Temp\\file.zip'
 end
@@ -2002,7 +2042,7 @@ Use the archive_file resource built into Chef Infra Client 15+ instead of the zi
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 zipfile "C:\file.zip" do
   path 'C:\expand_here'
 end

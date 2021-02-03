@@ -6,19 +6,19 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Enabled | Yes | All Versions
 
-A resource guard (not_if/only_if) that is a string should not be wrapped in {}. Wrapping a guard string in {} causes it be executed as Ruby code which will always returns true instead of a shell command that will actually run.
+A resource guard (not_if/only_if) that is a string should not be wrapped in {}. Wrapping a guard string in {} causes it to be executed as Ruby code which will always returns true instead of a shell command that will actually run.
 
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 template '/etc/foo' do
   mode '0644'
   source 'foo.erb'
   only_if { 'test -f /etc/foo' }
 end
 
-# good
+#### correct
 template '/etc/foo' do
   mode '0644'
   source 'foo.erb'
@@ -48,10 +48,10 @@ Use raise to force Chef Infra Client to fail instead of using Chef::Application.
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 Chef::Application.fatal!('Something horrible happened!')
 
-# good
+#### correct
 raise "Something horrible happened!"
 ```
 
@@ -77,7 +77,7 @@ Don't use Ruby to shellout in a only_if / not_if conditional when you can just s
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 cookbook_file '/logs/foo/error.log' do
   source 'error.log'
   only_if { system('wget https://www.bar.com/foobar.txt -O /dev/null') }
@@ -88,7 +88,7 @@ cookbook_file '/logs/foo/error.log' do
   only_if { shell_out('wget https://www.bar.com/foobar.txt -O /dev/null').exitstatus == 0 }
 end
 
-# good
+#### correct
 cookbook_file '/logs/foo/error.log' do
   source 'error.log'
   only_if 'wget https://www.bar.com/foobar.txt -O /dev/null'
@@ -119,7 +119,7 @@ increases load on the Chef Infra Server."
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 node.save
 ```
 
@@ -145,13 +145,13 @@ dnf_package does not support the allow_downgrades property
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 dnf_package 'nginx' do
   version '1.2.3'
   allow_downgrades true
 end
 
-# good
+#### correct
 dnf_package 'nginx' do
   version '1.2.3'
 end
@@ -179,13 +179,13 @@ Libraries should be injected into the Chef::DSL::Recipe class and not Chef::Reci
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 ::Chef::Recipe.send(:include, Filebeat::Helpers)
 ::Chef::Provider.send(:include, Filebeat::Helpers)
 ::Chef::Recipe.include Filebeat::Helpers
 ::Chef::Provider.include Filebeat::Helpers
 
-# good
+#### correct
 ::Chef::DSL::Recipe.send(:include, Filebeat::Helpers) # covers previous Recipe & Provider classes
 ```
 
@@ -230,13 +230,13 @@ Valid notification timings are :immediately, :immediate (alias for :immediately)
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 
 template '/etc/www/configures-apache.conf' do
   notifies :restart, 'service[apache]', :nope
 end
 
-# good
+#### correct
 
 template '/etc/www/configures-apache.conf' do
   notifies :restart, 'service[apache]', :immediately
@@ -265,11 +265,11 @@ Pass valid platform families to the platform_family? helper.
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 platform_family?('redhat')
 platform_family?('sles')
 
-# bad
+#### incorrect
 platform_family?('rhel')
 platform_family?('suse')
 ```
@@ -296,7 +296,7 @@ Use valid platform family values in case statements.
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 case node['platform_family']
 when 'redhat'
   puts "I'm on a RHEL-like system"
@@ -325,12 +325,12 @@ Pass valid platforms to the platform? helper.
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 platform?('darwin')
 platform?('rhel)
 platform?('sles')
 
-# good
+#### correct
 platform?('mac_os_x')
 platform?('redhat)
 platform?('suse')
@@ -358,7 +358,7 @@ Use valid platform values in case statements.
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 case node['platform']
 when 'rhel'
   puts "I'm on a Red Hat system!"
@@ -387,11 +387,11 @@ metadata.rb supports methods should contain valid platforms.
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 supports 'darwin'
 supports 'mswin'
 
-# good
+#### correct
 supports 'mac_os_x'
 supports 'windows'
 ```
@@ -418,13 +418,13 @@ Pass valid platforms families to the value_for_platform_family helper.
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 value_for_platform_family(
   %w(rhel sles) => 'foo',
   %w(mac) => 'foo'
 )
 
-# good
+#### correct
 value_for_platform_family(
   %w(rhel suse) => 'foo',
   %w(mac_os_x) => 'foo'
@@ -453,12 +453,12 @@ Pass valid platforms to the value_for_platform helper.
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 value_for_platform(
   %w(rhel mac_os_x_server) => { 'default' => 'foo' },
   %w(sles) => { 'default' => 'bar' }
 )
-# good
+#### correct
 value_for_platform(
   %w(redhat mac_os_x) => { 'default' => 'foo' },
   %w(opensuseleap) => { 'default' => 'bar' }
@@ -487,10 +487,10 @@ Cookbook metadata.rb version field should follow X.Y.Z version format.
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 version '1.2.3.4'
 
-# good
+#### correct
 version '1.2.3'
 ```
 
@@ -516,10 +516,10 @@ When setting a node attribute as the default value for a custom resource propert
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 property :Something, String, default: node['hostname']
 
-# good
+#### correct
 property :Something, String, default: lazy { node['hostname'] }
 ```
 
@@ -545,14 +545,14 @@ Using `lazy {}` within a resource guard (not_if/only_if) will cause failures and
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 template '/etc/foo' do
   mode '0644'
   source 'foo.erb'
   only_if { lazy { ::File.exist?('/etc/foo')} }
 end
 
-# good
+#### correct
 template '/etc/foo' do
   mode '0644'
   source 'foo.erb'
@@ -582,14 +582,14 @@ The macos_userdefaults resource prior to Chef Infra Client 16.3 would silently c
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 macos_userdefaults 'set a value' do
   global true
   key 'key'
   type 'boolean'
 end
 
-# good
+#### correct
 macos_userdefaults 'set a value' do
   global true
   key 'key'
@@ -619,12 +619,12 @@ When using the value_for_platform helper you must include a hash of possible pla
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 value_for_platform(
   %w(redhat oracle) => 'baz'
 )
 
-# good
+#### correct
 value_for_platform(
   %w(redhat oracle) => {
     '5' => 'foo',
@@ -688,10 +688,10 @@ force_override levels may need to be used in recipe code.
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 node.normal['foo'] = true
 
-# good
+#### correct
 node.default['foo'] = true
 node.override['foo'] = true
 node.force_default['foo'] = true
@@ -726,10 +726,10 @@ force_override levels may need to be used in recipe code.
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 node.normal_unless['foo'] = true
 
-# good
+#### correct
 node.default_unless['foo'] = true
 node.override_unless['foo'] = true
 node.force_default_unless['foo'] = true
@@ -754,7 +754,7 @@ When notifying or subscribing an action within a resource the action should alwa
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 execute 'some command' do
   notifies 'restart', 'service[httpd]', 'delayed'
 end
@@ -763,7 +763,7 @@ execute 'some command' do
   subscribes 'restart', 'service[httpd]', 'delayed'
 end
 
-# good
+#### correct
 execute 'some command' do
   notifies :restart, 'service[httpd]', 'delayed'
 end
@@ -795,12 +795,12 @@ Don't represent file modes as Strings containing octal values.
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 file '/etc/some_file' do
   mode '0o755'
 end
 
-# good
+#### correct
 file '/etc/some_file' do
   mode '0755'
 end
@@ -825,7 +825,7 @@ Enabled | No | All Versions
 
 The openSSL cookbook provides a deprecated `secure_password` helper in the `Opscode::OpenSSL::Password` class, which should not longer be used. This helper would generate a random password that would be used when a data bag or attribute was no present. The practice of generating passwords to be stored on the node is bad security as it exposes the password to anyone that can view the nodes, and deleting a node deletes the password. Passwords should be retrieved from a secure source for use in cookbooks.
 
-  # bad
+  #### incorrect
   ::Chef::Recipe.send(:include, Opscode::OpenSSL::Password)
   basic_auth_password = secure_password
 
@@ -848,7 +848,7 @@ Enabled | No | All Versions
 
 Use the `file` or `directory` resources built into Chef Infra Client with the :delete action to remove files/directories instead of using Remove-Item in a powershell_script resource
 
- # good
+ #### correct
  file 'C:\Windows\foo\bar.txt' do
    action :delete
  end
@@ -856,7 +856,7 @@ Use the `file` or `directory` resources built into Chef Infra Client with the :d
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 powershell_script 'Cleanup old files' do
   code 'Remove-Item C:\Windows\foo\bar.txt'
   only_if { ::File.exist?('C:\\Windows\\foo\\bar.txt') }
@@ -885,11 +885,11 @@ Resource properties or attributes should always define a type to help users unde
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 property :size, regex: /^\d+[KMGTP]$/
 attribute :size, regex: /^\d+[KMGTP]$/
 
-# good
+#### correct
 property :size, String, regex: /^\d+[KMGTP]$/
 attribute :size, kind_of: String, regex: /^\d+[KMGTP]$/
 ```
@@ -918,13 +918,13 @@ Infra Client
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 service 'foo' do
   running true
   action [:start, :enable]
 end
 
-# good
+#### correct
 service 'foo' do
   action [:start, :enable]
 end
@@ -947,18 +947,17 @@ Enabled by default | Supports autocorrection | Target Chef Version
 --- | --- | ---
 Enabled | No | All Versions
 
-Use name properties instead of setting the name property in a resource. Setting the name property
-directly causes notification and reporting issues.
+Use name properties instead of setting the name property in a resource. Setting the name property directly causes notification and reporting issues.
 
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 service 'foo' do
  name 'bar'
 end
 
-# good
+#### correct
 service 'foo' do
  service_name 'bar'
 end
@@ -986,12 +985,12 @@ The :nothing action is often typo'd as :none
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 service 'foo' do
  action :none
 end
 
-# good
+#### correct
 service 'foo' do
  action :nothing
 end
@@ -1019,10 +1018,10 @@ Scope file exist to access the correct File class by using ::File.exist? not Fil
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 not_if { File.exist?('/etc/foo/bar') }
 
-# good
+#### correct
 not_if { ::File.exist?('/etc/foo/bar') }
 ```
 
@@ -1050,7 +1049,7 @@ Use a service resource to start and stop services
 #### when command starts a service
 
 ```ruby
-# bad
+#### incorrect
 command "/etc/init.d/mysql start"
 command "/sbin/service/memcached start"
 ```
@@ -1077,10 +1076,10 @@ Versions used in metadata.rb supports calls should be floats not integers.
 ### Examples
 
 ```ruby
-# bad
+#### incorrect
 supports 'redhat', '> 8'
 
-# good
+#### correct
 supports 'redhat', '> 8.0'
 ```
 
@@ -1108,10 +1107,10 @@ Use file_cache_path rather than hard-coding tmp paths
 #### downloading a large file into /tmp/
 
 ```ruby
-# bad
+#### incorrect
 remote_file '/tmp/large-file.tar.gz' do
 
-# good
+#### correct
 remote_file "#{Chef::Config[:file_cache_path]}/large-file.tar.gz" do
 ```
 
