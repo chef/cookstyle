@@ -19,9 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module Modernize
-        # Over the course of years there have been many different valid community site / Supermarket
-        # URLs to use in a cookbook's Berksfile. These old URLs continue to function via redirects,
-        # but should be updated to point to the latest Supermarket URL.
+        # There have been many different valid community site / Supermarket URLs to use in a cookbook's Berksfile. These old URLs continue to function via redirects, but should be updated to point to the latest Supermarket URL.
         #
         # @example
         #

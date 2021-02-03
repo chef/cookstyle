@@ -19,7 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module Modernize
-        # Instead of using the execute or powershell_script resources to to run the `tzutil` command, use
+        # Instead of using the execute or powershell_script resources to run the `tzutil` command, use
         # Chef Infra Client's built-in timezone resource which is available in Chef Infra Client 14.6 and later.
         #
         #   #### incorrect
