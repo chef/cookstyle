@@ -256,6 +256,7 @@ begin
       require 'yaml' unless defined?(YAML)
       all_cops = RuboCop::Cop::Cop.registry
       chef_departments = all_cops.departments.select { |d| d.start_with?('Chef') }.sort
+      config = RuboCop::ConfigLoader.load_file('config/default.yml')
 
       YARD::Registry.load!
       # for each department starting with "Chef"
@@ -271,6 +272,12 @@ begin
             cop_data['department'] = cop.department.to_s
             cop_data['description'] = code_object.docstring.to_s unless code_object.docstring.blank?
             cop_data['examples'] = examples(code_object)
+
+            config_data = config.for_cop(cop)
+            cop_data['version_added'] = config_data["VersionAdded"]
+            cop_data['enabled'] = config_data["Enabled"]
+            cop_data['excluded_file_paths'] = config_data["Exclude"]
+            cop_data['included_file_paths'] = config_data["Include"]
 
             write_yml(cop_data)
           end
