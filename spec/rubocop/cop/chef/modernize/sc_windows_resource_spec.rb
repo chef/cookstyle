@@ -24,7 +24,7 @@ describe RuboCop::Cop::Chef::Modernize::WindowsScResource, :config do
   it 'registers an offense when using the sc_windows resource' do
     expect_offense(<<~RUBY)
       sc_windows 'chef-client' do
-      ^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 14.0 and later includes :create, :delete, and :configure actions without the need for the sc cookbook dependency. See the windows_service documentation at https://docs.chef.io/resource_windows_service.html for additional details.
+      ^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 14.0 and later includes :create, :delete, and :configure actions without the need for the sc cookbook dependency. See the windows_service documentation at https://docs.chef.io/resources/windows_service for additional details.
         path "C:\\opscode\\chef\\bin"
         action :create
       end

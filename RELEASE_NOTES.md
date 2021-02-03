@@ -1791,7 +1791,7 @@ The `PoiseArchiveUsage` cop detects the `poise_archive` resource in cookbooks. C
 
 #### ChefModernize/Definitions
 
-The `Definitions` cop detects cookbooks that include Definitions. We highly recommend replacing legacy Definitions with Custom Resources. Definitions are not *currently* deprecated, but we do plan to deprecate this functionality in the future. See [Converting Definitions to Custom Resources](https://docs.chef.io/definitions.html) for more information on the benefits of Custom Resources and how to convert legacy Definitions.
+The `Definitions` cop detects cookbooks that include Definitions. We highly recommend replacing legacy Definitions with Custom Resources. Definitions are not *currently* deprecated, but we do plan to deprecate this functionality in the future. See [Converting Definitions to Custom Resources](https://docs.chef.io/definitions/) for more information on the benefits of Custom Resources and how to convert legacy Definitions.
 
 `Enabled by default`: True
 
@@ -1892,7 +1892,7 @@ The `NotifiesActionNotSymbol` cop detects resources that notify another resource
 
 #### ChefEffortless/CookbookUsesRoles
 
-`CookbookUsesRoles` is a disabled by default cop that helps users migrating to the Chef Infra Effortless pattern by detecting cookbooks that use Chef Infra Roles.
+`CookbookUsesRoles` is disabled by default cop that helps users migrating to the Chef Infra Effortless pattern by detecting cookbooks that use Chef Infra Roles.
 
 `Enabled by default`: False
 
@@ -2009,7 +2009,7 @@ The `UnnecessaryNameProperty` cop detects resources that define a property with 
 - `ChefDeprecations/UserDeprecatedSupportsProperty` now supports autocorrect
 - `ChefDeprecations/UseInlineResourcesDefined` now detects `use_inline_resources if respond_to?(:use_inline_resources)`
 - `CustomResourceWithAllowedActions` now detects unnecessary actions in LWRPs as well
-- The docs at [https://github.com/chef/cookstyle/blob/master/docs/cops.md](https://github.com/chef/cookstyle/blob/master/docs/cops.md) are now auto generated on each pull request merge
+- The docs at [https://github.com/chef/cookstyle/blob/master/docs/cops.md](https://github.com/chef/cookstyle/blob/master/docs/cops.md) are now auto-generated on each pull request merge
 
 ## Cookstyle 5.7
 
@@ -2109,7 +2109,7 @@ The `ChefModernize/DependsOnZypperCookbook` cop detects a cookbook that depends 
 
 #### ChefModernize/ExecuteTzUtil
 
-The `ChefModernize/ExecuteTzUtil` cop detects a cookbook that uses an `execute` resource to shell out to the `tzutil.exe` command. Chef Infra Client 14.6 and later ships with the [timezone resource](https://docs.chef.io/resource_timezone.html), which should be used instead of `tzutil`.
+The `ChefModernize/ExecuteTzUtil` cop detects a cookbook that uses an `execute` resource to shell out to the `tzutil.exe` command. Chef Infra Client 14.6 and later ships with the [timezone resource](https://docs.chef.io/resources/timezone/), which should be used instead of `tzutil`.
 
 `Enabled by default`: True
 
@@ -2480,10 +2480,10 @@ end
 
 The `ShellOutToChocolatey` cop detects the use of `powershell_script` or `execute` resources to shell out to Chocolatey's `choco` command line utility. Chef Infra Client ships with multiple chocolatey resources, which should be used instead to install packages, configure features, and setup sources:
 
-- [chocolatey_config](https://docs.chef.io/resource_chocolatey_config.html)
-- [chocolatey_feature](https://docs.chef.io/resource_chocolatey_feature.html)
-- [chocolatey_package](https://docs.chef.io/resource_chocolatey_package.html)
-- [chocolatey_source](https://docs.chef.io/resource_chocolatey_source.html)
+- [chocolatey_config](https://docs.chef.io/resources/chocolatey_config)
+- [chocolatey_feature](https://docs.chef.io/resources/chocolatey_feature)
+- [chocolatey_package](https://docs.chef.io/resources/chocolatey_package)
+- [chocolatey_source](https://docs.chef.io/resources/chocolatey_source)
 
 `Enabled by default`: True
 
@@ -2602,7 +2602,7 @@ The same version comparison could be done using Ohai attributes
 
 #### Chef/WindowsZipfileUsage
 
-The `WindowsZipfileUsage` detects the usage of the `windows_zipfile` resource in the [Windows](https://supermarket.chef.io/cookbooks/windows) cookbook. This is one of the remaining resources in the windows cookbook that is not present in Chef Infra Client itself. In Chef Infra Client 15.0 we introduced the [archive_file](https://docs.chef.io/resource_archive_file.html) resource, which is a cross platform resource for uncompressing archives. This resource uses an ultra-fast compression library with support for multiple compression formats, and should be used instead of the legacy `windows_zipfile` resource.
+The `WindowsZipfileUsage` detects the usage of the `windows_zipfile` resource in the [Windows](https://supermarket.chef.io/cookbooks/windows) cookbook. This is one of the remaining resources in the windows cookbook that is not present in Chef Infra Client itself. In Chef Infra Client 15.0 we introduced the [archive_file](https://docs.chef.io/resources/archive_file) resource, which is a cross-platform resource for uncompressing archives. This resource uses an ultra-fast compression library with support for multiple compression formats, and should be used instead of the legacy `windows_zipfile` resource.
 
 `Enabled by default`: True
 
