@@ -21,6 +21,8 @@ module RuboCop
       module Modernize
         # There is no need to check if the chef_gem resource supports compile_time as Chef Infra Client 12.1 and later support the compile_time property.
         #
+        # @example
+        #
         #   #### incorrect
         #   chef_gem 'ultradns-sdk' do
         #     compile_time true if Chef::Resource::ChefGem.method_defined?(:compile_time)

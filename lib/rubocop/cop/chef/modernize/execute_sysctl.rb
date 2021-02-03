@@ -21,6 +21,8 @@ module RuboCop
       module Modernize
         # Chef Infra Client 14.0 and later includes a sysctl resource that should be used to idempotently load sysctl values instead of templating files and using execute to load them.
         #
+        # @example
+        #
         #   #### incorrect
         #   file '/etc/sysctl.d/ipv4.conf' do
         #     notifies :run, 'execute[sysctl -p /etc/sysctl.d/ipv4.conf]', :immediately

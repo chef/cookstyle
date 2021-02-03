@@ -19,8 +19,9 @@ module RuboCop
   module Cop
     module Chef
       module Modernize
-        # Instead of using the execute resource to run the `apt-get update` use Chef Infra Client's built-n
-        # apt_update resource which is available in Chef Infra Client 12.7 and later.
+        # Instead of using the execute resource to run the `apt-get update` use Chef Infra Client's built-n apt_update resource which is available in Chef Infra Client 12.7 and later.
+        #
+        # @example
         #
         #   #### incorrect
         #   execute 'apt-get update'

@@ -19,8 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module Modernize
-        # Use the windows_feature resource built into Chef Infra Client 14+ instead of the powershell_script resource
-        # to run Install-WindowsFeature or Add-WindowsFeature
+        # Use the windows_feature resource built into Chef Infra Client 14+ instead of the powershell_script resource to run Install-WindowsFeature or Add-WindowsFeature
         #
         # @example
         #

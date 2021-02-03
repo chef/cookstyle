@@ -20,8 +20,7 @@ module RuboCop
   module Cop
     module Chef
       module Correctness
-        # Use name properties instead of setting the name property in a resource. Setting the name property
-        # directly causes notification and reporting issues.
+        # Use name properties instead of setting the name property in a resource. Setting the name property directly causes notification and reporting issues.
         #
         # @example
         #

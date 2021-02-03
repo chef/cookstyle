@@ -19,8 +19,9 @@ module RuboCop
   module Cop
     module Chef
       module Modernize
-        # The openssl_rsa_key resource was renamed to openssl_rsa_private_key in Chef
-        # Infra Client 14.0. The new resource name should be used.
+        # The openssl_rsa_key resource was renamed to openssl_rsa_private_key in Chef Infra Client 14.0. The new resource name should be used.
+        #
+        # @example
         #
         #   #### incorrect
         #   openssl_rsa_key '/etc/httpd/ssl/server.key' do

@@ -19,8 +19,9 @@ module RuboCop
   module Cop
     module Chef
       module Modernize
-        # The openssl_x509 resource was renamed to openssl_x509_certificate in Chef Infra Client 14.4.
-        # The new resource name should be used.
+        # The openssl_x509 resource was renamed to openssl_x509_certificate in Chef Infra Client 14.4. The new resource name should be used.
+        #
+        # @example
         #
         #   #### incorrect
         #   openssl_x509 '/etc/httpd/ssl/mycert.pem' do

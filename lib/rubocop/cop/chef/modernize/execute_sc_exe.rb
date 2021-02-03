@@ -21,6 +21,8 @@ module RuboCop
       module Modernize
         # Chef Infra Client 14.0 and later includes :create, :delete, and :configure actions with the full idempotency of the windows_service resource. See the windows_service documentation at https://docs.chef.io/resources/windows_service for additional details on creating services with the windows_service resource.
         #
+        # @example
+        #
         #   #### incorrect
         #   execute "Delete chef-client service" do
         #     command "sc.exe delete chef-client"

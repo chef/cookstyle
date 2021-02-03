@@ -21,6 +21,8 @@ module RuboCop
       module Modernize
         # Chef Infra Client 15.5 and later include a chef_sleep resource that should be used to sleep between executing resources if necessary instead of using the bash or execute resources to run the sleep command.
         #
+        # @example
+        #
         #   #### incorrect
         #   execute "sleep 60" do
         #     command "sleep 60"

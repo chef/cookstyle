@@ -21,6 +21,8 @@ module RuboCop
       module RedundantCode
         # There is no need to pass `distribution node['lsb']['codename']` to an apt_repository resource as this is done automatically by the apt_repository resource.
         #
+        # @example
+        #
         #   #### incorrect
         #   apt_repository 'my repo' do
         #     uri 'http://packages.example.com/debian'

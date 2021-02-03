@@ -21,6 +21,8 @@ module RuboCop
       module Modernize
         # The sc_windows resource from the sc cookbook allowed for the creation of windows services on legacy Chef Infra Client releases. Chef Infra Client 14.0 and later includes :create, :delete, and :configure actions without the need for additional cookbook dependencies. See the windows_service documentation at https://docs.chef.io/resources/windows_service for additional details on creating services with the windows_service resource.
         #
+        # @example
+        #
         #   #### incorrect
         #   sc_windows 'chef-client' do
         #     path "C:\\opscode\\chef\\bin"

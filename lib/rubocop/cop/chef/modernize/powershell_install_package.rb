@@ -19,8 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module Modernize
-        # Use the powershell_package resource built into Chef Infra Client instead of the powershell_script
-        # resource to run Install-Package
+        # Use the powershell_package resource built into Chef Infra Client instead of the powershell_script resource to run Install-Package
         #
         # @example
         #

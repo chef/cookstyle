@@ -51,7 +51,6 @@ module RuboCop
         #
         # @example
         #
-        #
         #   #### incorrect
         #   property :config_file, String, required: true, name_property: true
         #   attribute :config_file, String, required: true, name_attribute: true

@@ -21,6 +21,8 @@ module RuboCop
       module RedundantCode
         # Every Chef Infra resource already includes a sensitive property with a default value of false.
         #
+        # @example
+        #
         # #### incorrect
         # property :sensitive, [true, false], default: false
         #
