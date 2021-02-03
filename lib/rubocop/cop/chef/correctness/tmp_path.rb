@@ -29,7 +29,6 @@ module RuboCop
         #   #### correct
         #   remote_file "#{Chef::Config[:file_cache_path]}/large-file.tar.gz" do
         #
-        #
         class TmpPath < Base
           MSG = 'Use file_cache_path rather than hard-coding tmp paths'
           RESTRICT_ON_SEND = [:remote_file].freeze

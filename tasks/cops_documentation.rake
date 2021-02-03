@@ -271,6 +271,9 @@ begin
             cop_data['name'] = cop.cop_name
             cop_data['department'] = cop.department.to_s
             cop_data['description'] = code_object.docstring.to_s unless code_object.docstring.blank?
+            cop_data['autocorrection'] = cop.support_autocorrect?
+            cop_data['target_chef_version'] = cop.respond_to?(:required_minimum_chef_version) ? "#{cop.required_minimum_chef_version}+" : 'All Versions'
+
             cop_data['examples'] = examples(code_object)
 
             config_data = config.for_cop(cop)
