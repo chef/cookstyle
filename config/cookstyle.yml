@@ -2807,3 +2807,7 @@ Style/CollectionCompact:
 # eventually these constants are going to break code so fix them
 Lint/DeprecatedConstants:
   Enabled: true
+
+# always turn on deprecation cops from rubocop
+Lint/ErbNewArguments:
+  Enabled: true
