@@ -236,7 +236,7 @@ begin
   desc 'Generate yaml format docs of all Chef cops for docs.chef.io'
   task generate_cops_yml_documentation: :yard_for_generate_documentation do
     def write_yml(data)
-      file_name = "#{Dir.pwd}/docs-chef-io/data/cookstyle/cops_#{data['name'].to_s.downcase.tr('/', '_')}.yml"
+      file_name = "#{Dir.pwd}/docs-chef-io/data/cookstyle/cops_#{data['full_name'].to_s.downcase.tr('/', '_')}.yml"
       File.open(file_name, 'w') do |file|
         puts "* generated #{file_name}"
         file.write(YAML.dump(data))
@@ -263,12 +263,14 @@ begin
       chef_departments.each do |department|
         # for each cop in the department from the list of all cops
         cops_of_department(all_cops, department).each do |cop|
+          current_dir = File.join(Dir.pwd + File::SEPARATOR)
           YARD::Registry.all(:class).detect do |code_object|
             # find the yard data that matches our cop
             next unless RuboCop::Cop::Badge.for(code_object.to_s) == cop.badge
 
             cop_data = {}
-            cop_data['name'] = cop.cop_name
+            cop_data['short_name'] = cop.cop_name.split('/').last
+            cop_data['full_name'] = cop.cop_name
             cop_data['department'] = cop.department.to_s
             cop_data['description'] = code_object.docstring.to_s unless code_object.docstring.blank?
             cop_data['autocorrection'] = cop.support_autocorrect?
@@ -279,8 +281,8 @@ begin
             config_data = config.for_cop(cop)
             cop_data['version_added'] = config_data['VersionAdded']
             cop_data['enabled'] = config_data['Enabled']
-            cop_data['excluded_file_paths'] = config_data['Exclude']
-            cop_data['included_file_paths'] = config_data['Include']
+            cop_data['excluded_file_paths'] = config_data['Exclude'].map { |x| x.delete_prefix(current_dir) } if config_data['Exclude']
+            cop_data['included_file_paths'] = config_data['Include'].map { |x| x.delete_prefix(current_dir) } if config_data['Include']
 
             write_yml(cop_data)
           end
