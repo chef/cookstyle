@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.7.4 -->
-## [v7.7.4](https://github.com/chef/cookstyle/tree/v7.7.4) (2021-02-10)
+ <!-- latest_release 7.7.5 -->
+## [v7.7.5](https://github.com/chef/cookstyle/tree/v7.7.5) (2021-02-11)
 
 #### Merged Pull Requests
-- Enable Lint/ErbNewArguments cop [#828](https://github.com/chef/cookstyle/pull/828) ([tas50](https://github.com/tas50))
+- Improve the yaml we generate [#829](https://github.com/chef/cookstyle/pull/829) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.7.2 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Improve the yaml we generate [#829](https://github.com/chef/cookstyle/pull/829) ([tas50](https://github.com/tas50)) <!-- 7.7.5 -->
 - Enable Lint/ErbNewArguments cop [#828](https://github.com/chef/cookstyle/pull/828) ([tas50](https://github.com/tas50)) <!-- 7.7.4 -->
 - Generate yaml docs pages for each cop on each PR merge [#826](https://github.com/chef/cookstyle/pull/826) ([tas50](https://github.com/tas50)) <!-- 7.7.3 -->
 <!-- release_rollup -->
