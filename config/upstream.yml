@@ -203,6 +203,13 @@ Bundler/OrderedGems:
 
 #################### Gemspec ###############################
 
+Gemspec/DateAssignment:
+  Description: 'Checks that `date =` is not used in gemspec file, it is set automatically when the gem is packaged.'
+  Enabled: pending
+  VersionAdded: '1.10'
+  Include:
+    - '**/*.gemspec'
+
 Gemspec/DuplicatedAssignment:
   Description: 'An attribute assignment method calls should be listed only once in a gemspec.'
   Enabled: true
@@ -1446,23 +1453,31 @@ Lint/Debugger:
   Description: 'Check for debugger calls.'
   Enabled: true
   VersionAdded: '0.14'
-  VersionChanged: '0.49'
-  DebuggerReceivers:
-    - binding
-    - Kernel
-    - Pry
+  VersionChanged: '1.10'
+  DebuggerReceivers: [] # deprecated
   DebuggerMethods:
-    - debugger
-    - byebug
-    - remote_byebug
-    - pry
-    - remote_pry
-    - pry_remote
-    - console
-    - rescue
-    - save_and_open_page
-    - save_and_open_screenshot
-    - irb
+    # Groups are available so that a specific group can be disabled in
+    # a user's configuration, but are otherwise not significant.
+    Kernel:
+      - binding.irb
+    Byebug:
+      - byebug
+      - remote_byebug
+      - Kernel.byebug
+      - Kernel.remote_byebug
+    Capybara:
+      - save_and_open_page
+      - save_and_open_screenshot
+    Pry:
+      - binding.pry
+      - binding.remote_pry
+      - binding.pry_remote
+      - Pry.rescue
+    Rails:
+      - debugger
+      - Kernel.debugger
+    WebConsole:
+      - binding.console
 
 Lint/DeprecatedClassMethods:
   Description: 'Check for deprecated class method calls.'
@@ -3087,6 +3102,8 @@ Style/ConstantVisibility:
                  visibility declarations.
   Enabled: false
   VersionAdded: '0.66'
+  VersionChanged: '1.10'
+  IgnoreModules: false
 
 # Checks that you have put a copyright in a comment before any code.
 #
@@ -3424,6 +3441,11 @@ Style/HashAsLastArrayItem:
   SupportedStyles:
     - braces
     - no_braces
+
+Style/HashConversion:
+  Description: 'Avoid Hash[] in favor of ary.to_h or literal hashes.'
+  Enabled: pending
+  VersionAdded: '1.10'
 
 Style/HashEachMethods:
   Description: 'Use Hash#each_key and Hash#each_value.'
