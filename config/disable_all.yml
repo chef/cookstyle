@@ -9,6 +9,8 @@ Bundler/InsecureProtocolSource:
   Enabled: false
 Bundler/OrderedGems:
   Enabled: false
+Gemspec/DateAssignment:
+  Enabled: false
 Gemspec/DuplicatedAssignment:
   Enabled: false
 Gemspec/OrderedDependencies:
@@ -630,6 +632,8 @@ Style/GlobalVars:
 Style/GuardClause:
   Enabled: false
 Style/HashAsLastArrayItem:
+  Enabled: false
+Style/HashConversion:
   Enabled: false
 Style/HashEachMethods:
   Enabled: false
