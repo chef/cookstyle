@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 7.8.1 -->
+## [v7.8.1](https://github.com/chef/cookstyle/tree/v7.8.1) (2021-02-17)
+
+#### Merged Pull Requests
+- Stop producing markdown docs + update styleguide to docs.chef.io [#832](https://github.com/chef/cookstyle/pull/832) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=7.8.0 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Stop producing markdown docs + update styleguide to docs.chef.io [#832](https://github.com/chef/cookstyle/pull/832) ([tas50](https://github.com/tas50)) <!-- 7.8.1 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
