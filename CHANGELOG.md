@@ -1,22 +1,20 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.8.3 -->
-## [v7.8.3](https://github.com/chef/cookstyle/tree/v7.8.3) (2021-02-17)
-
-#### Merged Pull Requests
-- Update link to the docs in the readme [#834](https://github.com/chef/cookstyle/pull/834) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=7.8.0 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Update link to the docs in the readme [#834](https://github.com/chef/cookstyle/pull/834) ([tas50](https://github.com/tas50)) <!-- 7.8.3 -->
-- Stop generating the legacy markdown docs [#833](https://github.com/chef/cookstyle/pull/833) ([tas50](https://github.com/tas50)) <!-- 7.8.2 -->
-- Stop producing markdown docs + update styleguide to docs.chef.io [#832](https://github.com/chef/cookstyle/pull/832) ([tas50](https://github.com/tas50)) <!-- 7.8.1 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v7.8.3](https://github.com/chef/cookstyle/tree/v7.8.3) (2021-02-17)
+
+#### Merged Pull Requests
+- Stop producing markdown docs + update styleguide to docs.chef.io [#832](https://github.com/chef/cookstyle/pull/832) ([tas50](https://github.com/tas50))
+- Stop generating the legacy markdown docs [#833](https://github.com/chef/cookstyle/pull/833) ([tas50](https://github.com/tas50))
+- Update link to the docs in the readme [#834](https://github.com/chef/cookstyle/pull/834) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v7.8.0](https://github.com/chef/cookstyle/tree/v7.8.0) (2021-02-15)
 
 #### Merged Pull Requests
@@ -24,7 +22,6 @@
 - Enable Lint/ErbNewArguments cop [#828](https://github.com/chef/cookstyle/pull/828) ([tas50](https://github.com/tas50))
 - Improve the yaml we generate [#829](https://github.com/chef/cookstyle/pull/829) ([tas50](https://github.com/tas50))
 - Bump RuboCop to 1.10 [#830](https://github.com/chef/cookstyle/pull/830) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v7.7.2](https://github.com/chef/cookstyle/tree/v7.7.2) (2021-02-01)
 
