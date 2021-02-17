@@ -12,7 +12,7 @@ Cookstyle is a [code linting](https://en.wikipedia.org/wiki/Lint_%28software%29)
 
 Cookstyle is powered by the [RuboCop](http://www.rubocop.org) linting engine. RuboCop ships with over three-hundred rules, or cops, designed to detect common Ruby coding mistakes and enforce a common coding style. We've customized Cookstyle with a subset of those cops that we believe are perfectly tailored for cookbook development. We also ship **224 Chef Infra specific cops** that catch common cookbook coding mistakes, cleanup portions of code that are no longer necessary, and detect deprecations that prevent cookbooks from running on the latest releases of Chef Infra Client.
 
-For a complete list of Cookstyle rules see the [Cops Documentation](https://github.com/chef/cookstyle/blob/master/docs/cops.md)
+For complete usage documentation along with documentation for all the included cops see https://docs.chef.io/workstation/cookstyle/
 
 ## Cookstyle vs. RuboCop
 
@@ -34,7 +34,7 @@ Cookstyle is the replacement for Foodcritic. For more information on why we deci
 
 ## Installation
 
-Cookstyle is included in the [ChefDK](https://downloads.chef.io/chefdk) and [Chef Workstation](https://downloads.chef.io/chef-workstation/). If you choose not to use these packages, you can still install Cookstyle manually using the instructions below.
+Cookstyle is included in [Chef Workstation](https://downloads.chef.io/chef-workstation/). If you choose not to use the Chef Workstation package, you can still install Cookstyle manually using the instructions below.
 
 Add this line to your application's Gemfile:
 
@@ -129,7 +129,7 @@ We'd love to have your help in developing Cookstyle. See our [Contributing Guide
 
 ## License and Copyright
 
-Copyright 2016-2020, Chef Software, Inc.
+Copyright 2016-2021, Chef Software, Inc.
 
 ```
 Licensed under the Apache License, Version 2.0 (the "License");
