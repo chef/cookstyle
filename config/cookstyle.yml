@@ -843,7 +843,7 @@ Chef/Deprecations/DeprecatedYumRepositoryProperties:
     - '**/Berksfile'
 
 Chef/Deprecations/EOLAuditModeUsage:
-  Description: The beta Audit Mode feature in Chef Infra Client was removed in Chef Infra Client 15.0. Users should instead use InSpec and the audit cookbook. See https://www.inspec.io/ for more informmation.
+  Description: The beta Audit Mode feature in Chef Infra Client was removed in Chef Infra Client 15.0. Users should instead use InSpec and the audit cookbook. See https://www.inspec.io/ for more information.
   StyleGuide: 'chef_deprecations_eolauditmodeusage'
   Enabled: true
   VersionAdded: '5.10.0'
@@ -905,7 +905,7 @@ Chef/Deprecations/PartialSearchClassUsage:
     - '**/metadata.rb'
 
 Chef/Deprecations/Cheffile:
-  Description: The Libarian-Chef depsolving project is no longer maintained and should not be used for cookbook depsolving. Consider using Policyfiles instead.
+  Description: The Librarian-Chef depsolving project is no longer maintained and should not be used for cookbook depsolving. Consider using Policyfiles instead.
   StyleGuide: 'chef_deprecations_cheffile'
   Enabled: true
   VersionAdded: '5.12.0'
@@ -2721,7 +2721,7 @@ Lint/BinaryOperatorWithIdenticalOperands:
 # Lint/TopLevelReturnWithArgument:
 #   Enabled: true
 
-# simplify hash acccess that doesn't actually need .dig
+# simplify hash access that doesn't actually need .dig
 Style/SingleArgumentDig:
   Enabled: true
 

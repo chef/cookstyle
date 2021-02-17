@@ -12,3 +12,6 @@
 
 # for tim's local testing
 /test.rb
+
+# spellcheck rake task
+chef_dictionary.txt
