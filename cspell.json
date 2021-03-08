@@ -1,0 +1,69 @@
+// cSpell Settings
+{
+  // Version of the setting file.  Always 0.1
+  "version": "0.1",
+  // language - current active spelling language
+  "language": "en",
+  "dictionaryDefinitions": [
+    {
+        "name": "chef",
+        "file": "./chef_dictionary.txt",
+        "description": "Custom Chef Dictionary"
+    }
+  ],
+  "dictionaries": ["chef"],
+  // words - list of words to be always considered correct
+  "words": [
+    "compat",
+    "servermanagercmd",
+    "zipfile",
+    "Autocorrect",
+    "Autocorrects",
+    "autocorrection",
+    "autocorrected",
+    "autocorrecting",
+    "backported",
+    "lvar",
+    "ivasgn",
+    "dstr",
+    "asgn",
+    "Vidmar",
+    "Whaaat",
+    "lstrip",
+    "performant",
+    "ipaddress",
+    "FCXXX",
+    "Multipackage",
+    "trueclass",
+    "falseclass",
+    "vals",
+    "cbase",
+    "Filebeat"
+  ],
+  // flagWords - list of words to be always considered incorrect
+  // This is useful for offensive words and common spelling errors.
+  // For example "hte" should be "the"
+  "flagWords": [
+    "hte"
+  ],
+  "ignorePaths": [
+    "CHANGELOG.md",
+    "**/*.gemspec",
+    "**/Gemfile.lock",
+    "**/Gemfile",
+    ".expeditor/**/*",
+    "spec/**",
+    "docs",
+    "config/disable_all.yml",
+    "config/upstream.yml",
+    "docs-chef-io/**/*",
+    "lib/rubocop/cop/chef/sharing/invalid_license_string.rb",
+    "lib/rubocop/chef/platform_helpers.rb"
+  ],
+  "ignoreRegExpList": [
+    // Ignore "'s" at the end of a word. If "Chef" is an accepted word, so is "Chef's".
+    "/'s\\b/",
+    // Ignore "'d" at the end of a word. If "dup" is an accepted word, so is "dup'd".
+    "/'d\\b/"
+  ]
+}
