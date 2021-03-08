@@ -19,7 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module Correctness
-        # Pass valid platforms to the platform? helper.
+        # Pass valid platforms to the `platform?` helper. See [Infra Language: Platform](https://docs.chef.io/infra_language/checking_platforms/#platform-values) for a list of many common platform values.
         #
         # @example
         #
@@ -32,6 +32,7 @@ module RuboCop
         #   platform?('mac_os_x')
         #   platform?('redhat)
         #   platform?('suse')
+        #
         class InvalidPlatformHelper < Base
           include ::RuboCop::Chef::PlatformHelpers
 

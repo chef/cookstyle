@@ -20,7 +20,7 @@ module RuboCop
   module Cop
     module Chef
       module Correctness
-        # metadata.rb supports methods should contain valid platforms.
+        # metadata.rb supports methods should contain valid platforms. See [Infra Language: Platform](https://docs.chef.io/infra_language/checking_platforms/#platform-values) for a list of many common platform values.
         #
         # @example
         #

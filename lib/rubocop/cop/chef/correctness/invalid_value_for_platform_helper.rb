@@ -19,7 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module Correctness
-        # Pass valid platforms to the value_for_platform helper.
+        # Pass valid platforms to the value_for_platform helper. See [Infra Language: Platform](https://docs.chef.io/infra_language/checking_platforms/#platform-values) for a list of many common platform values.
         #
         # @example
         #

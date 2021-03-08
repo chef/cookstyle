@@ -19,7 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module Correctness
-        # Libraries should be injected into the Chef::DSL::Recipe class and not Chef::Recipe or Chef::Provider classes directly.
+        # Libraries should be injected into the `Chef::DSL::Recipe` class and not `Chef::Recipe` or `Chef::Provider` classes directly.
         #
         # @example
         #
