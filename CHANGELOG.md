@@ -1,29 +1,26 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.9.0 -->
-## [v7.9.0](https://github.com/chef/cookstyle/tree/v7.9.0) (2021-03-08)
-
-#### Merged Pull Requests
-- Improve resource docs [#838](https://github.com/chef/cookstyle/pull/838) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=7.8.3 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Improve resource docs [#838](https://github.com/chef/cookstyle/pull/838) ([tas50](https://github.com/tas50)) <!-- 7.9.0 -->
-- Add a spelling check [#831](https://github.com/chef/cookstyle/pull/831) ([tas50](https://github.com/tas50)) <!-- 7.8.5 -->
-- Update RuboCop engine to 1.11 [#837](https://github.com/chef/cookstyle/pull/837) ([tas50](https://github.com/tas50)) <!-- 7.8.4 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v7.9.0](https://github.com/chef/cookstyle/tree/v7.9.0) (2021-03-08)
+
+#### Merged Pull Requests
+- Update RuboCop engine to 1.11 [#837](https://github.com/chef/cookstyle/pull/837) ([tas50](https://github.com/tas50))
+- Add a spelling check [#831](https://github.com/chef/cookstyle/pull/831) ([tas50](https://github.com/tas50))
+- Improve resource docs [#838](https://github.com/chef/cookstyle/pull/838) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v7.8.3](https://github.com/chef/cookstyle/tree/v7.8.3) (2021-02-17)
 
 #### Merged Pull Requests
 - Stop producing markdown docs + update styleguide to docs.chef.io [#832](https://github.com/chef/cookstyle/pull/832) ([tas50](https://github.com/tas50))
 - Stop generating the legacy markdown docs [#833](https://github.com/chef/cookstyle/pull/833) ([tas50](https://github.com/tas50))
 - Update link to the docs in the readme [#834](https://github.com/chef/cookstyle/pull/834) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v7.8.0](https://github.com/chef/cookstyle/tree/v7.8.0) (2021-02-15)
 
