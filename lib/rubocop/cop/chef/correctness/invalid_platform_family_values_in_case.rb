@@ -19,7 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module Correctness
-        # Use valid platform family values in case statements.
+        # Use valid platform family values in case statements. See [Infra Language: Platform Family](https://docs.chef.io/infra_language/checking_platforms/#platform_family-values) for a complete list of platform families.
         #
         # @example
         #

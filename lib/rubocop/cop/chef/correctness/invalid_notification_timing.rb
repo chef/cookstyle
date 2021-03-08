@@ -19,7 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module Correctness
-        # Valid notification timings are :immediately, :immediate (alias for :immediately), :delayed, and :before.
+        # Valid notification timings are `:immediately`, `:immediate` (alias for :immediately), `:delayed`, and `:before`.
         #
         # @example
         #

@@ -19,7 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module Correctness
-        # dnf_package does not support the allow_downgrades property
+        # The `dnf_package` resource does not support the `allow_downgrades` property.
         #
         # @example
         #
