@@ -3446,6 +3446,8 @@ Style/HashConversion:
   Description: 'Avoid Hash[] in favor of ary.to_h or literal hashes.'
   Enabled: pending
   VersionAdded: '1.10'
+  VersionChanged: '1.11'
+  AllowSplatArgument: true
 
 Style/HashEachMethods:
   Description: 'Use Hash#each_key and Hash#each_value.'
@@ -4586,6 +4588,7 @@ Style/SymbolProc:
   Safe: false
   VersionAdded: '0.26'
   VersionChanged: '1.5'
+  AllowMethodsWithArguments: false
   # A list of method names to be ignored by the check.
   # The names should be fairly unique, otherwise you'll end up ignoring lots of code.
   IgnoredMethods:
@@ -4737,6 +4740,16 @@ Style/UnlessElse:
   StyleGuide: '#no-else-with-unless'
   Enabled: true
   VersionAdded: '0.9'
+
+Style/UnlessLogicalOperators:
+  Description: >-
+                 Checks for use of logical operators in an unless condition.
+  Enabled: false
+  VersionAdded: '1.11'
+  EnforcedStyle: forbid_mixed_logical_operators
+  SupportedStyles:
+    - forbid_mixed_logical_operators
+    - forbid_logical_operators
 
 Style/UnpackFirst:
   Description: >-

@@ -897,6 +897,8 @@ Style/TrivialAccessors:
   Enabled: false
 Style/UnlessElse:
   Enabled: false
+Style/UnlessLogicalOperators:
+  Enabled: false
 Style/UnpackFirst:
   Enabled: false
 Style/VariableInterpolation:
