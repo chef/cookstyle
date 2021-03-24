@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 #
-# Copyright:: Copyright 2019, Chef Software Inc.
+# Copyright:: Copyright 2019-2021, Chef Software Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -23,10 +23,10 @@ RSpec.describe RuboCop::CommentConfig do
 
   describe '#cop_enabled_at_line?' do
     let(:source) do
-      [
-        'node.normal[:foo] # rubocop: disable Chef/Correctness/Bar',
-        'node.normal[:foo] # cookstyle: disable Chef/Correctness/Foo',
-      ].join("\n")
+      <<~RUBY
+        node.normal[:foo] # rubocop: disable Chef/Correctness/Bar
+        node.normal[:foo] # cookstyle: disable Chef/Correctness/Foo
+      RUBY
     end
 
     def disabled_lines_of_cop(cop)
