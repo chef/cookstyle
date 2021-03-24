@@ -851,6 +851,8 @@ Style/StabbyLambdaParentheses:
   Enabled: false
 Style/StderrPuts:
   Enabled: false
+Style/StringChars:
+  Enabled: false
 Style/StringConcatenation:
   Enabled: false
 Style/StringHashKeys:

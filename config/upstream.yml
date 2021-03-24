@@ -2055,13 +2055,18 @@ Lint/SuppressedException:
   StyleGuide: '#dont-hide-exceptions'
   Enabled: true
   AllowComments: true
+  AllowNil: true
   VersionAdded: '0.9'
-  VersionChanged: '0.81'
+  VersionChanged: '1.12'
 
 Lint/SymbolConversion:
   Description: 'Checks for unnecessary symbol conversions.'
   Enabled: pending
   VersionAdded: '1.9'
+  EnforcedStyle: strict
+  SupportedStyles:
+    - strict
+    - consistent
 
 Lint/Syntax:
   Description: 'Checks for syntax errors.'
@@ -2489,6 +2494,7 @@ Naming/MemoizedInstanceVariableName:
     - disallowed
     - required
     - optional
+  Safe: false
 
 Naming/MethodName:
   Description: 'Use the configured style when naming methods.'
@@ -3174,6 +3180,7 @@ Style/Documentation:
   Description: 'Document classes and non-namespace modules.'
   Enabled: true
   VersionAdded: '0.9'
+  AllowedConstants: []
   Exclude:
     - 'spec/**/*'
     - 'test/**/*'
@@ -3672,6 +3679,7 @@ Style/MethodCallWithArgsParentheses:
   AllowParenthesesInMultilineCall: false
   AllowParenthesesInChaining: false
   AllowParenthesesInCamelCaseMethod: false
+  AllowParenthesesInStringInterpolation: false
   EnforcedStyle: require_parentheses
   SupportedStyles:
     - require_parentheses
@@ -4490,6 +4498,13 @@ Style/StderrPuts:
   StyleGuide: '#warn'
   Enabled: true
   VersionAdded: '0.51'
+
+Style/StringChars:
+  Description: 'Checks for uses of `String#split` with empty string or regexp literal argument.'
+  StyleGuide: '#string-chars'
+  Enabled: pending
+  Safe: false
+  VersionAdded: '1.12'
 
 Style/StringConcatenation:
   Description: 'Checks for places where string concatenation can be replaced with string interpolation.'
