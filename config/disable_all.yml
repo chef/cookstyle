@@ -147,6 +147,8 @@ Layout/MultilineOperationIndentation:
   Enabled: false
 Layout/ParameterAlignment:
   Enabled: false
+Layout/RedundantLineBreak:
+  Enabled: false
 Layout/RescueEnsureAlignment:
   Enabled: false
 Layout/SpaceAfterColon:
