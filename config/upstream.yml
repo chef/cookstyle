@@ -1101,6 +1101,14 @@ Layout/ParameterAlignment:
   # But it can be overridden by setting this parameter
   IndentationWidth: ~
 
+Layout/RedundantLineBreak:
+  Description: >-
+                 Do not break up an expression into multiple lines when it fits
+                 on a single line.
+  Enabled: false
+  InspectBlocks: false
+  VersionAdded: '1.13'
+
 Layout/RescueEnsureAlignment:
   Description: 'Align rescues and ensures correctly.'
   Enabled: true
@@ -1380,6 +1388,8 @@ Lint/AmbiguousBlockAssociation:
   StyleGuide: '#syntax'
   Enabled: true
   VersionAdded: '0.48'
+  VersionChanged: '1.13'
+  IgnoredMethods: []
 
 Lint/AmbiguousOperator:
   Description: >-
