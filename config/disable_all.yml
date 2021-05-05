@@ -5,6 +5,8 @@ Bundler/DuplicatedGem:
   Enabled: false
 Bundler/GemComment:
   Enabled: false
+Bundler/GemVersion:
+  Enabled: false
 Bundler/InsecureProtocolSource:
   Enabled: false
 Bundler/OrderedGems:
@@ -150,6 +152,8 @@ Layout/ParameterAlignment:
 Layout/RedundantLineBreak:
   Enabled: false
 Layout/RescueEnsureAlignment:
+  Enabled: false
+Layout/SingleLineBlockChain:
   Enabled: false
 Layout/SpaceAfterColon:
   Enabled: false
