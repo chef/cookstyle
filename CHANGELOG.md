@@ -1,27 +1,24 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.11.3 -->
-## [v7.11.3](https://github.com/chef/cookstyle/tree/v7.11.3) (2021-05-06)
-
-#### Merged Pull Requests
-- Improve cop documenation [#849](https://github.com/chef/cookstyle/pull/849) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=7.11.1 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Improve cop documenation [#849](https://github.com/chef/cookstyle/pull/849) ([tas50](https://github.com/tas50)) <!-- 7.11.3 -->
-- Disable Style/RedundantBegin for now [#848](https://github.com/chef/cookstyle/pull/848) ([tas50](https://github.com/tas50)) <!-- 7.11.2 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v7.11.3](https://github.com/chef/cookstyle/tree/v7.11.3) (2021-05-06)
+
+#### Merged Pull Requests
+- Disable Style/RedundantBegin for now [#848](https://github.com/chef/cookstyle/pull/848) ([tas50](https://github.com/tas50))
+- Improve cop documenation [#849](https://github.com/chef/cookstyle/pull/849) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v7.11.1](https://github.com/chef/cookstyle/tree/v7.11.1) (2021-05-05)
 
 #### Merged Pull Requests
 - Update to RuboCop 1.13 and parse Ruby 2.5 and later only [#845](https://github.com/chef/cookstyle/pull/845) ([tas50](https://github.com/tas50))
 - Update RuboCop Engine to 1.14 [#846](https://github.com/chef/cookstyle/pull/846) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v7.10.1](https://github.com/chef/cookstyle/tree/v7.10.1) (2021-04-17)
 
