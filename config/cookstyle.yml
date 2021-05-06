@@ -221,7 +221,7 @@ Chef/Correctness/MetadataMissingName:
     - '**/metadata.rb'
 
 Chef/Correctness/BlockGuardWithOnlyString:
-  Description: A resource guard (not_if/only_if) that is a string should not be wrapped in {}. Wrapping a guard string in {} causes it to be executed as Ruby code which will always returns true instead of a shell command that will actually run.
+  Description: A resource guard (not_if/only_if) that is a string should not be wrapped in {}. Wrapping a guard string in {} causes it to be executed as Ruby code which will always return true instead of a shell command that will actually run.
   StyleGuide: 'chef_correctness_blockguardwithonlystring'
   Enabled: true
   VersionAdded: '5.2.0'
@@ -584,7 +584,7 @@ Chef/Deprecations/NodeSetUnless:
     - '**/Berksfile'
 
 Chef/Deprecations/EpicFail:
-  Description: Use ignore_failure method instead of the deprecated epic_fail method
+  Description: Use `ignore_failure` in resources to continue when failures occur instead of the deprecated `epic_fail` property
   StyleGuide: 'chef_deprecations_epicfail'
   Enabled: true
   VersionAdded: '5.1.0'
@@ -843,7 +843,7 @@ Chef/Deprecations/DeprecatedYumRepositoryProperties:
     - '**/Berksfile'
 
 Chef/Deprecations/EOLAuditModeUsage:
-  Description: The beta Audit Mode feature in Chef Infra Client was removed in Chef Infra Client 15.0. Users should instead use InSpec and the audit cookbook. See https://www.inspec.io/ for more information.
+  Description: The beta Audit Mode feature in Chef Infra Client was removed in Chef Infra Client 15.0.
   StyleGuide: 'chef_deprecations_eolauditmodeusage'
   Enabled: true
   VersionAdded: '5.10.0'
@@ -1071,7 +1071,7 @@ Chef/Deprecations/ChefDKGenerators:
     - '**/Berksfile'
 
 Chef/Deprecations/ChefHandlerRecipe:
-  Description: There is no need to include the empty and deprecated chef_handler::default recipe in order to use the chef_handler resource.
+  Description: There is no need to include the empty and deprecated chef_handler::default recipe to use the chef_handler resource.
   StyleGuide: 'chef_deprecations_chefhandlerrecipe'
   Enabled: true
   VersionAdded: '6.12.0'
@@ -1107,7 +1107,7 @@ Chef/Deprecations/CookbooksDependsOnSelf:
     - '**/metadata.rb'
 
 Chef/Deprecations/ChefShellout:
-  Description: Don't use deprecated Chef::ShellOut which was removed in Chef Infra Client 13. Use Mixlib::ShellOut instead, which behaves identically.
+  Description: Don't use the deprecated `Chef::ShellOut` class which was removed in Chef Infra Client 13. Use the `Mixlib::ShellOut` class instead, which behaves identically.
   StyleGuide: 'chef_deprecations_chefshellout'
   Enabled: true
   VersionAdded: '6.17.0'

@@ -20,7 +20,7 @@ module RuboCop
   module Cop
     module Chef
       module Deprecations
-        # There is no need to include the empty and deprecated chef_handler::default recipe in order to use the chef_handler resource
+        # There is no need to include the empty and deprecated chef_handler::default recipe to use the chef_handler resource
         #
         # @example
         #
@@ -32,7 +32,7 @@ module RuboCop
           include RangeHelp
           extend AutoCorrector
 
-          MSG = 'There is no need to include the empty and deprecated chef_handler::default recipe in order to use the chef_handler resource'
+          MSG = 'There is no need to include the empty and deprecated chef_handler::default recipe to use the chef_handler resource'
           RESTRICT_ON_SEND = [:include_recipe].freeze
 
           def_node_matcher :chef_handler_recipe?, <<-PATTERN

@@ -27,7 +27,7 @@ describe RuboCop::Cop::Chef::Correctness::BlockGuardWithOnlyString do
         mode '0644'
         source 'foo.erb'
         only_if { 'test -f /etc/foo' }
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ A resource guard (not_if/only_if) that is a string should not be wrapped in {}. Wrapping a guard string in {} causes it to be executed as Ruby code which will always returns true instead of a shell command that will actually run.
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ A resource guard (not_if/only_if) that is a string should not be wrapped in {}. Wrapping a guard string in {} causes it to be executed as Ruby code which will always return true instead of a shell command that will actually run.
       end
     RUBY
 

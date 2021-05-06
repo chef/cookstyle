@@ -20,7 +20,7 @@ module RuboCop
   module Cop
     module Chef
       module Deprecations
-        # Use delete_resource / edit_resource introduced in Chef Infra Client 12.10 instead of functionality in the deprecated chef-rewind gem
+        # Use `delete_resource` or `edit_resource` helpers introduced in Chef Infra Client 12.10 instead of functionality in the deprecated `chef-rewind` gem
         #
         # @example
         #
@@ -48,7 +48,7 @@ module RuboCop
             unwind: 'delete_resource',
           }.freeze
 
-          MSG = 'Use delete_resource / edit_resource introduced in Chef Infra Client 12.10 instead of functionality in the deprecated chef-rewind gem'
+          MSG = 'Use delete_resource or edit_resource helpers introduced in Chef Infra Client 12.10 instead of functionality in the deprecated chef-rewind gem'
           RESTRICT_ON_SEND = [:chef_gem, :require, :rewind, :unwind].freeze
 
           def_node_matcher :rewind_gem_install?, <<-PATTERN

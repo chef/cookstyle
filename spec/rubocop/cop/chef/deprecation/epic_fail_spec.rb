@@ -25,7 +25,7 @@ describe RuboCop::Cop::Chef::Deprecations::EpicFail do
       file '/foo' do
         owner 'root'
         epic_fail true
-        ^^^^^^^^^^^^^^ Use ignore_failure method instead of the deprecated epic_fail method
+        ^^^^^^^^^^^^^^ Use `ignore_failure` in resources to continue when failures occur instead of the deprecated `epic_fail` property
       end
     RUBY
 

@@ -19,7 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module Deprecations
-        # Don't use the deprecated older_than_win_2012_or_8? helper. Windows versions before 2012 and 8 are now end of life and this helper will always return false.
+        # Don't use the deprecated `older_than_win_2012_or_8?` helper. Windows versions before 2012 and 8 are now end of life and this helper will always return false.
         #
         # @example
         #

@@ -20,7 +20,7 @@ module RuboCop
   module Cop
     module Chef
       module Deprecations
-        # Use provider_for_action or provides instead of the deprecated Chef::Platform methods in resources, which were removed in Chef Infra Client 13.
+        # Use `provider_for_action` or provides instead of the deprecated `Chef::Platform` methods in resources, which were removed in Chef Infra Client 13.
         #
         # @example
         #

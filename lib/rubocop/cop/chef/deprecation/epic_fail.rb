@@ -20,7 +20,7 @@ module RuboCop
   module Cop
     module Chef
       module Deprecations
-        # Make sure ignore_failure is used instead of epic_fail
+        # Use `ignore_failure` in resources to continue when failures occur instead of the deprecated `epic_fail` property.
         #
         # @example
         #
@@ -37,7 +37,7 @@ module RuboCop
         class EpicFail < Base
           extend AutoCorrector
 
-          MSG = 'Use ignore_failure method instead of the deprecated epic_fail method'
+          MSG = 'Use `ignore_failure` in resources to continue when failures occur instead of the deprecated `epic_fail` property'
           RESTRICT_ON_SEND = [:epic_fail].freeze
 
           def on_send(node)

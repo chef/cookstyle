@@ -19,9 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module Correctness
-        # Chef Infra Client uses properties in several resources to track state. These
-        # should not be set in recipes as they break the internal workings of the Chef
-        # Infra Client
+        # Chef Infra Client uses properties in several resources to track state. These should not be set in recipes as they break the internal workings of the Chef Infra Client
         #
         # @example
         #

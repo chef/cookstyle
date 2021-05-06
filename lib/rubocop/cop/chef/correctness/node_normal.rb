@@ -18,13 +18,9 @@ module RuboCop
   module Cop
     module Chef
       module Correctness
-        # Normal attributes are discouraged since their semantics differ importantly from the
-        # default and override levels. Their values persist in the node object even after
-        # all code referencing them has been deleted, unlike default and override.
+        # Normal attributes are discouraged since their semantics differ importantly from the default and override levels. Their values persist in the node object even after all code referencing them has been deleted, unlike default and override.
         #
-        # Code should be updated to use default or override levels, but this will change
-        # attribute merging behavior so needs to be validated manually and force_default or
-        # force_override levels may need to be used in recipe code.
+        # Code should be updated to use default or override levels, but this will change attribute merging behavior so needs to be validated manually and force_default or force_override levels may need to be used in recipe code.
         #
         # @example
         #

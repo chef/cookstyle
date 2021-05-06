@@ -23,7 +23,7 @@ describe RuboCop::Cop::Chef::Deprecations::ChefRewind, :config do
   it 'registers an offense with a non-block chef_gem chef-rewind install' do
     expect_offense(<<~RUBY)
       chef_gem 'chef-rewind'
-      ^^^^^^^^^^^^^^^^^^^^^^ Use delete_resource / edit_resource introduced in Chef Infra Client 12.10 instead of functionality in the deprecated chef-rewind gem
+      ^^^^^^^^^^^^^^^^^^^^^^ Use delete_resource or edit_resource helpers introduced in Chef Infra Client 12.10 instead of functionality in the deprecated chef-rewind gem
     RUBY
 
     expect_correction("\n")
@@ -32,7 +32,7 @@ describe RuboCop::Cop::Chef::Deprecations::ChefRewind, :config do
   it 'registers an offense with a block form chef_gem chef-rewind install' do
     expect_offense(<<~RUBY)
       chef_gem 'chef-rewind' do
-      ^^^^^^^^^^^^^^^^^^^^^^ Use delete_resource / edit_resource introduced in Chef Infra Client 12.10 instead of functionality in the deprecated chef-rewind gem
+      ^^^^^^^^^^^^^^^^^^^^^^ Use delete_resource or edit_resource helpers introduced in Chef Infra Client 12.10 instead of functionality in the deprecated chef-rewind gem
         compile_time true
       end
     RUBY
@@ -43,7 +43,7 @@ describe RuboCop::Cop::Chef::Deprecations::ChefRewind, :config do
   it 'registers an offense with chef_gem installing chef_rewind with the package_name property' do
     expect_offense(<<~RUBY)
       chef_gem 'Install chef-rewind gem' do
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use delete_resource / edit_resource introduced in Chef Infra Client 12.10 instead of functionality in the deprecated chef-rewind gem
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use delete_resource or edit_resource helpers introduced in Chef Infra Client 12.10 instead of functionality in the deprecated chef-rewind gem
         package_name 'chef-rewind'
       end
     RUBY
@@ -54,7 +54,7 @@ describe RuboCop::Cop::Chef::Deprecations::ChefRewind, :config do
   it 'registers an offense when requiring chef/rewind' do
     expect_offense(<<~RUBY)
       require 'chef/rewind'
-      ^^^^^^^^^^^^^^^^^^^^^ Use delete_resource / edit_resource introduced in Chef Infra Client 12.10 instead of functionality in the deprecated chef-rewind gem
+      ^^^^^^^^^^^^^^^^^^^^^ Use delete_resource or edit_resource helpers introduced in Chef Infra Client 12.10 instead of functionality in the deprecated chef-rewind gem
     RUBY
 
     expect_correction("\n")
@@ -63,7 +63,7 @@ describe RuboCop::Cop::Chef::Deprecations::ChefRewind, :config do
   it 'registers an offense when using the rewind resource' do
     expect_offense(<<~RUBY)
       rewind 'user[postgres]' do
-      ^^^^^^^^^^^^^^^^^^^^^^^ Use delete_resource / edit_resource introduced in Chef Infra Client 12.10 instead of functionality in the deprecated chef-rewind gem
+      ^^^^^^^^^^^^^^^^^^^^^^^ Use delete_resource or edit_resource helpers introduced in Chef Infra Client 12.10 instead of functionality in the deprecated chef-rewind gem
         home '/var/lib/pgsql/9.2'
         cookbook 'my-postgresql'
       end
@@ -80,7 +80,7 @@ describe RuboCop::Cop::Chef::Deprecations::ChefRewind, :config do
   it 'registers an offense when using the unwind resource' do
     expect_offense(<<~RUBY)
       unwind 'user[postgres]'
-      ^^^^^^^^^^^^^^^^^^^^^^^ Use delete_resource / edit_resource introduced in Chef Infra Client 12.10 instead of functionality in the deprecated chef-rewind gem
+      ^^^^^^^^^^^^^^^^^^^^^^^ Use delete_resource or edit_resource helpers introduced in Chef Infra Client 12.10 instead of functionality in the deprecated chef-rewind gem
     RUBY
 
     expect_correction(<<~RUBY)
