@@ -23,7 +23,7 @@ describe RuboCop::Cop::Chef::Deprecations::EOLAuditModeUsage, :config do
   it "registers an offense when using the audit mode control_group resource'" do
     expect_offense(<<~RUBY)
       control_group 'Baseline' do
-      ^^^^^^^^^^^^^ The beta Audit Mode feature in Chef Infra Client was removed in Chef Infra Client 15.0. Users should instead use InSpec and the audit cookbook. See https://www.inspec.io/ for more information.
+      ^^^^^^^^^^^^^ The beta Audit Mode feature in Chef Infra Client was removed in Chef Infra Client 15.0.
         control 'SSH' do
           it 'should be listening on port 22' do
             expect(port(22)).to be_listening

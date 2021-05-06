@@ -20,7 +20,7 @@ module RuboCop
   module Cop
     module Chef
       module Deprecations
-        # Chef Workstation 0.8 and later renamed the ChefDK module used when writing custom cookbook generators from ChefDK to ChefCLI. For compatibility with the latest Chef Workstation releases you'll need to reference the new class names.
+        # Chef Workstation 0.8 and later renamed the `ChefDK` module used when writing custom cookbook generators from `ChefDK` to `ChefCLI`. For compatibility with the latest Chef Workstation releases you'll need to reference the new class names.
         #
         # @example
         #

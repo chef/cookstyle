@@ -20,7 +20,7 @@ module RuboCop
   module Cop
     module Chef
       module Deprecations
-        # Don't use deprecated Mixins no longer included in Chef Infra Client 14 and later
+        # Don't use deprecated Mixins no longer included in Chef Infra Client 14 and later.
         #
         # @example
         #

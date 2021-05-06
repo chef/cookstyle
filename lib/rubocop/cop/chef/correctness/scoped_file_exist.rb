@@ -19,7 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module Correctness
-        # Scope file exist to access the correct File class by using ::File.exist? not File.exist?.
+        # Scope file exist to access the correct `File` class by using `::File.exist?` not `File.exist?`.
         #
         # @example
         #

@@ -20,7 +20,7 @@ module RuboCop
   module Cop
     module Chef
       module Deprecations
-        # Use the :remove action in the chocolatey_package resource instead of :uninstall which was removed in Chef Infra Client 14+
+        # Use the `:remove` action in the `chocolatey_package` resource instead of `:uninstall` which was removed in Chef Infra Client 14+.
         #
         # @example
         #
