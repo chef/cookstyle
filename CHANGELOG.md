@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.11.2 -->
-## [v7.11.2](https://github.com/chef/cookstyle/tree/v7.11.2) (2021-05-06)
+ <!-- latest_release 7.11.3 -->
+## [v7.11.3](https://github.com/chef/cookstyle/tree/v7.11.3) (2021-05-06)
 
 #### Merged Pull Requests
-- Disable Style/RedundantBegin for now [#848](https://github.com/chef/cookstyle/pull/848) ([tas50](https://github.com/tas50))
+- Improve cop documenation [#849](https://github.com/chef/cookstyle/pull/849) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.11.1 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Improve cop documenation [#849](https://github.com/chef/cookstyle/pull/849) ([tas50](https://github.com/tas50)) <!-- 7.11.3 -->
 - Disable Style/RedundantBegin for now [#848](https://github.com/chef/cookstyle/pull/848) ([tas50](https://github.com/tas50)) <!-- 7.11.2 -->
 <!-- release_rollup -->
 
