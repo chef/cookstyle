@@ -15,22 +15,21 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 module RuboCop
   module Cop
     module Chef
-      # Make sure a cookbook doesn't depend on itself. This will fail on Chef Infra Client 13+
-      #
-      # @example
-      #
-      #   #### incorrect
-      #   name 'foo'
-      #   depends 'foo'
-      #
-      #   #### correct
-      #   name 'foo'
-      #
       module Deprecations
+        # Make sure a cookbook doesn't depend on itself. This will fail on Chef Infra Client 13+
+        #
+        # @example
+        #
+        #   #### incorrect
+        #   name 'foo'
+        #   depends 'foo'
+        #
+        #   #### correct
+        #   name 'foo'
+        #
         class CookbooksDependsOnSelf < Base
           extend AutoCorrector
           include RangeHelp

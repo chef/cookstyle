@@ -15,21 +15,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 module RuboCop
   module Cop
     module Chef
-      # Default actions in resources should be symbols or an array of symbols.
-      #
-      # @example
-      #
-      #   #### incorrect
-      #   default_action 'create'
-      #
-      #   #### correct
-      #   default_action :create
-      #
       module Correctness
+        # Default actions in resources should be symbols or an array of symbols.
+        #
+        # @example
+        #
+        #   #### incorrect
+        #   default_action 'create'
+        #
+        #   #### correct
+        #   default_action :create
+        #
         class InvalidDefaultAction < Base
           MSG = 'Default actions in resources should be symbols or an array of symbols.'
           RESTRICT_ON_SEND = [:default_action].freeze
