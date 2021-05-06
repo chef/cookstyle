@@ -2247,8 +2247,9 @@ Style/Proc:
   Enabled: true
 Style/RaiseArgs:
   Enabled: true
+# disabled for now as this breaks ruby_block resources
 Style/RedundantBegin:
-  Enabled: true
+  Enabled: false
 Style/RedundantException:
   Enabled: true
 Style/RedundantFreeze:
