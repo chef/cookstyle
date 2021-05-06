@@ -15,33 +15,32 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 module RuboCop
   module Cop
     module Chef
-      # Do not use legacy chef-sugar helper methods, which will not be moved into Chef Infra Client itself. For a complete set of chef-sugar helpers now shipping in Chef Infra Client itself see https://github.com/chef/chef/tree/master/chef-utils#getting-started
-      #
-      # @example
-      #
-      #   #### incorrect
-      #   vagrant_key?
-      #   vagrant_domain?
-      #   vagrant_user?
-      #   require_chef_gem
-      #   best_ip_for(node)
-      #   nexus?
-      #   ios_xr?
-      #   ruby_20?
-      #   ruby_19?
-      #   includes_recipe?('foo::bar')
-      #   wrlinux?
-      #   dev_null
-      #   nexentacore_platform?
-      #   opensolaris_platform?
-      #   nexentacore?
-      #   opensolaris?
-      #
       module Deprecations
+        # Do not use legacy chef-sugar helper methods, which will not be moved into Chef Infra Client itself. For a complete set of chef-sugar helpers now shipping in Chef Infra Client itself see https://github.com/chef/chef/tree/master/chef-utils#getting-started
+        #
+        # @example
+        #
+        #   #### incorrect
+        #   vagrant_key?
+        #   vagrant_domain?
+        #   vagrant_user?
+        #   require_chef_gem
+        #   best_ip_for(node)
+        #   nexus?
+        #   ios_xr?
+        #   ruby_20?
+        #   ruby_19?
+        #   includes_recipe?('foo::bar')
+        #   wrlinux?
+        #   dev_null
+        #   nexentacore_platform?
+        #   opensolaris_platform?
+        #   nexentacore?
+        #   opensolaris?
+        #
         class ChefSugarHelpers < Base
           MSG = 'Do not use legacy chef-sugar helper methods, which will not be moved into Chef Infra Client itself. For a complete set of chef-sugar helpers now shipping in Chef Infra Client itself see https://github.com/chef/chef/tree/master/chef-utils#getting-started'
           RESTRICT_ON_SEND = [:vagrant_key?, :vagrant_domain?, :vagrant_user?, :require_chef_gem, :best_ip_for, :nexus?, :ios_xr?, :ruby_20?, :ruby_19?, :includes_recipe?, :wrlinux?, :dev_null, :nexentacore_platform?, :opensolaris_platform?, :nexentacore?, :opensolaris?].freeze

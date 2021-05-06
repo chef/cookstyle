@@ -15,18 +15,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 module RuboCop
   module Cop
     module Chef
-      # metadata.rb needs to include the name method or it will fail on Chef Infra Client 12 and later.
-      #
-      # @example
-      #
-      #   #### correct
-      #   name 'foo'
-      #
       module Correctness
+        # metadata.rb needs to include the name method or it will fail on Chef Infra Client 12 and later.
+        #
+        # @example
+        #
+        #   #### correct
+        #   name 'foo'
+        #
         class MetadataMissingName < Base
           include RangeHelp
 

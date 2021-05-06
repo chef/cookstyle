@@ -31,7 +31,6 @@ module RuboCop
         #       end
         #     end
         #   end
-
         class EOLAuditModeUsage < Base
           MSG = 'The beta Audit Mode feature in Chef Infra Client was removed in Chef Infra Client 15.0.'
           RESTRICT_ON_SEND = [:control_group].freeze

@@ -15,7 +15,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 module RuboCop
   module Cop
     module Chef
@@ -27,7 +26,6 @@ module RuboCop
         #   #### incorrect
         #   depends 'chef-vault'
         #
-
         class DependsChefVault < Base
           MSG = 'Chef Vault usage is not supported in the Effortless pattern'
           RESTRICT_ON_SEND = [:depends].freeze
