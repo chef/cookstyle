@@ -1190,6 +1190,14 @@ Chef/Deprecations/ChefSugarHelpers:
     - '**/Berksfile'
     - '**/Rakefile'
 
+Chef/Deprecations/HWRPWithoutUnifiedTrue:
+  Description: Set `unified_mode true` in Chef Infra Client 15.3+ HWRP style custom resources to ensure they work correctly in Chef Infra Client 18 (April 2022) when Unified Mode becomes the default.
+  StyleGuide: 'chef_deprecations_hwrpwithoutunifiedtrue'
+  Enabled: true
+  VersionAdded: '7.12.0'
+  Include:
+    - '**/libraries/*.rb'
+
 ###############################
 # Chef/Modernize: Cleaning up legacy code and using new built-in resources
 ###############################
