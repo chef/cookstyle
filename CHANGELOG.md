@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.12.0 -->
-## [v7.12.0](https://github.com/chef/cookstyle/tree/v7.12.0) (2021-05-10)
+ <!-- latest_release 7.12.1 -->
+## [v7.12.1](https://github.com/chef/cookstyle/tree/v7.12.1) (2021-05-10)
 
 #### Merged Pull Requests
-- Add new unified_mode cop for HWRPs [#851](https://github.com/chef/cookstyle/pull/851) ([tas50](https://github.com/tas50))
+- Test on Ruby 3.0 [#852](https://github.com/chef/cookstyle/pull/852) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.11.3 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Test on Ruby 3.0 [#852](https://github.com/chef/cookstyle/pull/852) ([tas50](https://github.com/tas50)) <!-- 7.12.1 -->
 - Add new unified_mode cop for HWRPs [#851](https://github.com/chef/cookstyle/pull/851) ([tas50](https://github.com/tas50)) <!-- 7.12.0 -->
 - Move comments to the correct location for docs generation [#850](https://github.com/chef/cookstyle/pull/850) ([tas50](https://github.com/tas50)) <!-- 7.11.4 -->
 <!-- release_rollup -->
