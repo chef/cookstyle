@@ -31,11 +31,11 @@ module RuboCop
 
           MSG = 'metadata.rb needs to include the name method or it will fail on Chef Infra Client 12 and later.'
 
-          def_node_search :cb_name, '(send nil? :name str ...)'
+          def_node_search :cb_name?, '(send nil? :name str ...)'
 
           def on_new_investigation
             # Using range similar to RuboCop::Cop::Naming::Filename (file_name.rb)
-            return if cb_name(processed_source.ast).any?
+            return if cb_name?(processed_source.ast)
             range = source_range(processed_source.buffer, 1, 0)
             add_offense(range, message: MSG, severity: :refactor) do |_corrector|
               path = processed_source.path
