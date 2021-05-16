@@ -53,18 +53,19 @@ module RuboCop
           def on_block(node)
             return unless node.method_name == :registry_key
             return unless correct_key?(node)
-            return unless correct_values?(node)
+            return unless uac_supported_values?(node)
             add_offense(node, message: MSG, severity: :refactor)
           end
 
           # make sure the values passed are all the ones in the uac resource
           # this key has other values we don't support in the windows_uac resource
-          def correct_values?(node)
+          def uac_supported_values?(node)
             match_property_in_resource?(:registry_key, 'values', node) do |val_prop|
               return false unless val_prop&.arguments[0].array_type? # make sure values isn't being passed a variable or method
               val_prop.arguments[0].each_value do |array|
                 array.each_pair do |key, value|
                   if key == s(:sym, :name)
+                    return false unless value.str_type? # make sure it isn't being a variable or method that we can't parse
                     return false unless VALID_VALUES.include?(value.value)
                   end
                 end
