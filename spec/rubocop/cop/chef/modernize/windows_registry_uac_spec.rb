@@ -94,6 +94,15 @@ describe RuboCop::Cop::Chef::Modernize::WindowsRegistryUAC, :config do
     RUBY
   end
 
+  it 'does not register when the values property is a variable or method' do
+    expect_no_offenses(<<~RUBY)
+      registry_key 'HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System' do
+          values we_cant_parse_this
+          action :create
+        end
+    RUBY
+  end
+
   context 'with TargetChefVersion set to 14' do
     let(:config) { target_chef_version(14) }
 
