@@ -1,20 +1,18 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.12.3 -->
+ <!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v7.12.3](https://github.com/chef/cookstyle/tree/v7.12.3) (2021-05-16)
 
 #### Merged Pull Requests
 - Fix false positive in WindowsRegistryUAC [#854](https://github.com/chef/cookstyle/pull/854) ([tas50](https://github.com/tas50))
-<!-- latest_release -->
-
-<!-- release_rollup since=7.12.2 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Fix false positive in WindowsRegistryUAC [#854](https://github.com/chef/cookstyle/pull/854) ([tas50](https://github.com/tas50)) <!-- 7.12.3 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v7.12.2](https://github.com/chef/cookstyle/tree/v7.12.2) (2021-05-10)
 
 #### Merged Pull Requests
@@ -22,7 +20,6 @@
 - Add new unified_mode cop for HWRPs [#851](https://github.com/chef/cookstyle/pull/851) ([tas50](https://github.com/tas50))
 - Test on Ruby 3.0 [#852](https://github.com/chef/cookstyle/pull/852) ([tas50](https://github.com/tas50))
 - Add new cop for unified mode in custom resources [#853](https://github.com/chef/cookstyle/pull/853) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v7.11.3](https://github.com/chef/cookstyle/tree/v7.11.3) (2021-05-06)
 
