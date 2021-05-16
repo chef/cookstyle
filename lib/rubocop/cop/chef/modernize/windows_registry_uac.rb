@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 #
-# Copyright:: 2020, Chef Software, Inc.
+# Copyright:: 2020-2021, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -47,23 +47,39 @@ module RuboCop
 
           MSG = 'Chef Infra Client 15.0 and later includes a windows_uac resource that should be used to set Windows UAC values instead of setting registry keys directly.'
           RESTRICT_ON_SEND = [:registry_key].freeze
+          VALID_VALUES = %w(EnableLUA ValidateAdminCodeSignatures PromptOnSecureDesktop ConsentPromptBehaviorAdmin ConsentPromptBehaviorUser EnableInstallerDetection).freeze
 
-          # non block execute resources
-          def on_send(node)
-            return unless node&.arguments.first&.source.match?(/(HKLM|HKEY_LOCAL_MACHINE)\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System/i) &&
-                          node.parent&.method_name != :describe
-
-            # use source instead of .value in case there's string interpolation which adds a complex dstr type
-            # with a nested string and a begin. Source allows us to avoid a lot of defensive programming here
+          # block registry_key resources
+          def on_block(node)
+            return unless node.method_name == :registry_key
+            return unless correct_key?(node)
+            return unless correct_values?(node)
             add_offense(node, message: MSG, severity: :refactor)
           end
 
-          # block execute resources
-          def on_block(node)
+          # make sure the values passed are all the ones in the uac resource
+          # this key has other values we don't support in the windows_uac resource
+          def correct_values?(node)
+            match_property_in_resource?(:registry_key, 'values', node) do |val_prop|
+              val_prop.arguments[0].each_value do |array|
+                array.each_pair do |key, value|
+                  if key == s(:sym, :name)
+                    return false unless VALID_VALUES.include?(value.value)
+                  end
+                end
+              end
+            end
+            true
+          end
+
+          # make sure the registry_key resource is running against the correct key
+          # check the block name and the key property (registry_key's name property)
+          def correct_key?(node)
+            return true if node.send_node.arguments.first.source.match?(/(HKLM|HKEY_LOCAL_MACHINE)\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System/i)
+
             match_property_in_resource?(:registry_key, 'key', node) do |key_prop|
               property_data = method_arg_ast_to_string(key_prop)
-              return unless property_data && property_data.match?(/(HKLM|HKEY_LOCAL_MACHINE)\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System/i)
-              add_offense(node, message: MSG, severity: :refactor)
+              return true if property_data && property_data.match?(/(HKLM|HKEY_LOCAL_MACHINE)\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System/i)
             end
           end
         end
