@@ -32,12 +32,12 @@ module RuboCop
         #     action :create
         #   end
         #
-        #  #### correct
-        #  windows_uac 'Set Windows UAC settings' do
-        #    enable_uac false
-        #    prompt_on_secure_desktop true
-        #    consent_behavior_admins :no_prompt
-        #  end
+        #   #### correct
+        #   windows_uac 'Set Windows UAC settings' do
+        #     enable_uac false
+        #     prompt_on_secure_desktop true
+        #     consent_behavior_admins :no_prompt
+        #   end
         #
         class WindowsRegistryUAC < Base
           include RuboCop::Chef::CookbookHelpers
