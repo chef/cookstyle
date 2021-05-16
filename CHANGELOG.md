@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 7.12.3 -->
+## [v7.12.3](https://github.com/chef/cookstyle/tree/v7.12.3) (2021-05-16)
+
+#### Merged Pull Requests
+- Fix false positive in WindowsRegistryUAC [#854](https://github.com/chef/cookstyle/pull/854) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=7.12.2 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Fix false positive in WindowsRegistryUAC [#854](https://github.com/chef/cookstyle/pull/854) ([tas50](https://github.com/tas50)) <!-- 7.12.3 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
