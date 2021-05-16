@@ -85,6 +85,15 @@ describe RuboCop::Cop::Chef::Modernize::WindowsRegistryUAC, :config do
     RUBY
   end
 
+  it 'does not register when using a non-UAC registry key' do
+    expect_no_offenses(<<~RUBY)
+      registry_key 'HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\SomethingElse' do
+          values [{ name: 'EnableLUA', type: :dword, data: 0 }]
+          action :create
+        end
+    RUBY
+  end
+
   it 'does not register when using values not supported in windows_uac' do
     expect_no_offenses(<<~RUBY)
       registry_key 'HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System' do

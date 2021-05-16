@@ -83,6 +83,7 @@ module RuboCop
               property_data = method_arg_ast_to_string(key_prop)
               return true if property_data && property_data.match?(/(HKLM|HKEY_LOCAL_MACHINE)\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System/i)
             end
+            false
           end
         end
       end
