@@ -1,26 +1,23 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.12.5 -->
-## [v7.12.5](https://github.com/chef/cookstyle/tree/v7.12.5) (2021-05-17)
-
-#### Merged Pull Requests
-- Ignore specs for Chef/Deprecations/ResourceWithoutUnifiedTrue [#856](https://github.com/chef/cookstyle/pull/856) ([ramereth](https://github.com/ramereth))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=7.12.3 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Ignore specs for Chef/Deprecations/ResourceWithoutUnifiedTrue [#856](https://github.com/chef/cookstyle/pull/856) ([ramereth](https://github.com/ramereth)) <!-- 7.12.5 -->
-- Fix indentation in windows_uac causes bad docs generation [#855](https://github.com/chef/cookstyle/pull/855) ([tas50](https://github.com/tas50)) <!-- 7.12.4 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v7.12.5](https://github.com/chef/cookstyle/tree/v7.12.5) (2021-05-17)
+
+#### Merged Pull Requests
+- Fix indentation in windows_uac causes bad docs generation [#855](https://github.com/chef/cookstyle/pull/855) ([tas50](https://github.com/tas50))
+- Ignore specs for Chef/Deprecations/ResourceWithoutUnifiedTrue [#856](https://github.com/chef/cookstyle/pull/856) ([ramereth](https://github.com/ramereth))
+<!-- latest_stable_release -->
+
 ## [v7.12.3](https://github.com/chef/cookstyle/tree/v7.12.3) (2021-05-16)
 
 #### Merged Pull Requests
 - Fix false positive in WindowsRegistryUAC [#854](https://github.com/chef/cookstyle/pull/854) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v7.12.2](https://github.com/chef/cookstyle/tree/v7.12.2) (2021-05-10)
 
