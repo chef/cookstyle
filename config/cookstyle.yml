@@ -3,8 +3,8 @@ AllCops:
   TargetRubyVersion: 2.5
   TargetChefVersion: ~
   Exclude:
-    - '/**/files/**/*'
-    - '/**/vendor/**/*'
+    - '**/files/**/*'
+    - '**/vendor/**/*'
     - Guardfile
 
 ###############################
