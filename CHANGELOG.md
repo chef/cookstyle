@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 7.12.6 -->
+## [v7.12.6](https://github.com/chef/cookstyle/tree/v7.12.6) (2021-05-27)
+
+#### Merged Pull Requests
+- Remove beginning slash from exclude path [#858](https://github.com/chef/cookstyle/pull/858) ([teknofire](https://github.com/teknofire))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=7.12.5 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Remove beginning slash from exclude path [#858](https://github.com/chef/cookstyle/pull/858) ([teknofire](https://github.com/teknofire)) <!-- 7.12.6 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
