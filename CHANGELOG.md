@@ -1,25 +1,22 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.13.0 -->
+ <!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v7.13.0](https://github.com/chef/cookstyle/tree/v7.13.0) (2021-05-27)
 
 #### Merged Pull Requests
 - Update to RuboCop 1.15 [#859](https://github.com/chef/cookstyle/pull/859) ([tas50](https://github.com/tas50))
-<!-- latest_release -->
-
-<!-- release_rollup since=7.12.6 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Update to RuboCop 1.15 [#859](https://github.com/chef/cookstyle/pull/859) ([tas50](https://github.com/tas50)) <!-- 7.13.0 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v7.12.6](https://github.com/chef/cookstyle/tree/v7.12.6) (2021-05-27)
 
 #### Merged Pull Requests
 - Remove beginning slash from exclude path [#858](https://github.com/chef/cookstyle/pull/858) ([teknofire](https://github.com/teknofire))
-<!-- latest_stable_release -->
 
 ## [v7.12.5](https://github.com/chef/cookstyle/tree/v7.12.5) (2021-05-17)
 
