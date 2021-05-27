@@ -883,6 +883,8 @@ Style/SymbolProc:
   Enabled: false
 Style/TernaryParentheses:
   Enabled: false
+Style/TopLevelMethodDefinition:
+  Enabled: false
 Style/TrailingBodyOnClass:
   Enabled: false
 Style/TrailingBodyOnMethodDefinition:
