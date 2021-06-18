@@ -46,7 +46,7 @@ require_relative 'rubocop/chef/cookbook_only'
 require_relative 'rubocop/cop/target_chef_version'
 
 # Chef Infra specific cops
-Dir.glob(__dir__ + '/rubocop/cop/chef/**/*.rb') do |file|
+Dir.glob(__dir__ + '/rubocop/cop/**/*.rb') do |file|
   next if File.directory?(file)
 
   require_relative file # not actually relative but require_relative is faster
