@@ -275,6 +275,8 @@ Lint/EmptyExpression:
   Enabled: false
 Lint/EmptyFile:
   Enabled: false
+Lint/EmptyInPattern:
+  Enabled: false
 Lint/EmptyInterpolation:
   Enabled: false
 Lint/EmptyWhen:
@@ -667,6 +669,8 @@ Style/IfWithSemicolon:
   Enabled: false
 Style/ImplicitRuntimeError:
   Enabled: false
+Style/InPatternThen:
+  Enabled: false
 Style/InfiniteLoop:
   Enabled: false
 Style/InverseMethods:
@@ -686,6 +690,8 @@ Style/LineEndConcatenation:
 Style/MethodCallWithoutArgsParentheses:
   Enabled: false
 Style/MethodCallWithArgsParentheses:
+  Enabled: false
+Style/MultilineInPatternThen:
   Enabled: false
 Style/RedundantAssignment:
   Enabled: false
@@ -786,6 +792,8 @@ Style/PerlBackrefs:
 Style/PreferredHashMethods:
   Enabled: false
 Style/Proc:
+  Enabled: false
+Style/QuotedSymbols:
   Enabled: false
 Style/RaiseArgs:
   Enabled: false
