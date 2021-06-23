@@ -18,7 +18,7 @@ begin
     File.open('README.md', 'w') { |file| file.write(contents) }
   end
 
-  desc 'Generate yaml format docs of all Chef cops for docs.chef.io'
+  desc 'Generate yaml format docs of all Chef/InSpec cops for docs.chef.io'
   task generate_cops_yml_documentation: :yard_for_generate_documentation do
     def cops_of_department(cops, department)
       cops.with_department(department).sort!
@@ -51,7 +51,7 @@ begin
     def main
       require 'yaml' unless defined?(YAML)
       all_cops = RuboCop::Cop::Cop.registry
-      chef_departments = all_cops.departments.select { |d| d.start_with?('Chef') }.sort
+      chef_departments = all_cops.departments.select { |d| d.start_with?('Chef', 'InSpec') }.sort
       config = RuboCop::ConfigLoader.load_file('config/default.yml')
 
       YARD::Registry.load!
