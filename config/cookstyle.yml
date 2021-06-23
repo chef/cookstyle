@@ -2080,6 +2080,27 @@ Chef/Effortless/Berksfile:
   Include:
     - '**/Berksfile'
 
+#### InSpec cops
+
+InSpec/Deprecations:
+  StyleGuideBaseURL: https://docs.chef.io/workstation/cookstyle/
+
+InSpec/Deprecations/AttributeHelper:
+  Description: InSpec attributes have been renamed to inputs. Use the `input` method not the deprecation `attribute` method to access these values.
+  StyleGuide: 'inspec_deprecations_attributehelper'
+  Enabled: true
+  VersionAdded: '7.14.0'
+  Include:
+    - '**/controls/*.rb'
+
+InSpec/Deprecations/AttributeDefault:
+  Description: The InSpec inputs `default` option has been replaced with the `value` option.
+  StyleGuide: 'inspec_deprecations_attributedefaults'
+  Enabled: true
+  VersionAdded: '7.14.0'
+  Include:
+    - '**/controls/*.rb'
+
 #### The base rubocop 0.37 enabled.yml file we started with ####
 
 Layout/AccessModifierIndentation:
