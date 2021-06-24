@@ -6,7 +6,7 @@ The RuboCop engine that powers Cookstyle has been updated to 1.17.0. This new re
 
 ### InSpec Cops
 
-Cookstyle now includes Chef InSpec specific Cops in the `InSpec/Deprecations` department. These new Chef InSpec cops help with the migration from InSpec `attributes` to `inputs`. We plan to add additional deprecation and correctness cops for InSpec as time goes on. If you have any ideas for InSpec cops you'd like to see added, please [request a new cop](https://github.com/chef/cookstyle/issues/new?assignees=&labels=Status%3A+Untriaged%2C+New+Cop+Proposal&template=NEW_COP_REQUEST.md).
+Cookstyle now includes Chef InSpec specific Cops in the `InSpec/Deprecations` department. These new Chef InSpec cops help with the migration from InSpec `attributes` to `inputs`. We plan to add additional deprecation and correctness cops for InSpec in the future. If you have any ideas for InSpec cops you'd like to see added, please [request a new cop](https://github.com/chef/cookstyle/issues/new?assignees=&labels=Status%3A+Untriaged%2C+New+Cop+Proposal&template=NEW_COP_REQUEST.md).
 
 #### InSpec/Deprecations/AttributeDefault
 
