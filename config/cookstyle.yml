@@ -1208,6 +1208,14 @@ Chef/Deprecations/ResourceWithoutUnifiedTrue:
   Exclude:
     - '**/spec/**/*.rb'
 
+Chef/Deprecations/PolicyfileCommunitySource:
+  Description: The Policyfile source of `:community` has been replaced with `:supermarket`
+  StyleGuide: 'chef_deprecations_policyfilecommunitysource'
+  Enabled: true
+  VersionAdded: '7.15.0'
+  Include:
+    - '**/Policyfile.rb'
+
 ###############################
 # Chef/Modernize: Cleaning up legacy code and using new built-in resources
 ###############################
