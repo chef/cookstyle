@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 7.15.0 -->
+## [v7.15.0](https://github.com/chef/cookstyle/tree/v7.15.0) (2021-07-02)
+
+#### Merged Pull Requests
+- Add new Chef/Deprecations/PolicyfileCommunitySource cop [#869](https://github.com/chef/cookstyle/pull/869) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=7.14.2 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Add new Chef/Deprecations/PolicyfileCommunitySource cop [#869](https://github.com/chef/cookstyle/pull/869) ([tas50](https://github.com/tas50)) <!-- 7.15.0 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
