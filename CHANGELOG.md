@@ -1,25 +1,22 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.15.2 -->
+ <!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v7.15.2](https://github.com/chef/cookstyle/tree/v7.15.2) (2021-07-24)
 
 #### Merged Pull Requests
 - Update to RuboCop 1.18.4 [#874](https://github.com/chef/cookstyle/pull/874) ([tas50](https://github.com/tas50))
-<!-- latest_release -->
-
-<!-- release_rollup since=7.15.1 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Update to RuboCop 1.18.4 [#874](https://github.com/chef/cookstyle/pull/874) ([tas50](https://github.com/tas50)) <!-- 7.15.2 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v7.15.1](https://github.com/chef/cookstyle/tree/v7.15.1) (2021-07-06)
 
 #### Merged Pull Requests
 - Update RuboCop engine to 1.18.3 [#870](https://github.com/chef/cookstyle/pull/870) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v7.15.0](https://github.com/chef/cookstyle/tree/v7.15.0) (2021-07-02)
 
