@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 7.15.3 -->
+## [v7.15.3](https://github.com/chef/cookstyle/tree/v7.15.3) (2021-07-29)
+
+#### Merged Pull Requests
+- Ignore resource partials for Chef/Deprecations/ResourceWithoutUnifiedTrue [#875](https://github.com/chef/cookstyle/pull/875) ([jakauppila](https://github.com/jakauppila))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=7.15.2 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Ignore resource partials for Chef/Deprecations/ResourceWithoutUnifiedTrue [#875](https://github.com/chef/cookstyle/pull/875) ([jakauppila](https://github.com/jakauppila)) <!-- 7.15.3 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
