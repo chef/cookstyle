@@ -1206,6 +1206,7 @@ Chef/Deprecations/ResourceWithoutUnifiedTrue:
   Include:
     - '**/resources/*.rb'
   Exclude:
+    - '**/resources/_*.rb'
     - '**/spec/**/*.rb'
 
 Chef/Deprecations/PolicyfileCommunitySource:
