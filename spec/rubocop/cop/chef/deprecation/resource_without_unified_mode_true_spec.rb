@@ -71,6 +71,10 @@ describe RuboCop::Cop::Chef::Deprecations::ResourceWithoutUnifiedTrue, :config d
     RUBY
   end
 
+  it "doesn't register an offense when the custom resource file is empty" do
+    expect_no_offenses('')
+  end
+
   context 'with TargetChefVersion set before 15.3' do
     let(:config) { target_chef_version(15.2) }
 

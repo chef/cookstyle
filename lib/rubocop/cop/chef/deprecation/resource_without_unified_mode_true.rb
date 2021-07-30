@@ -54,6 +54,9 @@ module RuboCop
           def_node_search :provides, '(send nil? :provides ...)'
 
           def on_new_investigation
+            # gracefully fail if the resource is empty
+            return if processed_source.ast.nil?
+
             # Using range similar to RuboCop::Cop::Naming::Filename (file_name.rb)
             return if unified_mode?(processed_source.ast)
             range = source_range(processed_source.buffer, 1, 0)
