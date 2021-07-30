@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 7.15.4 -->
+## [v7.15.4](https://github.com/chef/cookstyle/tree/v7.15.4) (2021-07-30)
+
+#### Merged Pull Requests
+- Prevent ResourceWithoutUnifiedTrue fails with empty files [#876](https://github.com/chef/cookstyle/pull/876) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=7.15.3 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Prevent ResourceWithoutUnifiedTrue fails with empty files [#876](https://github.com/chef/cookstyle/pull/876) ([tas50](https://github.com/tas50)) <!-- 7.15.4 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
