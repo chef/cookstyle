@@ -15,21 +15,26 @@ Please try to select as few as possible.
 - [ ] Chef/Modernize - A cop that alerts when a cookbook can be simplified or modernized with new functionality
 - [ ] Chef/Effortless - A cop that alerts on code that must be resolved to move to the Effortless pattern
 - [ ] Chef/RedundantCode - A cop that detects redundant code regardless of Chef Infra release
+- [ ] InSpec/Deprecations - A cop that alerts on a deprecation in the Chef InSpec 
 
 ### Describe the new cop:
+
 <!---  Why is a new Cookstyle Cop necessary? -->
 
 ### What it would trigger on:
+
 <!---  Give examples of the cookbook code that you're trying to trigger on -->
 ```ruby
 
 ```
 
 ### What it would autocorrect to if applicable
+
 <!--- If autocorrecting is possible what would you correct to? -->
 ```ruby
 
 ```
 
 ### Can We Help You Implement This?:
+
 <!---  The best way to ensure your enhancement is built is to help implement the enhancement yourself. If you're interested in helping out we'd love to give you a hand to make this possible. Let us know if there's something you need. -->
