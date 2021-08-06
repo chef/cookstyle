@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 #
-# Copyright:: 2019, Chef Software Inc.
+# Copyright:: 2019-2021, Chef Software Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -27,6 +27,7 @@ module RuboCop
         #   name 'foo'
         #
         class MetadataMissingName < Base
+          extend AutoCorrector
           include RangeHelp
 
           MSG = 'metadata.rb needs to include the name method or it will fail on Chef Infra Client 12 and later.'
@@ -37,11 +38,10 @@ module RuboCop
             # Using range similar to RuboCop::Cop::Naming::Filename (file_name.rb)
             return if cb_name?(processed_source.ast)
             range = source_range(processed_source.buffer, 1, 0)
-            add_offense(range, message: MSG, severity: :refactor) do |_corrector|
+            add_offense(range, message: MSG, severity: :refactor) do |corrector|
               path = processed_source.path
               cb_name = File.basename(File.dirname(path))
-              metadata = IO.read(path)
-              IO.write(path, "name '#{cb_name}'\n" + metadata)
+              corrector.insert_before(processed_source.ast, "name '#{cb_name}'\n")
             end
           end
         end
