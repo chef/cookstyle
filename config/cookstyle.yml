@@ -481,6 +481,14 @@ Chef/Correctness/OctalModeAsString:
     - '**/metadata.rb'
     - '**/Berksfile'
 
+Chef/Correctness/MetadataMalformedDepends:
+  Description: Don't represent file modes as strings containing octal values. Use standard base 10 file modes instead.
+  StyleGuide: 'chef_correctness_metadatamalformeddepends'
+  Enabled: true
+  VersionAdded: '7.16'
+  Include:
+    - '**/metadata.rb'
+
 ###############################
 # Chef/Sharing: Issues that prevent sharing code with other teams or with the Chef community in general
 ###############################
@@ -2450,6 +2458,8 @@ Lint/HandleExceptions:
   Enabled: true
 Lint/ImplicitStringConcatenation:
   Enabled: true
+  Exclude:
+    - '**/metadata.rb' # this prevents conflicts with Chef/Correctness/MetadataMalformedDepends
 Lint/IneffectiveAccessModifier:
   Enabled: true
 Lint/LiteralAsCondition:
