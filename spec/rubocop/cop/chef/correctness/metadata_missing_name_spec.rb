@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 #
-# Copyright:: 2019, Chef Software, Inc.
+# Copyright:: 2019-2021, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,18 +20,16 @@ require 'spec_helper'
 describe RuboCop::Cop::Chef::Correctness::MetadataMissingName, :config do
   subject(:cop) { described_class.new(config) }
 
-  # prior to Rubocop 0.87 the autocorrect was not with expect_offense
-  # in Rubocop 0.87 the autocorrect method is being executed and this attempts to write data
-  before do
-    allow(IO).to receive(:read).and_call_original
-    allow(IO).to receive(:read).with('/foo/bar/metadata.rb').and_return("supports 'ubuntu'")
-    allow(IO).to receive(:write).with('/foo/bar/metadata.rb', "name 'bar'\nsupports 'ubuntu'")
-  end
-
   it 'registers an offense when the name method is missing' do
     expect_offense(<<~RUBY, '/foo/bar/metadata.rb')
       source_url 'http://github.com/something/something'
       ^ metadata.rb needs to include the name method or it will fail on Chef Infra Client 12 and later.
+      depends 'foo'
+    RUBY
+
+    expect_correction(<<~RUBY)
+      name 'bar'
+      source_url 'http://github.com/something/something'
       depends 'foo'
     RUBY
   end
