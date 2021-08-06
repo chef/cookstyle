@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.16.0 -->
-## [v7.16.0](https://github.com/chef/cookstyle/tree/v7.16.0) (2021-08-06)
+ <!-- latest_release 7.16.1 -->
+## [v7.16.1](https://github.com/chef/cookstyle/tree/v7.16.1) (2021-08-06)
 
 #### Merged Pull Requests
-- Add a new cop for detecting malformed cookbook depends [#879](https://github.com/chef/cookstyle/pull/879) ([tas50](https://github.com/tas50))
+- Fix MetadataMissingName to properly autocorrect [#880](https://github.com/chef/cookstyle/pull/880) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.15.4 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Fix MetadataMissingName to properly autocorrect [#880](https://github.com/chef/cookstyle/pull/880) ([tas50](https://github.com/tas50)) <!-- 7.16.1 -->
 - Add a new cop for detecting malformed cookbook depends [#879](https://github.com/chef/cookstyle/pull/879) ([tas50](https://github.com/tas50)) <!-- 7.16.0 -->
 <!-- release_rollup -->
 
