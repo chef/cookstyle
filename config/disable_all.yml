@@ -219,6 +219,8 @@ Lint/AmbiguousBlockAssociation:
   Enabled: false
 Lint/AmbiguousOperator:
   Enabled: false
+Lint/AmbiguousRange:
+  Enabled: false
 Lint/AmbiguousRegexpLiteral:
   Enabled: false
 Lint/AssignmentInCondition:
@@ -704,6 +706,8 @@ Style/RedundantFetchBlock:
 Style/RedundantFileExtensionInRequire:
   Enabled: false
 Style/RedundantSelfAssignment:
+  Enabled: false
+Style/RedundantSelfAssignmentBranch:
   Enabled: false
 Style/SoleNestedConditional:
   Enabled: false

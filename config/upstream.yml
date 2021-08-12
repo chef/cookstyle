@@ -1434,6 +1434,13 @@ Lint/AmbiguousOperator:
   VersionAdded: '0.17'
   VersionChanged: '0.83'
 
+Lint/AmbiguousRange:
+  Description: Checks for ranges with ambiguous boundaries.
+  Enabled: pending
+  VersionAdded: '1.19'
+  SafeAutoCorrect: false
+  RequireParenthesesForMethodChains: false
+
 Lint/AmbiguousRegexpLiteral:
   Description: >-
                  Checks for ambiguous regexp literals in the first argument of
@@ -1824,7 +1831,6 @@ Lint/MultipleComparison:
   Enabled: true
   VersionAdded: '0.47'
   VersionChanged: '1.1'
-  AllowMethodComparison: true
 
 Lint/NestedMethodDefinition:
   Description: 'Do not use nested method definitions.'
@@ -2557,6 +2563,7 @@ Naming/InclusiveLanguage:
         - denylist
         - block
     slave:
+      WholeWord: true
       Suggestions: ['replica', 'secondary', 'follower']
 
 Naming/MemoizedInstanceVariableName:
@@ -3155,8 +3162,9 @@ Style/CommentAnnotation:
 Style/CommentedKeyword:
   Description: 'Do not place comments on the same line as certain keywords.'
   Enabled: true
+  SafeAutoCorrect: false
   VersionAdded: '0.51'
-  VersionChanged: '1.7'
+  VersionChanged: '1.19'
 
 Style/ConditionalAssignment:
   Description: >-
@@ -3603,8 +3611,9 @@ Style/IdenticalConditionalBranches:
                  line at the end of each branch, which can validly be moved
                  out of the conditional.
   Enabled: true
+  SafeAutoCorrect: false
   VersionAdded: '0.36'
-  VersionChanged: '1.16'
+  VersionChanged: '1.19'
 
 Style/IfInsideElse:
   Description: 'Finds if nodes inside else, which can be converted to elsif.'
@@ -3929,6 +3938,7 @@ Style/MultipleComparison:
   Enabled: true
   VersionAdded: '0.49'
   VersionChanged: '1.1'
+  AllowMethodComparison: true
 
 Style/MutableConstant:
   Description: 'Do not assign mutable objects to constants.'
@@ -4152,6 +4162,7 @@ Style/OptionHash:
     - args
     - params
     - parameters
+  Allowlist: []
 
 Style/OptionalArguments:
   Description: >-
@@ -4404,6 +4415,11 @@ Style/RedundantSelfAssignment:
   Safe: false
   VersionAdded: '0.90'
 
+Style/RedundantSelfAssignmentBranch:
+  Description: 'Checks for places where conditional branch makes redundant self-assignment.'
+  Enabled: pending
+  VersionAdded: '1.19'
+
 Style/RedundantSort:
   Description: >-
                   Use `min` instead of `sort.first`,
@@ -4575,6 +4591,7 @@ Style/SpecialGlobalVars:
   VersionAdded: '0.13'
   VersionChanged: '0.36'
   SafeAutoCorrect: false
+  RequireEnglish: true
   EnforcedStyle: use_english_names
   SupportedStyles:
     - use_perl_names
@@ -4895,7 +4912,7 @@ Style/VariableInterpolation:
 
 Style/WhenThen:
   Description: 'Use when x then ... for one-line cases.'
-  StyleGuide: '#one-line-cases'
+  StyleGuide: '#no-when-semicolons'
   Enabled: true
   VersionAdded: '0.9'
 
@@ -4919,7 +4936,7 @@ Style/WordArray:
   StyleGuide: '#percent-w'
   Enabled: true
   VersionAdded: '0.9'
-  VersionChanged: '0.36'
+  VersionChanged: '1.19'
   EnforcedStyle: percent
   SupportedStyles:
     # percent style: %w(word1 word2)
