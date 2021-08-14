@@ -1225,6 +1225,18 @@ Chef/Deprecations/PolicyfileCommunitySource:
   Include:
     - '**/Policyfile.rb'
 
+Chef/Deprecations/DeprecatedSudoActions:
+  Description: The `sudo` resource in the sudo cookbook 5.0 (2018) or Chef Infra Client 14 and later have replaced the existing `:install` and `:remove` actions with `:create` and `:delete` actions to better match other resources in Chef Infra.
+  StyleGuide: 'chef_deprecations_deprecatedsudoactions'
+  Enabled: true
+  VersionAdded: '7.18.0'
+  Exclude:
+    - '**/spec/**/*.rb'
+    - '**/metadata.rb'
+    - '**/attributes/*.rb'
+    - '**/Berksfile'
+    - '**/Rakefile'
+
 ###############################
 # Chef/Modernize: Cleaning up legacy code and using new built-in resources
 ###############################
