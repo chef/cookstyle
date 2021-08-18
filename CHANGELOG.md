@@ -1,26 +1,23 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.19.0 -->
-## [v7.19.0](https://github.com/chef/cookstyle/tree/v7.19.0) (2021-08-18)
-
-#### Merged Pull Requests
-- Add 5 new cops to detect deprecated cookbooks [#884](https://github.com/chef/cookstyle/pull/884) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=7.18.0 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Add 5 new cops to detect deprecated cookbooks [#884](https://github.com/chef/cookstyle/pull/884) ([tas50](https://github.com/tas50)) <!-- 7.19.0 -->
-- Add new Chef/Correctness/PowershellFileExists cop [#883](https://github.com/chef/cookstyle/pull/883) ([tas50](https://github.com/tas50)) <!-- 7.18.1 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v7.19.0](https://github.com/chef/cookstyle/tree/v7.19.0) (2021-08-18)
+
+#### Merged Pull Requests
+- Add new Chef/Correctness/PowershellFileExists cop [#883](https://github.com/chef/cookstyle/pull/883) ([tas50](https://github.com/tas50))
+- Add 5 new cops to detect deprecated cookbooks [#884](https://github.com/chef/cookstyle/pull/884) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v7.18.0](https://github.com/chef/cookstyle/tree/v7.18.0) (2021-08-14)
 
 #### Merged Pull Requests
 - Add a new cop Chef/Deprecations/DeprecatedSudoActions [#882](https://github.com/chef/cookstyle/pull/882) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v7.17.0](https://github.com/chef/cookstyle/tree/v7.17.0) (2021-08-12)
 
