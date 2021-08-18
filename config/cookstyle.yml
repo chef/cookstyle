@@ -489,6 +489,15 @@ Chef/Correctness/MetadataMalformedDepends:
   Include:
     - '**/metadata.rb'
 
+Chef/Correctness/PowershellFileExists:
+  Description: Use Ruby's built-in `File.exist?('C:\somefile') instead of executing PowerShell's `Test-Path` cmdlet, which takes longer to load.
+  StyleGuide: 'chef_correctness_powershellfileexists'
+  Enabled: true
+  VersionAdded: '7.19'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/Berksfile'
+
 ###############################
 # Chef/Sharing: Issues that prevent sharing code with other teams or with the Chef community in general
 ###############################
