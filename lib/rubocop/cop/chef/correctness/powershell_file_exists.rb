@@ -19,7 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module Correctness
-        # Use Ruby's built-in `File.exist?('C:\somefile') instead of executing PowerShell's `Test-Path` cmdlet, which takes longer to load.
+        # Use Ruby's built-in `File.exist?('C:\somefile')` method instead of executing PowerShell's `Test-Path` cmdlet, which takes longer to load.
         #
         # @example
         #
@@ -31,7 +31,7 @@ module RuboCop
         #
         class PowershellFileExists < Base
           RESTRICT_ON_SEND = [:powershell_out, :powershell_out!].freeze
-          MSG = "Use Ruby's built-in `File.exist?('C:\somefile') instead of executing PowerShell's `Test-Path` cmdlet, which takes longer to load."
+          MSG = "Use Ruby's built-in `File.exist?('C:\\somefile')` method instead of executing PowerShell's `Test-Path` cmdlet, which takes longer to load."
 
           def_node_matcher :powershell_out_exists?, <<-PATTERN
             (send nil? {:powershell_out :powershell_out!} (str $_))
