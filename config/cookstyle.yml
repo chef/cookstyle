@@ -1272,7 +1272,7 @@ Chef/Modernize/WhyRunSupportedTrue:
     - '**/libraries/*.rb'
 
 Chef/Modernize/UnnecessaryDependsChef14:
-  Description: Don't depend on cookbooks made obsolete by Chef Infra Client 14+. These community cookbooks contain resources that are now included in Chef Infra Client itself.
+  Description: Don't depend on cookbooks made obsolete by Chef Infra Client 14.0+. These community cookbooks contain resources that are now included in Chef Infra Client itself.
   StyleGuide: 'chef_modernize_unnecessarydependschef14'
   Enabled: true
   VersionAdded: '5.1.0'
@@ -1398,7 +1398,7 @@ Chef/Modernize/SevenZipArchiveResource:
     - '**/metadata.rb'
 
 Chef/Modernize/LibarchiveFileResource:
-  Description: Use the archive_file resource built into Chef Infra Client 15+ instead of the libarchive file resource
+  Description: Use the archive_file resource built into Chef Infra Client 15+ instead of the libarchive file resource from the libarchive cookbook
   StyleGuide: 'chef_modernize_libarchivefileresource'
   Enabled: true
   VersionAdded: '5.5.0'
@@ -1807,6 +1807,46 @@ Chef/Modernize/ActionMethodInResource:
   Include:
     - '**/resources/*.rb'
     - '**/providers/*.rb'
+
+Chef/Modernize/UnnecessaryDependsChef15:
+  Description: Don't depend on cookbooks made obsolete by Chef Infra Client 15.0+. These community cookbooks contain resources that are now included in Chef Infra Client itself.
+  StyleGuide: 'chef_modernize_unnecessarydependschef15'
+  Enabled: true
+  VersionAdded: '7.19.0'
+  Include:
+    - '**/metadata.rb'
+
+Chef/Modernize/DependsOnLocaleCookbook:
+  Description: Don't depend on the locale cookbook made obsolete by Chef Infra Client 14.5. The locale resource is now included in Chef Infra Client itself.
+  StyleGuide: 'chef_modernize_dependsonlocalecookbook'
+  Enabled: true
+  VersionAdded: '7.19.0'
+  Include:
+    - '**/metadata.rb'
+
+Chef/Modernize/DependsOnTimezoneLwrpCookbook:
+  Description: Don't depend on the timezone_lwrp cookbook made obsolete by Chef Infra Client 14.6. The timezone resource is now included in Chef Infra Client itself.
+  StyleGuide: 'chef_modernize_dependsontimezonelwrpcookbook'
+  Enabled: true
+  VersionAdded: '7.19.0'
+  Include:
+    - '**/metadata.rb'
+
+Chef/Modernize/DependsOnWindowsFirewallCookbook:
+  Description: Don't depend on the windows_firewall cookbook made obsolete by Chef Infra Client 14.7. The windows_firewall resource is now included in Chef Infra Client itself.
+  StyleGuide: 'chef_modernize_dependsonwindowsfirewallcookbook'
+  Enabled: true
+  VersionAdded: '7.19.0'
+  Include:
+    - '**/metadata.rb'
+
+Chef/Modernize/DependsOnKernelModuleCookbook:
+  Description: Don't depend on the kernel_module cookbook made obsolete by Chef Infra Client 14.3. The kernel_module resource is now included in Chef Infra Client itself.
+  StyleGuide: 'chef_modernize_dependsonkernelmodulecookbook'
+  Enabled: true
+  VersionAdded: '7.19.0'
+  Include:
+    - '**/metadata.rb'
 
 ###############################
 # Chef/RedundantCode: Cleanup unnecessary code in your cookbooks regardless of Chef Infra Client release

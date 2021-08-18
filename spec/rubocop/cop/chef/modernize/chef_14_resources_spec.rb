@@ -23,49 +23,49 @@ describe RuboCop::Cop::Chef::Modernize::UnnecessaryDependsChef14, :config do
   it 'registers an offense when a cookbook depends on "build-essential"' do
     expect_offense(<<~RUBY)
       depends 'build-essential'
-      ^^^^^^^^^^^^^^^^^^^^^^^^^ Don't depend on cookbooks made obsolete by Chef Infra Client 14+. These community cookbooks contain resources that are now included in Chef Infra Client itself.
+      ^^^^^^^^^^^^^^^^^^^^^^^^^ Don't depend on cookbooks made obsolete by Chef Infra Client 14.0+. These community cookbooks contain resources that are now included in Chef Infra Client itself.
     RUBY
   end
 
   it 'registers an offense when a cookbook depends on "chef_handler"' do
     expect_offense(<<~RUBY)
       depends 'chef_handler'
-      ^^^^^^^^^^^^^^^^^^^^^^ Don't depend on cookbooks made obsolete by Chef Infra Client 14+. These community cookbooks contain resources that are now included in Chef Infra Client itself.
+      ^^^^^^^^^^^^^^^^^^^^^^ Don't depend on cookbooks made obsolete by Chef Infra Client 14.0+. These community cookbooks contain resources that are now included in Chef Infra Client itself.
     RUBY
   end
 
   it 'registers an offense when a cookbook depends on "chef_hostname"' do
     expect_offense(<<~RUBY)
       depends 'chef_hostname'
-      ^^^^^^^^^^^^^^^^^^^^^^^ Don't depend on cookbooks made obsolete by Chef Infra Client 14+. These community cookbooks contain resources that are now included in Chef Infra Client itself.
+      ^^^^^^^^^^^^^^^^^^^^^^^ Don't depend on cookbooks made obsolete by Chef Infra Client 14.0+. These community cookbooks contain resources that are now included in Chef Infra Client itself.
     RUBY
   end
 
   it 'registers an offense when a cookbook depends on "dmg"' do
     expect_offense(<<~RUBY)
       depends 'dmg'
-      ^^^^^^^^^^^^^ Don't depend on cookbooks made obsolete by Chef Infra Client 14+. These community cookbooks contain resources that are now included in Chef Infra Client itself.
+      ^^^^^^^^^^^^^ Don't depend on cookbooks made obsolete by Chef Infra Client 14.0+. These community cookbooks contain resources that are now included in Chef Infra Client itself.
     RUBY
   end
 
   it 'registers an offense when a cookbook depends on "mac_os_x"' do
     expect_offense(<<~RUBY)
       depends 'mac_os_x'
-      ^^^^^^^^^^^^^^^^^^ Don't depend on cookbooks made obsolete by Chef Infra Client 14+. These community cookbooks contain resources that are now included in Chef Infra Client itself.
+      ^^^^^^^^^^^^^^^^^^ Don't depend on cookbooks made obsolete by Chef Infra Client 14.0+. These community cookbooks contain resources that are now included in Chef Infra Client itself.
     RUBY
   end
 
   it 'registers an offense when a cookbook depends on "swap"' do
     expect_offense(<<~RUBY)
       depends 'swap'
-      ^^^^^^^^^^^^^^ Don't depend on cookbooks made obsolete by Chef Infra Client 14+. These community cookbooks contain resources that are now included in Chef Infra Client itself.
+      ^^^^^^^^^^^^^^ Don't depend on cookbooks made obsolete by Chef Infra Client 14.0+. These community cookbooks contain resources that are now included in Chef Infra Client itself.
     RUBY
   end
 
   it 'registers an offense when a cookbook depends on "sysctl"' do
     expect_offense(<<~RUBY)
       depends 'sysctl'
-      ^^^^^^^^^^^^^^^^ Don't depend on cookbooks made obsolete by Chef Infra Client 14+. These community cookbooks contain resources that are now included in Chef Infra Client itself.
+      ^^^^^^^^^^^^^^^^ Don't depend on cookbooks made obsolete by Chef Infra Client 14.0+. These community cookbooks contain resources that are now included in Chef Infra Client itself.
     RUBY
   end
 
@@ -78,7 +78,7 @@ describe RuboCop::Cop::Chef::Modernize::UnnecessaryDependsChef14, :config do
   it 'registers an offense when a cookbook depends on "build-essential" and specifies a version constraint' do
     expect_offense(<<~RUBY)
       depends 'build-essential', '>= 8.0.1'
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Don't depend on cookbooks made obsolete by Chef Infra Client 14+. These community cookbooks contain resources that are now included in Chef Infra Client itself.
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Don't depend on cookbooks made obsolete by Chef Infra Client 14.0+. These community cookbooks contain resources that are now included in Chef Infra Client itself.
     RUBY
   end
 
