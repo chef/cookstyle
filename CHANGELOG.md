@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 7.18.1 -->
+## [v7.18.1](https://github.com/chef/cookstyle/tree/v7.18.1) (2021-08-18)
+
+#### Merged Pull Requests
+- Add new Chef/Correctness/PowershellFileExists cop [#883](https://github.com/chef/cookstyle/pull/883) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=7.18.0 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Add new Chef/Correctness/PowershellFileExists cop [#883](https://github.com/chef/cookstyle/pull/883) ([tas50](https://github.com/tas50)) <!-- 7.18.1 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
