@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 #
-# Copyright:: 2019, Chef Software, Inc.
+# Copyright:: 2021, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,31 +19,28 @@ module RuboCop
   module Cop
     module Chef
       module Modernize
-        # Don't depend on cookbooks made obsolete by Chef Infra Client 14.0+ These community cookbooks contain resources that are now included in Chef Infra Client itself.
+        # Don't depend on cookbooks made obsolete by Chef Infra Client 15.0+. These community cookbooks contain resources that are now included in Chef Infra Client itself.
         #
         # @example
         #
         #   #### incorrect
-        #   depends 'build-essential'
-        #   depends 'chef_handler'
-        #   depends 'chef_hostname'
-        #   depends 'dmg'
-        #   depends 'mac_os_x'
-        #   depends 'swap'
-        #   depends 'sysctl'
+        #   depends 'libarchive'
+        #   depends 'windows_dns'
+        #   depends 'windows_uac'
+        #   depends 'windows_dfs'
         #
-        class UnnecessaryDependsChef14 < Base
+        class UnnecessaryDependsChef15 < Base
           extend AutoCorrector
           extend TargetChefVersion
           include RangeHelp
 
-          minimum_target_chef_version '14.0'
+          minimum_target_chef_version '15.0'
 
-          MSG = "Don't depend on cookbooks made obsolete by Chef Infra Client 14.0+. These community cookbooks contain resources that are now included in Chef Infra Client itself."
+          MSG = "Don't depend on cookbooks made obsolete by Chef Infra Client 15.0+. These community cookbooks contain resources that are now included in Chef Infra Client itself."
           RESTRICT_ON_SEND = [:depends].freeze
 
           def_node_matcher :legacy_depends?, <<-PATTERN
-            (send nil? :depends (str {"build-essential" "chef_handler" "chef_hostname" "dmg" "mac_os_x" "swap" "sysctl"}) ... )
+            (send nil? :depends (str {"libarchive" "windows_dns" "windows_uac" "windows_dfs"}) ... )
           PATTERN
 
           def on_send(node)
