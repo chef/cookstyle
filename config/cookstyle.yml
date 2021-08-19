@@ -490,7 +490,7 @@ Chef/Correctness/MetadataMalformedDepends:
     - '**/metadata.rb'
 
 Chef/Correctness/PowershellFileExists:
-  Description: Use Ruby's built-in `File.exist?('C:\somefile') instead of executing PowerShell's `Test-Path` cmdlet, which takes longer to load.
+  Description: Use Ruby's built-in `File.exist?('C:\somefile')` method instead of executing PowerShell's `Test-Path` cmdlet, which takes longer to load.
   StyleGuide: 'chef_correctness_powershellfileexists'
   Enabled: true
   VersionAdded: '7.19'
@@ -1246,6 +1246,30 @@ Chef/Deprecations/DeprecatedSudoActions:
     - '**/Berksfile'
     - '**/Rakefile'
 
+Chef/Deprecations/DependsOnChefNginxCookbook:
+  Description: Don't depend on the deprecated `chef_nginx` cookbook that was replaced by the `nginx` cookbook. The legacy chef_nginx cookbook may not be compatible with newer Chef Infra Client releases.
+  StyleGuide: 'chef_deprecations_dependsonchefnginxcookbook'
+  Enabled: true
+  VersionAdded: '7.20.0'
+  Include:
+    - '**/metadata.rb'
+
+Chef/Deprecations/DependsOnChefReportingCookbook:
+  Description: Don't depend on the chef-reporting cookbook made obsolete by Chef Infra Client 11.6. This cookbook installs a gem that is not compatible with newer Chef Infra Client releases.
+  StyleGuide: 'chef_deprecations_dependsonchefreportingcookbook'
+  Enabled: true
+  VersionAdded: '7.20.0'
+  Include:
+    - '**/metadata.rb'
+
+Chef/Deprecations/DependsOnOmnibusUpdaterCookbook:
+  Description: Don't depend on the EOL `omnibus_updater` cookbook. This cookbook no longer works with newer Chef Infra Client releases and has been replaced by with the more reliable `chef_client_updater` cookbook.
+  StyleGuide: 'chef_deprecations_dependsonomnibusupdatercookbook'
+  Enabled: true
+  VersionAdded: '7.20.0'
+  Include:
+    - '**/metadata.rb'
+
 ###############################
 # Chef/Modernize: Cleaning up legacy code and using new built-in resources
 ###############################
@@ -1845,6 +1869,30 @@ Chef/Modernize/DependsOnKernelModuleCookbook:
   StyleGuide: 'chef_modernize_dependsonkernelmodulecookbook'
   Enabled: true
   VersionAdded: '7.19.0'
+  Include:
+    - '**/metadata.rb'
+
+Chef/Modernize/DependsOnChefVaultCookbook:
+  Description: Don't depend on the chef-vault cookbook made obsolete by Chef Infra Client 16.0. The chef-vault gem and helpers are now included in Chef Infra Client itself.
+  StyleGuide: 'chef_modernize_dependsonchefvaultcookbook'
+  Enabled: true
+  VersionAdded: '7.20.0'
+  Include:
+    - '**/metadata.rb'
+
+Chef/Modernize/DependsOnChocolateyCookbooks:
+  Description: Don't depend on the chocolatey_source or chocolatey_config cookbooks made obsolete by Chef Infra Client 14.3. The chocolatey_source and chocolatey_config resources are now included in Chef Infra Client itself.
+  StyleGuide: 'chef_modernize_dependsonchocolateycookbooks'
+  Enabled: true
+  VersionAdded: '7.20.0'
+  Include:
+    - '**/metadata.rb'
+
+Chef/Modernize/DependsOnOpensslCookbook:
+  Description: Don't depend on the openssl cookbook which was made obsolete by Chef Infra Client 14.4. All openssl resource are now included directly in Chef Infra Client.
+  StyleGuide: 'chef_modernize_dependsonopensslcookbook'
+  Enabled: true
+  VersionAdded: '7.20.0'
   Include:
     - '**/metadata.rb'
 
