@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 7.20.1 -->
+## [v7.20.1](https://github.com/chef/cookstyle/tree/v7.20.1) (2021-08-21)
+
+#### Merged Pull Requests
+- Updates Chef/Style/ImmediateNotificationTiming to support subscribes [#887](https://github.com/chef/cookstyle/pull/887) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=7.20.0 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Updates Chef/Style/ImmediateNotificationTiming to support subscribes [#887](https://github.com/chef/cookstyle/pull/887) ([tas50](https://github.com/tas50)) <!-- 7.20.1 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
