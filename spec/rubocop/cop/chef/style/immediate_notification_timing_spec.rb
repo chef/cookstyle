@@ -20,7 +20,7 @@ require 'spec_helper'
 describe RuboCop::Cop::Chef::Style::ImmediateNotificationTiming do
   subject(:cop) { described_class.new }
 
-  it 'registers an offense when notification uses the :immediate timing' do
+  it 'registers an offense when notifies uses the :immediate timing' do
     expect_offense(<<~RUBY)
       template '/etc/www/configures-apache.conf' do
         notifies :restart, 'service[apache]', :immediate
@@ -35,10 +35,33 @@ describe RuboCop::Cop::Chef::Style::ImmediateNotificationTiming do
     RUBY
   end
 
-  it 'does not register an offense when notification uses the :immediately timing' do
+  it 'registers an offense when subscribes uses the :immediate timing' do
+    expect_offense(<<~RUBY)
+      service 'apache' do
+        subscribes :restart, 'template[/etc/www/configures-apache.conf]', :immediate
+                                                                          ^^^^^^^^^^ Use :immediately instead of :immediate for resource notification timing
+      end
+    RUBY
+
+    expect_correction(<<~RUBY)
+      service 'apache' do
+        subscribes :restart, 'template[/etc/www/configures-apache.conf]', :immediately
+      end
+    RUBY
+  end
+
+  it 'does not register an offense when notifies uses the :immediately timing' do
     expect_no_offenses(<<~RUBY)
       template '/etc/www/configures-apache.conf' do
         notifies :restart, 'service[apache]', :immediately
+      end
+    RUBY
+  end
+
+  it 'does not register an offense when subscribes uses the :immediately timing' do
+    expect_no_offenses(<<~RUBY)
+      service 'apache' do
+        subscribes :restart, 'template[/etc/www/configures-apache.conf]', :immediately
       end
     RUBY
   end

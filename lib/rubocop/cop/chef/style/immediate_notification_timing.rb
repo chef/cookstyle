@@ -19,7 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module Style
-        # Use :immediately instead of :immediate for resource notification timing
+        # Use :immediately instead of :immediate for resource notification timing.
         #
         # @example
         #
@@ -39,10 +39,10 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'Use :immediately instead of :immediate for resource notification timing'
-          RESTRICT_ON_SEND = [:notifies].freeze
+          RESTRICT_ON_SEND = [:notifies, :subscribes].freeze
 
           def_node_matcher :immediate_notify?, <<-PATTERN
-            (send nil? :notifies (sym _) (...) $(sym :immediate))
+            (send nil? {:notifies :subscribes} (sym _) (...) $(sym :immediate))
           PATTERN
 
           def on_send(node)
