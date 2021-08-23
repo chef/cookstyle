@@ -19,7 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module Deprecations
-        # Don't depend on the EOL `omnibus_updater` cookbook. This cookbook no longer works with newer Chef Infra Client releases and has been replaced by with the more reliable `chef_client_updater` cookbook.
+        # Don't depend on the EOL `omnibus_updater` cookbook. This cookbook no longer works with newer Chef Infra Client releases and has been replaced with the more reliable `chef_client_updater` cookbook.
         #
         # @example
         #
@@ -33,7 +33,7 @@ module RuboCop
           extend AutoCorrector
           include RangeHelp
 
-          MSG = "Don't depend on the EOL `omnibus_updater` cookbook. This cookbook no longer works with newer Chef Infra Client releases and has been replaced by with the more reliable `chef_client_updater` cookbook."
+          MSG = "Don't depend on the EOL `omnibus_updater` cookbook. This cookbook no longer works with newer Chef Infra Client releases and has been replaced with the more reliable `chef_client_updater` cookbook."
           RESTRICT_ON_SEND = [:depends].freeze
 
           def_node_matcher :legacy_depends?, <<-PATTERN

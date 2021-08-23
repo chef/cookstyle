@@ -23,7 +23,7 @@ describe RuboCop::Cop::Chef::Deprecations::DependsOnOmnibusUpdaterCookbook, :con
   it 'registers an offense when a cookbook depends on "omnibus_updater"' do
     expect_offense(<<~RUBY)
       depends 'omnibus_updater'
-      ^^^^^^^^^^^^^^^^^^^^^^^^^ Don't depend on the EOL `omnibus_updater` cookbook. This cookbook no longer works with newer Chef Infra Client releases and has been replaced by with the more reliable `chef_client_updater` cookbook.
+      ^^^^^^^^^^^^^^^^^^^^^^^^^ Don't depend on the EOL `omnibus_updater` cookbook. This cookbook no longer works with newer Chef Infra Client releases and has been replaced with the more reliable `chef_client_updater` cookbook.
     RUBY
 
     expect_correction("\n")

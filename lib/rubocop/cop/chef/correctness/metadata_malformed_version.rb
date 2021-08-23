@@ -19,7 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module Correctness
-        # metadata.rb cookbook dependencies and version constraints should be comma separated
+        # metadata.rb cookbook dependencies and version constraints should be comma separated.
         #
         # @example
         #

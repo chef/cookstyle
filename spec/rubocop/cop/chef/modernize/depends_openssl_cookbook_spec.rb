@@ -24,7 +24,7 @@ describe RuboCop::Cop::Chef::Modernize::DependsOnOpensslCookbook, :config do
   it 'registers an offense when depending on the openssl cookbook' do
     expect_offense(<<~RUBY)
       depends 'openssl'
-      ^^^^^^^^^^^^^^^^^ Don't depend on the openssl cookbook which was made obsolete by Chef Infra Client 14.4. All openssl resource are now included directly in Chef Infra Client.
+      ^^^^^^^^^^^^^^^^^ Don't depend on the `openssl` cookbook which was made obsolete by Chef Infra Client 14.4. All `openssl_*` resources are now included directly in Chef Infra Client.
     RUBY
 
     expect_correction("\n")

@@ -19,7 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module Modernize
-        # Don't depend on the openssl cookbook which was made obsolete by Chef Infra Client 14.4. All openssl resource are now included directly in Chef Infra Client.
+        # Don't depend on the `openssl` cookbook which was made obsolete by Chef Infra Client 14.4. All `openssl_*` resources are now included directly in Chef Infra Client.
         #
         # @example
         #
@@ -33,7 +33,7 @@ module RuboCop
 
           minimum_target_chef_version '14.4'
 
-          MSG = "Don't depend on the openssl cookbook which was made obsolete by Chef Infra Client 14.4. All openssl resource are now included directly in Chef Infra Client."
+          MSG = "Don't depend on the `openssl` cookbook which was made obsolete by Chef Infra Client 14.4. All `openssl_*` resources are now included directly in Chef Infra Client."
           RESTRICT_ON_SEND = [:depends].freeze
 
           def_node_matcher :legacy_depends?, <<-PATTERN
