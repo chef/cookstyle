@@ -482,7 +482,7 @@ Chef/Correctness/OctalModeAsString:
     - '**/Berksfile'
 
 Chef/Correctness/MetadataMalformedDepends:
-  Description: Don't represent file modes as strings containing octal values. Use standard base 10 file modes instead.
+  Description: metadata.rb cookbook dependencies and version constraints should be comma separated.
   StyleGuide: 'chef_correctness_metadatamalformeddepends'
   Enabled: true
   VersionAdded: '7.16'
@@ -1263,7 +1263,7 @@ Chef/Deprecations/DependsOnChefReportingCookbook:
     - '**/metadata.rb'
 
 Chef/Deprecations/DependsOnOmnibusUpdaterCookbook:
-  Description: Don't depend on the EOL `omnibus_updater` cookbook. This cookbook no longer works with newer Chef Infra Client releases and has been replaced by with the more reliable `chef_client_updater` cookbook.
+  Description: Don't depend on the EOL `omnibus_updater` cookbook. This cookbook no longer works with newer Chef Infra Client releases and has been replaced with the more reliable `chef_client_updater` cookbook.
   StyleGuide: 'chef_deprecations_dependsonomnibusupdatercookbook'
   Enabled: true
   VersionAdded: '7.20.0'
@@ -1889,7 +1889,7 @@ Chef/Modernize/DependsOnChocolateyCookbooks:
     - '**/metadata.rb'
 
 Chef/Modernize/DependsOnOpensslCookbook:
-  Description: Don't depend on the openssl cookbook which was made obsolete by Chef Infra Client 14.4. All openssl resource are now included directly in Chef Infra Client.
+  Description: Don't depend on the `openssl` cookbook which was made obsolete by Chef Infra Client 14.4. All `openssl_*` resources are now included directly in Chef Infra Client.
   StyleGuide: 'chef_modernize_dependsonopensslcookbook'
   Enabled: true
   VersionAdded: '7.20.0'
