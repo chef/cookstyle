@@ -3,8 +3,8 @@ short_name: DependsOnOmnibusUpdaterCookbook
 full_name: Chef/Deprecations/DependsOnOmnibusUpdaterCookbook
 department: Chef/Deprecations
 description: Don't depend on the EOL `omnibus_updater` cookbook. This cookbook no
-  longer works with newer Chef Infra Client releases and has been replaced by with
-  the more reliable `chef_client_updater` cookbook.
+  longer works with newer Chef Infra Client releases and has been replaced with the
+  more reliable `chef_client_updater` cookbook.
 autocorrection: true
 target_chef_version: All Versions
 examples: |2-
