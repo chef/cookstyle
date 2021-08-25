@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.20.2 -->
-## [v7.20.2](https://github.com/chef/cookstyle/tree/v7.20.2) (2021-08-23)
+ <!-- latest_release 7.21.0 -->
+## [v7.21.0](https://github.com/chef/cookstyle/tree/v7.21.0) (2021-08-25)
 
 #### Merged Pull Requests
-- Fix typos in the docs + incorrect description in config [#888](https://github.com/chef/cookstyle/pull/888) ([tas50](https://github.com/tas50))
+- Add new Chef/Modernize/UseChefLanguageEnvHelpers cop [#889](https://github.com/chef/cookstyle/pull/889) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.20.0 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add new Chef/Modernize/UseChefLanguageEnvHelpers cop [#889](https://github.com/chef/cookstyle/pull/889) ([tas50](https://github.com/tas50)) <!-- 7.21.0 -->
 - Fix typos in the docs + incorrect description in config [#888](https://github.com/chef/cookstyle/pull/888) ([tas50](https://github.com/tas50)) <!-- 7.20.2 -->
 - Updates Chef/Style/ImmediateNotificationTiming to support subscribes [#887](https://github.com/chef/cookstyle/pull/887) ([tas50](https://github.com/tas50)) <!-- 7.20.1 -->
 <!-- release_rollup -->
