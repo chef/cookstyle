@@ -1906,6 +1906,16 @@ Chef/Modernize/UseChefLanguageEnvHelpers:
     - '**/providers/*.rb'
     - '**/recipes/*.rb'
 
+Chef/Modernize/UseChefLanguageCloudHelpers:
+  Description: hef Infra Client 15.5 and later include cloud helpers to make detecting instance that run on public and private clouds easier.
+  StyleGuide: 'chef_modernize_usecheflanguagecloudhelpers'
+  Enabled: true
+  VersionAdded: '7.22.0'
+  Include:
+    - '**/resources/*.rb'
+    - '**/providers/*.rb'
+    - '**/recipes/*.rb'
+    
 ###############################
 # Chef/RedundantCode: Cleanup unnecessary code in your cookbooks regardless of Chef Infra Client release
 ###############################
