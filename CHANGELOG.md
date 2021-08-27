@@ -1,30 +1,27 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.22.3 -->
-## [v7.22.3](https://github.com/chef/cookstyle/tree/v7.22.3) (2021-08-27)
-
-#### Merged Pull Requests
-- Update RuboCop to 1.20 [#893](https://github.com/chef/cookstyle/pull/893) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=7.21.0 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Update RuboCop to 1.20 [#893](https://github.com/chef/cookstyle/pull/893) ([tas50](https://github.com/tas50)) <!-- 7.22.3 -->
-- Fix spelling mistakes in descriptions [#892](https://github.com/chef/cookstyle/pull/892) ([tas50](https://github.com/tas50)) <!-- 7.22.2 -->
-- Update all branch references to be main [#891](https://github.com/chef/cookstyle/pull/891) ([tas50](https://github.com/tas50)) <!-- 7.22.1 -->
-- Add new Chef/Modernize/UseChefLanguageCloudHelpers cop [#890](https://github.com/chef/cookstyle/pull/890) ([tas50](https://github.com/tas50)) <!-- 7.22.0 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v7.22.3](https://github.com/chef/cookstyle/tree/v7.22.3) (2021-08-27)
+
+#### Merged Pull Requests
+- Add new Chef/Modernize/UseChefLanguageCloudHelpers cop [#890](https://github.com/chef/cookstyle/pull/890) ([tas50](https://github.com/tas50))
+- Update all branch references to be main [#891](https://github.com/chef/cookstyle/pull/891) ([tas50](https://github.com/tas50))
+- Fix spelling mistakes in descriptions [#892](https://github.com/chef/cookstyle/pull/892) ([tas50](https://github.com/tas50))
+- Update RuboCop to 1.20 [#893](https://github.com/chef/cookstyle/pull/893) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v7.21](https://github.com/chef/cookstyle/tree/v7.21) (2021-08-25)
 
 #### Merged Pull Requests
 - Updates Chef/Style/ImmediateNotificationTiming to support subscribes [#887](https://github.com/chef/cookstyle/pull/887) ([tas50](https://github.com/tas50))
 - Fix typos in the docs + incorrect description in config [#888](https://github.com/chef/cookstyle/pull/888) ([tas50](https://github.com/tas50))
 - Add new Chef/Modernize/UseChefLanguageEnvHelpers cop [#889](https://github.com/chef/cookstyle/pull/889) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v7.20.0](https://github.com/chef/cookstyle/tree/v7.20.0) (2021-08-19)
 
