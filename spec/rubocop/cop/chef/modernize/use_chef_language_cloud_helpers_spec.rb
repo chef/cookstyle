@@ -24,7 +24,7 @@ describe RuboCop::Cop::Chef::Modernize::UseChefLanguageCloudHelpers, :config do
   it "registers an offense when using node['cloud']['provider'] == 'ec2' in a cookbook" do
     expect_offense(<<~RUBY)
       if node['cloud']['provider'] == 'ec2'
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 15.5 and later include cloud helpers to make detecting instance that run on public and private clouds easier.
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 15.5 and later include cloud helpers to make detecting instances that run on public and private clouds easier.
         foo
       end
     RUBY
@@ -39,7 +39,7 @@ describe RuboCop::Cop::Chef::Modernize::UseChefLanguageCloudHelpers, :config do
   it "registers an offense when using node['cloud']['provider'] == 'azure' in a cookbook" do
     expect_offense(<<~RUBY)
       if node['cloud']['provider'] == 'azure'
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 15.5 and later include cloud helpers to make detecting instance that run on public and private clouds easier.
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 15.5 and later include cloud helpers to make detecting instances that run on public and private clouds easier.
         foo
       end
     RUBY
@@ -54,7 +54,7 @@ describe RuboCop::Cop::Chef::Modernize::UseChefLanguageCloudHelpers, :config do
   it "registers an offense when using node['cloud']['provider'] == 'softlayer' in a cookbook" do
     expect_offense(<<~RUBY)
       if node['cloud']['provider'] == 'softlayer'
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 15.5 and later include cloud helpers to make detecting instance that run on public and private clouds easier.
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 15.5 and later include cloud helpers to make detecting instances that run on public and private clouds easier.
         foo
       end
     RUBY
@@ -69,7 +69,7 @@ describe RuboCop::Cop::Chef::Modernize::UseChefLanguageCloudHelpers, :config do
   it "detect node['cloud'] if checked in conjunction with the cloud provider" do
     expect_offense(<<~RUBY)
       if node['cloud']['provider'] == 'digital_ocean'
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 15.5 and later include cloud helpers to make detecting instance that run on public and private clouds easier.
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 15.5 and later include cloud helpers to make detecting instances that run on public and private clouds easier.
         foo
       end
     RUBY
@@ -84,7 +84,7 @@ describe RuboCop::Cop::Chef::Modernize::UseChefLanguageCloudHelpers, :config do
   it "registers an offense when using node['cloud']['provider'] == 'digital_ocean' in a cookbook" do
     expect_offense(<<~RUBY)
       if node['cloud']['provider'] == 'digital_ocean'
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 15.5 and later include cloud helpers to make detecting instance that run on public and private clouds easier.
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 15.5 and later include cloud helpers to make detecting instances that run on public and private clouds easier.
         foo
       end
     RUBY
@@ -99,7 +99,7 @@ describe RuboCop::Cop::Chef::Modernize::UseChefLanguageCloudHelpers, :config do
   it "registers an offense when using node['cloud']['provider'] == 'openstack' in a cookbook" do
     expect_offense(<<~RUBY)
       if node['cloud']['provider'] == 'openstack'
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 15.5 and later include cloud helpers to make detecting instance that run on public and private clouds easier.
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 15.5 and later include cloud helpers to make detecting instances that run on public and private clouds easier.
         foo
       end
     RUBY
@@ -114,7 +114,7 @@ describe RuboCop::Cop::Chef::Modernize::UseChefLanguageCloudHelpers, :config do
   it "registers an offense when using node['cloud']['provider'] == 'alibaba' in a cookbook" do
     expect_offense(<<~RUBY)
       if node['cloud']['provider'] == 'alibaba'
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 15.5 and later include cloud helpers to make detecting instance that run on public and private clouds easier.
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 15.5 and later include cloud helpers to make detecting instances that run on public and private clouds easier.
         foo
       end
     RUBY
@@ -129,7 +129,7 @@ describe RuboCop::Cop::Chef::Modernize::UseChefLanguageCloudHelpers, :config do
   it "registers an offense when using node['cloud']['provider'] == 'gce' in a cookbook" do
     expect_offense(<<~RUBY)
       if node['cloud']['provider'] == 'gce'
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 15.5 and later include cloud helpers to make detecting instance that run on public and private clouds easier.
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 15.5 and later include cloud helpers to make detecting instances that run on public and private clouds easier.
         foo
       end
     RUBY

@@ -19,7 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module Modernize
-        # Chef Infra Client 15.5 and later include cloud helpers to make detecting instance that run on public and private clouds easier.
+        # Chef Infra Client 15.5 and later include cloud helpers to make detecting instances that run on public and private clouds easier.
         #
         # @example
         #
@@ -50,7 +50,7 @@ module RuboCop
         class UseChefLanguageCloudHelpers < Base
           extend AutoCorrector
 
-          MSG = 'Chef Infra Client 15.5 and later include cloud helpers to make detecting instance that run on public and private clouds easier.'
+          MSG = 'Chef Infra Client 15.5 and later include cloud helpers to make detecting instances that run on public and private clouds easier.'
           RESTRICT_ON_SEND = [:==, :[]].freeze
           VALID_CLOUDS = %w(alibaba ec2 gce rackspace eucalyptus linode openstack azure digital_ocean softlayer).freeze
 
