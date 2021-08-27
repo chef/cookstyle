@@ -1,12 +1,12 @@
 # Chef Cookstyle - Chef Infra Cookbook linting with autocorrection
 
-[![Build status](https://badge.buildkite.com/c086ffe05e32e4d61282b91ead96b3721590a59ed4360cf7ac.svg?branch=master)](https://buildkite.com/chef-oss/chef-cookstyle-master-verify)
+[![Build status](https://badge.buildkite.com/c086ffe05e32e4d61282b91ead96b3721590a59ed4360cf7ac.svg?branch=main)](https://buildkite.com/chef-oss/chef-cookstyle-main-verify)
 [![Gem Version](https://badge.fury.io/rb/cookstyle.svg)](https://badge.fury.io/rb/cookstyle)
 
-* **Umbrella Project**: [Chef Infra](https://github.com/chef/chef-oss-practices/blob/master/projects/chef-infra.md)
-* **[Project State](https://github.com/chef/chef-oss-practices/blob/master/repo-management/repo-states.md):** Active
-* **Issues [Response Time Maximum](https://github.com/chef/chef-oss-practices/blob/master/repo-management/repo-states.md):** 14 days
-* **Pull Request [Response Time Maximum](https://github.com/chef/chef-oss-practices/blob/master/repo-management/repo-states.md):** 14 days
+* **Umbrella Project**: [Chef Infra](https://github.com/chef/chef-oss-practices/blob/main/projects/chef-infra.md)
+* **[Project State](https://github.com/chef/chef-oss-practices/blob/main/repo-management/repo-states.md):** Active
+* **Issues [Response Time Maximum](https://github.com/chef/chef-oss-practices/blob/main/repo-management/repo-states.md):** 14 days
+* **Pull Request [Response Time Maximum](https://github.com/chef/chef-oss-practices/blob/main/repo-management/repo-states.md):** 14 days
 
 Cookstyle is a [code linting](https://en.wikipedia.org/wiki/Lint_%28software%29) tool that helps you to write better Chef Infra cookbooks by detecting and automatically correcting style, syntax, and logic mistakes in your code.
 
@@ -22,7 +22,7 @@ How does Cookstyle differ from RuboCop?
 
 Cookbook development differs from that of traditional Ruby software development, so we have tailored the list of built-in cops in RuboCop for cookbook development. For the most part, this means disabling cops deemed not useful for cookbook development. Occasionally, we've changed the configuration of a rule to enforce a different behavior altogether. We've also extended the base RuboCop package with a set of our own Chef Infra-specific cops. These cops are only found in Cookstyle and will help you to write more reliable and future-proof cookbooks.
 
-See the current set of cops in [Cops Documentation](https://github.com/chef/cookstyle/blob/master/docs/cops.md)
+See the current set of cops in [Cops Documentation](https://github.com/chef/cookstyle/blob/main/docs/cops.md)
 
 #### Stable
 
@@ -125,7 +125,7 @@ AllCops:
 
 ## Getting Involved
 
-We'd love to have your help in developing Cookstyle. See our [Contributing Guide](https://github.com/chef/chef/blob/master/CONTRIBUTING.md) for more information on contributing to Chef projects. There's also a [Developer Guide](./DEVELOPER_GUIDE.md) for Cookstyle that outlines how the configs work and how you can upgrade the RuboCop engine.
+We'd love to have your help in developing Cookstyle. See our [Contributing Guide](https://github.com/chef/chef/blob/main/CONTRIBUTING.md) for more information on contributing to Chef projects. There's also a [Developer Guide](./DEVELOPER_GUIDE.md) for Cookstyle that outlines how the configs work and how you can upgrade the RuboCop engine.
 
 ## License and Copyright
 
