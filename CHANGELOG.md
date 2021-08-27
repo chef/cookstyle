@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.22.0 -->
-## [v7.22.0](https://github.com/chef/cookstyle/tree/v7.22.0) (2021-08-27)
+ <!-- latest_release 7.22.1 -->
+## [v7.22.1](https://github.com/chef/cookstyle/tree/v7.22.1) (2021-08-27)
 
 #### Merged Pull Requests
-- Add new Chef/Modernize/UseChefLanguageCloudHelpers cop [#890](https://github.com/chef/cookstyle/pull/890) ([tas50](https://github.com/tas50))
+- Update all branch references to be main [#891](https://github.com/chef/cookstyle/pull/891) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.21.0 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Update all branch references to be main [#891](https://github.com/chef/cookstyle/pull/891) ([tas50](https://github.com/tas50)) <!-- 7.22.1 -->
 - Add new Chef/Modernize/UseChefLanguageCloudHelpers cop [#890](https://github.com/chef/cookstyle/pull/890) ([tas50](https://github.com/tas50)) <!-- 7.22.0 -->
 <!-- release_rollup -->
 
