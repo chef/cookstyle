@@ -1897,7 +1897,7 @@ Chef/Modernize/DependsOnOpensslCookbook:
     - '**/metadata.rb'
 
 Chef/Modernize/UseChefLanguageEnvHelpers:
-  Description: Chef Infra Client 15.5 and later include a large number of new helpers in the Chef Infra Language to simplify checking the system configuration in recipes and resources. These should be used when possible over more complex attribute or ENV var comparisons.
+  Description: Chef Infra Client 15.5 and later include a large number of new helpers in the Chef Infra Language to simplify checking the system configuration in recipes and resources. These should be used when possible over more complex attributes or ENV var comparisons.
   StyleGuide: 'chef_modernize_usecheflanguageenvhelpers'
   Enabled: true
   VersionAdded: '7.21.0'
@@ -1907,7 +1907,7 @@ Chef/Modernize/UseChefLanguageEnvHelpers:
     - '**/recipes/*.rb'
 
 Chef/Modernize/UseChefLanguageCloudHelpers:
-  Description: hef Infra Client 15.5 and later include cloud helpers to make detecting instance that run on public and private clouds easier.
+  Description: Chef Infra Client 15.5 and later include cloud helpers to make detecting instances that run on public and private clouds easier.
   StyleGuide: 'chef_modernize_usecheflanguagecloudhelpers'
   Enabled: true
   VersionAdded: '7.22.0'
