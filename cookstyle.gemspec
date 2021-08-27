@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
 
   spec.metadata = {
     'homepage_uri' => 'https://github.com/chef/cookstyle',
-    'changelog_uri' => 'https://github.com/chef/cookstyle/blob/master/CHANGELOG.md',
+    'changelog_uri' => 'https://github.com/chef/cookstyle/blob/main/CHANGELOG.md',
     'source_code_uri' => 'https://github.com/chef/cookstyle',
     'documentation_uri' => 'https://docs.chef.io/workstation/cookstyle/',
     'bug_tracker_uri' => 'https://github.com/chef/cookstyle/issues',

@@ -1,6 +1,6 @@
 ## How It Works
 
-The project itself is a derivative of [finstyle](https://github.com/fnichol/finstyle), but starts with all cops (rules) disabled. Cookstyle has a direct dependency on one specific version of RuboCop (at a time), and patches it to load the upstream configuration and custom set of cop updates. When a new RuboCop release comes out, this library can bump the pinned RuboCop version dependency and [re-vendor](https://github.com/chef/cookstyle/blob/master/Rakefile) the upstream configuration to determine if any breaking style or lint cops were added/dropped/reversed/etc.
+The project itself is a derivative of [finstyle](https://github.com/fnichol/finstyle), but starts with all cops (rules) disabled. Cookstyle has a direct dependency on one specific version of RuboCop (at a time), and patches it to load the upstream configuration and custom set of cop updates. When a new RuboCop release comes out, this library can bump the pinned RuboCop version dependency and [re-vendor](https://github.com/chef/cookstyle/blob/main/Rakefile) the upstream configuration to determine if any breaking style or lint cops were added/dropped/reversed/etc.
 
 ## NOTE CAREFULLY ABOUT UPDATING COOKSTYLE
 
@@ -12,15 +12,15 @@ Enabling or disabling any new cops in this file must be accompanied by comments 
 
 Cookstyle works by overwriting RuboCop's standard config with our own default.yml file. This file sources three other files to provide the final layer-cake that is Cookstyle:
 
-[upstream.yml](https://github.com/chef/cookstyle/blob/master/config/upstream.yml)
+[upstream.yml](https://github.com/chef/cookstyle/blob/main/config/upstream.yml)
 
 The upstream.yml config file is a vendored copy of the out-of-the-box RuboCop config from the version of the engine we're using. It's necessary to start with this file as it includes cop metadata like descriptions and also includes the actual configuration details for each cop.
 
-[disable_all.yml](https://github.com/chef/cookstyle/blob/master/config/disable_all.yml)
+[disable_all.yml](https://github.com/chef/cookstyle/blob/main/config/disable_all.yml)
 
 The disable_all.yml is loaded after the upstream.yml config in order to disable all of the cops that ship with RuboCop. This ensures that we only turn on the cops we want. Since updating the RuboCop engine also updates this file, we'll never introduce a new cop just by updating the engine.
 
-[cookstyle.yml](https://github.com/chef/cookstyle/blob/master/config/cookstyle.yml)
+[cookstyle.yml](https://github.com/chef/cookstyle/blob/main/config/cookstyle.yml)
 
 The cookstyle.yml config file is the enabled.yml file from RuboCop 0.37.2 combined with a sprinkling of cops released in the dozens of RuboCop releases since then as well as configs for all our own Chef cops. All cops enabled since 0.37.2 include a comment or link to a PR so you can see the justification for adding the cop.
 
@@ -28,4 +28,4 @@ The cookstyle.yml config file is the enabled.yml file from RuboCop 0.37.2 combin
 
 ## Updating the RuboCop Engine
 
-Cookstyle ships with a rake task to aid in updating RuboCop releases. Start by updating the RuboCop version in the [lib/cookstyle/version.rb](https://github.com/chef/cookstyle/blob/master/lib/cookstyle/version.rb) file. Then run `bundle update` and `bundle exec rake vendor` to update the `upstream.yml` and `disable_all.yml` files. You'll want to check the changes in the `upstream.yml` file. Updating this file often requires updating the configs in the cookstyle.yml to prevent warnings when running Cookstyle.
+Cookstyle ships with a rake task to aid in updating RuboCop releases. Start by updating the RuboCop version in the [lib/cookstyle/version.rb](https://github.com/chef/cookstyle/blob/main/lib/cookstyle/version.rb) file. Then run `bundle update` and `bundle exec rake vendor` to update the `upstream.yml` and `disable_all.yml` files. You'll want to check the changes in the `upstream.yml` file. Updating this file often requires updating the configs in the cookstyle.yml to prevent warnings when running Cookstyle.

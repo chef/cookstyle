@@ -2035,7 +2035,7 @@ The `UnnecessaryNameProperty` cop detects resources that define a property with 
 - `ChefDeprecations/UserDeprecatedSupportsProperty` now supports autocorrect
 - `ChefDeprecations/UseInlineResourcesDefined` now detects `use_inline_resources if respond_to?(:use_inline_resources)`
 - `CustomResourceWithAllowedActions` now detects unnecessary actions in LWRPs as well
-- The docs at [https://github.com/chef/cookstyle/blob/master/docs/cops.md](https://github.com/chef/cookstyle/blob/master/docs/cops.md) are now auto-generated on each pull request merge
+- The docs at [https://github.com/chef/cookstyle/blob/main/docs/cops.md](https://github.com/chef/cookstyle/blob/main/docs/cops.md) are now auto-generated on each pull request merge
 
 ## Cookstyle 5.7
 
@@ -2213,7 +2213,7 @@ ChefStyle:
 
 ### Chef Cop Documentation
 
-Documentation for all Chef cops can now be found in the Cookstyle repos's [docs directory](https://github.com/chef/cookstyle/blob/master/docs/cops.md)
+Documentation for all Chef cops can now be found in the Cookstyle repos's [docs directory](https://github.com/chef/cookstyle/blob/main/docs/cops.md)
 
 ### 15 New Chef Cops
 
