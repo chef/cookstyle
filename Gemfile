@@ -7,7 +7,7 @@ gemspec
 group :debug do
   gem 'pry'
   gem 'pry-byebug'
-  gem 'pry-stack_explorer', '0.4.13' # 0.4.13+ drops support for Ruby < 2.6
+  gem 'pry-stack_explorer', '<= 0.4.13' # 0.4.13+ drops support for Ruby < 2.6
 end
 
 group :docs do
