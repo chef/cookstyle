@@ -8,7 +8,8 @@
 # merge to the repo. We live in the future.
 ############################################################################
 
-bundle install --jobs=7 --retry=3 --without debug profiling
+bundle config set --local without debug profiling
+bundle install --jobs=7 --retry=3
 bundle exec rake generate_cops_yml_documentation
 bundle exec rake update_readme_cop_count
 
