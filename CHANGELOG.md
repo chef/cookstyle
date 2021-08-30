@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.22.4 -->
-## [v7.22.4](https://github.com/chef/cookstyle/tree/v7.22.4) (2021-08-27)
+ <!-- latest_release 7.22.5 -->
+## [v7.22.5](https://github.com/chef/cookstyle/tree/v7.22.5) (2021-08-30)
 
 #### Merged Pull Requests
-- Fix typos in descriptions [#894](https://github.com/chef/cookstyle/pull/894) ([tas50](https://github.com/tas50))
+- Replace deprecated --without flag with bundle config [#885](https://github.com/chef/cookstyle/pull/885) ([skeshari12](https://github.com/skeshari12))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.22.3 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Replace deprecated --without flag with bundle config [#885](https://github.com/chef/cookstyle/pull/885) ([skeshari12](https://github.com/skeshari12)) <!-- 7.22.5 -->
 - Fix typos in descriptions [#894](https://github.com/chef/cookstyle/pull/894) ([tas50](https://github.com/tas50)) <!-- 7.22.4 -->
 <!-- release_rollup -->
 
