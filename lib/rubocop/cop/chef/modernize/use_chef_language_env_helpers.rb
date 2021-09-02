@@ -33,6 +33,9 @@ module RuboCop
         #
         class UseChefLanguageEnvHelpers < Base
           extend AutoCorrector
+          extend TargetChefVersion
+
+          minimum_target_chef_version '15.5'
 
           RESTRICT_ON_SEND = [:[]].freeze
 

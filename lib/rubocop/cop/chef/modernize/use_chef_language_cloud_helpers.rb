@@ -49,6 +49,9 @@ module RuboCop
         #
         class UseChefLanguageCloudHelpers < Base
           extend AutoCorrector
+          extend TargetChefVersion
+
+          minimum_target_chef_version '15.5'
 
           MSG = 'Chef Infra Client 15.5 and later include cloud helpers to make detecting instances that run on public and private clouds easier.'
           RESTRICT_ON_SEND = [:==, :[]].freeze
