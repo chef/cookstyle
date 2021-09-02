@@ -1,23 +1,21 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.23.0 -->
-## [v7.23.0](https://github.com/chef/cookstyle/tree/v7.23.0) (2021-09-02)
-
-#### Merged Pull Requests
-- Fix typo in description [#898](https://github.com/chef/cookstyle/pull/898) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=7.22.3 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Fix typo in description [#898](https://github.com/chef/cookstyle/pull/898) ([tas50](https://github.com/tas50)) <!-- 7.23.0 -->
-- Add Chef/Modernize/ClassEvalActionClass cop [#897](https://github.com/chef/cookstyle/pull/897) ([tas50](https://github.com/tas50)) <!-- 7.22.6 -->
-- Replace deprecated --without flag with bundle config [#885](https://github.com/chef/cookstyle/pull/885) ([skeshari12](https://github.com/skeshari12)) <!-- 7.22.5 -->
-- Fix typos in descriptions [#894](https://github.com/chef/cookstyle/pull/894) ([tas50](https://github.com/tas50)) <!-- 7.22.4 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v7.23.0](https://github.com/chef/cookstyle/tree/v7.23.0) (2021-09-02)
+
+#### Merged Pull Requests
+- Fix typos in descriptions [#894](https://github.com/chef/cookstyle/pull/894) ([tas50](https://github.com/tas50))
+- Replace deprecated --without flag with bundle config [#885](https://github.com/chef/cookstyle/pull/885) ([skeshari12](https://github.com/skeshari12))
+- Add Chef/Modernize/ClassEvalActionClass cop [#897](https://github.com/chef/cookstyle/pull/897) ([tas50](https://github.com/tas50))
+- Fix typo in description [#898](https://github.com/chef/cookstyle/pull/898) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v7.22.3](https://github.com/chef/cookstyle/tree/v7.22.3) (2021-08-27)
 
 #### Merged Pull Requests
@@ -25,7 +23,6 @@
 - Update all branch references to be main [#891](https://github.com/chef/cookstyle/pull/891) ([tas50](https://github.com/tas50))
 - Fix spelling mistakes in descriptions [#892](https://github.com/chef/cookstyle/pull/892) ([tas50](https://github.com/tas50))
 - Update RuboCop to 1.20 [#893](https://github.com/chef/cookstyle/pull/893) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v7.21](https://github.com/chef/cookstyle/tree/v7.21) (2021-08-25)
 
