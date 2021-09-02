@@ -1916,6 +1916,14 @@ Chef/Modernize/UseChefLanguageCloudHelpers:
     - '**/providers/*.rb'
     - '**/recipes/*.rb'
     
+Chef/Modernize/ClassEvalActionClass:
+  Description: In Chef Infra Client 12.9 and later it is no longer necessary to call the class_eval method on the action class block.
+  StyleGuide: 'chef_modernize_classevalactionclass'
+  Enabled: true
+  VersionAdded: '7.23.0'
+  Include:
+    - '**/resources/*.rb'
+
 ###############################
 # Chef/RedundantCode: Cleanup unnecessary code in your cookbooks regardless of Chef Infra Client release
 ###############################
