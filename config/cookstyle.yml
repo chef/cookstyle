@@ -1924,6 +1924,15 @@ Chef/Modernize/ClassEvalActionClass:
   Include:
     - '**/resources/*.rb'
 
+Chef/Modernize/UseChefLanguageSystemdHelper:
+  Description: Chef Infra Client 15.5 and later include a `systemd?` helper for checking if a Linux system uses systemd.
+  StyleGuide: 'chef_modernize_usecheflanguagesystemdhelper'
+  Enabled: true
+  VersionAdded: '7.24.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/Berksfile'
+
 ###############################
 # Chef/RedundantCode: Cleanup unnecessary code in your cookbooks regardless of Chef Infra Client release
 ###############################
