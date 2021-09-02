@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.22.5 -->
-## [v7.22.5](https://github.com/chef/cookstyle/tree/v7.22.5) (2021-08-30)
+ <!-- latest_release 7.22.6 -->
+## [v7.22.6](https://github.com/chef/cookstyle/tree/v7.22.6) (2021-09-02)
 
 #### Merged Pull Requests
-- Replace deprecated --without flag with bundle config [#885](https://github.com/chef/cookstyle/pull/885) ([skeshari12](https://github.com/skeshari12))
+- Add Chef/Modernize/ClassEvalActionClass cop [#897](https://github.com/chef/cookstyle/pull/897) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.22.3 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add Chef/Modernize/ClassEvalActionClass cop [#897](https://github.com/chef/cookstyle/pull/897) ([tas50](https://github.com/tas50)) <!-- 7.22.6 -->
 - Replace deprecated --without flag with bundle config [#885](https://github.com/chef/cookstyle/pull/885) ([skeshari12](https://github.com/skeshari12)) <!-- 7.22.5 -->
 - Fix typos in descriptions [#894](https://github.com/chef/cookstyle/pull/894) ([tas50](https://github.com/tas50)) <!-- 7.22.4 -->
 <!-- release_rollup -->
