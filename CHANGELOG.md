@@ -1,21 +1,19 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.24.1 -->
-## [v7.24.1](https://github.com/chef/cookstyle/tree/v7.24.1) (2021-09-02)
-
-#### Merged Pull Requests
-- Add Chef/Modernize/UseChefLanguageSystemdHelper cop [#901](https://github.com/chef/cookstyle/pull/901) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=7.23.0 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Add Chef/Modernize/UseChefLanguageSystemdHelper cop [#901](https://github.com/chef/cookstyle/pull/901) ([tas50](https://github.com/tas50)) <!-- 7.24.1 -->
-- Add Chef target versions to existing cops [#900](https://github.com/chef/cookstyle/pull/900) ([tas50](https://github.com/tas50)) <!-- 7.24.0 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v7.24.1](https://github.com/chef/cookstyle/tree/v7.24.1) (2021-09-02)
+
+#### Merged Pull Requests
+- Add Chef target versions to existing cops [#900](https://github.com/chef/cookstyle/pull/900) ([tas50](https://github.com/tas50))
+- Add Chef/Modernize/UseChefLanguageSystemdHelper cop [#901](https://github.com/chef/cookstyle/pull/901) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v7.23.0](https://github.com/chef/cookstyle/tree/v7.23.0) (2021-09-02)
 
 #### Merged Pull Requests
@@ -23,7 +21,6 @@
 - Replace deprecated --without flag with bundle config [#885](https://github.com/chef/cookstyle/pull/885) ([skeshari12](https://github.com/skeshari12))
 - Add Chef/Modernize/ClassEvalActionClass cop [#897](https://github.com/chef/cookstyle/pull/897) ([tas50](https://github.com/tas50))
 - Fix typo in description [#898](https://github.com/chef/cookstyle/pull/898) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v7.22.3](https://github.com/chef/cookstyle/tree/v7.22.3) (2021-08-27)
 
