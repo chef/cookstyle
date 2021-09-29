@@ -2,6 +2,7 @@ version: 2
 updates:
 - package-ecosystem: bundler
   target-branch: "main"
+  directory: "/"
   schedule:
     interval: daily
     time: "06:00"
