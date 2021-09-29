@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.25.1 -->
-## [v7.25.1](https://github.com/chef/cookstyle/tree/v7.25.1) (2021-09-29)
+ <!-- latest_release 7.25.2 -->
+## [v7.25.2](https://github.com/chef/cookstyle/tree/v7.25.2) (2021-09-29)
 
 #### Merged Pull Requests
-- Move Ubuntu / lint testing to GitHub actions [#908](https://github.com/chef/cookstyle/pull/908) ([tas50](https://github.com/tas50))
+- Add dependabot config [#909](https://github.com/chef/cookstyle/pull/909) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.24.1 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add dependabot config [#909](https://github.com/chef/cookstyle/pull/909) ([tas50](https://github.com/tas50)) <!-- 7.25.2 -->
 - Move Ubuntu / lint testing to GitHub actions [#908](https://github.com/chef/cookstyle/pull/908) ([tas50](https://github.com/tas50)) <!-- 7.25.1 -->
 - Add Chef/Correctness/MetadataMissingVersion [#907](https://github.com/chef/cookstyle/pull/907) ([tas50](https://github.com/tas50)) <!-- 7.25.0 -->
 <!-- release_rollup -->
