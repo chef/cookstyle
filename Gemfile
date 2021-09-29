@@ -15,8 +15,10 @@ group :docs do
 end
 
 group :profiling do
-  gem 'memory_profiler'
-  gem 'stackprof'
+  platforms :ruby do
+    gem 'memory_profiler'
+    gem 'stackprof'
+  end
 end
 
 group :rubocop_gems do
