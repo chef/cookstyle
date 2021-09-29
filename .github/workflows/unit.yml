@@ -9,10 +9,14 @@ name: unit
 
 jobs:
   test:
-    runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
+        os: [windows-2019, ubuntu-latest]
         ruby: ['2.5', '2.6', '2.7', '3.0']
+    runs-on: ${{ matrix.os }}
+    env:
+      BUNDLE_WITHOUT: profiling,debug,docs
     name: Unit test on ${{ matrix.os }} with Ruby ${{ matrix.ruby }}
     steps:
       - uses: actions/checkout@v2
