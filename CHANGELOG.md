@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 7.25.0 -->
+## [v7.25.0](https://github.com/chef/cookstyle/tree/v7.25.0) (2021-09-29)
+
+#### Merged Pull Requests
+- Add Chef/Correctness/MetadataMissingVersion [#907](https://github.com/chef/cookstyle/pull/907) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=7.24.1 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Add Chef/Correctness/MetadataMissingVersion [#907](https://github.com/chef/cookstyle/pull/907) ([tas50](https://github.com/tas50)) <!-- 7.25.0 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
