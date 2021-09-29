@@ -221,6 +221,8 @@ Lint/AmbiguousBlockAssociation:
   Enabled: false
 Lint/AmbiguousOperator:
   Enabled: false
+Lint/AmbiguousOperatorPrecedence:
+  Enabled: false
 Lint/AmbiguousRange:
   Enabled: false
 Lint/AmbiguousRegexpLiteral:
@@ -307,9 +309,11 @@ Lint/IdentityComparison:
   Enabled: false
 Lint/ImplicitStringConcatenation:
   Enabled: false
-Lint/InheritException:
+Lint/IncompatibleIoSelectWithFiberScheduler:
   Enabled: false
 Lint/IneffectiveAccessModifier:
+  Enabled: false
+Lint/InheritException:
   Enabled: false
 Lint/InterpolationCheck:
   Enabled: false
