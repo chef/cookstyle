@@ -498,6 +498,14 @@ Chef/Correctness/PowershellFileExists:
     - '**/metadata.rb'
     - '**/Berksfile'
 
+Chef/Correctness/MetadataMissingVersion:
+  Description: metadata.rb should define a version for the cookbook.
+  StyleGuide: 'chef_correctness_metadatamissingversion'
+  Enabled: true
+  VersionAdded: '7.25'
+  Include:
+    - '**/metadata.rb'
+
 ###############################
 # Chef/Sharing: Issues that prevent sharing code with other teams or with the Chef community in general
 ###############################
