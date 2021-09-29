@@ -11,38 +11,6 @@ expeditor:
 
 steps:
 
-- label: run-cookstyle-and-specs-ruby-2.5
-  command:
-    - .expeditor/run_linux_tests.sh rake
-  expeditor:
-    executor:
-      docker:
-        image: ruby:2.5-buster
-
-- label: run-cookstyle-and-specs-ruby-2.6
-  command:
-    - .expeditor/run_linux_tests.sh rake
-  expeditor:
-    executor:
-      docker:
-        image: ruby:2.6-buster
-
-- label: run-cookstyle-and-specs-ruby-2.7
-  command:
-    - .expeditor/run_linux_tests.sh rake
-  expeditor:
-    executor:
-      docker:
-        image: ruby:2.7-buster
-
-- label: run-cookstyle-and-specs-ruby-3.0
-  command:
-    - .expeditor/run_linux_tests.sh rake
-  expeditor:
-    executor:
-      docker:
-        image: ruby:3.0-buster
-
 - label: run-cookstyle-and-specs-windows
   command:
     - bundle config set --local without docs debug profiling
