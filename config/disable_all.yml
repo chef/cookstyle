@@ -387,6 +387,8 @@ Lint/RegexpAsCondition:
   Enabled: false
 Lint/RequireParentheses:
   Enabled: false
+Lint/RequireRelativeSelfPath:
+  Enabled: false
 Lint/RescueException:
   Enabled: false
 Lint/RescueType:
@@ -705,6 +707,8 @@ Style/MethodCallWithArgsParentheses:
   Enabled: false
 Style/MultilineInPatternThen:
   Enabled: false
+Style/NumberedParameters:
+  Enabled: false
 Style/RedundantAssignment:
   Enabled: false
 Style/RedundantFetchBlock:
@@ -776,6 +780,8 @@ Style/NilLambda:
 Style/NonNilCheck:
   Enabled: false
 Style/Not:
+  Enabled: false
+Style/NumberedParametersLimit:
   Enabled: false
 Style/NumericLiterals:
   Enabled: false
@@ -856,6 +862,8 @@ Style/ReturnNil:
 Style/SafeNavigation:
   Enabled: false
 Style/Sample:
+  Enabled: false
+Style/SelectByRegexp:
   Enabled: false
 Style/SelfAssignment:
   Enabled: false
@@ -948,6 +956,8 @@ Style/YodaCondition:
 Style/ZeroLengthPredicate:
   Enabled: false
 Security/Eval:
+  Enabled: false
+Security/IoMethods:
   Enabled: false
 Security/JSONLoad:
   Enabled: false
