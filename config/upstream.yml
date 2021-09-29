@@ -957,7 +957,6 @@ Layout/LineLength:
   Enabled: true
   VersionAdded: '0.25'
   VersionChanged: '1.4'
-  AutoCorrect: true
   Max: 120
   # To make it possible to copy or click on URIs in the code, we allow lines
   # containing a URI to be longer than Max.
@@ -1448,6 +1447,13 @@ Lint/AmbiguousOperator:
   VersionAdded: '0.17'
   VersionChanged: '0.83'
 
+Lint/AmbiguousOperatorPrecedence:
+  Description: >-
+                 Checks for expressions containing multiple binary operations with
+                 ambiguous precedence.
+  Enabled: pending
+  VersionAdded: '1.21'
+
 Lint/AmbiguousRange:
   Description: Checks for ranges with ambiguous boundaries.
   Enabled: pending
@@ -1770,6 +1776,11 @@ Lint/ImplicitStringConcatenation:
                  could better be represented as a single string literal.
   Enabled: true
   VersionAdded: '0.36'
+
+Lint/IncompatibleIoSelectWithFiberScheduler:
+  Description: 'Checks for `IO.select` that is incompatible with Fiber Scheduler.'
+  Enabled: pending
+  VersionAdded: '1.21'
 
 Lint/IneffectiveAccessModifier:
   Description: >-
@@ -2563,8 +2574,9 @@ Naming/HeredocDelimiterNaming:
 
 Naming/InclusiveLanguage:
   Description: 'Recommend the use of inclusive language instead of problematic terms.'
-  Enabled: pending
+  Enabled: false
   VersionAdded: '1.18'
+  VersionChanged: '1.21'
   CheckIdentifiers: true
   CheckConstants: true
   CheckVariables: true
@@ -2796,8 +2808,9 @@ Style/AndOr:
   Description: 'Use &&/|| instead of and/or.'
   StyleGuide: '#no-and-or-or'
   Enabled: true
+  SafeAutoCorrect: false
   VersionAdded: '0.9'
-  VersionChanged: '0.25'
+  VersionChanged: '1.21'
   # Whether `and` and `or` are banned only in conditionals (conditionals)
   # or completely (always).
   EnforcedStyle: conditionals
@@ -2831,9 +2844,9 @@ Style/ArrayJoin:
 Style/AsciiComments:
   Description: 'Use only ascii symbols in comments.'
   StyleGuide: '#english-comments'
-  Enabled: true
+  Enabled: false
   VersionAdded: '0.9'
-  VersionChanged: '0.52'
+  VersionChanged: '1.21'
   AllowedChars:
     - ©
 
@@ -2995,7 +3008,7 @@ Style/CaseEquality:
   Enabled: true
   VersionAdded: '0.9'
   VersionChanged: '0.89'
-  # If AllowOnConstant is enabled, the cop will ignore violations when the receiver of
+  # If `AllowOnConstant` option is enabled, the cop will ignore violations when the receiver of
   # the case equality operator is a constant.
   #
   #   # bad
