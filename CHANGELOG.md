@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.25.5 -->
-## [v7.25.5](https://github.com/chef/cookstyle/tree/v7.25.5) (2021-09-30)
+ <!-- latest_release 7.25.6 -->
+## [v7.25.6](https://github.com/chef/cookstyle/tree/v7.25.6) (2021-09-30)
 
 #### Merged Pull Requests
-- Update RuboCop to 1.22 [#912](https://github.com/chef/cookstyle/pull/912) ([tas50](https://github.com/tas50))
+- Flag http rubygems sources in gemfiles [#913](https://github.com/chef/cookstyle/pull/913) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.24.1 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Flag http rubygems sources in gemfiles [#913](https://github.com/chef/cookstyle/pull/913) ([tas50](https://github.com/tas50)) <!-- 7.25.6 -->
 - Update RuboCop to 1.22 [#912](https://github.com/chef/cookstyle/pull/912) ([tas50](https://github.com/tas50)) <!-- 7.25.5 -->
 - Vendor rubocop-1.21.0 upstream configuration. [#911](https://github.com/chef/cookstyle/pull/911) ([tas50](https://github.com/tas50)) <!-- 7.25.4 -->
 - Update to RuboCop 1.21 + move windows testing to GH [#910](https://github.com/chef/cookstyle/pull/910) ([tas50](https://github.com/tas50)) <!-- 7.25.3 -->
