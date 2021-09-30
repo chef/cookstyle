@@ -50,14 +50,7 @@ describe RuboCop::Cop::Chef::Correctness::MacosUserdefaultsInvalidType do
       end
     RUBY
 
-    # not this is the same aka no autocorrect
-    expect_correction(<<~RUBY)
-      macos_userdefaults 'set a value' do
-        global true
-        key 'key'
-        type 'total_fake_stuff'
-      end
-    RUBY
+    expect_no_corrections
   end
 
   it 'does not register an offense with a valid type in macos_userdefaults' do

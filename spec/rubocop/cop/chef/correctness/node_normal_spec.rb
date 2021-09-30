@@ -26,9 +26,7 @@ describe RuboCop::Cop::Chef::Correctness::NodeNormal do
       ^^^^^^^^^^^ Do not use node.normal. Replace with default/override/force_default/force_override attribute levels.
     RUBY
 
-    expect_correction(<<~RUBY)
-      node.normal[:foo]
-    RUBY
+    expect_no_corrections
   end
 
   it 'registers an offense on using chef_run.node.normal' do
@@ -37,9 +35,7 @@ describe RuboCop::Cop::Chef::Correctness::NodeNormal do
       ^^^^^^^^^^^^^^^^^^^^ Do not use node.normal. Replace with default/override/force_default/force_override attribute levels.
     RUBY
 
-    expect_correction(<<~RUBY)
-      chef_run.node.normal[:foo]
-    RUBY
+    expect_no_corrections
   end
 
   it 'registers no offense on using chef_run.normal' do

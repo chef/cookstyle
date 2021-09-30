@@ -27,7 +27,7 @@ describe RuboCop::Cop::Chef::Deprecations::DeprecatedChefSpecPlatform, :config d
                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use currently supported platforms in ChefSpec listed at https://github.com/chefspec/fauxhai/blob/main/PLATFORMS.md. Fauxhai / ChefSpec will perform fuzzy matching on platform version so it's always best to be less specific ie. 10 instead of 10.3
     RUBY
 
-    expect_correction("let(:chef_run) { ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '14.04') }\n")
+    expect_no_corrections
   end
 
   it 'registers an offense when spec calls for CentOS 7.1 and autocorrects to CentOS 7' do
