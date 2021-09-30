@@ -2813,6 +2813,7 @@ Style/GuardClause:
 # Users really shouldn't have a gem, but if they do they should do it securely
 Bundler/InsecureProtocolSource:
   Enabled: true
+  AllowHttpProtocol: false
 
 # It's easier to read a simple .each and they're faster
 Lint/RedundantWithIndex:
