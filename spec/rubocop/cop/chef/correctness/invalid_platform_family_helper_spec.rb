@@ -49,9 +49,7 @@ describe RuboCop::Cop::Chef::Correctness::InvalidPlatformFamilyHelper, :config d
                        ^^^^^^^ Pass valid platform families to the platform_family? helper.
     RUBY
 
-    expect_correction(<<~RUBY)
-      platform_family?('linux')
-    RUBY
+    expect_no_corrections
   end
 
   it "doesn't register an offense when platform_family? passes a valid platform" do

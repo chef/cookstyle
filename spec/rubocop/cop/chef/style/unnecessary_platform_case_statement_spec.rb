@@ -63,14 +63,7 @@ describe RuboCop::Cop::Chef::Style::UnnecessaryPlatformCaseStatement do
       end
     RUBY
 
-    expect_correction(<<~RUBY)
-      case node['platform']
-      when 'ubuntu', 'debian'
-        # nothing here
-      else
-        # nothing here
-      end
-    RUBY
+    expect_no_corrections
   end
 
   it 'handles spaces when setting values with case statements' do
