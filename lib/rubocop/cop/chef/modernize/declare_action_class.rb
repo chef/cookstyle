@@ -19,12 +19,12 @@ module RuboCop
   module Cop
     module Chef
       module Modernize
-        # In Chef Infra Client 12.9 and later it is no longer necessary to call the class_eval method on the action class block.
+        # In Chef Infra Client 12.9 and later `action_class` can be used instead of `declare_action_class`.
         #
         # @example
         #
         #   #### incorrect
-        #   action_class.class_eval do
+        #   declare_action_class do
         #     foo
         #   end
         #
@@ -33,27 +33,18 @@ module RuboCop
         #     foo
         #   end
         #
-        class ClassEvalActionClass < Base
+        class DeclareActionClass < Base
           extend TargetChefVersion
           extend AutoCorrector
 
           minimum_target_chef_version '12.9'
 
-          MSG = 'In Chef Infra Client 12.9 and later it is no longer necessary to call the class_eval method on the action class block.'
+          MSG = 'In Chef Infra Client 12.9 and later `action_class` can be used instead of `declare_action_class`.'
+          RESTRICT_ON_SEND = [:declare_action_class].freeze
 
-          def_node_matcher :class_eval_action_class?, <<-PATTERN
-            (block
-              (send
-                (send nil? :action_class) :class_eval)
-              (args)
-              ... )
-          PATTERN
-
-          def on_block(node)
-            class_eval_action_class?(node) do
-              add_offense(node, message: MSG, severity: :refactor) do |corrector|
-                corrector.replace(node, node.source.gsub('.class_eval', ''))
-              end
+          def on_send(node)
+            add_offense(node, message: MSG, severity: :refactor) do |corrector|
+              corrector.replace(node, node.source.gsub('declare_action_class', 'action_class'))
             end
           end
         end

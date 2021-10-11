@@ -1941,6 +1941,15 @@ Chef/Modernize/UseChefLanguageSystemdHelper:
     - '**/metadata.rb'
     - '**/Berksfile'
 
+Chef/Modernize/DeclareActionClass:
+  Description: In Chef Infra Client 12.9 and later `action_class` can be used instead of `declare_action_class`.
+  StyleGuide: 'chef_modernize_declareactionclass'
+  Enabled: true
+  VersionAdded: '7.26.0'
+  Include:
+    - '**/resources/*.rb'
+    - '**/libraries/*.rb'
+
 ###############################
 # Chef/RedundantCode: Cleanup unnecessary code in your cookbooks regardless of Chef Infra Client release
 ###############################
