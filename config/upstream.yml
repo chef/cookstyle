@@ -150,6 +150,7 @@ AllCops:
     rubocop-minitest: [minitest]
     rubocop-sequel: [sequel]
     rubocop-rake: [rake]
+    rubocop-graphql: [graphql]
 
 #################### Bundler ###############################
 
@@ -255,6 +256,15 @@ Gemspec/OrderedDependencies:
   # By default, "-" and "_" are ignored for order purposes.
   # This can be overridden by setting this parameter to true.
   ConsiderPunctuation: false
+  Include:
+    - '**/*.gemspec'
+
+Gemspec/RequireMFA:
+  Description: 'Checks that the gemspec has metadata to require MFA from RubyGems.'
+  Enabled: pending
+  VersionAdded: '1.23'
+  Reference:
+    - https://guides.rubygems.org/mfa-requirement-opt-in/
   Include:
     - '**/*.gemspec'
 
@@ -511,13 +521,13 @@ Layout/EmptyLineBetweenDefs:
   StyleGuide: '#empty-lines-between-methods'
   Enabled: true
   VersionAdded: '0.49'
-  VersionChanged: '1.7'
+  VersionChanged: '1.23'
   EmptyLineBetweenMethodDefs: true
   EmptyLineBetweenClassDefs: true
   EmptyLineBetweenModuleDefs: true
-  # If `true`, this parameter means that single line method definitions don't
-  # need an empty line between them.
-  AllowAdjacentOneLineDefs: false
+  # `AllowAdjacentOneLineDefs` means that single line method definitions don't
+  # need an empty line between them. `true` by default.
+  AllowAdjacentOneLineDefs: true
   # Can be array to specify minimum and maximum number of empty lines, e.g. [1, 2]
   NumberOfEmptyLines: 1
 
@@ -2308,6 +2318,11 @@ Lint/UselessMethodDefinition:
   Safe: false
   AllowComments: true
 
+Lint/UselessRuby2Keywords:
+  Description: 'Finds unnecessary uses of `ruby2_keywords`.'
+  Enabled: pending
+  VersionAdded: '1.23'
+
 Lint/UselessSetterCall:
   Description: 'Checks for useless setter call to a local variable.'
   Enabled: true
@@ -2501,6 +2516,7 @@ Naming/FileName:
   StyleGuide: '#snake-case-files'
   Enabled: true
   VersionAdded: '0.50'
+  VersionChanged: '1.23'
   # Camel case file names listed in `AllCops:Include` and all file names listed
   # in `AllCops:Exclude` are excluded by default. Add extra excludes here.
   Exclude: []
@@ -2513,6 +2529,13 @@ Naming/FileName:
   # whether each source file's class or module name matches the file name --
   # not whether the nested module hierarchy matches the subdirectory path.
   CheckDefinitionPathHierarchy: true
+  # paths that are considered root directories, for example "lib" in most ruby projects
+  # or "app/models" in rails projects
+  CheckDefinitionPathHierarchyRoots:
+    - lib
+    - spec
+    - test
+    - src
   # If non-`nil`, expect all source file names to match the following regex.
   # Only the file name itself is matched, not the entire file path.
   # Use anchors as necessary if you want to match the entire name rather than
@@ -4215,6 +4238,16 @@ Style/OneLineConditional:
   AlwaysCorrectToMultiline: false
   VersionAdded: '0.9'
   VersionChanged: '0.90'
+
+Style/OpenStructUse:
+  Description: >-
+                 Avoid using OpenStruct. As of Ruby 3.0, use is officially discouraged due to performance,
+                 version compatibility, and potential security issues.
+  Reference:
+    - https://docs.ruby-lang.org/en/3.0.0/OpenStruct.html#class-OpenStruct-label-Caveats
+
+  Enabled: pending
+  VersionAdded: '1.23'
 
 Style/OptionHash:
   Description: "Don't use option hashes when you can use keyword arguments."

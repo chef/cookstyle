@@ -19,6 +19,8 @@ Gemspec/DuplicatedAssignment:
   Enabled: false
 Gemspec/OrderedDependencies:
   Enabled: false
+Gemspec/RequireMFA:
+  Enabled: false
 Gemspec/RequiredRubyVersion:
   Enabled: false
 Gemspec/RubyVersionGlobalsUsage:
@@ -459,6 +461,8 @@ Lint/UselessElseWithoutRescue:
   Enabled: false
 Lint/UselessMethodDefinition:
   Enabled: false
+Lint/UselessRuby2Keywords:
+  Enabled: false
 Lint/UselessSetterCall:
   Enabled: false
 Lint/UselessTimes:
@@ -708,6 +712,8 @@ Style/MethodCallWithArgsParentheses:
 Style/MultilineInPatternThen:
   Enabled: false
 Style/NumberedParameters:
+  Enabled: false
+Style/OpenStructUse:
   Enabled: false
 Style/RedundantAssignment:
   Enabled: false
