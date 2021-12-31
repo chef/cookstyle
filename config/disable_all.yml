@@ -491,6 +491,8 @@ Naming/AccessorMethodName:
   Enabled: false
 Naming/AsciiIdentifiers:
   Enabled: false
+Naming/BlockForwarding:
+  Enabled: false
 Naming/BlockParameterName:
   Enabled: false
 Naming/ClassAndModuleCamelCase:
@@ -641,6 +643,10 @@ Style/ExplicitBlockArgument:
   Enabled: false
 Style/ExponentialNotation:
   Enabled: false
+Style/FileRead:
+  Enabled: false
+Style/FileWrite:
+  Enabled: false
 Style/FloatDivision:
   Enabled: false
 Style/For:
@@ -704,6 +710,8 @@ Style/Lambda:
 Style/LambdaCall:
   Enabled: false
 Style/LineEndConcatenation:
+  Enabled: false
+Style/MapToHash:
   Enabled: false
 Style/MethodCallWithoutArgsParentheses:
   Enabled: false
