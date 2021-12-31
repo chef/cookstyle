@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.26.0 -->
-## [v7.26.0](https://github.com/chef/cookstyle/tree/v7.26.0) (2021-12-31)
+ <!-- latest_release 7.26.1 -->
+## [v7.26.1](https://github.com/chef/cookstyle/tree/v7.26.1) (2021-12-31)
 
 #### Merged Pull Requests
-- Update RuboCop to 1.24.1 [#921](https://github.com/chef/cookstyle/pull/921) ([tas50](https://github.com/tas50))
+- Enable cops to simplify file read/writes [#922](https://github.com/chef/cookstyle/pull/922) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.25.10 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Enable cops to simplify file read/writes [#922](https://github.com/chef/cookstyle/pull/922) ([tas50](https://github.com/tas50)) <!-- 7.26.1 -->
 - Update RuboCop to 1.24.1 [#921](https://github.com/chef/cookstyle/pull/921) ([tas50](https://github.com/tas50)) <!-- 7.26.0 -->
 <!-- release_rollup -->
 
