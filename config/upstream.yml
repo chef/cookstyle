@@ -78,6 +78,8 @@ AllCops:
   # When specifying style guide URLs, any paths and/or fragments will be
   # evaluated relative to the base URL.
   StyleGuideBaseURL: https://rubystyle.guide
+  # Documentation URLs will be constructed using the base URL.
+  DocumentationBaseURL: https://docs.rubocop.org/rubocop
   # Extra details are not displayed in offense messages by default. Change
   # behavior by overriding ExtraDetails, or by giving the
   # `-E/--extra-details` option.
@@ -449,7 +451,11 @@ Layout/ClosingParenthesisIndentation:
 Layout/CommentIndentation:
   Description: 'Indentation of comments.'
   Enabled: true
+  # When true, allows comments to have extra indentation if that aligns them
+  # with a comment on the preceding line.
+  AllowForAlignment: false
   VersionAdded: '0.49'
+  VersionChanged: '1.24'
 
 Layout/ConditionPosition:
   Description: >-
@@ -1796,7 +1802,9 @@ Lint/ImplicitStringConcatenation:
 Lint/IncompatibleIoSelectWithFiberScheduler:
   Description: 'Checks for `IO.select` that is incompatible with Fiber Scheduler.'
   Enabled: pending
+  SafeAutoCorrect: false
   VersionAdded: '1.21'
+  VersionChanged: '1.24'
 
 Lint/IneffectiveAccessModifier:
   Description: >-
@@ -2478,6 +2486,16 @@ Naming/BinaryOperatorParameterName:
   Enabled: true
   VersionAdded: '0.50'
   VersionChanged: '1.2'
+
+Naming/BlockForwarding:
+  Description: 'Use anonymous block forwarding.'
+  StyleGuide: '#block-forwarding'
+  Enabled: pending
+  VersionAdded: '1.24'
+  EnforcedStyle: anonymous
+  SupportedStyles:
+    - anonymous
+    - explicit
 
 Naming/BlockParameterName:
   Description: >-
@@ -3492,6 +3510,18 @@ Style/ExponentialNotation:
     - engineering
     - integral
 
+Style/FileRead:
+  Description: 'Favor `File.(bin)read` convenience methods.'
+  StyleGuide: '#file-read'
+  Enabled: pending
+  VersionAdded: '1.24'
+
+Style/FileWrite:
+  Description: 'Favor `File.(bin)write` convenience methods.'
+  StyleGuide: '#file-write'
+  Enabled: pending
+  VersionAdded: '1.24'
+
 Style/FloatDivision:
   Description: 'For performing float division, coerce one side only.'
   StyleGuide: '#float-division'
@@ -3650,7 +3680,7 @@ Style/HashSyntax:
   StyleGuide: '#hash-literals'
   Enabled: true
   VersionAdded: '0.9'
-  VersionChanged: '0.43'
+  VersionChanged: '1.24'
   EnforcedStyle: ruby19
   SupportedStyles:
     # checks for 1.9 syntax (e.g. {a: 1}) for all symbol keys
@@ -3661,6 +3691,13 @@ Style/HashSyntax:
     - no_mixed_keys
     # enforces both ruby19 and no_mixed_keys styles
     - ruby19_no_mixed_keys
+  # Force hashes that have a hash value omission
+  EnforcedShorthandSyntax: always
+  SupportedShorthandSyntax:
+    # forces use of the 3.1 syntax (e.g. {foo:}) when the hash key and value are the same.
+    - always
+    # forces use of explicit hash literal value.
+    - never
   # Force hashes that have a symbol value to use hash rockets
   UseHashRocketsWithSymbolValues: false
   # Do not suggest { a?: 1 } over { :a? => 1 } in ruby19 style
@@ -3836,6 +3873,12 @@ Style/LineEndConcatenation:
   SafeAutoCorrect: false
   VersionAdded: '0.18'
   VersionChanged: '0.64'
+
+Style/MapToHash:
+  Description: 'Prefer `to_h` with a block over `map.to_h`.'
+  Enabled: pending
+  VersionAdded: '1.24'
+  Safe: false
 
 Style/MethodCallWithArgsParentheses:
   Description: 'Use parentheses for method calls with arguments.'
@@ -4205,6 +4248,8 @@ Style/NumericLiterals:
   VersionChanged: '0.48'
   MinDigits: 5
   Strict: false
+  # You can specify allowed numbers. (e.g. port number 3000, 8080, and etc)
+  AllowedNumbers: []
 
 Style/NumericPredicate:
   Description: >-
