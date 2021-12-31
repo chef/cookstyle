@@ -3035,3 +3035,11 @@ Lint/DeprecatedConstants:
 # always turn on deprecation cops from rubocop
 Lint/ErbNewArguments:
   Enabled: true
+
+# reduce file read complexity
+Style/FileRead:
+  Enabled: true
+
+# reduce file write complexity
+Style/FileWrite:
+  Enabled: true

@@ -15,7 +15,7 @@ begin
     end
 
     contents = File.read('README.md').gsub(/ship \*\*\d* Chef/, "ship **#{cop_count} Chef")
-    File.open('README.md', 'w') { |file| file.write(contents) }
+    File.write('README.md', contents)
   end
 
   desc 'Generate yaml format docs of all Chef/InSpec cops for docs.chef.io'

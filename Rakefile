@@ -16,7 +16,7 @@ task :vendor do
   require 'rubocop'
   require 'yaml' unless defined?(YAML)
   cfg = RuboCop::Cop::Cop.all.each_with_object({}) { |cop, acc| acc[cop.cop_name] = { 'Enabled' => false } unless cop.cop_name.start_with?('Chef'); }
-  File.open(dst.join('disable_all.yml'), 'w') { |fh| fh.write YAML.dump(cfg) }
+  File.write(dst.join('disable_all.yml'), YAML.dump(cfg))
 
   sh %(git add #{dst}/{upstream,disable_all}.yml)
   sh %(git commit -m "Vendor rubocop-#{upstream.version} upstream configuration." -m "Obvious fix; these changes are the result of automation not creative thinking.")
