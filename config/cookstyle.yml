@@ -3043,3 +3043,7 @@ Style/FileRead:
 # reduce file write complexity
 Style/FileWrite:
   Enabled: true
+
+# reduce complexity of finding data with a regex
+Style/SelectByRegexp:
+  Enabled: true
