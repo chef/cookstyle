@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 7.27.0 -->
+## [v7.27.0](https://github.com/chef/cookstyle/tree/v7.27.0) (2022-01-13)
+
+#### Merged Pull Requests
+- Add new Chef/Correctness/InvalidCookbookName cop [#924](https://github.com/chef/cookstyle/pull/924) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=7.26.1 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Add new Chef/Correctness/InvalidCookbookName cop [#924](https://github.com/chef/cookstyle/pull/924) ([tas50](https://github.com/tas50)) <!-- 7.27.0 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
