@@ -506,6 +506,14 @@ Chef/Correctness/MetadataMissingVersion:
   Include:
     - '**/metadata.rb'
 
+Chef/Correctness/InvalidCookbookName:
+  Description: Cookbook names should not contain invalid characters such as periods.
+  StyleGuide: 'chef_correctness_invalidcookbookname'
+  Enabled: true
+  VersionAdded: '7.27'
+  Include:
+    - '**/metadata.rb'
+
 ###############################
 # Chef/Sharing: Issues that prevent sharing code with other teams or with the Chef community in general
 ###############################
