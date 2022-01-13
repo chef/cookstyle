@@ -1,26 +1,23 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.27.0 -->
+ <!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v7.27.0](https://github.com/chef/cookstyle/tree/v7.27.0) (2022-01-13)
 
 #### Merged Pull Requests
 - Add new Chef/Correctness/InvalidCookbookName cop [#924](https://github.com/chef/cookstyle/pull/924) ([tas50](https://github.com/tas50))
-<!-- latest_release -->
-
-<!-- release_rollup since=7.26.1 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Add new Chef/Correctness/InvalidCookbookName cop [#924](https://github.com/chef/cookstyle/pull/924) ([tas50](https://github.com/tas50)) <!-- 7.27.0 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v7.26.1](https://github.com/chef/cookstyle/tree/v7.26.1) (2022-01-05)
 
 #### Merged Pull Requests
 - Update RuboCop to 1.24.1 [#921](https://github.com/chef/cookstyle/pull/921) ([tas50](https://github.com/tas50))
 - Enable cops to simplify file read/writes [#922](https://github.com/chef/cookstyle/pull/922) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v7.25.10](https://github.com/chef/cookstyle/tree/v7.25.10) (2021-11-15)
 
