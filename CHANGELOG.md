@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 7.28.0 -->
+## [v7.28.0](https://github.com/chef/cookstyle/tree/v7.28.0) (2022-01-14)
+
+#### Merged Pull Requests
+- Add new Chef/Security department and Chef/Security/SshPrivateKey cop [#919](https://github.com/chef/cookstyle/pull/919) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=7.27.0 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Add new Chef/Security department and Chef/Security/SshPrivateKey cop [#919](https://github.com/chef/cookstyle/pull/919) ([tas50](https://github.com/tas50)) <!-- 7.28.0 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
