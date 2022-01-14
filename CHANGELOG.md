@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.28.2 -->
-## [v7.28.2](https://github.com/chef/cookstyle/tree/v7.28.2) (2022-01-14)
+ <!-- latest_release 7.28.3 -->
+## [v7.28.3](https://github.com/chef/cookstyle/tree/v7.28.3) (2022-01-14)
 
 #### Merged Pull Requests
-- Add new Chef/Correctness/InvalidNotificationResource cop [#925](https://github.com/chef/cookstyle/pull/925) ([tas50](https://github.com/tas50))
+- Test on Ruby 3.1 [#927](https://github.com/chef/cookstyle/pull/927) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.27.0 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Test on Ruby 3.1 [#927](https://github.com/chef/cookstyle/pull/927) ([tas50](https://github.com/tas50)) <!-- 7.28.3 -->
 - Add new Chef/Correctness/InvalidNotificationResource cop [#925](https://github.com/chef/cookstyle/pull/925) ([tas50](https://github.com/tas50)) <!-- 7.28.2 -->
 - Minor updates for the security cops [#926](https://github.com/chef/cookstyle/pull/926) ([tas50](https://github.com/tas50)) <!-- 7.28.1 -->
 - Add new Chef/Security department and Chef/Security/SshPrivateKey cop [#919](https://github.com/chef/cookstyle/pull/919) ([tas50](https://github.com/tas50)) <!-- 7.28.0 -->
