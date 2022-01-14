@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 #
-# Copyright:: 2019, Chef Software, Inc.
+# Copyright:: 2019-2022, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -26,6 +26,7 @@ module RuboCop
         #   #### incorrect
         #   depends 'poise'
         #   depends 'poise-service'
+        #   depends 'poise-hoist'
         #
         class CookbookDependsOnPoise < Base
           MSG = 'Cookbooks should not depend on the deprecated Poise framework'
@@ -37,7 +38,7 @@ module RuboCop
 
           def on_send(node)
             depends_method?(node) do |arg|
-              add_offense(node, message: MSG, severity: :warning) if %w(poise poise-service).include?(arg.value)
+              add_offense(node, message: MSG, severity: :warning) if %w(poise poise-service poise-hoist).include?(arg.value)
             end
           end
         end
