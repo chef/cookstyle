@@ -24,12 +24,10 @@ module RuboCop
         # @example
         #
         #   #### incorrect
-        #   ```ruby
         #   file '/Users/bob_bobberson/.ssh/id_rsa' do
         #     content '-----BEGIN RSA PRIVATE KEY-----\n...\n-----END RSA PRIVATE KEY-----'
         #     mode '600'
         #   end
-        #   ```
         #
         class SshPrivateKey < Base
           MSG = 'Do not include plain text SSH private keys in your cookbook code. This sensitive data should be fetched from secrets management systems so that secrets are not uploaded in plain text to the Chef Infra Server or committed to source control systems.'

@@ -15,6 +15,7 @@ Please try to select as few as possible.
 - [ ] Chef/Modernize - A cop that alerts when a cookbook can be simplified or modernized with new functionality
 - [ ] Chef/Effortless - A cop that alerts on code that must be resolved to move to the Effortless pattern
 - [ ] Chef/RedundantCode - A cop that detects redundant code regardless of Chef Infra release
+- [ ] Chef/Security - A cop that detects potential security issues like secrets in your code
 - [ ] InSpec/Deprecations - A cop that alerts on a deprecation in the Chef InSpec 
 
 ### Describe the new cop:
