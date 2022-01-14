@@ -2289,6 +2289,24 @@ InSpec/Deprecations/AttributeDefault:
   Include:
     - '**/controls/*.rb'
 
+#### Security Cops
+
+Chef/Security:
+  StyleGuideBaseURL: https://docs.chef.io/workstation/cookstyle/
+
+Chef/Security/ :
+  Description: Do not include plain text SSH private keys in your cookbook code. This sensitive data should be fetched from secrets management systems so that secrets are not uploaded in plain text to the Chef Infra Server or committed to source control systems.
+  StyleGuide: 'chef_security_sshprivatekey'
+  Enabled: true
+  VersionAdded: '7.28'
+  Include:
+    - '**/libraries/*.rb'
+    - '**/resources/*.rb'
+    - '**/providers/*.rb'
+    - '**/recipes/*.rb'
+    - '**/attributes/*.rb'
+    - '**/definitions/*.rb'
+    
 #### The base rubocop 0.37 enabled.yml file we started with ####
 
 Layout/AccessModifierIndentation:
