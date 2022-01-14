@@ -13,12 +13,10 @@ examples: |2-
   #### incorrect
 
   ```ruby
-  ```ruby
   file '/Users/bob_bobberson/.ssh/id_rsa' do
     content '-----BEGIN RSA PRIVATE KEY-----\n...\n-----END RSA PRIVATE KEY-----'
     mode '600'
   end
-  ```
   ```
 version_added: 
 enabled: true
