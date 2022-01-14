@@ -514,6 +514,16 @@ Chef/Correctness/InvalidCookbookName:
   Include:
     - '**/metadata.rb'
 
+Chef/Correctness/InvalidNotificationResource:
+  Description: The resource to notify when calling `notifies` or `subscribes` must be a string.
+  StyleGuide: 'chef_correctness_invalidnotificationresource'
+  Enabled: true
+  VersionAdded: '7.28'
+  Exclude:
+    - '**/attributes/*.rb'
+    - '**/metadata.rb'
+    - '**/Berksfile'
+
 ###############################
 # Chef/Sharing: Issues that prevent sharing code with other teams or with the Chef community in general
 ###############################
