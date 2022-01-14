@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.28.3 -->
-## [v7.28.3](https://github.com/chef/cookstyle/tree/v7.28.3) (2022-01-14)
+ <!-- latest_release 7.29.0 -->
+## [v7.29.0](https://github.com/chef/cookstyle/tree/v7.29.0) (2022-01-14)
 
 #### Merged Pull Requests
-- Test on Ruby 3.1 [#927](https://github.com/chef/cookstyle/pull/927) ([tas50](https://github.com/tas50))
+- Detect usage of deprecated poise-hoist [#928](https://github.com/chef/cookstyle/pull/928) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.28.2 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Detect usage of deprecated poise-hoist [#928](https://github.com/chef/cookstyle/pull/928) ([tas50](https://github.com/tas50)) <!-- 7.29.0 -->
 - Test on Ruby 3.1 [#927](https://github.com/chef/cookstyle/pull/927) ([tas50](https://github.com/tas50)) <!-- 7.28.3 -->
 <!-- release_rollup -->
 
