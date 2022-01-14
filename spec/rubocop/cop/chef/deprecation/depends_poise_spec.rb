@@ -34,6 +34,13 @@ describe RuboCop::Cop::Chef::Deprecations::CookbookDependsOnPoise, :config do
     RUBY
   end
 
+  it 'registers an offense when a cookbook depends on "poise-hoist"' do
+    expect_offense(<<~RUBY)
+      depends 'poise-hoist'
+      ^^^^^^^^^^^^^^^^^^^^^ Cookbooks should not depend on the deprecated Poise framework
+    RUBY
+  end
+
   it "doesn't register an offense when depending on any old cookbook" do
     expect_no_offenses(<<~RUBY)
       depends 'poise-ish'
