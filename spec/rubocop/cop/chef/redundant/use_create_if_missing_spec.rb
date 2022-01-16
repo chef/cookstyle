@@ -44,6 +44,31 @@ describe RuboCop::Cop::Chef::RedundantCode::UseCreateIfMissing, :config do
         end
       RUBY
     end
+
+    it "registers an offense when #{cb} has a path property and a not_if that checks if the file exists" do
+      expect_offense(<<~RUBY)
+        #{cb} 'Some file thing' do
+          path '/logs/foo/error.log'
+          source 'error.log'
+          owner 'root'
+          group 'root'
+          mode '0644'
+          not_if { ::File.exists?('/logs/foo/error.log') }
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the :create_if_missing action instead of not_if with a ::File.exist(FOO) check.
+        end
+      RUBY
+
+      expect_correction(<<~RUBY)
+        #{cb} 'Some file thing' do
+          path '/logs/foo/error.log'
+          source 'error.log'
+          owner 'root'
+          group 'root'
+          mode '0644'
+          action :create_if_missing
+        end
+      RUBY
+    end
   end
 
   it "doesn't register when a file like resource uses not_if to check for a *different* file" do
