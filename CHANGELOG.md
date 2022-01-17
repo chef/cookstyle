@@ -1,30 +1,27 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.30.1 -->
-## [v7.30.1](https://github.com/chef/cookstyle/tree/v7.30.1) (2022-01-17)
-
-#### Merged Pull Requests
-- Update UseCreateIfMissing to support non-string path values [#930](https://github.com/chef/cookstyle/pull/930) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=7.28.2 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Update UseCreateIfMissing to support non-string path values [#930](https://github.com/chef/cookstyle/pull/930) ([tas50](https://github.com/tas50)) <!-- 7.30.1 -->
-- Add support for the `path` property in RedundantCode/UseCreateIfMissing [#929](https://github.com/chef/cookstyle/pull/929) ([tas50](https://github.com/tas50)) <!-- 7.30.0 -->
-- Detect usage of deprecated poise-hoist [#928](https://github.com/chef/cookstyle/pull/928) ([tas50](https://github.com/tas50)) <!-- 7.29.0 -->
-- Test on Ruby 3.1 [#927](https://github.com/chef/cookstyle/pull/927) ([tas50](https://github.com/tas50)) <!-- 7.28.3 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v7.30.1](https://github.com/chef/cookstyle/tree/v7.30.1) (2022-01-17)
+
+#### Merged Pull Requests
+- Test on Ruby 3.1 [#927](https://github.com/chef/cookstyle/pull/927) ([tas50](https://github.com/tas50))
+- Detect usage of deprecated poise-hoist [#928](https://github.com/chef/cookstyle/pull/928) ([tas50](https://github.com/tas50))
+- Add support for the `path` property in RedundantCode/UseCreateIfMissing [#929](https://github.com/chef/cookstyle/pull/929) ([tas50](https://github.com/tas50))
+- Update UseCreateIfMissing to support non-string path values [#930](https://github.com/chef/cookstyle/pull/930) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v7.28.2](https://github.com/chef/cookstyle/tree/v7.28.2) (2022-01-14)
 
 #### Merged Pull Requests
 - Add new Chef/Security department and Chef/Security/SshPrivateKey cop [#919](https://github.com/chef/cookstyle/pull/919) ([tas50](https://github.com/tas50))
 - Minor updates for the security cops [#926](https://github.com/chef/cookstyle/pull/926) ([tas50](https://github.com/tas50))
 - Add new Chef/Correctness/InvalidNotificationResource cop [#925](https://github.com/chef/cookstyle/pull/925) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v7.27.0](https://github.com/chef/cookstyle/tree/v7.27.0) (2022-01-13)
 
