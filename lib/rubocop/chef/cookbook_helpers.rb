@@ -111,6 +111,8 @@ module RuboCop
         case node.type
         when :send
           yield(node) if node.receiver.nil? # if it's not nil then we're not in a property foo we're in bar.foo
+        when :block # ie: not_if { ruby_foo }
+          yield(node)
         when :while
           extract_send_types(node.body) { |t| yield(t) }
         when :if
