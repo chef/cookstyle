@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 #
-# Copyright:: 2020, Chef Software, Inc.
+# Copyright:: 2020-2022, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -62,31 +62,49 @@ module RuboCop
         class UseCreateIfMissing < Base
           include RuboCop::Chef::CookbookHelpers
           extend AutoCorrector
+          include RangeHelp
 
           MSG = 'Use the :create_if_missing action instead of not_if with a ::File.exist(FOO) check.'
+          RESOURCES = %i(cookbook_file file remote_directory cron_d remote_file template).freeze
 
-          def_node_matcher :not_if_file_exist?, <<-PATTERN
-          (block (send nil? :not_if) (args) (send (const {nil? (cbase)} :File) {:exist? :exists?} $(str ...)))
+          def_node_matcher :file_exist_value, <<-PATTERN
+          (send (const {nil? (cbase)} :File) {:exist? :exists?} $(...))
           PATTERN
 
-          def_node_matcher :file_like_resource?, <<-PATTERN
-          (block (send nil? {:cookbook_file :file :remote_directory :cron_d :remote_file :template} $str) ... )
-          PATTERN
+          def_node_search :has_action?, '(send nil? :action ...)'
 
-          def_node_search :create_action?, '(send nil? :action $sym)'
+          def_node_search :create_action, '(send nil? :action $sym)'
 
           def_node_search :path_property_node, '(send nil? :path $...)'
 
           def on_block(node)
-            not_if_file_exist?(node) do |props|
-              file_like_resource?(node.parent.parent) do |resource_blk_name|
-                # the not_if file name is the same as the resource name or the value in the path property
-                # and there's no action defined (it's the default)
-                return unless (props == resource_blk_name || path_property_node(node.parent.parent)&.first&.first == props) &&
-                              create_action?(node.parent.parent).nil?
+            match_property_in_resource?(RESOURCES, :not_if, node) do |prop|
+              # if it's not a block type then it's not a ruby block with a file.exist
+              return unless prop.block_type?
 
-                add_offense(node, message: MSG, severity: :refactor) do |corrector|
-                  corrector.replace(node, 'action :create_if_missing')
+              file_exist_value(prop.body) do |exists_content| # check the contents of the ruby block that's passed
+                # not an offense if:
+                #   - The resource block name (the last arg of the send) doesn't match the exists check content
+                #   - If a path property is used it doesn't match the exists check content
+                return unless exists_content == node.send_node.last_argument ||
+                              exists_content == path_property_node(node)&.first&.first
+
+                # we have an action so check if it is :create. If that's the case we can replace that value
+                # and delete the not_if line. Otherwise it's an action like :remove and while the whole resource
+                # no longer makes sense that's not our problem here.
+                create_action(node) do |create_action|
+                  return unless create_action == s(:sym, :create)
+                  add_offense(prop, message: MSG, severity: :refactor) do |corrector|
+                    corrector.replace(create_action, ':create_if_missing')
+                    corrector.remove(range_by_whole_lines(prop.source_range, include_final_newline: true))
+                  end
+                  return
+                end
+
+                # if we got this far we didn't return above when we had an action
+                # so we can just replace the not_if line with a new :create_if_missing action
+                add_offense(prop, message: MSG, severity: :refactor) do |corrector|
+                  corrector.replace(prop, 'action :create_if_missing')
                 end
               end
             end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 #
-# Copyright:: 2020, Chef Software, Inc.
+# Copyright:: 2020-2022, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -71,6 +71,27 @@ describe RuboCop::Cop::Chef::RedundantCode::UseCreateIfMissing, :config do
     end
   end
 
+  it 'registers an offense when the resource name is not a string but matches the not_if' do
+    expect_offense(<<~RUBY)
+      remote_file 'foo' + '/addons/war/alfresco.war' do
+        owner 'root'
+        group 'root'
+        mode '0644'
+        not_if { ::File.exist?('foo' + '/addons/war/alfresco.war') }
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the :create_if_missing action instead of not_if with a ::File.exist(FOO) check.
+      end
+    RUBY
+
+    expect_correction(<<~RUBY)
+      remote_file 'foo' + '/addons/war/alfresco.war' do
+        owner 'root'
+        group 'root'
+        mode '0644'
+        action :create_if_missing
+      end
+    RUBY
+  end
+
   it "doesn't register when a file like resource uses not_if to check for a *different* file" do
     expect_no_offenses(<<~RUBY)
       cookbook_file '/logs/foo/error.log' do
@@ -92,6 +113,19 @@ describe RuboCop::Cop::Chef::RedundantCode::UseCreateIfMissing, :config do
         mode '0644'
         action :remove
         not_if { ::File.exists?('/logs/foo/error.log') }
+      end
+    RUBY
+  end
+
+  it "doesn't register when a file like resource uses not_if without a ruby block" do
+    expect_no_offenses(<<~RUBY)
+      cookbook_file "#{'foo' + 'bar'}/baz" do
+        source 'error.log'
+        owner 'root'
+        group 'root'
+        mode '0644'
+        action :remove
+        not_if "test -f #{'foo' + 'bar'}/baz"
       end
     RUBY
   end
