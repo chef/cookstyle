@@ -70,10 +70,10 @@ module RuboCop
           def on_node_attribute_access(node)
             if node.str_type?
               style_detected(:strings)
-              add_offense(node, location: :expression, message: MSG % style, severity: :refactor) if style == :symbols
+              add_offense(node, message: MSG % style, severity: :refactor) if style == :symbols
             elsif node.sym_type?
               style_detected(:symbols)
-              add_offense(node, location: :expression, message: MSG % style, severity: :refactor) if style == :strings
+              add_offense(node, message: MSG % style, severity: :refactor) if style == :strings
             end
           end
 
