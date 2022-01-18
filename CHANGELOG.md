@@ -1,21 +1,19 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.30.3 -->
-## [v7.30.3](https://github.com/chef/cookstyle/tree/v7.30.3) (2022-01-18)
-
-#### Merged Pull Requests
-- Update RuboCop engine to 1.25 [#934](https://github.com/chef/cookstyle/pull/934) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=7.30.1 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Update RuboCop engine to 1.25 [#934](https://github.com/chef/cookstyle/pull/934) ([tas50](https://github.com/tas50)) <!-- 7.30.3 -->
-- Cleanup using the RuboCop InternalAffairs cops [#933](https://github.com/chef/cookstyle/pull/933) ([tas50](https://github.com/tas50)) <!-- 7.30.2 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v7.30.3](https://github.com/chef/cookstyle/tree/v7.30.3) (2022-01-18)
+
+#### Merged Pull Requests
+- Cleanup using the RuboCop InternalAffairs cops [#933](https://github.com/chef/cookstyle/pull/933) ([tas50](https://github.com/tas50))
+- Update RuboCop engine to 1.25 [#934](https://github.com/chef/cookstyle/pull/934) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v7.30.1](https://github.com/chef/cookstyle/tree/v7.30.1) (2022-01-17)
 
 #### Merged Pull Requests
@@ -23,7 +21,6 @@
 - Detect usage of deprecated poise-hoist [#928](https://github.com/chef/cookstyle/pull/928) ([tas50](https://github.com/tas50))
 - Add support for the `path` property in RedundantCode/UseCreateIfMissing [#929](https://github.com/chef/cookstyle/pull/929) ([tas50](https://github.com/tas50))
 - Update UseCreateIfMissing to support non-string path values [#930](https://github.com/chef/cookstyle/pull/930) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v7.28.2](https://github.com/chef/cookstyle/tree/v7.28.2) (2022-01-14)
 
