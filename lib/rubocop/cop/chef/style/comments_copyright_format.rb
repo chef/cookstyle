@@ -49,7 +49,7 @@ module RuboCop
             processed_source.comments.each do |comment|
               next unless comment.inline? && invalid_copyright_comment?(comment) # headers aren't in blocks
 
-              add_offense(comment, message: MSG, severity: :refactor) do |corrector|
+              add_offense(comment, severity: :refactor) do |corrector|
                 correct_comment = "# Copyright:: #{copyright_date_range(comment)}, #{copyright_holder(comment)}"
                 corrector.replace(comment, correct_comment)
               end

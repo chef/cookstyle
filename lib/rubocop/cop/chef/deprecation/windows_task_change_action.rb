@@ -65,7 +65,7 @@ module RuboCop
 
           def check_action(ast_obj)
             if ast_obj.respond_to?(:value) && ast_obj.value == :change
-              add_offense(ast_obj, message: MSG, severity: :warning) do |corrector|
+              add_offense(ast_obj, severity: :warning) do |corrector|
                 if ast_obj.parent.send_type? # :change was the only action
                   corrector.replace(ast_obj, ':create')
                 # chances are it's [:create, :change] since that's all that makes sense, but double check that theory

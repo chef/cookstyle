@@ -46,7 +46,7 @@ module RuboCop
           RESTRICT_ON_SEND = [:vagrant_key?, :vagrant_domain?, :vagrant_user?, :require_chef_gem, :best_ip_for, :nexus?, :ios_xr?, :ruby_20?, :ruby_19?, :includes_recipe?, :wrlinux?, :dev_null, :nexentacore_platform?, :opensolaris_platform?, :nexentacore?, :opensolaris?].freeze
 
           def on_send(node)
-            add_offense(node, message: MSG, severity: :refactor)
+            add_offense(node, severity: :refactor)
           end
         end
       end

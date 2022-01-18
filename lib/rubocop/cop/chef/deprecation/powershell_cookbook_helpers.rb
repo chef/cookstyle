@@ -47,7 +47,7 @@ module RuboCop
 
           def on_send(node)
             ps_cb_helper?(node) do |ver|
-              add_offense(node, message: MSG, severity: :warning) do |corrector|
+              add_offense(node, severity: :warning) do |corrector|
                 corrector.replace(node, "node['powershell']['version'].to_f == #{ver.source}")
               end
             end

@@ -54,7 +54,7 @@ module RuboCop
                           !x.node_parts.empty? &&
                           %i(@actions @allowed_actions).include?(x.node_parts.first)
 
-              add_offense(x, message: MSG, severity: :refactor) do |corrector|
+              add_offense(x, severity: :refactor) do |corrector|
                 # insert the new allowed_actions call above the initialize method, but not if one already exists (this is sadly common)
                 unless action_methods?(processed_source.ast)
                   initialize_node = initialize_method(processed_source.ast).first

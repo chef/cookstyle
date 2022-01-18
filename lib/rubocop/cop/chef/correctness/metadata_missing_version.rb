@@ -39,7 +39,7 @@ module RuboCop
             # Using range similar to RuboCop::Cop::Naming::Filename (file_name.rb)
             return if cb_version?(processed_source.ast)
             range = source_range(processed_source.buffer, 1, 0)
-            add_offense(range, message: MSG, severity: :refactor)
+            add_offense(range, severity: :refactor)
           end
         end
       end

@@ -52,13 +52,13 @@ module RuboCop
 
           def on_send(node)
             berksfile_source?(node) do
-              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+              add_offense(node, severity: :refactor) do |corrector|
                 corrector.replace(node, "source 'https://supermarket.chef.io'")
               end
             end
 
             berksfile_site?(node) do
-              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+              add_offense(node, severity: :refactor) do |corrector|
                 corrector.replace(node, "source 'https://supermarket.chef.io'")
               end
             end

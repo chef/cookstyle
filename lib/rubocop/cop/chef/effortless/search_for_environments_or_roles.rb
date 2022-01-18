@@ -33,7 +33,7 @@ module RuboCop
 
           def on_send(node)
             if node.arguments[1]&.value&.match?(/chef_environment|role/)
-              add_offense(node, message: MSG, severity: :refactor)
+              add_offense(node, severity: :refactor)
             end
           end
         end

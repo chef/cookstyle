@@ -89,7 +89,7 @@ module RuboCop
             return if node.body.nil? # don't blow up on empty whens
 
             package_array_install(node.body) do |install_block, pkgs|
-              add_offense(install_block, message: MSG, severity: :refactor) do |corrector|
+              add_offense(install_block, severity: :refactor) do |corrector|
                 corrector.replace(install_block, "package #{pkgs.source}")
               end
             end
@@ -99,7 +99,7 @@ module RuboCop
             platform_helper?(node) do |plats, blk, _pkgs|
               return unless multipackage_platforms?(plats)
 
-              add_offense(blk, message: MSG, severity: :refactor) do |corrector|
+              add_offense(blk, severity: :refactor) do |corrector|
                 package_array_install(blk) do |install_block, pkgs|
                   corrector.replace(install_block, "package #{pkgs.source}")
                 end

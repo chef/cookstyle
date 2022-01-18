@@ -64,20 +64,20 @@ module RuboCop
 
           def on_send(node)
             rewind_gem_install?(node) do
-              add_offense(node, message: MSG, severity: :warning) do |corrector|
+              add_offense(node, severity: :warning) do |corrector|
                 node = node.parent if node.parent&.block_type? # make sure we get the whole block not just the method in the block
                 corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
               end
             end
 
             require_rewind?(node) do
-              add_offense(node, message: MSG, severity: :warning) do |corrector|
+              add_offense(node, severity: :warning) do |corrector|
                 corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
               end
             end
 
             rewind_resources?(node) do |string|
-              add_offense(node, message: MSG, severity: :warning) do |corrector|
+              add_offense(node, severity: :warning) do |corrector|
                 corrector.replace(node, node.source.gsub(string.to_s, MAPPING[string]))
               end
             end
@@ -86,7 +86,7 @@ module RuboCop
           def on_block(node)
             match_property_in_resource?(:chef_gem, 'package_name', node) do |pkg_name|
               next unless pkg_name.arguments&.first&.str_content == 'chef-rewind'
-              add_offense(node, message: MSG, severity: :warning) do |corrector|
+              add_offense(node, severity: :warning) do |corrector|
                 corrector.remove(node) if pkg_name.arguments&.first&.str_content == 'chef-rewind'
               end
             end

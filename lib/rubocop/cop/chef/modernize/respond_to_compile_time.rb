@@ -81,7 +81,7 @@ module RuboCop
           def on_block(node)
             match_property_in_resource?(:chef_gem, 'compile_time', node) do |compile_time_property|
               compile_time_method_defined?(compile_time_property.parent) do |val|
-                add_offense(compile_time_property.parent, message: MSG, severity: :refactor) do |corrector|
+                add_offense(compile_time_property.parent, severity: :refactor) do |corrector|
                   corrector.replace(compile_time_property.parent, "compile_time #{val.source}")
                 end
               end

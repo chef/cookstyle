@@ -43,7 +43,7 @@ module RuboCop
 
           def on_send(node)
             chef_platform_windows?(node) do
-              add_offense(node, message: MSG, severity: :warning) do |corrector|
+              add_offense(node, severity: :warning) do |corrector|
                 corrector.replace(node, "platform?('windows')")
               end
             end

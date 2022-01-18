@@ -55,7 +55,7 @@ module RuboCop
 
           def on_block(node)
             lazy_in_guard?(node) do |type, code|
-              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+              add_offense(node, severity: :refactor) do |corrector|
                 corrector.replace(node, "#{type} { #{code.source} }")
               end
             end

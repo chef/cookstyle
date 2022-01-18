@@ -68,7 +68,7 @@ module RuboCop
           def on_send(node)
             resource_name?(node) do |name|
               return if valid_provides?(name)
-              add_offense(node, message: MSG, severity: :warning) do |corrector|
+              add_offense(node, severity: :warning) do |corrector|
                 if name.to_s == "#{cookbook_name}_#{File.basename(processed_source.path, '.rb')}"
                   corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
                 else

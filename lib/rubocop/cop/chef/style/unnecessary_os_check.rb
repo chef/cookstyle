@@ -59,7 +59,7 @@ module RuboCop
           def on_send(node)
             os_equals?(node) do |operator, val|
               return unless UNNECESSARY_OS_VALUES.include?(val.value)
-              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+              add_offense(node, severity: :refactor) do |corrector|
                 corrected_string = (operator == :!= ? '!' : '') + "platform_family?('#{sanitized_platform(val.value)}')"
                 corrector.replace(node, corrected_string)
               end
@@ -67,7 +67,7 @@ module RuboCop
 
             os_eql?(node) do |val|
               return unless UNNECESSARY_OS_VALUES.include?(val.value)
-              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+              add_offense(node, severity: :refactor) do |corrector|
                 corrected_string = "platform_family?('#{sanitized_platform(val.value)}')"
                 corrector.replace(node, corrected_string)
               end
@@ -77,7 +77,7 @@ module RuboCop
               array_of_plats = array_from_ast(val)
               # see if all the values in the .include? usage are in our list of 1:1 platform family to os values
               return unless (UNNECESSARY_OS_VALUES & array_of_plats) == array_of_plats
-              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+              add_offense(node, severity: :refactor) do |corrector|
                 platforms = val.values.map { |x| x.str_type? ? "'#{sanitized_platform(x.value)}'" : x.source }
                 corrected_string = "platform_family?(#{platforms.join(', ')})"
                 corrector.replace(node, corrected_string)

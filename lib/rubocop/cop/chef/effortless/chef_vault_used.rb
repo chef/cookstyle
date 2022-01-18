@@ -72,12 +72,12 @@ module RuboCop
             return unless require?(node) ||
                           chef_vault_item_for_environment?(node) ||
                           chef_vault_item?(node)
-            add_offense(node.loc.expression, message: MSG, severity: :refactor)
+            add_offense(node.loc.expression, severity: :refactor)
           end
 
           def on_const(node)
             vault_const?(node) do
-              add_offense(node.loc.expression, message: MSG, severity: :refactor)
+              add_offense(node.loc.expression, severity: :refactor)
             end
           end
         end

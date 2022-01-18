@@ -36,7 +36,7 @@ module RuboCop
           RESTRICT_ON_SEND = [:to_yaml].freeze
 
           def on_send(node)
-            add_offense(node, message: MSG, severity: :warning) do |corrector|
+            add_offense(node, severity: :warning) do |corrector|
               corrector.replace(node, "YAML.dump(#{node.receiver.source})")
             end
           end

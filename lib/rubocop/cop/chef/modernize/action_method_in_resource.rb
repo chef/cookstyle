@@ -45,7 +45,7 @@ module RuboCop
             return if node.arguments? # if they passed in arguments they may actually need this
             return if node.parent && includes_poise?(node.parent)
 
-            add_offense(node, message: MSG, severity: :refactor) do |corrector|
+            add_offense(node, severity: :refactor) do |corrector|
               # @todo when we drop ruby 2.4 support we can convert this to use delete_suffix
               corrector.replace(node, node.source.gsub("def #{node.method_name}", "action :#{node.method_name.to_s.gsub(/^action_/, '')} do"))
             end

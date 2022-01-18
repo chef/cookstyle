@@ -36,7 +36,7 @@ module RuboCop
           RESTRICT_ON_SEND = [:attribute].freeze
 
           def on_send(node)
-            add_offense(node, message: MSG, severity: :warning) do |corrector|
+            add_offense(node, severity: :warning) do |corrector|
               corrector.replace(node.loc.expression, node.loc.expression.source.gsub(/^attribute/, 'input'))
             end
           end

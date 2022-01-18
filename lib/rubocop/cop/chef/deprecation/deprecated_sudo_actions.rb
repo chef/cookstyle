@@ -51,7 +51,7 @@ module RuboCop
               next unless prop_node.arguments.first.sym_type?
               next unless [s(:sym, :install), s(:sym, :remove)].include?(prop_node.arguments.first)
 
-              add_offense(prop_node, message: MSG, severity: :warning) do |corrector|
+              add_offense(prop_node, severity: :warning) do |corrector|
                 corrector.replace(prop_node, prop_node.source
                   .gsub('install', 'create')
                   .gsub('remove', 'delete'))

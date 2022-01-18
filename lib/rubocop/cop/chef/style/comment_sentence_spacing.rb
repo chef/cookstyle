@@ -30,7 +30,7 @@ module RuboCop
 
             processed_source.comments.each do |comment|
               next unless comment.text.match?(/(.|\?)\s{2}/) # https://rubular.com/r/8o3SiDrQMJSzuU
-              add_offense(comment, location: comment, message: MSG, severity: :refactor) do |corrector|
+              add_offense(comment, location: comment, severity: :refactor) do |corrector|
                 corrector.replace(comment, comment.text.gsub('.  ', '. ').gsub('?  ', '? '))
               end
             end

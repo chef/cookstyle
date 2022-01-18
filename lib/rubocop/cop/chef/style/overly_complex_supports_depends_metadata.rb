@@ -57,7 +57,7 @@ module RuboCop
           def on_block(node)
             supports_depends_array?(node) do |array, type|
               return unless array.values.count < 3
-              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+              add_offense(node, severity: :refactor) do |corrector|
                 corrected_value = array.values.map { |x| "#{type} '#{x.source}'" }
                 corrector.replace(node, corrected_value.join("\n"))
               end

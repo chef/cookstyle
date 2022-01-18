@@ -51,7 +51,7 @@ module RuboCop
 
           def on_block(node)
             class_eval_action_class?(node) do
-              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+              add_offense(node, severity: :refactor) do |corrector|
                 corrector.replace(node, node.source.gsub('.class_eval', ''))
               end
             end

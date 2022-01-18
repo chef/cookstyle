@@ -54,19 +54,19 @@ module RuboCop
           def on_send(node)
             execute_resource?(node) do
               return unless node.arguments.first.value.match?(/^tzutil/i)
-              add_offense(node, message: MSG, severity: :refactor)
+              add_offense(node, severity: :refactor)
             end
           end
 
           def on_block(node)
             match_property_in_resource?(:execute, 'command', node) do |code_property|
               next unless calls_tzutil?(code_property)
-              add_offense(node, message: MSG, severity: :refactor)
+              add_offense(node, severity: :refactor)
             end
 
             match_property_in_resource?(:powershell_script, 'code', node) do |code_property|
               next unless calls_tzutil?(code_property)
-              add_offense(node, message: MSG, severity: :refactor)
+              add_offense(node, severity: :refactor)
             end
           end
 

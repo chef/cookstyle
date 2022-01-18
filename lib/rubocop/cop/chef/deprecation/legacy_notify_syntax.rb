@@ -69,7 +69,7 @@ module RuboCop
 
           def on_send(node)
             legacy_notify?(node) do |notify_type, action, type, name, timing|
-              add_offense(node, message: MSG, severity: :warning) do |corrector|
+              add_offense(node, severity: :warning) do |corrector|
                 service_value = case name.type
                                 when :str
                                   "'#{type.source}[#{name.value}]'"

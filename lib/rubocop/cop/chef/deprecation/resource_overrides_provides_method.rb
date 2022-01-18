@@ -39,7 +39,7 @@ module RuboCop
           def on_def(node)
             return unless node.method_name == :provides?
 
-            add_offense(node, message: MSG, severity: :warning) unless calls_provides?(processed_source.ast)
+            add_offense(node, severity: :warning) unless calls_provides?(processed_source.ast)
           end
         end
       end

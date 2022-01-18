@@ -63,15 +63,15 @@ module RuboCop
 
           def on_send(node)
             execute_apt_update?(node) do
-              add_offense(node, message: MSG, severity: :refactor)
+              add_offense(node, severity: :refactor)
             end
 
             notification_property?(node) do |val|
-              add_offense(val, message: MSG, severity: :refactor) if val.str_content&.start_with?('execute[apt-get update]')
+              add_offense(val, severity: :refactor) if val.str_content&.start_with?('execute[apt-get update]')
             end
 
             execute_command?(node) do |val|
-              add_offense(node, message: MSG, severity: :refactor) if val.str_content == 'apt-get update'
+              add_offense(node, severity: :refactor) if val.str_content == 'apt-get update'
             end
           end
         end

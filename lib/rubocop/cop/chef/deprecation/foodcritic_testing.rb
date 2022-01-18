@@ -34,7 +34,7 @@ module RuboCop
           def on_send(node)
             return unless node.arguments.first == s(:str, 'foodcritic')
 
-            add_offense(node, message: MSG, severity: :warning)
+            add_offense(node, severity: :warning)
           end
         end
       end

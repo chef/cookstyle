@@ -105,7 +105,7 @@ module RuboCop
           def on_class(node)
             return if has_provides?
             HWRP?(node) do |inherit|
-              add_offense(inherit, message: MSG, severity: :warning) do |corrector|
+              add_offense(inherit, severity: :warning) do |corrector|
                 resource_name_ast(node) do |ast_match|
                   # build a new string to add after that includes the new line and the proper indentation
                   new_string = "\n" + ast_match.source.dup.gsub('resource_name', 'provides').prepend(' ' * indentation(ast_match))

@@ -44,7 +44,7 @@ module RuboCop
 
           def on_send(node)
             property_with_regex_splat?(node) do |splat|
-              add_offense(splat, message: MSG, severity: :refactor) do |corrector|
+              add_offense(splat, severity: :refactor) do |corrector|
                 range = range_with_surrounding_comma(
                   range_with_surrounding_space(
                     range: splat.loc.expression, side: :left), :left)

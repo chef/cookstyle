@@ -37,7 +37,7 @@ module RuboCop
           def on_send(node)
             execute_command?(node) do |command|
               if starts_service?(command)
-                add_offense(command, message: MSG, severity: :refactor)
+                add_offense(command, severity: :refactor)
               end
             end
           end

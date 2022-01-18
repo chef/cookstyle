@@ -56,11 +56,11 @@ module RuboCop
 
           def add_offense_for_bare_assignment(sub_node)
             if sub_node.receiver == s(:send, nil, :node) # node['foo'] scenario
-              add_offense(sub_node.receiver.loc.selector, message: MSG, severity: :warning)
+              add_offense(sub_node.receiver.loc.selector, severity: :warning)
             elsif sub_node.receiver &&
                   sub_node.receiver&.node_parts[0] == s(:send, nil, :node) &&
                   sub_node.receiver&.node_parts[1] == :[] # node['foo']['bar'] scenario
-              add_offense(sub_node.receiver.node_parts.first.loc.selector, message: MSG, severity: :warning)
+              add_offense(sub_node.receiver.node_parts.first.loc.selector, severity: :warning)
             end
           end
         end

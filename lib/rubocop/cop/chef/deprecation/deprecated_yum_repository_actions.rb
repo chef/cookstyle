@@ -53,7 +53,7 @@ module RuboCop
               next unless prop_node.arguments.first.sym_type?
               next unless [s(:sym, :add), s(:sym, :delete)].include?(prop_node.arguments.first)
 
-              add_offense(prop_node, message: MSG, severity: :warning) do |corrector|
+              add_offense(prop_node, severity: :warning) do |corrector|
                 corrector.replace(prop_node, prop_node.source
                   .gsub('add', 'create')
                   .gsub('delete', 'remove'))

@@ -45,7 +45,7 @@ module RuboCop
 
           def on_send(node)
             property?(node) do
-              add_offense(node, message: MSG, severity: :refactor) unless description_hash?(node)
+              add_offense(node, severity: :refactor) unless description_hash?(node)
             end
           end
         end

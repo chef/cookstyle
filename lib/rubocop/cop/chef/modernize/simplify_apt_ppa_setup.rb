@@ -49,7 +49,7 @@ module RuboCop
           def on_block(node)
             match_property_in_resource?(:apt_repository, 'uri', node) do |uri|
               if %r{http(s)*://ppa.launchpad.net/(.*)/ubuntu$}.match?(uri.arguments&.first&.str_content)
-                add_offense(uri, message: MSG, severity: :refactor) do |corrector|
+                add_offense(uri, severity: :refactor) do |corrector|
                   next unless (replacement_val = %r{http(s)*://ppa.launchpad.net/(.*)/ubuntu}.match(node.source)[2])
                   corrector.replace(uri, "uri 'ppa:#{replacement_val}'")
                 end

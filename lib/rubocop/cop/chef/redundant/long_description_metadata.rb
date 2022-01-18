@@ -35,7 +35,7 @@ module RuboCop
           RESTRICT_ON_SEND = [:long_description].freeze
 
           def on_send(node)
-            add_offense(node, message: MSG, severity: :refactor) do |corrector|
+            add_offense(node, severity: :refactor) do |corrector|
               corrector.remove(range_with_surrounding_space(range: expression_including_heredocs(node), side: :left))
             end
           end

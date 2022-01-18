@@ -42,13 +42,13 @@ module RuboCop
             match_property_in_resource?(:powershell_script, 'code', node) do |code_property|
               property_data = method_arg_ast_to_string(code_property)
               next unless property_data && property_data.match?(/^choco /i)
-              add_offense(node, message: MSG, severity: :refactor)
+              add_offense(node, severity: :refactor)
             end
 
             match_property_in_resource?(:execute, 'command', node) do |code_property|
               property_data = method_arg_ast_to_string(code_property)
               next unless property_data && property_data.match?(/^choco /i)
-              add_offense(node, message: MSG, severity: :refactor)
+              add_offense(node, severity: :refactor)
             end
           end
         end

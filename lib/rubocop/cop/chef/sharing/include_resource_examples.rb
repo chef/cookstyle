@@ -49,7 +49,7 @@ module RuboCop
             # Using range similar to RuboCop::Cop::Naming::Filename (file_name.rb)
             range = source_range(processed_source.buffer, 1, 0)
 
-            add_offense(range, message: MSG, severity: :refactor)
+            add_offense(range, severity: :refactor)
           end
 
           def_node_search :resource_examples, '(send nil? :examples dstr ...)'

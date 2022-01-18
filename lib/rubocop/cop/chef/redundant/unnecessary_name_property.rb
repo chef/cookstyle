@@ -55,7 +55,7 @@ module RuboCop
                 return unless (hash_keys - [:kind_of, :name_attribute, :name_property]).empty?
               end
 
-              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+              add_offense(node, severity: :refactor) do |corrector|
                 corrector.remove(node.source_range)
               end
             end

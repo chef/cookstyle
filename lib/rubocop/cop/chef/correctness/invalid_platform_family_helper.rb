@@ -47,7 +47,7 @@ module RuboCop
             platform_family_helper?(node) do |plats|
               plats.to_a.each do |p|
                 next unless INVALID_PLATFORM_FAMILIES.key?(p.value)
-                add_offense(p, message: MSG, severity: :refactor) do |corrector|
+                add_offense(p, severity: :refactor) do |corrector|
                   replacement_platform = INVALID_PLATFORM_FAMILIES[p.value]
                   all_passed_platforms = p.parent.arguments.map(&:value)
 

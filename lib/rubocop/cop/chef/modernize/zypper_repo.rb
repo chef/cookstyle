@@ -49,7 +49,7 @@ module RuboCop
           RESTRICT_ON_SEND = [:zypper_repo].freeze
 
           def on_send(node)
-            add_offense(node, message: MSG, severity: :refactor) do |corrector|
+            add_offense(node, severity: :refactor) do |corrector|
               corrector.replace(node, node.source.gsub(/^zypper_repo/, 'zypper_repository'))
             end
           end

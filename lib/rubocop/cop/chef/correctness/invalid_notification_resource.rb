@@ -49,7 +49,7 @@ module RuboCop
 
           def on_send(node)
             invalid_notification?(node) do |resource|
-              add_offense(resource, message: MSG, severity: :refactor)
+              add_offense(resource, severity: :refactor)
             end
           end
         end

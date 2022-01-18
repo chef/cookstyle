@@ -81,7 +81,7 @@ module RuboCop
               # if they were checking for node['cloud'] and the provider replace it all
               node = node.parent if node.parent.and_type? && node_cloud?(node.left_sibling)
 
-              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+              add_offense(node, severity: :refactor) do |corrector|
                 corrector.replace(node, "#{cloud_name}?")
               end
             end

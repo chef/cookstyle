@@ -45,15 +45,15 @@ module RuboCop
 
           def on_send(node)
             calls_run_command?(node) do
-              add_offense(node, message: MSG, severity: :warning) unless defines_run_command?(processed_source.ast)
+              add_offense(node, severity: :warning) unless defines_run_command?(processed_source.ast)
             end
 
             require_mixin_command?(node) do
-              add_offense(node, message: MSG, severity: :warning)
+              add_offense(node, severity: :warning)
             end
 
             include_mixin_command?(node) do
-              add_offense(node, message: MSG, severity: :warning)
+              add_offense(node, severity: :warning)
             end
           end
         end

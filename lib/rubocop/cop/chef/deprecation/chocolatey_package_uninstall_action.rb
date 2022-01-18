@@ -43,7 +43,7 @@ module RuboCop
             match_property_in_resource?(:chocolatey_package, 'action', node) do |choco_action|
               choco_action.arguments.each do |action|
                 next unless action.source == ':uninstall'
-                add_offense(action, message: MSG, severity: :warning) do |corrector|
+                add_offense(action, severity: :warning) do |corrector|
                   corrector.replace(action, ':remove')
                 end
               end

@@ -46,7 +46,7 @@ module RuboCop
               node = node.parent
             end
 
-            add_offense(node, message: MSG, severity: :warning) do |corrector|
+            add_offense(node, severity: :warning) do |corrector|
               corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
             end
           end

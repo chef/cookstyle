@@ -49,7 +49,7 @@ module RuboCop
 
           def on_block(node)
             match_property_in_resource?(:user, 'supports', node) do |property|
-              add_offense(property, message: MSG, severity: :warning) do |corrector|
+              add_offense(property, severity: :warning) do |corrector|
                 new_text = []
 
                 property.arguments.first.each_pair do |k, v|

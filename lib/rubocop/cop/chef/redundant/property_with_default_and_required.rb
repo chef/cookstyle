@@ -48,7 +48,7 @@ module RuboCop
 
           def on_send(node)
             required_and_default?(node) do |default|
-              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+              add_offense(node, severity: :refactor) do |corrector|
                 range = range_with_surrounding_comma(range_with_surrounding_space(range: default.loc.expression, side: :left), :left)
                 corrector.remove(range)
               end

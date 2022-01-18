@@ -44,7 +44,7 @@ module RuboCop
               property_data = method_arg_ast_to_string(code_property)
               return unless property_data && property_data.match?(/^remove-item/i) &&
                             !property_data.include?('*')
-              add_offense(node, message: MSG, severity: :refactor)
+              add_offense(node, severity: :refactor)
             end
           end
         end

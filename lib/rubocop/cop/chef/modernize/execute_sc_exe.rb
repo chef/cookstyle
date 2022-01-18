@@ -49,7 +49,7 @@ module RuboCop
             # with a nested string and a begin. Source allows us to avoid a lot of defensive programming here
             return unless node&.arguments.first&.source&.match?(/^("|')sc.exe/)
 
-            add_offense(node, message: MSG, severity: :refactor)
+            add_offense(node, severity: :refactor)
           end
 
           # block execute resources
@@ -57,7 +57,7 @@ module RuboCop
             match_property_in_resource?(:execute, 'command', node) do |code_property|
               property_data = method_arg_ast_to_string(code_property)
               return unless property_data && property_data.match?(/^sc.exe/i)
-              add_offense(node, message: MSG, severity: :refactor)
+              add_offense(node, severity: :refactor)
             end
           end
         end

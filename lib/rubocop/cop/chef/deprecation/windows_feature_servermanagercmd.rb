@@ -48,7 +48,7 @@ module RuboCop
 
           def on_block(node)
             match_property_in_resource?(:windows_feature, :install_method, node) do |prop_node|
-              add_offense(prop_node, message: MSG, severity: :warning) if prop_node.source.include?(':servermanagercmd')
+              add_offense(prop_node, severity: :warning) if prop_node.source.include?(':servermanagercmd')
             end
           end
         end

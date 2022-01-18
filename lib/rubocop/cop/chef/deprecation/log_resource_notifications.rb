@@ -53,7 +53,7 @@ module RuboCop
 
           def on_block(node)
             match_property_in_resource?(:log, 'notifies', node) do |prop_node|
-              add_offense(prop_node, message: MSG, severity: :warning)
+              add_offense(prop_node, severity: :warning)
             end
           end
         end

@@ -46,7 +46,7 @@ module RuboCop
 
           def on_send(node)
             depends_without_comma?(node) do |cb, ver|
-              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+              add_offense(node, severity: :refactor) do |corrector|
                 corrector.replace(node, "depends '#{cb.value}', '#{ver.value}'")
               end
             end

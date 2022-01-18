@@ -43,7 +43,7 @@ module RuboCop
 
           def on_send(node)
             old_yum_recipe?(node) do
-              add_offense(node, message: MSG, severity: :warning)
+              add_offense(node, severity: :warning)
             end
           end
         end

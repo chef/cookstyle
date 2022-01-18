@@ -54,7 +54,7 @@ module RuboCop
             return unless node.method_name == :registry_key
             return unless correct_key?(node)
             return unless uac_supported_values?(node)
-            add_offense(node, message: MSG, severity: :refactor)
+            add_offense(node, severity: :refactor)
           end
 
           # make sure the values passed are all the ones in the uac resource

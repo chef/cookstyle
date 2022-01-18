@@ -53,7 +53,7 @@ module RuboCop
 
           def on_send(node)
             attribute_to_s?(node) do |method|
-              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+              add_offense(node, severity: :refactor) do |corrector|
                 corrector.replace(node, "node['#{method.value}']")
               end
             end

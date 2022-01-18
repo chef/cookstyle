@@ -56,7 +56,7 @@ module RuboCop
               return if code.descendants.first.send_type? &&
                         code.descendants.first.negation_method?
 
-              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+              add_offense(node, severity: :refactor) do |corrector|
                 corrector.replace(code, code.source.gsub(/^!/, ''))
                 corrector.replace(only_if.source_range, 'not_if')
               end

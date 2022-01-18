@@ -45,7 +45,7 @@ module RuboCop
               # if the helper types were the same it's an offense, but platform_family?('rhel') || platform?('ubuntu') is legit
               return unless helpers.uniq.size == 1
 
-              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+              add_offense(node, severity: :refactor) do |corrector|
                 new_string = "#{helpers.first}(#{plats.map(&:source).join(', ')})"
                 corrector.replace(node, new_string)
               end

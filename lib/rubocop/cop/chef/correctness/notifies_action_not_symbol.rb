@@ -51,7 +51,7 @@ module RuboCop
             match_property_in_resource?(nil, %w(notifies subscribes), node) do |notifies_property|
               return unless notifies_property.node_parts[2].str_type?
 
-              add_offense(notifies_property, message: MSG, severity: :refactor) do |corrector|
+              add_offense(notifies_property, severity: :refactor) do |corrector|
                 corrector.replace(notifies_property.first_argument,
                   ":#{notifies_property.node_parts[2].value}")
               end

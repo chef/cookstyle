@@ -54,10 +54,10 @@ module RuboCop
                 if p_hash.key.array_type?
                   p_hash.key.values.each do |plat|
                     next unless INVALID_PLATFORMS.key?(plat.value)
-                    add_offense(plat, message: MSG, severity: :refactor)
+                    add_offense(plat, severity: :refactor)
                   end
                 elsif INVALID_PLATFORMS.key?(p_hash.key.value)
-                  add_offense(p_hash.key, message: MSG, severity: :refactor)
+                  add_offense(p_hash.key, severity: :refactor)
                 end
               end
             end

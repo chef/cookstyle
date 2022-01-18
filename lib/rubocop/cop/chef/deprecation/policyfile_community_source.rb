@@ -41,7 +41,7 @@ module RuboCop
 
           def on_send(node)
             community_source?(node) do
-              add_offense(node, message: MSG, severity: :warning) do |corrector|
+              add_offense(node, severity: :warning) do |corrector|
                 corrector.replace(node, 'default_source :supermarket')
               end
             end

@@ -52,7 +52,7 @@ module RuboCop
           def on_block(node)
             match_property_in_resource?(:apt_repository, 'distribution', node) do |dist|
               default_dist?(dist) do
-                add_offense(dist, message: MSG, severity: :refactor) do |corrector|
+                add_offense(dist, severity: :refactor) do |corrector|
                   corrector.remove(range_with_surrounding_space(range: dist.loc.expression, side: :left))
                 end
               end

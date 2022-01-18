@@ -78,7 +78,7 @@ module RuboCop
           def on_block(node)
             file_or_template?(node) do |file_name|
               return unless file_name.start_with?('/etc/cron.d/')
-              add_offense(node, message: MSG, severity: :refactor)
+              add_offense(node, severity: :refactor)
             end
           end
         end

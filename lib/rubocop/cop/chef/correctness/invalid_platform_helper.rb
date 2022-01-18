@@ -46,7 +46,7 @@ module RuboCop
           def on_send(node)
             platform_helper?(node) do |plat|
               plat.to_a.each do |p|
-                add_offense(p, message: MSG, severity: :refactor) if INVALID_PLATFORMS.key?(p.value)
+                add_offense(p, severity: :refactor) if INVALID_PLATFORMS.key?(p.value)
               end
             end
           end

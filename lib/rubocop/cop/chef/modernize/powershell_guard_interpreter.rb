@@ -56,7 +56,7 @@ module RuboCop
           def on_block(node)
             match_property_in_resource?(%i(powershell_script batch), 'guard_interpreter', node) do |interpreter|
               return unless interpreter.arguments.first.source == ':powershell_script'
-              add_offense(interpreter, message: MSG, severity: :refactor) do |corrector|
+              add_offense(interpreter, severity: :refactor) do |corrector|
                 corrector.remove(range_with_surrounding_space(range: interpreter.loc.expression, side: :left))
               end
             end

@@ -41,7 +41,7 @@ module RuboCop
 
           def on_send(node)
             require_recipe?(node) do
-              add_offense(node.loc.selector, message: MSG, severity: :warning) do |corrector|
+              add_offense(node.loc.selector, severity: :warning) do |corrector|
                 corrector.replace(node.loc.selector, 'include_recipe')
               end
             end

@@ -42,7 +42,7 @@ module RuboCop
           def on_send(node)
             resource_conditional?(node) do |conditional|
               return unless conditional.value.match?(/^test -[ef] \S*$/)
-              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+              add_offense(node, severity: :refactor) do |corrector|
                 new_string = "{ ::File.exist?('#{conditional.value.match(/^test -[ef] (\S*)$/)[1]}') }"
                 corrector.replace(conditional, new_string)
               end
