@@ -34,7 +34,7 @@ module RuboCop
           def on_send(node)
             if node.receiver &&
                node.receiver.send_type? &&
-               node.receiver.method_name == :node
+               node.receiver.method?(:node)
               add_offense(node, severity: :refactor)
             end
           end

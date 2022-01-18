@@ -55,7 +55,7 @@ module RuboCop
                 property.arguments.first.each_pair do |k, v|
                   # account for a strange edge case where the person incorrectly makes "manage_home a method
                   # the code would be broken, but without this handling cookstyle would explode
-                  key_value = (k.send_type? && k.method_name == :manage_home) ? 'manage_home' : k.value
+                  key_value = (k.send_type? && k.method?(:manage_home)) ? 'manage_home' : k.value
 
                   new_text << "#{key_value} #{v.source}"
                 end

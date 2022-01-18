@@ -48,7 +48,7 @@ module RuboCop
           def on_send(node)
             env?(node) do |env_value|
               # we don't handle .nil? checks yet so just skip them
-              next if node.parent.send_type? && node.parent.method_name == :nil?
+              next if node.parent.send_type? && node.parent.method?(:nil?)
 
               case env_value
               when 'CI'

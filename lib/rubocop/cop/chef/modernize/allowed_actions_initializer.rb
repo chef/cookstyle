@@ -45,7 +45,7 @@ module RuboCop
           MSG = 'The allowed actions of a resource can be set with the "allowed_actions" helper instead of using the initialize method.'
 
           def on_def(node)
-            return unless node.method_name == :initialize
+            return unless node.method?(:initialize)
             return if node.body.nil? # nil body is an empty initialize method
 
             node.body.each_node do |x|

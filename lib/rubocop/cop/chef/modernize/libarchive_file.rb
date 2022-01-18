@@ -50,7 +50,7 @@ module RuboCop
 
           def on_send(node)
             # The need for this goes away once https://github.com/rubocop-hq/rubocop/pull/8365 is pulled into Cookstyle
-            if node.method_name == :libarchive_file
+            if node.method?(:libarchive_file)
               add_offense(node, severity: :refactor) do |corrector|
                 corrector.replace(node, node.source.gsub('libarchive_file', 'archive_file'))
               end

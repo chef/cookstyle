@@ -27,7 +27,7 @@ module RuboCop
           MSG = 'Legacy Chef Infra definitions should be rewritten as custom resources to take full advantage of the Chef Infra feature set.'
 
           def on_block(node)
-            add_offense(node, severity: :refactor) if node.respond_to?(:method_name) && node.method_name == :define
+            add_offense(node, severity: :refactor) if node.respond_to?(:method_name) && node.method?(:define)
           end
         end
       end

@@ -51,7 +51,7 @@ module RuboCop
 
           # block registry_key resources
           def on_block(node)
-            return unless node.method_name == :registry_key
+            return unless node.method?(:registry_key)
             return unless correct_key?(node)
             return unless uac_supported_values?(node)
             add_offense(node, severity: :refactor)

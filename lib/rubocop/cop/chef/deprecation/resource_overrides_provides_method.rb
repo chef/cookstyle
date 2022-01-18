@@ -37,7 +37,7 @@ module RuboCop
           def_node_search :calls_provides?, '(send nil? :provides ...)'
 
           def on_def(node)
-            return unless node.method_name == :provides?
+            return unless node.method?(:provides?)
 
             add_offense(node, severity: :warning) unless calls_provides?(processed_source.ast)
           end
