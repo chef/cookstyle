@@ -39,7 +39,7 @@ module RuboCop
 
           def on_send(node)
             control_group?(node) do
-              add_offense(node.loc.selector, message: MSG, severity: :warning)
+              add_offense(node.loc.selector, severity: :warning)
             end
           end
         end

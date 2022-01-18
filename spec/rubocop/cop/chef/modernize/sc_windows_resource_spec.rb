@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::WindowsScResource, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when using the sc_windows resource' do
     expect_offense(<<~RUBY)
       sc_windows 'chef-client' do

@@ -37,7 +37,7 @@ module RuboCop
 
           def on_send(node)
             ohai_recipe_usage?(node) do
-              add_offense(node, message: MSG, severity: :refactor)
+              add_offense(node, severity: :refactor)
             end
           end
         end

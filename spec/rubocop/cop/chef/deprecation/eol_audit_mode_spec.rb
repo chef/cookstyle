@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::EOLAuditModeUsage, :config do
-  subject(:cop) { described_class.new(config) }
-
   it "registers an offense when using the audit mode control_group resource'" do
     expect_offense(<<~RUBY)
       control_group 'Baseline' do

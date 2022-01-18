@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::CronDFileOrTemplate, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when using template to create a file in /etc/cron.d/' do
     expect_offense(<<~RUBY)
       template '/etc/cron.d/backup' do

@@ -54,7 +54,7 @@ module RuboCop
           def on_send(node)
             return unless resource_actions?(processed_source.ast)
             attribute?(node) do
-              add_offense(node.loc.selector, message: MSG, severity: :refactor) do |corrector|
+              add_offense(node.loc.selector, severity: :refactor) do |corrector|
                 corrector.replace(node.loc.selector, 'property')
               end
             end

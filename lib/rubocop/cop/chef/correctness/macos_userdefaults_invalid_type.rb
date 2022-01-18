@@ -54,7 +54,7 @@ module RuboCop
             match_property_in_resource?(:macos_userdefaults, 'type', node) do |type|
               type_val = method_arg_ast_to_string(type)
               return if VALID_VALUES.include?(type_val)
-              add_offense(type, message: MSG, severity: :refactor) do |corrector|
+              add_offense(type, severity: :refactor) do |corrector|
                 next unless INVALID_VALUE_MAP[type_val]
                 corrector.replace(type, "type '#{INVALID_VALUE_MAP[type_val]}'")
               end

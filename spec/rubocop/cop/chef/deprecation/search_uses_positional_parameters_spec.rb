@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::SearchUsesPositionalParameters, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when search has 3+ args and uses positional params' do
     expect_offense(<<~RUBY)
       search(:node, '*:*', 0)

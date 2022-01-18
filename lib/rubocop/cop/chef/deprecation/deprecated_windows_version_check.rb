@@ -33,7 +33,7 @@ module RuboCop
           RESTRICT_ON_SEND = [:older_than_win_2012_or_8?].freeze
 
           def on_send(node)
-            add_offense(node, message: MSG, severity: :warning)
+            add_offense(node, severity: :warning)
           end
         end
       end

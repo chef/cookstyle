@@ -45,7 +45,7 @@ module RuboCop
 
           def on_send(node)
             notification_with_timing?(node) do |timing|
-              add_offense(timing, message: MSG, severity: :refactor) unless %i(immediate immediately delayed before).include?(timing.value)
+              add_offense(timing, severity: :refactor) unless %i(immediate immediately delayed before).include?(timing.value)
             end
           end
         end

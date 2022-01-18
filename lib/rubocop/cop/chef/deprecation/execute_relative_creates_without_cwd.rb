@@ -56,7 +56,7 @@ module RuboCop
                 return
               end
 
-              add_offense(offense, message: MSG, severity: :warning)
+              add_offense(offense, severity: :warning)
             end
           end
         end

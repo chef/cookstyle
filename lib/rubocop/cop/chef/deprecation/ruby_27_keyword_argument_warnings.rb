@@ -44,7 +44,7 @@ module RuboCop
           def on_send(node)
             positional_shellout?(node) do |h|
               next unless h.braces?
-              add_offense(h, message: MSG, severity: :refactor) do |corrector|
+              add_offense(h, severity: :refactor) do |corrector|
                 corrector.replace(h, h.source[1..-2])
               end
             end

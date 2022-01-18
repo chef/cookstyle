@@ -18,9 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::Correctness::InvalidNotificationResource do
-  subject(:cop) { described_class.new }
-
+describe RuboCop::Cop::Chef::Correctness::InvalidNotificationResource, :config do
   it 'registers an offense with an invalid resource name and timing specified' do
     expect_offense(<<~RUBY)
       execute 'some command' do

@@ -48,7 +48,7 @@ module RuboCop
               return unless offense.arguments.count == 1 # we can only analyze simple string args
               return unless offense.arguments.first.str_type? # anything else is fine
 
-              add_offense(offense, message: MSG, severity: :warning) do |corrector|
+              add_offense(offense, severity: :warning) do |corrector|
                 corrector.replace(offense.arguments.first.source_range, ":#{offense.arguments.first.value}")
               end
             end

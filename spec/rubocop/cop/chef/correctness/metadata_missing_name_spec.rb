@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Correctness::MetadataMissingName, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when the name method is missing' do
     expect_offense(<<~RUBY, '/foo/bar/metadata.rb')
       source_url 'http://github.com/something/something'

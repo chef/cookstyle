@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Correctness::InvalidPlatformHelper, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when platform? passes "rhel"' do
     expect_offense(<<~RUBY)
       platform?('rhel')

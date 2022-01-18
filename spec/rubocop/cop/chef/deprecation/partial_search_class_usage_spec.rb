@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::PartialSearchClassUsage, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when using the Chef::PartialSearch class directly' do
     expect_offense(<<~RUBY)
       ::Chef::PartialSearch.new.search(search_key, query, :keys => partial_search_keys, :sort => sort_key) do |config|

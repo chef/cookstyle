@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::RedundantCode::RecipeMetadata, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when metadata uses "recipe"' do
     expect_offense(<<~RUBY)
       name 'foo'

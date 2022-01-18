@@ -17,9 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::Deprecations::NodeSetWithoutLevel do
-  subject(:cop) { described_class.new }
-
+describe RuboCop::Cop::Chef::Deprecations::NodeSetWithoutLevel, :config do
   it 'registers an offense when setting a node attribute without precedence' do
     expect_offense(<<~RUBY)
       node['foo'] = 'bar'

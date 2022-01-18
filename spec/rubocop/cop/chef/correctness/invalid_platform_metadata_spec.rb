@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Correctness::InvalidPlatformMetadata, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when a cookbook contains an invalid supports platform' do
     expect_offense(<<~RUBY)
       supports 'darwin'

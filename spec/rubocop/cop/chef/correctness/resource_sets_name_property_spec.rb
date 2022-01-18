@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Correctness::ResourceSetsNameProperty, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when a resource sets the name property' do
     expect_offense(<<~RUBY)
       service 'foo' do

@@ -18,9 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::Correctness::PropertyWithoutType do
-  subject(:cop) { described_class.new }
-
+describe RuboCop::Cop::Chef::Correctness::PropertyWithoutType, :config do
   it 'registers an offense when an property has no type' do
     expect_offense(<<~RUBY)
       property :size, regex: /^\d+[KMGTP]$/

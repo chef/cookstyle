@@ -43,7 +43,7 @@ module RuboCop
 
           def on_block(node)
             match_property_in_resource?(:dnf_package, :allow_downgrades, node) do |prop|
-              add_offense(prop, message: MSG, severity: :refactor) do |corrector|
+              add_offense(prop, severity: :refactor) do |corrector|
                 corrector.remove(range_with_surrounding_space(range: prop.loc.expression, side: :left))
               end
             end

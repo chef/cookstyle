@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::SevenZipArchiveResource, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when using the seven_zip_archive resource" recipe' do
     expect_offense(<<~RUBY)
       seven_zip_archive 'extract files' do

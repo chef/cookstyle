@@ -18,9 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::Correctness::ConditionalRubyShellout do
-  subject(:cop) { described_class.new }
-
+describe RuboCop::Cop::Chef::Correctness::ConditionalRubyShellout, :config do
   it 'registers an offense with a not_if that shells out using system' do
     expect_offense(<<~RUBY)
       cookbook_file '/logs/foo/error.log' do

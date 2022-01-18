@@ -60,7 +60,7 @@ module RuboCop
             # Using range similar to RuboCop::Cop::Naming::Filename (file_name.rb)
             return if unified_mode?(processed_source.ast)
             range = source_range(processed_source.buffer, 1, 0)
-            add_offense(range, message: MSG, severity: :refactor) do |corrector|
+            add_offense(range, severity: :refactor) do |corrector|
               insert_below_provides(corrector) || insert_below_resource_name(corrector)
             end
           end

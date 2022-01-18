@@ -41,7 +41,7 @@ module RuboCop
 
           def on_block(node)
             match_property_in_resource?(:service, 'running', node) do |prop|
-              add_offense(prop, message: MSG, severity: :refactor)
+              add_offense(prop, severity: :refactor)
             end
           end
         end

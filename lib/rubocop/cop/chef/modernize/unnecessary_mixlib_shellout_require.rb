@@ -39,7 +39,7 @@ module RuboCop
 
           def on_send(node)
             require_mixlibshellout?(node) do
-              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+              add_offense(node, severity: :refactor) do |corrector|
                 corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
               end
             end

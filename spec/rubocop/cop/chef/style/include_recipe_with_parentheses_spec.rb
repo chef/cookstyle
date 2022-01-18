@@ -18,9 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::Style::IncludeRecipeWithParentheses do
-  subject(:cop) { described_class.new }
-
+describe RuboCop::Cop::Chef::Style::IncludeRecipeWithParentheses, :config do
   it "registers an offense with include_recipe('foo')" do
     expect_offense(<<~RUBY)
       include_recipe('foo')

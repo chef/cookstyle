@@ -18,9 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::Correctness::OctalModeAsString do
-  subject(:cop) { described_class.new }
-
+describe RuboCop::Cop::Chef::Correctness::OctalModeAsString, :config do
   it 'registers an offense with an octal string mode' do
     expect_offense(<<~RUBY)
       file '/logs/foo/error.log' do

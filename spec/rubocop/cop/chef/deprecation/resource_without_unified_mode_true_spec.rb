@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::ResourceWithoutUnifiedTrue, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when a custom resource does not define a unified_mode true' do
     expect_offense(<<~RUBY)
       resource_name :foo

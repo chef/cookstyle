@@ -38,7 +38,7 @@ module RuboCop
           MSG = "Don't use updated = true/false to update resource state. This will cause failures in Chef Infra Client 13 and later."
 
           def on_lvasgn(node)
-            add_offense(node, message: MSG, severity: :warning) if node.node_parts.first == :updated
+            add_offense(node, severity: :warning) if node.node_parts.first == :updated
           end
 
           # potential autocorrect is new_resource.updated_by_last_action true, but we need to actually see what class we were called from

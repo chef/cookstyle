@@ -62,7 +62,7 @@ module RuboCop
 
           def on_send(node)
             resource_mode?(node) do |mode_int|
-              add_offense(mode_int, message: MSG, severity: :refactor) do |corrector|
+              add_offense(mode_int, severity: :refactor) do |corrector|
                 # If it was an octal literal, make sure we write out the right number.
                 replacement_base = octal?(mode_int) ? 8 : 10
                 replacement_mode = mode_int.children.first.to_s(replacement_base)

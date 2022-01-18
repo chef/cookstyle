@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Correctness::InvalidPlatformValueForPlatformHelper, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when value_for_platform passes "sles"' do
     expect_offense(<<~RUBY)
       value_for_platform(

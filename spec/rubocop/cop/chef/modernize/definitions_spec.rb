@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::Definitions, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when defining a definition' do
     expect_offense(<<~RUBY)
       define :foo, :variables => {}, :config_subdir => true do

@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::InSpec::Deprecations::AttributeDefault, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when an input method uses default' do
     expect_offense(<<~RUBY)
       login_defs_umask = input('login_defs_umask', default: '077', description: 'Default umask to set in login.defs')

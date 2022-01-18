@@ -38,7 +38,7 @@ module RuboCop
           def on_send(node)
             default_action?(node) do |match|
               return if %i(send sym array).include?(match.type)
-              add_offense(node, message: MSG, severity: :refactor)
+              add_offense(node, severity: :refactor)
             end
           end
         end

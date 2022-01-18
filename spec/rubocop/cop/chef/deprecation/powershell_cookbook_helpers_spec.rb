@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::PowershellCookbookHelpers, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense with Powershell::VersionHelper.powershell_version?' do
     expect_offense(<<~RUBY)
       Powershell::VersionHelper.powershell_version?('4.0')

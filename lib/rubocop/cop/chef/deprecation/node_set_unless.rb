@@ -42,7 +42,7 @@ module RuboCop
 
           def on_send(node)
             node_set_unless?(node) do
-              add_offense(node.loc.selector, message: MSG, severity: :warning) do |corrector|
+              add_offense(node.loc.selector, severity: :warning) do |corrector|
                 corrector.replace(node.loc.selector, 'normal_unless')
               end
             end

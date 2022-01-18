@@ -71,7 +71,7 @@ module RuboCop
 
           def on_send(node)
             name_property_and_required?(node) do
-              add_offense(node, message: MSG, severity: :refactor)
+              add_offense(node, severity: :refactor)
             end
           end
         end

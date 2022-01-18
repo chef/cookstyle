@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::IncludingMixinShelloutInResources, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an error when requiring "chef/mixin/shell_out" in a resource' do
     expect_offense(<<~RUBY, '/foo/bar/cookbook/resources/foo.rb')
       require 'chef/mixin/shell_out'

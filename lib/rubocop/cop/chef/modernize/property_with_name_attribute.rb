@@ -44,7 +44,7 @@ module RuboCop
 
           def on_send(node)
             property_with_name_attribute?(node) do |name_attribute|
-              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+              add_offense(node, severity: :refactor) do |corrector|
                 corrector.replace(name_attribute, 'name_property: true')
               end
             end

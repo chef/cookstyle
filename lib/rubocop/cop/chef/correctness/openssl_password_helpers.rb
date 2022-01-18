@@ -36,7 +36,7 @@ module RuboCop
 
           def on_const(node)
             openssl_helper?(node) do
-              add_offense(node, message: MSG, severity: :warning)
+              add_offense(node, severity: :warning)
             end
           end
         end

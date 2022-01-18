@@ -38,7 +38,7 @@ module RuboCop
             # Using range similar to RuboCop::Cop::Naming::Filename (file_name.rb)
             return if cb_name?(processed_source.ast)
             range = source_range(processed_source.buffer, 1, 0)
-            add_offense(range, message: MSG, severity: :refactor) do |corrector|
+            add_offense(range, severity: :refactor) do |corrector|
               path = processed_source.path
               cb_name = File.basename(File.dirname(path))
               corrector.insert_before(processed_source.ast, "name '#{cb_name}'\n")

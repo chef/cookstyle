@@ -65,7 +65,7 @@ module RuboCop
           # if the parent is .to_i then we want to alert on that
           def add_offense_to_i_if_present(node)
             node = node.parent if parent_method_equals?(node, :to_i)
-            add_offense(node, message: MSG, severity: :refactor) do |corrector|
+            add_offense(node, severity: :refactor) do |corrector|
               corrector.replace(node, "node['platform_version'].to_i")
             end
           end

@@ -18,9 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::Modernize::FoodcriticComments do
-  subject(:cop) { described_class.new }
-
+describe RuboCop::Cop::Chef::Modernize::FoodcriticComments, :config do
   it 'registers an offense with a foodcritic inline comment' do
     expect_offense(<<~RUBY)
       blah # ~FC013

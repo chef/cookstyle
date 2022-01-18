@@ -34,7 +34,7 @@ module RuboCop
           RESTRICT_ON_SEND = [:dsl_name].freeze
 
           def on_send(node)
-            add_offense(node, message: MSG, severity: :warning)
+            add_offense(node, severity: :warning)
           end
 
           # potential autocorrect is new_resource.updated_by_last_action true, but we need to actually see what class we were called from

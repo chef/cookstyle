@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Correctness::MetadataMalformedDepends, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an when passing a name and a constraint without a comma' do
     expect_offense(<<~RUBY)
       depends 'some_awesome_cookbook' '= 4.5.5'

@@ -44,7 +44,7 @@ module RuboCop
 
           def on_block(node)
             match_property_in_resource?(:launchd, 'hash', node) do |offense|
-              add_offense(offense.loc.expression, message: MSG, severity: :warning) do |corrector|
+              add_offense(offense.loc.expression, severity: :warning) do |corrector|
                 corrector.replace(offense.loc.expression, offense.loc.expression.source.gsub(/^hash/, 'plist_hash'))
               end
             end

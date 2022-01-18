@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::PolicyfileCommunitySource, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when default_source is :community' do
     expect_offense(<<~RUBY)
       default_source :community

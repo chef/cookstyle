@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::RubyBlockCreateAction, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when ruby_block uses the :create action' do
     expect_offense(<<~RUBY)
       ruby_block 'my special ruby block' do

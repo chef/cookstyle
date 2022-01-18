@@ -40,7 +40,7 @@ module RuboCop
 
           def on_send(node)
             default_metadata?(node) do
-              add_offense(node, message: MSG, severity: :refactor)
+              add_offense(node, severity: :refactor)
             end
           end
         end

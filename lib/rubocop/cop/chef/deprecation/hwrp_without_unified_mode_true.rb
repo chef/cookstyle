@@ -76,7 +76,7 @@ module RuboCop
           def on_class(node)
             return if unified_mode?(processed_source.ast)
             HWRP?(node) do |inherit|
-              add_offense(inherit, message: MSG, severity: :warning)
+              add_offense(inherit, severity: :warning)
             end
           end
         end

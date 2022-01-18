@@ -39,7 +39,7 @@ module RuboCop
 
           def on_send(node)
             return unless node.arguments.first&.str_type? && node.arguments.first.value.match?(/^0o/)
-            add_offense(node, message: MSG, severity: :refactor)
+            add_offense(node, severity: :refactor)
           end
         end
       end

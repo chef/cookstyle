@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::RedundantCode::PropertyWithRequiredAndDefault, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when a property has a default value and is required' do
     expect_offense(<<~RUBY)
       property :bob, String, required: true, default: 'foo'

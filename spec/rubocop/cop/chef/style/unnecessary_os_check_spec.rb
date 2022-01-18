@@ -18,9 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::Style::UnnecessaryOSCheck do
-  subject(:cop) { described_class.new }
-
+describe RuboCop::Cop::Chef::Style::UnnecessaryOSCheck, :config do
   it "registers an offense with node['os'] == 'darwin'" do
     expect_offense(<<~RUBY)
       node['os'] == 'darwin'

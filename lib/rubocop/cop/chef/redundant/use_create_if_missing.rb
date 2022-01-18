@@ -94,7 +94,7 @@ module RuboCop
                 # no longer makes sense that's not our problem here.
                 create_action(node) do |create_action|
                   return unless create_action == s(:sym, :create)
-                  add_offense(prop, message: MSG, severity: :refactor) do |corrector|
+                  add_offense(prop, severity: :refactor) do |corrector|
                     corrector.replace(create_action, ':create_if_missing')
                     corrector.remove(range_by_whole_lines(prop.source_range, include_final_newline: true))
                   end
@@ -103,7 +103,7 @@ module RuboCop
 
                 # if we got this far we didn't return above when we had an action
                 # so we can just replace the not_if line with a new :create_if_missing action
-                add_offense(prop, message: MSG, severity: :refactor) do |corrector|
+                add_offense(prop, severity: :refactor) do |corrector|
                   corrector.replace(prop, 'action :create_if_missing')
                 end
               end

@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::ExecuteTzUtil, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when using the execute resource with a command running tzutil' do
     expect_offense(<<~RUBY)
       execute 'set tz' do

@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::ExecuteAptUpdate, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when using execute to run apt-get update' do
     expect_offense(<<~RUBY)
       execute 'apt-get update' do

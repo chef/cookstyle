@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::RedundantCode::UnnecessaryDesiredState, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when metadata uses "attribute"' do
     expect_offense(<<~RUBY)
       property :foo, String, desired_state: true

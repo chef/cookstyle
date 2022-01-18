@@ -50,7 +50,7 @@ module RuboCop
 
           def on_send(node)
             windows_helper?(node) do |method|
-              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+              add_offense(node, severity: :refactor) do |corrector|
                 case method
                 when :nt_version
                   corrector.replace(node, 'node[\'platform_version\'].to_f')

@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::RedundantCode::NamePropertyIsRequired, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when a resource property is both a name_property and a required property' do
     expect_offense(<<~RUBY)
       property :foo, String, name_property: true, required: true

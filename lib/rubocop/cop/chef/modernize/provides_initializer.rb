@@ -45,7 +45,7 @@ module RuboCop
           def on_ivasgn(node)
             provides_assignment?(node) do
               return unless initialize_method(node.parent.parent).any?
-              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+              add_offense(node, severity: :refactor) do |corrector|
                 # insert the new provides call above the initialize method, but not if one already exists (this is sadly common)
                 unless provides_method?(processed_source.ast)
                   initialize_node = initialize_method(processed_source.ast).first

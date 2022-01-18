@@ -51,7 +51,7 @@ module RuboCop
 
           def on_send(node)
             string_property_with_nil_default?(node) do |nil_default|
-              add_offense(nil_default, message: MSG, severity: :refactor) do |corrector|
+              add_offense(nil_default, severity: :refactor) do |corrector|
                 range = range_with_surrounding_comma(range_with_surrounding_space(range: nil_default.loc.expression, side: :left), :left)
                 corrector.remove(range)
               end

@@ -45,7 +45,7 @@ module RuboCop
             # We want to catch calls like ChefCLI::CLI.whatever or places where classes are defined in the ChefDK module
             return unless node.const_name == 'ChefDK' && (node.parent&.module_type? || node.parent&.const_type?)
 
-            add_offense(node, message: MSG, severity: :warning) do |corrector|
+            add_offense(node, severity: :warning) do |corrector|
               corrector.replace(node, node.source.gsub('ChefDK', 'ChefCLI'))
             end
           end

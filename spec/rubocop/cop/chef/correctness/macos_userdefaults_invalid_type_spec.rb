@@ -18,9 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::Correctness::MacosUserdefaultsInvalidType do
-  subject(:cop) { described_class.new }
-
+describe RuboCop::Cop::Chef::Correctness::MacosUserdefaultsInvalidType, :config do
   it 'registers an offense when an invalid type is set in macos_userdefaults' do
     expect_offense(<<~RUBY)
       macos_userdefaults 'set a value' do

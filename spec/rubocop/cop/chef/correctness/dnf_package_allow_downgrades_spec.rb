@@ -18,9 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::Correctness::DnfPackageAllowDowngrades do
-  subject(:cop) { described_class.new }
-
+describe RuboCop::Cop::Chef::Correctness::DnfPackageAllowDowngrades, :config do
   it 'registers an offense when a dnf_package resource uses the allow_downgrades property' do
     expect_offense(<<~RUBY)
       dnf_package 'nginx' do

@@ -52,7 +52,7 @@ module RuboCop
           def on_send(node)
             supports?(node) do |plat|
               next unless INVALID_PLATFORMS[plat.str_content]
-              add_offense(plat, message: MSG, severity: :refactor) do |corrector|
+              add_offense(plat, severity: :refactor) do |corrector|
                 correct_string = corrected_platform_source(plat)
                 next unless correct_string
                 corrector.replace(plat, correct_string)
@@ -64,7 +64,7 @@ module RuboCop
             supports_array?(node) do |plats|
               plats.values.each do |plat|
                 next unless INVALID_PLATFORMS[plat.str_content]
-                add_offense(plat, message: MSG, severity: :refactor) do |corrector|
+                add_offense(plat, severity: :refactor) do |corrector|
                   correct_string = corrected_platform_source(plat)
                   next unless correct_string
                   corrector.replace(plat, correct_string)

@@ -58,7 +58,7 @@ module RuboCop
             if node_attribute_access?(node) || node_level_attribute_access?(node)
               # node is first child for #[], need to look for the outermost parent too.
               outer_node = node
-              while outer_node.parent && outer_node.parent.type == :send && outer_node.parent.children[1] == :[]
+              while outer_node.parent && outer_node.parent.send_type? && outer_node.parent.children[1] == :[]
                 on_node_attribute_access(outer_node.children[2])
                 outer_node = outer_node.parent
               end
@@ -68,12 +68,12 @@ module RuboCop
           end
 
           def on_node_attribute_access(node)
-            if node.type == :str
+            if node.str_type?
               style_detected(:strings)
-              add_offense(node, location: :expression, message: MSG % style, severity: :refactor) if style == :symbols
-            elsif node.type == :sym
+              add_offense(node, message: MSG % style, severity: :refactor) if style == :symbols
+            elsif node.sym_type?
               style_detected(:symbols)
-              add_offense(node, location: :expression, message: MSG % style, severity: :refactor) if style == :strings
+              add_offense(node, message: MSG % style, severity: :refactor) if style == :strings
             end
           end
 

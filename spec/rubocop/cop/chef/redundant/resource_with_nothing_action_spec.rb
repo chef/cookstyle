@@ -18,9 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::RedundantCode::ResourceWithNothingAction do
-  subject(:cop) { described_class.new }
-
+describe RuboCop::Cop::Chef::RedundantCode::ResourceWithNothingAction, :config do
   it 'registers an offense with a nothing action in a resource' do
     expect_offense(<<~RUBY)
       action :nothing do

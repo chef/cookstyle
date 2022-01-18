@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::IncludingWindowsDefaultRecipe, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when including the "windows" recipe' do
     expect_offense(<<~RUBY)
       include_recipe 'windows'

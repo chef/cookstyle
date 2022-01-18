@@ -48,7 +48,7 @@ module RuboCop
 
           def on_block(node)
             match_property_in_resource?(:macos_userdefaults, 'global', node) do |global|
-              add_offense(global.loc.expression, message: MSG, severity: :warning) do |corrector|
+              add_offense(global.loc.expression, severity: :warning) do |corrector|
                 corrector.remove(range_with_surrounding_space(range: global.loc.expression, side: :left))
               end
             end

@@ -37,7 +37,7 @@ module RuboCop
 
           def on_send(node)
             depends?(node) do
-              add_offense(node.loc.expression, message: MSG, severity: :refactor)
+              add_offense(node.loc.expression, severity: :refactor)
             end
           end
         end

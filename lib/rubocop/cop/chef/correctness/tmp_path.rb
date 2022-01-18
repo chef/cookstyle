@@ -39,7 +39,7 @@ module RuboCop
           def on_send(node)
             remote_file?(node) do |command|
               return unless hardcoded_tmp?(command) && !file_cache_path?(command)
-              add_offense(command, message: MSG, severity: :refactor)
+              add_offense(command, severity: :refactor)
             end
           end
 

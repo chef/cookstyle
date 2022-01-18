@@ -41,7 +41,7 @@ module RuboCop
 
           def on_send(node)
             non_lazy_node_attribute_default?(node) do |default|
-              add_offense(default, message: MSG, severity: :refactor) do |corrector|
+              add_offense(default, severity: :refactor) do |corrector|
                 corrector.replace(default, "lazy { #{default.source} }")
               end
             end

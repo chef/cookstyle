@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::ChefHandlerRecipe, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when using include_recipe "chef_handler::default"' do
     expect_offense(<<~RUBY)
       include_recipe "chef_handler::default"

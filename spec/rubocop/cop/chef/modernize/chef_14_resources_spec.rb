@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::UnnecessaryDependsChef14, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when a cookbook depends on "build-essential"' do
     expect_offense(<<~RUBY)
       depends 'build-essential'

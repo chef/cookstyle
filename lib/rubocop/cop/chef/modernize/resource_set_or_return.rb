@@ -40,7 +40,7 @@ module RuboCop
           RESTRICT_ON_SEND = [:set_or_return].freeze
 
           def on_send(node)
-            add_offense(node, message: MSG, severity: :refactor)
+            add_offense(node, severity: :refactor)
           end
         end
       end

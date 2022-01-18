@@ -49,7 +49,7 @@ module RuboCop
           RESTRICT_ON_SEND = [:openssl_x509].freeze
 
           def on_send(node)
-            add_offense(node, message: MSG, severity: :refactor) do |corrector|
+            add_offense(node, severity: :refactor) do |corrector|
               corrector.replace(node, node.source.gsub(/^openssl_x509/, 'openssl_x509_certificate'))
             end
           end

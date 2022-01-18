@@ -39,13 +39,13 @@ module RuboCop
           MSG = 'The name of a resource can be set with the "resource_name" helper instead of using the initialize method.'
 
           def on_def(node)
-            return unless node.method_name == :initialize
+            return unless node.method?(:initialize)
             return if node.body.nil? # nil body is an empty initialize method
 
             node.body.each_node do |x|
               next unless x.assignment? && !x.node_parts.empty? && x.node_parts.first == :@resource_name
 
-              add_offense(x, message: MSG, severity: :refactor) do |corrector|
+              add_offense(x, severity: :refactor) do |corrector|
                 # insert the new resource_name call above the initialize method
                 initialize_node = initialize_method(processed_source.ast).first
                 corrector.insert_before(initialize_node.source_range, "resource_name #{x.descendants.first.source}\n\n")

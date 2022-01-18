@@ -114,7 +114,7 @@ module RuboCop
           def on_send(node)
             chefspec_definition?(node) do |plat, ver|
               next unless legacy_chefspec_platform(plat.value, ver.value)
-              add_offense(node, message: MSG, severity: :warning) do |corrector|
+              add_offense(node, severity: :warning) do |corrector|
                 if replacement = replacement_string(plat.value, ver.value) # rubocop: disable Lint/AssignmentInCondition
                   corrector.replace(ver, "'#{replacement}'")
                 end

@@ -48,7 +48,7 @@ module RuboCop
 
           def on_send(node)
             mixlib_shellout_run_cmd?(node) do |cmd|
-              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+              add_offense(node, severity: :refactor) do |corrector|
                 corrector.replace(node, "shell_out(#{cmd.source})")
               end
             end

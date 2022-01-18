@@ -45,7 +45,7 @@ module RuboCop
 
           def on_send(node)
             node_role_include?(node) do |val|
-              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+              add_offense(node, severity: :refactor) do |corrector|
                 corrector.replace(node, "node.role?(#{val.source})")
               end
             end

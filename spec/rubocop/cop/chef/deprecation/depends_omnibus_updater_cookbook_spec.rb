@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::DependsOnOmnibusUpdaterCookbook, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when a cookbook depends on "omnibus_updater"' do
     expect_offense(<<~RUBY)
       depends 'omnibus_updater'

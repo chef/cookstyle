@@ -40,7 +40,7 @@ module RuboCop
           def on_send(node)
             powershell_out_exists?(node) do |exists_string|
               return unless exists_string.match?(/^Test-Path/)
-              add_offense(node, message: MSG, severity: :refactor)
+              add_offense(node, severity: :refactor)
             end
           end
         end

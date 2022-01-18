@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::UseBuildEssentialResource, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when including the "build-essential" recipe' do
     expect_offense(<<~RUBY)
       include_recipe 'build-essential'

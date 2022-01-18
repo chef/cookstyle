@@ -43,13 +43,13 @@ module RuboCop
 
           def on_send(node)
             depends_zipfile?(node) do
-              add_offense(node, message: MSG, severity: :refactor)
+              add_offense(node, severity: :refactor)
             end
           end
 
           def on_block(node)
             match_resource_type?(:zipfile, node) do
-              add_offense(node, message: MSG, severity: :refactor)
+              add_offense(node, severity: :refactor)
             end
           end
         end

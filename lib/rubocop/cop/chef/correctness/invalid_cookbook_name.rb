@@ -37,7 +37,7 @@ module RuboCop
 
           def on_send(node)
             has_name?(node) do |val|
-              add_offense(node, message: MSG, severity: :refactor) if val.value.include?('.')
+              add_offense(node, severity: :refactor) if val.value.include?('.')
             end
           end
         end

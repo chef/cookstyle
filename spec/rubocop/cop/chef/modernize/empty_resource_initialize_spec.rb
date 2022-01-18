@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::EmptyResourceInitializeMethod, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense with an empty initialize method' do
     expect_offense(<<~RUBY)
       def initialize(*args)

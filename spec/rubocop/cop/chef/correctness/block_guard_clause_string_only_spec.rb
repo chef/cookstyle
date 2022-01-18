@@ -18,9 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::Correctness::BlockGuardWithOnlyString do
-  subject(:cop) { described_class.new }
-
+describe RuboCop::Cop::Chef::Correctness::BlockGuardWithOnlyString, :config do
   it 'registers an offense with a block guard that contains only a string' do
     expect_offense(<<~RUBY)
       template '/etc/foo' do

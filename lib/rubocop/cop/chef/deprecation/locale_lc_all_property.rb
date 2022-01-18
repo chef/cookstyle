@@ -36,7 +36,7 @@ module RuboCop
 
           def on_block(node)
             match_property_in_resource?(:locale, 'lc_all', node) do |property|
-              add_offense(property, message: MSG, severity: :warning)
+              add_offense(property, severity: :warning)
             end
           end
         end

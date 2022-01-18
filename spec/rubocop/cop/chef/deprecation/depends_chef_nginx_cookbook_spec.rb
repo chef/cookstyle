@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::DependsOnChefNginxCookbook, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when a cookbook depends on "chef_nginx"' do
     expect_offense(<<~RUBY)
       depends 'chef_nginx'

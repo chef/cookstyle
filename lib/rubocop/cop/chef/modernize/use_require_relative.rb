@@ -46,7 +46,7 @@ module RuboCop
           def on_send(node)
             require_with_expand_path?(node) do |file, path|
               return unless path.source == '__FILE__'
-              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+              add_offense(node, severity: :refactor) do |corrector|
                 corrected_value = file.value
                 corrected_value.slice!(%r{^../}) # take the first ../ off the path
                 corrector.replace(node, "require_relative '#{corrected_value}'")

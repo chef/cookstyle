@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::LibrarianChefSpec, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when a cookbook requires chefspec/librarian' do
     expect_offense(<<~RUBY)
       require 'chefspec/librarian'

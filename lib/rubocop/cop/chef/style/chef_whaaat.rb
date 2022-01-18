@@ -39,7 +39,7 @@ module RuboCop
 
             processed_source.comments.each do |comment|
               next unless comment.text.match?(/Chef [a-z]/) # https://rubular.com/r/0YzfDAbwJrDHix
-              add_offense(comment, message: MSG, severity: :refactor)
+              add_offense(comment, severity: :refactor)
             end
           end
         end

@@ -53,7 +53,7 @@ module RuboCop
               next if comment.loc.first_line > 10 # avoid false positives when we were checking further down the file
               next unless comment.inline? && CHEF_LIKE_COMMENT_REGEX.match?(comment.text) # headers aren't in blocks
 
-              add_offense(comment, message: MSG, severity: :refactor) do |corrector|
+              add_offense(comment, severity: :refactor) do |corrector|
                 # Extract the type and the actual value. Strip out "Name" or "File"
                 # 'Cookbook Name' should be 'Cookbook'. Also skip a :: if present
                 # https://rubular.com/r/Do9fpLWXlCmvdJ

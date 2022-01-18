@@ -49,7 +49,7 @@ module RuboCop
             # if the resource requires poise then bail out since we're in a poise resource where @allowed_actions is legit
             return if poise_require(processed_source.ast).any? || !resource_actions?(processed_source.ast)
 
-            add_offense(node, message: MSG, severity: :refactor) do |corrector|
+            add_offense(node, severity: :refactor) do |corrector|
               corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
             end
           end

@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::ResourceUsesDslNameMethod, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when a resource uses the dsl_name method' do
     expect_offense(<<~RUBY)
       my_resource = MyResource.dsl_name

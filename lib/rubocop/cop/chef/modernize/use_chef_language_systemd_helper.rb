@@ -48,7 +48,7 @@ module RuboCop
 
           def on_send(node)
             node_init_package?(node) do |_cloud_name|
-              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+              add_offense(node, severity: :refactor) do |corrector|
                 corrector.replace(node, 'systemd?')
               end
             end

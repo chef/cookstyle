@@ -40,7 +40,7 @@ module RuboCop
           RESTRICT_ON_SEND = [:use_automatic_resource_name].freeze
 
           def on_send(node)
-            add_offense(node.loc.selector, message: MSG, severity: :warning) do |corrector|
+            add_offense(node.loc.selector, severity: :warning) do |corrector|
               corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
             end
           end

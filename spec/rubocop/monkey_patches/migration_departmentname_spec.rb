@@ -20,8 +20,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Migration::DepartmentName, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'monkeypatches the Migration/DepartmentName message to reference cookstyle not rubocop' do
     expect do
       expect_offense(<<~RUBY, 'file.rb')

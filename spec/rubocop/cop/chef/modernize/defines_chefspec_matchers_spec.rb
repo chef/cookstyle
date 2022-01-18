@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::DefinesChefSpecMatchers, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when defining a ChefSpec matcher' do
     expect_offense(<<~RUBY)
       if defined?(ChefSpec)

@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::NodeRolesInclude, :config do
-  subject(:cop) { described_class.new(config) }
-
   it "registers an offense when using node['roles'].include? with a string" do
     expect_offense(<<~RUBY)
       node['roles'].include?('foo')

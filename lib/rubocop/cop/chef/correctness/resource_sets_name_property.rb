@@ -40,7 +40,7 @@ module RuboCop
 
           def on_block(node)
             match_property_in_resource?(nil, 'name', node) do |name_node|
-              add_offense(name_node, message: MSG, severity: :refactor)
+              add_offense(name_node, severity: :refactor)
             end
           end
         end

@@ -37,7 +37,7 @@ module RuboCop
           RESTRICT_ON_SEND = [:seven_zip_archive].freeze
 
           def on_send(node)
-            add_offense(node, message: MSG, severity: :refactor)
+            add_offense(node, severity: :refactor)
           end
         end
       end

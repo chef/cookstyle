@@ -40,7 +40,7 @@ module RuboCop
           RESTRICT_ON_SEND = [:epic_fail].freeze
 
           def on_send(node)
-            add_offense(node, message: MSG, severity: :warning) do |corrector|
+            add_offense(node, severity: :warning) do |corrector|
               corrector.replace(node, 'ignore_failure true')
             end
           end

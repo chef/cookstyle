@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::ExecuteScExe, :config do
-  subject(:cop) { described_class.new(config) }
-
   it "registers an offense when running execute 'sleep 60'" do
     expect_offense(<<~RUBY)
       execute "Delete chef-client service" do

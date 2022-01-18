@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Correctness::ResourceSetsInternalProperties, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when setting the running property in the service resource' do
     expect_offense(<<~RUBY)
       service 'foo' do

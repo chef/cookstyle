@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::WindowsRegistryUAC, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when a sets UAC config via registry_key' do
     expect_offense(<<~RUBY)
       registry_key 'HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System' do

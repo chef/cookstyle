@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::UseYamlDump, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when using .to_yaml' do
     expect_offense(<<~RUBY)
       Foo.bar.to_yaml

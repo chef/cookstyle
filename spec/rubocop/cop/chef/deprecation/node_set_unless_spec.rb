@@ -17,9 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::Deprecations::NodeSetUnless do
-  subject(:cop) { described_class.new }
-
+describe RuboCop::Cop::Chef::Deprecations::NodeSetUnless, :config do
   it 'registers an offense on using node.set_unless' do
     expect_offense(<<~RUBY)
       node.set_unless[:foo]

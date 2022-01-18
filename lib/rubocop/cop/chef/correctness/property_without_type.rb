@@ -49,7 +49,7 @@ module RuboCop
             property_without_type?(node) do |hash_vals|
               return if hash_vals&.first&.keys&.include?(s(:sym, :kind_of))
 
-              add_offense(node, message: MSG, severity: :refactor)
+              add_offense(node, severity: :refactor)
             end
           end
         end

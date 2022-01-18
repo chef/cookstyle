@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::DeprecatedPlatformMethods, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when calling Chef::Platform.find_provider_for_node' do
     expect_offense(<<~RUBY)
       resource = Chef::Resource::File.new("/tmp/foo.xyz", run_context)

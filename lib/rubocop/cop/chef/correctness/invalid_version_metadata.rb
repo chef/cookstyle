@@ -38,7 +38,7 @@ module RuboCop
           def on_send(node)
             version?(node) do |ver|
               next if /\A\d+\.\d+(\.\d+)?\z/.match?(ver.value) # entirely borrowed from Foodcritic.
-              add_offense(ver, message: MSG, severity: :refactor)
+              add_offense(ver, severity: :refactor)
             end
           end
         end

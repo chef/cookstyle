@@ -37,7 +37,7 @@ module RuboCop
           def on_send(node)
             field?(node) do |str|
               return unless str.value.empty?
-              add_offense(str, message: MSG, severity: :refactor)
+              add_offense(str, severity: :refactor)
             end
           end
         end

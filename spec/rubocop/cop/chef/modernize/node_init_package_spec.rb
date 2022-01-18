@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::NodeInitPackage, :config do
-  subject(:cop) { described_class.new(config) }
-
   it "registers an offense with ::File.open('/proc/1/comm').gets.chomp" do
     expect_offense(<<~RUBY)
       ::File.open('/proc/1/comm').gets.chomp == 'systemd'

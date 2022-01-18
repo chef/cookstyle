@@ -40,7 +40,7 @@ module RuboCop
 
           def on_block(node)
             unscoped_file_exist?(node) do |m|
-              add_offense(m, message: MSG, severity: :refactor) do |corrector|
+              add_offense(m, severity: :refactor) do |corrector|
                 corrector.replace(m, '::File')
               end
             end

@@ -44,7 +44,7 @@ module RuboCop
 
           def on_if(node)
             if_respond_to?(node) do
-              add_offense(node, message: MSG, severity: :refactor) do |corrector|
+              add_offense(node, severity: :refactor) do |corrector|
                 # When the if statement is if modifier like `foo if respond_to?(:foo)` then
                 # node.if_branch is the actual method call we want to extract.
                 # If a series of metadata methods are wrapped in an if statement then the content we want
@@ -62,7 +62,7 @@ module RuboCop
             # If a series of metadata methods are wrapped in an if statement then the content we want
             # is a block under the if statement and node.parent.if_branch can get us that block
             node = node.parent if node.parent.conditional? # we want the whole conditional statement
-            add_offense(node, message: MSG, severity: :refactor) do |corrector|
+            add_offense(node, severity: :refactor) do |corrector|
               corrector.replace(node, node.if_branch.source)
             end
           end

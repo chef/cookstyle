@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::DeprecatedYumRepositoryProperties, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when the using legacy yum_repository properties' do
     expect_offense(<<~RUBY)
       yum_repository 'OurCo' do

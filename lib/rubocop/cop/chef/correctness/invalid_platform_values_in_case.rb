@@ -50,7 +50,7 @@ module RuboCop
                   # some invalid platform have no direct correction value and return nil instead
                   next unless new_value
 
-                  add_offense(con, message: MSG, severity: :refactor) do |corrector|
+                  add_offense(con, severity: :refactor) do |corrector|
                     # if the correct value already exists in the when statement then we just want to delete this node
                     if con.parent.conditions.any? { |x| x.str_content == new_value }
                       range = range_with_surrounding_comma(range_with_surrounding_space(range: con.loc.expression, side: :left), :both)

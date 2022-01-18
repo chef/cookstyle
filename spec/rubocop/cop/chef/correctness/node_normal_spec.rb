@@ -17,9 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::Correctness::NodeNormal do
-  subject(:cop) { described_class.new }
-
+describe RuboCop::Cop::Chef::Correctness::NodeNormal, :config do
   it 'registers an offense on using node.normal' do
     expect_offense(<<~RUBY)
       node.normal[:foo]

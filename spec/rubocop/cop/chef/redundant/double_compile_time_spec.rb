@@ -18,9 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::RedundantCode::DoubleCompileTime do
-  subject(:cop) { described_class.new }
-
+describe RuboCop::Cop::Chef::RedundantCode::DoubleCompileTime, :config do
   it 'registers an offense when a resource uses compile_time and run_action' do
     expect_offense(<<~RUBY)
       chef_gem 'deep_merge' do

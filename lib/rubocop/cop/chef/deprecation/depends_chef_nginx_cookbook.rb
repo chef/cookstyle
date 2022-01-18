@@ -42,7 +42,7 @@ module RuboCop
 
           def on_send(node)
             depends_compat_resource?(node) do
-              add_offense(node, message: MSG, severity: :warning) do |corrector|
+              add_offense(node, severity: :warning) do |corrector|
                 corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
               end
             end

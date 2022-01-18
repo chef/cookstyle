@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::DependsOnChocolateyCookbooks, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when depending on the chocolatey_source cookbook' do
     expect_offense(<<~RUBY)
       depends 'chocolatey_source'

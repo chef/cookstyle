@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::ExecuteSysctl, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when loading a sysctl config with an execute resource' do
     expect_offense(<<~RUBY)
       execute 'sysctl -p /etc/sysctl.d/ipv6.conf' do

@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::Ruby27KeywordArgumentWarnings, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when passing a hash with brackets to shell_out' do
     expect_offense(<<~RUBY)
       shell_out('hostnamectl status', {returns: [0, 1]})

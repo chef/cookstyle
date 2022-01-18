@@ -49,7 +49,7 @@ module RuboCop
 
           def on_const(node)
             chefspec_runner?(node) do
-              add_offense(node, message: MSG, severity: :warning) do |corrector|
+              add_offense(node, severity: :warning) do |corrector|
                 corrector.replace(node, 'ChefSpec::ServerRunner')
               end
             end

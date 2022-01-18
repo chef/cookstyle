@@ -44,7 +44,7 @@ module RuboCop
           RESTRICT_ON_SEND = [:sc_windows].freeze
 
           def on_send(node)
-            add_offense(node, message: MSG, severity: :refactor)
+            add_offense(node, severity: :refactor)
           end
         end
       end

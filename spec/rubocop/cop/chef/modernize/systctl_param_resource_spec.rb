@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::SysctlParamResource, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when using the sysctl_param resource' do
     expect_offense(<<~RUBY)
       sysctl_param 'fs.aio-max-nr' do

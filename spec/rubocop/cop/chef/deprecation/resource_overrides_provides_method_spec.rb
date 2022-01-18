@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::ResourceOverridesProvidesMethod, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when a resource overrides provides? w/o using provides' do
     expect_offense(<<~RUBY)
       def provides?

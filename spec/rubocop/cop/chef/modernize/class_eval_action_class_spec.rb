@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::ClassEvalActionClass, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when running class_eval on an action_class block' do
     expect_offense(<<~RUBY)
       action_class.class_eval do

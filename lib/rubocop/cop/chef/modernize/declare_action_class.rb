@@ -43,7 +43,7 @@ module RuboCop
           RESTRICT_ON_SEND = [:declare_action_class].freeze
 
           def on_send(node)
-            add_offense(node, message: MSG, severity: :refactor) do |corrector|
+            add_offense(node, severity: :refactor) do |corrector|
               corrector.replace(node, node.source.gsub('declare_action_class', 'action_class'))
             end
           end

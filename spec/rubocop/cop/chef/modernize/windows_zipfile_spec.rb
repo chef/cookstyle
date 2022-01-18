@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::WindowsZipfileUsage, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when using the windows_zipfile resource' do
     expect_offense(<<~RUBY)
       windows_zipfile 'Precompiled.zip' do

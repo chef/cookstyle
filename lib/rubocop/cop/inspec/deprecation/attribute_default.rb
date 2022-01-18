@@ -41,7 +41,7 @@ module RuboCop
 
           def on_send(node)
             default?(node) do |n|
-              add_offense(n, message: MSG, severity: :warning) do |corrector|
+              add_offense(n, severity: :warning) do |corrector|
                 corrector.replace(n, 'value')
               end
             end
