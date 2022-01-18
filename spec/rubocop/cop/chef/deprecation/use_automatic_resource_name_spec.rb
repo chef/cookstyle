@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::UseAutomaticResourceName, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when using use_automatic_resource_name' do
     expect_offense(<<~RUBY)
       use_automatic_resource_name

@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::LegacyNotifySyntax, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when a resource uses the legacy notification syntax without timing' do
     expect_offense(<<~RUBY)
       foo 'bar' do

@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::RedundantCode::StringPropertyWithNilDefault, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when a String property has a nil default' do
     expect_offense(<<~RUBY)
       property :config_file, String, default: nil

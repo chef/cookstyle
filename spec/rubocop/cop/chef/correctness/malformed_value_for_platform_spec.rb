@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Correctness::MalformedPlatformValueForPlatformHelper, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when passing 2+ different hashes' do
     expect_offense(<<~RUBY)
       value_for_platform(

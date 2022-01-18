@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::LegacyYumCookbookRecipes, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when a cookbook includes "yum::elrepo"' do
     expect_offense(<<~RUBY)
       include_recipe 'yum::elrepo'

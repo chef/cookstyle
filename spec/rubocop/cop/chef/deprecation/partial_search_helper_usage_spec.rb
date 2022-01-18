@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::PartialSearchHelperUsage, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when using the partial_search helper' do
     expect_offense(<<~RUBY)
       partial_search(:node, 'role:web',

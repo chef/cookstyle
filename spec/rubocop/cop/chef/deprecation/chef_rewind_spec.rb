@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::ChefRewind, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense with a non-block chef_gem chef-rewind install' do
     expect_offense(<<~RUBY)
       chef_gem 'chef-rewind'

@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::UseChefLanguageCloudHelpers, :config do
-  subject(:cop) { described_class.new(config) }
-
   it "registers an offense when using node['cloud']['provider'] == 'ec2' in a cookbook" do
     expect_offense(<<~RUBY)
       if node['cloud']['provider'] == 'ec2'

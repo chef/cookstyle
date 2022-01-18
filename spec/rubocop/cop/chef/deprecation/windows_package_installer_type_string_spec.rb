@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::WindowsPackageInstallerTypeString, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when windows_package has a string installer_type property' do
     expect_offense(<<~RUBY)
       windows_package 'AppveyorDeploymentAgent' do

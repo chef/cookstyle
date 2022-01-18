@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::ResourceForcingCompileTime, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when build_essential resources set an action on the block' do
     expect_offense(<<~RUBY)
       build_essential 'install build tools' do

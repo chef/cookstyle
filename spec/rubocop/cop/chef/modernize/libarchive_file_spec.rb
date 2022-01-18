@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::LibarchiveFileResource, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when using the libarchive_file resource' do
     expect_offense(<<~RUBY)
       libarchive_file 'Precompiled.zip' do

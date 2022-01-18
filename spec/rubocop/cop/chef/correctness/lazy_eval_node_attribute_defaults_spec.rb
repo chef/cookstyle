@@ -18,9 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::Correctness::LazyEvalNodeAttributeDefaults do
-  subject(:cop) { described_class.new }
-
+describe RuboCop::Cop::Chef::Correctness::LazyEvalNodeAttributeDefaults, :config do
   it 'registers an offense when a property includes a non-lazy attribute as a default' do
     expect_offense(<<~RUBY)
       property :Something, String, default: node['hostname']

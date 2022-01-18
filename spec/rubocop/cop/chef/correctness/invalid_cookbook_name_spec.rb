@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Correctness::InvalidCookbookName, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when the name has a period' do
     expect_offense(<<~RUBY, '/foo/bar/metadata.rb')
       name 'foo.bar'

@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::ChefGemNokogiri, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense with a non-block chef_gem nokogiri install' do
     expect_offense(<<~RUBY)
       chef_gem 'nokogiri'

@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::PowershellScriptExpandArchive, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when using the powershell_script to expand an archive' do
     expect_offense(<<~RUBY)
       powershell_script 'Expand website' do

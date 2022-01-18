@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::RedundantCode::MultiplePlatformChecks, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when using multiple platform? checks with an ||' do
     expect_offense(<<~RUBY)
       platform?('foo') || platform?('bar')

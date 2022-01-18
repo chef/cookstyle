@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::RedundantCode::GroupingMetadata, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when metadata uses "grouping"' do
     expect_offense(<<~RUBY)
       name 'foo'

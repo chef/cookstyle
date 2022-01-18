@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::ChefHandlerUsesSupports, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when chef_handler uses the supports property' do
     expect_offense(<<~RUBY)
       chef_handler 'Chef::Handler::ZookeeperHandler' do

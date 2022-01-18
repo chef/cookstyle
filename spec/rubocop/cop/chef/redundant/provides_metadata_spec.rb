@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::RedundantCode::ProvidesMetadata, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when metadata uses "provides"' do
     expect_offense(<<~RUBY)
       name 'foo'

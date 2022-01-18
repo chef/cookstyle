@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::HWRPWithoutUnifiedTrue, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when a HWRP does not define a unified_mode true' do
     expect_offense(<<~RUBY)
       class Chef

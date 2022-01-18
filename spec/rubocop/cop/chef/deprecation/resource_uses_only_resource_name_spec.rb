@@ -18,9 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::Deprecations::ResourceUsesOnlyResourceName do
-  subject(:cop) { described_class.new }
-
+describe RuboCop::Cop::Chef::Deprecations::ResourceUsesOnlyResourceName, :config do
   before do
     skip 'Test not currently supported on Windows!' if RuboCop::Platform.windows?
   end

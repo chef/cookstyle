@@ -17,9 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::Style::FileMode do
-  subject(:cop) { described_class.new }
-
+describe RuboCop::Cop::Chef::Style::FileMode, :config do
   it 'registers an offense when setting a mode using a decimal integer' do
     expect_offense(<<~RUBY)
       file '/foo' do

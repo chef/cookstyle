@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::DslIncludeInResource, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an error when including "Chef::DSL::Recipe"' do
     expect_offense(<<~RUBY)
       include Chef::DSL::Recipe

@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::DeprecatedWindowsVersionCheck, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when calling older_than_win_2012_or_8?' do
     expect_offense(<<~RUBY)
       if older_than_win_2012_or_8?

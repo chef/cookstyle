@@ -17,9 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::Style::SimplifyPlatformMajorVersionCheck do
-  subject(:cop) { described_class.new }
-
+describe RuboCop::Cop::Chef::Style::SimplifyPlatformMajorVersionCheck, :config do
   it "registers an offense when checking platform major version using node['platform_version'].split('.').first" do
     expect_offense(<<~RUBY)
       node['platform_version'].split('.').first

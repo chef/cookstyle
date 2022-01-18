@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::ChefShellout, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when using Mixin::Shellout' do
     expect_offense(<<~RUBY)
       foo = Chef::ShellOut.new('foo')

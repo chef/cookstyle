@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::DeprecatedSudoActions, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when the using legacy sudo :install action' do
     expect_offense(<<~RUBY)
       sudo 'bob' do

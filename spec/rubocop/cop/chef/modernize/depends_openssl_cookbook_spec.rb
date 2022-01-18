@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::DependsOnOpensslCookbook, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when depending on the openssl cookbook' do
     expect_offense(<<~RUBY)
       depends 'openssl'

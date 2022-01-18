@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::OpensslRsaKeyResource, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when using the openssl_rsa_key resource' do
     expect_offense(<<~RUBY)
       openssl_rsa_key '/etc/httpd/ssl/server.key' do

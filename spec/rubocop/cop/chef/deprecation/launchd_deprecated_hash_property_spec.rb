@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::LaunchdDeprecatedHashProperty, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when the launchd resource uses the hash property' do
     expect_offense(<<~RUBY)
       launchd 'call.mom.weekly' do

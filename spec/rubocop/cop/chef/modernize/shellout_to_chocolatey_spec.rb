@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::ShellOutToChocolatey, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when using execute to run choco' do
     expect_offense(<<~RUBY)
       execute 'install package foo' do

@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::FoodcriticTesting, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when a foodcritic is required in code' do
     expect_offense(<<~RUBY)
       require 'foodcritic'

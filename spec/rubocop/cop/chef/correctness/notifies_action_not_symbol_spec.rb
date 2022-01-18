@@ -18,9 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::Correctness::NotifiesActionNotSymbol do
-  subject(:cop) { described_class.new }
-
+describe RuboCop::Cop::Chef::Correctness::NotifiesActionNotSymbol, :config do
   it 'registers an offense when a notifies action is a string' do
     expect_offense(<<~RUBY)
       execute 'some command' do

@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::AllowedActionsFromInitialize, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense with a resource that sets the @allowed_actions variable in an initializer' do
     expect_offense(<<~RUBY)
       def initialize(*args)

@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::LegacyBerksfileSource, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when using community.opscode.com' do
     expect_offense(<<~RUBY)
       source 'http://community.opscode.com/api/v3'

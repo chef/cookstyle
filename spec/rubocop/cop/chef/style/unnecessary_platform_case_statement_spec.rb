@@ -18,9 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::Style::UnnecessaryPlatformCaseStatement do
-  subject(:cop) { described_class.new }
-
+describe RuboCop::Cop::Chef::Style::UnnecessaryPlatformCaseStatement, :config do
   it 'registers an offense when checking platform with a single condition case statement' do
     expect_offense(<<~RUBY)
       case node['platform']

@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::PowershellInstallPackage, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when using powershell_script to run Install-Package' do
     expect_offense(<<~RUBY)
       powershell_script 'Expand website' do

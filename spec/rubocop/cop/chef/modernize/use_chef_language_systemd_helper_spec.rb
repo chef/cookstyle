@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::UseChefLanguageSystemdHelper, :config do
-  subject(:cop) { described_class.new(config) }
-
   it "registers an offense when using node['init_package'] == 'systemd' in a cookbook" do
     expect_offense(<<~RUBY)
       if node['init_package'] == 'systemd'

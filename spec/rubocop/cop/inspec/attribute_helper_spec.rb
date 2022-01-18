@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::InSpec::Deprecations::AttributeHelper, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when the attribute helper is used' do
     expect_offense(<<~RUBY)
       login_defs_umask = attribute('login_defs_umask', value: '077', description: 'Default umask to set in login.defs')

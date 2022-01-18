@@ -17,9 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::Style::UsePlatformHelpers do
-  subject(:cop) { described_class.new }
-
+describe RuboCop::Cop::Chef::Style::UsePlatformHelpers, :config do
   it "registers an offense when checking platform using node['platform']" do
     expect_offense(<<~RUBY)
       if node['platform'] == 'redhat'

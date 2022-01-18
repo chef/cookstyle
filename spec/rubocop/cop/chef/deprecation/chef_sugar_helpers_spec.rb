@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::ChefSugarHelpers, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when using the vagrant_key? helper' do
     expect_offense(<<~RUBY)
       vagrant_key?

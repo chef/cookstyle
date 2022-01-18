@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::ExecutePathProperty, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when an execute resource has a String path property' do
     expect_offense(<<~RUBY)
       execute 'some_cmd' do

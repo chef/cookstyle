@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Sharing::DefaultMetadataMaintainer, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when a cookbook uses the default maintainer from the generator' do
     expect_offense(<<~RUBY)
       maintainer 'YOUR_COMPANY_NAME'

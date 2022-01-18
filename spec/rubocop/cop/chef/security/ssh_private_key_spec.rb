@@ -18,9 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::Security::SshPrivateKey do
-  subject(:cop) { described_class.new }
-
+describe RuboCop::Cop::Chef::Security::SshPrivateKey, :config do
   it 'registers an offense setting an attribute to an RSA private key' do
     expect_offense(<<~RUBY)
       default['jenkins-server']['dev_mode']['security']['private_key'] =

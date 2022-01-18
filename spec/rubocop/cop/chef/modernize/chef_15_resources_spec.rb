@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::UnnecessaryDependsChef15, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when a cookbook depends on "libarchive"' do
     expect_offense(<<~RUBY)
       depends 'libarchive'

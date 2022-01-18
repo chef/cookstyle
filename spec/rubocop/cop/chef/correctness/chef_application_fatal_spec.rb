@@ -18,9 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::Correctness::ChefApplicationFatal do
-  subject(:cop) { described_class.new }
-
+describe RuboCop::Cop::Chef::Correctness::ChefApplicationFatal, :config do
   it 'registers an offense when Chef::Application.fatal! is called' do
     expect_offense(<<~RUBY)
       Chef::Application.fatal!('foo')

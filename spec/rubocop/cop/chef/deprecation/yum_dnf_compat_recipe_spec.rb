@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::IncludingYumDNFCompatRecipe, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when including the "yum::dnf_yum_compat" recipe' do
     expect_offense(<<~RUBY)
       if platform?('fedora')

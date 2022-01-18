@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::WindowsFeatureServermanagercmd, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when windows_feature sets install_method to :servermanagercmd' do
     expect_offense(<<~RUBY)
       windows_feature 'DHCP' do

@@ -18,9 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::Style::OverlyComplexSupportsDependsMetadata do
-  subject(:cop) { described_class.new }
-
+describe RuboCop::Cop::Chef::Style::OverlyComplexSupportsDependsMetadata, :config do
   it 'registers an offense when defining two supports in an array' do
     expect_offense(<<~RUBY)
       %w( debian ubuntu ).each do |os|

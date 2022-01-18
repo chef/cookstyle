@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Effortless::Berksfile, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when cookbook includes a Berksfile' do
     expect_offense(<<~RUBY, 'Berksfile')
       site 'http://community.opscode.com/api/v1'

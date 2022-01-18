@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::WindowsVersionHelpers, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when using Windows::VersionHelper nt_version helper' do
     expect_offense(<<~RUBY)
       if Windows::VersionHelper.nt_version == 10

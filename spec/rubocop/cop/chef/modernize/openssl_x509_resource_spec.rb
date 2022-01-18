@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::OpensslX509Resource, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when using the openssl_x509 resource' do
     expect_offense(<<~RUBY)
       openssl_x509 '/etc/httpd/ssl/mycert.pem' do

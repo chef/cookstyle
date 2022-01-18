@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::LogResourceNotifications, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when a log resource includes a notification' do
     expect_offense(<<~RUBY)
       log 'Aggregate notifications using a single log resource' do

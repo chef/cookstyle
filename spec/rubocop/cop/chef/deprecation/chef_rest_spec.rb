@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::UsesChefRESTHelpers, :config do
-  subject(:cop) { described_class.new(config) }
-
   it "registers an offense when requiring 'chef/rest'" do
     expect_offense(<<~RUBY)
       require 'chef/rest'

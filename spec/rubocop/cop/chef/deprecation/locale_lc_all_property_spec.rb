@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::LocaleDeprecatedLcAllProperty, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when a the locale resource includes the lc_all property' do
     expect_offense(<<~RUBY)
       locale 'set locale' do

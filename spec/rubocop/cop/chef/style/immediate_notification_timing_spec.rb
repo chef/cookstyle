@@ -17,9 +17,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::Style::ImmediateNotificationTiming do
-  subject(:cop) { described_class.new }
-
+describe RuboCop::Cop::Chef::Style::ImmediateNotificationTiming, :config do
   it 'registers an offense when notifies uses the :immediate timing' do
     expect_offense(<<~RUBY)
       template '/etc/www/configures-apache.conf' do

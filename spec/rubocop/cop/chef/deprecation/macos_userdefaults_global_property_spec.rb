@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::MacosUserdefaultsGlobalProperty, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when macos_userdefaults set the global property' do
     expect_offense(<<~RUBY)
       macos_userdefaults 'set a value' do

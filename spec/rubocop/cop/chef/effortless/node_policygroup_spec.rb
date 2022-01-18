@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Effortless::CookbookUsesPolicygroups, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when node.policygroup is used' do
     expect_offense(<<~RUBY)
       node.policy_group == 'webserver'

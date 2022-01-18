@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Effortless::CookbookUsesDatabags, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when data_bag method is used' do
     expect_offense(<<~RUBY)
       data_bag_item('admins', login)

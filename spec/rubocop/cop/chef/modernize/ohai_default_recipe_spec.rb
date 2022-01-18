@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::IncludingOhaiDefaultRecipe, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when including the "ohai" recipe' do
     expect_offense(<<~RUBY)
       include_recipe 'ohai'

@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Sharing::IncludeResourceExamples, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when a resource does not include examples' do
     expect_offense(<<~RUBY)
       provides 'foo'

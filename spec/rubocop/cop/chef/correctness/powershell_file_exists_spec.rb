@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Correctness::PowershellFileExists, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when when using powershell_out to run Test-Path' do
     expect_offense(<<~RUBY)
       powershell_out('Test-Path "C:\\Program Files\\LAPS\\CSE\\AdmPwd.dll"').stdout.strip == 'True'

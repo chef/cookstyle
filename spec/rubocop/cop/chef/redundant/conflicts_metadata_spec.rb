@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::RedundantCode::ConflictsMetadata, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when metadata uses "conflicts"' do
     expect_offense(<<~RUBY)
       name 'foo'

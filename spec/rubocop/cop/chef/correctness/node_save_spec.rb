@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Correctness::CookbookUsesNodeSave, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when a cookbook uses node.save' do
     expect_offense(<<~RUBY)
       node.save

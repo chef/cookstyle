@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Correctness::TmpPath, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when hardcoding a path in /tmp' do
     expect_offense(<<~RUBY)
       remote_file '/tmp/large-file.tar.gz' do

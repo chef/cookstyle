@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Deprecations::ChefDKGenerators, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when using ChefDK::CLI.new' do
     expect_offense(<<~RUBY)
       ChefDK::CLI.new

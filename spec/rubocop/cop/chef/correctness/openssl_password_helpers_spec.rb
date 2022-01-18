@@ -18,9 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::Correctness::OpenSSLPasswordHelpers do
-  subject(:cop) { described_class.new }
-
+describe RuboCop::Cop::Chef::Correctness::OpenSSLPasswordHelpers, :config do
   it 'registers an offense when including Opscode::OpenSSL::Password' do
     expect_offense(<<~RUBY)
       ::Chef::Recipe.send(:include, Opscode::OpenSSL::Password)

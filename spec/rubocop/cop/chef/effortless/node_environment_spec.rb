@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Effortless::CookbookUsesEnvironments, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when node.environment is used' do
     expect_offense(<<~RUBY)
       node.environment == 'production'

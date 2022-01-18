@@ -18,8 +18,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Effortless::CookbookUsesSearch, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when search is used' do
     expect_offense(<<~RUBY)
       search(:node, 'run_list:recipe\[bacula\:\:server\]')

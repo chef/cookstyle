@@ -19,8 +19,6 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::ActionMethodInResource, :config do
-  subject(:cop) { described_class.new(config) }
-
   it 'registers an offense when defining an action using a method' do
     expect_offense(<<~RUBY)
       def action_run
