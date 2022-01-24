@@ -1,26 +1,23 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.30.4 -->
+ <!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v7.30.4](https://github.com/chef/cookstyle/tree/v7.30.4) (2022-01-24)
 
 #### Merged Pull Requests
 - Allow departments to be enabled/disabled by users [#935](https://github.com/chef/cookstyle/pull/935) ([jaymzh](https://github.com/jaymzh))
-<!-- latest_release -->
-
-<!-- release_rollup since=7.30.3 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Allow departments to be enabled/disabled by users [#935](https://github.com/chef/cookstyle/pull/935) ([jaymzh](https://github.com/jaymzh)) <!-- 7.30.4 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v7.30.3](https://github.com/chef/cookstyle/tree/v7.30.3) (2022-01-18)
 
 #### Merged Pull Requests
 - Cleanup using the RuboCop InternalAffairs cops [#933](https://github.com/chef/cookstyle/pull/933) ([tas50](https://github.com/tas50))
 - Update RuboCop engine to 1.25 [#934](https://github.com/chef/cookstyle/pull/934) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v7.30.1](https://github.com/chef/cookstyle/tree/v7.30.1) (2022-01-17)
 
