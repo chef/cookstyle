@@ -12,6 +12,7 @@ AllCops:
 ###############################
 
 Chef/Style:
+  Enabled: true
   StyleGuideBaseURL: https://docs.chef.io/workstation/cookstyle/
 
 Chef/Style/AttributeKeys:
@@ -156,6 +157,7 @@ Chef/Style/IncludeRecipeWithParentheses:
 ###############################
 
 Chef/Correctness:
+  Enabled: true
   StyleGuideBaseURL: https://docs.chef.io/workstation/cookstyle/
 
 Chef/Correctness/ServiceResource:
@@ -529,6 +531,7 @@ Chef/Correctness/InvalidNotificationResource:
 ###############################
 
 Chef/Sharing:
+  Enabled: true
   StyleGuideBaseURL: https://docs.chef.io/workstation/cookstyle/
 
 Chef/Sharing/InsecureCookbookURL:
@@ -597,6 +600,7 @@ Chef/Sharing/IncludeResourceExamples:
 ###############################
 
 Chef/Deprecations:
+  Enabled: true
   StyleGuideBaseURL: https://docs.chef.io/workstation/cookstyle/
 
 Chef/Deprecations/NodeDeepFetch:
@@ -1301,6 +1305,7 @@ Chef/Deprecations/DependsOnOmnibusUpdaterCookbook:
 ###############################
 
 Chef/Modernize:
+  Enabled: true
   StyleGuideBaseURL: https://docs.chef.io/workstation/cookstyle/
 
 Chef/Modernize/LegacyBerksfileSource:
@@ -1973,6 +1978,7 @@ Chef/Modernize/DeclareActionClass:
 ###############################
 
 Chef/RedundantCode:
+  Enabled: true
   StyleGuideBaseURL: https://docs.chef.io/workstation/cookstyle/
 
 Chef/RedundantCode/ConflictsMetadata:
@@ -2195,6 +2201,7 @@ Chef/RedundantCode/DoubleCompileTime:
 ###############################
 
 Chef/Effortless:
+  Enabled: true
   StyleGuideBaseURL: https://docs.chef.io/workstation/cookstyle/
 
 Chef/Effortless/CookbookUsesSearch:
