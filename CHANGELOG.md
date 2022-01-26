@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 7.31.0 -->
+## [v7.31.0](https://github.com/chef/cookstyle/tree/v7.31.0) (2022-01-26)
+
+#### Merged Pull Requests
+- Add a new Chef/Deprecations/Delivery cop [#937](https://github.com/chef/cookstyle/pull/937) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=7.30.4 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Add a new Chef/Deprecations/Delivery cop [#937](https://github.com/chef/cookstyle/pull/937) ([tas50](https://github.com/tas50)) <!-- 7.31.0 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
