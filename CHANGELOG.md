@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 7.31.1 -->
+## [v7.31.1](https://github.com/chef/cookstyle/tree/v7.31.1) (2022-01-26)
+
+#### Merged Pull Requests
+- Update Chef/Deprecations/DeprecatedChefSpecPlatform for new fauxhai deprecations [#938](https://github.com/chef/cookstyle/pull/938) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=7.31.0 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Update Chef/Deprecations/DeprecatedChefSpecPlatform for new fauxhai deprecations [#938](https://github.com/chef/cookstyle/pull/938) ([tas50](https://github.com/tas50)) <!-- 7.31.1 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
