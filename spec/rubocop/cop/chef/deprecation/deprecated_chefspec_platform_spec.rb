@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 #
-# Copyright:: 2020, Chef Software, Inc.
+# Copyright:: 2020-2022, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -55,6 +55,21 @@ describe RuboCop::Cop::Chef::Deprecations::DeprecatedChefSpecPlatform, :config d
   it "doesn't register an offense with a modern platform" do
     expect_no_offenses(<<~RUBY)
       let(:chef_run) { ChefSpec::ServerRunner.new(platform: 'centos', version: '200') }
+    RUBY
+  end
+
+  it "registers an offense when spec calls for Amazon 2018.03, but doesn't autocorrect" do
+    expect_offense(<<~RUBY)
+      let(:chef_run) { ChefSpec::ServerRunner.new(platform: 'amazon', version: '2018.03') }
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use currently supported platforms in ChefSpec listed at https://github.com/chefspec/fauxhai/blob/main/PLATFORMS.md. Fauxhai / ChefSpec will perform fuzzy matching on platform version so it's always best to be less specific ie. 10 instead of 10.3
+    RUBY
+
+    expect_no_corrections
+  end
+
+  it "doesn't register an offense with Amazon Linux 2022" do
+    expect_no_offenses(<<~RUBY)
+      let(:chef_run) { ChefSpec::ServerRunner.new(platform: 'amazon', version: '2002') }
     RUBY
   end
 end
