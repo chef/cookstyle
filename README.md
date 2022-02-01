@@ -1,4 +1,4 @@
-# Chef Cookstyle - Chef Infra Cookbook linting with autocorrection
+# Chef Cookstyle - Chef Infra Cookbook and InSpec profile linting with autocorrection
 
 [![Build status](https://badge.buildkite.com/c086ffe05e32e4d61282b91ead96b3721590a59ed4360cf7ac.svg?branch=main)](https://buildkite.com/chef-oss/chef-cookstyle-main-verify)
 [![Gem Version](https://badge.fury.io/rb/cookstyle.svg)](https://badge.fury.io/rb/cookstyle)
