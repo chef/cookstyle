@@ -48,6 +48,10 @@ module RuboCop
         #     action :delete
         #   end
         #
+        #   file "/etc/cron.d/#{job_name}" do
+        #     action :delete
+        #   end
+        #
         #   #### correct
         #   cron_d 'backup' do
         #     minute '1'
@@ -70,14 +74,14 @@ module RuboCop
           def_node_matcher :file_or_template?, <<-PATTERN
             (block
               (send nil? {:template :file :cookbook_file}
-                (str $_))
+                $(...))
               ...
             )
           PATTERN
 
           def on_block(node)
             file_or_template?(node) do |file_name|
-              return unless file_name.start_with?('/etc/cron.d/')
+              return unless file_name.value.start_with?('/etc/cron.d/')
               add_offense(node, severity: :refactor)
             end
           end
