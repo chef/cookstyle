@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.31.2 -->
-## [v7.31.2](https://github.com/chef/cookstyle/tree/v7.31.2) (2022-02-03)
+ <!-- latest_release 7.31.3 -->
+## [v7.31.3](https://github.com/chef/cookstyle/tree/v7.31.3) (2022-02-04)
 
 #### Merged Pull Requests
-- Vendor rubocop-1.25.1 upstream configuration. [#939](https://github.com/chef/cookstyle/pull/939) ([tas50](https://github.com/tas50))
+- Flag Chef/Modernize/CronDFileOrTemplate offenses with string interpolation [#941](https://github.com/chef/cookstyle/pull/941) ([yacn](https://github.com/yacn))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.31.1 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Flag Chef/Modernize/CronDFileOrTemplate offenses with string interpolation [#941](https://github.com/chef/cookstyle/pull/941) ([yacn](https://github.com/yacn)) <!-- 7.31.3 -->
 - Vendor rubocop-1.25.1 upstream configuration. [#939](https://github.com/chef/cookstyle/pull/939) ([tas50](https://github.com/tas50)) <!-- 7.31.2 -->
 <!-- release_rollup -->
 
