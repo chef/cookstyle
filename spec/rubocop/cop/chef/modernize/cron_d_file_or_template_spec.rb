@@ -69,4 +69,12 @@ describe RuboCop::Cop::Chef::Modernize::CronDFileOrTemplate, :config do
       end
     RUBY
   end
+
+  it 'does not register an offense when the resource name is a variable or method' do
+    expect_no_offenses(<<~RUBY)
+      template foo do
+        source "thing.erb"
+      end
+    RUBY
+  end
 end
