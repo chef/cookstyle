@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 #
-# Copyright:: 2020, Chef Software, Inc.
+# Copyright:: 2020-2022, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -48,6 +48,10 @@ module RuboCop
         #     action :delete
         #   end
         #
+        #   file "/etc/cron.d/#{job_name}" do
+        #     action :delete
+        #   end
+        #
         #   #### correct
         #   cron_d 'backup' do
         #     minute '1'
@@ -70,14 +74,19 @@ module RuboCop
           def_node_matcher :file_or_template?, <<-PATTERN
             (block
               (send nil? {:template :file :cookbook_file}
-                (str $_))
+                $(...))
               ...
             )
           PATTERN
 
           def on_block(node)
             file_or_template?(node) do |file_name|
-              return unless file_name.start_with?('/etc/cron.d/')
+              # weed out types we can't evaluate
+              return unless file_name.dstr_type? || file_name.str_type?
+
+              # weed out string values that aren't a cron.d file
+              return unless file_name.value.start_with?('/etc/cron.d/')
+
               add_offense(node, severity: :refactor)
             end
           end
