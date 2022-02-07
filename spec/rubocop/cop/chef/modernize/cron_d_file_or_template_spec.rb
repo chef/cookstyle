@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 #
-# Copyright:: 2020, Chef Software, Inc.
+# Copyright:: 2020-2022, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -99,6 +99,15 @@ describe RuboCop::Cop::Chef::Modernize::CronDFileOrTemplate, :config do
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the cron_d resource that ships with Chef Infra Client 14.4+ instead of manually creating the file with template, file, or cookbook_file resources
         path ::File.join('/etc/cron.d', job)
         action :delete
+      end
+    RUBY
+  end
+
+  it 'does not register an offense when path does not start with /etc/cron.d' do
+    expect_no_offenses(<<~RUBY)
+      template "something" do
+        path "/foo/bar/"
+        source "thing.erb"
       end
     RUBY
   end
