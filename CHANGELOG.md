@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 7.31.4 -->
+## [v7.31.4](https://github.com/chef/cookstyle/tree/v7.31.4) (2022-02-07)
+
+#### Merged Pull Requests
+- Chef/Modernize/CronDFileOrTemplate Improvements [#944](https://github.com/chef/cookstyle/pull/944) ([yacn](https://github.com/yacn))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=7.31.3 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Chef/Modernize/CronDFileOrTemplate Improvements [#944](https://github.com/chef/cookstyle/pull/944) ([yacn](https://github.com/yacn)) <!-- 7.31.4 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->

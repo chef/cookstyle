@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 module Cookstyle
-  VERSION = "7.31.3" # rubocop: disable Style/StringLiterals
+  VERSION = "7.31.4" # rubocop: disable Style/StringLiterals
   RUBOCOP_VERSION = '1.25.1'
 end
