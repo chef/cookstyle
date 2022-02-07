@@ -68,6 +68,13 @@ describe RuboCop::Cop::Chef::Modernize::CronDFileOrTemplate, :config do
         action :delete
       end
     RUBY
+
+    expect_offense(<<~'RUBY')
+      file File.join('/etc/cron.d', job) do
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the cron_d resource that ships with Chef Infra Client 14.4+ instead of manually creating the file with template, file, or cookbook_file resources
+        action :delete
+      end
+    RUBY
   end
 
   it 'does not register an offense when the resource name is a variable or method' do
