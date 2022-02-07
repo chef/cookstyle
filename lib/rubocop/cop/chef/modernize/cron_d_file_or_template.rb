@@ -56,6 +56,21 @@ module RuboCop
         #     action :delete
         #   end
         #
+        #   file 'delete old cron job' do
+        #     path '/etc/cron.d/backup'
+        #     action :delete
+        #   end
+        #
+        #   file 'delete old cron job' do
+        #     path "/etc/cron.d/#{job}"
+        #     action :delete
+        #   end
+        #
+        #   file 'delete old cron job' do
+        #     path ::File.join('/etc/cron.d', job)
+        #     action :delete
+        #   end
+        #
         #   #### correct
         #   cron_d 'backup' do
         #     minute '1'
@@ -69,6 +84,7 @@ module RuboCop
         #   end
         #
         class CronDFileOrTemplate < Base
+          include RuboCop::Chef::CookbookHelpers
           extend TargetChefVersion
 
           minimum_target_chef_version '14.4'
@@ -86,6 +102,16 @@ module RuboCop
           def on_block(node)
             file_or_template?(node) do |file_name|
               break unless file_name.start_with?('/etc/cron.d')
+              add_offense(node, severity: :refactor)
+            end
+
+            match_property_in_resource?(%i(template file cookbook_file), 'path', node) do |code_property|
+              # instead of using CookbookHelpers#method_arg_ast_to_string, walk the property's descendants
+              # and check if their value contains '/etc/cron.d'
+              # covers the case where the argument to the path property is provided via a method like File.join
+              code_property.each_descendant do |d|
+                break unless d.respond_to?(:value) && d.value.match(%r{/etc/cron\.d}i)
+              end
               add_offense(node, severity: :refactor)
             end
           end
