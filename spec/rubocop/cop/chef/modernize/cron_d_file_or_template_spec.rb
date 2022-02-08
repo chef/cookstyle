@@ -119,4 +119,12 @@ describe RuboCop::Cop::Chef::Modernize::CronDFileOrTemplate, :config do
       end
     RUBY
   end
+
+  it 'does not register an offense when path value has a non-string value' do
+    expect_no_offenses(<<~RUBY)
+      cookbook_file new_resource.file_name do
+        path Regexp.last_match(1)
+      end
+    RUBY
+  end
 end
