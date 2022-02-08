@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.31.4 -->
-## [v7.31.4](https://github.com/chef/cookstyle/tree/v7.31.4) (2022-02-07)
+ <!-- latest_release 7.31.5 -->
+## [v7.31.5](https://github.com/chef/cookstyle/tree/v7.31.5) (2022-02-08)
 
 #### Merged Pull Requests
-- Chef/Modernize/CronDFileOrTemplate Improvements [#944](https://github.com/chef/cookstyle/pull/944) ([yacn](https://github.com/yacn))
+- Fix false positives in CronDFileOrTemplate [#945](https://github.com/chef/cookstyle/pull/945) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.31.3 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Fix false positives in CronDFileOrTemplate [#945](https://github.com/chef/cookstyle/pull/945) ([tas50](https://github.com/tas50)) <!-- 7.31.5 -->
 - Chef/Modernize/CronDFileOrTemplate Improvements [#944](https://github.com/chef/cookstyle/pull/944) ([yacn](https://github.com/yacn)) <!-- 7.31.4 -->
 <!-- release_rollup -->
 
