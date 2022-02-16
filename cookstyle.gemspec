@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = 'cookstyle'
   spec.version       = Cookstyle::VERSION
   spec.authors       = ['Thom May', 'Tim Smith']
-  spec.email         = ['thom@chef.io', 'tsmith@chef.io']
+  spec.email         = ['thom@chef.io', 'tsmith84@gmail.com']
   spec.summary       = 'Cookstyle is a code linting tool that helps you to write better Chef Infra cookbooks by detecting and automatically correcting style, syntax, and logic mistakes in your code.'
   spec.license       = 'Apache-2.0'
   spec.homepage      = 'https://docs.chef.io/workstation/cookstyle/'
