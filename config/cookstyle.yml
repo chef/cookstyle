@@ -1268,7 +1268,6 @@ Chef/Deprecations/Delivery:
   Description: Do not include a `.delivery` directory for the `delivery` command in your cookbooks. Chef Delivery (Workflow) went EOL Dec 31st 2021 and the delivery command was removed from Chef Workstation Feb 2022.
   StyleGuide: 'chef_deprecations_delivery'
   Enabled: true
-  UseCache: false
   VersionAdded: '7.31.0'
   Include:
     - '**/metadata.rb'
