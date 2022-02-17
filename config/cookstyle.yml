@@ -2317,9 +2317,10 @@ InSpec/Deprecations/AttributeDefault:
 #### Security Cops
 
 Chef/Security:
+  Enabled: true
   StyleGuideBaseURL: https://docs.chef.io/workstation/cookstyle/
 
-Chef/Security/ :
+Chef/Security/SshPrivateKey:
   Description: Do not include plain text SSH private keys in your cookbook code. This sensitive data should be fetched from secrets management systems so that secrets are not uploaded in plain text to the Chef Infra Server or committed to source control systems.
   StyleGuide: 'chef_security_sshprivatekey'
   Enabled: true
