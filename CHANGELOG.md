@@ -1,29 +1,26 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.31.7 -->
-## [v7.31.7](https://github.com/chef/cookstyle/tree/v7.31.7) (2022-02-17)
-
-#### Merged Pull Requests
-- Fix the config to enable Chef/Security/SshPrivateKey [#949](https://github.com/chef/cookstyle/pull/949) ([tas50](https://github.com/tas50))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=7.31.3 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Fix the config to enable Chef/Security/SshPrivateKey [#949](https://github.com/chef/cookstyle/pull/949) ([tas50](https://github.com/tas50)) <!-- 7.31.7 -->
-- Handle metadata.rb file being empty [#948](https://github.com/chef/cookstyle/pull/948) ([tas50](https://github.com/tas50)) <!-- 7.31.6 -->
-- Fix false positives in CronDFileOrTemplate [#945](https://github.com/chef/cookstyle/pull/945) ([tas50](https://github.com/tas50)) <!-- 7.31.5 -->
-- Chef/Modernize/CronDFileOrTemplate Improvements [#944](https://github.com/chef/cookstyle/pull/944) ([yacn](https://github.com/yacn)) <!-- 7.31.4 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v7.31.7](https://github.com/chef/cookstyle/tree/v7.31.7) (2022-02-17)
+
+#### Merged Pull Requests
+- Chef/Modernize/CronDFileOrTemplate Improvements [#944](https://github.com/chef/cookstyle/pull/944) ([yacn](https://github.com/yacn))
+- Fix false positives in CronDFileOrTemplate [#945](https://github.com/chef/cookstyle/pull/945) ([tas50](https://github.com/tas50))
+- Handle metadata.rb file being empty [#948](https://github.com/chef/cookstyle/pull/948) ([tas50](https://github.com/tas50))
+- Fix the config to enable Chef/Security/SshPrivateKey [#949](https://github.com/chef/cookstyle/pull/949) ([tas50](https://github.com/tas50))
+<!-- latest_stable_release -->
+
 ## [v7.31.3](https://github.com/chef/cookstyle/tree/v7.31.3) (2022-02-05)
 
 #### Merged Pull Requests
 - Vendor rubocop-1.25.1 upstream configuration. [#939](https://github.com/chef/cookstyle/pull/939) ([tas50](https://github.com/tas50))
 - Flag Chef/Modernize/CronDFileOrTemplate offenses with string interpolation [#941](https://github.com/chef/cookstyle/pull/941) ([yacn](https://github.com/yacn))
-<!-- latest_stable_release -->
 
 ## [v7.31.1](https://github.com/chef/cookstyle/tree/v7.31.1) (2022-01-26)
 
