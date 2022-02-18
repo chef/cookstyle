@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 7.31.8 -->
+## [v7.31.8](https://github.com/chef/cookstyle/tree/v7.31.8) (2022-02-18)
+
+#### Merged Pull Requests
+- Move docs cops yaml files to assets dir [#950](https://github.com/chef/cookstyle/pull/950) ([IanMadd](https://github.com/IanMadd))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=7.31.7 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Move docs cops yaml files to assets dir [#950](https://github.com/chef/cookstyle/pull/950) ([IanMadd](https://github.com/IanMadd)) <!-- 7.31.8 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
