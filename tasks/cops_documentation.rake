@@ -32,7 +32,7 @@ begin
     end
 
     def write_yml(data)
-      file_name = "#{Dir.pwd}/docs-chef-io/data/cookstyle/cops_#{data['full_name'].to_s.downcase.tr('/', '_')}.yml"
+      file_name = "#{Dir.pwd}/docs-chef-io/assets/cookstyle/cops_#{data['full_name'].to_s.downcase.tr('/', '_')}.yml"
       File.open(file_name, 'w') do |file|
         puts "* generated #{file_name}"
         file.write(YAML.dump(data))
