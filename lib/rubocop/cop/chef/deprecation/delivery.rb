@@ -27,16 +27,20 @@ module RuboCop
         class Delivery < Base
           include RangeHelp
 
-          MSG = 'Do not include a `.delivery` directory for the `delivery` command in your cookbooks. Chef Delivery (Workflow) went EOL Dec 31st 2021 and the delivery command was removed from Chef Workstation Feb 2022.'
+          MSG = 'Do not include Chef Delivery (Workflow) configuration in your cookbooks. It went EOL Dec 31st 2021 and the delivery command was removed from Chef Workstation Feb 2022.'
 
-          def on_new_investigation
-            return unless File.exist?(File.join(File.dirname(processed_source.path) + '/.delivery'))
+          def on_other_file
+            return unless processed_source.path.end_with?('/.delivery/project.toml', '/.delivery/config.json')
 
             # Using range similar to RuboCop::Cop::Naming::Filename (file_name.rb)
             range = source_range(processed_source.buffer, 1, 0)
 
             add_offense(range, severity: :warning)
           end
+
+          # An empty / simple TOML file can also be syntatically valid Ruby, so
+          # RuboCop may start an investigation instead of calling on_other_file.
+          alias_method :on_new_investigation, :on_other_file
         end
       end
     end
