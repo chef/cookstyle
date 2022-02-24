@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 7.32.0 -->
+## [v7.32.0](https://github.com/chef/cookstyle/tree/v7.32.0) (2022-02-24)
+
+#### Merged Pull Requests
+- Add Chef/Deprecations/FoodcriticFile cop [#952](https://github.com/chef/cookstyle/pull/952) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=7.31.9 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Add Chef/Deprecations/FoodcriticFile cop [#952](https://github.com/chef/cookstyle/pull/952) ([tas50](https://github.com/tas50)) <!-- 7.32.0 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
