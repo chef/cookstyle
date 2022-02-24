@@ -13,7 +13,7 @@ Chef/Style/CommentFormat:
 Style/HashEachMethods:
   Enabled: false
 
-# Chef/Modernize/FoodcriticComments itslef include an example Foocritic comment which alerts
+# Chef/Modernize/FoodcriticComments itself include an example Foocritic comment which alerts
 Chef/Modernize/FoodcriticComments:
   Enabled: false
 

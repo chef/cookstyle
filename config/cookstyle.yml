@@ -8,6 +8,7 @@ AllCops:
   Include:
     - '**/.delivery/project.toml'      # required by Chef/Deprecations/Delivery
     - '**/.delivery/config.json'       # required by Chef/Deprecations/Delivery
+    - '**/.foodcritic'
   Exclude:
     - '**/files/**/*'
     - '**/vendor/**/*'
@@ -1221,6 +1222,14 @@ Chef/Deprecations/FoodcriticTesting:
   Include:
     - '**/Rakefile'
     - '**/Gemfile'
+
+Chef/Deprecations/FoodcriticFile:
+  Description: The Foodcritic cookbook linter has been deprecated and should no longer be used for validating cookbooks
+  StyleGuide: 'chef_deprecations_foodcriticfile'
+  Enabled: true
+  VersionAdded: '7.32.0'
+  Include:
+    - '**/.foodcritic'
 
 Chef/Deprecations/DeprecatedYumRepositoryActions:
   Description: With the release of Chef Infra Client 12.14 and the yum cookbook 3.0 several actions in the yum_repository resource actions were renamed. The `add` action became `create` and `delete` became `remove` to better match other resources in Chef Infra Client.
