@@ -14,3 +14,4 @@ version_added: 7.31.0
 enabled: true
 included_file_paths:
 - "**/.delivery/project.toml"
+- "**/.delivery/config.json"
