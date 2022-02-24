@@ -19,7 +19,7 @@ module RuboCop
   module Cop
     module InSpec
       module Deprecations
-        # InSpec attributes have been renamed to inputs. Use the `input` method not the deprecation `attribute` method to access these values.
+        # Chef InSpec attributes have been renamed to inputs. Use the `input` method not the deprecation `attribute` method to access these values.
         #
         # @example
         #
