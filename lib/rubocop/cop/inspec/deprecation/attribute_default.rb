@@ -19,7 +19,7 @@ module RuboCop
   module Cop
     module InSpec
       module Deprecations
-        # The InSpec inputs `default` option has been replaced with the `value` option.
+        # The Chef InSpec inputs `default` option has been replaced with the `value` option.
         #
         # @example
         #
