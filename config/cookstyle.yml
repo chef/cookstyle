@@ -2,6 +2,12 @@ AllCops:
   SuggestExtensions: false
   TargetRubyVersion: 2.5
   TargetChefVersion: ~
+  inherit_mode:
+    merge:
+     - Include
+  Include:
+    - '**/.delivery/project.toml'      # required by Chef/Deprecations/Delivery
+    - '**/.delivery/config.json'       # required by Chef/Deprecations/Delivery
   Exclude:
     - '**/files/**/*'
     - '**/vendor/**/*'
@@ -1265,12 +1271,13 @@ Chef/Deprecations/PolicyfileCommunitySource:
     - '**/Policyfile.rb'
 
 Chef/Deprecations/Delivery:
-  Description: Do not include a `.delivery` directory for the `delivery` command in your cookbooks. Chef Delivery (Workflow) went EOL Dec 31st 2021 and the delivery command was removed from Chef Workstation Feb 2022.
+  Description: Do not include Chef Delivery (Workflow) configuration in your cookbooks. Chef Delivery (Workflow) went EOL Dec 31st 2021 and the delivery command was removed from Chef Workstation Feb 2022.
   StyleGuide: 'chef_deprecations_delivery'
   Enabled: true
   VersionAdded: '7.31.0'
   Include:
-    - '**/metadata.rb'
+    - '**/.delivery/project.toml'
+    - '**/.delivery/config.json'
 
 Chef/Deprecations/DeprecatedSudoActions:
   Description: The `sudo` resource in the sudo cookbook 5.0 (2018) or Chef Infra Client 14 and later have replaced the existing `:install` and `:remove` actions with `:create` and `:delete` actions to better match other resources in Chef Infra.
@@ -1954,7 +1961,7 @@ Chef/Modernize/UseChefLanguageCloudHelpers:
     - '**/resources/*.rb'
     - '**/providers/*.rb'
     - '**/recipes/*.rb'
-    
+
 Chef/Modernize/ClassEvalActionClass:
   Description: In Chef Infra Client 12.9 and later it is no longer necessary to call the class_eval method on the action class block.
   StyleGuide: 'chef_modernize_classevalactionclass'
@@ -2332,7 +2339,7 @@ Chef/Security/SshPrivateKey:
     - '**/recipes/*.rb'
     - '**/attributes/*.rb'
     - '**/definitions/*.rb'
-    
+
 #### The base rubocop 0.37 enabled.yml file we started with ####
 
 Layout/AccessModifierIndentation:
