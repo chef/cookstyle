@@ -25,12 +25,12 @@ module RuboCop
         #
         #   #### incorrect
         #   platform?('darwin')
-        #   platform?('rhel)
+        #   platform?('rhel')
         #   platform?('sles')
         #
         #   #### correct
         #   platform?('mac_os_x')
-        #   platform?('redhat)
+        #   platform?('redhat')
         #   platform?('suse')
         #
         class InvalidPlatformHelper < Base

@@ -28,7 +28,8 @@ module RuboCop
         #     class MyCookbookService < Chef::Resource
         #       use_automatic_resource_name
         #       provides :mycookbook_service
-        #       ...
+        #       
+        #       # some additional code
         #     end
         #   end
         #
