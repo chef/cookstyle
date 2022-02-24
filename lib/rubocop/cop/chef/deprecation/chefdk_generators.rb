@@ -27,14 +27,14 @@ module RuboCop
         #   ChefDK::CLI
         #   ChefDK::Generator::TemplateHelper
         #   module ChefDK
-        #     ...
+        #     # some additional code
         #   end
         #
         #   #### correct
         #   ChefCLI::CLI
         #   ChefCLI::Generator::TemplateHelper
         #   module ChefCLI
-        #     ...
+        #     # some additional code
         #   end
         #
         class ChefDKGenerators < Base
