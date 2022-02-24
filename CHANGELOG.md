@@ -1,26 +1,23 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.32.0 -->
+ <!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v7.32.0](https://github.com/chef/cookstyle/tree/v7.32.0) (2022-02-24)
 
 #### Merged Pull Requests
 - Add Chef/Deprecations/FoodcriticFile cop [#952](https://github.com/chef/cookstyle/pull/952) ([tas50](https://github.com/tas50))
-<!-- latest_release -->
-
-<!-- release_rollup since=7.31.9 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Add Chef/Deprecations/FoodcriticFile cop [#952](https://github.com/chef/cookstyle/pull/952) ([tas50](https://github.com/tas50)) <!-- 7.32.0 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v7.31.9](https://github.com/chef/cookstyle/tree/v7.31.9) (2022-02-24)
 
 #### Merged Pull Requests
 - Move docs cops yaml files to assets dir [#950](https://github.com/chef/cookstyle/pull/950) ([IanMadd](https://github.com/IanMadd))
 - Refactor Chef/Deprecations/Delivery to address caching issues [#951](https://github.com/chef/cookstyle/pull/951) ([karmix](https://github.com/karmix))
-<!-- latest_stable_release -->
 
 ## [v7.31.7](https://github.com/chef/cookstyle/tree/v7.31.7) (2022-02-17)
 
