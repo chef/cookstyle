@@ -14,6 +14,21 @@ AllCops:
     - '**/vendor/**/*'
     - Guardfile
 
+Layout:
+  Exclude:
+    - '**/.delivery/project.toml'
+    - '**/.delivery/config.json'
+
+Lint:
+  Exclude:
+    - '**/.delivery/project.toml'
+    - '**/.delivery/config.json'
+
+Style:
+  Exclude:
+    - '**/.delivery/project.toml'
+    - '**/.delivery/config.json'
+
 ###############################
 # Chef/Style: Making cookbooks look better
 ###############################
@@ -21,6 +36,9 @@ AllCops:
 Chef/Style:
   Enabled: true
   StyleGuideBaseURL: https://docs.chef.io/workstation/cookstyle/
+  Exclude:
+    - '**/.delivery/project.toml'
+    - '**/.delivery/config.json'
 
 Chef/Style/AttributeKeys:
   Description: Check which style of keys are used to access node attributes.
