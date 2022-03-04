@@ -1,25 +1,22 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.32.1 -->
-## [v7.32.1](https://github.com/chef/cookstyle/tree/v7.32.1) (2022-02-25)
-
-#### Merged Pull Requests
-- Don&#39;t autocorrect Delivery&#39;s TOML or JSON files [#953](https://github.com/chef/cookstyle/pull/953) ([karmix](https://github.com/karmix))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=7.32.0 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Don&#39;t autocorrect Delivery&#39;s TOML or JSON files [#953](https://github.com/chef/cookstyle/pull/953) ([karmix](https://github.com/karmix)) <!-- 7.32.1 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v7.32.1](https://github.com/chef/cookstyle/tree/v7.32.1) (2022-03-04)
+
+#### Merged Pull Requests
+- Don&#39;t autocorrect Delivery&#39;s TOML or JSON files [#953](https://github.com/chef/cookstyle/pull/953) ([karmix](https://github.com/karmix))
+<!-- latest_stable_release -->
+
 ## [v7.32.0](https://github.com/chef/cookstyle/tree/v7.32.0) (2022-02-24)
 
 #### Merged Pull Requests
 - Add Chef/Deprecations/FoodcriticFile cop [#952](https://github.com/chef/cookstyle/pull/952) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v7.31.9](https://github.com/chef/cookstyle/tree/v7.31.9) (2022-02-24)
 
