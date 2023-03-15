@@ -101,7 +101,7 @@ module RuboCop
 
           def on_block(node)
             file_or_template?(node) do |file_name|
-              break unless file_name.match?(%r{/etc/cron\.d\b}i)
+              break unless file_name.start_with?(%r{/etc/cron\.d\b}i)
               add_offense(node, severity: :refactor)
             end
 
