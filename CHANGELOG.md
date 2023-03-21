@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 7.32.2 -->
+## [v7.32.2](https://github.com/chef/cookstyle/tree/v7.32.2) (2023-03-21)
+
+#### Merged Pull Requests
+- [CHEF-1116] - Fixed the false positive issue with CronDFileOrTemplate and Updated the required Ruby version to 2.7 [#959](https://github.com/chef/cookstyle/pull/959) ([ashiqueps](https://github.com/ashiqueps))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=7.32.1 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- [CHEF-1116] - Fixed the false positive issue with CronDFileOrTemplate and Updated the required Ruby version to 2.7 [#959](https://github.com/chef/cookstyle/pull/959) ([ashiqueps](https://github.com/ashiqueps)) <!-- 7.32.2 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
