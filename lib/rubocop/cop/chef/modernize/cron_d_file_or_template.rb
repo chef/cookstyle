@@ -101,7 +101,7 @@ module RuboCop
 
           def on_block(node)
             file_or_template?(node) do |file_name|
-              break unless file_name.start_with?('/etc/cron.d')
+              break unless file_name.start_with?(%r{/etc/cron\.d\b}i)
               add_offense(node, severity: :refactor)
             end
 
@@ -110,7 +110,7 @@ module RuboCop
               # and check if their value contains '/etc/cron.d'
               # covers the case where the argument to the path property is provided via a method like File.join
               code_property.each_descendant do |d|
-                add_offense(node, severity: :refactor) if d.respond_to?(:value) && d.value.match?(%r{/etc/cron\.d}i)
+                add_offense(node, severity: :refactor) if d.respond_to?(:value) && d.value.match?(%r{/etc/cron\.d\b}i)
               end
             end
           end
