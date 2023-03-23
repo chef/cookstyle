@@ -1,25 +1,22 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.32.2 -->
-## [v7.32.2](https://github.com/chef/cookstyle/tree/v7.32.2) (2023-03-21)
-
-#### Merged Pull Requests
-- [CHEF-1116] - Fixed the false positive issue with CronDFileOrTemplate and Updated the required Ruby version to 2.7 [#959](https://github.com/chef/cookstyle/pull/959) ([ashiqueps](https://github.com/ashiqueps))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=7.32.1 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- [CHEF-1116] - Fixed the false positive issue with CronDFileOrTemplate and Updated the required Ruby version to 2.7 [#959](https://github.com/chef/cookstyle/pull/959) ([ashiqueps](https://github.com/ashiqueps)) <!-- 7.32.2 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v7.32.2](https://github.com/chef/cookstyle/tree/v7.32.2) (2023-03-23)
+
+#### Merged Pull Requests
+- [CHEF-1116] - Fixed the false positive issue with CronDFileOrTemplate and Updated the required Ruby version to 2.7 [#959](https://github.com/chef/cookstyle/pull/959) ([ashiqueps](https://github.com/ashiqueps))
+<!-- latest_stable_release -->
+
 ## [v7.32.1](https://github.com/chef/cookstyle/tree/v7.32.1) (2022-03-04)
 
 #### Merged Pull Requests
 - Don&#39;t autocorrect Delivery&#39;s TOML or JSON files [#953](https://github.com/chef/cookstyle/pull/953) ([karmix](https://github.com/karmix))
-<!-- latest_stable_release -->
 
 ## [v7.32.0](https://github.com/chef/cookstyle/tree/v7.32.0) (2022-02-24)
 
