@@ -13,7 +13,11 @@ Bundler/InsecureProtocolSource:
   Enabled: false
 Bundler/OrderedGems:
   Enabled: false
-Gemspec/DateAssignment:
+Gemspec/DependencyVersion:
+  Enabled: false
+Gemspec/DeprecatedAttributeAssignment:
+  Enabled: false
+Gemspec/DevelopmentDependencies:
   Enabled: false
 Gemspec/DuplicatedAssignment:
   Enabled: false
@@ -127,6 +131,10 @@ Layout/LeadingCommentSpace:
   Enabled: false
 Layout/LeadingEmptyLines:
   Enabled: false
+Layout/LineContinuationLeadingSpace:
+  Enabled: false
+Layout/LineContinuationSpacing:
+  Enabled: false
 Layout/LineEndStringConcatenationIndentation:
   Enabled: false
 Layout/LineLength:
@@ -150,6 +158,8 @@ Layout/MultilineMethodCallBraceLayout:
 Layout/MultilineMethodCallIndentation:
   Enabled: false
 Layout/MultilineMethodDefinitionBraceLayout:
+  Enabled: false
+Layout/MultilineMethodParameterLineBreaks:
   Enabled: false
 Layout/MultilineOperationIndentation:
   Enabled: false
@@ -241,6 +251,8 @@ Lint/CircularArgumentReference:
   Enabled: false
 Lint/ConstantDefinitionInBlock:
   Enabled: false
+Lint/ConstantOverwrittenInRescue:
+  Enabled: false
 Lint/ConstantResolution:
   Enabled: false
 Lint/Debugger:
@@ -260,6 +272,8 @@ Lint/DuplicateCaseCondition:
 Lint/DuplicateElsifCondition:
   Enabled: false
 Lint/DuplicateHashKey:
+  Enabled: false
+Lint/DuplicateMagicComment:
   Enabled: false
 Lint/DuplicateMethods:
   Enabled: false
@@ -343,6 +357,8 @@ Lint/NextWithoutAccumulator:
   Enabled: false
 Lint/NoReturnInBeginEndBlocks:
   Enabled: false
+Lint/NonAtomicFileOperation:
+  Enabled: false
 Lint/NonDeterministicRequireOrder:
   Enabled: false
 Lint/NonLocalExitFromIterator:
@@ -385,9 +401,13 @@ Lint/RedundantWithIndex:
   Enabled: false
 Lint/RedundantWithObject:
   Enabled: false
+Lint/RefinementImportMethods:
+  Enabled: false
 Lint/RegexpAsCondition:
   Enabled: false
 Lint/RequireParentheses:
+  Enabled: false
+Lint/RequireRangeParentheses:
   Enabled: false
 Lint/RequireRelativeSelfPath:
   Enabled: false
@@ -461,6 +481,8 @@ Lint/UselessElseWithoutRescue:
   Enabled: false
 Lint/UselessMethodDefinition:
   Enabled: false
+Lint/UselessRescue:
+  Enabled: false
 Lint/UselessRuby2Keywords:
   Enabled: false
 Lint/UselessSetterCall:
@@ -478,6 +500,8 @@ Metrics/BlockLength:
 Metrics/BlockNesting:
   Enabled: false
 Metrics/ClassLength:
+  Enabled: false
+Metrics/CollectionLiteralLength:
   Enabled: false
 Metrics/MethodLength:
   Enabled: false
@@ -535,6 +559,8 @@ Style/ArgumentsForwarding:
   Enabled: false
 Style/ArrayCoercion:
   Enabled: false
+Style/ArrayIntersect:
+  Enabled: false
 Style/ArrayJoin:
   Enabled: false
 Style/AsciiComments:
@@ -587,6 +613,10 @@ Style/CommentAnnotation:
   Enabled: false
 Style/CommentedKeyword:
   Enabled: false
+Style/ComparableClamp:
+  Enabled: false
+Style/ConcatArrayLiterals:
+  Enabled: false
 Style/ConditionalAssignment:
   Enabled: false
 Style/ConstantVisibility:
@@ -598,6 +628,8 @@ Style/DateTime:
 Style/DefWithParentheses:
   Enabled: false
 Style/Dir:
+  Enabled: false
+Style/DirEmpty:
   Enabled: false
 Style/DisableCopsWithinSourceCodeDirective:
   Enabled: false
@@ -621,6 +653,8 @@ Style/EmptyCaseCondition:
   Enabled: false
 Style/EmptyElse:
   Enabled: false
+Style/EmptyHeredoc:
+  Enabled: false
 Style/EmptyLambdaParameter:
   Enabled: false
 Style/EmptyLiteral:
@@ -633,6 +667,8 @@ Style/Encoding:
   Enabled: false
 Style/EndBlock:
   Enabled: false
+Style/EnvHome:
+  Enabled: false
 Style/EvalWithLocation:
   Enabled: false
 Style/EvenOdd:
@@ -642,6 +678,10 @@ Style/ExpandPathArguments:
 Style/ExplicitBlockArgument:
   Enabled: false
 Style/ExponentialNotation:
+  Enabled: false
+Style/FetchEnvVar:
+  Enabled: false
+Style/FileEmpty:
   Enabled: false
 Style/FileRead:
   Enabled: false
@@ -701,6 +741,8 @@ Style/InverseMethods:
   Enabled: false
 Style/InlineComment:
   Enabled: false
+Style/InvertibleUnlessCondition:
+  Enabled: false
 Style/IpAddresses:
   Enabled: false
 Style/KeywordParametersOrder:
@@ -711,11 +753,17 @@ Style/LambdaCall:
   Enabled: false
 Style/LineEndConcatenation:
   Enabled: false
+Style/MagicCommentFormat:
+  Enabled: false
 Style/MapToHash:
+  Enabled: false
+Style/MapToSet:
   Enabled: false
 Style/MethodCallWithoutArgsParentheses:
   Enabled: false
 Style/MethodCallWithArgsParentheses:
+  Enabled: false
+Style/MinMaxComparison:
   Enabled: false
 Style/MultilineInPatternThen:
   Enabled: false
@@ -723,19 +771,35 @@ Style/NumberedParameters:
   Enabled: false
 Style/OpenStructUse:
   Enabled: false
+Style/OperatorMethodCall:
+  Enabled: false
 Style/RedundantAssignment:
+  Enabled: false
+Style/RedundantConstantBase:
+  Enabled: false
+Style/RedundantDoubleSplatHashBraces:
+  Enabled: false
+Style/RedundantEach:
   Enabled: false
 Style/RedundantFetchBlock:
   Enabled: false
 Style/RedundantFileExtensionInRequire:
   Enabled: false
+Style/RedundantHeredocDelimiterQuotes:
+  Enabled: false
+Style/RedundantInitialize:
+  Enabled: false
 Style/RedundantSelfAssignment:
   Enabled: false
 Style/RedundantSelfAssignmentBranch:
   Enabled: false
+Style/RequireOrder:
+  Enabled: false
 Style/SoleNestedConditional:
   Enabled: false
 Style/StaticClass:
+  Enabled: false
+Style/MapCompactWithConditionalBlock:
   Enabled: false
 Style/MethodCalledOnDoEndBlock:
   Enabled: false
@@ -779,6 +843,8 @@ Style/NegatedUnless:
   Enabled: false
 Style/NegatedWhile:
   Enabled: false
+Style/NestedFileDirname:
+  Enabled: false
 Style/NestedModifier:
   Enabled: false
 Style/NestedParenthesizedCalls:
@@ -802,6 +868,8 @@ Style/NumericLiterals:
 Style/NumericLiteralPrefix:
   Enabled: false
 Style/NumericPredicate:
+  Enabled: false
+Style/ObjectThen:
   Enabled: false
 Style/OneLineConditional:
   Enabled: false
@@ -864,6 +932,8 @@ Style/RedundantSelf:
 Style/RedundantSort:
   Enabled: false
 Style/RedundantSortBy:
+  Enabled: false
+Style/RedundantStringEscape:
   Enabled: false
 Style/RegexpLiteral:
   Enabled: false
@@ -967,7 +1037,11 @@ Style/WordArray:
   Enabled: false
 Style/YodaCondition:
   Enabled: false
+Style/YodaExpression:
+  Enabled: false
 Style/ZeroLengthPredicate:
+  Enabled: false
+Security/CompoundHash:
   Enabled: false
 Security/Eval:
   Enabled: false
