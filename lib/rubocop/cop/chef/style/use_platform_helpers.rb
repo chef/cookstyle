@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   node['platform'] == 'ubuntu'
         #   node['platform_family'] == 'debian'
         #   node['platform'] != 'ubuntu'
@@ -31,7 +31,7 @@ module RuboCop
         #   %w(rhel suse).include?(node['platform_family'])
         #   node['platform'].eql?('ubuntu')
         #
-        #   #### correct
+        #   ### correct
         #   platform?('ubuntu')
         #   !platform?('ubuntu')
         #   platform_family?('debian')

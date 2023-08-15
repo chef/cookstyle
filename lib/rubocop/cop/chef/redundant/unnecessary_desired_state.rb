@@ -23,11 +23,11 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   property :foo, String, desired_state: true
         #   attribute :foo, String, desired_state: true
         #
-        #   #### correct
+        #   ### correct
         #   property :foo, String
         #   attribute :foo, String
         #

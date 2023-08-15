@@ -23,14 +23,14 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   macos_userdefaults 'set a value' do
         #     global true
         #     key 'key'
         #     value 'value'
         #   end
         #
-        #   #### correct
+        #   ### correct
         #   macos_userdefaults 'set a value' do
         #     key 'key'
         #     value 'value'

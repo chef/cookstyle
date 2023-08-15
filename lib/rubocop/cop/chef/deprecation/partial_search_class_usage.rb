@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   ::Chef::PartialSearch.new.search((:node, 'role:web',
         #     keys: { 'name' => [ 'name' ],
         #             'ip' => [ 'ipaddress' ],
@@ -35,7 +35,7 @@ module RuboCop
         #     puts result['kernel_version']
         #   end
         #
-        #   #### correct
+        #   ### correct
         #   search(:node, 'role:web',
         #     filter_result: { 'name' => [ 'name' ],
         #                      'ip' => [ 'ipaddress' ],

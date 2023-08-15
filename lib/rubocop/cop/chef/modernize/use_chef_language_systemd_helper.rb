@@ -23,10 +23,10 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   node['init_package'] == 'systemd'
         #
-        #   #### correct
+        #   ### correct
         #   systemd?
         #
         class UseChefLanguageSystemdHelper < Base

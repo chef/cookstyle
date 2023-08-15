@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   cookbook_file '/logs/foo/error.log' do
         #     source 'error.log'
         #     only_if { system('wget https://www.bar.com/foobar.txt -O /dev/null') }
@@ -34,7 +34,7 @@ module RuboCop
         #     only_if { shell_out('wget https://www.bar.com/foobar.txt -O /dev/null').exitstatus == 0 }
         #   end
         #
-        #   #### correct
+        #   ### correct
         #   cookbook_file '/logs/foo/error.log' do
         #     source 'error.log'
         #     only_if 'wget https://www.bar.com/foobar.txt -O /dev/null'

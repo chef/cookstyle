@@ -23,10 +23,10 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   property :foo, String
         #
-        #   #### correct
+        #   ### correct
         #   property :foo, String, description: "Set the important thing to..."
         #
         class IncludePropertyDescriptions < Base

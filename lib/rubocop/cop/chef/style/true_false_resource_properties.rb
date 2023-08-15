@@ -23,10 +23,10 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   property :foo, [TrueClass, FalseClass]
         #
-        #   #### correct
+        #   ### correct
         #   property :foo, [true, false]
         #
         class TrueClassFalseClassResourceProperties < Base

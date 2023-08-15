@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   Copyright:: 2013-2022 Opscode, Inc.
         #   Copyright:: 2013-2022 Chef Inc.
         #   Copyright:: 2013-2022 Chef Software Inc.
@@ -32,7 +32,7 @@ module RuboCop
         #   Copyright:: Tim Smith
         #   Copyright:: Copyright (c) 2015-2022 Chef Software, Inc.
         #
-        #   #### correct
+        #   ### correct
         #   Copyright:: 2013-2022 Chef Software, Inc.
         #   Copyright:: 2013-2022 Tim Smith
         #   Copyright:: 2019 37Signals, Inc.

@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect in metadata.rb:
+        #   ### incorrect in metadata.rb:
         #
         #   provides "some_thing"
         #

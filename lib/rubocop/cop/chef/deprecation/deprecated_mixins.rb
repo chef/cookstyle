@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   include Chef::Mixin::LanguageIncludeAttribute
         #   include Chef::Mixin::RecipeDefinitionDSLCore
         #   include Chef::Mixin::LanguageIncludeRecipe

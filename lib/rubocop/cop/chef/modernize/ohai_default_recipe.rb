@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   include_recipe 'ohai::default'
         #   include_recipe 'ohai'
         #

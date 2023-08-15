@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   #### correct
+        #   ### correct
         #   name 'foo'
         #   version '1.0.0'
         #

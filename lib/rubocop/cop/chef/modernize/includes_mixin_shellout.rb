@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   require 'chef/mixin/shell_out'
         #   include Chef::Mixin::ShellOut
         #   require 'chef/mixin/powershell_out'
