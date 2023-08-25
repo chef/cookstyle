@@ -23,12 +23,12 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   chef_handler 'whatever' do
         #     supports start: true, report: true, exception: true
         #   end0
         #
-        #   #### correct
+        #   ### correct
         #   chef_handler 'whatever' do
         #     type start: true, report: true, exception: true
         #   end

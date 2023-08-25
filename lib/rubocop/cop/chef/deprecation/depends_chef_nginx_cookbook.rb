@@ -23,10 +23,10 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   depends 'chef_nginx'
         #
-        #   #### correct
+        #   ### correct
         #   depends 'nginx'
         #
         class DependsOnChefNginxCookbook < Base

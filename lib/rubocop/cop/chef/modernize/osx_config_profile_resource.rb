@@ -23,12 +23,12 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   osx_config_profile 'Install screensaver profile' do
         #     profile 'screensaver/com.company.screensaver.mobileconfig'
         #   end
         #
-        #   #### correct
+        #   ### correct
         #   osx_profile 'Install screensaver profile' do
         #     profile 'screensaver/com.company.screensaver.mobileconfig'
         #   end

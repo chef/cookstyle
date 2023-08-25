@@ -22,16 +22,16 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   node.deep_fetch("foo")
         #
-        #   #### correct
+        #   ### correct
         #   node.read("foo")
         #
-        #   #### incorrect
+        #   ### incorrect
         #   node.deep_fetch!("foo")
         #
-        #   #### correct
+        #   ### correct
         #   node.read!("foo")
         #
         class NodeDeepFetch < Base

@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   node.policy_group == "foo"
         #
         class CookbookUsesPolicygroups < Base

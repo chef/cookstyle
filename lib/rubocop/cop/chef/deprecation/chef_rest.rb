@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   require 'chef/rest'
         #   Chef::REST::RESTRequest.new(:GET, FOO, nil).call
         #

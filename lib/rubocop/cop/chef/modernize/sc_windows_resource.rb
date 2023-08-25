@@ -23,13 +23,13 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   sc_windows 'chef-client' do
         #     path "C:\\opscode\\chef\\bin"
         #     action :create
         #   end
         #
-        #   #### correct
+        #   ### correct
         #   windows_service 'chef-client' do
         #     action :create
         #     binary_path_name "C:\\opscode\\chef\\bin"

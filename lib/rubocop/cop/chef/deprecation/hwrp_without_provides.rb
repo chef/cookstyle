@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   class Chef
         #     class Resource
         #       class UlimitRule < Chef::Resource
@@ -35,7 +35,7 @@ module RuboCop
         #     end
         #   end
         #
-        #   #### incorrect
+        #   ### incorrect
         #   class Chef
         #     class Resource
         #       class UlimitRule < Chef::Resource
@@ -49,7 +49,7 @@ module RuboCop
         #     end
         #   end
         #
-        #  #### correct when Chef Infra Client < 15 (but compatible with 16+ as well)
+        #  ### correct when Chef Infra Client < 15 (but compatible with 16+ as well)
         #   class Chef
         #     class Resource
         #       class UlimitRule < Chef::Resource
@@ -64,7 +64,7 @@ module RuboCop
         #     end
         #   end
         #
-        #  #### correct when Chef Infra Client 16+
+        #  ### correct when Chef Infra Client 16+
         #   class Chef
         #     class Resource
         #       class UlimitRule < Chef::Resource

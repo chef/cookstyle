@@ -23,13 +23,13 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   Windows::VersionHelper.nt_version
         #   Windows::VersionHelper.server_version?
         #   Windows::VersionHelper.core_version?
         #   Windows::VersionHelper.workstation_version?
         #
-        #   #### correct
+        #   ### correct
         #   node['platform_version'].to_f
         #   node['kernel']['product_type'] == 'Server'
         #   node['kernel']['server_core']

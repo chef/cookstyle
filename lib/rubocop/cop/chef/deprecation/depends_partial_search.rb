@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   depends 'partial_search'
         #
         class CookbookDependsOnPartialSearch < Base
