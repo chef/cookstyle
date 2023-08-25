@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   chef_version '>= 13' if respond_to?(:chef_version)
         #   chef_version '>= 13' if defined?(chef_version)
         #   chef_version '>= 13' unless defined?(Ridley::Chef::Cookbook::Metadata)
@@ -31,7 +31,7 @@ module RuboCop
         #     chef_version '>= 13'
         #   end
         #
-        #   #### correct
+        #   ### correct
         #   chef_version '>= 13'
         #
         class RespondToInMetadata < Base

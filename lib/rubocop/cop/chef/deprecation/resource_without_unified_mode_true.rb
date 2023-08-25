@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #  #### incorrect
+        #  ### incorrect
         #   resource_name :foo
         #   provides :foo
         #
@@ -31,7 +31,7 @@ module RuboCop
         #     # some action code
         #   end
         #
-        #  #### correct
+        #  ### correct
         #   resource_name :foo
         #   provides :foo
         #   unified_mode true

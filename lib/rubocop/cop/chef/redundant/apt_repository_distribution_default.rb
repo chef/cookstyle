@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   apt_repository 'my repo' do
         #     uri 'http://packages.example.com/debian'
         #     components %w(stable main)
@@ -31,7 +31,7 @@ module RuboCop
         #     distribution node['lsb']['codename']
         #   end
         #
-        #   #### correct
+        #   ### correct
         #   apt_repository 'my repo' do
         #     uri 'http://packages.example.com/debian'
         #     components %w(stable main)

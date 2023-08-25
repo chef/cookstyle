@@ -23,10 +23,10 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   resource_name :foo if respond_to?(:resource_name)
         #
-        #   #### correct
+        #   ### correct
         #   resource_name :foo
         #
         class RespondToResourceName < Base

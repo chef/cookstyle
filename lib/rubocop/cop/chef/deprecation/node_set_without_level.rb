@@ -22,13 +22,13 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   node['foo']['bar'] = 1
         #   node['foo']['bar'] << 1
         #   node['foo']['bar'] += 1
         #   node['foo']['bar'] -= 1
         #
-        #   #### correct
+        #   ### correct
         #   node.default['foo']['bar'] = 1
         #   node.default['foo']['bar'] << 1
         #   node.default['foo']['bar'] += 1

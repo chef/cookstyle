@@ -23,11 +23,11 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   property :config_file, String, default: nil
         #   property :config_file, [String, NilClass], default: nil
         #
-        #   #### correct
+        #   ### correct
         #   property :config_file, String
         #   property :config_file, [String, NilClass]
         #

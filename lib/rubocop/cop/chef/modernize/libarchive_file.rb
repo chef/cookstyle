@@ -23,14 +23,14 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   depends 'libarchive'
         #
         #   libarchive_file "C:\file.zip" do
         #     path 'C:\expand_here'
         #   end
         #
-        #   #### correct
+        #   ### correct
         #   archive_file "C:\file.zip" do
         #     path 'C:\expand_here'
         #   end

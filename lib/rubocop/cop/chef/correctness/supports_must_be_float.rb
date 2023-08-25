@@ -23,10 +23,10 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   supports 'redhat', '> 8'
         #
-        #   #### correct
+        #   ### correct
         #   supports 'redhat', '> 8.0'
         #
         class SupportsMustBeFloat < Base

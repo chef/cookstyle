@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   template '/etc/cron.d/backup' do
         #     source 'cron_backup_job.erb'
         #     owner 'root'
@@ -71,7 +71,7 @@ module RuboCop
         #     action :delete
         #   end
         #
-        #   #### correct
+        #   ### correct
         #   cron_d 'backup' do
         #     minute '1'
         #     hour '1'

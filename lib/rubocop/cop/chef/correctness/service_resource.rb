@@ -22,7 +22,7 @@ module RuboCop
         #
         # @example when command starts a service
         #
-        #   #### incorrect
+        #   ### incorrect
         #   command "/etc/init.d/mysql start"
         #   command "/sbin/service/memcached start"
         #

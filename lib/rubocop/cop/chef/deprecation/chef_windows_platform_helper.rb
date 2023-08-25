@@ -23,10 +23,10 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   Chef::Platform.windows?
         #
-        #   #### correct
+        #   ### correct
         #   platform?('windows')
         #   platform_family?('windows')
         #

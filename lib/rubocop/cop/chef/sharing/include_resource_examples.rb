@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   #### correct
+        #   ### correct
         #   examples <<~DOC
         #     **Specify a global domain value**
         #

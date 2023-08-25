@@ -23,10 +23,10 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   Powershell::VersionHelper.powershell_version?('4.0')
         #
-        #   #### correct
+        #   ### correct
         #   node['powershell']['version'].to_f == 4.0
         #
         #   # better (Chef Infra Client 15.8+)

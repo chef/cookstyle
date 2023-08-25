@@ -23,12 +23,12 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   maintainer 'YOUR_COMPANY_NAME'
         #   maintainer_email 'YOUR_EMAIL'
         #   maintainer 'The Authors'
         #   maintainer_email 'you@example.com'
-        #   #### correct
+        #   ### correct
         #   maintainer 'Bob Bobberson'
         #   maintainer_email 'bob@bobberson.com'
         #

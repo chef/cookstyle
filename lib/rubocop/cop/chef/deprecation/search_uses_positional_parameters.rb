@@ -23,12 +23,12 @@ module RuboCop
         #
         # @example
         #
-        #### incorrect:
+        ### incorrect:
         #  search(:node, '*:*', 0, 1000, { :ip_address => ["ipaddress"] })
         #  search(:node, '*:*', 0, 1000)
         #  search(:node, '*:*', 0)
 
-        #### correct
+        ### correct
         #
         # query(:node, '*:*')
         #  search(:node, '*:*', start: 0, rows: 1000, filter_result: { :ip_address => ["ipaddress"] })

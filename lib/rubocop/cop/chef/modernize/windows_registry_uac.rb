@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   registry_key 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System' do
         #     values [{ name: 'EnableLUA', type: :dword, data: 0 },
         #             { name: 'PromptOnSecureDesktop', type: :dword, data: 0 },
@@ -32,7 +32,7 @@ module RuboCop
         #     action :create
         #   end
         #
-        #   #### correct
+        #   ### correct
         #   windows_uac 'Set Windows UAC settings' do
         #     enable_uac false
         #     prompt_on_secure_desktop true

@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        # #### incorrect
+        # ### incorrect
         # property :sensitive, [true, false], default: false
         #
         class SensitivePropertyInResource < Base

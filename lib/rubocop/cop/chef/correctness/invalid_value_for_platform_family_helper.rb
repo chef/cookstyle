@@ -23,13 +23,13 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   value_for_platform_family(
         #     %w(rhel sles) => 'foo',
         #     %w(mac) => 'foo'
         #   )
         #
-        #   #### correct
+        #   ### correct
         #   value_for_platform_family(
         #     %w(rhel suse) => 'foo',
         #     %w(mac_os_x) => 'foo'

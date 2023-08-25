@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #
         #   describe 'foo::default' do
         #     subject { ChefSpec::Runner.new.converge(described_recipe) }
@@ -31,7 +31,7 @@ module RuboCop
         #     # some spec code
         #   end
         #
-        #   #### correct
+        #   ### correct
         #
         #   describe 'foo::default' do
         #     subject { ChefSpec::ServerRunner.new.converge(described_recipe) }

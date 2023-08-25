@@ -23,14 +23,14 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   node.fqdn
         #   node.platform
         #   node.platform_family
         #   node.platform_version
         #   node.hostname
         #
-        #   #### correct
+        #   ### correct
         #   node['fqdn']
         #   node['platform']
         #   node['platform_family']

@@ -23,11 +23,11 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   ENV['CI']
         #   ENV['TEST_KITCHEN']
         #
-        #   #### correct
+        #   ### correct
         #   ci?
         #   kitchen?
         #

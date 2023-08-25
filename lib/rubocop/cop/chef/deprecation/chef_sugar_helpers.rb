@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   vagrant_key?
         #   vagrant_domain?
         #   vagrant_user?
