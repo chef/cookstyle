@@ -23,14 +23,14 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   template '/etc/foo' do
         #     mode '0644'
         #     source 'foo.erb'
         #     only_if { 'test -f /etc/foo' }
         #   end
         #
-        #   #### correct
+        #   ### correct
         #   template '/etc/foo' do
         #     mode '0644'
         #     source 'foo.erb'

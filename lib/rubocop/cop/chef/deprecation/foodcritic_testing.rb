@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   gem 'foodcritic'
         #   require 'foodcritic'
         #

@@ -23,13 +23,13 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   execute "Delete chef-client service" do
         #     command "sc.exe delete chef-client"
         #     action :run
         #   end
         #
-        #   #### correct
+        #   ### correct
         #   windows_service 'chef-client' do
         #     action :delete
         #   end

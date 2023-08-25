@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   template '/etc/www/configures-apache.conf' do
         #     notifies :restart, resources(service: 'apache')
         #   end
@@ -40,7 +40,7 @@ module RuboCop
         #     subscribes :restart, resources(service: service_name_variable), :immediately
         #   end
         #
-        #   #### correct
+        #   ### correct
         #   template '/etc/www/configures-apache.conf' do
         #     notifies :restart, 'service[apache]'
         #   end

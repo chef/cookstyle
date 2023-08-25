@@ -23,12 +23,12 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   platform?('darwin')
         #   platform?('rhel')
         #   platform?('sles')
         #
-        #   #### correct
+        #   ### correct
         #   platform?('mac_os_x')
         #   platform?('redhat')
         #   platform?('suse')

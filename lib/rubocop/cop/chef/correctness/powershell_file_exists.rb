@@ -23,10 +23,10 @@ module RuboCop
         #
         # @example
         #
-        #  #### incorrect
+        #  ### incorrect
         #  powershell_out('Test-Path "C:\\Program Files\\LAPS\\CSE\\AdmPwd.dll"').stdout.strip == 'True'
         #
-        #  #### correct
+        #  ### correct
         #  ::File.exist?('C:\Program Files\LAPS\CSE\AdmPwd.dll')
         #
         class PowershellFileExists < Base

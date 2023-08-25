@@ -23,12 +23,12 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   openssl_rsa_key '/etc/httpd/ssl/server.key' do
         #     key_length 2048
         #   end
         #
-        #   #### correct
+        #   ### correct
         #   openssl_rsa_private_key '/etc/httpd/ssl/server.key' do
         #     key_length 2048
         #   end

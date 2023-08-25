@@ -23,10 +23,10 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   login_defs_umask = input('login_defs_umask', default: '077', description: 'Default umask to set in login.defs')
         #
-        #   #### correct
+        #   ### correct
         #   login_defs_umask = input('login_defs_umask', value: '077', description: 'Default umask to set in login.defs')
         #
         class AttributeDefault < Base

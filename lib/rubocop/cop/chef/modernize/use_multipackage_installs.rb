@@ -23,14 +23,14 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   %w(bmon htop vim curl).each do |pkg|
         #     package pkg do
         #       action :install
         #     end
         #   end
         #
-        #   #### correct
+        #   ### correct
         #   package %w(bmon htop vim curl)
         #
         class UseMultipackageInstalls < Base

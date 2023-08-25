@@ -23,11 +23,11 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   name 'foo'
         #   depends 'foo'
         #
-        #   #### correct
+        #   ### correct
         #   name 'foo'
         #
         class CookbooksDependsOnSelf < Base

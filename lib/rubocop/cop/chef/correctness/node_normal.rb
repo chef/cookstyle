@@ -24,10 +24,10 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   node.normal['foo'] = true
         #
-        #   #### correct
+        #   ### correct
         #   node.default['foo'] = true
         #   node.override['foo'] = true
         #   node.force_default['foo'] = true

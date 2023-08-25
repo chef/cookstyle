@@ -23,12 +23,12 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   provides :foo if respond_to?(:provides)
         #
         #   provides :foo if defined? provides
         #
-        #   #### correct
+        #   ### correct
         #   provides :foo
         #
         class RespondToProvides < Base

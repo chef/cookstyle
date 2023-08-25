@@ -23,10 +23,10 @@ module RuboCop
         #
         # @example
         #
-        #   #### incorrect
+        #   ### incorrect
         #   require_recipe 'foo'
         #
-        #   #### correct
+        #   ### correct
         #   include_recipe 'foo'
         #
         class RequireRecipe < Base
