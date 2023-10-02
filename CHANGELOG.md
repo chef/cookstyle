@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.32.3 -->
-## [v7.32.3](https://github.com/chef/cookstyle/tree/v7.32.3) (2023-06-27)
+ <!-- latest_release 7.32.4 -->
+## [v7.32.4](https://github.com/chef/cookstyle/tree/v7.32.4) (2023-10-02)
 
 #### Merged Pull Requests
-- Fix Base API breakage in Chef/Style/CommentSentenceSpacing [#961](https://github.com/chef/cookstyle/pull/961) ([dafyddcrosby](https://github.com/dafyddcrosby))
+- Update README.md [#964](https://github.com/chef/cookstyle/pull/964) ([snohio](https://github.com/snohio))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.32.2 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Update README.md [#964](https://github.com/chef/cookstyle/pull/964) ([snohio](https://github.com/snohio)) <!-- 7.32.4 -->
 - Fix Base API breakage in Chef/Style/CommentSentenceSpacing [#961](https://github.com/chef/cookstyle/pull/961) ([dafyddcrosby](https://github.com/dafyddcrosby)) <!-- 7.32.3 -->
 <!-- release_rollup -->
 
