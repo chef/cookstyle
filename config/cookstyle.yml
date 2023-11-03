@@ -2865,8 +2865,8 @@ Bundler/DuplicatedGem:
   Enabled: true
 
 # This results in very confusing code to read with little perf benefit
-Performance/Casecmp:
-  Enabled: false
+# Performance/Casecmp: # TODO: move to cookstyle project .rubocop.yml?
+#   Enabled: false
 
 # This comes with changing the ruby target to 2.3+
 Style/FrozenStringLiteralComment:
@@ -2924,8 +2924,8 @@ Style/MinMax:
 Lint/UriRegexp:
   Enabled: true
 
-Performance/UriDefaultParser:
-  Enabled: true
+# Performance/UriDefaultParser: # TODO: move to cookstyle project .rubocop.yml?
+#   Enabled: true
 
 # :true or :false seems like a horrible idea
 Lint/BooleanSymbol:
