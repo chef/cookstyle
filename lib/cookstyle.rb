@@ -15,26 +15,12 @@ require_relative 'rubocop/monkey_patches/base'
 require_relative 'rubocop/monkey_patches/team'
 require_relative 'rubocop/monkey_patches/registry_cop'
 
-module RuboCop
-  class ConfigLoader
-    RUBOCOP_HOME.gsub!(
-      /^.*$/,
-      File.realpath(File.join(__dir__, '..'))
-    )
-
-    DEFAULT_FILE.gsub!(
-      /^.*$/,
-      File.join(RUBOCOP_HOME, 'config', 'default.yml')
-    )
-  end
-end
-
 # Cookstyle patches the RuboCop tool to set a new default configuration that
 # is vendored in the Cookstyle codebase.
 module Cookstyle
   # @return [String] the absolute path to the main RuboCop configuration YAML file
   def self.config
-    RuboCop::ConfigLoader::DEFAULT_FILE
+    File.realpath(File.join(__dir__, '..', 'config', 'default.yml'))
   end
 end
 
@@ -51,3 +37,8 @@ Dir.glob(__dir__ + '/rubocop/cop/**/*.rb') do |file|
 
   require_relative file # not actually relative but require_relative is faster
 end
+
+# stub default value of TargetChefVersion to avoid STDERR noise
+RuboCop::ConfigLoader.default_configuration['AllCops']['TargetChefVersion'] = '~'
+
+RuboCop::ConfigLoader.default_configuration = RuboCop::ConfigLoader.configuration_from_file(Cookstyle.config)
