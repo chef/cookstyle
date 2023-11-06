@@ -1,3 +1,2 @@
 inherit_from:
-  - disable_all.yml
   - cookstyle.yml
