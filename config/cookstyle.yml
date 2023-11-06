@@ -1,5 +1,7 @@
 AllCops:
   SuggestExtensions: false
+  NewCops: disable
+  DisabledByDefault: true
   TargetRubyVersion: 2.5
   TargetChefVersion: ~
   inherit_mode:
