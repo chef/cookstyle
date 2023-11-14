@@ -2,4 +2,3 @@
 
 *             @chef/chef-infra-owners @chef/chef-infra-approvers @chef/chef-infra-reviewers
 .expeditor/   @chef/jex-team
-*.md          @chef/docs-team
