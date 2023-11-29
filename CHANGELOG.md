@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.32.5 -->
-## [v7.32.5](https://github.com/chef/cookstyle/tree/v7.32.5) (2023-11-14)
+ <!-- latest_release 7.32.6 -->
+## [v7.32.6](https://github.com/chef/cookstyle/tree/v7.32.6) (2023-11-29)
 
 #### Merged Pull Requests
-- Simplify setting default cops [#965](https://github.com/chef/cookstyle/pull/965) ([dafyddcrosby](https://github.com/dafyddcrosby))
+- Remove docs team as required for md here [#966](https://github.com/chef/cookstyle/pull/966) ([tpowell-progress](https://github.com/tpowell-progress))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.32.2 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Remove docs team as required for md here [#966](https://github.com/chef/cookstyle/pull/966) ([tpowell-progress](https://github.com/tpowell-progress)) <!-- 7.32.6 -->
 - Simplify setting default cops [#965](https://github.com/chef/cookstyle/pull/965) ([dafyddcrosby](https://github.com/dafyddcrosby)) <!-- 7.32.5 -->
 - Update README.md [#964](https://github.com/chef/cookstyle/pull/964) ([snohio](https://github.com/snohio)) <!-- 7.32.4 -->
 - Fix Base API breakage in Chef/Style/CommentSentenceSpacing [#961](https://github.com/chef/cookstyle/pull/961) ([dafyddcrosby](https://github.com/dafyddcrosby)) <!-- 7.32.3 -->
