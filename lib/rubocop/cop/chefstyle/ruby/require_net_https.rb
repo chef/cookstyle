@@ -43,7 +43,7 @@ module RuboCop
           def on_send(node)
             require_net_https?(node) do
               add_offense(node.loc.expression, message: MSG, severity: :refactor) do |corrector|
-                corrector.replace(node, %Q{require "net/http"\nrequire "openssl"})
+                corrector.replace(node, %{require "net/http"\nrequire "openssl"})
               end
             end
           end
