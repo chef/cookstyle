@@ -34,7 +34,7 @@ module RuboCop
         class RequireNetHttps < Base
           extend RuboCop::Cop::AutoCorrector
 
-          MSG = "net/https is deprecated and just includes net/http and openssl. We should include those directly instead."
+          MSG = 'net/https is deprecated and just includes net/http and openssl. We should include those directly instead.'
 
           def_node_matcher :require_net_https?, <<-PATTERN
             (send nil? :require (str "net/https"))

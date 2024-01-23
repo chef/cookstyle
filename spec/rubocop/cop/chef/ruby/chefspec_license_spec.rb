@@ -16,18 +16,18 @@
 # limitations under the License.
 #
 
-require "spec_helper"
+require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Ruby::GemspecLicense, :config do
   subject(:cop) { described_class.new(config) }
 
   before do
     allow(IO).to receive(:read).and_call_original
-    allow(IO).to receive(:read).with("/foo/bar/chef.gemspec").and_return("Gem::Specification.new do |spec|\n  spec.name          = 'chef'\nend")
+    allow(IO).to receive(:read).with('/foo/bar/chef.gemspec').and_return("Gem::Specification.new do |spec|\n  spec.name          = 'chef'\nend")
   end
 
-  it "registers an offense when the license method is missing" do
-    expect_offense(<<~RUBY, "/foo/bar/chef.gemspec")
+  it 'registers an offense when the license method is missing' do
+    expect_offense(<<~RUBY, '/foo/bar/chef.gemspec')
       Gem::Specification.new do |spec|
       ^ All gemspec files should define their license.
         spec.name          = "chef"

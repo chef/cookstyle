@@ -23,7 +23,7 @@ module RuboCop
         # Use powershell_exec!/powershell_exec instead of powershell_out!/powershell_out. The new
         # methods don't spawn 2 shells per shellout and instead use .NET bindings to call PS directly.
         class LegacyPowershellOutMethods < Base
-          MSG = "Use powershell_exec!/powershell_exec instead of the slower legacy powershell_out!/powershell_out methods."
+          MSG = 'Use powershell_exec!/powershell_exec instead of the slower legacy powershell_out!/powershell_out methods.'
           RESTRICT_ON_SEND = %i(powershell_out! powershell_out).freeze
 
           def on_send(node)
