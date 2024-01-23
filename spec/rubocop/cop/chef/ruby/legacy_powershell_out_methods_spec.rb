@@ -23,15 +23,15 @@ describe RuboCop::Cop::Chef::Ruby::LegacyPowershellOutMethods, :config do
 
   it 'registers an offense when using powershell_out!' do
     expect_offense(<<~RUBY)
-    powershell_out!('foo')
-    ^^^^^^^^^^^^^^^^^^^^^^ Use powershell_exec!/powershell_exec instead of the slower legacy powershell_out!/powershell_out methods.
+      powershell_out!('foo')
+      ^^^^^^^^^^^^^^^^^^^^^^ Use powershell_exec!/powershell_exec instead of the slower legacy powershell_out!/powershell_out methods.
     RUBY
   end
 
   it 'registers an offense when using powershell_out' do
     expect_offense(<<~RUBY)
-    powershell_out('foo')
-    ^^^^^^^^^^^^^^^^^^^^^ Use powershell_exec!/powershell_exec instead of the slower legacy powershell_out!/powershell_out methods.
+      powershell_out('foo')
+      ^^^^^^^^^^^^^^^^^^^^^ Use powershell_exec!/powershell_exec instead of the slower legacy powershell_out!/powershell_out methods.
     RUBY
   end
 

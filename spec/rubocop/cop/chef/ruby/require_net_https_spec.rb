@@ -23,13 +23,13 @@ describe RuboCop::Cop::Chef::Ruby::RequireNetHttps, :config do
 
   it 'registers an offense when when requiring net/https' do
     expect_offense(<<~RUBY)
-    require 'net/https'
-    ^^^^^^^^^^^^^^^^^^^ net/https is deprecated and just includes net/http and openssl. We should include those directly instead.
+      require 'net/https'
+      ^^^^^^^^^^^^^^^^^^^ net/https is deprecated and just includes net/http and openssl. We should include those directly instead.
     RUBY
 
     expect_correction(<<~RUBY)
-    require "net/http"
-    require "openssl"
+      require "net/http"
+      require "openssl"
     RUBY
   end
 
