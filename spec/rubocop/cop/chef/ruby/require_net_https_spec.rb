@@ -16,12 +16,12 @@
 # limitations under the License.
 #
 
-require "spec_helper"
+require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Ruby::RequireNetHttps, :config do
   subject(:cop) { described_class.new(config) }
 
-  it "registers an offense when when requiring net/https" do
+  it 'registers an offense when when requiring net/https' do
     expect_offense(<<~RUBY)
     require 'net/https'
     ^^^^^^^^^^^^^^^^^^^ net/https is deprecated and just includes net/http and openssl. We should include those directly instead.

@@ -16,13 +16,13 @@
 # limitations under the License.
 #
 
-require "spec_helper"
+require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Ruby::UnlessDefinedRequire, :config do
   subject(:cop) { described_class.new(config) }
 
-  context "with a require known to the cop" do
-    it "registers an offense without an if defined? check" do
+  context 'with a require known to the cop' do
+    it 'registers an offense without an if defined? check' do
       expect_offense(<<~RUBY)
       require 'digest/md5'
       ^^^^^^^^^^^^^^^^^^^^ Workaround rubygems slow requires by only running require if the class isn't already defined
@@ -40,7 +40,7 @@ describe RuboCop::Cop::Chef::Ruby::UnlessDefinedRequire, :config do
     end
   end
 
-  context "with a require unknown to the cop" do
+  context 'with a require unknown to the cop' do
     it "doesn't register an offense with an if defined? check" do
       expect_no_offenses("require 'foo/bar' unless defined?(Foo::Bar)")
     end

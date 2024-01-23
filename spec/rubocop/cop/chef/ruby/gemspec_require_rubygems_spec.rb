@@ -16,12 +16,12 @@
 # limitations under the License.
 #
 
-require "spec_helper"
+require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Ruby::GemspecRequireRubygems, :config do
   subject(:cop) { described_class.new(config) }
 
-  it "registers an offense when requiring rubygems" do
+  it 'registers an offense when requiring rubygems' do
     expect_offense(<<~RUBY)
     require "rubygems"
     ^^^^^^^^^^^^^^^^^^ Rubygems does not need to be required in a Gemspec. It's already loaded out of the box in Ruby now.
@@ -30,7 +30,7 @@ describe RuboCop::Cop::Chef::Ruby::GemspecRequireRubygems, :config do
     expect_correction("\n")
   end
 
-  it "registers an offense when requiring rubygems with a conditional" do
+  it 'registers an offense when requiring rubygems with a conditional' do
     expect_offense(<<~RUBY)
     require "rubygems" unless defined?(Gem)
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Rubygems does not need to be required in a Gemspec. It's already loaded out of the box in Ruby now.
