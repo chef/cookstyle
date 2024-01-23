@@ -30,7 +30,7 @@ module RuboCop
         class GemspecLicense < Base
           include RangeHelp
 
-          MSG = "All gemspec files should define their license."
+          MSG = 'All gemspec files should define their license.'
 
           def_node_search :license, <<~PATTERN
             (send _ {:license= :licenses=} _)

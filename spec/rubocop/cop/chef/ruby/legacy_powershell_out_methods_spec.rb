@@ -16,19 +16,19 @@
 # limitations under the License.
 #
 
-require "spec_helper"
+require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Ruby::LegacyPowershellOutMethods, :config do
   subject(:cop) { described_class.new(config) }
 
-  it "registers an offense when using powershell_out!" do
+  it 'registers an offense when using powershell_out!' do
     expect_offense(<<~RUBY)
     powershell_out!('foo')
     ^^^^^^^^^^^^^^^^^^^^^^ Use powershell_exec!/powershell_exec instead of the slower legacy powershell_out!/powershell_out methods.
     RUBY
   end
 
-  it "registers an offense when using powershell_out" do
+  it 'registers an offense when using powershell_out' do
     expect_offense(<<~RUBY)
     powershell_out('foo')
     ^^^^^^^^^^^^^^^^^^^^^ Use powershell_exec!/powershell_exec instead of the slower legacy powershell_out!/powershell_out methods.
