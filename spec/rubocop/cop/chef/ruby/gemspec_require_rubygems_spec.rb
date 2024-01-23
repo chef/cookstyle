@@ -23,8 +23,8 @@ describe RuboCop::Cop::Chef::Ruby::GemspecRequireRubygems, :config do
 
   it 'registers an offense when requiring rubygems' do
     expect_offense(<<~RUBY)
-    require "rubygems"
-    ^^^^^^^^^^^^^^^^^^ Rubygems does not need to be required in a Gemspec. It's already loaded out of the box in Ruby now.
+      require "rubygems"
+      ^^^^^^^^^^^^^^^^^^ Rubygems does not need to be required in a Gemspec. It's already loaded out of the box in Ruby now.
     RUBY
 
     expect_correction("\n")
@@ -32,8 +32,8 @@ describe RuboCop::Cop::Chef::Ruby::GemspecRequireRubygems, :config do
 
   it 'registers an offense when requiring rubygems with a conditional' do
     expect_offense(<<~RUBY)
-    require "rubygems" unless defined?(Gem)
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Rubygems does not need to be required in a Gemspec. It's already loaded out of the box in Ruby now.
+      require "rubygems" unless defined?(Gem)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Rubygems does not need to be required in a Gemspec. It's already loaded out of the box in Ruby now.
     RUBY
 
     expect_correction("\n")
