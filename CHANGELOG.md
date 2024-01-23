@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.32.6 -->
-## [v7.32.6](https://github.com/chef/cookstyle/tree/v7.32.6) (2023-11-29)
+ <!-- latest_release 7.32.7 -->
+## [v7.32.7](https://github.com/chef/cookstyle/tree/v7.32.7) (2024-01-23)
 
 #### Merged Pull Requests
-- Remove docs team as required for md here [#966](https://github.com/chef/cookstyle/pull/966) ([tpowell-progress](https://github.com/tpowell-progress))
+- [chefstyle] import Chefstyle cops and config [#968](https://github.com/chef/cookstyle/pull/968) ([dafyddcrosby](https://github.com/dafyddcrosby))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.32.2 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- [chefstyle] import Chefstyle cops and config [#968](https://github.com/chef/cookstyle/pull/968) ([dafyddcrosby](https://github.com/dafyddcrosby)) <!-- 7.32.7 -->
 - Remove docs team as required for md here [#966](https://github.com/chef/cookstyle/pull/966) ([tpowell-progress](https://github.com/tpowell-progress)) <!-- 7.32.6 -->
 - Simplify setting default cops [#965](https://github.com/chef/cookstyle/pull/965) ([dafyddcrosby](https://github.com/dafyddcrosby)) <!-- 7.32.5 -->
 - Update README.md [#964](https://github.com/chef/cookstyle/pull/964) ([snohio](https://github.com/snohio)) <!-- 7.32.4 -->
