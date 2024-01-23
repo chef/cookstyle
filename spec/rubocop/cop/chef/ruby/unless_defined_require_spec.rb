@@ -24,8 +24,8 @@ describe RuboCop::Cop::Chef::Ruby::UnlessDefinedRequire, :config do
   context 'with a require known to the cop' do
     it 'registers an offense without an if defined? check' do
       expect_offense(<<~RUBY)
-      require 'digest/md5'
-      ^^^^^^^^^^^^^^^^^^^^ Workaround rubygems slow requires by only running require if the class isn't already defined
+        require 'digest/md5'
+        ^^^^^^^^^^^^^^^^^^^^ Workaround rubygems slow requires by only running require if the class isn't already defined
       RUBY
 
       expect_correction("require 'digest/md5' unless defined?(Digest::MD5)\n")
