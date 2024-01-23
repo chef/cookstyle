@@ -1,6 +1,13 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
+if ARGV.include?('--chefstyle')
+  ARGV.delete('--chefstyle')
+  module Cookstyle
+    CHEFSTYLE_CONFIG = true
+  end
+end
+
 $LOAD_PATH.unshift File.join(__dir__, %w(.. lib))
 
 require 'cookstyle'
