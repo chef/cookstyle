@@ -1,16 +1,14 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-if ARGV.include?('--chefstyle')
-  ARGV.delete('--chefstyle')
-  module Cookstyle
-    CHEFSTYLE_CONFIG = true
-  end
-end
-
 $LOAD_PATH.unshift File.join(__dir__, %w(.. lib))
 
-require 'cookstyle'
+if ARGV.include?('--chefstyle')
+  ARGV.delete('--chefstyle')
+  require 'cookstyle/chefstyle'
+else
+  require 'cookstyle'
+end
 
 # force the fail level to :convention so that we can set all our new rules to
 # the lowest level of :refactor without failing everyone's CI jobs
