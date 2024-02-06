@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 7.32.8 -->
+## [v7.32.8](https://github.com/chef/cookstyle/tree/v7.32.8) (2024-02-06)
+
+#### Merged Pull Requests
+- Add chefstyle library file for Rake backwards compatibility [#969](https://github.com/chef/cookstyle/pull/969) ([dafyddcrosby](https://github.com/dafyddcrosby))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=7.32.7 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Add chefstyle library file for Rake backwards compatibility [#969](https://github.com/chef/cookstyle/pull/969) ([dafyddcrosby](https://github.com/dafyddcrosby)) <!-- 7.32.8 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
