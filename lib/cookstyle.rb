@@ -39,7 +39,10 @@ Dir.glob(__dir__ + '/rubocop/cop/**/*.rb') do |file|
   require_relative file # not actually relative but require_relative is faster
 end
 
-# stub default value of TargetChefVersion to avoid STDERR noise
-RuboCop::ConfigLoader.default_configuration['AllCops']['TargetChefVersion'] = '~'
+# stub default value of TargetChefVersion to avoid STDERR noise when ConfigLoader.configuration_from_file runs
+RuboCop::ConfigLoader.default_configuration['AllCops']['TargetChefVersion'] ||= nil
 
 RuboCop::ConfigLoader.default_configuration = RuboCop::ConfigLoader.configuration_from_file(Cookstyle.config)
+
+# re-stub TargetChefVersion to avoid STDERR noise on *next* configuration load
+RuboCop::ConfigLoader.default_configuration['AllCops']['TargetChefVersion'] ||= nil
