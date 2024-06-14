@@ -112,6 +112,24 @@ describe RuboCop::Cop::Chef::Modernize::CronDFileOrTemplate, :config do
     RUBY
   end
 
+  # https://github.com/chef/cookstyle/issues/946
+  it 'does not register an offense when path is /etc/cron.deny' do
+    expect_no_offenses(<<~RUBY)
+      file '/etc/cron.deny' do
+        action :delete
+      end
+    RUBY
+  end
+
+  # https://github.com/chef/cookstyle/issues/954
+  it 'does not register an offense when path is /etc/cron.daily/foo' do
+    expect_no_offenses(<<~RUBY)
+      file '/etc/cron.daily/foo' do
+        action :delete
+      end
+    RUBY
+  end
+
   it 'does not register an offense when the resource name is a variable or method' do
     expect_no_offenses(<<~RUBY)
       template foo do
