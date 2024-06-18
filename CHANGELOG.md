@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.32.9 -->
-## [v7.32.9](https://github.com/chef/cookstyle/tree/v7.32.9) (2024-06-18)
+ <!-- latest_release 7.32.10 -->
+## [v7.32.10](https://github.com/chef/cookstyle/tree/v7.32.10) (2024-06-18)
 
 #### Merged Pull Requests
-- [#946 and #954] Add missing tests [#972](https://github.com/chef/cookstyle/pull/972) ([dafyddcrosby](https://github.com/dafyddcrosby))
+- Fix #970: Add extra stub to pass ConfigValidator [#971](https://github.com/chef/cookstyle/pull/971) ([dafyddcrosby](https://github.com/dafyddcrosby))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.32.8 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Fix #970: Add extra stub to pass ConfigValidator [#971](https://github.com/chef/cookstyle/pull/971) ([dafyddcrosby](https://github.com/dafyddcrosby)) <!-- 7.32.10 -->
 - [#946 and #954] Add missing tests [#972](https://github.com/chef/cookstyle/pull/972) ([dafyddcrosby](https://github.com/dafyddcrosby)) <!-- 7.32.9 -->
 <!-- release_rollup -->
 
