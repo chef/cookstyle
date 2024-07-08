@@ -217,7 +217,7 @@ Chef/Correctness/NodeNormalUnless:
 
 Chef/Correctness/TmpPath:
   Description: Use file_cache_path rather than hard-coding tmp paths
-  StyleGuide: 'chef_correctness_nodenormalunless'
+  StyleGuide: 'chef_correctness_tmppath'
   Enabled: true
   VersionAdded: '5.0.0'
   Exclude:
