@@ -26,4 +26,5 @@ end
 group :development do
   gem 'rake'
   gem 'rspec', '>= 3.4'
+  gem 'appbundler'
 end
