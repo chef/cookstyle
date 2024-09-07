@@ -2,8 +2,8 @@ $ErrorActionPreference = "Stop"
 $PSDefaultParameterValues['*:ErrorAction']='Stop'
 
 $pkg_name="cookstyle"
-$pkg_origin="ngupta26"
-$pkg_version=$(Get-Content "$PLAN_CONTEXT/../VERSION")
+$pkg_origin="core"
+$pkg_version="7.32.11"
 $pkg_revision="1"
 $pkg_maintainer="The Chef Maintainers <humans@chef.io>"
 

@@ -1,5 +1,5 @@
 pkg_name=cookstyle
-pkg_origin=ngupta26
+pkg_origin=core
 pkg_version="7.32.11"
 pkg_description="Manage Chef Infra cookbooks and cookbook dependencies"
 pkg_license=('Apache-2.0')
