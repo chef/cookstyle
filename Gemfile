@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 
 # Specify your gem's dependencies in cookstyle.gemspec
 gemspec
-
+gem 'appbundler'
 group :debug do
   gem 'pry'
 end
@@ -26,5 +26,4 @@ end
 group :development do
   gem 'rake'
   gem 'rspec', '>= 3.4'
-  gem 'appbundler'
 end
