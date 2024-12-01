@@ -112,14 +112,12 @@ Lint/ShadowedException:
   Enabled: true
 Lint/ShadowingOuterLocalVariable:
   Enabled: true
-Lint/RedundantStringCoercion:
-  Enabled: true
 Lint/UnderscorePrefixedVariableName:
   Enabled: true
 Lint/UnifiedInteger:
   Enabled: true
-# Lint/UnneededSplatExpansion: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Lint/RedundantSplatExpansion:
+  Enabled: true
 Lint/UnreachableCode:
   Enabled: true
 Lint/UriEscapeUnescape:
@@ -476,11 +474,11 @@ Style/TrailingUnderscoreVariable:
   Enabled: true
 Layout/TrailingWhitespace:
   Enabled: true
-# Style/UnneededCapitalW: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Style/RedundantCapitalW:
+  Enabled: true
 Style/RedundantInterpolation:
   Enabled: false # buggy: https://github.com/rubocop-hq/rubocop/issues/6099
-#Style/UnneededPercentQ:  # would like to enable this one but its buggy as of 0.35.1
+#Style/RedundantPercentQ:  # would like to enable this one but its buggy as of 0.35.1
 #  Enabled: true
 Naming/VariableName:
   Enabled: true
