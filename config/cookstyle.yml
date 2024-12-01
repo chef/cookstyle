@@ -2641,12 +2641,12 @@ Style/TrivialAccessors:
   Enabled: true
 Style/UnlessElse:
   Enabled: true
-# Style/UnneededCapitalW: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
-# Style/UnneededInterpolation: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
-# Style/UnneededPercentQ: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Style/RedundantCapitalW:
+  Enabled: true
+Style/RedundantInterpolation:
+  Enabled: true
+Style/RedundantPercentQ:
+  Enabled: true
 Style/TrailingUnderscoreVariable:
   Enabled: true
 Style/VariableInterpolation:
@@ -2735,8 +2735,8 @@ Lint/RedundantStringCoercion:
   Enabled: true
 Lint/UnderscorePrefixedVariableName:
   Enabled: true
-# Lint/UnneededCopDisableDirective: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Lint/RedundantCopDisableDirective:
+  Enabled: true
 Lint/UnusedBlockArgument:
   Enabled: true
 Lint/UnusedMethodArgument:
@@ -2944,8 +2944,8 @@ Lint/RedundantWithObject:
   Enabled: true
 
 # avoid requiring things that come for free
-# Lint/UnneededRequireStatement: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Lint/RedundantRequireStatement:
+  Enabled: true
 
 # Avoid poorly formatted methods
 Style/TrailingBodyOnMethodDefinition:
@@ -2968,8 +2968,8 @@ Lint/BigDecimalNew:
   Enabled: true
 
 # remove bogus rubocop comments. We already enabled Disable directives
-# Lint/UnneededCopEnableDirective: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Lint/RedundantCopEnableDirective:
+  Enabled: true
 
 # get people on a much simpler ruby 2.4+ way of doing things
 Style/UnpackFirst:
@@ -3054,10 +3054,6 @@ Style/RedundantAssignment:
 
 # alert on invalid ruby
 Lint/Syntax:
-  Enabled: true
-
-# remove extra requires like 'thread'
-Lint/RedundantRequireStatement:
   Enabled: true
 
 # simplify stripping strings
