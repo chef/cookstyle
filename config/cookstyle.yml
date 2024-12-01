@@ -2936,8 +2936,8 @@ Style/RedundantConditional:
   Enabled: true
 
 # catches people writing a regex check wrong
-# Lint/RegexpInCondition: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Lint/RegexpAsCondition:
+  Enabled: true
 
 # Avoids pointless / complex code
 Lint/RedundantWithObject:
