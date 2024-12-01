@@ -2693,8 +2693,6 @@ Lint/EmptyInterpolation:
 Layout/EndAlignment:
   Enabled: true
   AutoCorrect: true
-# Lint/EndInMethod: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
 Lint/EnsureReturn:
   Enabled: true
 Security/Eval:
