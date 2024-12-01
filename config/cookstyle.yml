@@ -2747,8 +2747,8 @@ Lint/UselessAccessModifier:
   Enabled: true
 Lint/UselessAssignment:
   Enabled: true
-# Lint/UselessComparison: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Lint/BinaryOperatorWithIdenticalOperands:
+  Enabled: true
 Lint/UselessElseWithoutRescue:
   Enabled: true
 Lint/UselessSetterCall:
