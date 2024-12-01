@@ -37,7 +37,7 @@ module RuboCop
             node.arguments.each do |arg|
               next unless arg.str_type? || arg.dstr_type?
 
-              if arg.value.start_with?('-----BEGIN RSA PRIVATE', '-----BEGIN EC PRIVATE') # cookstyle: disable Chef/Security/SshPrivateKey
+              if arg.value.start_with?('-----BEGIN RSA PRIVATE', '-----BEGIN EC PRIVATE')
                 add_offense(node, severity: :warning)
               end
             end
