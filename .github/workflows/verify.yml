@@ -1,0 +1,40 @@
+name: Verify Pipeline
+
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the main branch
+  push:
+    branches:
+      - workstation-LTS
+  pull_request:
+    branches:
+      - workstation-LTS
+
+jobs:    
+  unit-tests:
+    name: Execute Tests cases
+    runs-on: ubuntu-latest
+    
+    steps:
+      # Step 1: Checkout the code
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Step 2: Set up Ruby
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.1 # Use Ruby 3.1 as specified
+
+      # Step 3: Install project dependencies
+      - name: Install Bundler and Dependencies
+        run: |
+          rm -f .bundle/config
+          gem install bundler
+          bundle config set --local path 'vendor/bundle'
+          bundle install --jobs=3 --retry=3
+
+       # Step 4: Run the Unit tests
+      - name: Run Unit Tests
+        run: |
+          bundle exec rspec
