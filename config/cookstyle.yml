@@ -2425,8 +2425,6 @@ Naming/ConstantName:
   Enabled: true
 Style/DefWithParentheses:
   Enabled: true
-Style/PreferredHashMethods:
-  Enabled: true
 Layout/DotPosition:
   Enabled: true
 Style/EachWithObject:
@@ -2482,11 +2480,11 @@ Layout/IndentationWidth:
   Enabled: true
 Style/IdenticalConditionalBranches:
   Enabled: true
-Layout/IndentFirstArrayElement:
+Layout/FirstArrayElementIndentation:
   Enabled: true
 Layout/AssignmentIndentation:
   Enabled: true
-Layout/IndentFirstHashElement:
+Layout/FirstHashElementIndentation:
   Enabled: true
 Style/InfiniteLoop:
   Enabled: true
@@ -2746,8 +2744,6 @@ Lint/UnreachableCode:
 Lint/UselessAccessModifier:
   Enabled: true
 Lint/UselessAssignment:
-  Enabled: true
-Lint/BinaryOperatorWithIdenticalOperands:
   Enabled: true
 Lint/UselessElseWithoutRescue:
   Enabled: true
