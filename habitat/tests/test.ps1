@@ -11,9 +11,13 @@ if (-Not (Get-Module -ListAvailable -Name Pester)){
 
 Write-Host "--- :fire: Smokish Pestering"
 # Pester the Package
-$__dir=(Get-Item $PSScriptRoot)
-$test_result = Invoke-Pester -Strict -PassThru -Script @{
-    Path = "habitat/tests/test.pester.ps1";
-    Parameters = @{PackageIdentifier=$PackageIdentifier}
+$version=hab pkg exec "${pkg_ident}" cookstyle -v
+$actual_version=[Regex]::Match($version,"([0-9]+.[0-9]+.[0-9]+)").Value
+$package_version=$PackageIdentifier.split("/",4)[2]
+if ($package_version -eq $actual_version)
+{
+    Write "cookstyle working fine"
 }
-if ($test_result.FailedCount -ne 0) { Exit $test_result.FailedCount }
+else {
+    Write-Error "cookstyle version not met expected $package_version actual version $actual_version "
+}
