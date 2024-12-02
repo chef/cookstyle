@@ -11,7 +11,7 @@ on:
 env:
   # BLDR URL Defined as: 'https://bldr.habitat.sh/' but as an env var in workspace settings. 
   BLDR_URL: ${{vars.BLDR_URL}}
-   # HAB_ORIGIN Defined as: 'chef-platform' defined in workspace settings.
+   # HAB_ORIGIN Defined as: 'chef' defined in workspace settings.
   HAB_ORIGIN: ${{vars.HAB_ORIGIN}}
   # BLDR_CHANNEL defaulted to unstable, but can be switched to stable, it is defined via the environment setting https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#using-an-environment
   BLDR_CHANNEL: ${{ vars.BLDR_CHANNEL }}
@@ -82,6 +82,16 @@ jobs:
           hab origin key download --auth $HAB_AUTH_TOKEN --secret $HAB_ORIGIN
           echo "--- running linux hab build"
           hab pkg build .
+          hartfile=$(ls ./results | grep "cookstyle" | tail -n 1)
+          sudo hab license accept
+          export CHEF_LICENSE="accept-no-persist"
+          export HAB_LICENSE="accept-no-persist"
+          export HAB_NONINTERACTIVE="true"
+          sudo hab pkg install ./results/$hartfile
+          . ./results/last_build.env
+          export pkg_ident
+          chmod +x habitat/tests/test.sh
+          habitat/tests/test.sh
       - name: Install Habitat on Windows
         if: ${{ matrix.os == 'windows-latest' }}
         shell: pwsh
@@ -100,3 +110,7 @@ jobs:
           hab origin key download --auth ${{ secrets.HAB_AUTH_TOKEN }} --secret ${{ env.HAB_ORIGIN }}
           write-output "--- running windows hab build"
           hab pkg build .
+          hartfile=$(ls ./results | grep "cookstyle" | tail -n 1)
+          hab pkg install ./results/$hartfile
+          . ./results/last_build.env
+          habitat/tests/test.ps1

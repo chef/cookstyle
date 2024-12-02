@@ -11,7 +11,7 @@ on:
 env:
   # BLDR URL Defined as: 'https://bldr.habitat.sh/' but as an env var in workspace settings. 
   BLDR_URL: ${{vars.BLDR_URL}}
-   # HAB_ORIGIN Defined as: 'chef-platform' defined in workspace settings.
+   # HAB_ORIGIN Defined as: 'chef' defined in workspace settings.
   HAB_ORIGIN: ${{vars.HAB_ORIGIN}}
   # BLDR_CHANNEL defaulted to unstable, but can be switched to stable, it is defined via the environment setting https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#using-an-environment
   BLDR_CHANNEL: ${{ vars.BLDR_CHANNEL }}
@@ -110,4 +110,3 @@ jobs:
           . results\last_build.ps1
           hab pkg upload results\$pkg_artifact --auth ${{ secrets.HAB_AUTH_TOKEN }}
           write-output "--- push complete!!"
-          outreach
