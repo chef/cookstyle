@@ -2425,8 +2425,8 @@ Naming/ConstantName:
   Enabled: true
 Style/DefWithParentheses:
   Enabled: true
-# Style/DeprecatedHashMethods: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Style/PreferredHashMethods:
+  Enabled: true
 Layout/DotPosition:
   Enabled: true
 Style/EachWithObject:
