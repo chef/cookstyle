@@ -2536,8 +2536,8 @@ Style/Not:
   Enabled: true
 Style/OneLineConditional:
   Enabled: true
-# Naming/OpMethod: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Naming/BinaryOperatorParameterName:
+  Enabled: true
 Style/OptionalArguments:
   Enabled: true
 Style/ParallelAssignment:
