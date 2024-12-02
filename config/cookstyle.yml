@@ -2482,12 +2482,12 @@ Layout/IndentationWidth:
   Enabled: true
 Style/IdenticalConditionalBranches:
   Enabled: true
-# Layout/IndentArray: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Layout/IndentFirstArrayElement:
+  Enabled: true
 Layout/AssignmentIndentation:
   Enabled: true
-# Layout/IndentHash: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Layout/IndentFirstHashElement:
+  Enabled: true
 Style/InfiniteLoop:
   Enabled: true
 Style/Lambda:
