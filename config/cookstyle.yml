@@ -2498,8 +2498,8 @@ Layout/LeadingCommentSpace:
   Enabled: true
 Style/LineEndConcatenation:
   Enabled: true
-# Style/MethodCallParentheses: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Style/MethodCallWithoutArgsParentheses:
+  Enabled: true
 Style/MethodDefParentheses:
   Enabled: true
 Style/MultilineBlockChain:
