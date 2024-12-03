@@ -19,6 +19,6 @@ package_version=$(awk -F / '{print $3}' <<<"$pkg_ident")
 
 cd "${project_root}"
 
-echo "--- :mag_right: Testing ${pkg_ident} executables"
-actual_version=$(hab pkg exec "${pkg_ident}" cookstyle -v | sed -E 's/.*version: ([0-9]+\.[0-9]+\.[0-9]+).*/\1/')
+echo "--- :msg_right: Testing ${pkg_ident} executables"
+actual_version=$(hab pkg exec "${pkg_ident}" cookstyle -v | sed -n 's/^Cookstyle \([0-9.]*\).*$/\1/p'
 [[ "$package_version" = "$actual_version" ]] || error "cookstyle version is not the expected version. Expected '$package_version', got '$actual_version'"
