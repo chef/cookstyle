@@ -9,6 +9,8 @@ Write-Host "--- :fire: Smokish test"
 $version=hab pkg exec "${pkg_ident}" cookstyle -v
 $actual_version=[Regex]::Match($version,"([0-9]+.[0-9]+.[0-9]+)").Value
 $package_version=$PackageIdentifier.split("/",4)[2]
+
+Write-Host "package_version  $package_version actual version $actual_version"
 if ($package_version -eq $actual_version)
 {
     Write "cookstyle working fine"

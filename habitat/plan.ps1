@@ -1,6 +1,7 @@
 $ErrorActionPreference = "Stop"
 $PSDefaultParameterValues['*:ErrorAction']='Stop'
 
+$env:HAB_BLDR_CHANNEL = "LTS-2024"
 $pkg_name="cookstyle"
 $pkg_origin="chef"
 $pkg_version=$(Get-Content "$PLAN_CONTEXT/../VERSION")
@@ -21,7 +22,6 @@ function pkg_version {
 function Invoke-Before {
     Set-PkgVersion
 }
-
 function Invoke-SetupEnvironment {
     Push-RuntimeEnv -IsPath GEM_PATH "$pkg_prefix/vendor"
 
@@ -48,7 +48,6 @@ function Invoke-Build {
         gem build cookstyle.gemspec
 	    Write-BuildLine " ** Using gem to  install"
 	    gem install cookstyle-*.gem --no-document
-        
 
         If ($lastexitcode -ne 0) { Exit $lastexitcode }
     } finally {
