@@ -1,7 +1,7 @@
 export HAB_BLDR_CHANNEL="LTS-2024"
 _chef_client_ruby="core/ruby3_1"
 pkg_name="cookstyle"
-pkg_origin="ngupta26"
+pkg_origin="chef"
 pkg_maintainer="The Chef Maintainers <humans@chef.io>"
 pkg_description="Chef Cookstyle - Chef Infra Cookbook and InSpec profile linting with autocorrection."
 pkg_license=('Apache-2.0')
