@@ -17,4 +17,5 @@ if ($package_version -eq $actual_version)
 }
 else {
     Write-Error "cookstyle version not met expected $package_version actual version $actual_version "
+    throw "cookstyle windows pipeline not working for hab pkg"
 }
