@@ -31,9 +31,6 @@ changelog:
   rollup_header: Changes not yet released to rubygems.org
 
 pipelines:
-  - verify:
-      description: Pull Request validation tests
-      public: true
   - habitat/build:
       env:
         - HAB_NONINTERACTIVE: "true"
