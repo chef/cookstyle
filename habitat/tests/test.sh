@@ -3,6 +3,7 @@ set -euo pipefail
 
 
 project_root="$(git rev-parse --show-toplevel)"
+pkg_ident="$1"
 
 # print error message followed by usage and exit
 error () {
@@ -19,6 +20,6 @@ package_version=$(awk -F / '{print $3}' <<<"$pkg_ident")
 
 cd "${project_root}"
 
-echo "--- :msg_right: Testing ${pkg_ident} executables"
+echo "--- :mag_right: Testing ${pkg_ident} executables"
 actual_version=$(hab pkg exec "${pkg_ident}" cookstyle -v | sed -n 's/^Cookstyle \([0-9.]*\).*$/\1/p')
 [[ "$package_version" = "$actual_version" ]] || error "cookstyle version is not the expected version. Expected '$package_version', got '$actual_version'"
