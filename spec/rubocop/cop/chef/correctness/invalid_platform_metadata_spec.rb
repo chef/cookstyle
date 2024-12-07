@@ -21,7 +21,7 @@ describe RuboCop::Cop::Chef::Correctness::InvalidPlatformMetadata, :config do
   it 'registers an offense when a cookbook contains an invalid supports platform' do
     expect_offense(<<~RUBY)
       supports 'darwin'
-               ^^^^^^^^ metadata.rb \"supports\" platform is invalid
+               ^^^^^^^^ metadata.rb "supports" platform is invalid
       depends 'foo'
     RUBY
 
@@ -34,7 +34,7 @@ describe RuboCop::Cop::Chef::Correctness::InvalidPlatformMetadata, :config do
   it 'registers offenses for invalid platforms defined in a loop' do
     expect_offense(<<~RUBY)
       %w(ubuntu centos redhat fedora amazon rhel).each do |os|
-                                            ^^^^ metadata.rb \"supports\" platform is invalid
+                                            ^^^^ metadata.rb "supports" platform is invalid
         supports os
       end
     RUBY

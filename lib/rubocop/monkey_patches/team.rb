@@ -15,7 +15,7 @@ module RuboCop
           next true if processed_source.comment_config.cop_opted_in?(cop)
           next false if cop.excluded_file?(processed_source.file_path)
           next false unless @registry.enabled?(cop, @config)
-      
+
           support_target_ruby_version?(cop) && support_target_rails_version?(cop) && support_target_chef_version?(cop)
         end
       end
