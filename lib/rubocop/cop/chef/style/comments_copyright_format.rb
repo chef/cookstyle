@@ -92,7 +92,7 @@ module RuboCop
             current_text = match.captures[0]
             desired_text = "#{copyright_date_range(comment)}, #{copyright_holder(comment)}"
 
-            return true unless current_text == desired_text
+            true unless current_text == desired_text
           end
         end
       end

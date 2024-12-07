@@ -696,6 +696,146 @@ Lint/DuplicateRequire:
 Lint/AmbiguousAssignment:
   Enabled: true
 
+# File.dirname(path, 2)
+# instead of
+# File.dirname(File.dirname(path))
+Style/NestedFileDirname:
+  Enabled: true
+
+# Use strings instead of regexes when possible
+Style/ExactRegexpMatch:
+  Enabled: true
+
+# Don't use redundant `any?`, `empty?`, `none?` or `one?` with `select`
+Style/RedundantFilterChain:
+  Enabled: true
+
+# Simplify creating arrays
+Style/RedundantArrayConstructor:
+  Enabled: true
+
+# Catch regex that tries to catch A-Z and a-z but fails
+Lint/MixedCaseRange:
+  Enabled: true
+
+# Use require_relative '/path'
+# not
+# require_relative './path
+Style/RedundantCurrentDirectoryInPath:
+  Enabled: true
+
+# Use strings instead of regex with common helper methods
+Style/RedundantRegexpArgument:
+  Enabled: true
+
+# Simplify loading of YAML from a file
+Style/YAMLFileRead:
+  Enabled: true
+
+# You can't have the same named group in a gemfile twice
+Bundler/DuplicatedGroup:
+  Enabled: true
+
+# Avoid creating and array and interating into it when .map can be used
+Style/MapIntoArray:
+  Enabled: true
+
+# Don't send method names when you don't need to
+Style/SendWithLiteralMethodName:
+  Enabled: true
+
+# add_runtime_dependencies is not preferred in gemspecs
+Gemspec/AddRuntimeDependency:
+  Enabled: true
+
+# Avoid numeric operators that do nothing to the value
+Lint/UselessNumericOperation:
+  Enabled: true
+
+# Don't define a set with duplicate elements since that defeats the point of a set
+Lint/DuplicateSetElement:
+  Enabled: true
+
+# Avoid calling defined twice when you don't need both
+Style/CombinableDefined:
+  Enabled: true
+
+# Catch malformed regexes
+Lint/UnescapedBracketInRegexp:
+  Enabled: true
+
+# Avoid defined calls that are always truthy
+Lint/UselessDefined:
+  Enabled: true
+
+# Call dig with multiple args instead of chaining it
+Style/DigChain:
+  Enabled: true
+
+# Catch deprecation hash creation in Ruby 3.4
+Lint/HashNewWithKeywordArgumentsAsDefault:
+  Enabled: true
+
+# Consistent magic comment formatting
+Style/MagicCommentFormat:
+  Enabled: true
+
+# Reduce duplicate comments
+Lint/DuplicateMagicComment:
+  Enabled: true
+
+# Don't escape strings when you don't need to
+Style/RedundantStringEscape:
+  Enabled: true
+
+# Don't double each something when you don't need to
+Style/RedundantEach:
+  Enabled: true
+
+# Use array.intersect? when on Ruby 3.1+
+Style/ArrayIntersect:
+  Enabled: true
+
+# Use .push to add to arrays which is much faster than .concat
+Style/ConcatArrayLiterals:
+  Enabled: true
+
+# Use .min and .max instead of rolling your own
+Style/MinMaxComparison:
+  Enabled: true
+
+# use .to_set instead of .map/.collect and then .to_set
+Style/MapToSet:
+  Enabled: true
+
+# Simplify how you check for empty files
+Style/FileEmpty:
+  Enabled: true
+
+# Simplify checking for empty directories
+Style/DirEmpty:
+  Enabled: true
+
+# Make it easier to read line continuations
+Layout/LineContinuationSpacing:
+  Enabled: true
+
+# Catch range statements that produce a Ruby warning
+Lint/RequireRangeParentheses:
+  Enabled: true
+
+# Don't attributes in the gemspec that are deprecated and/or ignored now
+Gemspec/DeprecatedAttributeAssignment:
+  Enabled: true
+
+# Don't .map and then .compact when you can use .selct or .reject instead
+Style/MapCompactWithConditionalBlock:
+  Enabled: true
+
+# Don't allow case statements with the same condition twice
+Lint/DuplicateMatchPattern:
+  Enabled: true
+
 Chef/Deprecations/Ruby27KeywordArgumentWarnings:
   Description: Pass options to shell_out helpers without the brackets to avoid Ruby 2.7 deprecation warnings.
   Enabled: true

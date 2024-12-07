@@ -72,7 +72,7 @@ module RuboCop
         return if ast.children[2].nil?
         # https://rubular.com/r/6uzOMd6WCHewOu
         m = ast.children[2].source.match(/^("|')(.*)("|')$/)
-        return m[2] unless m.nil?
+        m[2] unless m.nil?
       end
 
       private
