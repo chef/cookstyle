@@ -7,7 +7,7 @@
 # Chef Core Ruby development.
 
 AllCops:
-  TargetRubyVersion: 2.5
+  TargetRubyVersion: 3.0
   NewCops: disable
   DisabledByDefault: true
   SuggestExtensions: false
