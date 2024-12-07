@@ -40,7 +40,7 @@ module RuboCop
         #   node['foo']
         #   node["foo"]
         #
-        class AttributeKeys < Cop
+        class AttributeKeys < Base
           include RuboCop::Cop::ConfigurableEnforcedStyle
 
           MSG = 'Use %s to access node attributes'
