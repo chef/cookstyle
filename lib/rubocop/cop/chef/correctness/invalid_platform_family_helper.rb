@@ -56,7 +56,7 @@ module RuboCop
                   # if the replacement platform was one of the other platforms passed we can just delete this bad platform
                   if all_passed_platforms.include?(replacement_platform)
                     all_passed_platforms.delete(p.value)
-                    arg_range = p.parent.arguments.first.loc.expression.join(p.parent.arguments[-1].loc.expression.end)
+                    arg_range = p.parent.arguments.first.loc.expression.join(p.parent.arguments.last.loc.expression.end)
                     corrector.replace(arg_range, all_passed_platforms.map { |x| "'#{x}'" }.join(', '))
                   else
                     corrector.replace(p.loc.expression, p.value.gsub(p.value, "'#{replacement_platform}'")) # gsub to retain quotes
