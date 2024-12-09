@@ -2,7 +2,7 @@ AllCops:
   SuggestExtensions: false
   NewCops: disable
   DisabledByDefault: true
-  TargetRubyVersion: 2.5
+  TargetRubyVersion: 2.6
   TargetChefVersion: ~
   inherit_mode:
     merge:
@@ -2369,14 +2369,13 @@ Chef/Security/SshPrivateKey:
     - '**/attributes/*.rb'
     - '**/definitions/*.rb'
 
-#### The base rubocop 0.37 enabled.yml file we started with ####
-
+#### The base rubocop 0.37 enabled.yml file we started with before we required backing up each new addition ####
 Layout/AccessModifierIndentation:
   Enabled: true
-# Layout/AlignArray: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
-# Layout/AlignHash: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Layout/ArrayAlignment:
+  Enabled: true
+Layout/HashAlignment:
+  Enabled: true
 Style/AndOr:
   Enabled: true
 Style/ArrayJoin:
@@ -2425,8 +2424,6 @@ Naming/ConstantName:
   Enabled: true
 Style/DefWithParentheses:
   Enabled: true
-# Style/DeprecatedHashMethods: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
 Layout/DotPosition:
   Enabled: true
 Style/EachWithObject:
@@ -2482,12 +2479,12 @@ Layout/IndentationWidth:
   Enabled: true
 Style/IdenticalConditionalBranches:
   Enabled: true
-# Layout/IndentArray: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
-# Layout/IndentAssignment: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
-# Layout/IndentHash: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Layout/FirstArrayElementIndentation:
+  Enabled: true
+Layout/AssignmentIndentation:
+  Enabled: true
+Layout/FirstHashElementIndentation:
+  Enabled: true
 Style/InfiniteLoop:
   Enabled: true
 Style/Lambda:
@@ -2498,8 +2495,8 @@ Layout/LeadingCommentSpace:
   Enabled: true
 Style/LineEndConcatenation:
   Enabled: true
-# Style/MethodCallParentheses: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Style/MethodCallWithoutArgsParentheses:
+  Enabled: true
 Style/MethodDefParentheses:
   Enabled: true
 Style/MultilineBlockChain:
@@ -2536,8 +2533,8 @@ Style/Not:
   Enabled: true
 Style/OneLineConditional:
   Enabled: true
-# Naming/OpMethod: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Naming/BinaryOperatorParameterName:
+  Enabled: true
 Style/OptionalArguments:
   Enabled: true
 Style/ParallelAssignment:
@@ -2641,12 +2638,12 @@ Style/TrivialAccessors:
   Enabled: true
 Style/UnlessElse:
   Enabled: true
-# Style/UnneededCapitalW: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
-# Style/UnneededInterpolation: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
-# Style/UnneededPercentQ: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Style/RedundantCapitalW:
+  Enabled: true
+Style/RedundantInterpolation:
+  Enabled: true
+Style/RedundantPercentQ:
+  Enabled: true
 Style/TrailingUnderscoreVariable:
   Enabled: true
 Style/VariableInterpolation:
@@ -2680,8 +2677,8 @@ Lint/DeprecatedClassMethods:
   Enabled: true
 Lint/DuplicateMethods:
   Enabled: true
-# Lint/DuplicatedKey: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Lint/DuplicateHashKey:
+  Enabled: true
 Lint/EachWithObjectArgument:
   Enabled: true
 Lint/ElseLayout:
@@ -2693,8 +2690,6 @@ Lint/EmptyInterpolation:
 Layout/EndAlignment:
   Enabled: true
   AutoCorrect: true
-# Lint/EndInMethod: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
 Lint/EnsureReturn:
   Enabled: true
 Security/Eval:
@@ -2703,8 +2698,8 @@ Lint/FloatOutOfRange:
   Enabled: true
 Lint/FormatParameterMismatch:
   Enabled: true
-# Lint/HandleExceptions: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Lint/SuppressedException:
+  Enabled: true
 Lint/ImplicitStringConcatenation:
   Enabled: true
   Exclude:
@@ -2733,12 +2728,12 @@ Lint/RescueException:
   Enabled: true
 Lint/ShadowingOuterLocalVariable:
   Enabled: true
-# Lint/StringConversionInInterpolation: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Lint/RedundantStringCoercion:
+  Enabled: true
 Lint/UnderscorePrefixedVariableName:
   Enabled: true
-# Lint/UnneededCopDisableDirective: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Lint/RedundantCopDisableDirective:
+  Enabled: true
 Lint/UnusedBlockArgument:
   Enabled: true
 Lint/UnusedMethodArgument:
@@ -2749,8 +2744,6 @@ Lint/UselessAccessModifier:
   Enabled: true
 Lint/UselessAssignment:
   Enabled: true
-# Lint/UselessComparison: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
 Lint/UselessElseWithoutRescue:
   Enabled: true
 Lint/UselessSetterCall:
@@ -2938,16 +2931,16 @@ Style/RedundantConditional:
   Enabled: true
 
 # catches people writing a regex check wrong
-# Lint/RegexpInCondition: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Lint/RegexpAsCondition:
+  Enabled: true
 
 # Avoids pointless / complex code
 Lint/RedundantWithObject:
   Enabled: true
 
 # avoid requiring things that come for free
-# Lint/UnneededRequireStatement: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Lint/RedundantRequireStatement:
+  Enabled: true
 
 # Avoid poorly formatted methods
 Style/TrailingBodyOnMethodDefinition:
@@ -2970,8 +2963,8 @@ Lint/BigDecimalNew:
   Enabled: true
 
 # remove bogus rubocop comments. We already enabled Disable directives
-# Lint/UnneededCopEnableDirective: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Lint/RedundantCopEnableDirective:
+  Enabled: true
 
 # get people on a much simpler ruby 2.4+ way of doing things
 Style/UnpackFirst:
@@ -2981,7 +2974,7 @@ Style/SymbolProc:
   Enabled: true
   # A list of method names to be ignored by the check.
   # The names should be fairly unique, otherwise you'll end up ignoring lots of code.
-  IgnoredMethods:
+  AllowedMethods:
     - lazy
 
 # as much as I wish everyone would document things it's just not going to happen
@@ -3058,10 +3051,6 @@ Style/RedundantAssignment:
 Lint/Syntax:
   Enabled: true
 
-# remove extra requires like 'thread'
-Lint/RedundantRequireStatement:
-  Enabled: true
-
 # simplify stripping strings
 Style/Strip:
   Enabled: true
@@ -3128,4 +3117,149 @@ Style/FileRead:
 
 # reduce file write complexity
 Style/FileWrite:
+  Enabled: true
+
+# Improve readability of arrays for new users
+# Prefer something.first over something[0]
+Style/ArrayFirstLast:
+  Enabled: true
+
+# File.dirname(path, 2)
+# instead of
+# File.dirname(File.dirname(path))
+Style/NestedFileDirname:
+  Enabled: true
+
+# Use strings instead of regexes when possible
+Style/ExactRegexpMatch:
+  Enabled: true
+
+# Don't use redundant `any?`, `empty?`, `none?` or `one?` with `select`
+Style/RedundantFilterChain:
+  Enabled: true
+
+# Simplify creating arrays
+Style/RedundantArrayConstructor:
+  Enabled: true
+
+# Catch regex that tries to catch A-Z and a-z but fails
+Lint/MixedCaseRange:
+  Enabled: true
+
+# Use require_relative '/path'
+# not
+# require_relative './path
+Style/RedundantCurrentDirectoryInPath:
+  Enabled: true
+
+# Use strings instead of regex with common helper methods
+Style/RedundantRegexpArgument:
+  Enabled: true
+
+# Simplify loading of YAML from a file
+Style/YAMLFileRead:
+  Enabled: true
+
+# You can't have the same named group in a gemfile twice
+Bundler/DuplicatedGroup:
+  Enabled: true
+
+# Avoid creating an array and iterating it when .map can be used
+Style/MapIntoArray:
+  Enabled: true
+
+# Don't send method names when you don't need to
+Style/SendWithLiteralMethodName:
+  Enabled: true
+
+# add_runtime_dependencies is not preferred in gemspecs
+Gemspec/AddRuntimeDependency:
+  Enabled: true
+
+# Avoid numeric operators that do nothing to the value
+Lint/UselessNumericOperation:
+  Enabled: true
+
+# Don't define a set with duplicate elements since that defeats the point of a set
+Lint/DuplicateSetElement:
+  Enabled: true
+
+# Avoid calling defined twice when you don't need both
+Style/CombinableDefined:
+  Enabled: true
+
+# Catch malformed regexes
+Lint/UnescapedBracketInRegexp:
+  Enabled: true
+
+# Avoid defined calls that are always truthy
+Lint/UselessDefined:
+  Enabled: true
+
+# Call dig with multiple args instead of chaining it
+Style/DigChain:
+  Enabled: true
+
+# Catch deprecation hash creation in Ruby 3.4
+Lint/HashNewWithKeywordArgumentsAsDefault:
+  Enabled: true
+
+# Consistent magic comment formatting
+Style/MagicCommentFormat:
+  Enabled: true
+
+# Reduce duplicate comments
+Lint/DuplicateMagicComment:
+  Enabled: true
+
+# Don't escape strings when you don't need to
+Style/RedundantStringEscape:
+  Enabled: true
+
+# Don't double each something when you don't need to
+Style/RedundantEach:
+  Enabled: true
+
+# Use array.intersect? when on Ruby 3.1+
+Style/ArrayIntersect:
+  Enabled: true
+
+# Use .push to add to arrays which is much faster than .concat
+Style/ConcatArrayLiterals:
+  Enabled: true
+
+# Use .min and .max instead of rolling your own
+Style/MinMaxComparison:
+  Enabled: true
+
+# use .to_set instead of .map/.collect and then .to_set
+Style/MapToSet:
+  Enabled: true
+
+# Simplify how you check for empty files
+Style/FileEmpty:
+  Enabled: true
+
+# Simplify checking for empty directories
+Style/DirEmpty:
+  Enabled: true
+
+# Make it easier to read line continuations
+Layout/LineContinuationSpacing:
+  Enabled: true
+
+# Catch range statements that produce a Ruby warning
+Lint/RequireRangeParentheses:
+  Enabled: true
+
+# Don't use attributes in the gemspec that are deprecated and/or ignored now
+Gemspec/DeprecatedAttributeAssignment:
+  Enabled: true
+
+# Don't .map and then .compact when you can use .select or .reject instead
+Style/MapCompactWithConditionalBlock:
+  Enabled: true
+
+# Don't allow case statements with the same condition twice
+Lint/DuplicateMatchPattern:
   Enabled: true
