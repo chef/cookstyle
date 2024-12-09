@@ -75,7 +75,7 @@ module RuboCop
                     corrector.replace(case_range, "if #{type.value}?(#{condition_string})")
 
                     # find the range from the start of the when to the end of the last argument
-                    conditional_range = node.when_branches.first.conditions[-1].source_range.join(node.when_branches.first.loc.keyword.begin)
+                    conditional_range = node.when_branches.first.conditions.last.source_range.join(node.when_branches.first.loc.keyword.begin)
 
                     # remove the when XYZ condition along with any leading spaces so that we remove the whole empty line
                     corrector.remove(range_with_surrounding_space(range: conditional_range, side: :left))

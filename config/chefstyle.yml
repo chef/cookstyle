@@ -640,7 +640,7 @@ Style/CommentedKeyword:
 Lint/DeprecatedOpenSSLConstant:
   Enabled: true
 
-# alert on invalid ruby synatx
+# alert on invalid ruby syntax
 Lint/Syntax:
   Enabled: true
 
@@ -736,7 +736,7 @@ Style/YAMLFileRead:
 Bundler/DuplicatedGroup:
   Enabled: true
 
-# Avoid creating and array and interating into it when .map can be used
+# Avoid creating an array and iterating it when .map can be used
 Style/MapIntoArray:
   Enabled: true
 
@@ -824,11 +824,11 @@ Layout/LineContinuationSpacing:
 Lint/RequireRangeParentheses:
   Enabled: true
 
-# Don't attributes in the gemspec that are deprecated and/or ignored now
+# Don't use attributes in the gemspec that are deprecated and/or ignored now
 Gemspec/DeprecatedAttributeAssignment:
   Enabled: true
 
-# Don't .map and then .compact when you can use .selct or .reject instead
+# Don't .map and then .compact when you can use .select or .reject instead
 Style/MapCompactWithConditionalBlock:
   Enabled: true
 
