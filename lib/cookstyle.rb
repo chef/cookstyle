@@ -20,7 +20,7 @@ require_relative 'rubocop/monkey_patches/registry_cop'
 module Cookstyle
   # @return [String] the absolute path to the main RuboCop configuration YAML file
   def self.config
-    config_file = const_defined?('CHEFSTYLE_CONFIG') ? 'chefstyle.yml' : 'default.yml'
+    config_file = const_defined?(:CHEFSTYLE_CONFIG) ? 'chefstyle.yml' : 'default.yml'
     File.realpath(File.join(__dir__, '..', 'config', config_file))
   end
 end
