@@ -66,8 +66,6 @@ subscriptions:
           ignore_labels:
             - "Expeditor: Skip Changelog"
             - "Expeditor: Skip All"
-      - built_in:build_gem:
-          only_if: built_in:bump_version
       - trigger_pipeline:habitat/build:
           only_if: built_in:bump_version
           ignore_labels:
@@ -79,3 +77,12 @@ subscriptions:
     actions:
       # when all of the hab package publish to the unstable channel, test and promote them
       - trigger_pipeline:habitat/test
+      - built_in:promote_habitat_packages
+
+    # Subscribe to the promotion of the dev channel to acceptance
+  - workload: project_promoted:{{agent_id}}:dev:*
+    actions:
+      - built_in:promote_habitat_packages
+  - workload: project_promoted:{{agent_id}}:workstation-build:*
+    actions:
+      - built_in:promote_habitat_packages
