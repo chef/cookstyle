@@ -17,7 +17,7 @@ artifact_channels:
 
 release_branches:
   - workstation-LTS:
-      version_constraint: 0.*
+      version_constraint: 8.*
   - main:
       version_constraint: 7.*
 
