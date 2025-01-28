@@ -1,16 +1,18 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.32.12 -->
-## [v7.32.12](https://github.com/chef/cookstyle/tree/v7.32.12) (2024-11-26)
+ <!-- latest_release 0.1.2 -->
+## [v0.1.2](https://github.com/chef/cookstyle/tree/v0.1.2) (2025-01-06)
 
 #### Merged Pull Requests
-- [CI] Drop EOL rubies [#979](https://github.com/chef/cookstyle/pull/979) ([dafyddcrosby](https://github.com/dafyddcrosby))
+- Test pipeline with empty commit [#994](https://github.com/chef/cookstyle/pull/994) ([nikhil2611](https://github.com/nikhil2611))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.32.8 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Test pipeline with empty commit [#994](https://github.com/chef/cookstyle/pull/994) ([nikhil2611](https://github.com/nikhil2611)) <!-- 0.1.2 -->
+- Added pipeline config to build automatically [#993](https://github.com/chef/cookstyle/pull/993) ([nikhil2611](https://github.com/nikhil2611)) <!-- 0.1.1 -->
 - [CI] Drop EOL rubies [#979](https://github.com/chef/cookstyle/pull/979) ([dafyddcrosby](https://github.com/dafyddcrosby)) <!-- 7.32.12 -->
 - Correct styleguide link for TmpPath [#973](https://github.com/chef/cookstyle/pull/973) ([williamtheaker](https://github.com/williamtheaker)) <!-- 7.32.11 -->
 - Fix #970: Add extra stub to pass ConfigValidator [#971](https://github.com/chef/cookstyle/pull/971) ([dafyddcrosby](https://github.com/dafyddcrosby)) <!-- 7.32.10 -->
