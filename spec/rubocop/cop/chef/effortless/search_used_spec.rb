@@ -20,7 +20,7 @@ require 'spec_helper'
 describe RuboCop::Cop::Chef::Effortless::CookbookUsesSearch, :config do
   it 'registers an offense when search is used' do
     expect_offense(<<~RUBY)
-      search(:node, 'run_list:recipe\[bacula\:\:server\]')
+      search(:node, 'run_list:recipe[bacula::server]')
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Cookbook uses search, which cannot be used in the Effortless Infra pattern
     RUBY
   end

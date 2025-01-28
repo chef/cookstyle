@@ -38,7 +38,7 @@ module RuboCop
             return unless processed_source.ast
 
             processed_source.comments.each do |comment|
-              next unless comment.inline? &&  # headers aren't in blocks
+              next unless comment.inline? && # headers aren't in blocks
                           /# (?:Copyright\W*).*YOUR_(NAME|COMPANY_NAME)/.match?(comment.text)
               add_offense(comment, severity: :refactor)
             end

@@ -50,7 +50,7 @@ module RuboCop
 
           def file_cache_path?(path)
             path_str = path.to_s.scan(/"(.*)"/)[0][0]
-            path_str.start_with?("\#\{Chef::Config[:file_cache_path]\}")
+            path_str.start_with?("\#{Chef::Config[:file_cache_path]}")
           end
         end
       end

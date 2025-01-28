@@ -31,7 +31,7 @@ module RuboCop
         #   Chef Software makes software
         #   Chef Infra configures your systems
         #
-        class ChefWhaaat < Cop
+        class ChefWhaaat < Base
           MSG = 'Do you mean Chef (the company) or a Chef product (e.g. Chef Infra, Chef InSpec, etc)?'
 
           def on_new_investigation
