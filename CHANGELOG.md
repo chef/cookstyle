@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 0.1.2 -->
-## [v0.1.2](https://github.com/chef/cookstyle/tree/v0.1.2) (2025-01-06)
+ <!-- latest_release 7.32.13 -->
+## [v7.32.13](https://github.com/chef/cookstyle/tree/v7.32.13) (2025-02-04)
 
 #### Merged Pull Requests
-- Test pipeline with empty commit [#994](https://github.com/chef/cookstyle/pull/994) ([nikhil2611](https://github.com/nikhil2611))
+- Updating configuration for a symantec version promote and publish [#999](https://github.com/chef/cookstyle/pull/999) ([nikhil2611](https://github.com/nikhil2611))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.32.8 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Updating configuration for a symantec version promote and publish [#999](https://github.com/chef/cookstyle/pull/999) ([nikhil2611](https://github.com/nikhil2611)) <!-- 7.32.13 -->
 - Test pipeline with empty commit [#994](https://github.com/chef/cookstyle/pull/994) ([nikhil2611](https://github.com/nikhil2611)) <!-- 0.1.2 -->
 - Added pipeline config to build automatically [#993](https://github.com/chef/cookstyle/pull/993) ([nikhil2611](https://github.com/nikhil2611)) <!-- 0.1.1 -->
 - [CI] Drop EOL rubies [#979](https://github.com/chef/cookstyle/pull/979) ([dafyddcrosby](https://github.com/dafyddcrosby)) <!-- 7.32.12 -->
