@@ -1036,7 +1036,7 @@ Chef/Deprecations/DeprecatedPlatformMethods:
     - '**/providers/*.rb'
 
 Chef/Deprecations/DeprecatedChefSpecPlatform:
-  Description: Use currently supported platforms in ChefSpec listed at https://github.com/chefspec/fauxhai/blob/main/PLATFORMS.md. Fauxhai / ChefSpec will perform fuzzy matching on platform version so it's always best to be less specific ie. 10 instead of 10.3
+  Description: Use currently supported platforms in ChefSpec listed at https://github.com/chef/fauxhai/blob/main/PLATFORMS.md. Fauxhai / ChefSpec will perform fuzzy matching on platform version so it's always best to be less specific ie. 10 instead of 10.3
   StyleGuide: 'chef_deprecations_deprecatedchefspecplatform'
   Enabled: true
   VersionAdded: '5.20.0'
