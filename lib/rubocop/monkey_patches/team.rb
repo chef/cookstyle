@@ -11,6 +11,9 @@ module RuboCop
 
       ### START COOKSTYLE MODIFICATION
       def roundup_relevant_cops(filename)
+        # filename is now of class RuboCop::AST::ProcessedSource
+        # extract the filename from the AST::ProcessedSource object using the file_path method
+        filename = filename.file_path
         cops.reject do |cop|
           cop.excluded_file?(filename) ||
             !support_target_ruby_version?(cop) ||
