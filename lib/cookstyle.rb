@@ -10,17 +10,17 @@ require 'rubocop'
 require_relative 'rubocop/monkey_patches/directive_comment'
 
 # monkey patches needed for the TargetChefVersion config option
-require_relative 'rubocop/monkey_patches/config'
-require_relative 'rubocop/monkey_patches/base'
-require_relative 'rubocop/monkey_patches/team'
-require_relative 'rubocop/monkey_patches/registry_cop'
+# require_relative 'rubocop/monkey_patches/config'
+# require_relative 'rubocop/monkey_patches/base'
+# require_relative 'rubocop/monkey_patches/team'
+# require_relative 'rubocop/monkey_patches/registry_cop'
 
 # Cookstyle patches the RuboCop tool to set a new default configuration that
 # is vendored in the Cookstyle codebase.
 module Cookstyle
   # @return [String] the absolute path to the main RuboCop configuration YAML file
   def self.config
-    config_file = const_defined?('CHEFSTYLE_CONFIG') ? 'chefstyle.yml' : 'default.yml'
+    config_file = const_defined?(:CHEFSTYLE_CONFIG) ? 'chefstyle.yml' : 'default.yml'
     File.realpath(File.join(__dir__, '..', 'config', config_file))
   end
 end

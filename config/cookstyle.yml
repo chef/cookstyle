@@ -2981,8 +2981,8 @@ Style/SymbolProc:
   Enabled: true
   # A list of method names to be ignored by the check.
   # The names should be fairly unique, otherwise you'll end up ignoring lots of code.
-  IgnoredMethods:
-    - lazy
+  # IgnoredMethods:
+  #   - lazy
 
 # as much as I wish everyone would document things it's just not going to happen
 Style/Documentation:

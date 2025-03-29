@@ -35,7 +35,7 @@ module RuboCop
         #     binary_path_name "C:\\opscode\\chef\\bin"
         #   end
         #
-        class WindowsScResource < Cop
+        class WindowsScResource < Base
           extend TargetChefVersion
 
           minimum_target_chef_version '14.0'
