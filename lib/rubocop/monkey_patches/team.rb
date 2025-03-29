@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# require "pry"
-
 module RuboCop
   module Cop
     class Team
@@ -13,8 +11,6 @@ module RuboCop
 
       ### START COOKSTYLE MODIFICATION
       def roundup_relevant_cops(filename)
-
- #       binding.pry
         cops.reject do |cop|
           cop.excluded_file?(filename) ||
             !support_target_ruby_version?(cop) ||
