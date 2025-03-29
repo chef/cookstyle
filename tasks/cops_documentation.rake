@@ -50,7 +50,7 @@ begin
 
     def main
       require 'yaml' unless defined?(YAML)
-      all_cops = RuboCop::Cop::Cop.registry
+      all_cops = RuboCop::Cop::Base.registry
       chef_departments = all_cops.departments.select { |d| d.start_with?('Chef', 'InSpec') }.sort
       config = RuboCop::ConfigLoader.load_file('config/default.yml')
 
@@ -95,7 +95,7 @@ begin
 
     ok = true
     YARD::Registry.load!
-    cops = RuboCop::Cop::Cop.registry
+    cops = RuboCop::Cop::Base.registry
     cops.each do |cop|
       examples = YARD::Registry.all(:class).find do |code_object|
         next unless RuboCop::Cop::Badge.for(code_object.to_s) == cop.badge

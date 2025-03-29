@@ -1,4 +1,4 @@
-require: rubocop-performance
+plugins: rubocop-performance
 
 # enable new cops for rubocop-performance
 AllCops:
