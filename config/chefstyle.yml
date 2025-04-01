@@ -53,8 +53,8 @@ Lint/DuplicateCaseCondition:
   Enabled: true
 Lint/DuplicateMethods:
   Enabled: true
-# Lint/DuplicatedKey: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Lint/DuplicateHashKey:
+  Enabled: true
 Lint/EachWithObjectArgument:
   Enabled: true
 Lint/ElseLayout:
@@ -70,8 +70,6 @@ Lint/EmptyWhen:
 Layout/EndAlignment:
   Enabled: true
   AutoCorrect: true
-# Lint/EndInMethod: TODO broken with rubocop 1.25.1 move
-#  Enabled: true
 Lint/EnsureReturn:
   Enabled: true
 Lint/FloatOutOfRange:
@@ -90,8 +88,8 @@ Lint/LiteralInInterpolation:
   Enabled: true
 Lint/Loop:
   Enabled: true
-# Lint/MultipleCompare: TODO broken with rubocop 1.25.1 move
-#  Enabled: true
+Lint/MultipleComparison:
+  Enabled: true
 Lint/NestedMethodDefinition:
   Enabled: true
 Lint/NextWithoutAccumulator:
@@ -114,14 +112,12 @@ Lint/ShadowedException:
   Enabled: true
 Lint/ShadowingOuterLocalVariable:
   Enabled: true
-# Lint/StringConversionInInterpolation: TODO broken with rubocop 1.25.1 move
-#  Enabled: true
 Lint/UnderscorePrefixedVariableName:
   Enabled: true
 Lint/UnifiedInteger:
   Enabled: true
-# Lint/UnneededSplatExpansion: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Lint/RedundantSplatExpansion:
+  Enabled: true
 Lint/UnreachableCode:
   Enabled: true
 Lint/UriEscapeUnescape:
@@ -130,8 +126,8 @@ Lint/UselessAccessModifier:
   Enabled: true
 Lint/UselessAssignment:
   Enabled: true
-# Lint/UselessComparison: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Lint/BinaryOperatorWithIdenticalOperands:
+  Enabled: true
 Lint/UselessElseWithoutRescue:
   Enabled: true
 Lint/UselessSetterCall:
@@ -196,24 +192,23 @@ Metrics/ParameterLists:
 Metrics/PerceivedComplexity:
   Enabled: false
 
-
 #
 # Style/Naming/Layout
 #
 
 Layout/AccessModifierIndentation:
   Enabled: true
-# Layout/AlignArguments: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
-#   EnforcedStyle: with_fixed_indentation
-# Layout/AlignParameters: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
-#   EnforcedStyle: with_fixed_indentation
+Layout/ArgumentAlignment:
+  Enabled: true
+  EnforcedStyle: with_fixed_indentation
+Layout/ParameterAlignment:
+  Enabled: true
+  EnforcedStyle: with_fixed_indentation
 # the "ignore_implict" is here for keyword args in method calls which are
 # "implicit" hashes, and those should not be treated like normal hashes
-# Layout/AlignHash: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
-#   EnforcedLastArgumentHashStyle: ignore_implicit
+Layout/HashAlignment:
+  Enabled: true
+  EnforcedLastArgumentHashStyle: ignore_implicit
 Style/AndOr:
   Enabled: true
 Style/ArrayJoin:
@@ -290,13 +285,13 @@ Style/IfUnlessModifierOfIfUnless:
   Enabled: true
 Style/IfWithSemicolon:
   Enabled: true
-# Layout/IndentAssignment: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
-# Layout/IndentFirstArgument: TODO broken with rubocop 1.25.1 move
-#   EnforcedStyle: consistent
-#   Enabled: true
-# Layout/IndentHeredoc: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Layout/AssignmentIndentation:
+  Enabled: true
+Layout/FirstArgumentIndentation:
+  EnforcedStyle: consistent
+  Enabled: true
+Layout/HeredocIndentation:
+  Enabled: true
 Layout/IndentationConsistency:
   Enabled: true
 Layout/IndentationWidth:
@@ -464,8 +459,8 @@ Style/SymbolProc:
   Enabled: true
 Layout/IndentationStyle:
   Enabled: true
-# Layout/TrailingBlankLines: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Layout/TrailingEmptyLines:
+  Enabled: true
 Style/TrailingCommaInArguments:
   Enabled: true
 # rubocop's default gets this completely backwards
@@ -479,11 +474,11 @@ Style/TrailingUnderscoreVariable:
   Enabled: true
 Layout/TrailingWhitespace:
   Enabled: true
-# Style/UnneededCapitalW: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Style/RedundantCapitalW:
+  Enabled: true
 Style/RedundantInterpolation:
   Enabled: false # buggy: https://github.com/rubocop-hq/rubocop/issues/6099
-#Style/UnneededPercentQ:  # would like to enable this one but its buggy as of 0.35.1
+#Style/RedundantPercentQ:  # would like to enable this one but its buggy as of 0.35.1
 #  Enabled: true
 Naming/VariableName:
   Enabled: true

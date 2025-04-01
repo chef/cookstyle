@@ -1036,7 +1036,7 @@ Chef/Deprecations/DeprecatedPlatformMethods:
     - '**/providers/*.rb'
 
 Chef/Deprecations/DeprecatedChefSpecPlatform:
-  Description: Use currently supported platforms in ChefSpec listed at https://github.com/chefspec/fauxhai/blob/main/PLATFORMS.md. Fauxhai / ChefSpec will perform fuzzy matching on platform version so it's always best to be less specific ie. 10 instead of 10.3
+  Description: Use currently supported platforms in ChefSpec listed at https://github.com/chef/fauxhai/blob/main/PLATFORMS.md. Fauxhai / ChefSpec will perform fuzzy matching on platform version so it's always best to be less specific ie. 10 instead of 10.3
   StyleGuide: 'chef_deprecations_deprecatedchefspecplatform'
   Enabled: true
   VersionAdded: '5.20.0'
@@ -2373,10 +2373,10 @@ Chef/Security/SshPrivateKey:
 
 Layout/AccessModifierIndentation:
   Enabled: true
-# Layout/AlignArray: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
-# Layout/AlignHash: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Layout/ArrayAlignment:
+  Enabled: true
+Layout/HashAlignment:
+  Enabled: true
 Style/AndOr:
   Enabled: true
 Style/ArrayJoin:
@@ -2425,8 +2425,6 @@ Naming/ConstantName:
   Enabled: true
 Style/DefWithParentheses:
   Enabled: true
-# Style/DeprecatedHashMethods: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
 Layout/DotPosition:
   Enabled: true
 Style/EachWithObject:
@@ -2482,12 +2480,12 @@ Layout/IndentationWidth:
   Enabled: true
 Style/IdenticalConditionalBranches:
   Enabled: true
-# Layout/IndentArray: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
-# Layout/IndentAssignment: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
-# Layout/IndentHash: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Layout/FirstArrayElementIndentation:
+  Enabled: true
+Layout/AssignmentIndentation:
+  Enabled: true
+Layout/FirstHashElementIndentation:
+  Enabled: true
 Style/InfiniteLoop:
   Enabled: true
 Style/Lambda:
@@ -2498,8 +2496,8 @@ Layout/LeadingCommentSpace:
   Enabled: true
 Style/LineEndConcatenation:
   Enabled: true
-# Style/MethodCallParentheses: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Style/MethodCallWithoutArgsParentheses:
+  Enabled: true
 Style/MethodDefParentheses:
   Enabled: true
 Style/MultilineBlockChain:
@@ -2536,8 +2534,8 @@ Style/Not:
   Enabled: true
 Style/OneLineConditional:
   Enabled: true
-# Naming/OpMethod: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Naming/BinaryOperatorParameterName:
+  Enabled: true
 Style/OptionalArguments:
   Enabled: true
 Style/ParallelAssignment:
@@ -2641,12 +2639,12 @@ Style/TrivialAccessors:
   Enabled: true
 Style/UnlessElse:
   Enabled: true
-# Style/UnneededCapitalW: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
-# Style/UnneededInterpolation: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
-# Style/UnneededPercentQ: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Style/RedundantCapitalW:
+  Enabled: true
+Style/RedundantInterpolation:
+  Enabled: true
+Style/RedundantPercentQ:
+  Enabled: true
 Style/TrailingUnderscoreVariable:
   Enabled: true
 Style/VariableInterpolation:
@@ -2680,8 +2678,8 @@ Lint/DeprecatedClassMethods:
   Enabled: true
 Lint/DuplicateMethods:
   Enabled: true
-# Lint/DuplicatedKey: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Lint/DuplicateHashKey:
+  Enabled: true
 Lint/EachWithObjectArgument:
   Enabled: true
 Lint/ElseLayout:
@@ -2693,8 +2691,6 @@ Lint/EmptyInterpolation:
 Layout/EndAlignment:
   Enabled: true
   AutoCorrect: true
-# Lint/EndInMethod: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
 Lint/EnsureReturn:
   Enabled: true
 Security/Eval:
@@ -2703,8 +2699,8 @@ Lint/FloatOutOfRange:
   Enabled: true
 Lint/FormatParameterMismatch:
   Enabled: true
-# Lint/HandleExceptions: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Lint/SuppressedException:
+  Enabled: true
 Lint/ImplicitStringConcatenation:
   Enabled: true
   Exclude:
@@ -2733,12 +2729,12 @@ Lint/RescueException:
   Enabled: true
 Lint/ShadowingOuterLocalVariable:
   Enabled: true
-# Lint/StringConversionInInterpolation: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Lint/RedundantStringCoercion:
+  Enabled: true
 Lint/UnderscorePrefixedVariableName:
   Enabled: true
-# Lint/UnneededCopDisableDirective: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Lint/RedundantCopDisableDirective:
+  Enabled: true
 Lint/UnusedBlockArgument:
   Enabled: true
 Lint/UnusedMethodArgument:
@@ -2749,8 +2745,6 @@ Lint/UselessAccessModifier:
   Enabled: true
 Lint/UselessAssignment:
   Enabled: true
-# Lint/UselessComparison: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
 Lint/UselessElseWithoutRescue:
   Enabled: true
 Lint/UselessSetterCall:
@@ -2938,16 +2932,16 @@ Style/RedundantConditional:
   Enabled: true
 
 # catches people writing a regex check wrong
-# Lint/RegexpInCondition: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Lint/RegexpAsCondition:
+  Enabled: true
 
 # Avoids pointless / complex code
 Lint/RedundantWithObject:
   Enabled: true
 
 # avoid requiring things that come for free
-# Lint/UnneededRequireStatement: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Lint/RedundantRequireStatement:
+  Enabled: true
 
 # Avoid poorly formatted methods
 Style/TrailingBodyOnMethodDefinition:
@@ -2970,8 +2964,8 @@ Lint/BigDecimalNew:
   Enabled: true
 
 # remove bogus rubocop comments. We already enabled Disable directives
-# Lint/UnneededCopEnableDirective: TODO broken with rubocop 1.25.1 move
-#   Enabled: true
+Lint/RedundantCopEnableDirective:
+  Enabled: true
 
 # get people on a much simpler ruby 2.4+ way of doing things
 Style/UnpackFirst:
@@ -3056,10 +3050,6 @@ Style/RedundantAssignment:
 
 # alert on invalid ruby
 Lint/Syntax:
-  Enabled: true
-
-# remove extra requires like 'thread'
-Lint/RedundantRequireStatement:
   Enabled: true
 
 # simplify stripping strings

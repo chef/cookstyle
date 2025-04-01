@@ -20,7 +20,7 @@ group :profiling do
 end
 
 group :rubocop_gems do
-  gem 'rubocop-performance'
+  gem 'rubocop-performance', '= 1.19.0'
 end
 
 group :development do
