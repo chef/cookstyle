@@ -53,7 +53,7 @@ module RuboCop
             value_for_platform_family?(node) do |plats|
               plats.each do |p_hash|
                 if p_hash.key.array_type?
-                  p_hash.key.values.each do |plat|
+                  p_hash.key.each_value do |plat|
                     next unless INVALID_PLATFORM_FAMILIES.key?(plat.value)
                     add_offense(plat, severity: :refactor)
                   end
