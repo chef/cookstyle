@@ -69,7 +69,7 @@ module RuboCop
 
                 # we build our own escaped string instead of using .inspect because that way
                 # we can use single quotes instead of the double quotes that .inspect adds
-                corrector.replace(mode_int, "\'#{replacement_mode}\'")
+                corrector.replace(mode_int, "'#{replacement_mode}'")
               end
             end
           end
