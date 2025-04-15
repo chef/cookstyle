@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 7.32.14 -->
-## [v7.32.14](https://github.com/chef/cookstyle/tree/v7.32.14) (2025-04-01)
+ <!-- latest_release 7.32.15 -->
+## [v7.32.15](https://github.com/chef/cookstyle/tree/v7.32.15) (2025-04-15)
 
 #### Merged Pull Requests
-- Fix commented out cops due to renames [#981](https://github.com/chef/cookstyle/pull/981) ([tas50](https://github.com/tas50))
+- make pipelines public: habitat/test [#1002](https://github.com/chef/cookstyle/pull/1002) ([jaymzh](https://github.com/jaymzh))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.32.8 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- make pipelines public: habitat/test [#1002](https://github.com/chef/cookstyle/pull/1002) ([jaymzh](https://github.com/jaymzh)) <!-- 7.32.15 -->
 - Fix commented out cops due to renames [#981](https://github.com/chef/cookstyle/pull/981) ([tas50](https://github.com/tas50)) <!-- 7.32.14 -->
 - Updating configuration for a symantec version promote and publish [#999](https://github.com/chef/cookstyle/pull/999) ([nikhil2611](https://github.com/nikhil2611)) <!-- 7.32.13 -->
 - Test pipeline with empty commit [#994](https://github.com/chef/cookstyle/pull/994) ([nikhil2611](https://github.com/nikhil2611)) <!-- 0.1.2 -->
