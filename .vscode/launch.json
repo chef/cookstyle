@@ -1,0 +1,30 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "rdbg",
+            "name": "Debug current file with rdbg",
+            "request": "launch",
+            "script": "${file}",
+            "args": [],
+            "askParameters": true
+        },
+        {
+            "type": "rdbg",
+            "name": "Attach with rdbg",
+            "request": "attach"
+        },
+        {
+            "type": "rdbg",
+            "name": "Run rake test",
+            "request": "launch",
+            "command": "rake",
+            "script": "style", // launch rake test with debugger
+            "args": [],
+            "askParameters": false // Do not ask startup parameter any more
+        }
+    ]
+}

@@ -38,7 +38,7 @@ module RuboCop
         #   ### correct
         #   chef_sleep '60'
         #
-        class ExecuteSleep < Cop
+        class ExecuteSleep < Base
           include RuboCop::Chef::CookbookHelpers
           extend TargetChefVersion
 

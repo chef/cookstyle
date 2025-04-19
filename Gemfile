@@ -1,29 +1,25 @@
 # frozen_string_literal: true
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
 # Specify your gem's dependencies in cookstyle.gemspec
 gemspec
-gem 'appbundler'
+gem "appbundler"
 group :debug do
-  gem 'pry'
+  gem "pry"
 end
 
 group :docs do
-  gem 'yard'
+  gem "yard"
 end
 
 group :profiling do
   platforms :ruby do
-    gem 'memory_profiler'
-    gem 'stackprof'
+    gem "memory_profiler"
+    gem "stackprof"
   end
 end
 
-group :rubocop_gems do
-  gem 'rubocop-performance', '= 1.19.0'
-end
-
 group :development do
-  gem 'rake'
-  gem 'rspec', '>= 3.4'
+  gem "rake"
+  gem "rspec", ">= 3.4"
 end
