@@ -41,6 +41,7 @@ module RuboCop
         #   node["foo"]
         #
         class AttributeKeys < Base
+          extend AutoCorrector
           include RuboCop::Cop::ConfigurableEnforcedStyle
 
           MSG = 'Use %s to access node attributes'
@@ -70,22 +71,20 @@ module RuboCop
           def on_node_attribute_access(node)
             if node.str_type?
               style_detected(:strings)
-              add_offense(node, message: MSG % style, severity: :refactor) if style == :symbols
+              if style == :symbols
+                add_offense(node, message: MSG % style, severity: :refactor) do |corrector|
+                  key_string = node.children.first.to_s
+                  corrector.replace(node, key_string.to_sym.inspect)
+                end
+              end
             elsif node.sym_type?
               style_detected(:symbols)
-              add_offense(node, message: MSG % style, severity: :refactor) if style == :strings
-            end
-          end
-
-          def autocorrect(node)
-            lambda do |corrector|
-              key_string = node.children.first.to_s
-              key_replacement = if style == :symbols
-                                  key_string.to_sym.inspect
-                                else # strings
-                                  key_string.inspect
-                                end
-              corrector.replace(node, key_replacement)
+              if style == :strings
+                add_offense(node, message: MSG % style, severity: :refactor) do |corrector|
+                  key_string = node.children.first.to_s
+                  corrector.replace(node, key_string.inspect)
+                end
+              end
             end
           end
         end
