@@ -3172,10 +3172,6 @@ Style/MapIntoArray:
 Style/SendWithLiteralMethodName:
   Enabled: true
 
-# add_runtime_dependencies is not preferred in gemspecs
-Gemspec/AddRuntimeDependency:
-  Enabled: true
-
 # Avoid numeric operators that do nothing to the value
 Lint/UselessNumericOperation:
   Enabled: true
@@ -3250,10 +3246,6 @@ Layout/LineContinuationSpacing:
 
 # Catch range statements that produce a Ruby warning
 Lint/RequireRangeParentheses:
-  Enabled: true
-
-# Don't use attributes in the gemspec that are deprecated and/or ignored now
-Gemspec/DeprecatedAttributeAssignment:
   Enabled: true
 
 # Don't .map and then .compact when you can use .select or .reject instead
