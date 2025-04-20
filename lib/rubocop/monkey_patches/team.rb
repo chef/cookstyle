@@ -10,12 +10,13 @@ module RuboCop
       end
 
       ### START COOKSTYLE MODIFICATION
-      def roundup_relevant_cops(filename)
-        cops.reject do |cop|
-          cop.excluded_file?(filename) ||
-            !support_target_ruby_version?(cop) ||
-            !support_target_chef_version?(cop) ||
-            !support_target_rails_version?(cop)
+      def roundup_relevant_cops(processed_source)
+        cops.select do |cop|
+          next true if processed_source.comment_config.cop_opted_in?(cop)
+          next false if cop.excluded_file?(processed_source.file_path)
+          next false unless @registry.enabled?(cop, @config)
+      
+          support_target_ruby_version?(cop) && support_target_rails_version?(cop) && support_target_chef_version?(cop)
         end
       end
       ### END COOKSTYLE MODIFICATION
