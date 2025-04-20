@@ -3263,3 +3263,19 @@ Style/MapCompactWithConditionalBlock:
 # Don't allow case statements with the same condition twice
 Lint/DuplicateMatchPattern:
   Enabled: true
+
+# Use the performant .between? helper when possible
+Style/ComparableBetween:
+  Enabled: true
+
+# Simplify fetching data by using .dig
+Style/HashFetchChain:
+  Enabled: true
+
+# Don't use .format or .sprintf when not required
+Style/RedundantFormat:
+  Enabled: true
+
+# Don't convert types if we don't need to
+Lint/RedundantTypeConversion:
+  Enabled: true
