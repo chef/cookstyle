@@ -4,6 +4,10 @@
 
 The RuboCop engine that powers Cookstyle has been updated to 1.75.2 with a HUGE number of under the hood improvements and autocorrection bug fixes.
 
+### Updated default Ruby release
+
+Cookstyle now defaults to Ruby 2.6, enabling new language features, while still helping users on legacy Chef Infra Client releases to upgrade their cookbooks.
+
 ### Newly enabled cops in Cookstyle
 
 - Bundler/DuplicatedGroup
