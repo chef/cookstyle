@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.summary       = 'Cookstyle is a code linting tool that helps you to write better Chef Infra cookbooks by detecting and automatically correcting style, syntax, and logic mistakes in your code.'
   spec.license       = 'Apache-2.0'
   spec.homepage      = 'https://docs.chef.io/workstation/cookstyle/'
-  spec.required_ruby_version = '>= 2.7'
+  spec.required_ruby_version = '>= 3.1'
 
   # the gemspec and Gemfile are necessary for appbundling of the gem
   spec.files = %w(LICENSE cookstyle.gemspec Gemfile) + Dir.glob('{lib,bin,config}/**/*')
