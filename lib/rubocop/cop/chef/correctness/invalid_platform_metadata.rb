@@ -62,7 +62,7 @@ module RuboCop
 
           def on_block(node)
             supports_array?(node) do |plats|
-              plats.values.each do |plat|
+              plats.each_value do |plat|
                 next unless INVALID_PLATFORMS[plat.str_content]
                 add_offense(plat, severity: :refactor) do |corrector|
                   correct_string = corrected_platform_source(plat)

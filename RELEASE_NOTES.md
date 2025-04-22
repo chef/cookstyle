@@ -1,3 +1,53 @@
+## Cookstyle 8.0
+
+### RuboCop 1.75.2
+
+The RuboCop engine that powers Cookstyle has been updated to 1.75.2 with a HUGE number of under the hood improvements and autocorrection bug fixes.
+
+### Updated default Ruby release
+
+Cookstyle now defaults to Ruby 2.6, enabling new language features, while still helping users on legacy Chef Infra Client releases to upgrade their cookbooks.
+
+### Newly enabled cops in Cookstyle
+
+- Bundler/DuplicatedGroup
+- Layout/LineContinuationSpacing
+- Lint/DuplicateMagicComment
+- Lint/DuplicateMatchPattern
+- Lint/DuplicateSetElement
+- Lint/HashNewWithKeywordArgumentsAsDefault
+- Lint/MixedCaseRange:
+- Lint/RedundantTypeConversion
+- Lint/RequireRangeParentheses
+- Lint/UnescapedBracketInRegexp
+- Lint/UselessDefined
+- Lint/UselessNumericOperation
+- Style/ArrayFirstLast
+- Style/ArrayIntersect
+- Style/CombinableDefined
+- Style/ComparableBetween
+- Style/ConcatArrayLiterals
+- Style/DigChain
+- Style/DirEmpty
+- Style/ExactRegexpMatch
+- Style/FileEmpty
+- Style/HashFetchChain
+- Style/MagicCommentFormat
+- Style/MapCompactWithConditionalBlock
+- Style/MapIntoArray
+- Style/MapToSet
+- Style/MinMaxComparison
+- Style/NestedFileDirname
+- Style/RedundantArrayConstructor:
+- Style/RedundantCurrentDirectoryInPath:
+- Style/RedundantEach
+- Style/RedundantFilterChain:
+- Style/RedundantFormat
+- Style/RedundantRegexpArgument
+- Style/RedundantStringEscape
+- Style/SendWithLiteralMethodName
+- Style/YAMLFileRead
+
 ## Cookstyle 7.14
 
 ### RuboCop 1.17
