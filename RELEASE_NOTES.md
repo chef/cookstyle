@@ -1,3 +1,8 @@
+## Cookstyle 8.0.3
+
+- Upgrade RuboCop to 1.75.3 with bug fixes
+- Remove extra gem dependencies that are no longer needed
+
 ## Cookstyle 8.0
 
 ### RuboCop 1.75.2
