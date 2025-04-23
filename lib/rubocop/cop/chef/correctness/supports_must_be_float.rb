@@ -41,7 +41,7 @@ module RuboCop
             supports_with_constraint?(node) do |ver|
               return if ver.source.include?('.')
               add_offense(ver, severity: :refactor) do |corrector|
-                corrector.replace(ver, ver.source.gsub(ver.value, (ver.value + '.0')))
+                corrector.replace(ver, ver.source.gsub(ver.value, ver.value + '.0'))
               end
             end
           end
