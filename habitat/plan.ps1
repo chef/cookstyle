@@ -5,7 +5,6 @@ $env:HAB_BLDR_CHANNEL = "LTS-2024"
 $env:HAB_REFRESH_CHANNEL = "LTS-2024"
 $pkg_name="cookstyle"
 $pkg_origin="chef"
-Write-Output "*** My Plan Context IS: $PLAN_CONTEXT"
 $parent_path = $($PLAN_CONTEXT | Split-Path -Parent)
 $pkg_version=$(Get-Content "$parent_path/VERSION")
 $pkg_maintainer="The Chef Maintainers <humans@chef.io>"
