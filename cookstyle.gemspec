@@ -20,10 +20,6 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency('rubocop', Cookstyle::RUBOCOP_VERSION)
 
-  # remove these dependencies once we upgrade to a modern rubocop
-  spec.add_dependency('base64')
-  spec.add_dependency('ostruct')
-
   spec.metadata = {
     'homepage_uri' => 'https://github.com/chef/cookstyle',
     'changelog_uri' => 'https://github.com/chef/cookstyle/blob/main/CHANGELOG.md',
