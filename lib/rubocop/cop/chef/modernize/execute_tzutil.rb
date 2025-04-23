@@ -74,7 +74,7 @@ module RuboCop
 
           def calls_tzutil?(ast_obj)
             property_data = method_arg_ast_to_string(ast_obj)
-            return true if property_data && property_data.match?(/^tzutil/i)
+            true if property_data && property_data.match?(/^tzutil/i)
           end
         end
       end

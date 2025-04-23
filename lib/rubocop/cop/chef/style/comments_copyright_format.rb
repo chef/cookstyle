@@ -64,7 +64,7 @@ module RuboCop
             # no copyright year present so return this year
             return Time.new.year if dates.empty?
 
-            oldest_date = dates.min[0].to_i
+            oldest_date = dates.min.first.to_i
 
             # Avoid returning THIS_YEAR - THIS_YEAR
             if oldest_date == Time.new.year
@@ -77,7 +77,7 @@ module RuboCop
           def copyright_holder(comment)
             # Grab just the company / individual name w/o :: or dates
             match = /(?:.*[0-9]{4}|Copyright\W*)(?:,)?(?:\s)?(.*)/.match(comment.text)
-            marketing_sanitizer(match.captures[0])
+            marketing_sanitizer(match.captures.first)
           end
 
           # Flush Opscode down the memory hole and Chef Inc is not a company
@@ -89,10 +89,10 @@ module RuboCop
             match = /# (?:Copyright\W*)(.*)/.match(comment.text)
             return false unless match # it's not even a copyright
 
-            current_text = match.captures[0]
+            current_text = match.captures.first
             desired_text = "#{copyright_date_range(comment)}, #{copyright_holder(comment)}"
 
-            return true unless current_text == desired_text
+            true unless current_text == desired_text
           end
         end
       end

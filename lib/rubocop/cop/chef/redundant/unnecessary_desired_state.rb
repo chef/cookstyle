@@ -45,7 +45,7 @@ module RuboCop
           def on_send(node)
             property?(node) do |hash_vals|
               hash_vals.each_pair do |k, v|
-                next unless k == s(:sym, :desired_state) && v == s(:true) # cookstyle: disable Lint/BooleanSymbol
+                next unless k == s(:sym, :desired_state) && v == s(:true) # rubocop: disable Lint/BooleanSymbol
                 add_offense(v.parent, severity: :refactor) do |corrector|
                   range = range_with_surrounding_comma(range_with_surrounding_space(range: v.parent.loc.expression, side: :left), :left)
                   corrector.remove(range)

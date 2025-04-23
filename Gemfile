@@ -19,10 +19,6 @@ group :profiling do
   end
 end
 
-group :rubocop_gems do
-  gem 'rubocop-performance', '= 1.19.0'
-end
-
 group :development do
   gem 'rake'
   gem 'rspec', '>= 3.4'
