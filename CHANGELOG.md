@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 8.1.0 -->
-## [v8.1.0](https://github.com/chef/cookstyle/tree/v8.1.0) (2025-04-24)
+ <!-- latest_release 8.1.1 -->
+## [v8.1.1](https://github.com/chef/cookstyle/tree/v8.1.1) (2025-04-24)
 
 #### Merged Pull Requests
-- Update RuboCop to 1.75.3 [#1006](https://github.com/chef/cookstyle/pull/1006) ([tas50](https://github.com/tas50))
+- correcting habitat plan [#1007](https://github.com/chef/cookstyle/pull/1007) ([johnmccrae](https://github.com/johnmccrae))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.32.8 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- correcting habitat plan [#1007](https://github.com/chef/cookstyle/pull/1007) ([johnmccrae](https://github.com/johnmccrae)) <!-- 8.1.1 -->
 - Update RuboCop to 1.75.3 [#1006](https://github.com/chef/cookstyle/pull/1006) ([tas50](https://github.com/tas50)) <!-- 8.1.0 -->
 - Remove extra deps we no longer need [#1005](https://github.com/chef/cookstyle/pull/1005) ([tas50](https://github.com/tas50)) <!-- 8.0.2 -->
 - Added support for Ruby 3.4 [#1004](https://github.com/chef/cookstyle/pull/1004) ([ashiqueps](https://github.com/ashiqueps)) <!-- 8.0.1 -->
