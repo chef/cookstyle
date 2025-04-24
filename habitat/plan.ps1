@@ -5,7 +5,8 @@ $env:HAB_BLDR_CHANNEL = "LTS-2024"
 $env:HAB_REFRESH_CHANNEL = "LTS-2024"
 $pkg_name="cookstyle"
 $pkg_origin="chef"
-$pkg_version=$(Get-Content "$PLAN_CONTEXT/../VERSION")
+$parent_path = $($PLAN_CONTEXT | Split-Path -Parent)
+$pkg_version=$(Get-Content "$parent_path/VERSION")
 $pkg_maintainer="The Chef Maintainers <humans@chef.io>"
 
 $pkg_deps=@(
@@ -17,7 +18,7 @@ $pkg_bin_dirs=@("bin"
 $project_root= (Resolve-Path "$PLAN_CONTEXT/../").Path
 
 function pkg_version {
-    Get-Content "$SRC_PATH/VERSION"
+    $pkg_version
 }
 
 function Invoke-Before {
