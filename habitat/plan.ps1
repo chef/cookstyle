@@ -1,8 +1,9 @@
 $ErrorActionPreference = "Stop"
 $PSDefaultParameterValues['*:ErrorAction']='Stop'
 
-$env:HAB_BLDR_CHANNEL = "LTS-2024"
-$env:HAB_REFRESH_CHANNEL = "LTS-2024"
+$env:HAB_AUTH_TOKEN=$(vault kv get -field auth_token account/static/habitat/chef-ci)
+$env:HAB_BLDR_CHANNEL = "Base-2025"
+$env:HAB_REFRESH_CHANNEL = "Base-2025"
 $pkg_name="cookstyle"
 $pkg_origin="chef"
 $parent_path = $($PLAN_CONTEXT | Split-Path -Parent)
