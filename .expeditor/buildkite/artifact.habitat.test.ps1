@@ -6,9 +6,8 @@
 $PSDefaultParameterValues['*:ErrorAction']='Stop'
 $ErrorActionPreference = 'Stop'
 
-$env:HAB_AUTH_TOKEN=$(vault kv get -field auth_token account/static/habitat/chef-ci)
-$env:HAB_BLDR_CHANNEL = 'Base-2025'
-$env:HAB_REFRESH_CHANNEL = "Base-2025"
+$env:HAB_BLDR_CHANNEL = 'LTS-2024'
+$env:HAB_REFRESH_CHANNEL = "LTS-204"
 $env:HAB_ORIGIN = 'ci'
 $env:CHEF_LICENSE = 'accept-no-persist'
 $env:HAB_LICENSE = 'accept-no-persist'
