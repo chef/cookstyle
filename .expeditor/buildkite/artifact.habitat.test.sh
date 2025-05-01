@@ -2,12 +2,14 @@
 
 set -eo pipefail
 
+HAB_AUTH_TOKEN=$(vault kv get -field auth_token account/static/habitat/chef-ci)
+export HAB_AUTH_TOKEN
 export HAB_ORIGIN='ci'
 export PLAN='cookstyle'
 export CHEF_LICENSE="accept-no-persist"
 export HAB_LICENSE="accept-no-persist"
-export HAB_BLDR_CHANNEL='LTS-2024'
-export HAB_REFRESH_CHANNEL="LTS-2024"
+export HAB_BLDR_CHANNEL='Base-2025'
+export HAB_REFRESH_CHANNEL="Base-2025"
 
 echo "--- checking if git is installed"
 if ! command -v git &> /dev/null; then
