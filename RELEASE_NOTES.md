@@ -1,6 +1,6 @@
 ## Cookstyle 8.1.2
 
-- Upgrade RuboCop to 1.75.4 with bug fixes
+- Upgrade RuboCop to 1.75.5 with bug fixes
 
 ## Cookstyle 8.1.1
 
