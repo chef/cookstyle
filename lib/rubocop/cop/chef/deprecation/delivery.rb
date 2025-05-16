@@ -38,7 +38,7 @@ module RuboCop
             add_offense(range, severity: :warning)
           end
 
-          # An empty / simple TOML file can also be syntatically valid Ruby, so
+          # An empty / simple TOML file can also be syntactically valid Ruby, so
           # RuboCop may start an investigation instead of calling on_other_file.
           alias_method :on_new_investigation, :on_other_file
         end
