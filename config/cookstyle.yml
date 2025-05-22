@@ -3019,7 +3019,7 @@ Lint/BinaryOperatorWithIdenticalOperands:
   Enabled: true
 
 # returning at the top level with an arg is invalid
-# @TODO we can enable this once this is fixed: https://github.com/rubocop-hq/rubocop/issues/8462
+# @TODO we can enable this once this is fixed: https://github.com/rubocop/rubocop/issues/8462
 # Lint/TopLevelReturnWithArgument:
 #   Enabled: true
 
