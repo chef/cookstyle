@@ -6,4 +6,4 @@ RuboCop's Creating a New Cop documentation (RuboCop specific, but useful): https
 
 RuboCop Node Pattern documentation: https://docs.rubocop.org/rubocop-ast/node_pattern.html
 
-RuboCop NodePattern class with query examples: https://github.com/rubocop-hq/rubocop-ast/blob/master/lib/rubocop/ast/node_pattern.rb
+RuboCop NodePattern class with query examples: https://github.com/rubocop/rubocop-ast/blob/master/lib/rubocop/ast/node_pattern.rb
