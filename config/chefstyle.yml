@@ -477,7 +477,7 @@ Layout/TrailingWhitespace:
 Style/RedundantCapitalW:
   Enabled: true
 Style/RedundantInterpolation:
-  Enabled: false # buggy: https://github.com/rubocop-hq/rubocop/issues/6099
+  Enabled: false # buggy: https://github.com/rubocop/rubocop/issues/6099
 #Style/RedundantPercentQ:  # would like to enable this one but its buggy as of 0.35.1
 #  Enabled: true
 Naming/VariableName:

@@ -171,7 +171,7 @@ Chef/Style/NegatingOnlyIf:
 
 Chef/Style/IncludeRecipeWithParentheses:
   Description: There is no need to wrap the recipe in parentheses when using the include_recipe helper
-  StyleGuide: '#includerecipewithparentheses'
+  StyleGuide: 'chef_style_includerecipewithparentheses'
   VersionAdded: '6.11.0'
   Enabled: true
   Exclude:
@@ -208,7 +208,7 @@ Chef/Correctness/NodeNormal:
 
 Chef/Correctness/NodeNormalUnless:
   Description: Do not use the node.normal_unless method
-  StyleGuide: 'chef_correctness_chernodenormalunless'
+  StyleGuide: 'chef_correctness_nodenormalunless'
   Enabled: true
   VersionAdded: '5.1.0'
   Exclude:
@@ -402,7 +402,7 @@ Chef/Correctness/ChefApplicationFatal:
 
 Chef/Correctness/PowershellScriptDeleteFile:
   Description: Use the `file` or `directory` resources built into Chef Infra Client with the :delete action to remove files/directories instead of using Remove-Item in a powershell_script resource
-  StyleGuide: 'chef_correctness_powershellscriptdeletefiles'
+  StyleGuide: 'chef_correctness_powershellscriptdeletefile'
   Enabled: true
   VersionAdded: '6.0.0'
   Exclude:
@@ -599,7 +599,7 @@ Chef/Sharing/EmptyMetadataField:
 
 Chef/Sharing/IncludePropertyDescriptions:
   Description: Properties should include description fields to allow automated documentation. Requires Chef Infra Client 13.9 or later.
-  StyleGuide: 'chef_sharing_includepropetydescriptions'
+  StyleGuide: 'chef_sharing_includepropertydescriptions'
   Enabled: false
   VersionAdded: '6.1.0'
   Include:
@@ -1082,7 +1082,7 @@ Chef/Deprecations/LogResourceNotifications:
 
 Chef/Deprecations/HWRPWithoutProvides:
   Description: In Chef Infra Client 16 and later a legacy HWRP resource must use `provides` to define how the resource is called in recipes or other resources. To maintain compatibility with Chef Infra Client < 16 use both `resource_name` and `provides`.
-  StyleGuide: 'chef_deprecations_resourcewithoutnameorprovides'
+  StyleGuide: 'chef_deprecations_hwrpwithoutprovides'
   Enabled: true
   VersionAdded: '6.0.0'
   VersionChanged: '6.8.0'
@@ -1173,7 +1173,7 @@ Chef/Deprecations/MacosUserdefaultsGlobalProperty:
 
 Chef/Deprecations/CookbooksDependsOnSelf:
   Description: A cookbook cannot depend on itself in Chef Infra Client 13 or later.
-  StyleGuide: 'chef_deprecations_cookbooksdependonself'
+  StyleGuide: 'chef_deprecations_cookbooksdependsonself'
   Enabled: true
   VersionAdded: '5.2.0'
   VersionChanged: '6.16.0'
@@ -1861,7 +1861,7 @@ Chef/Modernize/NodeRolesInclude:
 
 Chef/Modernize/RespondToCompileTime:
   Description: There is no need to check if the chef_gem resource supports compile_time as Chef Infra Client 12.1 and later support the compile_time property.
-  StyleGuide: 'chef_modernize_resondtocompiletime'
+  StyleGuide: 'chef_modernize_respondtocompiletime'
   Enabled: true
   VersionAdded: '6.3.0'
   Exclude:
@@ -2269,7 +2269,7 @@ Chef/Effortless/CookbookUsesDatabags:
 # https://github.com/chef/cookstyle/issues/346
 Chef/Effortless/ChefVaultUsed:
   Description: Cookbook uses Chef Vault, which cannot be used in the Effortless Infra pattern
-  StyleGuide: 'chef_effortless_cookbookuseschefvault'
+  StyleGuide: 'chef_effortless_chefvaultused'
   Enabled: false
   VersionAdded: '6.19'
   Exclude:
@@ -2279,7 +2279,7 @@ Chef/Effortless/ChefVaultUsed:
 # https://github.com/chef/cookstyle/issues/346
 Chef/Effortless/DependsChefVault:
   Description: Cookbook depends on Chef Vault, which cannot be used in the Effortless Infra pattern
-  StyleGuide: 'chef_effortless_cookbookdependschefvault'
+  StyleGuide: 'chef_effortless_dependschefvault'
   Enabled: false
   VersionAdded: '6.19'
   Include:
@@ -3019,7 +3019,7 @@ Lint/BinaryOperatorWithIdenticalOperands:
   Enabled: true
 
 # returning at the top level with an arg is invalid
-# @TODO we can enable this once this is fixed: https://github.com/rubocop-hq/rubocop/issues/8462
+# @TODO we can enable this once this is fixed: https://github.com/rubocop/rubocop/issues/8462
 # Lint/TopLevelReturnWithArgument:
 #   Enabled: true
 
