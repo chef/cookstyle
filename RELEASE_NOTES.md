@@ -1,6 +1,6 @@
 ## Cookstyle 8.1.5
 
-- Upgrade RuboCop to 1.75.7 with bug fixes
+- Upgrade RuboCop to 1.75.8 with bug fixes
 - Fix incorrect links to the styleguide
 
 ## Cookstyle 8.1.3
