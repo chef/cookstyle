@@ -11,15 +11,19 @@ steps:
 
   - label: ":linux: Validate Habitat Builds of Cookstyle"
     commands:
+      - HAB_AUTH_TOKEN=$(aws ssm get-parameter --name "habitat-acceptance-auth-token" --with-decryption --query Parameter.Value --output text --region us-west-2)
       - .expeditor/buildkite/artifact.habitat.test.sh
     expeditor:
       executor:
         docker:
           image: ruby:3.1
           privileged: true
+          environment:
+            - HAB_AUTH_TOKEN=${HAB_AUTH_TOKEN}
 
   - label: ":windows: Validate Habitat Builds of Cookstyle"
     commands:
+      - \$HAB_AUTH_TOKEN=$(aws ssm get-parameter --name "habitat-acceptance-auth-token" --with-decryption --query Parameter.Value --output text --region us-west-2)
       - .expeditor/buildkite/artifact.habitat.test.ps1
     expeditor:
       executor:
@@ -33,3 +37,4 @@ steps:
             - EXPIRE_CACHE=true
             - CHEF_LICENSE=accept-no-persist
             - CHEF_LICENSE_SERVER=http://hosted-license-service-lb-8000-606952349.us-west-2.elb.amazonaws.com:8000/
+            - HAB_AUTH_TOKEN=${HAB_AUTH_TOKEN}
