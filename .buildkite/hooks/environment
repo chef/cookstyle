@@ -1,5 +1,7 @@
 #!/bin/bash
 
 VAR1_TOKEN = 'fgdgdfhjg'
+VAR2 = 'qwwerettyujjk'
 
 echo "The value of \"VAR1_TOKEN\" is: ${VAR1_TOKEN}"
+echo "The value of \"VAR2\" is: ${VAR2}"

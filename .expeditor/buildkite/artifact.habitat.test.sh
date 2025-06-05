@@ -10,6 +10,7 @@ export HAB_BLDR_CHANNEL='LTS-2024'
 export HAB_REFRESH_CHANNEL="LTS-2024"
 
 echo "The value of \"VAR1_TOKEN\" is: ${VAR1_TOKEN}"
+echo "The value of \"VAR2\" is: ${VAR2}"
 
 echo "--- checking if git is installed"
 if ! command -v git &> /dev/null; then
