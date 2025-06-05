@@ -1,0 +1,5 @@
+#!/bin/bash
+
+VAR1_TOKEN = 'fgdgdfhjg'
+
+echo "The value of \"VAR1_TOKEN\" is: ${VAR1_TOKEN}"
