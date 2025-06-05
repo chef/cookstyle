@@ -1,9 +1,0 @@
-#!/bin/bash
-
-VAR1_TOKEN='fgdgdfhjg'
-export VAR1_TOKEN
-VAR2='qwwerettyujjk'
-export VAR2
-
-echo "The value of \"VAR2\" is: ${VAR2}"
-echo "The value of \"VAR1_TOKEN\" is: ${VAR1_TOKEN}"
