@@ -12,9 +12,6 @@ $env:CHEF_LICENSE = 'accept-no-persist'
 $env:HAB_LICENSE = 'accept-no-persist'
 $Plan = 'cookstyle'
 
-Write-host "The value of VAR2 is $env:VAR2"
-Write-host "The value of VAR1_TOKEN is $env:VAR1_TOKEN"
-
 Write-Host "--- system details"
 $Properties = 'Caption', 'CSName', 'Version', 'BuildType', 'OSArchitecture'
 Get-CimInstance Win32_OperatingSystem | Select-Object $Properties | Format-Table -AutoSize
