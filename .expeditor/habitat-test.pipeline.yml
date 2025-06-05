@@ -11,7 +11,8 @@ steps:
 
   - label: ":linux: Validate Habitat Builds of Cookstyle"
     commands:
-      - HAB_AUTH_TOKEN=$(aws ssm get-parameter --name "habitat-acceptance-auth-token" --with-decryption --query Parameter.Value --output text --region us-west-2)
+      - echo "The value of \"VAR1_TOKEN\" is\: ${VAR1_TOKEN}"
+      # - HAB_AUTH_TOKEN=$(aws ssm get-parameter --name "habitat-acceptance-auth-token" --with-decryption --query Parameter.Value --output text --region us-west-2)
       - .expeditor/buildkite/artifact.habitat.test.sh
     expeditor:
       executor:
@@ -23,7 +24,8 @@ steps:
 
   - label: ":windows: Validate Habitat Builds of Cookstyle"
     commands:
-      - \$HAB_AUTH_TOKEN=$(aws ssm get-parameter --name "habitat-acceptance-auth-token" --with-decryption --query Parameter.Value --output text --region us-west-2)
+      - Write-host "The value of VAR1_TOKEN is $env:VAR1_TOKEN"
+      # - \$HAB_AUTH_TOKEN=$(aws ssm get-parameter --name "habitat-acceptance-auth-token" --with-decryption --query Parameter.Value --output text --region us-west-2)
       - .expeditor/buildkite/artifact.habitat.test.ps1
     expeditor:
       executor:

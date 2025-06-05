@@ -9,6 +9,8 @@ export HAB_LICENSE="accept-no-persist"
 export HAB_BLDR_CHANNEL='LTS-2024'
 export HAB_REFRESH_CHANNEL="LTS-2024"
 
+echo "The value of \"VAR1_TOKEN\" is: ${VAR1_TOKEN}"
+
 echo "--- checking if git is installed"
 if ! command -v git &> /dev/null; then
     echo "Git is not installed. Installing Git..."
