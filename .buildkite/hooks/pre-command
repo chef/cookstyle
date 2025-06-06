@@ -6,4 +6,4 @@ elif [[ $BUILDKITE_ORGANIZATION_SLUG = 'chef' ]] || [[ $BUILDKITE_ORGANIZATION_S
   AWS_REGION='us-west-2'
 fi
 
-export HAB_AUTH_TOKEN=$(aws ssm get-parameter --name 'habitat-acceptance-auth-token' --with-decryption --query Parameter.Value --output text --region ${AWS_REGION})
+export HAB_AUTH_TOKEN=$(aws ssm get-parameter --name 'habitat-prod-auth-token' --with-decryption --query Parameter.Value --output text --region ${AWS_REGION})
