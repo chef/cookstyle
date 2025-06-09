@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 8.1.5 -->
-## [v8.1.5](https://github.com/chef/cookstyle/tree/v8.1.5) (2025-05-30)
+ <!-- latest_release 8.1.6 -->
+## [v8.1.6](https://github.com/chef/cookstyle/tree/v8.1.6) (2025-06-09)
 
 #### Merged Pull Requests
-- Update RuboCop to 1.75.8 [#1013](https://github.com/chef/cookstyle/pull/1013) ([tas50](https://github.com/tas50))
+- Habitat authentication token [#1014](https://github.com/chef/cookstyle/pull/1014) ([borisicbs](https://github.com/borisicbs))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.32.8 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Habitat authentication token [#1014](https://github.com/chef/cookstyle/pull/1014) ([borisicbs](https://github.com/borisicbs)) <!-- 8.1.6 -->
 - Update RuboCop to 1.75.8 [#1013](https://github.com/chef/cookstyle/pull/1013) ([tas50](https://github.com/tas50)) <!-- 8.1.5 -->
 - Updating version to 8.1.3 [#1011](https://github.com/chef/cookstyle/pull/1011) ([johnmccrae](https://github.com/johnmccrae)) <!-- 8.1.4 -->
 - Update RuboCop to 1.75.6 [#1010](https://github.com/chef/cookstyle/pull/1010) ([tas50](https://github.com/tas50)) <!-- 8.1.3 -->
