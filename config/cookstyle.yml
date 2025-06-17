@@ -3271,3 +3271,15 @@ Style/RedundantFormat:
 # Don't convert types if we don't need to
 Lint/RedundantTypeConversion:
   Enabled: true
+
+# Don't use .flatten and then .join when you can use .join directly
+Style/RedundantArrayFlatten:
+  Enabled: true
+
+# Avoid the use of || when the left side will never be nil
+Lint/UselessOr:
+  Enabled: true
+
+# Warn when default values are passed that won't be used
+Lint/UselessDefaultValueArgument:
+  Enabled: true
