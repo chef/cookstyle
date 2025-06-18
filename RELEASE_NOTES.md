@@ -1,3 +1,11 @@
+## Cookstyle 8.2.1
+
+- Upgrade RuboCop to 1.76.2
+- Enable the following new cops:
+  - Style/RedundantArrayFlatten
+  - Lint/UselessOr
+  - Lint/UselessDefaultValueArgument
+
 ## Cookstyle 8.1.4
 
 - Upgrade RuboCop to 1.75.8 with bug fixes
