@@ -50,7 +50,7 @@ module RuboCop
             platform_version_check?(node) do
               if parent_method_equals?(node, :[])
                 node = node.parent
-                if node&.arguments.count == 1 &&
+                if node&.arguments.one? &&
                    node&.arguments&.first&.int_type? &&
                    node&.arguments&.first.source == '0'
                   add_offense_to_i_if_present(node)
