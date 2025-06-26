@@ -45,7 +45,7 @@ module RuboCop
 
           def on_block(node)
             match_property_in_resource?(:execute, 'creates', node) do |offense|
-              return unless offense.arguments.count == 1 # we can only analyze simple string args
+              return unless offense.arguments.one? # we can only analyze simple string args
               return unless offense.arguments.first.str_type? # we can only analyze simple string args
 
               # skip any creates that are abs paths https://rubular.com/r/3TbDsgcAa1EaIF

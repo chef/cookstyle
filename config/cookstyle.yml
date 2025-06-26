@@ -3283,3 +3283,7 @@ Lint/UselessOr:
 # Warn when default values are passed that won't be used
 Lint/UselessDefaultValueArgument:
   Enabled: true
+
+# use helpers like .any?, .none?, and .one? instead of using count on collections which is much slower
+Style/CollectionQuerying:
+  Enabled: true

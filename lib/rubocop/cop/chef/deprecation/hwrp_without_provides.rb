@@ -117,17 +117,13 @@ module RuboCop
 
           def has_provides?
             provides_ast = provides(processed_source.ast)
-            return false if provides_ast.count == 0
+            return false if provides_ast.none?
 
             resource_ast = resource_name(processed_source.ast)
 
-            if resource_ast.count == 0
-              true # no resource_name, but provides
-            else
-              # since we have a resource and provides make sure the there is a provides that
-              # matches the resource name
-              provides_ast.include?(resource_ast.first)
-            end
+            # if no resource ast then resource_name, but not provides
+            # else make sure the provides matches the resource name
+            resource_ast.none? || provides_ast.include?(resource_ast.first)
           end
 
           def indentation(node)
