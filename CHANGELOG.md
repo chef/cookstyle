@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 8.2.2 -->
-## [v8.2.2](https://github.com/chef/cookstyle/tree/v8.2.2) (2025-07-14)
+ <!-- latest_release 8.2.3 -->
+## [v8.2.3](https://github.com/chef/cookstyle/tree/v8.2.3) (2025-07-14)
 
 #### Merged Pull Requests
-- Fixing habitat test builds by declaring HAB_ORIGIN after habitat install [#1018](https://github.com/chef/cookstyle/pull/1018) ([nikhil2611](https://github.com/nikhil2611))
+- Support private hab bldr of publishing hab pkg and update ruby core package [#1017](https://github.com/chef/cookstyle/pull/1017) ([sanjain-progress](https://github.com/sanjain-progress))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.32.8 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Support private hab bldr of publishing hab pkg and update ruby core package [#1017](https://github.com/chef/cookstyle/pull/1017) ([sanjain-progress](https://github.com/sanjain-progress)) <!-- 8.2.3 -->
 - Fixing habitat test builds by declaring HAB_ORIGIN after habitat install [#1018](https://github.com/chef/cookstyle/pull/1018) ([nikhil2611](https://github.com/nikhil2611)) <!-- 8.2.2 -->
 - Upgrade RuboCop to 1.77 + enable new cops [#1016](https://github.com/chef/cookstyle/pull/1016) ([tas50](https://github.com/tas50)) <!-- 8.2.1 -->
 - Update to RuboCop 1.76.1 [#1015](https://github.com/chef/cookstyle/pull/1015) ([tas50](https://github.com/tas50)) <!-- 8.2.0 -->
