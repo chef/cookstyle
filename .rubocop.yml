@@ -13,3 +13,9 @@ Chef/Modernize/FoodcriticComments:
 # reduces memory usage
 Style/FrozenStringLiteralComment:
   Enabled: true
+
+require:
+  - ./lib/rubocop/cop/chef/deprecated_not_if_only_if.rb
+
+Chef/DeprecatedNotIfOnlyIf:
+  Enabled: true

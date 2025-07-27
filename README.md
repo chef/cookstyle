@@ -14,6 +14,31 @@ Cookstyle is powered by the [RuboCop](https://www.rubocop.org) linting engine. R
 
 For complete usage documentation along with documentation for all the included cops see https://docs.chef.io/workstation/cookstyle/
 
+---
+
+## Custom Cops in This Repository
+
+This repository adds custom linting rules for Chef cookbooks, including:
+
+- **Chef/DeprecatedNotIfOnlyIf:**  
+  Flags deprecated usage of string guards in `not_if` and `only_if`.  
+  **Recommended:** Use Ruby blocks instead of strings for guards.
+
+**Example:**
+
+```ruby
+# Deprecated (will be flagged):
+not_if 'test -f /usr/bin/mypackage'
+
+# Preferred (Ruby block):
+not_if { ::File.exist?('/usr/bin/mypackage') }
+```
+
+Custom cops are located in `lib/rubocop/cop/chef/`.  
+Enable or disable them in `.rubocop.yml`.
+
+---
+
 ## Cookstyle vs. RuboCop
 
 How does Cookstyle differ from RuboCop?
@@ -142,5 +167,4 @@ Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
-limitations under the License.
-```
+limitations under the
