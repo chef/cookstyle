@@ -395,7 +395,7 @@ Chef/Correctness/EmptyResourceGuard:
   Description: Resource guards (not_if/only_if) should not be empty strings as empty strings will always evaluate to true.
   StyleGuide: 'chef_correctness_emptyresourceguard'
   Enabled: true
-  VersionAdded: '7.33.0'
+  VersionAdded: '8.4.0'
   Exclude:
     - '**/attributes/*.rb'
     - '**/metadata.rb'
