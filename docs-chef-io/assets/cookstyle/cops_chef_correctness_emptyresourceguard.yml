@@ -1,0 +1,52 @@
+---
+short_name: EmptyResourceGuard
+full_name: Chef/Correctness/EmptyResourceGuard
+department: Chef/Correctness
+description: 'Resource guards (not_if/only_if) should not be empty strings as empty strings will always evaluate to true. This can cause resources to run when they should not or never run when they should.'
+autocorrection: false
+target_chef_version: All Versions
+examples: |2-
+
+  ### incorrect
+
+  ```ruby
+  template '/etc/foo' do
+    mode '0644'
+    source 'foo.erb'
+    only_if ''
+  end
+
+  cookbook_file '/logs/foo/error.log' do
+    source 'error.log'
+    not_if { '' }
+  end
+  ```
+
+  ### correct
+
+  ```ruby
+  template '/etc/foo' do
+    mode '0644'
+    source 'foo.erb'
+    only_if 'test -f /etc/foo'
+  end
+
+  cookbook_file '/logs/foo/error.log' do
+    source 'error.log'
+    not_if { ::File.exist?('/logs/foo/error.log') }
+  end
+  ```
+
+explanation: |2-
+
+  Empty string guards are problematic because in Ruby, empty strings are "truthy" values. This means:
+
+  - `only_if ''` will always evaluate to true, so the resource will always execute
+  - `not_if ''` will always evaluate to true, so the resource will never execute
+
+  This behavior is often unexpected and can lead to resources running when they should not or never running when they should.
+
+  Replace empty strings with meaningful shell commands or Ruby expressions, or remove the guard entirely if no condition is needed.
+
+version_added: 7.33.0
+enabled: true
