@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 8.3.0 -->
-## [v8.3.0](https://github.com/chef/cookstyle/tree/v8.3.0) (2025-07-31)
+ <!-- latest_release 8.3.1 -->
+## [v8.3.1](https://github.com/chef/cookstyle/tree/v8.3.1) (2025-08-01)
 
 #### Merged Pull Requests
-- Update RuboCop to 1.79.1 [#1023](https://github.com/chef/cookstyle/pull/1023) ([tas50](https://github.com/tas50))
+- Add Chef/Correctness/EmptyResourceGuard cop [#1022](https://github.com/chef/cookstyle/pull/1022) ([sumedha-lolur](https://github.com/sumedha-lolur))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.32.8 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add Chef/Correctness/EmptyResourceGuard cop [#1022](https://github.com/chef/cookstyle/pull/1022) ([sumedha-lolur](https://github.com/sumedha-lolur)) <!-- 8.3.1 -->
 - Update RuboCop to 1.79.1 [#1023](https://github.com/chef/cookstyle/pull/1023) ([tas50](https://github.com/tas50)) <!-- 8.3.0 -->
 - Ruby 3.4 update in cookstyle hab package for windows [#1019](https://github.com/chef/cookstyle/pull/1019) ([nikhil2611](https://github.com/nikhil2611)) <!-- 8.2.4 -->
 - Support private hab bldr of publishing hab pkg and update ruby core package [#1017](https://github.com/chef/cookstyle/pull/1017) ([sanjain-progress](https://github.com/sanjain-progress)) <!-- 8.2.3 -->
