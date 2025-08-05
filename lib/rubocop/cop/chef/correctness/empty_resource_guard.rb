@@ -19,11 +19,11 @@ module RuboCop
   module Cop
     module Chef
       module Correctness
-        # Resource guards (not_if/only_if) should not be empty strings as empty strings will always evaluate to true. 
+        # Resource guards (not_if/only_if) should not be empty strings as empty strings will always evaluate to true.
         # This will cause confusion in your cookbooks as the guard will always pass.
         #
         # Empty strings in Ruby are "truthy", which means:
-        # - `only_if ''` will ALWAYS execute the resource (guard always passes)  
+        # - `only_if ''` will ALWAYS execute the resource (guard always passes)
         # - `not_if ''` will NEVER execute the resource (guard always blocks)
         #
         # This behavior is usually unintended and can lead to resources running when they shouldn't
