@@ -1,3 +1,12 @@
+## Cookstyle 8.4.0
+
+- Upgrade RuboCop to 1.79.2
+- Add new Chef/Correctness/EmptyResourceGuard cop
+
+## Cookstyle 8.3.0
+
+- Upgrade RuboCop to 1.79.1
+
 ## Cookstyle 8.2.1
 
 - Upgrade RuboCop to 1.77.0
