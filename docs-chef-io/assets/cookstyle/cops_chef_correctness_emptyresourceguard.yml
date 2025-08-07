@@ -2,13 +2,16 @@
 short_name: EmptyResourceGuard
 full_name: Chef/Correctness/EmptyResourceGuard
 department: Chef/Correctness
-description: "Resource guards (not_if/only_if) should not be empty strings as empty
-  strings will always evaluate to true. \nThis will cause confusion in your cookbooks
-  as the guard will always pass.\n\nEmpty strings in Ruby are \"truthy\", which means:\n-
-  `only_if ''` will ALWAYS execute the resource (guard always passes)  \n- `not_if
-  ''` will NEVER execute the resource (guard always blocks)\n\nThis behavior is usually
-  unintended and can lead to resources running when they shouldn't\nor never running
-  when they should."
+description: |-
+  Resource guards (not_if/only_if) should not be empty strings as empty strings will always evaluate to true.
+  This will cause confusion in your cookbooks as the guard will always pass.
+
+  Empty strings in Ruby are "truthy", which means:
+  - `only_if ''` will ALWAYS execute the resource (guard always passes)
+  - `not_if ''` will NEVER execute the resource (guard always blocks)
+
+  This behavior is usually unintended and can lead to resources running when they shouldn't
+  or never running when they should.
 autocorrection: false
 target_chef_version: All Versions
 examples: |2-
