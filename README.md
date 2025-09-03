@@ -4,9 +4,6 @@
 [![Gem Version](https://badge.fury.io/rb/cookstyle.svg)](https://badge.fury.io/rb/cookstyle)
 
 * **Umbrella Project**: [Chef Infra](https://github.com/chef/chef-oss-practices/blob/main/projects/chef-infra.md)
-* **[Project State](https://github.com/chef/chef-oss-practices/blob/main/repo-management/repo-states.md):** Active
-* **Issues [Response Time Maximum](https://github.com/chef/chef-oss-practices/blob/main/repo-management/repo-states.md):** 14 days
-* **Pull Request [Response Time Maximum](https://github.com/chef/chef-oss-practices/blob/main/repo-management/repo-states.md):** 14 days
 
 Cookstyle is a [code linting](https://en.wikipedia.org/wiki/Lint_%28software%29) tool that helps you to write better Chef Infra cookbooks and InSpec profiles by detecting and automatically correcting style, syntax, logic, and security mistakes in your code.
 
