@@ -1,16 +1,19 @@
 # Cookstyle Changelog
 
- <!-- latest_release 8.2.4 -->
-## [v8.2.4](https://github.com/chef/cookstyle/tree/v8.2.4) (2025-07-16)
+ <!-- latest_release 8.4.0 -->
+## [v8.4.0](https://github.com/chef/cookstyle/tree/v8.4.0) (2025-08-07)
 
 #### Merged Pull Requests
-- Ruby 3.4 update in cookstyle hab package for windows [#1019](https://github.com/chef/cookstyle/pull/1019) ([nikhil2611](https://github.com/nikhil2611))
+- Update RuboCop to 1.79.2 + prep release [#1026](https://github.com/chef/cookstyle/pull/1026) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.32.8 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Update RuboCop to 1.79.2 + prep release [#1026](https://github.com/chef/cookstyle/pull/1026) ([tas50](https://github.com/tas50)) <!-- 8.4.0 -->
+- Add Chef/Correctness/EmptyResourceGuard cop [#1022](https://github.com/chef/cookstyle/pull/1022) ([sumedha-lolur](https://github.com/sumedha-lolur)) <!-- 8.3.1 -->
+- Update RuboCop to 1.79.1 [#1023](https://github.com/chef/cookstyle/pull/1023) ([tas50](https://github.com/tas50)) <!-- 8.3.0 -->
 - Ruby 3.4 update in cookstyle hab package for windows [#1019](https://github.com/chef/cookstyle/pull/1019) ([nikhil2611](https://github.com/nikhil2611)) <!-- 8.2.4 -->
 - Support private hab bldr of publishing hab pkg and update ruby core package [#1017](https://github.com/chef/cookstyle/pull/1017) ([sanjain-progress](https://github.com/sanjain-progress)) <!-- 8.2.3 -->
 - Fixing habitat test builds by declaring HAB_ORIGIN after habitat install [#1018](https://github.com/chef/cookstyle/pull/1018) ([nikhil2611](https://github.com/nikhil2611)) <!-- 8.2.2 -->

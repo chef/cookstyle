@@ -3,14 +3,9 @@
 [![Build status](https://badge.buildkite.com/c086ffe05e32e4d61282b91ead96b3721590a59ed4360cf7ac.svg?branch=main)](https://buildkite.com/chef-oss/chef-cookstyle-main-verify)
 [![Gem Version](https://badge.fury.io/rb/cookstyle.svg)](https://badge.fury.io/rb/cookstyle)
 
-* **Umbrella Project**: [Chef Infra](https://github.com/chef/chef-oss-practices/blob/main/projects/chef-infra.md)
-* **[Project State](https://github.com/chef/chef-oss-practices/blob/main/repo-management/repo-states.md):** Active
-* **Issues [Response Time Maximum](https://github.com/chef/chef-oss-practices/blob/main/repo-management/repo-states.md):** 14 days
-* **Pull Request [Response Time Maximum](https://github.com/chef/chef-oss-practices/blob/main/repo-management/repo-states.md):** 14 days
-
 Cookstyle is a [code linting](https://en.wikipedia.org/wiki/Lint_%28software%29) tool that helps you to write better Chef Infra cookbooks and InSpec profiles by detecting and automatically correcting style, syntax, logic, and security mistakes in your code.
 
-Cookstyle is powered by the [RuboCop](https://www.rubocop.org) linting engine. RuboCop ships with over three-hundred rules, or cops, designed to detect common Ruby coding mistakes and enforce a common coding style. We've customized Cookstyle with a subset of those cops that we believe are perfectly tailored for cookbook development. We also ship **259 Chef Infra specific cops** that catch common cookbook coding mistakes, cleanup portions of code that are no longer necessary, and detect deprecations that prevent cookbooks from running on the latest releases of Chef Infra Client.
+Cookstyle is powered by the [RuboCop](https://www.rubocop.org) linting engine. RuboCop ships with over three-hundred rules, or cops, designed to detect common Ruby coding mistakes and enforce a common coding style. We've customized Cookstyle with a subset of those cops that we believe are perfectly tailored for cookbook development. We also ship **260 Chef Infra specific cops** that catch common cookbook coding mistakes, cleanup portions of code that are no longer necessary, and detect deprecations that prevent cookbooks from running on the latest releases of Chef Infra Client.
 
 For complete usage documentation along with documentation for all the included cops see https://docs.chef.io/workstation/cookstyle/
 
