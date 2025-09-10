@@ -15,7 +15,6 @@ By moving repeated logic into clearly named helper modules, we:
 
 ## 📁 Location
 
-
 lib/rubocop/cop/chef/helpers/
 
 ```
