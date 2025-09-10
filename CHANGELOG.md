@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 8.4.0 -->
-## [v8.4.0](https://github.com/chef/cookstyle/tree/v8.4.0) (2025-08-07)
+ <!-- latest_release 8.4.1 -->
+## [v8.4.1](https://github.com/chef/cookstyle/tree/v8.4.1) (2025-09-09)
 
 #### Merged Pull Requests
-- Update RuboCop to 1.79.2 + prep release [#1026](https://github.com/chef/cookstyle/pull/1026) ([tas50](https://github.com/tas50))
+- CHEF-25767 - Standardize - Removing SLA from README [#1027](https://github.com/chef/cookstyle/pull/1027) ([nandanhegde73](https://github.com/nandanhegde73))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.32.8 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- CHEF-25767 - Standardize - Removing SLA from README [#1027](https://github.com/chef/cookstyle/pull/1027) ([nandanhegde73](https://github.com/nandanhegde73)) <!-- 8.4.1 -->
 - Update RuboCop to 1.79.2 + prep release [#1026](https://github.com/chef/cookstyle/pull/1026) ([tas50](https://github.com/tas50)) <!-- 8.4.0 -->
 - Add Chef/Correctness/EmptyResourceGuard cop [#1022](https://github.com/chef/cookstyle/pull/1022) ([sumedha-lolur](https://github.com/sumedha-lolur)) <!-- 8.3.1 -->
 - Update RuboCop to 1.79.1 [#1023](https://github.com/chef/cookstyle/pull/1023) ([tas50](https://github.com/tas50)) <!-- 8.3.0 -->
