@@ -28,6 +28,7 @@ lib/rubocop/cop/chef/helpers/resource\_matcher.rb
 - Each Cop implemented its own logic to match resources like `execute`, `package`, etc.
 - This resulted in **duplicated methods**, inconsistencies in naming, and higher maintenance effort.
 
+
 ### After Helpers
 - Centralized matching logic (e.g., `resource_type?`, `matches_property?`).
 - Reuse in multiple Cop classes.
