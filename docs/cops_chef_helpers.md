@@ -19,7 +19,6 @@ lib/rubocop/cop/chef/helpers/
 ```
 
 Example file:
-```
 
 lib/rubocop/cop/chef/helpers/resource\_matcher.rb
 
