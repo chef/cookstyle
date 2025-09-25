@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 8.4.4 -->
-## [v8.4.4](https://github.com/chef/cookstyle/tree/v8.4.4) (2025-09-16)
+ <!-- latest_release 8.5.0 -->
+## [v8.5.0](https://github.com/chef/cookstyle/tree/v8.5.0) (2025-09-25)
 
 #### Merged Pull Requests
-- Update to RuboCop 1.80.2 [#1028](https://github.com/chef/cookstyle/pull/1028) ([tas50](https://github.com/tas50))
+- Update to Rubocop 1.81 + enable new cop [#1034](https://github.com/chef/cookstyle/pull/1034) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.32.8 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Update to Rubocop 1.81 + enable new cop [#1034](https://github.com/chef/cookstyle/pull/1034) ([tas50](https://github.com/tas50)) <!-- 8.5.0 -->
 - Update to RuboCop 1.80.2 [#1028](https://github.com/chef/cookstyle/pull/1028) ([tas50](https://github.com/tas50)) <!-- 8.4.4 -->
 - [CI] Update Windows runner to 2025 [#1032](https://github.com/chef/cookstyle/pull/1032) ([dafyddcrosby](https://github.com/dafyddcrosby)) <!-- 8.4.3 -->
 - Add myself to codeowners [#1033](https://github.com/chef/cookstyle/pull/1033) ([jaymzh](https://github.com/jaymzh)) <!-- 8.4.2 -->
