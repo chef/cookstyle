@@ -152,8 +152,6 @@ RuboCop Node Pattern documentation: https://docs.rubocop.org/rubocop-ast/node_pa
 
 RuboCop NodePattern class with query examples: https://github.com/rubocop/rubocop-ast/blob/master/lib/rubocop/ast/node_pattern.rb
 
-
-
 ## Developer Guide
 
 ### How It Works
