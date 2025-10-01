@@ -1,3 +1,5 @@
+## frozen_string_literal: true
+
 require_relative '../helpers/resource_matcher'
 
 module RuboCop
@@ -7,7 +9,7 @@ module RuboCop
         class RepeatedResourcesInLoops < Base
           include RuboCop::Cop::Chef::Helpers::ResourceMatcher
 
-          MSG = 'Avoid creating resources inside loops when the resource supports arrays: use batched or bulk resources for efficiency.'
+          MSG = 'Avoid creating resources inside loops when the resource supports arrays: use batched or bulk resources for efficiency.'.freeze
 
           def on_block(node)
             return unless node.send_node.method_name == :each
