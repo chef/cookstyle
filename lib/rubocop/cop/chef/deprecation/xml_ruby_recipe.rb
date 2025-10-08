@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2019-2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -38,7 +39,8 @@ module RuboCop
 
           def on_send(node)
             xml_ruby_recipe?(node) do
-              node = node.parent if node.parent&.conditional? && node.parent&.single_line_condition? # make sure we catch any inline conditionals
+              # make sure we catch any inline conditionals
+              node = node.parent if node.parent&.conditional? && node.parent.single_line_condition?
               add_offense(node, severity: :warning) do |corrector|
                 corrector.remove(node)
               end

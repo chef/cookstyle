@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: Copyright (c) Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -104,11 +105,13 @@ module RuboCop
 
           def on_class(node)
             return if has_provides?
+
             HWRP?(node) do |inherit|
               add_offense(inherit, severity: :warning) do |corrector|
                 resource_name_ast(node) do |ast_match|
                   # build a new string to add after that includes the new line and the proper indentation
-                  new_string = "\n" + ast_match.source.dup.gsub('resource_name', 'provides').prepend(' ' * indentation(ast_match))
+                  new_string = "\n" + ast_match.source.dup.gsub('resource_name',
+                                                                'provides').prepend(' ' * indentation(ast_match))
                   corrector.insert_after(ast_match.source_range, new_string)
                 end
               end

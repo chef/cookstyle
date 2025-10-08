@@ -1,4 +1,5 @@
- # frozen_string_literal: true
+# frozen_string_literal: true
+
 #
 # Copyright:: 2019-2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -21,46 +22,46 @@ module RuboCop
   module Cop
     module Chef
       module Modernize
-  # Instead of using the execute resource to run the `apt-get update` use Chef Infra Client's built-in `apt_update` resource.
-  #
-  # @example
-  #
-  #   ### incorrect
-  #   execute 'apt-get update'
-  #
-  #   execute 'Apt all the apt cache' do
-  #     command 'apt-get update'
-  #   end
-  #
-  #   execute 'some execute resource' do
-  #     notifies :run, 'execute[apt-get update]', :immediately
-  #   end
-  #
-  #   # Using resource matcher helpers
-  #   execute 'apt-get update' if platform_family?('debian')
-  #
-  #   execute 'apt-get update' unless node['apt']['cacher']
-  #
-  #   ### correct
-  #   apt_update
-  #
-  #   apt_update 'update apt cache'
-  #
-  #   execute 'some execute resource' do
-  #     notifies :update, 'apt_update[update apt cache]', :immediately
-  #   end
-  #
-  #   # Using resource matcher helpers
-  #   apt_update if platform_family?('debian')
-  #
-  #   apt_update unless node['apt']['cacher']
-  #
+        # Instead of using the execute resource to run the `apt-get update` use Chef Infra Client's built-in `apt_update` resource.
+        #
+        # @example
+        #
+        #   ### incorrect
+        #   execute 'apt-get update'
+        #
+        #   execute 'Apt all the apt cache' do
+        #     command 'apt-get update'
+        #   end
+        #
+        #   execute 'some execute resource' do
+        #     notifies :run, 'execute[apt-get update]', :immediately
+        #   end
+        #
+        #   # Using resource matcher helpers
+        #   execute 'apt-get update' if platform_family?('debian')
+        #
+        #   execute 'apt-get update' unless node['apt']['cacher']
+        #
+        #   ### correct
+        #   apt_update
+        #
+        #   apt_update 'update apt cache'
+        #
+        #   execute 'some execute resource' do
+        #     notifies :update, 'apt_update[update apt cache]', :immediately
+        #   end
+        #
+        #   # Using resource matcher helpers
+        #   apt_update if platform_family?('debian')
+        #
+        #   apt_update unless node['apt']['cacher']
+        #
         class ExecuteAptUpdate < Base
           extend AutoCorrector
           include RuboCop::Cop::Chef::Helpers::ResourceMatcher
 
           MSG = 'Use the apt_update resource instead of the execute resource to run an apt-get update package cache update'
-          RESTRICT_ON_SEND = %i(execute notifies subscribes command).freeze
+          RESTRICT_ON_SEND = %i[execute notifies subscribes command].freeze
 
           def_node_matcher :execute_apt_update?, <<~PATTERN
             (send nil? :execute (str { "apt-get update" "apt-get update -y" "apt-get -y update" }))

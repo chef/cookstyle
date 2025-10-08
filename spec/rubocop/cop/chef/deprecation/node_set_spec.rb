@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 #
@@ -53,10 +54,10 @@ describe RuboCop::Cop::Chef::Deprecations::NodeSet, :config do
   end
 
   include_examples 'autocorrect',
-    'node.set[:foo]',
-    'node.normal[:foo]'
+                   'node.set[:foo]',
+                   'node.normal[:foo]'
 
   include_examples 'autocorrect',
-    'chef_run.node.set[:foo]',
-    'chef_run.node.normal[:foo]'
+                   'chef_run.node.set[:foo]',
+                   'chef_run.node.normal[:foo]'
 end

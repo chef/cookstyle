@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -41,7 +42,7 @@ module RuboCop
         class InvalidLicenseString < Base
           extend AutoCorrector
 
-          VALID_LICENSE_STRING = %w(
+          VALID_LICENSE_STRING = %w[
             0BSD
             AAL
             ADSL
@@ -490,24 +491,24 @@ module RuboCop
             xinetd
             xpp
             zlib-acknowledgement
-          ).freeze
+          ].freeze
 
           COMMON_TYPOS = {
-            "all_rights": 'all rights reserved',
-            "apache 2.0": 'Apache-2.0',
-            "apache v2": 'Apache-2.0',
-            "apache v2.0": 'Apache-2.0',
-            "apache license version 2.0": 'Apache-2.0',
-            "apache2": 'Apache-2.0',
-            "mit": 'MIT',
+            all_rights: 'all rights reserved',
+            'apache 2.0': 'Apache-2.0',
+            'apache v2': 'Apache-2.0',
+            'apache v2.0': 'Apache-2.0',
+            'apache license version 2.0': 'Apache-2.0',
+            apache2: 'Apache-2.0',
+            mit: 'MIT',
             '3-clause bsd': 'BSD-3-Clause',
             'gnu public license 3.0': 'GPL-3.0',
             'gpl v2': 'GPL-2.0',
             'gpl v3': 'GPL-3.0',
-            'gplv2': 'GPL-2.0',
-            'gplv3': 'GPL-3.0',
+            gplv2: 'GPL-2.0',
+            gplv3: 'GPL-3.0',
             'mit license': 'MIT',
-            'UNLICENSED': 'all rights reserved',
+            UNLICENSED: 'all rights reserved'
           }.freeze
 
           MSG = 'Cookbook metadata.rb does not use a SPDX compliant license string or "all rights reserved". See https://spdx.org/licenses/ for a complete list of license identifiers.'
@@ -518,6 +519,7 @@ module RuboCop
           def on_send(node)
             license?(node) do |license|
               return if valid_license?(license.str_content)
+
               add_offense(license, severity: :refactor) do |corrector|
                 correct_string = autocorrect_license_string(license.str_content)
                 corrector.replace(license, "'#{correct_string}'") if correct_string

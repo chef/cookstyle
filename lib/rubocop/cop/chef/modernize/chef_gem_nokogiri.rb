@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -41,8 +42,10 @@ module RuboCop
           def on_block(node)
             match_property_in_resource?(:chef_gem, 'package_name', node) do |pkg_name|
               return unless pkg_name.arguments&.first&.str_content == 'nokogiri'
+
               add_offense(node, severity: :refactor) do |corrector|
-                node = node.parent if node.parent&.block_type? # make sure we get the whole block not just the method in the block
+                # make sure we get the whole block not just the method in the block
+                node = node.parent if node.parent&.block_type?
                 corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
               end
             end
@@ -51,7 +54,8 @@ module RuboCop
           def on_send(node)
             nokogiri_install?(node) do
               add_offense(node, severity: :refactor) do |corrector|
-                node = node.parent if node.parent&.block_type? # make sure we get the whole block not just the method in the block
+                # make sure we get the whole block not just the method in the block
+                node = node.parent if node.parent&.block_type?
                 corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
               end
             end

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2016-2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -34,6 +35,7 @@ module RuboCop
           def on_new_investigation
             processed_source.comments.each do |comment|
               next unless comment.text.match?(/#\s*~FC\d{3}.*/)
+
               add_offense(comment, severity: :refactor) do |corrector|
                 corrector.remove(comment)
               end

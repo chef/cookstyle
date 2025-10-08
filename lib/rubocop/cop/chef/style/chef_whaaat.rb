@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -39,6 +40,7 @@ module RuboCop
 
             processed_source.comments.each do |comment|
               next unless comment.text.match?(/Chef [a-z]/) # https://rubular.com/r/0YzfDAbwJrDHix
+
               add_offense(comment, severity: :refactor)
             end
           end

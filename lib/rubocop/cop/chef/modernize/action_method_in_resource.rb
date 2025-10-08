@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -41,13 +42,16 @@ module RuboCop
           def_node_search :includes_poise?, '(send nil? :include (const nil? :Poise))'
 
           def on_def(node)
-            return unless node.method_name.to_s.start_with?('action_') # when we stop support for Ruby < 2.7 the .to_s can go away here
+            # when we stop support for Ruby < 2.7 the .to_s can go away here
+            return unless node.method_name.to_s.start_with?('action_')
             return if node.arguments? # if they passed in arguments they may actually need this
             return if node.parent && includes_poise?(node.parent)
 
             add_offense(node, severity: :refactor) do |corrector|
               # @todo when we drop ruby 2.4 support we can convert this to use delete_suffix
-              corrector.replace(node, node.source.gsub("def #{node.method_name}", "action :#{node.method_name.to_s.gsub(/^action_/, '')} do"))
+              corrector.replace(node,
+                                node.source.gsub("def #{node.method_name}",
+                                                 "action :#{node.method_name.to_s.gsub(/^action_/, '')} do"))
             end
           end
         end

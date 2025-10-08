@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -45,6 +46,7 @@ module RuboCop
               node.each_when do |when_node|
                 when_node.each_condition do |con|
                   next unless con.str_type?
+
                   # if the condition isn't a string we can't check so skip
                   # some invalid platform families have no direct correction value and return nil instead
                   new_value = INVALID_PLATFORM_FAMILIES[con.str_content]
@@ -53,7 +55,9 @@ module RuboCop
                   add_offense(con, severity: :refactor) do |corrector|
                     # if the correct value already exists in the when statement then we just want to delete this node
                     if con.parent.conditions.any? { |x| x.str_content == new_value }
-                      range = range_with_surrounding_comma(range_with_surrounding_space(range: con.loc.expression, side: :left), :both)
+                      range = range_with_surrounding_comma(
+                        range_with_surrounding_space(range: con.loc.expression, side: :left), :both
+                      )
                       corrector.remove(range)
                     else
                       corrector.replace(con, "'#{new_value}'")

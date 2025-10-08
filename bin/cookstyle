@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-$LOAD_PATH.unshift File.join(__dir__, %w(.. lib))
+$LOAD_PATH.unshift File.join(__dir__, %w[.. lib])
 
 if ARGV.include?('--chefstyle')
   ARGV.delete('--chefstyle')
@@ -18,12 +18,10 @@ unless ARGV.include?('--fail-level')
 end
 
 # we want to link to our docs
-unless ARGV.include?('--display-style-guide')
-  ARGV << '--display-style-guide'
-end
+ARGV << '--display-style-guide' unless ARGV.include?('--display-style-guide')
 
 # if only -v is passed we'll get 4 args (-v, --fail-level. --display-style-guide, and C)
-if ARGV.size == 4 && %w(-v --version).include?(ARGV.first)
+if ARGV.size == 4 && %w[-v --version].include?(ARGV.first)
   puts "Cookstyle #{Cookstyle::VERSION}"
   print '  * RuboCop '
 end

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -48,6 +49,7 @@ module RuboCop
           def on_block(node)
             match_property_in_resource?(:apt_repository, 'notifies', node) do |notifies|
               return unless notifies.arguments[1] == s(:str, 'execute[apt-get update]')
+
               add_offense(notifies, severity: :refactor) do |corrector|
                 corrector.remove(range_with_surrounding_space(range: notifies.loc.expression, side: :left))
               end

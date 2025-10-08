@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -35,11 +36,12 @@ module RuboCop
         #
         class UsesRunCommandHelper < Base
           MSG = "Use 'shell_out!' instead of the legacy 'run_command' or 'run_command_with_systems_locale' helpers for shelling out. The run_command helper was removed in Chef Infra Client 13."
-          RESTRICT_ON_SEND = [:require, :run_command, :run_command_with_systems_locale, :include].freeze
+          RESTRICT_ON_SEND = %i[require run_command run_command_with_systems_locale include].freeze
 
           def_node_matcher :calls_run_command?, '(send nil? {:run_command :run_command_with_systems_locale} ...)'
           def_node_matcher :require_mixin_command?, '(send nil? :require (str "chef/mixin/command"))'
-          def_node_matcher :include_mixin_command?, '(send nil? :include (const (const (const nil? :Chef) :Mixin) :Command))'
+          def_node_matcher :include_mixin_command?,
+                           '(send nil? :include (const (const (const nil? :Chef) :Mixin) :Command))'
 
           def_node_search :defines_run_command?, '(def {:run_command :run_command_with_systems_locale} ...)'
 

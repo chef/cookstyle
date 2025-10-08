@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2024, Chef Software Inc.
 # Author:: Sumedha (<https://github.com/sumedha-lolur>)
@@ -72,7 +73,7 @@ module RuboCop
         #
         class EmptyResourceGuard < Base
           MSG = 'Resource guards (not_if/only_if) should not be empty strings as empty strings will always evaluate to true.'
-          RESTRICT_ON_SEND = [:not_if, :only_if].freeze
+          RESTRICT_ON_SEND = %i[not_if only_if].freeze
 
           def_node_matcher :empty_string_guard?, <<-PATTERN
             (send nil? {:not_if :only_if} (str #empty_string?))

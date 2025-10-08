@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'cookstyle/version'
@@ -14,8 +15,8 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 2.7'
 
   # the gemspec and Gemfile are necessary for appbundling of the gem
-  spec.files = %w(LICENSE cookstyle.gemspec Gemfile) + Dir.glob('{lib,bin,config}/**/*')
-  spec.executables = %w(cookstyle)
+  spec.files = %w[LICENSE cookstyle.gemspec Gemfile] + Dir.glob('{lib,bin,config}/**/*')
+  spec.executables = %w[cookstyle]
   spec.require_paths = ['lib']
 
   spec.add_dependency('rubocop', Cookstyle::RUBOCOP_VERSION)
@@ -26,5 +27,6 @@ Gem::Specification.new do |spec|
     'source_code_uri' => 'https://github.com/chef/cookstyle',
     'documentation_uri' => 'https://docs.chef.io/workstation/cookstyle/',
     'bug_tracker_uri' => 'https://github.com/chef/cookstyle/issues',
+    'rubygems_mfa_required' => 'true'
   }
 end

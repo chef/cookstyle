@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'rubocop/rspec/expect_offense'
 # rubocop:disable Lint/DuplicateMethods
 
@@ -18,7 +19,7 @@ module RuboCop
         alias :parse_processed_source :_orig_parse_processed_source
       end
 
-      alias :_orig_parse_processed_source :parse_processed_source
+      alias _orig_parse_processed_source parse_processed_source
 
       def _parse_invalid_source(source, file = nil)
         parse_source(source, file)

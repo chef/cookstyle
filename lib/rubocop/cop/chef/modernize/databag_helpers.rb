@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -48,7 +49,7 @@ module RuboCop
             data_bag_class_load?(node) do
               add_offense(node, severity: :refactor) do |corrector|
                 corrector.replace(node,
-                   node.source.gsub(/Chef::(EncryptedDataBagItem|DataBagItem).load/, 'data_bag_item'))
+                                  node.source.gsub(/Chef::(EncryptedDataBagItem|DataBagItem).load/, 'data_bag_item'))
               end
             end
           end

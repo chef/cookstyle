@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2019-2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -37,7 +38,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'Resource properties should not be both required and have a default value. This will fail on Chef Infra Client 13+'
-          RESTRICT_ON_SEND = [:property, :attribute].freeze
+          RESTRICT_ON_SEND = %i[property attribute].freeze
 
           # match on a property or attribute that has any name and any type and a hash that
           # contains default: true and required: true. These are wrapped in <> which means
@@ -49,7 +50,9 @@ module RuboCop
           def on_send(node)
             required_and_default?(node) do |default|
               add_offense(node, severity: :refactor) do |corrector|
-                range = range_with_surrounding_comma(range_with_surrounding_space(range: default.loc.expression, side: :left), :left)
+                range = range_with_surrounding_comma(
+                  range_with_surrounding_space(range: default.loc.expression, side: :left), :left
+                )
                 corrector.remove(range)
               end
             end
