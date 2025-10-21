@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -55,6 +56,7 @@ module RuboCop
                 if p_hash.key.array_type?
                   p_hash.key.each_value do |plat|
                     next unless INVALID_PLATFORM_FAMILIES.key?(plat.value)
+
                     add_offense(plat, severity: :refactor)
                   end
                 elsif INVALID_PLATFORM_FAMILIES.key?(p_hash.key.value)

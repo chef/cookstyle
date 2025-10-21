@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2020-2022, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -102,10 +103,11 @@ module RuboCop
           def on_block(node)
             file_or_template?(node) do |file_name|
               break unless file_name.start_with?(%r{/etc/cron\.d\b}i)
+
               add_offense(node, severity: :refactor)
             end
 
-            match_property_in_resource?(%i(template file cookbook_file), 'path', node) do |code_property|
+            match_property_in_resource?(%i[template file cookbook_file], 'path', node) do |code_property|
               # instead of using CookbookHelpers#method_arg_ast_to_string, walk the property's descendants
               # and check if their value contains '/etc/cron.d'
               # covers the case where the argument to the path property is provided via a method like File.join

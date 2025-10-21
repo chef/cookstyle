@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -36,7 +37,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'There is no need to set a property to desired_state: true as all properties have a desired_state of true by default.'
-          RESTRICT_ON_SEND = [:property, :attribute].freeze
+          RESTRICT_ON_SEND = %i[property attribute].freeze
 
           def_node_matcher :property?, <<-PATTERN
             (send nil? {:property :attribute} (sym _) ... $(hash ...))
@@ -46,8 +47,11 @@ module RuboCop
             property?(node) do |hash_vals|
               hash_vals.each_pair do |k, v|
                 next unless k == s(:sym, :desired_state) && v == s(:true) # rubocop: disable Lint/BooleanSymbol
+
                 add_offense(v.parent, severity: :refactor) do |corrector|
-                  range = range_with_surrounding_comma(range_with_surrounding_space(range: v.parent.loc.expression, side: :left), :left)
+                  range = range_with_surrounding_comma(
+                    range_with_surrounding_space(range: v.parent.loc.expression, side: :left), :left
+                  )
                   corrector.remove(range)
                 end
               end

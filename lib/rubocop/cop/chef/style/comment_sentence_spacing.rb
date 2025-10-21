@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2016-2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,6 +24,7 @@ module RuboCop
         # Note: This is DISABLED by default.
         class CommentSentenceSpacing < Base
           extend AutoCorrector
+
           MSG = 'Use a single space after sentences in comments'
 
           def on_new_investigation
@@ -30,6 +32,7 @@ module RuboCop
 
             processed_source.comments.each do |comment|
               next unless comment.text.match?(/(.|\?)\s{2}/) # https://rubular.com/r/8o3SiDrQMJSzuU
+
               add_offense(comment, severity: :refactor) do |corrector|
                 corrector.replace(comment, comment.text.gsub('.  ', '. ').gsub('?  ', '? '))
               end

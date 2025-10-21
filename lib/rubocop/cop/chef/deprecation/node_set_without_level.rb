@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 #
@@ -36,20 +37,20 @@ module RuboCop
         #
         class NodeSetWithoutLevel < Base
           MSG = 'When setting a node attribute in Chef Infra Client 11 and later you must specify the precedence level.'
-          RESTRICT_ON_SEND = [:[]=, :<<].freeze
+          RESTRICT_ON_SEND = %i[[]= <<].freeze
 
           def on_op_asgn(node)
             # make sure it was a += or -=
-            if %i(- +).include?(node.node_parts[1])
-              add_offense_for_bare_assignment(node.children&.first)
-            end
+            return unless %i[- +].include?(node.node_parts[1])
+
+            add_offense_for_bare_assignment(node.children&.first)
           end
 
           def on_send(node)
             # make sure the method being send is []= and then make sure the receiver is a send
-            if %i([]= <<).include?(node.method_name) && node.receiver.send_type?
-              add_offense_for_bare_assignment(node)
-            end
+            return unless %i([]= <<).include?(node.method_name) && node.receiver.send_type?
+
+            add_offense_for_bare_assignment(node)
           end
 
           private
@@ -58,8 +59,8 @@ module RuboCop
             if sub_node.receiver == s(:send, nil, :node) # node['foo'] scenario
               add_offense(sub_node.receiver.loc.selector, severity: :warning)
             elsif sub_node.receiver &&
-                  sub_node.receiver&.node_parts.first == s(:send, nil, :node) &&
-                  sub_node.receiver&.node_parts[1] == :[] # node['foo']['bar'] scenario
+                  sub_node.receiver&.node_parts&.first == s(:send, nil, :node) &&
+                  sub_node.receiver&.node_parts&.[](1) == :[] # node['foo']['bar'] scenario
               add_offense(sub_node.receiver.node_parts.first.loc.selector, severity: :warning)
             end
           end

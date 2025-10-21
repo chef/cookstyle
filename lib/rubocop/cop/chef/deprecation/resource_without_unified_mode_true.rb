@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: Copyright (c) Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -59,6 +60,7 @@ module RuboCop
 
             # Using range similar to RuboCop::Cop::Naming::Filename (file_name.rb)
             return if unified_mode?(processed_source.ast)
+
             range = source_range(processed_source.buffer, 1, 0)
             add_offense(range, severity: :refactor) do |corrector|
               insert_below_provides(corrector) || insert_below_resource_name(corrector)
@@ -67,18 +69,18 @@ module RuboCop
 
           def insert_below_provides(corrector)
             provides_ast = provides(processed_source.ast).first
-            if provides_ast
-              corrector.insert_after(provides_ast, "\nunified_mode true")
-              true
-            end
+            return unless provides_ast
+
+            corrector.insert_after(provides_ast, "\nunified_mode true")
+            true
           end
 
           def insert_below_resource_name(corrector)
             resource_name_ast = resource_name(processed_source.ast).first
-            if resource_name_ast
-              corrector.insert_after(resource_name_ast, "\nunified_mode true")
-              true
-            end
+            return unless resource_name_ast
+
+            corrector.insert_after(resource_name_ast, "\nunified_mode true")
+            true
           end
         end
       end
