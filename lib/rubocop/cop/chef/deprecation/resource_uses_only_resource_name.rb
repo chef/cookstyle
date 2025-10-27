@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: Copyright (c) Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -48,7 +49,8 @@ module RuboCop
             cb_path = File.expand_path(File.join(processed_source.file_path, '../..'))
 
             if File.exist?(File.join(cb_path, 'metadata.rb'))
-              cb_metadata_ast = ProcessedSource.from_file(File.join(cb_path, 'metadata.rb'), @config.target_ruby_version).ast
+              cb_metadata_ast = ProcessedSource.from_file(File.join(cb_path, 'metadata.rb'),
+                                                          @config.target_ruby_version).ast
               cb_name_match(cb_metadata_ast).first
             elsif File.exist?(File.join(cb_path, 'metadata.json')) # this exists only for supermarket files that lack metadata.rb
               JSON.parse(File.read(File.join(cb_path, 'metadata.json')))['name']
@@ -68,6 +70,7 @@ module RuboCop
           def on_send(node)
             resource_name?(node) do |name|
               return if valid_provides?(name)
+
               add_offense(node, severity: :warning) do |corrector|
                 if name.to_s == "#{cookbook_name}_#{File.basename(processed_source.path, '.rb')}"
                   corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))

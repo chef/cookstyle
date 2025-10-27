@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -34,7 +35,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'It is not necessary to set `actions` or `allowed_actions` in custom resources as Chef Infra Client determines these automatically from the set of all actions defined in the resource'
-          RESTRICT_ON_SEND = [:allowed_actions, :actions].freeze
+          RESTRICT_ON_SEND = %i[allowed_actions actions].freeze
 
           def_node_search :poise_require, '(send nil? :require (str "poise"))'
 

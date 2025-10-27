@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -37,7 +38,7 @@ module RuboCop
         #
         class InvalidNotificationTiming < Base
           MSG = 'Valid notification timings are :immediately, :immediate (alias for :immediately), :delayed, and :before.'
-          RESTRICT_ON_SEND = [:notifies, :subscribes].freeze
+          RESTRICT_ON_SEND = %i[notifies subscribes].freeze
 
           def_node_matcher :notification_with_timing?, <<-PATTERN
             (send nil? {:notifies :subscribes} (sym _) (...) $(sym _))
@@ -45,7 +46,8 @@ module RuboCop
 
           def on_send(node)
             notification_with_timing?(node) do |timing|
-              add_offense(timing, severity: :refactor) unless %i(immediate immediately delayed before).include?(timing.value)
+              add_offense(timing, severity: :refactor) unless %i[immediate immediately delayed
+                                                                 before].include?(timing.value)
             end
           end
         end

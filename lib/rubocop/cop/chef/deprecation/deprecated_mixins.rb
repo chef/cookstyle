@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -38,7 +39,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = "Don't use deprecated Mixins no longer included in Chef Infra Client 14 and later."
-          RESTRICT_ON_SEND = [:include, :require].freeze
+          RESTRICT_ON_SEND = %i[include require].freeze
 
           def_node_matcher :deprecated_mixin?, <<-PATTERN
             (send nil? :include (const (const (const nil? :Chef) :Mixin) { :Language :LanguageIncludeAttribute :RecipeDefinitionDSLCore :LanguageIncludeRecipe }))

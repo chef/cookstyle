@@ -19,7 +19,7 @@ module RuboCop
     #
     module CookbookOnly
       DEFAULT_CONFIGURATION = CONFIG.fetch('AllCops')
-      COOKBOOK_SEGMENTS = %w(attributes definitions libraries metadata providers recipes resources).freeze
+      COOKBOOK_SEGMENTS = %w[attributes definitions libraries metadata providers recipes resources].freeze
 
       def relevant_file?(file)
         cookbook_pattern =~ file && super

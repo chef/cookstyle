@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: Copyright (c) Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -75,6 +76,7 @@ module RuboCop
 
           def on_class(node)
             return if unified_mode?(processed_source.ast)
+
             HWRP?(node) do |inherit|
               add_offense(inherit, severity: :warning)
             end

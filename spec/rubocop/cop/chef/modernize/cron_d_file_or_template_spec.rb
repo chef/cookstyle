@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2020-2022, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -69,7 +70,7 @@ describe RuboCop::Cop::Chef::Modernize::CronDFileOrTemplate, :config do
       end
     RUBY
 
-    expect_offense(<<~'RUBY')
+    expect_offense(<<~RUBY)
       file File.join('/etc/cron.d', job) do
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the cron_d resource that ships with Chef Infra Client 14.4+ instead of manually creating the file with template, file, or cookbook_file resources
         action :delete
@@ -78,7 +79,7 @@ describe RuboCop::Cop::Chef::Modernize::CronDFileOrTemplate, :config do
   end
 
   it 'registers an offense when using file to delete a file in /etc/cron.d/ with a path property' do
-    expect_offense(<<~'RUBY')
+    expect_offense(<<~RUBY)
       file 'delete old cron job' do
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the cron_d resource that ships with Chef Infra Client 14.4+ instead of manually creating the file with template, file, or cookbook_file resources
         path '/etc/cron.d/backup'
@@ -94,7 +95,7 @@ describe RuboCop::Cop::Chef::Modernize::CronDFileOrTemplate, :config do
       end
     RUBY
 
-    expect_offense(<<~'RUBY')
+    expect_offense(<<~RUBY)
       file 'delete old cron job' do
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the cron_d resource that ships with Chef Infra Client 14.4+ instead of manually creating the file with template, file, or cookbook_file resources
         path ::File.join('/etc/cron.d', job)
