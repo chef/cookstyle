@@ -3297,3 +3297,7 @@ Lint/UselessDefaultValueArgument:
 # use helpers like .any?, .none?, and .one? instead of using count on collections which is much slower
 Style/CollectionQuerying:
   Enabled: true
+
+# use `include?(element)` instead of `intersect?([element])`
+Style/ArrayIntersectWithSingleElement:
+  Enabled: true
