@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2021, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -44,7 +45,7 @@ module RuboCop
                   (send nil? :node) :[]
                   (str "init_package")) :==
                 (str "systemd"))
-            PATTERN
+          PATTERN
 
           def on_send(node)
             node_init_package?(node) do |_cloud_name|

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -29,7 +30,7 @@ module RuboCop
         #
         class CookbookUsesEnvironments < Base
           MSG = 'Cookbook uses environments, which cannot be used in Policyfiles or Effortless Infra'
-          RESTRICT_ON_SEND = [:environment, :chef_environment].freeze
+          RESTRICT_ON_SEND = %i[environment chef_environment].freeze
 
           def on_send(node)
             if node.receiver &&

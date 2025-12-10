@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -38,7 +39,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = "Don't use the deprecated `Chef::ShellOut` class which was removed in Chef Infra Client 13. Use the `Mixlib::ShellOut` class instead, which behaves identically."
-          RESTRICT_ON_SEND = [:new, :require, :include].freeze
+          RESTRICT_ON_SEND = %i[new require include].freeze
 
           def_node_matcher :include_shellout?, <<-PATTERN
           (send nil? :include

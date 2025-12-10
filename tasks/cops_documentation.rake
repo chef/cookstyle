@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 begin
   require 'yard'
   require 'cookstyle'
@@ -70,15 +71,24 @@ begin
             cop_data['department'] = cop.department.to_s
             cop_data['description'] = code_object.docstring.to_s unless code_object.docstring.blank?
             cop_data['autocorrection'] = cop.support_autocorrect?
-            cop_data['target_chef_version'] = cop.respond_to?(:required_minimum_chef_version) ? "#{cop.required_minimum_chef_version}+" : 'All Versions'
+            cop_data['target_chef_version'] =
+              cop.respond_to?(:required_minimum_chef_version) ? "#{cop.required_minimum_chef_version}+" : 'All Versions'
 
             cop_data['examples'] = examples(code_object)
 
             config_data = config.for_cop(cop)
             cop_data['version_added'] = config_data['VersionAdded']
             cop_data['enabled'] = config_data['Enabled']
-            cop_data['excluded_file_paths'] = config_data['Exclude'].map { |x| x.delete_prefix(current_dir) } if config_data['Exclude']
-            cop_data['included_file_paths'] = config_data['Include'].map { |x| x.delete_prefix(current_dir) } if config_data['Include']
+            if config_data['Exclude']
+              cop_data['excluded_file_paths'] = config_data['Exclude'].map do |x|
+                x.delete_prefix(current_dir)
+              end
+            end
+            if config_data['Include']
+              cop_data['included_file_paths'] = config_data['Include'].map do |x|
+                x.delete_prefix(current_dir)
+              end
+            end
 
             write_yml(cop_data)
           end

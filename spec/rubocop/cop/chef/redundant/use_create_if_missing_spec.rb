@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2020-2022, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -19,7 +20,7 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::RedundantCode::UseCreateIfMissing, :config do
-  %w(cookbook_file file remote_directory cron_d remote_file template).each do |cb|
+  %w[cookbook_file file remote_directory cron_d remote_file template].each do |cb|
     it "registers an offense when #{cb} has a not_if that checks if the file exists" do
       expect_offense(<<~RUBY)
         #{cb} '/logs/foo/error.log' do

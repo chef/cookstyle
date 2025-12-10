@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -35,7 +36,7 @@ module RuboCop
           extend RuboCop::Cop::AutoCorrector
 
           MSG = 'Pass options to shell_out helpers without the brackets to avoid Ruby 2.7 deprecation warnings.'
-          RESTRICT_ON_SEND = [:shell_out!, :shell_out].freeze
+          RESTRICT_ON_SEND = %i[shell_out! shell_out].freeze
 
           def_node_matcher :positional_shellout?, <<-PATTERN
             (send nil? {:shell_out :shell_out!} ... $(hash ... ))
@@ -44,6 +45,7 @@ module RuboCop
           def on_send(node)
             positional_shellout?(node) do |h|
               next unless h.braces?
+
               add_offense(h, severity: :refactor) do |corrector|
                 corrector.replace(h, h.source[1..-2])
               end

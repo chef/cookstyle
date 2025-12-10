@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 #
@@ -53,10 +54,10 @@ describe RuboCop::Cop::Chef::Deprecations::NodeSetUnless, :config do
   end
 
   include_examples 'autocorrect',
-    'node.set_unless[:foo]',
-    'node.normal_unless[:foo]'
+                   'node.set_unless[:foo]',
+                   'node.normal_unless[:foo]'
 
   include_examples 'autocorrect',
-    'chef_run.node.set_unless[:foo]',
-    'chef_run.node.normal_unless[:foo]'
+                   'chef_run.node.set_unless[:foo]',
+                   'chef_run.node.normal_unless[:foo]'
 end
