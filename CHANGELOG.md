@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 8.5.3 -->
-## [v8.5.3](https://github.com/chef/cookstyle/tree/v8.5.3) (2025-12-10)
+ <!-- latest_release 8.5.4 -->
+## [v8.5.4](https://github.com/chef/cookstyle/tree/v8.5.4) (2025-12-10)
 
 #### Merged Pull Requests
-- Update to RuboCop 1.81.7 [#1038](https://github.com/chef/cookstyle/pull/1038) ([tas50](https://github.com/tas50))
+- Update actions/checkout@v6 [#1037](https://github.com/chef/cookstyle/pull/1037) ([dafyddcrosby](https://github.com/dafyddcrosby))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.32.8 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Update actions/checkout@v6 [#1037](https://github.com/chef/cookstyle/pull/1037) ([dafyddcrosby](https://github.com/dafyddcrosby)) <!-- 8.5.4 -->
 - Update to RuboCop 1.81.7 [#1038](https://github.com/chef/cookstyle/pull/1038) ([tas50](https://github.com/tas50)) <!-- 8.5.3 -->
 - Update to RuboCop 1.81.6 [#1035](https://github.com/chef/cookstyle/pull/1035) ([tas50](https://github.com/tas50)) <!-- 8.5.2 -->
 - CHEF-24666 - Merge extra top-level docs into README [#1024](https://github.com/chef/cookstyle/pull/1024) ([cgunasree08](https://github.com/cgunasree08)) <!-- 8.5.1 -->
