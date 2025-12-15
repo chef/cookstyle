@@ -1,0 +1,8 @@
+# frozen_string_literal: true
+
+task default: :post_install
+
+task :post_install do
+  require_relative '../../lib/cookstyle/post_install'
+  Cookstyle::PostInstall.run
+end
