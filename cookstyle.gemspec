@@ -14,11 +14,14 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 2.7'
 
   # the gemspec and Gemfile are necessary for appbundling of the gem
-  spec.files = %w(LICENSE cookstyle.gemspec Gemfile) + Dir.glob('{lib,bin,config}/**/*')
+  spec.files = %w(LICENSE cookstyle.gemspec Gemfile) + Dir.glob('{lib,bin,config,ext}/**/*')
   spec.executables = %w(cookstyle)
   spec.require_paths = ['lib']
 
   spec.add_dependency('rubocop', Cookstyle::RUBOCOP_VERSION)
+
+  # Run a RubyGems extension (via Rake) post-install to verify execution and clean dependencies
+  spec.extensions = ['ext/cookstyle_post_install/Rakefile']
 
   spec.metadata = {
     'homepage_uri' => 'https://github.com/chef/cookstyle',
