@@ -81,3 +81,5 @@ module RuboCop
     end
   end
 end
+
+# Signed-off update for DCO compliance
