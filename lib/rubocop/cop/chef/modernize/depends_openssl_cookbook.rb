@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   depends 'openssl'
         #
         class DependsOnOpensslCookbook < Base

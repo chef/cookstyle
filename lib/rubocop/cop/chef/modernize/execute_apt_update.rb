@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   execute 'apt-get update'
         #
         #   execute 'Apt all the apt cache' do
@@ -34,7 +34,7 @@ module RuboCop
         #     notifies :run, 'execute[apt-get update]', :immediately
         #   end
         #
-        #   ### correct
+        #   # good
         #   apt_update
         #
         #   apt_update 'update apt cache'

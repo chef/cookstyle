@@ -24,10 +24,10 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   node.normal_unless['foo'] = true
         #
-        #   ### correct
+        #   # good
         #   node.default_unless['foo'] = true
         #   node.override_unless['foo'] = true
         #   node.force_default_unless['foo'] = true

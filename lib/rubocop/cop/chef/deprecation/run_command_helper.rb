@@ -23,14 +23,14 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   require 'chef/mixin/command'
         #   include Chef::Mixin::Command
         #
         #   run_command('/bin/foo')
         #   run_command_with_systems_locale('/bin/foo')
         #
-        #   ### correct
+        #   # good
         #   shell_out!('/bin/foo')
         #
         class UsesRunCommandHelper < Base

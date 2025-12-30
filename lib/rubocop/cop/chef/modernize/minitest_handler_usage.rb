@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   depends 'minitest-handler'
         #
         class MinitestHandlerUsage < Base

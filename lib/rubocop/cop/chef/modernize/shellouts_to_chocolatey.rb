@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   execute 'install package foo' do
         #     command "choco install --source=artifactory \"foo\" -y --no-progress --ignore-package-exit-codes"
         #   end

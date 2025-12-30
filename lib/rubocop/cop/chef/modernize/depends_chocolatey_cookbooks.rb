@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   depends 'chocolatey_source'
         #   depends 'chocolatey_config'
         #

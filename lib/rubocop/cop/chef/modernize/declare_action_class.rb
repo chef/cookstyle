@@ -23,12 +23,12 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   declare_action_class do
         #     foo
         #   end
         #
-        #   ### correct
+        #   # good
         #   action_class do
         #     foo
         #   end

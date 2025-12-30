@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   cookbook_file '/logs/foo/error.log' do
         #     source 'error.log'
         #     owner 'root'
@@ -41,7 +41,7 @@ module RuboCop
         #     not_if { ::File.exist?('/foo/bar') }
         #   end
         #
-        #   ### correct
+        #   # good
         #   cookbook_file '/logs/foo/error.log' do
         #     source 'error.log'
         #     owner 'root'

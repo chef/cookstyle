@@ -23,13 +23,13 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   def initialize(*args)
         #     super
         #     @provides = :foo
         #   end
         #
-        #   ### correct
+        #   # good
         #   provides :foo
         #
         class ProvidesFromInitialize < Base

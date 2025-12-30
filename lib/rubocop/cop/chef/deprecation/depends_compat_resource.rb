@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   depends 'compat_resource'
         #
         class CookbookDependsOnCompatResource < Base
