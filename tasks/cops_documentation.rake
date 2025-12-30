@@ -40,9 +40,7 @@ begin
     end
 
     def examples(code_object)
-      ex = code_object.tags('example').first.text
-    rescue NoMethodError
-      nil
+      code_object.tags('example').first&.text
     end
 
     def main
