@@ -9,6 +9,5 @@ examples: |2-
 
   # good
   spec.license = "Apache-2.0"
-  ```
 version_added: 
 enabled: false
