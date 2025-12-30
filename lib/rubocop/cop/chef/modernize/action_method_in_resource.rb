@@ -23,12 +23,12 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   def action_create
         #    # :create action code here
         #   end
         #
-        #   ### correct
+        #   # good
         #   action :create do
         #    # :create action code here
         #   end

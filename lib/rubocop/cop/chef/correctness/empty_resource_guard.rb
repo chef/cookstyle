@@ -31,7 +31,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   template '/etc/foo' do
         #     mode '0644'
         #     source 'foo.erb'
@@ -48,7 +48,7 @@ module RuboCop
         #     only_if { '' }  # Block form also problematic
         #   end
         #
-        #   ### correct
+        #   # good
         #   template '/etc/foo' do
         #     mode '0644'
         #     source 'foo.erb'

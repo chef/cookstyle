@@ -23,11 +23,11 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   property :size, regex: /^\d+[KMGTP]$/
         #   attribute :size, regex: /^\d+[KMGTP]$/
         #
-        #   ### correct
+        #   # good
         #   property :size, String, regex: /^\d+[KMGTP]$/
         #   attribute :size, kind_of: String, regex: /^\d+[KMGTP]$/
         #

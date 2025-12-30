@@ -23,12 +23,12 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   execute 'some_cmd' do
         #     path '/foo/bar'
         #   end
         #
-        #   ### correct
+        #   # good
         #   execute 'some_cmd' do
         #     environment {path: '/foo/bar'}
         #   end

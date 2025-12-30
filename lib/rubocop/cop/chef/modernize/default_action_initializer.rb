@@ -23,13 +23,13 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   def initialize(*args)
         #     super
         #     @action = :create
         #   end
         #
-        #   ### incorrect
+        #   # bad
         #   def initialize(*args)
         #     super
         #     @default_action = :create

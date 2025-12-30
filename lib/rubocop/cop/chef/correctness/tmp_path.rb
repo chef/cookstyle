@@ -22,10 +22,10 @@ module RuboCop
         #
         # @example downloading a large file into /tmp/
         #
-        #   ### incorrect
+        #   # bad
         #   remote_file '/tmp/large-file.tar.gz' do
         #
-        #   ### correct
+        #   # good
         #   remote_file "#{Chef::Config[:file_cache_path]}/large-file.tar.gz" do
         #
         class TmpPath < Base

@@ -23,12 +23,12 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   depends 'build-essential'
         #   include_recipe 'build-essential::default'
         #   include_recipe 'build-essential'
         #
-        #   ### correct
+        #   # good
         #   build_essential 'install compilation tools'
         #
         class UseBuildEssentialResource < Base

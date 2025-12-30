@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   include_recipe 'chef_handler'
         #   include_recipe 'chef_handler::default'
         #

@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   depends 'chef-reporting'
         #
         class DependsOnChefReportingCookbook < Base

@@ -23,10 +23,10 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   cron_manage 'mike'
         #
-        #   ### correct
+        #   # good
         #   cron_access 'mike'
         #
         class CronManageResource < Base

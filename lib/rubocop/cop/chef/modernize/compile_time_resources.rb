@@ -23,12 +23,12 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   build_essential 'install build tools' do
         #    action :nothing
         #   end.run_action(:install)
         #
-        #   ### correct
+        #   # good
         #   build_essential 'install build tools' do
         #    compile_time true
         #   end

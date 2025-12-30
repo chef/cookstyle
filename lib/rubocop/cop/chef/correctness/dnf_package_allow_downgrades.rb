@@ -23,13 +23,13 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   dnf_package 'nginx' do
         #     version '1.2.3'
         #     allow_downgrades true
         #   end
         #
-        #   ### correct
+        #   # good
         #   dnf_package 'nginx' do
         #     version '1.2.3'
         #   end
