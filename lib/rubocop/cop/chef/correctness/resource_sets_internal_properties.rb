@@ -23,13 +23,13 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   service 'foo' do
         #     running true
         #     action [:start, :enable]
         #   end
         #
-        #   ### correct
+        #   # good
         #   service 'foo' do
         #     action [:start, :enable]
         #   end

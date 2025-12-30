@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   easy_install "my_thing" do
         #     bar
         #   end

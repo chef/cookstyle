@@ -23,11 +23,11 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   property :config_file, String, regex: /.*/
         #   attribute :config_file, String, regex: /.*/
         #
-        #   ### correct
+        #   # good
         #   property :config_file, String
         #   attribute :config_file, String
         #

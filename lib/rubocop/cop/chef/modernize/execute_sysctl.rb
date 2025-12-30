@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   file '/etc/sysctl.d/ipv4.conf' do
         #     notifies :run, 'execute[sysctl -p /etc/sysctl.d/ipv4.conf]', :immediately
         #     content '9000 65500'
@@ -33,7 +33,7 @@ module RuboCop
         #     action :nothing
         #   end
         #
-        #   ### correct
+        #   # good
         #   sysctl 'net.ipv4.ip_local_port_range' do
         #     value '9000 65500'
         #   end

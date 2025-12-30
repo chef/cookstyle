@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   apt_repository 'my repo' do
         #     uri 'http://packages.example.com/debian'
         #     components %w(stable main)
@@ -31,7 +31,7 @@ module RuboCop
         #     notifies :run, 'execute[apt-get update]', :immediately
         #   end
         #
-        #   ### correct
+        #   # good
         #   apt_repository 'my repo' do
         #     uri 'http://packages.example.com/debian'
         #     components %w(stable main)

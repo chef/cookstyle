@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   template '/etc/foo' do
         #     source 'bar.erb'
         #     notifies :write, 'log[Aggregate notifications using a single log resource]', :immediately
@@ -33,7 +33,7 @@ module RuboCop
         #     notifies :restart, 'service[foo]', :delayed
         #   end
         #
-        #   ### correct
+        #   # good
         #   template '/etc/foo' do
         #     source 'bar.erb'
         #     notifies :run, 'notify_group[Aggregate notifications using a single notify_group resource]', :immediately

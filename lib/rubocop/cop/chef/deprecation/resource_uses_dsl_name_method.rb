@@ -23,10 +23,10 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   my_resource = MyResource.dsl_name
         #
-        #   ### correct
+        #   # good
         #   my_resource = MyResource.resource_name
         #
         class ResourceUsesDslNameMethod < Base
