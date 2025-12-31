@@ -36,8 +36,7 @@ module RuboCop
         class ChefShellout < Base
           include RangeHelp
           extend AutoCorrector
-
-         MSG = "Avoid using the deprecated `Chef::ShellOut` class (removed in Chef Infra Client 13). Replace it with `Mixlib::ShellOut` or use the `shell_out` helper for simpler command execution."
+          MSG = "Avoid using the deprecated `Chef::ShellOut` class (removed in Chef Infra Client 13). Replace it with `Mixlib::ShellOut` or use the `shell_out` helper for simpler command execution."
           RESTRICT_ON_SEND = [:new, :require, :include].freeze
 
           def_node_matcher :include_shellout?, <<-PATTERN
@@ -82,4 +81,3 @@ module RuboCop
   end
 end
 
-# Signed-off update for DCO compliance
