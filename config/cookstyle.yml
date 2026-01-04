@@ -180,6 +180,20 @@ Chef/Style/IncludeRecipeWithParentheses:
     - '**/Berksfile'
 
 ###############################
+# Chef/BestPractice: Best practices for Chef cookbooks
+###############################
+
+Chef/BestPractice:
+  Enabled: true
+  StyleGuideBaseURL: https://docs.chef.io/workstation/cookstyle/
+
+Chef/BestPractice/HardcodedPortNumbers:
+  Description: Avoid hardcoding port numbers in Chef cookbooks
+  StyleGuide: 'chef_bestpractice_hardcodedportnumbers'
+  Enabled: true
+  VersionAdded: '8.0.0'
+
+###############################
 # Chef/Correctness: Avoiding potential problems
 ###############################
 
