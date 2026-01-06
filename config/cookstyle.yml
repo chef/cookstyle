@@ -3301,3 +3301,7 @@ Style/CollectionQuerying:
 # use `include?(element)` instead of `intersect?([element])`
 Style/ArrayIntersectWithSingleElement:
   Enabled: true
+
+# use `.method_defined?(:foo) instead of `.instance_methods.include?(:foo)` which is much slower
+Style/ModuleMemberExistenceCheck:
+  Enabled: true

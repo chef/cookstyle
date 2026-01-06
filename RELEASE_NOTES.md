@@ -1,3 +1,8 @@
+## Cookstyle 8.6.0
+
+- Upgrade to RuboCop 1.82.1
+- Enable the new `Style/ModuleMemberExistenceCheck` cop
+
 ## Cookstyle 8.5.3
 
 - Upgrade to RuboCop 1.81.7
@@ -9,7 +14,7 @@
 ## Cookstyle 8.5.0
 
 - Upgrade RuboCop to 1.81.0
-- Enable the new `Style/ArrayIntersectWithSingleElement` cop.
+- Enable the new `Style/ArrayIntersectWithSingleElement` cop
 
 ## Cookstyle 8.4.0
 
