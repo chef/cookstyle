@@ -1,0 +1,1 @@
+require_relative 'chef/no_execute_resource'
