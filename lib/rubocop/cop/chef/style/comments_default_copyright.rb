@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 #
-# Copyright:: 2016-2019, Chef Software, Inc.
+# Copyright:: Copyright (c) 2016-2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -29,7 +29,7 @@ module RuboCop
         #
         #   # good
         #   Copyright:: 2019 Tim Smith
-        #   Copyright:: 2019 Chef Software, Inc.
+        #   Copyright:: Copyright (c) 2016-2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
         #
         class DefaultCopyrightComments < Base
           MSG = 'Cookbook copyright comment headers should be updated for a real person or organization.'
