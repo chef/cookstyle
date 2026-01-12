@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 #
-# Copyright:: 2016-2019, Chef Software, Inc.
+# Copyright:: Copyright (c) 2016-2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,16 +24,16 @@ module RuboCop
         # @example
         #
         #   # bad
-        #   Copyright:: 2013-2022 Opscode, Inc.
+        #   Copyright:: Copyright (c) 2016-2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
         #   Copyright:: 2013-2022 Chef Inc.
-        #   Copyright:: 2013-2022 Chef Software Inc.
+        #   Copyright:: Copyright (c) 2016-2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
         #   Copyright:: 2009-2010 2013-2022 Chef Software Inc.
-        #   Copyright:: Chef Software Inc.
+        #    Copyright (c) 2016-2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
         #   Copyright:: Tim Smith
-        #   Copyright:: Copyright (c) 2015-2022 Chef Software, Inc.
+        #   Copyright:: Copyright (c) 2016-2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
         #
         #   # good
-        #   Copyright:: 2013-2022 Chef Software, Inc.
+        #   Copyright:: Copyright (c) 2016-2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
         #   Copyright:: 2013-2022 Tim Smith
         #   Copyright:: 2019 37Signals, Inc.
         #
