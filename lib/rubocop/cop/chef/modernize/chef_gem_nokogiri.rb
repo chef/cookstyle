@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   chef_gem 'nokogiri'
         #
         class ChefGemNokogiri < Base

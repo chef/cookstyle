@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   require 'chefspec/librarian'
         #
         class LibrarianChefSpec < Base

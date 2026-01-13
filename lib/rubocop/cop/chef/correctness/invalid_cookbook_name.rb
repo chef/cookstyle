@@ -24,10 +24,10 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   name 'foo.bar'
         #
-        #   ### correct
+        #   # good
         #   name 'foo_bar'
         #
         class InvalidCookbookName < Base

@@ -24,11 +24,11 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   supports 'darwin'
         #   supports 'mswin'
         #
-        #   ### correct
+        #   # good
         #   supports 'mac_os_x'
         #   supports 'windows'
         #

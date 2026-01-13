@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   def initialize(*args)
         #     super
         #     @resource_name = :foo

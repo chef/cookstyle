@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   yum_repository 'OurCo' do
         #     description 'OurCo yum repository'
         #     url 'http://artifacts.ourco.org/foo/bar'
@@ -33,7 +33,7 @@ module RuboCop
         #     action :create
         #   end
         #
-        #   ### correct
+        #   # good
         #   yum_repository 'OurCo' do
         #     description 'OurCo yum repository'
         #     baseurl 'http://artifacts.ourco.org/foo/bar'

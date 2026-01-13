@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   shell_out_compact('foo')
         #   shell_out_compact!('foo')
         #   shell_out_with_timeout('foo')
@@ -34,7 +34,7 @@ module RuboCop
         #   shell_out_compact_timeout('foo')
         #   shell_out_compact_timeout!('foo')
         #
-        #   ### correct
+        #   # good
         #   shell_out('foo')
         #   shell_out!('foo')
         #   shell_out!('foo', default_env: false) # replaces shell_out_with_systems_locale

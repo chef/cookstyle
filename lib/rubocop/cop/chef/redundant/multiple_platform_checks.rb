@@ -24,11 +24,11 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   platform?('redhat') || platform?('ubuntu')
         #   platform_family?('debian') || platform_family?('rhel')
         #
-        #   ### correct
+        #   # good
         #   platform?('redhat', 'ubuntu')
         #   platform_family?('debian', 'rhel')
         #

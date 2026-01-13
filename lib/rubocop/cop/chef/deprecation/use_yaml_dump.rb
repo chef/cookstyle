@@ -24,10 +24,10 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   {"foo" => "bar"}.to_yaml
         #
-        #   ### correct
+        #   # good
         #   YAML.dump({"foo" => "bar"})
         #
         class UseYamlDump < Base

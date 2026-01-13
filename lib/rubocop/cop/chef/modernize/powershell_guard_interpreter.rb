@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   powershell_script 'Create Directory' do
         #     code "New-Item -ItemType Directory -Force -Path C:\mydir"
         #     guard_interpreter :powershell_script
@@ -35,7 +35,7 @@ module RuboCop
         #     guard_interpreter :powershell_script
         #   end
         #
-        #   ### correct
+        #   # good
         #   powershell_script 'Create Directory' do
         #     code "New-Item -ItemType Directory -Force -Path C:\mydir"
         #   end

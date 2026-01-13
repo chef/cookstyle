@@ -24,12 +24,12 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   poise_archive 'https://example.com/myapp.tgz' do
         #     destination '/opt/my_app'
         #   end
         #
-        #   ### correct
+        #   # good
         #   archive_file 'https://example.com/myapp.tgz' do
         #     destination '/opt/my_app'
         #   end

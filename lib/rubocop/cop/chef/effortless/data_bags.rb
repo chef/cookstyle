@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   data_bag_item('admins', login)
         #   data_bag(data_bag_name)
         class CookbookUsesDatabags < Base

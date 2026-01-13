@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   windows_zipfile 'C:\\files\\' do
         #     source 'C:\\Temp\\file.zip'
         #   end

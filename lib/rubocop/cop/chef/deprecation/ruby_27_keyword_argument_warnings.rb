@@ -24,11 +24,11 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   shell_out!('hostnamectl status', { returns: [0, 1] })
         #   shell_out('hostnamectl status', { returns: [0, 1] })
         #
-        #   ### correct
+        #   # good
         #   shell_out!('hostnamectl status', returns: [0, 1])
         #   shell_out('hostnamectl status', returns: [0, 1])
         #

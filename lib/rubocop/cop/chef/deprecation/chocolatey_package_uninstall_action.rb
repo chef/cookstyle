@@ -24,12 +24,12 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   chocolatey_package 'nginx' do
         #     action :uninstall
         #   end
         #
-        #   ### correct
+        #   # good
         #   chocolatey_package 'nginx' do
         #     action :remove
         #   end

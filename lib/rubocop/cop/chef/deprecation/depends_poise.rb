@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   depends 'poise'
         #   depends 'poise-service'
         #   depends 'poise-hoist'

@@ -24,13 +24,13 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   ::Chef::Recipe.send(:include, Filebeat::Helpers)
         #   ::Chef::Provider.send(:include, Filebeat::Helpers)
         #   ::Chef::Recipe.include Filebeat::Helpers
         #   ::Chef::Provider.include Filebeat::Helpers
         #
-        #   ### correct
+        #   # good
         #   ::Chef::DSL::Recipe.send(:include, Filebeat::Helpers) # covers previous Recipe & Provider classes
         #
         class IncorrectLibraryInjection < Base

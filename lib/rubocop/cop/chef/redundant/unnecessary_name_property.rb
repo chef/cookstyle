@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   property :name, String
         #   property :name, String, name_property: true
         #   attribute :name, kind_of: String

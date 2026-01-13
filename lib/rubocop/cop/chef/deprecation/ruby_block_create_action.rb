@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   ruby_block 'my special ruby block' do
         #     block do
         #       puts 'running'
@@ -32,7 +32,7 @@ module RuboCop
         #     action :create
         #   end
         #
-        #   ### correct
+        #   # good
         #   ruby_block 'my special ruby block' do
         #     block do
         #       puts 'running'

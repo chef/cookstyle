@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   depends 'timezone_lwrp'
         #
         class DependsOnTimezoneLwrpCookbook < Base

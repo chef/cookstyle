@@ -24,12 +24,12 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   execute 'some_cmd' do
         #     creates 'something'
         #   end
         #
-        #   ### correct
+        #   # good
         #   execute 'some_cmd' do
         #     creates '/tmp/something'
         #   end

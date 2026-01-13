@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   include Chef::DSL::Recipe
         #   include Chef::DSL::IncludeRecipe
         #

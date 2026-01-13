@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   depends 'chef-vault'
         #
         class DependsOnChefVaultCookbook < Base

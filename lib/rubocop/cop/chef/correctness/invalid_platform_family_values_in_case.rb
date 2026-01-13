@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   case node['platform_family']
         #   when 'redhat'
         #     puts "I'm on a RHEL-like system"

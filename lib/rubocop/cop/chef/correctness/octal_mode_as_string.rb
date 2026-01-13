@@ -24,12 +24,12 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   file '/etc/some_file' do
         #     mode '0o755'
         #   end
         #
-        #   ### correct
+        #   # good
         #   file '/etc/some_file' do
         #     mode '0755'
         #   end

@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   depends 'partial_search'
         #
         class CookbookDependsOnPartialSearch < Base

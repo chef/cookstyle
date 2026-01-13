@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   node['platform'].to_s
         #   node['platform_family'].to_s
         #   node['platform_version'].to_s
@@ -33,7 +33,7 @@ module RuboCop
         #   node['os'].to_s
         #   node['name'].to_s
         #
-        #   ### correct
+        #   # good
         #   node['platform']
         #   node['platform_family']
         #   node['platform_version']

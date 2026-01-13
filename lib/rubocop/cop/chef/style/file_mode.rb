@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   remote_directory '/etc/my.conf' do
         #     content 'some content'
         #     mode 0600
@@ -37,7 +37,7 @@ module RuboCop
         #     action :create
         #   end
         #
-        #   ### correct
+        #   # good
         #   remote_directory '/etc/my.conf' do
         #     content 'some content'
         #     mode '600'

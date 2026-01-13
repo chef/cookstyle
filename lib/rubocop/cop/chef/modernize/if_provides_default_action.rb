@@ -24,10 +24,10 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   default_action :foo if defined?(default_action)
         #
-        #   ### correct
+        #   # good
         #   default_action :foo
         #
         class IfProvidesDefaultAction < Base

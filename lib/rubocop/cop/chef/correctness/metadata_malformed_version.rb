@@ -24,11 +24,11 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   depends 'some_awesome_cookbook' '= 4.5.5'
         #   depends 'some_other_cool_cookbook' '< 8.0'
         #
-        #   ### correct
+        #   # good
         #   depends 'some_awesome_cookbook', '= 4.5.5'
         #   depends 'some_other_cool_cookbook', '< 8.0'
         #

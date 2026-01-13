@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   ::File.open('/proc/1/comm').gets.chomp == 'systemd'
         #   ::File.open('/proc/1/comm').chomp == 'systemd'
         #   File.open('/proc/1/comm').gets.chomp == 'systemd'
@@ -36,7 +36,7 @@ module RuboCop
         #   File.exist?('/proc/1/comm') && File.open('/proc/1/comm').chomp == 'systemd'
         #   only_if 'test -f /bin/systemctl && /bin/systemctl'
         #
-        #   ### correct
+        #   # good
         #   node['init_package'] == 'systemd'
         #   only_if { node['init_package'] == 'systemd' }
         #

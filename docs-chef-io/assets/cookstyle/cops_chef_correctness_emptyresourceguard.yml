@@ -16,9 +16,7 @@ autocorrection: false
 target_chef_version: All Versions
 examples: |2-
 
-  ### incorrect
-
-  ```ruby
+  # bad
   template '/etc/foo' do
     mode '0644'
     source 'foo.erb'
@@ -34,11 +32,8 @@ examples: |2-
     action :restart
     only_if { '' }  # Block form also problematic
   end
-  ```
 
-  ### correct
-
-  ```ruby
+  # good
   template '/etc/foo' do
     mode '0644'
     source 'foo.erb'
@@ -59,7 +54,6 @@ examples: |2-
   package 'curl' do
     action :install
   end
-  ```
 version_added: 8.4.0
 enabled: true
 excluded_file_paths:

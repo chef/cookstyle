@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   control_group 'Baseline' do
         #     control 'SSH' do
         #       it 'should be listening on port 22' do

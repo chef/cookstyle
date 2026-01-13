@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   execute 'set tz' do
         #     command 'tzutil.exe /s UTC'
         #   end
@@ -36,7 +36,7 @@ module RuboCop
         #     not_if { shell_out('tzutil.exe /g').stdout.include?('UTC') }
         #   end
         #
-        #   ### correct
+        #   # good
         #   timezone 'UTC'
         #
         class ExecuteTzUtil < Base

@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   openssl_x509 '/etc/httpd/ssl/mycert.pem' do
         #     common_name 'www.f00bar.com'
         #     org 'Foo Bar'
@@ -32,7 +32,7 @@ module RuboCop
         #     country 'US'
         #   end
         #
-        #   ### correct
+        #   # good
         #   openssl_x509_certificate '/etc/httpd/ssl/mycert.pem' do
         #     common_name 'www.f00bar.com'
         #     org 'Foo Bar'

@@ -24,10 +24,10 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   not_if { File.exist?('/etc/foo/bar') }
         #
-        #   ### correct
+        #   # good
         #   not_if { ::File.exist?('/etc/foo/bar') }
         #
         class ScopedFileExist < Base

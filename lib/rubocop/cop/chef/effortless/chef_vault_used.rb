@@ -24,22 +24,22 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   require 'chef-vault'
         #
-        #   ### incorrect
+        #   # bad
         #   ChefVault::Item
         #
-        #   ### incorrect
+        #   # bad
         #   include_recipe 'chef-vault'
         #
-        #   ### incorrect
+        #   # bad
         #   chef_gem 'chef-vault'
         #
-        #   ### incorrect
+        #   # bad
         #   chef_vault_item_for_environment(arg, arg1)
         #
-        #   ### incorrect
+        #   # bad
         #   chef_vault_item(arg, arg1)
         #
         class ChefVaultUsed < Base

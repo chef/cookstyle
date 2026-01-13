@@ -24,10 +24,10 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   Chef::Application.fatal!('Something horrible happened!')
         #
-        #   ### correct
+        #   # good
         #   raise "Something horrible happened!"
         #
         class ChefApplicationFatal < Base

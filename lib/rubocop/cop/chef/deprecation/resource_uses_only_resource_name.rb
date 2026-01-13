@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   mycookbook/resources/myresource.rb:
         #   resource_name :mycookbook_myresource
         #

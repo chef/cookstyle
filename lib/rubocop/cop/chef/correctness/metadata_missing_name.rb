@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### correct
+        #   # good
         #   name 'foo'
         #
         class MetadataMissingName < Base

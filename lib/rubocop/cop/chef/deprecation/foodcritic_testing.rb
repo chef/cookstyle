@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   gem 'foodcritic'
         #   require 'foodcritic'
         #

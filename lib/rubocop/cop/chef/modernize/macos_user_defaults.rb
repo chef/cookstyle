@@ -24,14 +24,14 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   mac_os_x_userdefaults 'full keyboard access to all controls' do
         #     domain 'AppleKeyboardUIMode'
         #     global true
         #     value '2'
         #   end
         #
-        #   ### correct
+        #   # good
         #   macos_userdefaults 'full keyboard access to all controls' do
         #     domain 'AppleKeyboardUIMode'
         #     global true

@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   seven_zip_archive "C:\file.zip" do
         #     path 'C:\expand_here'
         #   end

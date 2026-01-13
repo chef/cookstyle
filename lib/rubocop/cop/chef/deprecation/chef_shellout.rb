@@ -24,12 +24,12 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   include Chef::ShellOut
         #   require 'chef/shellout'
         #   Chef::ShellOut.new('some_command')
         #
-        #   ### correct
+        #   # good
         #   include Mixlib::ShellOut
         #   require 'mixlib/shellout'
         #   Mixlib::ShellOut.new('some_command')

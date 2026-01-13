@@ -24,11 +24,11 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   property :config_file, String, default: 'foo', name_property: true
         #   attribute :config_file, String, default: 'foo', name_attribute: true
         #
-        #   ### correct
+        #   # good
         #   property :config_file, String, name_property: true
         #   attribute :config_file, String, name_attribute: true
         #

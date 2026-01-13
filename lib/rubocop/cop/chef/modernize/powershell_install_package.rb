@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   powershell_script 'Expand website' do
         #     code 'Install-Package -Name docker'
         #   end

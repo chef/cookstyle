@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   recipe 'openldap::default', 'Install and configure OpenLDAP'
         #
         #

@@ -26,7 +26,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   execute 'apt-get update'
         #
         #   execute 'Apt all the apt cache' do
@@ -37,12 +37,7 @@ module RuboCop
         #     notifies :run, 'execute[apt-get update]', :immediately
         #   end
         #
-        #   # Using resource matcher helpers
-        #   execute 'apt-get update' if platform_family?('debian')
-        #
-        #   execute 'apt-get update' unless node['apt']['cacher']
-        #
-        #   ### correct
+        #   # good
         #   apt_update
         #
         #   apt_update 'update apt cache'

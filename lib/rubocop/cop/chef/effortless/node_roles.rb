@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   node.role?('web_server')
         #   node.roles.include?('web_server')
         #

@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   partial_search(:node, 'role:web',
         #     keys: { 'name' => [ 'name' ],
         #             'ip' => [ 'ipaddress' ],
@@ -36,7 +36,7 @@ module RuboCop
         #     puts result['kernel_version']
         #   end
         #
-        #   ### correct
+        #   # good
         #   search(:node, 'role:web',
         #     filter_result: { 'name' => [ 'name' ],
         #                      'ip' => [ 'ipaddress' ],

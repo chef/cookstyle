@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   case node['platform']
         #   when 'ubuntu'
         #     log "We're on Ubuntu"
@@ -36,7 +36,7 @@ module RuboCop
         #     include_recipe 'yum'
         #   end
         #
-        #   ### correct
+        #   # good
         #   if platform?('ubuntu')
         #     log "We're on Ubuntu"
         #     apt_update

@@ -24,13 +24,13 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   node['platform_version'].split('.').first
         #   node['platform_version'].split('.')[0]
         #   node['platform_version'].split('.').first.to_i
         #   node['platform_version'].split('.')[0].to_i
         #
-        #   ### correct
+        #   # good
         #
         #   # check to see if we're on RHEL 7 on a RHEL 7.6 node where node['platform_version] is 7.6.1810
         #   if node['platform_version'].to_i == 7

@@ -24,12 +24,12 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   action :foo do
         #     updated = true
         #   end
         #
-        #   ### correct
+        #   # good
         #   action :foo do
         #     converge_by('resource did something') do
         #       # code that causes the resource to converge

@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   include_recipe 'xml::ruby'
         #
         class IncludingXMLRubyRecipe < Base

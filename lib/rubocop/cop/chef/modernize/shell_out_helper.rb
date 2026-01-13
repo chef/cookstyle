@@ -24,10 +24,10 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   Mixlib::ShellOut.new('foo').run_command
         #
-        #   ### correct
+        #   # good
         #   shell_out('foo')
         #
         class ShellOutHelper < Base
