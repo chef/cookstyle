@@ -122,9 +122,7 @@ AllCops:
 
 We'd love to have your help in developing Cookstyle. See our [Contributing Guide](https://github.com/chef/chef/blob/main/CONTRIBUTING.md) for more information on contributing to Chef projects. There's also a [Developer Guide](./DEVELOPER_GUIDE.md) for Cookstyle that outlines how the configs work and how you can upgrade the RuboCop engine.
 
-## License and Copyright
-
-Copyright 2016-2021, Chef Software, Inc.
+## License 
 
 ```
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -175,3 +173,7 @@ The cookstyle.yml config file is the enabled.yml file from RuboCop 0.37.2 combin
 ### Updating the RuboCop Engine
 
 Before updating the engine, save a copy of the current engine's rule output with `cookstyle --show-cops`. Start by updating the RuboCop version in the [lib/cookstyle/version.rb](https://github.com/chef/cookstyle/blob/main/lib/cookstyle/version.rb) file. Then run `bundle update` to update the RuboCop gem. Confirm the engine is updated with `cookstyle --version`. Then save the output from another run of `cookstyle --show-cops` and compare the older output to the new output using `diff` and `shasum` to confirm that there are no new/unexplained rules being added or removed between the engine releases.
+
+# Copyright
+
+See [COPYRIGHT.md](./COPYRIGHT.md).
