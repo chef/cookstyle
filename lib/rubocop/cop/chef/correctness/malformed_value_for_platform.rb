@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -57,7 +56,6 @@ module RuboCop
               node.arguments.first.each_pair do |plats, plat_vals|
                 # instead of a platform the hash key can be default with a value of anything. Depending on the hash format this is a string or symbol
                 next if plat_vals.hash_type? || plats == s(:str, 'default') || plats == s(:sym, :default)
-
                 add_offense(plat_vals, message: msg, severity: :refactor)
               end
             end

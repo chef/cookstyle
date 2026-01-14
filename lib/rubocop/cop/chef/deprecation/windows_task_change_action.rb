@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -65,15 +64,15 @@ module RuboCop
           private
 
           def check_action(ast_obj)
-            return unless ast_obj.respond_to?(:value) && ast_obj.value == :change
-
-            add_offense(ast_obj, severity: :warning) do |corrector|
-              if ast_obj.parent.send_type? # :change was the only action
-                corrector.replace(ast_obj, ':create')
-              # chances are it's [:create, :change] since that's all that makes sense, but double check that theory
-              elsif ast_obj.parent.child_nodes.count == 2 &&
-                    ast_obj.parent.child_nodes.map(&:value).sort == %i[change create]
-                corrector.replace(ast_obj.parent, ':create')
+            if ast_obj.respond_to?(:value) && ast_obj.value == :change
+              add_offense(ast_obj, severity: :warning) do |corrector|
+                if ast_obj.parent.send_type? # :change was the only action
+                  corrector.replace(ast_obj, ':create')
+                # chances are it's [:create, :change] since that's all that makes sense, but double check that theory
+                elsif ast_obj.parent.child_nodes.count == 2 &&
+                      ast_obj.parent.child_nodes.map(&:value).sort == [:change, :create]
+                  corrector.replace(ast_obj.parent, ':create')
+                end
               end
             end
           end

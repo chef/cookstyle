@@ -1,8 +1,14 @@
 # enable new cops for rubocop-performance
-
-# enable new cops for rubocop-performance
 AllCops:
   NewCops: enable
+
+Chef/Style/CommentFormat:
+  Exclude:
+    - 'lib/rubocop/cop/chef/comments_format.rb'
+
+# Chef/Modernize/FoodcriticComments itself include an example Foocritic comment which alerts
+Chef/Modernize/FoodcriticComments:
+  Enabled: false
 
 # reduces memory usage
 Style/FrozenStringLiteralComment:

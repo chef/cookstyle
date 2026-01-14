@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: Copyright 2019-2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -31,7 +30,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'Every Chef Infra resource already includes a sensitive property with a default value of false.'
-          RESTRICT_ON_SEND = %i[property attribute].freeze
+          RESTRICT_ON_SEND = [:property, :attribute].freeze
 
           def_node_matcher :sensitive_property?, <<-PATTERN
             (send nil? {:property :attribute} (sym :sensitive) ... (hash (pair (sym :default) (false))))

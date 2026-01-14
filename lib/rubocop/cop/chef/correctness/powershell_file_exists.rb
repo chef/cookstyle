@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2021, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -31,7 +30,7 @@ module RuboCop
         #  ::File.exist?('C:\Program Files\LAPS\CSE\AdmPwd.dll')
         #
         class PowershellFileExists < Base
-          RESTRICT_ON_SEND = %i[powershell_out powershell_out!].freeze
+          RESTRICT_ON_SEND = [:powershell_out, :powershell_out!].freeze
           MSG = "Use Ruby's built-in `File.exist?('C:\\somefile')` method instead of executing PowerShell's `Test-Path` cmdlet, which takes longer to load."
 
           def_node_matcher :powershell_out_exists?, <<-PATTERN
@@ -41,7 +40,6 @@ module RuboCop
           def on_send(node)
             powershell_out_exists?(node) do |exists_string|
               return unless exists_string.match?(/^Test-Path/)
-
               add_offense(node, severity: :refactor)
             end
           end

@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2021, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -55,8 +54,8 @@ module RuboCop
           minimum_target_chef_version '15.5'
 
           MSG = 'Chef Infra Client 15.5 and later include cloud helpers to make detecting instances that run on public and private clouds easier.'
-          RESTRICT_ON_SEND = %i[== []].freeze
-          VALID_CLOUDS = %w[alibaba ec2 gce rackspace eucalyptus linode openstack azure digital_ocean softlayer].freeze
+          RESTRICT_ON_SEND = [:==, :[]].freeze
+          VALID_CLOUDS = %w(alibaba ec2 gce rackspace eucalyptus linode openstack azure digital_ocean softlayer).freeze
 
           def_node_matcher :provider_comparison?, <<-PATTERN
             (send

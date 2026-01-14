@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -51,9 +50,9 @@ module RuboCop
             platform_version_check?(node) do
               if parent_method_equals?(node, :[])
                 node = node.parent
-                if node&.arguments&.one? &&
+                if node&.arguments.one? &&
                    node&.arguments&.first&.int_type? &&
-                   node&.arguments&.first&.source == '0'
+                   node&.arguments&.first.source == '0'
                   add_offense_to_i_if_present(node)
                 end
               elsif parent_method_equals?(node, :first)
@@ -81,7 +80,6 @@ module RuboCop
           def parent_method_equals?(node, name)
             return false if node.parent.nil?
             return false unless node.parent.send_type?
-
             name == node.parent.method_name
           end
         end

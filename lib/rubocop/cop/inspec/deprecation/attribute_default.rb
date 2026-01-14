@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2021, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -34,7 +33,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'The InSpec inputs `default` option has been replaced with the `value` option.'
-          RESTRICT_ON_SEND = %i[attribute input].freeze
+          RESTRICT_ON_SEND = [:attribute, :input].freeze
 
           def_node_matcher :default?, <<-PATTERN
             (send nil? {:attribute :input} _ (hash <(pair $(sym :default) ...) ...>) )

@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -41,7 +40,6 @@ module RuboCop
           def on_send(node)
             supports_with_constraint?(node) do |ver|
               return if ver.source.include?('.')
-
               add_offense(ver, severity: :refactor) do |corrector|
                 corrector.replace(ver, ver.source.gsub(ver.value, ver.value + '.0'))
               end

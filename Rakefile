@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 require 'bundler/gem_tasks'
 
 Dir['tasks/**/*.rake'].each { |t| load t }
@@ -58,4 +57,4 @@ task :console do
   IRB.start
 end
 
-task default: %i[style spec validate_config]
+task default: [:style, :spec, :validate_config]

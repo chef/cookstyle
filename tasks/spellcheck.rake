@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: Copyright (c) Chef Software Inc.
 # License:: Apache License, Version 2.0
@@ -22,7 +21,7 @@ namespace :spellcheck do
     sh 'cspell lint --no-progress "**/*"'
   end
 
-  task prereqs: %i[cspell_check config_check fetch_common]
+  task prereqs: %i(cspell_check config_check fetch_common)
 
   task :fetch_common do
     sh 'wget -q https://raw.githubusercontent.com/chef/chef_dictionary/main/chef.txt -O chef_dictionary.txt'
@@ -33,23 +32,25 @@ namespace :spellcheck do
 
     config_file = 'cspell.json'
 
-    abort "Spellcheck config file '#{config_file}' not found, skipping spellcheck" unless File.readable?(config_file)
+    unless File.readable?(config_file)
+      abort "Spellcheck config file '#{config_file}' not found, skipping spellcheck"
+    end
 
     unless begin
-      JSON.parse(File.read(config_file))
-    rescue StandardError
-      false
-    end
+             JSON.parse(File.read(config_file))
+           rescue
+             false
+           end
       abort "Failed to parse config file '#{config_file}', skipping spellcheck"
     end
   end
 
   task :cspell_check do
     cspell_version = begin
-      `cspell --version`
-    rescue StandardError
-      nil
-    end
+                       `cspell --version`
+                     rescue
+                       nil
+                     end
 
     cspell_version.is_a?(String) || abort(<<~INSTALL_CSPELL)
       cspell is needed to run the spellcheck tasks. Run `npm install -g cspell` to install.

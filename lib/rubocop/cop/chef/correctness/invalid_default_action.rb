@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -38,8 +37,7 @@ module RuboCop
 
           def on_send(node)
             default_action?(node) do |match|
-              return if %i[send sym array].include?(match.type)
-
+              return if %i(send sym array).include?(match.type)
               add_offense(node, severity: :refactor)
             end
           end

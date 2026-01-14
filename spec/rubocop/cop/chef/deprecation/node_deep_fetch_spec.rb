@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 #
@@ -76,10 +75,10 @@ describe RuboCop::Cop::Chef::Deprecations::NodeDeepFetch, :config do
   end
 
   include_examples 'autocorrect',
-                   'node.deep_fetch("foo")',
-                   'node.read("foo")'
+    'node.deep_fetch("foo")',
+    'node.read("foo")'
 
   include_examples 'autocorrect',
-                   'chef_run.node.deep_fetch("foo")',
-                   'chef_run.node.read("foo")'
+    'chef_run.node.deep_fetch("foo")',
+    'chef_run.node.read("foo")'
 end

@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2019, Chef Software, Inc.
 #
@@ -50,7 +49,7 @@ describe RuboCop::Cop::Chef::Deprecations::LegacyNotifySyntax, :config do
   end
 
   it 'properly autocorrects legacy notification syntax with a variable for the resource name' do
-    expect_offense(<<~RUBY)
+    expect_offense(<<~'RUBY')
       foo 'bar' do
         notifies :enable, resources(service: service_name), :immediately
         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the new-style notification syntax which allows you to notify resources defined later in a recipe or resource.
@@ -65,7 +64,7 @@ describe RuboCop::Cop::Chef::Deprecations::LegacyNotifySyntax, :config do
   end
 
   it 'detects and autocorrections legacy subscription syntax' do
-    expect_offense(<<~RUBY)
+    expect_offense(<<~'RUBY')
       foo 'bar' do
         subscribes :enable, resources(service: service_name), :immediately
         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the new-style notification syntax which allows you to notify resources defined later in a recipe or resource.

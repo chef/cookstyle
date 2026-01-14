@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2020-2022, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -35,57 +34,57 @@ module RuboCop
           DEPRECATED_MAPPING = {
             'amazon' => {
               '2017.12' => '2',
-              '> 2010' => true
+              '> 2010' => true,
             },
             'aix' => {
-              '~> 6' => true
+              '~> 6' => true,
             },
             'smartos' => {
-              '5.10' => true
+              '5.10' => true,
             },
             'ubuntu' => {
               '< 16.04' => true,
-              '> 16.04, < 18.04' => true
+              '> 16.04, < 18.04' => true,
             },
             'fedora' => {
-              '< 32' => '32'
+              '< 32' => '32',
             },
             'freebsd' => {
               '= 12.0' => '12',
-              '< 12' => true
+              '< 12' => true,
             },
             'mac_os_x' => {
               '< 10.14' => '10.15',
-              ' = 11.0' => '11'
+              ' = 11.0' => '11',
             },
             'suse' => {
               '~> 12.0, < 12.4' => '12',
-              '< 12' => true
+              '< 12' => true,
             },
             'opensuse' => {
               '< 14' => true,
               '~> 42.0' => true,
-              '~> 15.0, < 15.2' => '15'
+              '~> 15.0, < 15.2' => '15',
             },
             'debian' => {
               '< 9' => true,
-              '> 9.0, < 9.12' => '9'
+              '> 9.0, < 9.12' => '9',
             },
             'centos' => {
               '< 6.0' => true,
               '~> 6.0, < 6.10' => '6',
-              '~> 7.0, < 7.8 ' => '7'
+              '~> 7.0, < 7.8 ' => '7',
             },
             'redhat' => {
               '< 6.0' => true,
               '~> 6.0, < 6.10' => '6',
-              '~> 7.0, < 7.8' => '7'
+              '~> 7.0, < 7.8' => '7',
             },
             'oracle' => {
               '< 6.0' => true,
               '~> 6.0, < 6.10' => '6',
-              '~> 7.0, < 7.6 ' => '7'
-            }
+              '~> 7.0, < 7.6 ' => '7',
+            },
           }.freeze
 
           def_node_matcher :chefspec_definition?, <<-PATTERN
@@ -116,7 +115,6 @@ module RuboCop
           def on_send(node)
             chefspec_definition?(node) do |plat, ver|
               next unless legacy_chefspec_platform(plat.value, ver.value)
-
               add_offense(node, severity: :warning) do |corrector|
                 if replacement = replacement_string(plat.value, ver.value) # rubocop: disable Lint/AssignmentInCondition
                   corrector.replace(ver, "'#{replacement}'")

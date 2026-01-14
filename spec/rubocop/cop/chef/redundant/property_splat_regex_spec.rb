@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -19,7 +18,7 @@
 
 require 'spec_helper'
 
-describe RuboCop::Cop::Chef::RedundantCode::PropertySplatRegex, :config do
+describe RuboCop::Cop::Chef::RedundantCode:: PropertySplatRegex, :config do
   it 'registers an offense when a property includes regex: /.*/' do
     expect_offense(<<~RUBY)
       property :foo, String, regex: /.*/

@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -43,8 +42,7 @@ module RuboCop
             return if node.parent && node.parent.defined_type?
 
             # catch the full offense if the method is gated like this: use_inline_resources if defined?(use_inline_resources)
-            if node.parent && node.parent.if_type? && %i[defined?
-                                                         respond_to?].include?(node.parent.children.first.method_name)
+            if node.parent && node.parent.if_type? && %i(defined? respond_to?).include?(node.parent.children.first.method_name)
               node = node.parent
             end
 

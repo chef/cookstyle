@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -42,7 +41,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'Use node attributes to access Ohai data instead of node methods, which were deprecated in Chef Infra Client 13.'
-          RESTRICT_ON_SEND = %i[
+          RESTRICT_ON_SEND = %i(
             current_user
             domain
             fqdn
@@ -61,8 +60,7 @@ module RuboCop
             root_group
             shard_seed
             uptime
-            uptime_seconds
-          ].freeze
+            uptime_seconds).freeze
 
           def_node_matcher :node_ohai_methods?, <<-PATTERN
             (send (send nil? :node) _)

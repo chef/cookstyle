@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -53,11 +52,9 @@ module RuboCop
           def on_send(node)
             supports?(node) do |plat|
               next unless INVALID_PLATFORMS[plat.str_content]
-
               add_offense(plat, severity: :refactor) do |corrector|
                 correct_string = corrected_platform_source(plat)
                 next unless correct_string
-
                 corrector.replace(plat, correct_string)
               end
             end
@@ -67,11 +64,9 @@ module RuboCop
             supports_array?(node) do |plats|
               plats.each_value do |plat|
                 next unless INVALID_PLATFORMS[plat.str_content]
-
                 add_offense(plat, severity: :refactor) do |corrector|
                   correct_string = corrected_platform_source(plat)
                   next unless correct_string
-
                   corrector.replace(plat, correct_string)
                 end
               end

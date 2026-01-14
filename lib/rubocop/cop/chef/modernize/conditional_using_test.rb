@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -34,7 +33,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = "Use ::File.exist?('/foo/bar') instead of the slower 'test -f /foo/bar' which requires shelling out"
-          RESTRICT_ON_SEND = %i[not_if only_if].freeze
+          RESTRICT_ON_SEND = [:not_if, :only_if].freeze
 
           def_node_matcher :resource_conditional?, <<~PATTERN
             (send nil? {:not_if :only_if} $str )
@@ -43,7 +42,6 @@ module RuboCop
           def on_send(node)
             resource_conditional?(node) do |conditional|
               return unless conditional.value.match?(/^test -[ef] \S*$/)
-
               add_offense(node, severity: :refactor) do |corrector|
                 new_string = "{ ::File.exist?('#{conditional.value.match(/^test -[ef] (\S*)$/)[1]}') }"
                 corrector.replace(conditional, new_string)

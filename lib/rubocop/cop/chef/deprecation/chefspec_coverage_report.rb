@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -30,7 +29,6 @@ module RuboCop
         #
         class ChefSpecCoverageReport < Base
           extend AutoCorrector
-
           MSG = "Don't use the deprecated ChefSpec coverage report functionality in your specs."
 
           def_node_matcher :coverage_reporter?, <<-PATTERN

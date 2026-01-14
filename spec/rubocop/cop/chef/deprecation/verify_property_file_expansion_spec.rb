@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,14 +22,14 @@ describe RuboCop::Cop::Chef::Deprecations::VerifyPropertyUsesFileExpansion, :con
   it 'registers an offense when using the file variable in the verify property' do
     expect_offense(<<~RUBY)
       file '/etc/nginx.conf' do
-        verify 'nginx -t -c %<file>s'
+        verify 'nginx -t -c %{file}'
         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the 'path' variable in the verify property and not the 'file' variable which was removed in Chef Infra Client 13.
       end
     RUBY
 
     expect_correction(<<~RUBY)
       file '/etc/nginx.conf' do
-        verify 'nginx -t -c %<path>s'
+        verify 'nginx -t -c %{path}'
       end
     RUBY
   end
@@ -38,7 +37,7 @@ describe RuboCop::Cop::Chef::Deprecations::VerifyPropertyUsesFileExpansion, :con
   it "doesn't register an when using path variable in the verify property" do
     expect_no_offenses(<<~RUBY)
       file '/etc/nginx.conf' do
-        verify 'nginx -t -c %<path>s'
+        verify 'nginx -t -c %{path}'
       end
     RUBY
   end

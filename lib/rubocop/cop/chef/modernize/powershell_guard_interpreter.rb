@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2019-2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -55,9 +54,8 @@ module RuboCop
           MSG = 'PowerShell is already set as the default guard interpreter for `powershell_script` and `batch` resources in Chef Infra Client 13 and later and does not need to be specified.'
 
           def on_block(node)
-            match_property_in_resource?(%i[powershell_script batch], 'guard_interpreter', node) do |interpreter|
+            match_property_in_resource?(%i(powershell_script batch), 'guard_interpreter', node) do |interpreter|
               return unless interpreter.arguments.first.source == ':powershell_script'
-
               add_offense(interpreter, severity: :refactor) do |corrector|
                 corrector.remove(range_with_surrounding_space(range: interpreter.loc.expression, side: :left))
               end

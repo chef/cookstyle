@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -35,10 +34,9 @@ module RuboCop
         #
         class DefaultMetadataMaintainer < Base
           MSG = 'Metadata contains default maintainer information from the cookbook generator. Add actual cookbook maintainer information to the metadata.rb.'
-          RESTRICT_ON_SEND = %i[maintainer maintainer_email].freeze
+          RESTRICT_ON_SEND = [:maintainer, :maintainer_email].freeze
 
-          def_node_matcher :default_metadata?,
-                           '(send nil? {:maintainer :maintainer_email} (str {"YOUR_COMPANY_NAME" "The Authors" "YOUR_EMAIL" "you@example.com"}))'
+          def_node_matcher :default_metadata?, '(send nil? {:maintainer :maintainer_email} (str {"YOUR_COMPANY_NAME" "The Authors" "YOUR_EMAIL" "you@example.com"}))'
 
           def on_send(node)
             default_metadata?(node) do

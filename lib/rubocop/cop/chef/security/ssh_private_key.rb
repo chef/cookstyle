@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2021-2022, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -35,7 +34,6 @@ module RuboCop
 
           def on_send(node)
             return unless node.arguments?
-
             node.arguments.each do |arg|
               next unless arg.str_type? || arg.dstr_type?
 

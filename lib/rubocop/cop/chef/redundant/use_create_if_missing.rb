@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2020-2022, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -66,7 +65,7 @@ module RuboCop
           include RangeHelp
 
           MSG = 'Use the :create_if_missing action instead of not_if with a ::File.exist(FOO) check.'
-          RESOURCES = %i[cookbook_file file remote_directory cron_d remote_file template].freeze
+          RESOURCES = %i(cookbook_file file remote_directory cron_d remote_file template).freeze
 
           def_node_matcher :file_exist_value, <<-PATTERN
           (send (const {nil? (cbase)} :File) {:exist? :exists?} $(...))
@@ -95,7 +94,6 @@ module RuboCop
                 # no longer makes sense that's not our problem here.
                 create_action(node) do |create_action|
                   return unless create_action == s(:sym, :create)
-
                   add_offense(prop, severity: :refactor) do |corrector|
                     corrector.replace(create_action, ':create_if_missing')
                     corrector.remove(range_by_whole_lines(prop.source_range, include_final_newline: true))

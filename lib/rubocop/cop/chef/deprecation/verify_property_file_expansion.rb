@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -46,9 +45,8 @@ module RuboCop
           def on_block(node)
             match_property_in_resource?(nil, 'verify', node) do |verify|
               return unless verify.source.match?(/%{file}/)
-
               add_offense(verify, severity: :warning) do |corrector|
-                corrector.replace(verify.loc.expression, verify.loc.expression.source.gsub('%<file>s', '%<path>s'))
+                corrector.replace(verify.loc.expression, verify.loc.expression.source.gsub('%{file}', '%{path}'))
               end
             end
           end

@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -37,7 +36,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'Do not use legacy Berksfile community sources. Use Chef Supermarket instead.'
-          RESTRICT_ON_SEND = %i[source site].freeze
+          RESTRICT_ON_SEND = [:source, :site].freeze
 
           def_node_matcher :berksfile_site?, <<-PATTERN
             (send nil? :site (:sym _))
@@ -48,7 +47,7 @@ module RuboCop
           PATTERN
 
           def old_berkshelf_url?(url)
-            %w[http://community.opscode.com/api/v3 https://supermarket.getchef.com https://api.berkshelf.com].include?(url)
+            %w(http://community.opscode.com/api/v3 https://supermarket.getchef.com https://api.berkshelf.com).include?(url)
           end
 
           def on_send(node)

@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2020-2021, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -48,15 +47,13 @@ module RuboCop
 
           MSG = 'Chef Infra Client 15.0 and later includes a windows_uac resource that should be used to set Windows UAC values instead of setting registry keys directly.'
           RESTRICT_ON_SEND = [:registry_key].freeze
-          VALID_VALUES = %w[EnableLUA ValidateAdminCodeSignatures PromptOnSecureDesktop ConsentPromptBehaviorAdmin
-                            ConsentPromptBehaviorUser EnableInstallerDetection].freeze
+          VALID_VALUES = %w(EnableLUA ValidateAdminCodeSignatures PromptOnSecureDesktop ConsentPromptBehaviorAdmin ConsentPromptBehaviorUser EnableInstallerDetection).freeze
 
           # block registry_key resources
           def on_block(node)
             return unless node.method?(:registry_key)
             return unless correct_key?(node)
             return unless uac_supported_values?(node)
-
             add_offense(node, severity: :refactor)
           end
 
@@ -64,15 +61,13 @@ module RuboCop
           # this key has other values we don't support in the windows_uac resource
           def uac_supported_values?(node)
             match_property_in_resource?(:registry_key, 'values', node) do |val_prop|
-              # make sure values isn't being passed a variable or method
-              return false unless val_prop&.arguments&.first&.array_type?
-
+              return false unless val_prop&.arguments.first.array_type? # make sure values isn't being passed a variable or method
               val_prop.arguments.first.each_value do |array|
                 array.each_pair do |key, value|
-                  next unless key == s(:sym, :name)
-                  # make sure it isn't being a variable or method that we can't parse
-                  return false unless value.str_type?
-                  return false unless VALID_VALUES.include?(value.value)
+                  if key == s(:sym, :name)
+                    return false unless value.str_type? # make sure it isn't being a variable or method that we can't parse
+                    return false unless VALID_VALUES.include?(value.value)
+                  end
                 end
               end
             end
@@ -82,15 +77,11 @@ module RuboCop
           # make sure the registry_key resource is running against the correct key
           # check the block name and the key property (registry_key's name property)
           def correct_key?(node)
-            if node.send_node.arguments.first.source.match?(/(HKLM|HKEY_LOCAL_MACHINE)\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System/i)
-              return true
-            end
+            return true if node.send_node.arguments.first.source.match?(/(HKLM|HKEY_LOCAL_MACHINE)\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System/i)
 
             match_property_in_resource?(:registry_key, 'key', node) do |key_prop|
               property_data = method_arg_ast_to_string(key_prop)
-              if property_data && property_data.match?(/(HKLM|HKEY_LOCAL_MACHINE)\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System/i)
-                return true
-              end
+              return true if property_data && property_data.match?(/(HKLM|HKEY_LOCAL_MACHINE)\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System/i)
             end
             false
           end

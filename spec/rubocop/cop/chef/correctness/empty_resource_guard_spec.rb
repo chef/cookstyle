@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2024, Chef Software Inc.
 # Author:: Sumedha (<https://github.com/sumedha-lolur>)

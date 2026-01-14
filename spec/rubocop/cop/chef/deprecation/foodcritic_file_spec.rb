@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2022, Chef Software, Inc.
 #
@@ -23,7 +22,7 @@ describe RuboCop::Cop::Chef::Deprecations::FoodcriticFile, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when cookbook includes .foodcritic' do
-    expect_offense(<<~TEXT, 'cookbook/.foodcritic')
+    expect_offense(<<~'TEXT', 'cookbook/.foodcritic')
       ~FC001
       ^ Do not include the `.foodcritic` config file for the deprecated Foodcritic cookbook linter.
     TEXT
@@ -31,10 +30,10 @@ describe RuboCop::Cop::Chef::Deprecations::FoodcriticFile, :config do
 
   it 'registers an offense when .delivery/config.json is not valid Ruby' do
     allow_invalid_ruby do
-      expect_offense(<<~TEXT, 'cookbook/.foodcritic')
+      expect_offense(<<~'TEXT', 'cookbook/.foodcritic')
         ~FC001
         ^ Do not include the `.foodcritic` config file for the deprecated Foodcritic cookbook linter.
-      TEXT
+    TEXT
     end
   end
 end

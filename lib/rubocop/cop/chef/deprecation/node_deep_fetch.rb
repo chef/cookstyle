@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 #
@@ -38,7 +37,7 @@ module RuboCop
         class NodeDeepFetch < Base
           extend RuboCop::Cop::AutoCorrector
 
-          RESTRICT_ON_SEND = %i[deep_fetch deep_fetch!].freeze
+          RESTRICT_ON_SEND = [:deep_fetch, :deep_fetch!].freeze
 
           def_node_matcher :node_deep_fetch?, <<-PATTERN
             (send (send _ :node) ${:deep_fetch :deep_fetch!} _)
@@ -46,8 +45,7 @@ module RuboCop
 
           def on_send(node)
             node_deep_fetch?(node) do
-              add_offense(node.loc.selector,
-                          message: "Do not use node.#{node.method_name}. Replace with node.#{fix_name(node.method_name)} to keep identical behavior.", severity: :warning) do |corrector|
+              add_offense(node.loc.selector, message: "Do not use node.#{node.method_name}. Replace with node.#{fix_name(node.method_name)} to keep identical behavior.", severity: :warning) do |corrector|
                 corrector.replace(node.loc.selector, fix_name(node.method_name))
               end
             end
@@ -58,7 +56,6 @@ module RuboCop
           def fix_name(name)
             return 'read!' if name == :deep_fetch!
             return 'read' if name == :deep_fetch
-
             name.to_s
           end
         end

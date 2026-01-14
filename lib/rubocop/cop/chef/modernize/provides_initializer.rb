@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -46,7 +45,6 @@ module RuboCop
           def on_ivasgn(node)
             provides_assignment?(node) do
               return unless initialize_method(node.parent.parent).any?
-
               add_offense(node, severity: :refactor) do |corrector|
                 # insert the new provides call above the initialize method, but not if one already exists (this is sadly common)
                 unless provides_method?(processed_source.ast)

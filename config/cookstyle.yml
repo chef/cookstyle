@@ -3298,27 +3298,6 @@ Lint/UselessDefaultValueArgument:
 Style/CollectionQuerying:
   Enabled: true
 
-
-# Performance Cops: Improving Chef client speed and memory usage
-# See docs-chef-io/assets/cookstyle/cops_chef_performance_repeatedresourcesinloops.yml and cops_chef_performance_loadalldatabagitems.yml for full documentation and examples.
-
-Chef/Performance/RepeatedResourcesInLoops:
-  Description: Detects creation of batchable Chef resources inside Ruby loops, encouraging use of array resource declarations for better performance.
-  Enabled: true
-  VersionAdded: '8.0.0' # Add justification: New cop for performance, see PR #1020
-  Include:
-    - '**/*.rb'
-
-Chef/Performance/LoadAllDataBagItems:
-  Description: Flags overly broad or empty search/data_bag_search queries that load all data bag items into memory, causing high memory usage.
-  Enabled: true
-  VersionAdded: '8.0.0' # Add justification: New cop for performance, see PR #1020
-  Include:
-    - '**/*.rb'
-
-# Shared Helper Module for Performance Cops
-# lib/rubocop/cop/chef/helpers/resource_matcher.rb provides reusable AST detection methods for performance cops.
-
 # use `include?(element)` instead of `intersect?([element])`
 Style/ArrayIntersectWithSingleElement:
   Enabled: true

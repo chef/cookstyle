@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -57,7 +56,6 @@ module RuboCop
           def on_case(node)
             platform_case?(node) do |node_, type|
               return unless node&.when_branches&.one?
-
               add_offense(node, severity: :refactor) do |corrector|
                 # we have at least one supermarket cookbook with an entirely empty platform case statement
                 # we can't actually fix that so let's do nothing here.

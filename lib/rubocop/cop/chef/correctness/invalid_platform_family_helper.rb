@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -48,14 +47,12 @@ module RuboCop
             platform_family_helper?(node) do |plats|
               plats.to_a.each do |p|
                 next unless INVALID_PLATFORM_FAMILIES.key?(p.value)
-
                 add_offense(p, severity: :refactor) do |corrector|
                   replacement_platform = INVALID_PLATFORM_FAMILIES[p.value]
                   all_passed_platforms = p.parent.arguments.map(&:value)
 
                   # see if we have a replacement platform in our hash. If not we can't autocorrect
                   next unless replacement_platform
-
                   # if the replacement platform was one of the other platforms passed we can just delete this bad platform
                   if all_passed_platforms.include?(replacement_platform)
                     all_passed_platforms.delete(p.value)

@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: Copyright 2019-2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -38,7 +37,7 @@ module RuboCop
         'redhat' => 'rhel',
         'scientific' => 'rhel',
         'sles' => 'suse',
-        'ubuntu' => 'debian'
+        'ubuntu' => 'debian',
       }.freeze
 
       # a mapping of invalid platforms values to valid platforms
@@ -66,7 +65,7 @@ module RuboCop
         'ubunth' => 'ubuntu',
         'ubunutu' => 'ubuntu',
         'windwos' => 'windows',
-        'xcp' => nil
+        'xcp' => nil,
       }.freeze
     end
   end

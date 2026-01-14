@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2022, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -41,7 +40,7 @@ module RuboCop
 
           # An empty / simple TOML file can also be syntactically valid Ruby, so
           # RuboCop may start an investigation instead of calling on_other_file.
-          alias on_new_investigation on_other_file
+          alias_method :on_new_investigation, :on_other_file
         end
       end
     end

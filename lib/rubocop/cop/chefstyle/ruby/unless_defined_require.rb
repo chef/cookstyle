@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -99,7 +98,7 @@ module RuboCop
             'yard' => 'YARD',
             'zip' => 'Zip',
             'zlib' => 'Zlib',
-            'pastel' => 'Pastel'
+            'pastel' => 'Pastel',
           }.freeze
 
           def_node_matcher :require?, <<-PATTERN

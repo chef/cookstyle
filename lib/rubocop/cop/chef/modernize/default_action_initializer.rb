@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2019-2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -56,13 +55,11 @@ module RuboCop
           def on_ivasgn(node)
             action_variable_assignment?(node) do
               return unless initialize_method(node.parent.parent)
-
               add_offense(node, severity: :refactor) do |corrector|
                 # insert the new default_action call above the initialize method, but not if one already exists (this is sadly common)
                 unless default_action_method?(processed_source.ast)
                   initialize_node = initialize_method(processed_source.ast).first
-                  corrector.insert_before(initialize_node.source_range,
-                                          "default_action #{node.descendants.first.source}\n\n")
+                  corrector.insert_before(initialize_node.source_range, "default_action #{node.descendants.first.source}\n\n")
                 end
 
                 # remove the variable from the initialize method

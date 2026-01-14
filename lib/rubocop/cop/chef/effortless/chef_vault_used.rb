@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2020, Chef Software Inc.
 # Author:: Scott Vidmar (<svidmar@chef.io>)
@@ -44,11 +43,11 @@ module RuboCop
         #
         class ChefVaultUsed < Base
           MSG = 'Chef Vault usage is not supported in the Effortless pattern'
-          RESTRICT_ON_SEND = %i[chef_vault_item
-                                chef_vault_item_for_environment
-                                include_recipe
-                                require
-                                chef_gem].freeze
+          RESTRICT_ON_SEND = [:chef_vault_item,
+                              :chef_vault_item_for_environment,
+                              :include_recipe,
+                              :require,
+                              :chef_gem].freeze
 
           def_node_matcher :require?, <<-PATTERN
             (send nil? { :require :include_recipe :chef_gem }
@@ -73,7 +72,6 @@ module RuboCop
             return unless require?(node) ||
                           chef_vault_item_for_environment?(node) ||
                           chef_vault_item?(node)
-
             add_offense(node.loc.expression, severity: :refactor)
           end
 

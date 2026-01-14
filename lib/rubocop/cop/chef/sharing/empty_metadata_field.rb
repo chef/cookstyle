@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -38,7 +37,6 @@ module RuboCop
           def on_send(node)
             field?(node) do |str|
               return unless str.value.empty?
-
               add_offense(str, severity: :refactor)
             end
           end

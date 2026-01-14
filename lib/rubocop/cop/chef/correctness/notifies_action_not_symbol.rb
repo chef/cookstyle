@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -49,12 +48,12 @@ module RuboCop
           MSG = 'Resource notification and subscription actions should be symbols not strings.'
 
           def on_block(node)
-            match_property_in_resource?(nil, %w[notifies subscribes], node) do |notifies_property|
+            match_property_in_resource?(nil, %w(notifies subscribes), node) do |notifies_property|
               return unless notifies_property.node_parts[2].str_type?
 
               add_offense(notifies_property, severity: :refactor) do |corrector|
                 corrector.replace(notifies_property.first_argument,
-                                  ":#{notifies_property.node_parts[2].value}")
+                  ":#{notifies_property.node_parts[2].value}")
               end
             end
           end

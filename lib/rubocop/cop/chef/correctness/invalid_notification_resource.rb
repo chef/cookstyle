@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2022, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -42,7 +41,7 @@ module RuboCop
         #
         class InvalidNotificationResource < Base
           MSG = 'The resource to notify when calling `notifies` or `subscribes` must be a string.'
-          RESTRICT_ON_SEND = %i[notifies subscribes].freeze
+          RESTRICT_ON_SEND = [:notifies, :subscribes].freeze
 
           def_node_matcher :invalid_notification?, <<-PATTERN
             (send nil? {:notifies :subscribes} (sym _) $(send (send nil? _) :[] ...) ...)

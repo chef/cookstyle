@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -47,7 +46,6 @@ module RuboCop
           def on_send(node)
             require_with_expand_path?(node) do |file, path|
               return unless path.source == '__FILE__'
-
               add_offense(node, severity: :refactor) do |corrector|
                 corrected_value = file.value
                 corrected_value.slice!(%r{^../}) # take the first ../ off the path

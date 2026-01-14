@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2016-2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -40,7 +39,6 @@ module RuboCop
         #
         class CopyrightCommentFormat < Base
           extend AutoCorrector
-
           require 'date'
 
           MSG = 'Properly format copyrights header comments'

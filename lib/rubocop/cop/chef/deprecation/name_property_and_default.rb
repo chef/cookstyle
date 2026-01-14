@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -37,7 +36,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = "A resource property can't be marked as a name_property and also have a default value. This will fail in Chef Infra Client 13 or later."
-          RESTRICT_ON_SEND = %i[attribute property].freeze
+          RESTRICT_ON_SEND = [:attribute, :property].freeze
 
           # match on a property or attribute that has any name and any type and a hash that
           # contains name_property/name_attribute true and any default value. These are wrapped in
@@ -49,9 +48,7 @@ module RuboCop
           def on_send(node)
             name_property_with_default?(node) do |default|
               add_offense(node, severity: :warning) do |corrector|
-                range = range_with_surrounding_comma(
-                  range_with_surrounding_space(range: default.loc.expression, side: :left), :left
-                )
+                range = range_with_surrounding_comma(range_with_surrounding_space(range: default.loc.expression, side: :left), :left)
                 corrector.remove(range)
               end
             end

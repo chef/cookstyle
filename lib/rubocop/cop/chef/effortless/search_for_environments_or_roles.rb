@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -33,9 +32,9 @@ module RuboCop
           RESTRICT_ON_SEND = [:search].freeze
 
           def on_send(node)
-            return unless node.arguments[1]&.value&.match?(/chef_environment|role/)
-
-            add_offense(node, severity: :refactor)
+            if node.arguments[1]&.value&.match?(/chef_environment|role/)
+              add_offense(node, severity: :refactor)
+            end
           end
         end
       end

@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2019, Chef Software, Inc.
 #
@@ -33,7 +32,7 @@ describe RuboCop::Cop::Chef::Deprecations::NodeSetWithoutLevel, :config do
     RUBY
   end
 
-  %w[+= -= <<].each do |op|
+  %w(+= -= <<).each do |op|
     it "registers an offense when appending a node attribute without precedence using #{op}" do
       expect_offense(<<~RUBY)
         node['foo'] #{op} 1

@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2021, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -53,13 +52,11 @@ module RuboCop
 
               case env_value
               when 'CI'
-                add_offense(node,
-                            message: 'Chef Infra Client 15.5 and later include a helper `ci?` that should be used to see if the `CI` env var is set.', severity: :refactor) do |corrector|
+                add_offense(node, message: 'Chef Infra Client 15.5 and later include a helper `ci?` that should be used to see if the `CI` env var is set.', severity: :refactor) do |corrector|
                   corrector.replace(node, 'ci?')
                 end
               when 'TEST_KITCHEN'
-                add_offense(node,
-                            message: 'Chef Infra Client 15.5 and later include a helper `kitchen?` that should be used to see if the `TEST_KITCHEN` env var is set.', severity: :refactor) do |corrector|
+                add_offense(node, message: 'Chef Infra Client 15.5 and later include a helper `kitchen?` that should be used to see if the `TEST_KITCHEN` env var is set.', severity: :refactor) do |corrector|
                   corrector.replace(node, 'kitchen?')
                 end
               end

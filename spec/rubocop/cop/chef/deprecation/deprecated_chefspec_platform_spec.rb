@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2020-2022, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)

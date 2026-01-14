@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -45,7 +44,6 @@ module RuboCop
               property_data = method_arg_ast_to_string(code_property)
               return unless property_data && property_data.match?(/^remove-item/i) &&
                             !property_data.include?('*')
-
               add_offense(node, severity: :refactor)
             end
           end

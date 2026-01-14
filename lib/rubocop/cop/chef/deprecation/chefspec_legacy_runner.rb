@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -42,7 +41,6 @@ module RuboCop
         #
         class ChefSpecLegacyRunner < Base
           extend AutoCorrector
-
           MSG = 'Use ChefSpec::SoloRunner or ChefSpec::ServerRunner instead of the deprecated ChefSpec::Runner.'
 
           def_node_matcher :chefspec_runner?, <<-PATTERN

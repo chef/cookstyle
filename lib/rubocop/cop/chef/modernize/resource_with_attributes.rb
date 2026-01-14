@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -54,7 +53,6 @@ module RuboCop
 
           def on_send(node)
             return unless resource_actions?(processed_source.ast)
-
             attribute?(node) do
               add_offense(node.loc.selector, severity: :refactor) do |corrector|
                 corrector.replace(node.loc.selector, 'property')

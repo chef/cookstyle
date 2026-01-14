@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -50,7 +49,6 @@ module RuboCop
             match_property_in_resource?(:ruby_block, 'action', node) do |ruby_action|
               ruby_action.arguments.each do |action|
                 next unless action.source == ':create'
-
                 add_offense(action, severity: :warning) do |corrector|
                   corrector.replace(action, ':run')
                 end

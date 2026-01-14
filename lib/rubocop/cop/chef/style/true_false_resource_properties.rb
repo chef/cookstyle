@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -34,7 +33,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = "When setting the allowed types for a resource to accept either true or false values it's much simpler to use true and false instead of TrueClass and FalseClass."
-          RESTRICT_ON_SEND = %i[property attribute].freeze
+          RESTRICT_ON_SEND = [:property, :attribute].freeze
 
           def_node_matcher :trueclass_falseclass_property?, <<-PATTERN
             (send nil? {:property :attribute} (sym _) $(array (const nil? :TrueClass) (const nil? :FalseClass)) ... )

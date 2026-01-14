@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: Copyright 2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -37,7 +36,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'There is no need to validate the input of properties in resources using a regex value that will always pass.'
-          RESTRICT_ON_SEND = %i[property attribute].freeze
+          RESTRICT_ON_SEND = [:property, :attribute].freeze
 
           def_node_matcher :property_with_regex_splat?, <<-PATTERN
             (send nil? {:property :attribute} (sym _) ... (hash <$(pair (sym :regex) (regexp (str ".*") (regopt))) ...>))
@@ -48,9 +47,7 @@ module RuboCop
               add_offense(splat, severity: :refactor) do |corrector|
                 range = range_with_surrounding_comma(
                   range_with_surrounding_space(
-                    range: splat.loc.expression, side: :left
-                  ), :left
-                )
+                    range: splat.loc.expression, side: :left), :left)
                 corrector.remove(range)
               end
             end

@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -39,7 +38,6 @@ module RuboCop
           def on_send(node)
             version?(node) do |ver|
               next if /\A\d+\.\d+(\.\d+)?\z/.match?(ver.value) # entirely borrowed from Foodcritic.
-
               add_offense(ver, severity: :refactor)
             end
           end

@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2019, Chef Software, Inc.
 #
@@ -23,7 +22,7 @@ describe RuboCop::Cop::Chef::Deprecations::Delivery, :config do
   subject(:cop) { described_class.new(config) }
 
   it 'registers an offense when cookbook includes .delivery/project.toml' do
-    expect_offense(<<~TOML, 'cookbook/.delivery/project.toml')
+    expect_offense(<<~'TOML', 'cookbook/.delivery/project.toml')
       [delivery_local]
       ^ Do not include Chef Delivery (Workflow) configuration [...]
     TOML

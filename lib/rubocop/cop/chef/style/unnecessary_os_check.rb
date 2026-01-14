@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -40,10 +39,10 @@ module RuboCop
           extend AutoCorrector
 
           MSG = "Use the platform_family?() helpers instead of node['os] == 'foo' for platform_families that match 1:1 with OS values."
-          RESTRICT_ON_SEND = %i[== != eql? include?].freeze
+          RESTRICT_ON_SEND = [:==, :!=, :eql?, :include?].freeze
 
           # sorted list of all the os values that match 1:1 with a platform_family
-          UNNECESSARY_OS_VALUES = %w[aix darwin dragonflybsd freebsd netbsd openbsd solaris2 windows].freeze
+          UNNECESSARY_OS_VALUES = %w(aix darwin dragonflybsd freebsd netbsd openbsd solaris2 windows).freeze
 
           def_node_matcher :os_equals?, <<-PATTERN
             (send (send (send nil? :node) :[] (str "os") ) ${:== :!=} $str )
@@ -60,7 +59,6 @@ module RuboCop
           def on_send(node)
             os_equals?(node) do |operator, val|
               return unless UNNECESSARY_OS_VALUES.include?(val.value)
-
               add_offense(node, severity: :refactor) do |corrector|
                 corrected_string = (operator == :!= ? '!' : '') + "platform_family?('#{sanitized_platform(val.value)}')"
                 corrector.replace(node, corrected_string)
@@ -69,7 +67,6 @@ module RuboCop
 
             os_eql?(node) do |val|
               return unless UNNECESSARY_OS_VALUES.include?(val.value)
-
               add_offense(node, severity: :refactor) do |corrector|
                 corrected_string = "platform_family?('#{sanitized_platform(val.value)}')"
                 corrector.replace(node, corrected_string)
@@ -80,7 +77,6 @@ module RuboCop
               array_of_plats = array_from_ast(val)
               # see if all the values in the .include? usage are in our list of 1:1 platform family to os values
               return unless (UNNECESSARY_OS_VALUES & array_of_plats) == array_of_plats
-
               add_offense(node, severity: :refactor) do |corrector|
                 platforms = val.values.map { |x| x.str_type? ? "'#{sanitized_platform(x.value)}'" : x.source }
                 corrected_string = "platform_family?(#{platforms.join(', ')})"

@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -44,7 +43,6 @@ module RuboCop
             match_property_in_resource?(nil, 'action', node) do |action_node|
               action_node.arguments.each do |action|
                 next unless action.source == ':none'
-
                 add_offense(action, severity: :refactor) do |corrector|
                   corrector.replace(action, ':nothing')
                 end

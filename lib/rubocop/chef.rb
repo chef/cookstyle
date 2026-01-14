@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 module RuboCop
   # RuboCop Chef project namespace
   module Chef

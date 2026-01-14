@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -30,7 +29,7 @@ module RuboCop
         #
         class FoodcriticTesting < Base
           MSG = 'The Foodcritic cookbook linter has been deprecated and should no longer be used for validating cookbooks.'
-          RESTRICT_ON_SEND = %i[require gem].freeze
+          RESTRICT_ON_SEND = [:require, :gem].freeze
 
           def on_send(node)
             return unless node.arguments.first == s(:str, 'foodcritic')

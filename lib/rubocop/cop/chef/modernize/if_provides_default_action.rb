@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -37,7 +36,6 @@ module RuboCop
 
           def on_defined?(node)
             return unless node.arguments.first == s(:send, nil, :default_action)
-
             node = node.parent if node.parent.respond_to?(:if?) && node.parent.if? # we want the whole if statement
             add_offense(node, severity: :refactor) do |corrector|
               corrector.replace(node, node.children[1].source)
