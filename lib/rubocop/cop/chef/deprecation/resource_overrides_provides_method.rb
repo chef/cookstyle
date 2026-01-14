@@ -23,12 +23,12 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   def provides?
         #    true
         #   end
         #
-        #   # good
+        #   ### correct
         #   provides :SOME_PROVIDER_NAME
         #
         class ResourceOverridesProvidesMethod < Base

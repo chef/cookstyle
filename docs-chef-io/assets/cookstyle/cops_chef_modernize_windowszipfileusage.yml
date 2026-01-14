@@ -8,10 +8,13 @@ autocorrection: false
 target_chef_version: 15.0+
 examples: |2-
 
-  # bad
+  ### incorrect
+
+  ```ruby
   windows_zipfile 'C:\\files\\' do
     source 'C:\\Temp\\file.zip'
   end
+  ```
 version_added: 5.4.0
 enabled: true
 excluded_file_paths:

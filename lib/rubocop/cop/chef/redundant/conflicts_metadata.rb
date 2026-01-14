@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad in metadata.rb:
+        #   ### incorrect in metadata.rb:
         #
         #   conflicts "another_cookbook"
         #

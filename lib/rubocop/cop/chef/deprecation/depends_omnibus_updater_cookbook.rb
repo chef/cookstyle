@@ -23,10 +23,10 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   depends 'omnibus_updater'
         #
-        #   # good
+        #   ### correct
         #   depends 'chef_client_updater'
         #
         class DependsOnOmnibusUpdaterCookbook < Base

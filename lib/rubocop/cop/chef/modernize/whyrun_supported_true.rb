@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   def whyrun_supported?
         #    true
         #   end

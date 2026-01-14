@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #
         #   %w( debian ubuntu ).each do |os|
         #     supports os
@@ -33,7 +33,7 @@ module RuboCop
         #     depends cb
         #   end
         #
-        #   # good
+        #   ### correct
         #
         #   supports 'debian'
         #   supports 'ubuntu'

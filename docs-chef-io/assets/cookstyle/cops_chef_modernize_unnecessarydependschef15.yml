@@ -9,11 +9,14 @@ autocorrection: true
 target_chef_version: 15.0+
 examples: |2-
 
-  # bad
+  ### incorrect
+
+  ```ruby
   depends 'libarchive'
   depends 'windows_dns'
   depends 'windows_uac'
   depends 'windows_dfs'
+  ```
 version_added: 7.19.0
 enabled: true
 included_file_paths:

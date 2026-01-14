@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   require 'mixlib/shellout'
         #
         class UnnecessaryMixlibShelloutRequire < Base

@@ -9,23 +9,36 @@ autocorrection: false
 target_chef_version: All Versions
 examples: |2-
 
-  # bad
+  ### incorrect
+
+  ```ruby
   require 'chef-vault'
 
-  # bad
+  ### incorrect
+
+  ```ruby
   ChefVault::Item
 
-  # bad
+  ### incorrect
+
+  ```ruby
   include_recipe 'chef-vault'
 
-  # bad
+  ### incorrect
+
+  ```ruby
   chef_gem 'chef-vault'
 
-  # bad
+  ### incorrect
+
+  ```ruby
   chef_vault_item_for_environment(arg, arg1)
 
-  # bad
+  ### incorrect
+
+  ```ruby
   chef_vault_item(arg, arg1)
+  ```
 version_added: '6.19'
 enabled: false
 excluded_file_paths:

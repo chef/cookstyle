@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   node['cloud']['provider'] == 'alibaba'
         #   node['cloud']['provider'] == 'ec2'
         #   node['cloud']['provider'] == 'gce'
@@ -35,7 +35,7 @@ module RuboCop
         #   node['cloud']['provider'] == 'digital_ocean'
         #   node['cloud']['provider'] == 'softlayer'
         #
-        #   # good
+        #   ### correct
         #   alibaba?
         #   ec2?
         #   gce?

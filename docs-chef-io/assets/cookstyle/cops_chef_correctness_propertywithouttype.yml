@@ -8,13 +8,19 @@ autocorrection: false
 target_chef_version: All Versions
 examples: |2-
 
-  # bad
+  ### incorrect
+
+  ```ruby
   property :size, regex: /^\d+[KMGTP]$/
   attribute :size, regex: /^\d+[KMGTP]$/
+  ```
 
-  # good
+  ### correct
+
+  ```ruby
   property :size, String, regex: /^\d+[KMGTP]$/
   attribute :size, kind_of: String, regex: /^\d+[KMGTP]$/
+  ```
 version_added: 6.18.0
 enabled: true
 included_file_paths:

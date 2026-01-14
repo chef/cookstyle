@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   zipfile "C:\file.zip" do
         #     path 'C:\expand_here'
         #   end

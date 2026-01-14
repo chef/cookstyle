@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   depends 'kernel_module'
         #
         class DependsOnKernelModuleCookbook < Base

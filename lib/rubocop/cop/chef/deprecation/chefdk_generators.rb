@@ -23,14 +23,14 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   ChefDK::CLI
         #   ChefDK::Generator::TemplateHelper
         #   module ChefDK
         #     # some additional code
         #   end
         #
-        #   # good
+        #   ### correct
         #   ChefCLI::CLI
         #   ChefCLI::Generator::TemplateHelper
         #   module ChefCLI

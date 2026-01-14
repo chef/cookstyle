@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   zypper_repo 'apache' do
         #     baseurl 'http://download.opensuse.org/repositories/Apache'
         #     path '/openSUSE_Leap_42.2'
@@ -31,7 +31,7 @@ module RuboCop
         #     priority '100'
         #   end
         #
-        #   # good
+        #   ### correct
         #   zypper_repository 'apache' do
         #     baseurl 'http://download.opensuse.org/repositories/Apache'
         #     path '/openSUSE_Leap_42.2'

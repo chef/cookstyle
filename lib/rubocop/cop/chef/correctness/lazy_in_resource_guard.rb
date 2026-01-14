@@ -23,14 +23,14 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   template '/etc/foo' do
         #     mode '0644'
         #     source 'foo.erb'
         #     only_if { lazy { ::File.exist?('/etc/foo')} }
         #   end
         #
-        #   # good
+        #   ### correct
         #   template '/etc/foo' do
         #     mode '0644'
         #     source 'foo.erb'

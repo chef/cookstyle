@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   chef_gem 'ultradns-sdk' do
         #     compile_time true if Chef::Resource::ChefGem.method_defined?(:compile_time)
         #     action :nothing
@@ -39,7 +39,7 @@ module RuboCop
         #     action :nothing
         #   end
         #
-        #   # good
+        #   ### correct
         #   chef_gem 'ultradns-sdk' do
         #     compile_time true
         #     action :nothing

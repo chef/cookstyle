@@ -391,16 +391,6 @@ Chef/Correctness/DnfPackageAllowDowngrades:
     - '**/metadata.rb'
     - '**/Berksfile'
 
-Chef/Correctness/EmptyResourceGuard:
-  Description: Resource guards (not_if/only_if) should not be empty strings as empty strings will always evaluate to true.
-  StyleGuide: 'chef_correctness_emptyresourceguard'
-  Enabled: true
-  VersionAdded: '8.4.0'
-  Exclude:
-    - '**/attributes/*.rb'
-    - '**/metadata.rb'
-    - '**/Berksfile'
-
 Chef/Correctness/ChefApplicationFatal:
   Description: Use raise to force Chef Infra Client to fail instead of using Chef::Application.fatal
   StyleGuide: 'chef_correctness_chefapplicationfatal'
@@ -3296,8 +3286,4 @@ Lint/UselessDefaultValueArgument:
 
 # use helpers like .any?, .none?, and .one? instead of using count on collections which is much slower
 Style/CollectionQuerying:
-  Enabled: true
-
-# use `include?(element)` instead of `intersect?([element])`
-Style/ArrayIntersectWithSingleElement:
   Enabled: true

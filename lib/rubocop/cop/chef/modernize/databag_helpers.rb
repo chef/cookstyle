@@ -23,11 +23,11 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   plain_text_data = Chef::DataBagItem.load('foo', 'bar')
         #   encrypted_data = Chef::EncryptedDataBagItem.load('foo2', 'bar2')
         #
-        #   # good
+        #   ### correct
         #   plain_text_data = data_bag_item('foo', 'bar')
         #   encrypted_data = data_bag_item('foo2', 'bar2')
         #

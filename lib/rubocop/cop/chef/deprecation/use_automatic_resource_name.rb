@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   module MyCookbook
         #     class MyCookbookService < Chef::Resource
         #       use_automatic_resource_name

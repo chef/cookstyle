@@ -9,7 +9,9 @@ autocorrection: true
 target_chef_version: 12.14+
 examples: |2-
 
-  # bad
+  ### incorrect
+
+  ```ruby
   yum_repository 'OurCo' do
     description 'OurCo yum repository'
     url 'http://artifacts.ourco.org/foo/bar'
@@ -17,8 +19,11 @@ examples: |2-
     mirrorexpire 1440
     action :create
   end
+  ```
 
-  # good
+  ### correct
+
+  ```ruby
   yum_repository 'OurCo' do
     description 'OurCo yum repository'
     baseurl 'http://artifacts.ourco.org/foo/bar'
@@ -26,6 +31,7 @@ examples: |2-
     mirror_expire 1440
     action :create
   end
+  ```
 version_added: 5.10.0
 enabled: true
 excluded_file_paths:

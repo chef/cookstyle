@@ -23,10 +23,10 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   default_action 'create'
         #
-        #   # good
+        #   ### correct
         #   default_action :create
         #
         class InvalidDefaultAction < Base

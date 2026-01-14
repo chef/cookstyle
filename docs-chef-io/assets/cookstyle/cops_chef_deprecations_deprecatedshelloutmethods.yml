@@ -10,7 +10,9 @@ autocorrection: false
 target_chef_version: 14.3+
 examples: |2-
 
-  # bad
+  ### incorrect
+
+  ```ruby
   shell_out_compact('foo')
   shell_out_compact!('foo')
   shell_out_with_timeout('foo')
@@ -19,11 +21,15 @@ examples: |2-
   shell_out_with_systems_locale!('foo')
   shell_out_compact_timeout('foo')
   shell_out_compact_timeout!('foo')
+  ```
 
-  # good
+  ### correct
+
+  ```ruby
   shell_out('foo')
   shell_out!('foo')
   shell_out!('foo', default_env: false) # replaces shell_out_with_systems_locale
+  ```
 version_added: 6.3.0
 enabled: true
 excluded_file_paths:

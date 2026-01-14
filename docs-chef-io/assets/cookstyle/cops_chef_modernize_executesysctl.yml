@@ -9,7 +9,9 @@ autocorrection: false
 target_chef_version: 14.0+
 examples: |2-
 
-  # bad
+  ### incorrect
+
+  ```ruby
   file '/etc/sysctl.d/ipv4.conf' do
     notifies :run, 'execute[sysctl -p /etc/sysctl.d/ipv4.conf]', :immediately
     content '9000 65500'
@@ -18,11 +20,15 @@ examples: |2-
   execute 'sysctl -p /etc/sysctl.d/ipv4.conf' do
     action :nothing
   end
+  ```
 
-  # good
+  ### correct
+
+  ```ruby
   sysctl 'net.ipv4.ip_local_port_range' do
     value '9000 65500'
   end
+  ```
 version_added: 5.18.0
 enabled: true
 excluded_file_paths:

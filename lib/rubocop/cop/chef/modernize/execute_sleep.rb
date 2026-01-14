@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   execute "sleep 60" do
         #     command "sleep 60"
         #     action :run
@@ -35,7 +35,7 @@ module RuboCop
         #     code 'sleep 60'
         #   end
         #
-        #   # good
+        #   ### correct
         #   chef_sleep '60'
         #
         class ExecuteSleep < Base

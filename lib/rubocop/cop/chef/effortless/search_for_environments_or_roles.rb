@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   search(:node, 'chef_environment:foo')
         #   search(:node, 'role:bar')
         #

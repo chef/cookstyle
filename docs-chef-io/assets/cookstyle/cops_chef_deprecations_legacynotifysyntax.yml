@@ -8,7 +8,9 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  # bad
+  ### incorrect
+
+  ```ruby
   template '/etc/www/configures-apache.conf' do
     notifies :restart, resources(service: 'apache')
   end
@@ -24,8 +26,11 @@ examples: |2-
   template '/etc/www/configures-apache.conf' do
     subscribes :restart, resources(service: service_name_variable), :immediately
   end
+  ```
 
-  # good
+  ### correct
+
+  ```ruby
   template '/etc/www/configures-apache.conf' do
     notifies :restart, 'service[apache]'
   end
@@ -41,6 +46,7 @@ examples: |2-
   template '/etc/www/configures-apache.conf' do
     subscribes :restart, "service[#{service_name_variable}]", :immediately
   end
+  ```
 version_added: 5.13.0
 enabled: true
 excluded_file_paths:

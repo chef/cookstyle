@@ -7,7 +7,9 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  # bad in metadata.rb:
+  ### incorrect
+
+  ```ruby in metadata.rb:
 
    attribute 'zookeeper_bridge/server',
              display_name: 'zookeeper server',
@@ -15,6 +17,7 @@ examples: |2-
              type: 'string',
              required: 'optional',
              default: '"127.0.0.1:2181"'
+  ```
 version_added: 5.1.0
 enabled: true
 included_file_paths:

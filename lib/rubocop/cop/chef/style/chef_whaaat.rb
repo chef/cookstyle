@@ -23,11 +23,11 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   Chef makes software
         #   Chef configures your systems
         #
-        #   # good
+        #   ### correct
         #   Chef Software makes software
         #   Chef Infra configures your systems
         #

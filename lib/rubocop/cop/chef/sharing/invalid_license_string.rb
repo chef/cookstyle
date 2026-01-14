@@ -23,10 +23,10 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   license 'Apache 2.0'
         #
-        #   # good
+        #   ### correct
         #   license 'Apache-2.0'
         #   license 'all rights reserved'
         #

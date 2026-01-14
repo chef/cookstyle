@@ -23,10 +23,10 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   node['roles'].include?('foo')
         #
-        #   # good
+        #   ### correct
         #   node.role?('foo')
         #
         class NodeRolesInclude < Base

@@ -7,11 +7,17 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  # bad
-  default_source :community
+  ### incorrect
 
-  # good
+  ```ruby
+  default_source :community
+  ```
+
+  ### correct
+
+  ```ruby
   default_source :supermarket
+  ```
 version_added: 7.15.0
 enabled: true
 included_file_paths:

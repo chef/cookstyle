@@ -23,12 +23,12 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   file '/etc/nginx.conf' do
         #     verify 'nginx -t -c %{file}'
         #   end
         #
-        #   # good
+        #   ### correct
         #   file '/etc/nginx.conf' do
         #     verify 'nginx -t -c %{path}'
         #   end

@@ -23,10 +23,10 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   license ''
         #
-        #   # good
+        #   ### correct
         #   license 'Apache-2.0'
         #
         class EmptyMetadataField < Base

@@ -9,11 +9,17 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  # bad
-  depends 'omnibus_updater'
+  ### incorrect
 
-  # good
+  ```ruby
+  depends 'omnibus_updater'
+  ```
+
+  ### correct
+
+  ```ruby
   depends 'chef_client_updater'
+  ```
 version_added: 7.20.0
 enabled: true
 included_file_paths:

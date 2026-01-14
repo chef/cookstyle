@@ -23,12 +23,12 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   sysctl_param 'fs.aio-max-nr' do
         #     value '1048576'
         #   end
         #
-        #   # good
+        #   ### correct
         #   sysctl 'fs.aio-max-nr' do
         #     value '1048576'
         #   end

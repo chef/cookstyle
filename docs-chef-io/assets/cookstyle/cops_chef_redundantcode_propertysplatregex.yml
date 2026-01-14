@@ -8,13 +8,19 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  # bad
+  ### incorrect
+
+  ```ruby
   property :config_file, String, regex: /.*/
   attribute :config_file, String, regex: /.*/
+  ```
 
-  # good
+  ### correct
+
+  ```ruby
   property :config_file, String
   attribute :config_file, String
+  ```
 version_added: 5.21.0
 enabled: true
 included_file_paths:

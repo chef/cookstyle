@@ -35,12 +35,18 @@ autocorrection: false
 target_chef_version: All Versions
 examples: |2-
 
-  # bad
+  ### incorrect
+
+  ```ruby
   property :config_file, String, required: true, name_property: true
   attribute :config_file, String, required: true, name_attribute: true
+  ```
 
-  # good
+  ### correct
+
+  ```ruby
   property :config_file, String, required: true
+  ```
 version_added: 5.1.0
 enabled: true
 included_file_paths:

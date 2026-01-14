@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   case node['platform']
         #   when 'rhel'
         #     puts "I'm on a Red Hat system!"

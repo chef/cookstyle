@@ -23,13 +23,13 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   source 'http://community.opscode.com/api/v3'
         #   source 'https://supermarket.getchef.com'
         #   source 'https://api.berkshelf.com'
         #   site :opscode
         #
-        #   # good
+        #   ### correct
         #   source 'https://supermarket.chef.io'
         #
         class LegacyBerksfileSource < Base

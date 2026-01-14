@@ -40,7 +40,9 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  # bad
+  ### incorrect
+
+  ```ruby
   class Chef
     class Resource
       class UlimitRule < Chef::Resource
@@ -52,7 +54,9 @@ examples: |2-
     end
   end
 
-  # bad
+  ### incorrect
+
+  ```ruby
   class Chef
     class Resource
       class UlimitRule < Chef::Resource
@@ -65,6 +69,7 @@ examples: |2-
       end
     end
   end
+  ```
 version_added: 6.0.0
 enabled: true
 included_file_paths:

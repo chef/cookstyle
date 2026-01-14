@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   # good
+        #   ### correct
         #   resource_name :foo
         #   description "The foo resource is used to do..."
         #

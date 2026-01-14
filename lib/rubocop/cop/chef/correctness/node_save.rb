@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   node.save
         #
         class CookbookUsesNodeSave < Base

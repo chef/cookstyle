@@ -8,7 +8,9 @@ autocorrection: true
 target_chef_version: 12.1+
 examples: |2-
 
-  # bad
+  ### incorrect
+
+  ```ruby
   chef_gem 'ultradns-sdk' do
     compile_time true if Chef::Resource::ChefGem.method_defined?(:compile_time)
     action :nothing
@@ -23,12 +25,16 @@ examples: |2-
     compile_time true if respond_to?(:compile_time)
     action :nothing
   end
+  ```
 
-  # good
+  ### correct
+
+  ```ruby
   chef_gem 'ultradns-sdk' do
     compile_time true
     action :nothing
   end
+  ```
 version_added: 6.3.0
 enabled: true
 excluded_file_paths:

@@ -8,12 +8,18 @@ autocorrection: false
 target_chef_version: All Versions
 examples: |2-
 
-  # bad
+  ### incorrect
+
+  ```ruby
   Chef makes software
   Chef configures your systems
+  ```
 
-  # good
+  ### correct
+
+  ```ruby
   Chef Software makes software
   Chef Infra configures your systems
+  ```
 version_added: 5.20.0
 enabled: false

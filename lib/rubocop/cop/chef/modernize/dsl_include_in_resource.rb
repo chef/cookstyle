@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   include Chef::DSL::Recipe
         #   include Chef::DSL::IncludeRecipe
         #

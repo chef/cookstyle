@@ -14,6 +14,8 @@ target_chef_version: 15.3+
 examples: |2-
 
   ### incorrect
+
+  ```ruby
    class Chef
      class Resource
        class UlimitRule < Chef::Resource
@@ -26,8 +28,11 @@ examples: |2-
        end
      end
    end
+  ```
 
   ### correct
+
+  ```ruby
    class Chef
      class Resource
        class UlimitRule < Chef::Resource
@@ -41,6 +46,7 @@ examples: |2-
        end
      end
    end
+  ```
 version_added: 7.12.0
 enabled: true
 included_file_paths:

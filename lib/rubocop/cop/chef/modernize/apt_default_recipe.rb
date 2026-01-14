@@ -23,11 +23,11 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   include_recipe 'apt::default'
         #   include_recipe 'apt'
         #
-        #   # good
+        #   ### correct
         #   apt_update
         #
         class IncludingAptDefaultRecipe < Base

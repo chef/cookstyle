@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   node.environment == "production"
         #   node.chef_environment == "production"
         #

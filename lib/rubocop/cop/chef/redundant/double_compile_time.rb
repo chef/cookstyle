@@ -23,13 +23,13 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   chef_gem 'deep_merge' do
         #     action :nothing
         #     compile_time true
         #   end.run_action(:install)
         #
-        #   # good
+        #   ### correct
         #   chef_gem 'deep_merge' do
         #     action :install
         #     compile_time true

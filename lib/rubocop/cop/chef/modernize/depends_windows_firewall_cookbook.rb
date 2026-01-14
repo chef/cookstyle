@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   depends 'windows_firewall'
         #
         class DependsOnWindowsFirewallCookbook < Base

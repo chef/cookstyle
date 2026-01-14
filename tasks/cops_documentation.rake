@@ -40,7 +40,12 @@ begin
     end
 
     def examples(code_object)
-      code_object.tags('example').first&.text
+      ex = code_object.tags('example').first.text
+      ex.gsub!('### incorrect', "### incorrect\n\n```ruby")
+      ex.gsub!("\n### correct", "```\n\n### correct\n\n```ruby")
+      ex << "\n```"
+    rescue NoMethodError
+      nil
     end
 
     def main

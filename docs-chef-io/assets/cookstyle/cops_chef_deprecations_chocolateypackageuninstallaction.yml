@@ -8,15 +8,21 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  # bad
+  ### incorrect
+
+  ```ruby
   chocolatey_package 'nginx' do
     action :uninstall
   end
+  ```
 
-  # good
+  ### correct
+
+  ```ruby
   chocolatey_package 'nginx' do
     action :remove
   end
+  ```
 version_added: 5.5.0
 enabled: true
 excluded_file_paths:

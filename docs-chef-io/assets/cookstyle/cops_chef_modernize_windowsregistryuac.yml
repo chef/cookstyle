@@ -8,7 +8,9 @@ autocorrection: false
 target_chef_version: 15.0+
 examples: |2-
 
-  # bad
+  ### incorrect
+
+  ```ruby
   registry_key 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System' do
     values [{ name: 'EnableLUA', type: :dword, data: 0 },
             { name: 'PromptOnSecureDesktop', type: :dword, data: 0 },
@@ -16,13 +18,17 @@ examples: |2-
            ]
     action :create
   end
+  ```
 
-  # good
+  ### correct
+
+  ```ruby
   windows_uac 'Set Windows UAC settings' do
     enable_uac false
     prompt_on_secure_desktop true
     consent_behavior_admins :no_prompt
   end
+  ```
 version_added: 5.22.0
 enabled: true
 excluded_file_paths:

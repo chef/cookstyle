@@ -8,10 +8,13 @@ autocorrection: false
 target_chef_version: 15.0+
 examples: |2-
 
-  # bad
+  ### incorrect
+
+  ```ruby
   powershell_script 'Expand website' do
     code 'Expand-Archive "C:\\file.zip" -DestinationPath "C:\\inetpub\\wwwroot\\" -Force'
   end
+  ```
 version_added: 5.5.0
 enabled: true
 excluded_file_paths:

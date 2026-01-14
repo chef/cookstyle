@@ -23,14 +23,14 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   sudo 'admins' do
         #     users 'bob'
         #     groups 'sysadmins, superusers'
         #     action :remove
         #   end
         #
-        #   # good
+        #   ### correct
         #   sudo 'admins' do
         #     users 'bob'
         #     groups 'sysadmins, superusers'

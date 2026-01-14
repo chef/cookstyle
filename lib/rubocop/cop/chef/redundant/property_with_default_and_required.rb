@@ -26,10 +26,10 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   property :bob, String, required: true, default: 'foo'
         #
-        #   # good
+        #   ### correct
         #   property :bob, String, required: true
         #
         class PropertyWithRequiredAndDefault < Base

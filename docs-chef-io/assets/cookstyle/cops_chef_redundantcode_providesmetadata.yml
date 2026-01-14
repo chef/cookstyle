@@ -7,9 +7,12 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  # bad in metadata.rb:
+  ### incorrect
+
+  ```ruby in metadata.rb:
 
   provides "some_thing"
+  ```
 version_added: 5.1.0
 enabled: true
 included_file_paths:

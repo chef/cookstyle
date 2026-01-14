@@ -8,11 +8,17 @@ autocorrection: false
 target_chef_version: 13.9+
 examples: |2-
 
-  # bad
-  property :foo, String
+  ### incorrect
 
-  # good
+  ```ruby
+  property :foo, String
+  ```
+
+  ### correct
+
+  ```ruby
   property :foo, String, description: "Set the important thing to..."
+  ```
 version_added: 6.1.0
 enabled: false
 included_file_paths:

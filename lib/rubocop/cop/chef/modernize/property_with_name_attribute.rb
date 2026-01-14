@@ -23,10 +23,10 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   property :bob, String, name_attribute: true
         #
-        #   # good
+        #   ### correct
         #   property :bob, String, name_property: true
         #
         class PropertyWithNameAttribute < Base

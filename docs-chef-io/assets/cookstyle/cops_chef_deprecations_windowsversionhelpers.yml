@@ -8,17 +8,23 @@ autocorrection: true
 target_chef_version: 14.0+
 examples: |2-
 
-  # bad
+  ### incorrect
+
+  ```ruby
   Windows::VersionHelper.nt_version
   Windows::VersionHelper.server_version?
   Windows::VersionHelper.core_version?
   Windows::VersionHelper.workstation_version?
+  ```
 
-  # good
+  ### correct
+
+  ```ruby
   node['platform_version'].to_f
   node['kernel']['product_type'] == 'Server'
   node['kernel']['server_core']
   node['kernel']['product_type'] == 'Workstation'
+  ```
 version_added: 5.4.0
 enabled: true
 excluded_file_paths:

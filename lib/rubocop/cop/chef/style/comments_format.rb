@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   Copyright 2013-2016 Chef Software, Inc.
         #   Recipe default.rb
         #   Attributes default.rb
@@ -32,7 +32,7 @@ module RuboCop
         #   Cookbook Name:: Tomcat
         #   Attributes File:: default
         #
-        #   # good
+        #   ### correct
         #   Copyright:: 2013-2016 Chef Software, Inc.
         #   Recipe:: default.rb
         #   Attributes:: default.rb

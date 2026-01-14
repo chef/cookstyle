@@ -9,7 +9,9 @@ autocorrection: false
 target_chef_version: All Versions
 examples: |2-
 
-  # bad
+  ### incorrect
+
+  ```ruby
   control_group 'Baseline' do
     control 'SSH' do
       it 'should be listening on port 22' do
@@ -17,6 +19,7 @@ examples: |2-
       end
     end
   end
+  ```
 version_added: 5.10.0
 enabled: true
 excluded_file_paths:

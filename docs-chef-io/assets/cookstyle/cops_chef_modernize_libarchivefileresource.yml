@@ -8,17 +8,23 @@ autocorrection: true
 target_chef_version: 15.0+
 examples: |2-
 
-  # bad
+  ### incorrect
+
+  ```ruby
   depends 'libarchive'
 
   libarchive_file "C:\file.zip" do
     path 'C:\expand_here'
   end
+  ```
 
-  # good
+  ### correct
+
+  ```ruby
   archive_file "C:\file.zip" do
     path 'C:\expand_here'
   end
+  ```
 version_added: 5.5.0
 enabled: true
 excluded_file_paths:

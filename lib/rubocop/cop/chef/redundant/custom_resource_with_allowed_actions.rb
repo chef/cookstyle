@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   allowed_actions [:create, :remove]
         #
         #   # also bad

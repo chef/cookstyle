@@ -23,11 +23,11 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   supports 'darwin'
         #   supports 'mswin'
         #
-        #   # good
+        #   ### correct
         #   supports 'mac_os_x'
         #   supports 'windows'
         #

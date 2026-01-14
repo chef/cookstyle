@@ -9,13 +9,19 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  # bad
+  ### incorrect
+
+  ```ruby
   supports 'darwin'
   supports 'mswin'
+  ```
 
-  # good
+  ### correct
+
+  ```ruby
   supports 'mac_os_x'
   supports 'windows'
+  ```
 version_added: 5.2.0
 enabled: true
 included_file_paths:

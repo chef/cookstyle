@@ -25,7 +25,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   include_recipe 'yum::elrepo'
         #   include_recipe 'yum::epel'
         #   include_recipe 'yum::ius'

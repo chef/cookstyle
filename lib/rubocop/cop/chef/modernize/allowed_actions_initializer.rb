@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   def initialize(*args)
         #     super
         #     @actions = [ :create, :add ]
@@ -35,7 +35,7 @@ module RuboCop
         #     @allowed_actions = [ :create, :add ]
         #   end
         #
-        #   # good
+        #   ### correct
         #   allowed_actions [ :create, :add ]
         #
         class AllowedActionsFromInitialize < Base

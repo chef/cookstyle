@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #    def severity(arg = nil)
         #      set_or_return(
         #        :severity, arg,
@@ -32,7 +32,7 @@ module RuboCop
         #      )
         #    end
         #
-        #   # good
+        #   ### correct
         #   property :severity, String
         #
         class SetOrReturnInResources < Base

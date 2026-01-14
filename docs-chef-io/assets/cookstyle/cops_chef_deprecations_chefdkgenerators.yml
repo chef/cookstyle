@@ -10,19 +10,25 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  # bad
+  ### incorrect
+
+  ```ruby
   ChefDK::CLI
   ChefDK::Generator::TemplateHelper
   module ChefDK
     # some additional code
   end
+  ```
 
-  # good
+  ### correct
+
+  ```ruby
   ChefCLI::CLI
   ChefCLI::Generator::TemplateHelper
   module ChefCLI
     # some additional code
   end
+  ```
 version_added: 6.12.0
 enabled: true
 excluded_file_paths:

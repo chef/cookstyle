@@ -23,12 +23,12 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   windows_feature 'DHCP' do
         #     install_method :servermanagercmd
         #   end
         #
-        #   # good
+        #   ### correct
         #   windows_feature 'DHCP' do
         #     install_method :windows_feature_dism
         #   end

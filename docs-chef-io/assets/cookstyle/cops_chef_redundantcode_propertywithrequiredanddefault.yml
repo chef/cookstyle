@@ -11,11 +11,17 @@ autocorrection: true
 target_chef_version: All Versions
 examples: |2-
 
-  # bad
-  property :bob, String, required: true, default: 'foo'
+  ### incorrect
 
-  # good
+  ```ruby
+  property :bob, String, required: true, default: 'foo'
+  ```
+
+  ### correct
+
+  ```ruby
   property :bob, String, required: true
+  ```
 version_added: 5.1.0
 enabled: true
 included_file_paths:

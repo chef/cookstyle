@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   class Chef
         #     class Resource
         #       class UlimitRule < Chef::Resource
@@ -35,7 +35,7 @@ module RuboCop
         #     end
         #   end
         #
-        #   # bad
+        #   ### incorrect
         #   class Chef
         #     class Resource
         #       class UlimitRule < Chef::Resource

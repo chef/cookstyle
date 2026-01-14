@@ -23,12 +23,12 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   value_for_platform(
         #     %w(redhat oracle) => 'baz'
         #   )
         #
-        #   # good
+        #   ### correct
         #   value_for_platform(
         #     %w(redhat oracle) => {
         #       '5' => 'foo',

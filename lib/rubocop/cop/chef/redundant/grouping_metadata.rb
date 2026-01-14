@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   grouping 'windows_log_rotate', title: 'Demonstration cookbook with code to switch loggers'
         #
         class GroupingMetadata < Base

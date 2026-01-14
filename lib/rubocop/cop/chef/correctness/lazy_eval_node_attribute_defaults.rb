@@ -23,10 +23,10 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   property :Something, String, default: node['hostname']
         #
-        #   # good
+        #   ### correct
         #   property :Something, String, default: lazy { node['hostname'] }
         #
         class LazyEvalNodeAttributeDefaults < Base

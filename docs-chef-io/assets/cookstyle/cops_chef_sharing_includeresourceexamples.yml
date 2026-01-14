@@ -6,9 +6,12 @@ description: Resources should include examples field to allow automated document
   Requires Chef Infra Client 13.9 or later.
 autocorrection: false
 target_chef_version: 13.9+
-examples: |2-
+examples: |-
+  ```
 
-  # good
+  ### correct
+
+  ```ruby
   examples <<~DOC
     **Specify a global domain value**
 
@@ -19,6 +22,7 @@ examples: |2-
     end
     ```
   DOC
+  ```
 version_added: 6.10.0
 enabled: false
 included_file_paths:

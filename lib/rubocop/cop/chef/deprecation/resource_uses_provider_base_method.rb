@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   provider_base ::Chef::Provider::SomethingSomething
         #
         class ResourceUsesProviderBaseMethod < Base
