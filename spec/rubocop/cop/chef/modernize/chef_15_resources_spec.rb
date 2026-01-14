@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 #
-# Copyright:: 2021, Chef Software, Inc.
+# Copyright:: Copyright (c) 2016-2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.

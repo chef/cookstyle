@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 #
-# Copyright:: 2016-2019, Chef Software, Inc.
+# Copyright:: Copyright (c) 2016-2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,7 +24,7 @@ module RuboCop
         # @example
         #
         #   # bad
-        #   Copyright 2013-2016 Chef Software, Inc.
+        #   Copyright (c) 2016-2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
         #   Recipe default.rb
         #   Attributes default.rb
         #   License Apache2
@@ -33,7 +33,7 @@ module RuboCop
         #   Attributes File:: default
         #
         #   # good
-        #   Copyright:: 2013-2016 Chef Software, Inc.
+        #   Copyright:: Copyright (c) 2016-2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
         #   Recipe:: default.rb
         #   Attributes:: default.rb
         #   License:: Apache License, Version 2.0

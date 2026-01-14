@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 #
-# Copyright:: 2020, Chef Software Inc.
+# Copyright:: Copyright (c) 2016-2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
 # Author:: Scott Vidmar (<svidmar@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
