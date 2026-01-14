@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module RuboCop
   module Cop
     module Chef
@@ -17,7 +15,7 @@ module RuboCop
         #   search(:users, 'id:john')
         #
         class LoadAllDataBagItems < Base
-          MSG = 'Avoid loading all data bag items with broad or empty search queries which cause high IO and memory usage.'
+          MSG = "Avoid loading all data bag items with broad or empty search queries which cause high IO and memory usage."
 
           def on_send(node)
             # Look for calls to :search or :data_bag_search

@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 #
 # Copyright:: 2019-2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -22,34 +21,15 @@ module RuboCop
   module Cop
     module Chef
       module Modernize
-        # Instead of using the execute resource to run the `apt-get update` use Chef Infra Client's built-in `apt_update` resource.
+        # Instead of using the execute resource to run the `apt-get update` use Chef Infra Client's built-in `apt_update` resource
         #
         # @example
         #
-        #   # bad
+        #   ### incorrect
         #   execute 'apt-get update'
         #
-        #   execute 'Apt all the apt cache' do
-        #     command 'apt-get update'
-        #   end
-        #
-        #   execute 'some execute resource' do
-        #     notifies :run, 'execute[apt-get update]', :immediately
-        #   end
-        #
-        #   # good
+        #   ### correct
         #   apt_update
-        #
-        #   apt_update 'update apt cache'
-        #
-        #   execute 'some execute resource' do
-        #     notifies :update, 'apt_update[update apt cache]', :immediately
-        #   end
-        #
-        #   # Using resource matcher helpers
-        #   apt_update if platform_family?('debian')
-        #
-        #   apt_update unless node['apt']['cacher']
         #
         class ExecuteAptUpdate < Base
           extend AutoCorrector
@@ -78,7 +58,9 @@ module RuboCop
 
             # Detect notifies/subscribes to execute[apt-get update]
             notification_property?(node) do |val|
-              add_offense(val, severity: :refactor) if val.str_content&.start_with?('execute[apt-get update]')
+              if val.str_content&.start_with?('execute[apt-get update]')
+                add_offense(val, severity: :refactor)
+              end
             end
 
             # Detect command 'apt-get update' in execute blocks
