@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2021, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,14 +24,14 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   sudo 'admins' do
         #     users 'bob'
         #     groups 'sysadmins, superusers'
         #     action :remove
         #   end
         #
-        #   ### correct
+        #   # good
         #   sudo 'admins' do
         #     users 'bob'
         #     groups 'sysadmins, superusers'

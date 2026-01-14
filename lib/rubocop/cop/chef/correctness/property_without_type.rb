@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,17 +24,17 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   property :size, regex: /^\d+[KMGTP]$/
         #   attribute :size, regex: /^\d+[KMGTP]$/
         #
-        #   ### correct
+        #   # good
         #   property :size, String, regex: /^\d+[KMGTP]$/
         #   attribute :size, kind_of: String, regex: /^\d+[KMGTP]$/
         #
         class PropertyWithoutType < Base
           MSG = 'Resource properties or attributes should always define a type to help users understand the correct allowed values.'
-          RESTRICT_ON_SEND = [:property, :attribute].freeze
+          RESTRICT_ON_SEND = %i[property attribute].freeze
 
           def_node_matcher :property_without_type?, <<-PATTERN
           (send nil? {:property :attribute}

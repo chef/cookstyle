@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   powershell_script 'Install Feature' do
         #     code 'Install-WindowsFeature -Name "Net-framework-Core"'
         #   end
@@ -46,6 +47,7 @@ module RuboCop
             match_property_in_resource?(:powershell_script, 'code', node) do |code_property|
               property_data = method_arg_ast_to_string(code_property)
               return unless property_data && property_data.match?(/^(install|add)-windowsfeature\s/i)
+
               add_offense(node, severity: :refactor)
             end
           end

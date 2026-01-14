@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,13 +24,13 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   node['platform_version'].split('.').first
         #   node['platform_version'].split('.')[0]
         #   node['platform_version'].split('.').first.to_i
         #   node['platform_version'].split('.')[0].to_i
         #
-        #   ### correct
+        #   # good
         #
         #   # check to see if we're on RHEL 7 on a RHEL 7.6 node where node['platform_version] is 7.6.1810
         #   if node['platform_version'].to_i == 7
@@ -50,9 +51,9 @@ module RuboCop
             platform_version_check?(node) do
               if parent_method_equals?(node, :[])
                 node = node.parent
-                if node&.arguments.one? &&
+                if node&.arguments&.one? &&
                    node&.arguments&.first&.int_type? &&
-                   node&.arguments&.first.source == '0'
+                   node&.arguments&.first&.source == '0'
                   add_offense_to_i_if_present(node)
                 end
               elsif parent_method_equals?(node, :first)
@@ -80,6 +81,7 @@ module RuboCop
           def parent_method_equals?(node, name)
             return false if node.parent.nil?
             return false unless node.parent.send_type?
+
             name == node.parent.method_name
           end
         end

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect in metadata.rb:
+        #   # bad in metadata.rb:
         #
         #    attribute 'zookeeper_bridge/server',
         #              display_name: 'zookeeper server',

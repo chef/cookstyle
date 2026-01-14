@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2019-2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   user "betty" do
         #     supports({
         #       manage_home: true,
@@ -35,7 +36,7 @@ module RuboCop
         #     supports :manage_home => true
         #   end
         #
-        #   ### correct
+        #   # good
         #   user "betty" do
         #     manage_home true
         #     non_unique true
@@ -55,7 +56,7 @@ module RuboCop
                 property.arguments.first.each_pair do |k, v|
                   # account for a strange edge case where the person incorrectly makes "manage_home a method
                   # the code would be broken, but without this handling cookstyle would explode
-                  key_value = (k.send_type? && k.method?(:manage_home)) ? 'manage_home' : k.value
+                  key_value = k.send_type? && k.method?(:manage_home) ? 'manage_home' : k.value
 
                   new_text << "#{key_value} #{v.source}"
                 end

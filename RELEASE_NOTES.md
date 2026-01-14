@@ -1,3 +1,25 @@
+## Cookstyle 8.5.3
+
+- Upgrade to RuboCop 1.81.7
+
+## Cookstyle 8.5.2
+
+- Upgrade to RuboCop 1.81.6
+
+## Cookstyle 8.5.0
+
+- Upgrade RuboCop to 1.81.0
+- Enable the new `Style/ArrayIntersectWithSingleElement` cop.
+
+## Cookstyle 8.4.0
+
+- Upgrade RuboCop to 1.79.2
+- Add new Chef/Correctness/EmptyResourceGuard cop
+
+## Cookstyle 8.3.0
+
+- Upgrade RuboCop to 1.79.1
+
 ## Cookstyle 8.2.1
 
 - Upgrade RuboCop to 1.77.0

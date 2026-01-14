@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   chef_gem 'ultradns-sdk' do
         #     compile_time true if Chef::Resource::ChefGem.method_defined?(:compile_time)
         #     action :nothing
@@ -39,7 +40,7 @@ module RuboCop
         #     action :nothing
         #   end
         #
-        #   ### correct
+        #   # good
         #   chef_gem 'ultradns-sdk' do
         #     compile_time true
         #     action :nothing

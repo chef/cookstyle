@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2019-2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,14 +24,14 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   depends 'libarchive'
         #
         #   libarchive_file "C:\file.zip" do
         #     path 'C:\expand_here'
         #   end
         #
-        #   ### correct
+        #   # good
         #   archive_file "C:\file.zip" do
         #     path 'C:\expand_here'
         #   end
@@ -42,7 +43,7 @@ module RuboCop
           minimum_target_chef_version '15.0'
 
           MSG = 'Use the archive_file resource built into Chef Infra Client 15+ instead of the libarchive file resource from the libarchive cookbook'
-          RESTRICT_ON_SEND = [:libarchive_file, :notifies, :subscribes].freeze
+          RESTRICT_ON_SEND = %i[libarchive_file notifies subscribes].freeze
 
           def_node_matcher :notification_property?, <<-PATTERN
             (send nil? {:notifies :subscribes} (sym _) $(...) (sym _))
@@ -58,6 +59,7 @@ module RuboCop
 
             notification_property?(node) do |val|
               next unless val.str_content&.start_with?('libarchive_file')
+
               add_offense(val, severity: :refactor) do |corrector|
                 corrector.replace(node, node.source.gsub('libarchive_file', 'archive_file'))
               end

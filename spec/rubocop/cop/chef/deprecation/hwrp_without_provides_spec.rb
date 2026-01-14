@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: Copyright (c) Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)

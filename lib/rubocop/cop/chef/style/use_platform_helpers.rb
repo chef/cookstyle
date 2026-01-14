@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   node['platform'] == 'ubuntu'
         #   node['platform_family'] == 'debian'
         #   node['platform'] != 'ubuntu'
@@ -31,7 +32,7 @@ module RuboCop
         #   %w(rhel suse).include?(node['platform_family'])
         #   node['platform'].eql?('ubuntu')
         #
-        #   ### correct
+        #   # good
         #   platform?('ubuntu')
         #   !platform?('ubuntu')
         #   platform_family?('debian')
@@ -42,7 +43,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = "Use platform? and platform_family? helpers to check a node's platform"
-          RESTRICT_ON_SEND = [:==, :!=, :eql?, :include?].freeze
+          RESTRICT_ON_SEND = %i[== != eql? include?].freeze
 
           def_node_matcher :platform_equals?, <<-PATTERN
             (send (send (send nil? :node) :[] $(str {"platform" "platform_family"}) ) ${:== :!=} $str )

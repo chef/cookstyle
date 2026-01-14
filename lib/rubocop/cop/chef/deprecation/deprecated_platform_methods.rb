@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2019-2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   resource = Chef::Resource::File.new("/tmp/foo.xyz", run_context)
         #   provider = Chef::Platform.provider_for_resource(resource, :create)
         #
@@ -35,7 +36,7 @@ module RuboCop
         #
         #   Chef::Platform.set :platform => :mac_os_x, :resource => :package, :provider => Chef::Provider::Package::Homebrew
         #
-        #   ### correct
+        #   # good
         #   resource = Chef::Resource::File.new("/tmp/foo.xyz", run_context)
         #   provider = resource.provider_for_action(:create)
         #
@@ -43,7 +44,7 @@ module RuboCop
 
         class DeprecatedPlatformMethods < Base
           MSG = 'Use provider_for_action or provides instead of the deprecated Chef::Platform methods in resources, which were removed in Chef Infra Client 13.'
-          RESTRICT_ON_SEND = [:provider_for_resource, :find_provider, :find_provider_for_node, :set].freeze
+          RESTRICT_ON_SEND = %i[provider_for_resource find_provider find_provider_for_node set].freeze
 
           def_node_matcher :platform_method?, <<-PATTERN
             (send (const (const nil? :Chef) :Platform) {:provider_for_resource :find_provider :find_provider_for_node :set} ... )

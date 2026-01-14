@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,12 +24,12 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   chocolatey_package 'nginx' do
         #     action :uninstall
         #   end
         #
-        #   ### correct
+        #   # good
         #   chocolatey_package 'nginx' do
         #     action :remove
         #   end
@@ -43,6 +44,7 @@ module RuboCop
             match_property_in_resource?(:chocolatey_package, 'action', node) do |choco_action|
               choco_action.arguments.each do |action|
                 next unless action.source == ':uninstall'
+
                 add_offense(action, severity: :warning) do |corrector|
                   corrector.replace(action, ':remove')
                 end

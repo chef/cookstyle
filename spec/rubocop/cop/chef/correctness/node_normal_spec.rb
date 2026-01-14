@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 #
@@ -49,10 +50,10 @@ describe RuboCop::Cop::Chef::Correctness::NodeNormal, :config do
   end
 
   include_examples 'autocorrect',
-    'node.normal[:foo]',
-    'node.normal[:foo]'
+                   'node.normal[:foo]',
+                   'node.normal[:foo]'
 
   include_examples 'autocorrect',
-    'chef_run.node.normal[:foo]',
-    'chef_run.node.normal[:foo]'
+                   'chef_run.node.normal[:foo]',
+                   'chef_run.node.normal[:foo]'
 end

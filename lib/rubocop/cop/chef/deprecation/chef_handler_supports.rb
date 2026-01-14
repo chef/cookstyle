@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2019-2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,12 +24,12 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   chef_handler 'whatever' do
         #     supports start: true, report: true, exception: true
         #   end0
         #
-        #   ### correct
+        #   # good
         #   chef_handler 'whatever' do
         #     type start: true, report: true, exception: true
         #   end

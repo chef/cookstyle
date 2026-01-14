@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -49,15 +50,17 @@ module RuboCop
 
           def on_send(node)
             search_method?(node) do
-              add_offense(node, severity: :warning) do |corrector|
-                corrector.replace(node, corrected_string(node))
-              end if positional_arguments?(node)
+              if positional_arguments?(node)
+                add_offense(node, severity: :warning) do |corrector|
+                  corrector.replace(node, corrected_string(node))
+                end
+              end
             end
           end
 
           private
 
-          VALID_TYPES = %i(send hash block_pass).freeze
+          VALID_TYPES = %i[send hash block_pass].freeze
 
           #
           # Are the arguments in the passed node object positional
@@ -68,6 +71,7 @@ module RuboCop
           #
           def positional_arguments?(node)
             return false if node.arguments.count < 3
+
             node.arguments[2..-1].each do |arg|
               # hashes, blocks, or variable/methods are valid. Anything else is not
               return true unless VALID_TYPES.include?(arg.type)
@@ -126,7 +130,7 @@ module RuboCop
           def integer_like_val?(val)
             Integer(val.value)
             true
-          rescue
+          rescue StandardError
             false
           end
         end

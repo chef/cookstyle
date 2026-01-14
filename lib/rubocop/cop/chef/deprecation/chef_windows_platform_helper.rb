@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,15 +24,16 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   Chef::Platform.windows?
         #
-        #   ### correct
+        #   # good
         #   platform?('windows')
         #   platform_family?('windows')
         #
         class ChefWindowsPlatformHelper < Base
           extend AutoCorrector
+
           MSG = "Use `platform?('windows')` instead of the legacy `Chef::Platform.windows?` helper."
           RESTRICT_ON_SEND = [:windows?].freeze
 

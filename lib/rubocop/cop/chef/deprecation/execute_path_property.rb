@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,12 +24,12 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   execute 'some_cmd' do
         #     path '/foo/bar'
         #   end
         #
-        #   ### correct
+        #   # good
         #   execute 'some_cmd' do
         #     environment {path: '/foo/bar'}
         #   end

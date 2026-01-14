@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2016, Noah Kantrowitz
 #
@@ -24,19 +25,19 @@ module RuboCop
         #
         # @example when configuration is `EnforcedStyle: symbols`
         #
-        #   ### incorrect
+        #   # bad
         #   node['foo']
         #   node["foo"]
         #
-        #   ### correct
+        #   # good
         #   node[:foo]
         #
         # @example when configuration is `EnforcedStyle: strings`
         #
-        #   ### incorrect
+        #   # bad
         #   node[:foo]
         #
-        #   ### correct
+        #   # good
         #   node['foo']
         #   node["foo"]
         #
@@ -56,16 +57,16 @@ module RuboCop
           PATTERN
 
           def on_send(node)
-            if node_attribute_access?(node) || node_level_attribute_access?(node)
-              # node is first child for #[], need to look for the outermost parent too.
-              outer_node = node
-              while outer_node.parent && outer_node.parent.send_type? && outer_node.parent.children[1] == :[]
-                on_node_attribute_access(outer_node.children[2])
-                outer_node = outer_node.parent
-              end
-              # One last time for the outer-most access.
+            return unless node_attribute_access?(node) || node_level_attribute_access?(node)
+
+            # node is first child for #[], need to look for the outermost parent too.
+            outer_node = node
+            while outer_node.parent && outer_node.parent.send_type? && outer_node.parent.children[1] == :[]
               on_node_attribute_access(outer_node.children[2])
+              outer_node = outer_node.parent
             end
+            # One last time for the outer-most access.
+            on_node_attribute_access(outer_node.children[2])
           end
 
           def on_node_attribute_access(node)

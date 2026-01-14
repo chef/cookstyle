@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   apt_repository 'my repo' do
         #     uri 'http://packages.example.com/debian'
         #     components %w(stable main)
@@ -31,7 +32,7 @@ module RuboCop
         #     distribution node['lsb']['codename']
         #   end
         #
-        #   ### correct
+        #   # good
         #   apt_repository 'my repo' do
         #     uri 'http://packages.example.com/debian'
         #     components %w(stable main)

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,14 +24,14 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   ChefDK::CLI
         #   ChefDK::Generator::TemplateHelper
         #   module ChefDK
         #     # some additional code
         #   end
         #
-        #   ### correct
+        #   # good
         #   ChefCLI::CLI
         #   ChefCLI::Generator::TemplateHelper
         #   module ChefCLI
@@ -39,6 +40,7 @@ module RuboCop
         #
         class ChefDKGenerators < Base
           extend AutoCorrector
+
           MSG = 'When writing cookbook generators use the ChefCLI module instead of the ChefDK module which was removed in Chef Workstation 0.8 and later.'
 
           def on_const(node)

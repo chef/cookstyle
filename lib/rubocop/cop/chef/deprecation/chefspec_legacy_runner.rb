@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #
         #   describe 'foo::default' do
         #     subject { ChefSpec::Runner.new.converge(described_recipe) }
@@ -31,7 +32,7 @@ module RuboCop
         #     # some spec code
         #   end
         #
-        #   ### correct
+        #   # good
         #
         #   describe 'foo::default' do
         #     subject { ChefSpec::ServerRunner.new.converge(described_recipe) }
@@ -41,6 +42,7 @@ module RuboCop
         #
         class ChefSpecLegacyRunner < Base
           extend AutoCorrector
+
           MSG = 'Use ChefSpec::SoloRunner or ChefSpec::ServerRunner instead of the deprecated ChefSpec::Runner.'
 
           def_node_matcher :chefspec_runner?, <<-PATTERN

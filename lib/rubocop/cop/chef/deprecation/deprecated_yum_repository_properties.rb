@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   yum_repository 'OurCo' do
         #     description 'OurCo yum repository'
         #     url 'http://artifacts.ourco.org/foo/bar'
@@ -32,7 +33,7 @@ module RuboCop
         #     action :create
         #   end
         #
-        #   ### correct
+        #   # good
         #   yum_repository 'OurCo' do
         #     description 'OurCo yum repository'
         #     baseurl 'http://artifacts.ourco.org/foo/bar'
@@ -51,7 +52,7 @@ module RuboCop
           MSG = 'With the release of Chef Infra Client 12.14 and the yum cookbook 3.0 several properties in the yum_repository resource were renamed. url -> baseurl, keyurl -> gpgkey, and mirrorexpire -> mirror_expire.'
 
           def on_block(node)
-            %w(url keyurl mirrorexpire).each do |prop|
+            %w[url keyurl mirrorexpire].each do |prop|
               match_property_in_resource?(:yum_repository, prop, node) do |prop_node|
                 add_offense(prop_node, severity: :warning) do |corrector|
                   corrector.replace(prop_node, prop_node.source

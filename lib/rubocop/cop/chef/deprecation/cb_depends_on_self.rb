@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,11 +24,11 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   name 'foo'
         #   depends 'foo'
         #
-        #   ### correct
+        #   # good
         #   name 'foo'
         #
         class CookbooksDependsOnSelf < Base
@@ -44,6 +45,7 @@ module RuboCop
             cb_name?(node) do
               dependencies(processed_source.ast).each do |dep|
                 next unless dep.arguments == node.arguments
+
                 add_offense(dep, severity: :refactor) do |corrector|
                   corrector.remove(range_with_surrounding_space(range: dep.loc.expression, side: :left))
                 end

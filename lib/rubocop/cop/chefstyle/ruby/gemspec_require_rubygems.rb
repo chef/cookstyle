@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: Chef Software, Inc.
 # Author:: Tim Smith (<tsmith@chef.io>)
@@ -33,7 +34,8 @@ module RuboCop
 
           def on_send(node)
             require_rubygems?(node) do |_r|
-              node = node.parent if node.parent && node.parent.conditional? # make sure we identify conditionals on the require
+              # make sure we identify conditionals on the require
+              node = node.parent if node.parent && node.parent.conditional?
               add_offense(node.loc.expression, message: MSG, severity: :refactor) do |corrector|
                 corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
               end

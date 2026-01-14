@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,12 +24,12 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   file '/etc/nginx.conf' do
         #     verify 'nginx -t -c %{file}'
         #   end
         #
-        #   ### correct
+        #   # good
         #   file '/etc/nginx.conf' do
         #     verify 'nginx -t -c %{path}'
         #   end
@@ -45,8 +46,9 @@ module RuboCop
           def on_block(node)
             match_property_in_resource?(nil, 'verify', node) do |verify|
               return unless verify.source.match?(/%{file}/)
+
               add_offense(verify, severity: :warning) do |corrector|
-                corrector.replace(verify.loc.expression, verify.loc.expression.source.gsub('%{file}', '%{path}'))
+                corrector.replace(verify.loc.expression, verify.loc.expression.source.gsub('%<file>s', '%<path>s'))
               end
             end
           end

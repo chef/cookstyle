@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   execute 'install package foo' do
         #     command "choco install --source=artifactory \"foo\" -y --no-progress --ignore-package-exit-codes"
         #   end
@@ -42,12 +43,14 @@ module RuboCop
             match_property_in_resource?(:powershell_script, 'code', node) do |code_property|
               property_data = method_arg_ast_to_string(code_property)
               next unless property_data && property_data.match?(/^choco /i)
+
               add_offense(node, severity: :refactor)
             end
 
             match_property_in_resource?(:execute, 'command', node) do |code_property|
               property_data = method_arg_ast_to_string(code_property)
               next unless property_data && property_data.match?(/^choco /i)
+
               add_offense(node, severity: :refactor)
             end
           end

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,14 +24,14 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   template '/etc/foo' do
         #     mode '0644'
         #     source 'foo.erb'
         #     only_if { 'test -f /etc/foo' }
         #   end
         #
-        #   ### correct
+        #   # good
         #   template '/etc/foo' do
         #     mode '0644'
         #     source 'foo.erb'

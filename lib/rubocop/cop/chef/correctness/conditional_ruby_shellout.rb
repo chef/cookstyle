@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   cookbook_file '/logs/foo/error.log' do
         #     source 'error.log'
         #     only_if { system('wget https://www.bar.com/foobar.txt -O /dev/null') }
@@ -34,7 +35,7 @@ module RuboCop
         #     only_if { shell_out('wget https://www.bar.com/foobar.txt -O /dev/null').exitstatus == 0 }
         #   end
         #
-        #   ### correct
+        #   # good
         #   cookbook_file '/logs/foo/error.log' do
         #     source 'error.log'
         #     only_if 'wget https://www.bar.com/foobar.txt -O /dev/null'

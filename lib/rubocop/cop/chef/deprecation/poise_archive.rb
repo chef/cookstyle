@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,12 +24,12 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   poise_archive 'https://example.com/myapp.tgz' do
         #     destination '/opt/my_app'
         #   end
         #
-        #   ### correct
+        #   # good
         #   archive_file 'https://example.com/myapp.tgz' do
         #     destination '/opt/my_app'
         #   end
@@ -36,6 +37,7 @@ module RuboCop
         class PoiseArchiveUsage < Base
           include RuboCop::Chef::CookbookHelpers
           extend TargetChefVersion
+
           minimum_target_chef_version '15.0'
 
           MSG = 'The poise_archive resource in the deprecated poise-archive should be replaced with the archive_file resource found in Chef Infra Client 15+'

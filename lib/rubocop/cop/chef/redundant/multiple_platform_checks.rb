@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,11 +24,11 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   platform?('redhat') || platform?('ubuntu')
         #   platform_family?('debian') || platform_family?('rhel')
         #
-        #   ### correct
+        #   # good
         #   platform?('redhat', 'ubuntu')
         #   platform_family?('debian', 'rhel')
         #

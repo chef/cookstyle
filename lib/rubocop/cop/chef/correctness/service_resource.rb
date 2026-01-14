@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2016, Chris Henry
 #
@@ -22,7 +23,7 @@ module RuboCop
         #
         # @example when command starts a service
         #
-        #   ### incorrect
+        #   # bad
         #   command "/etc/init.d/mysql start"
         #   command "/sbin/service/memcached start"
         #
@@ -36,9 +37,7 @@ module RuboCop
 
           def on_send(node)
             execute_command?(node) do |command|
-              if starts_service?(command)
-                add_offense(command, severity: :refactor)
-              end
+              add_offense(command, severity: :refactor) if starts_service?(command)
             end
           end
 
@@ -47,7 +46,7 @@ module RuboCop
             (cmd_str.include?('/etc/init.d') || ['service ', '/sbin/service ',
                                                  'start ', 'stop ', 'invoke-rc.d '].any? do |service_cmd|
                cmd_str.start_with?(service_cmd)
-             end) && %w(start stop restart reload).any? { |a| cmd_str.include?(a) }
+             end) && %w[start stop restart reload].any? { |a| cmd_str.include?(a) }
           end
         end
       end

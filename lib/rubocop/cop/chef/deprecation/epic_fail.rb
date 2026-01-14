@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,12 +24,12 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   package "foo" do
         #     epic_fail true
         #   end
         #
-        #   ### correct
+        #   # good
         #   package "foo" do
         #     ignore_failure true
         #   end

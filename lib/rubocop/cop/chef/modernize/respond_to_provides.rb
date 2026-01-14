@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2019-2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,12 +24,12 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   provides :foo if respond_to?(:provides)
         #
         #   provides :foo if defined? provides
         #
-        #   ### correct
+        #   # good
         #   provides :foo
         #
         class RespondToProvides < Base

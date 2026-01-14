@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,10 +24,10 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   include_recipe('foo::bar')
         #
-        #   ### correct
+        #   # good
         #   include_recipe 'foo::bar'
         #
         class IncludeRecipeWithParentheses < Base

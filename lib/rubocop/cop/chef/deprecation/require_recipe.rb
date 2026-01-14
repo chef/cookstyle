@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,10 +24,10 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   require_recipe 'foo'
         #
-        #   ### correct
+        #   # good
         #   include_recipe 'foo'
         #
         class RequireRecipe < Base

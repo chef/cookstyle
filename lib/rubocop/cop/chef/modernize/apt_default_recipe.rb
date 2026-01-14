@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,11 +24,11 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   include_recipe 'apt::default'
         #   include_recipe 'apt'
         #
-        #   ### correct
+        #   # good
         #   apt_update
         #
         class IncludingAptDefaultRecipe < Base

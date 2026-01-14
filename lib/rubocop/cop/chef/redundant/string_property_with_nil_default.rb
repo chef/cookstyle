@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2019-2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,11 +24,11 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   property :config_file, String, default: nil
         #   property :config_file, [String, NilClass], default: nil
         #
-        #   ### correct
+        #   # good
         #   property :config_file, String
         #   property :config_file, [String, NilClass]
         #
@@ -52,7 +53,9 @@ module RuboCop
           def on_send(node)
             string_property_with_nil_default?(node) do |nil_default|
               add_offense(nil_default, severity: :refactor) do |corrector|
-                range = range_with_surrounding_comma(range_with_surrounding_space(range: nil_default.loc.expression, side: :left), :left)
+                range = range_with_surrounding_comma(
+                  range_with_surrounding_space(range: nil_default.loc.expression, side: :left), :left
+                )
                 corrector.remove(range)
               end
             end

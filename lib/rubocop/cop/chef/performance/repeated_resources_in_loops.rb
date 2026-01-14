@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../helpers/resource_matcher'
 
 module RuboCop
@@ -18,10 +20,9 @@ module RuboCop
 
             statements.compact.each do |stmt|
               next unless stmt.send_type?
+
               method = stmt.method_name
-              if batchable_resource?(method) && stmt.receiver.nil?
-                add_offense(stmt.loc.expression, message: MSG)
-              end
+              add_offense(stmt.loc.expression, message: MSG) if batchable_resource?(method) && stmt.receiver.nil?
             end
           end
         end

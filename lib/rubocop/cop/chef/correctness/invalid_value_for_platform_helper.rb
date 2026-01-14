@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,12 +24,12 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   value_for_platform(
         #     %w(rhel mac_os_x_server) => { 'default' => 'foo' },
         #     %w(sles) => { 'default' => 'bar' }
         #   )
-        #   ### correct
+        #   # good
         #   value_for_platform(
         #     %w(redhat mac_os_x) => { 'default' => 'foo' },
         #     %w(opensuseleap) => { 'default' => 'bar' }
@@ -54,6 +55,7 @@ module RuboCop
                 if p_hash.key.array_type?
                   p_hash.key.each_value do |plat|
                     next unless INVALID_PLATFORMS.key?(plat.value)
+
                     add_offense(plat, severity: :refactor)
                   end
                 elsif INVALID_PLATFORMS.key?(p_hash.key.value)

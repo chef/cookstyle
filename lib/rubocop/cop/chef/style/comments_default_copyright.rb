@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2016-2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,11 +24,11 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   Copyright:: 2019 YOUR_NAME
         #   Copyright:: 2019 YOUR_COMPANY_NAME
         #
-        #   ### correct
+        #   # good
         #   Copyright:: 2019 Tim Smith
         #   Copyright:: 2019 Chef Software, Inc.
         #
@@ -40,6 +41,7 @@ module RuboCop
             processed_source.comments.each do |comment|
               next unless comment.inline? && # headers aren't in blocks
                           /# (?:Copyright\W*).*YOUR_(NAME|COMPANY_NAME)/.match?(comment.text)
+
               add_offense(comment, severity: :refactor)
             end
           end

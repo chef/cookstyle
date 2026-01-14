@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,14 +24,14 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   macos_userdefaults 'set a value' do
         #     global true
         #     key 'key'
         #     value 'value'
         #   end
         #
-        #   ### correct
+        #   # good
         #   macos_userdefaults 'set a value' do
         #     key 'key'
         #     value 'value'

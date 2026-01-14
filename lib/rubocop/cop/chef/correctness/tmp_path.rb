@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2016, Chris Henry
 #
@@ -22,10 +23,10 @@ module RuboCop
         #
         # @example downloading a large file into /tmp/
         #
-        #   ### incorrect
+        #   # bad
         #   remote_file '/tmp/large-file.tar.gz' do
         #
-        #   ### correct
+        #   # good
         #   remote_file "#{Chef::Config[:file_cache_path]}/large-file.tar.gz" do
         #
         class TmpPath < Base
@@ -39,6 +40,7 @@ module RuboCop
           def on_send(node)
             remote_file?(node) do |command|
               return unless hardcoded_tmp?(command) && !file_cache_path?(command)
+
               add_offense(command, severity: :refactor)
             end
           end

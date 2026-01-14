@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,13 +24,13 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   chef_gem 'deep_merge' do
         #     action :nothing
         #     compile_time true
         #   end.run_action(:install)
         #
-        #   ### correct
+        #   # good
         #   chef_gem 'deep_merge' do
         #     action :install
         #     compile_time true

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2019-2021, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### correct
+        #   # good
         #   name 'foo'
         #
         class MetadataMissingName < Base
@@ -40,6 +41,7 @@ module RuboCop
 
             # Using range similar to RuboCop::Cop::Naming::Filename (file_name.rb)
             return if cb_name?(processed_source.ast)
+
             range = source_range(processed_source.buffer, 1, 0)
             add_offense(range, severity: :refactor) do |corrector|
               path = processed_source.path

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2019-2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,13 +24,13 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   Windows::VersionHelper.nt_version
         #   Windows::VersionHelper.server_version?
         #   Windows::VersionHelper.core_version?
         #   Windows::VersionHelper.workstation_version?
         #
-        #   ### correct
+        #   # good
         #   node['platform_version'].to_f
         #   node['kernel']['product_type'] == 'Server'
         #   node['kernel']['server_core']
@@ -42,7 +43,7 @@ module RuboCop
           minimum_target_chef_version '14.0'
 
           MSG = "Use node['platform_version'] and node['kernel'] data introduced in Chef Infra Client 14 instead of the deprecated Windows::VersionHelper helpers from the Windows cookbook."
-          RESTRICT_ON_SEND = [:nt_version, :server_version?, :core_version?, :workstation_version?].freeze
+          RESTRICT_ON_SEND = %i[nt_version server_version? core_version? workstation_version?].freeze
 
           def_node_matcher :windows_helper?, <<-PATTERN
             (send ( const ( const {nil? cbase} :Windows ) :VersionHelper ) $_ )

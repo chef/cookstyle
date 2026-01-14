@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,14 +24,14 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   windows_package 'AppveyorDeploymentAgent' do
         #     source 'https://www.example.com/appveyor.msi'
         #     installer_type 'msi'
         #     options "/quiet /qn /norestart /log install.log"
         #   end
         #
-        #   ### correct
+        #   # good
         #   windows_package 'AppveyorDeploymentAgent' do
         #     source 'https://www.example.com/appveyor.msi'
         #     installer_type :msi

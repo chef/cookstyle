@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,13 +24,13 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #
         #   template '/etc/www/configures-apache.conf' do
         #     notifies :restart, 'service[apache]', :immediate
         #   end
         #
-        #   ### correct
+        #   # good
         #
         #   template '/etc/www/configures-apache.conf' do
         #     notifies :restart, 'service[apache]', :immediately
@@ -39,7 +40,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'Use :immediately instead of :immediate for resource notification timing'
-          RESTRICT_ON_SEND = [:notifies, :subscribes].freeze
+          RESTRICT_ON_SEND = %i[notifies subscribes].freeze
 
           def_node_matcher :immediate_notify?, <<-PATTERN
             (send nil? {:notifies :subscribes} (sym _) (...) $(sym :immediate))

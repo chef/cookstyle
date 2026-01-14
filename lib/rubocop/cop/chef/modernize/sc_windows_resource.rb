@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,13 +24,13 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   sc_windows 'chef-client' do
         #     path "C:\\opscode\\chef\\bin"
         #     action :create
         #   end
         #
-        #   ### correct
+        #   # good
         #   windows_service 'chef-client' do
         #     action :create
         #     binary_path_name "C:\\opscode\\chef\\bin"

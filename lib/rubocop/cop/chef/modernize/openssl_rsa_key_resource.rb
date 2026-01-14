@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,12 +24,12 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   openssl_rsa_key '/etc/httpd/ssl/server.key' do
         #     key_length 2048
         #   end
         #
-        #   ### correct
+        #   # good
         #   openssl_rsa_private_key '/etc/httpd/ssl/server.key' do
         #     key_length 2048
         #   end

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,13 +24,13 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   service 'foo' do
         #     running true
         #     action [:start, :enable]
         #   end
         #
-        #   ### correct
+        #   # good
         #   service 'foo' do
         #     action [:start, :enable]
         #   end

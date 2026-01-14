@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   execute 'set tz' do
         #     command 'tzutil.exe /s UTC'
         #   end
@@ -35,7 +36,7 @@ module RuboCop
         #     not_if { shell_out('tzutil.exe /g').stdout.include?('UTC') }
         #   end
         #
-        #   ### correct
+        #   # good
         #   timezone 'UTC'
         #
         class ExecuteTzUtil < Base
@@ -54,6 +55,7 @@ module RuboCop
           def on_send(node)
             execute_resource?(node) do
               return unless node.arguments.first.value.match?(/^tzutil/i)
+
               add_offense(node, severity: :refactor)
             end
           end
@@ -61,11 +63,13 @@ module RuboCop
           def on_block(node)
             match_property_in_resource?(:execute, 'command', node) do |code_property|
               next unless calls_tzutil?(code_property)
+
               add_offense(node, severity: :refactor)
             end
 
             match_property_in_resource?(:powershell_script, 'code', node) do |code_property|
               next unless calls_tzutil?(code_property)
+
               add_offense(node, severity: :refactor)
             end
           end

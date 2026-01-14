@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,12 +24,12 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   sysctl_param 'fs.aio-max-nr' do
         #     value '1048576'
         #   end
         #
-        #   ### correct
+        #   # good
         #   sysctl 'fs.aio-max-nr' do
         #     value '1048576'
         #   end

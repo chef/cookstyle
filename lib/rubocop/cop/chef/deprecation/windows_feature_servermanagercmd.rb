@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,12 +24,12 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   windows_feature 'DHCP' do
         #     install_method :servermanagercmd
         #   end
         #
-        #   ### correct
+        #   # good
         #   windows_feature 'DHCP' do
         #     install_method :windows_feature_dism
         #   end

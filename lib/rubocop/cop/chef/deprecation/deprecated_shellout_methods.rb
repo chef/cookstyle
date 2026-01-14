@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   shell_out_compact('foo')
         #   shell_out_compact!('foo')
         #   shell_out_with_timeout('foo')
@@ -33,7 +34,7 @@ module RuboCop
         #   shell_out_compact_timeout('foo')
         #   shell_out_compact_timeout!('foo')
         #
-        #   ### correct
+        #   # good
         #   shell_out('foo')
         #   shell_out!('foo')
         #   shell_out!('foo', default_env: false) # replaces shell_out_with_systems_locale
@@ -44,15 +45,14 @@ module RuboCop
           minimum_target_chef_version '14.3'
 
           MSG = 'Many legacy specialized shell_out methods were replaced in Chef Infra Client 14.3 and removed in Chef Infra Client 15. Use shell_out and any additional options if necessary.'
-          RESTRICT_ON_SEND = %i( shell_out_compact
+          RESTRICT_ON_SEND = %i[ shell_out_compact
                                  shell_out_compact!
                                  shell_out_compact_timeout
                                  shell_out_compact_timeout!
                                  shell_out_with_timeout
                                  shell_out_with_timeout!
                                  shell_out_with_systems_locale
-                                 shell_out_with_systems_locale!
-        ).freeze
+                                 shell_out_with_systems_locale!].freeze
 
           def on_send(node)
             add_offense(node, severity: :warning)

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2021, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,10 +24,10 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   depends 'chef_nginx'
         #
-        #   ### correct
+        #   # good
         #   depends 'nginx'
         #
         class DependsOnChefNginxCookbook < Base

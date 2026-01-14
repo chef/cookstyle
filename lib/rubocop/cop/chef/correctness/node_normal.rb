@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 #
@@ -24,10 +25,10 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   node.normal['foo'] = true
         #
-        #   ### correct
+        #   # good
         #   node.default['foo'] = true
         #   node.override['foo'] = true
         #   node.force_default['foo'] = true

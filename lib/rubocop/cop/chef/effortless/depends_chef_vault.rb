@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2020, Chef Software Inc.
 # Author:: Scott Vidmar (<svidmar@chef.io>)
@@ -23,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   depends 'chef-vault'
         #
         class DependsChefVault < Base

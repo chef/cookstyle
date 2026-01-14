@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2021-2022, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   file '/Users/bob_bobberson/.ssh/id_rsa' do
         #     content '-----BEGIN RSA PRIVATE KEY-----\n...\n-----END RSA PRIVATE KEY-----'
         #     mode '600'
@@ -34,6 +35,7 @@ module RuboCop
 
           def on_send(node)
             return unless node.arguments?
+
             node.arguments.each do |arg|
               next unless arg.str_type? || arg.dstr_type?
 

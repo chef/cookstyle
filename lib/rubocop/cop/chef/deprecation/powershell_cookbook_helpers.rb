@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,10 +24,10 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   Powershell::VersionHelper.powershell_version?('4.0')
         #
-        #   ### correct
+        #   # good
         #   node['powershell']['version'].to_f == 4.0
         #
         #   # better (Chef Infra Client 15.8+)

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,13 +24,13 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   node.role?('web_server')
         #   node.roles.include?('web_server')
         #
         class CookbookUsesRoles < Base
           MSG = 'Cookbook uses roles, which cannot be used in Policyfiles or Effortless Infra'
-          RESTRICT_ON_SEND = [:role?, :roles].freeze
+          RESTRICT_ON_SEND = %i[role? roles].freeze
 
           def on_send(node)
             if node.receiver &&

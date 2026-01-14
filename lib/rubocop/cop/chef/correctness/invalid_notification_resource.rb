@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2022, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #
         #   template '/etc/www/configures-apache.conf' do
         #     notifies :restart, service['apache'], :immediately
@@ -33,7 +34,7 @@ module RuboCop
         #     notifies :restart, service[apache], :immediately
         #   end
         #
-        #   ### correct
+        #   # good
         #
         #   template '/etc/www/configures-apache.conf' do
         #     notifies :restart, 'service[apache]', :immediately
@@ -41,7 +42,7 @@ module RuboCop
         #
         class InvalidNotificationResource < Base
           MSG = 'The resource to notify when calling `notifies` or `subscribes` must be a string.'
-          RESTRICT_ON_SEND = [:notifies, :subscribes].freeze
+          RESTRICT_ON_SEND = %i[notifies subscribes].freeze
 
           def_node_matcher :invalid_notification?, <<-PATTERN
             (send nil? {:notifies :subscribes} (sym _) $(send (send nil? _) :[] ...) ...)

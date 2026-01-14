@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,10 +24,10 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   property :Something, String, default: node['hostname']
         #
-        #   ### correct
+        #   # good
         #   property :Something, String, default: lazy { node['hostname'] }
         #
         class LazyEvalNodeAttributeDefaults < Base

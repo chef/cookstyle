@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 #
@@ -24,10 +25,10 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   node.set['foo'] = true
         #
-        #   ### correct
+        #   # good
         #   node.normal['foo'] = true
         #
         class NodeSet < Base

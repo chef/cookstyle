@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,10 +24,10 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   property :foo, String
         #
-        #   ### correct
+        #   # good
         #   property :foo, String, description: "Set the important thing to..."
         #
         class IncludePropertyDescriptions < Base

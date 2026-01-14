@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   yum_repository 'OurCo' do
         #     description 'OurCo yum repository'
         #     baseurl 'http://artifacts.ourco.org/foo/bar'
@@ -31,7 +32,7 @@ module RuboCop
         #     action :add
         #   end
         #
-        #   ### correct
+        #   # good
         #   yum_repository 'OurCo' do
         #     description 'OurCo yum repository'
         #     baseurl 'http://artifacts.ourco.org/foo/bar'

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,13 +24,13 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   source_url 'http://github.com/something/something'
         #   source_url 'http://www.github.com/something/something'
         #   source_url 'http://www.gitlab.com/something/something'
         #   source_url 'http://gitlab.com/something/something'
         #
-        #   ### correct
+        #   # good
         #   source_url 'http://github.com/something/something'
         #   source_url 'http://gitlab.com/something/something'
         #
@@ -37,7 +38,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'Insecure http Github or Gitlab URLs for metadata source_url/issues_url fields'
-          RESTRICT_ON_SEND = [:source_url, :issues_url].freeze
+          RESTRICT_ON_SEND = %i[source_url issues_url].freeze
 
           def_node_matcher :insecure_cb_url?, <<-PATTERN
             (send nil? {:source_url :issues_url} (str #insecure_url?))

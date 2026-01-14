@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,10 +24,10 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   Chef::Application.fatal!('Something horrible happened!')
         #
-        #   ### correct
+        #   # good
         #   raise "Something horrible happened!"
         #
         class ChefApplicationFatal < Base

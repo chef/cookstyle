@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2022, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,10 +24,10 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   name 'foo.bar'
         #
-        #   ### correct
+        #   # good
         #   name 'foo_bar'
         #
         class InvalidCookbookName < Base

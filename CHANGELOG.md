@@ -1,16 +1,29 @@
 # Cookstyle Changelog
 
- <!-- latest_release 8.2.4 -->
-## [v8.2.4](https://github.com/chef/cookstyle/tree/v8.2.4) (2025-07-16)
+ <!-- latest_release 8.5.5 -->
+## [v8.5.5](https://github.com/chef/cookstyle/tree/v8.5.5) (2025-12-30)
 
 #### Merged Pull Requests
-- Ruby 3.4 update in cookstyle hab package for windows [#1019](https://github.com/chef/cookstyle/pull/1019) ([nikhil2611](https://github.com/nikhil2611))
+- Fix docs rake task and cop example comments [#1041](https://github.com/chef/cookstyle/pull/1041) ([IanMadd](https://github.com/IanMadd))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.32.8 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Fix docs rake task and cop example comments [#1041](https://github.com/chef/cookstyle/pull/1041) ([IanMadd](https://github.com/IanMadd)) <!-- 8.5.5 -->
+- Update actions/checkout@v6 [#1037](https://github.com/chef/cookstyle/pull/1037) ([dafyddcrosby](https://github.com/dafyddcrosby)) <!-- 8.5.4 -->
+- Update to RuboCop 1.81.7 [#1038](https://github.com/chef/cookstyle/pull/1038) ([tas50](https://github.com/tas50)) <!-- 8.5.3 -->
+- Update to RuboCop 1.81.6 [#1035](https://github.com/chef/cookstyle/pull/1035) ([tas50](https://github.com/tas50)) <!-- 8.5.2 -->
+- CHEF-24666 - Merge extra top-level docs into README [#1024](https://github.com/chef/cookstyle/pull/1024) ([cgunasree08](https://github.com/cgunasree08)) <!-- 8.5.1 -->
+- Update to Rubocop 1.81 + enable new cop [#1034](https://github.com/chef/cookstyle/pull/1034) ([tas50](https://github.com/tas50)) <!-- 8.5.0 -->
+- Update to RuboCop 1.80.2 [#1028](https://github.com/chef/cookstyle/pull/1028) ([tas50](https://github.com/tas50)) <!-- 8.4.4 -->
+- [CI] Update Windows runner to 2025 [#1032](https://github.com/chef/cookstyle/pull/1032) ([dafyddcrosby](https://github.com/dafyddcrosby)) <!-- 8.4.3 -->
+- Add myself to codeowners [#1033](https://github.com/chef/cookstyle/pull/1033) ([jaymzh](https://github.com/jaymzh)) <!-- 8.4.2 -->
+- CHEF-25767 - Standardize - Removing SLA from README [#1027](https://github.com/chef/cookstyle/pull/1027) ([nandanhegde73](https://github.com/nandanhegde73)) <!-- 8.4.1 -->
+- Update RuboCop to 1.79.2 + prep release [#1026](https://github.com/chef/cookstyle/pull/1026) ([tas50](https://github.com/tas50)) <!-- 8.4.0 -->
+- Add Chef/Correctness/EmptyResourceGuard cop [#1022](https://github.com/chef/cookstyle/pull/1022) ([sumedha-lolur](https://github.com/sumedha-lolur)) <!-- 8.3.1 -->
+- Update RuboCop to 1.79.1 [#1023](https://github.com/chef/cookstyle/pull/1023) ([tas50](https://github.com/tas50)) <!-- 8.3.0 -->
 - Ruby 3.4 update in cookstyle hab package for windows [#1019](https://github.com/chef/cookstyle/pull/1019) ([nikhil2611](https://github.com/nikhil2611)) <!-- 8.2.4 -->
 - Support private hab bldr of publishing hab pkg and update ruby core package [#1017](https://github.com/chef/cookstyle/pull/1017) ([sanjain-progress](https://github.com/sanjain-progress)) <!-- 8.2.3 -->
 - Fixing habitat test builds by declaring HAB_ORIGIN after habitat install [#1018](https://github.com/chef/cookstyle/pull/1018) ([nikhil2611](https://github.com/nikhil2611)) <!-- 8.2.2 -->

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2019, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,10 +24,10 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   not_if { File.exist?('/etc/foo/bar') }
         #
-        #   ### correct
+        #   # good
         #   not_if { ::File.exist?('/etc/foo/bar') }
         #
         class ScopedFileExist < Base

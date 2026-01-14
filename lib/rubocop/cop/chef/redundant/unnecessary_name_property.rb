@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2019-2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   property :name, String
         #   property :name, String, name_property: true
         #   attribute :name, kind_of: String
@@ -34,7 +35,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'There is no need to define a property or attribute named :name in a resource as Chef Infra defines this on all resources by default.'
-          RESTRICT_ON_SEND = [:property, :attribute].freeze
+          RESTRICT_ON_SEND = %i[property attribute].freeze
 
           def_node_matcher :name_property?, <<-PATTERN
           (send nil? {:attribute :property}
@@ -52,7 +53,7 @@ module RuboCop
               # else return so we don't alert
               unless hash_vals.empty?
                 hash_keys = hash_vals.first.map { |x| x.key.value }
-                return unless (hash_keys - [:kind_of, :name_attribute, :name_property]).empty?
+                return unless (hash_keys - %i[kind_of name_attribute name_property]).empty?
               end
 
               add_offense(node, severity: :refactor) do |corrector|

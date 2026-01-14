@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,12 +24,12 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   file '/etc/some_file' do
         #     mode '0o755'
         #   end
         #
-        #   ### correct
+        #   # good
         #   file '/etc/some_file' do
         #     mode '0755'
         #   end
@@ -39,6 +40,7 @@ module RuboCop
 
           def on_send(node)
             return unless node.arguments.first&.str_type? && node.arguments.first.value.match?(/^0o/)
+
             add_offense(node, severity: :refactor)
           end
         end

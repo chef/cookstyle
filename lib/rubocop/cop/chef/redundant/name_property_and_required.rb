@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2019-2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -51,16 +52,16 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   property :config_file, String, required: true, name_property: true
         #   attribute :config_file, String, required: true, name_attribute: true
         #
-        #   ### correct
+        #   # good
         #   property :config_file, String, required: true
         #
         class NamePropertyIsRequired < Base
           MSG = 'Resource properties marked as name properties should not also be required properties'
-          RESTRICT_ON_SEND = [:property, :attribute].freeze
+          RESTRICT_ON_SEND = %i[property attribute].freeze
 
           # match on a property or attribute that has any name and any type and a hash that
           # contains name_property: true and required: true. These are wrapped in <> which means

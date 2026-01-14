@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,12 +24,12 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   osx_config_profile 'Install screensaver profile' do
         #     profile 'screensaver/com.company.screensaver.mobileconfig'
         #   end
         #
-        #   ### correct
+        #   # good
         #   osx_profile 'Install screensaver profile' do
         #     profile 'screensaver/com.company.screensaver.mobileconfig'
         #   end

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2019, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   openssl_x509 '/etc/httpd/ssl/mycert.pem' do
         #     common_name 'www.f00bar.com'
         #     org 'Foo Bar'
@@ -31,7 +32,7 @@ module RuboCop
         #     country 'US'
         #   end
         #
-        #   ### correct
+        #   # good
         #   openssl_x509_certificate '/etc/httpd/ssl/mycert.pem' do
         #     common_name 'www.f00bar.com'
         #     org 'Foo Bar'

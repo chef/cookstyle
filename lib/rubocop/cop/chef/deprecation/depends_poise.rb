@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2019-2022, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   depends 'poise'
         #   depends 'poise-service'
         #   depends 'poise-hoist'
@@ -38,7 +39,7 @@ module RuboCop
 
           def on_send(node)
             depends_method?(node) do |arg|
-              add_offense(node, severity: :warning) if %w(poise poise-service poise-hoist).include?(arg.value)
+              add_offense(node, severity: :warning) if %w[poise poise-service poise-hoist].include?(arg.value)
             end
           end
         end

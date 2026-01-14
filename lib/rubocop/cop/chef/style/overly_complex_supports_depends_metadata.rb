@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: 2020, Chef Software, Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #
         #   %w( debian ubuntu ).each do |os|
         #     supports os
@@ -33,7 +34,7 @@ module RuboCop
         #     depends cb
         #   end
         #
-        #   ### correct
+        #   # good
         #
         #   supports 'debian'
         #   supports 'ubuntu'
@@ -43,6 +44,7 @@ module RuboCop
         #
         class OverlyComplexSupportsDependsMetadata < Base
           extend AutoCorrector
+
           MSG = "Don't loop over an array to set cookbook dependencies or supported platforms if you have fewer than three values to set."
 
           def_node_matcher :supports_depends_array?, <<-PATTERN
@@ -57,6 +59,7 @@ module RuboCop
           def on_block(node)
             supports_depends_array?(node) do |array, type|
               return unless array.values.count < 3
+
               add_offense(node, severity: :refactor) do |corrector|
                 corrected_value = array.values.map { |x| "#{type} '#{x.source}'" }
                 corrector.replace(node, corrected_value.join("\n"))

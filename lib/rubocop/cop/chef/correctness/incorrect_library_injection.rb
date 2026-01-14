@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Copyright:: Copyright 2019-2020, Chef Software Inc.
 # Author:: Tim Smith (<tsmith84@gmail.com>)
@@ -23,13 +24,13 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   ::Chef::Recipe.send(:include, Filebeat::Helpers)
         #   ::Chef::Provider.send(:include, Filebeat::Helpers)
         #   ::Chef::Recipe.include Filebeat::Helpers
         #   ::Chef::Provider.include Filebeat::Helpers
         #
-        #   ### correct
+        #   # good
         #   ::Chef::DSL::Recipe.send(:include, Filebeat::Helpers) # covers previous Recipe & Provider classes
         #
         class IncorrectLibraryInjection < Base
@@ -37,7 +38,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'Libraries should be injected into the Chef::DSL::Recipe class and not Chef::Recipe or Chef::Provider classes directly.'
-          RESTRICT_ON_SEND = [:send, :include].freeze
+          RESTRICT_ON_SEND = %i[send include].freeze
 
           def_node_search :correct_injection?, <<-PATTERN
             {(send
@@ -65,7 +66,7 @@ module RuboCop
                   corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
                 else
                   corrector.replace(node,
-                    node.source.gsub(/Chef::(Provider|Recipe)/, 'Chef::DSL::Recipe'))
+                                    node.source.gsub(/Chef::(Provider|Recipe)/, 'Chef::DSL::Recipe'))
                 end
               end
             end
