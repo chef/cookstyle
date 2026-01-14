@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 8.5.5 -->
-## [v8.5.5](https://github.com/chef/cookstyle/tree/v8.5.5) (2025-12-30)
+ <!-- latest_release 8.6.0 -->
+## [v8.6.0](https://github.com/chef/cookstyle/tree/v8.6.0) (2026-01-14)
 
 #### Merged Pull Requests
-- Fix docs rake task and cop example comments [#1041](https://github.com/chef/cookstyle/pull/1041) ([IanMadd](https://github.com/IanMadd))
+- Update to RuboCop 1.82.1 and enable a new cop [#1043](https://github.com/chef/cookstyle/pull/1043) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.32.8 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Update to RuboCop 1.82.1 and enable a new cop [#1043](https://github.com/chef/cookstyle/pull/1043) ([tas50](https://github.com/tas50)) <!-- 8.6.0 -->
 - Fix docs rake task and cop example comments [#1041](https://github.com/chef/cookstyle/pull/1041) ([IanMadd](https://github.com/IanMadd)) <!-- 8.5.5 -->
 - Update actions/checkout@v6 [#1037](https://github.com/chef/cookstyle/pull/1037) ([dafyddcrosby](https://github.com/dafyddcrosby)) <!-- 8.5.4 -->
 - Update to RuboCop 1.81.7 [#1038](https://github.com/chef/cookstyle/pull/1038) ([tas50](https://github.com/tas50)) <!-- 8.5.3 -->
