@@ -868,6 +868,14 @@ Lint/UselessDefaultValueArgument:
 Style/CollectionQuerying:
   Enabled: true
 
+# use `include?(element)` instead of `intersect?([element])`
+Style/ArrayIntersectWithSingleElement:
+  Enabled: true
+
+# use `.method_defined?(:foo) instead of `.instance_methods.include?(:foo)` which is much slower
+Style/ModuleMemberExistenceCheck:
+  Enabled: true
+
 Chef/Deprecations/Ruby27KeywordArgumentWarnings:
   Description: Pass options to shell_out helpers without the brackets to avoid Ruby 2.7 deprecation warnings.
   Enabled: true
