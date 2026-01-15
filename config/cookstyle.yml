@@ -401,6 +401,16 @@ Chef/Correctness/EmptyResourceGuard:
     - '**/metadata.rb'
     - '**/Berksfile'
 
+Chef/Correctness/ExecuteWithoutTimeout:
+  Description: Add a timeout to execute resources to avoid hanging commands.
+  StyleGuide: 'chef_correctness_executewithoutimeout'
+  Enabled: true
+  VersionAdded: '8.6.0'
+  Exclude:
+    - '**/attributes/*.rb'
+    - '**/metadata.rb'
+    - '**/Berksfile'
+
 Chef/Correctness/ChefApplicationFatal:
   Description: Use raise to force Chef Infra Client to fail instead of using Chef::Application.fatal
   StyleGuide: 'chef_correctness_chefapplicationfatal'
