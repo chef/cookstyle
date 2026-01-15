@@ -19,59 +19,55 @@ module RuboCop
   module Cop
     module Chef
       module Correctness
-        # Resource guards (not_if/only_if) should not be empty strings as empty strings will always evaluate to true.
-        # This will cause confusion in your cookbooks as the guard will always pass.
+        # Resource guards (not_if/only_if) should not be empty strings or empty blocks.
+        # Empty guards are always truthy in Ruby, which can lead to resources running 
+        # unexpectedly or never running when they should. This is usually unintended
+        # and can cause confusing behavior in cookbooks.
         #
-        # Empty strings in Ruby are "truthy", which means:
-        # - `only_if ''` will ALWAYS execute the resource (guard always passes)
-        # - `not_if ''` will NEVER execute the resource (guard always blocks)
-        #
-        # This behavior is usually unintended and can lead to resources running when they shouldn't
-        # or never running when they should.
+        # Why it matters:
+        # - `only_if ''` → always executes the resource
+        # - `not_if ''` → never executes the resource
+        # Empty block form behaves the same way.
         #
         # @example
         #
-        #   # bad
+        #   # bad: guard always passes or always blocks
         #   template '/etc/foo' do
         #     mode '0644'
         #     source 'foo.erb'
-        #     only_if ''  # This will always be true - resource always executes
+        #     only_if '' 
         #   end
         #
         #   cookbook_file '/logs/foo/error.log' do
         #     source 'error.log'
-        #     not_if { '' }  # This will always be true - resource never executes
+        #     not_if { '' } 
         #   end
         #
-        #   service 'apache2' do
-        #     action :restart
-        #     only_if { '' }  # Block form also problematic
-        #   end
-        #
-        #   # good
+        #   # good: meaningful guard conditions
         #   template '/etc/foo' do
         #     mode '0644'
         #     source 'foo.erb'
-        #     only_if 'test -f /etc/foo'  # Actual shell command
+        #     only_if 'test -f /etc/foo' 
         #   end
         #
         #   cookbook_file '/logs/foo/error.log' do
         #     source 'error.log'
-        #     not_if { ::File.exist?('/logs/foo/error.log') }  # Proper Ruby expression
+        #     not_if { ::File.exist?('/logs/foo/error.log') }
         #   end
         #
         #   service 'apache2' do
         #     action :restart
-        #     only_if { node['platform'] == 'ubuntu' }  # Meaningful condition
+        #     only_if { node['platform'] == 'ubuntu' }
         #   end
         #
-        #   # Or simply remove the guard if no condition is needed
+        #   # Or remove the guard if no condition is needed
         #   package 'curl' do
         #     action :install
         #   end
-        #
+
         class EmptyResourceGuard < Base
-          MSG = 'Resource guards (not_if/only_if) should not be empty strings as empty strings will always evaluate to true.'
+          MSG = 'Do not use empty strings in not_if/only_if guards — provide a meaningful condition or remove the guard.'
+
           RESTRICT_ON_SEND = [:not_if, :only_if].freeze
 
           def_node_matcher :empty_string_guard?, <<-PATTERN
@@ -88,13 +84,13 @@ module RuboCop
 
           def on_send(node)
             empty_string_guard?(node) do
-              add_offense(node, severity: :refactor)
+              add_offense(node, severity: :warning)  # changed from :refactor
             end
           end
 
           def on_block(node)
             empty_string_block_guard?(node) do
-              add_offense(node, severity: :refactor)
+              add_offense(node, severity: :warning)  # changed from :refactor
             end
           end
         end
