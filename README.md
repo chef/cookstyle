@@ -7,6 +7,33 @@ Cookstyle is a [code linting](https://en.wikipedia.org/wiki/Lint_%28software%29)
 
 Cookstyle is powered by the [RuboCop](https://www.rubocop.org) linting engine. RuboCop ships with over three-hundred rules, or cops, designed to detect common Ruby coding mistakes and enforce a common coding style. We've customized Cookstyle with a subset of those cops that we believe are perfectly tailored for cookbook development. We also ship **260 Chef Infra specific cops** that catch common cookbook coding mistakes, cleanup portions of code that are no longer necessary, and detect deprecations that prevent cookbooks from running on the latest releases of Chef Infra Client.
 
+## What Are Chef-Specific Cops?
+
+Chef Infra cookbooks are written using a Ruby-based Domain Specific Language (DSL), but they are not traditional Ruby applications. Instead of describing application logic, Chef code describes the desired state of infrastructure, such as which packages should be installed, how services should run, and how systems should be configured.
+
+Because of this, many standard Ruby linting rules are not sufficient to validate Chef code correctly.
+
+Chef-specific cops are custom linting rules included in Cookstyle that understand Chef Infra concepts such as:
+
+- Chef resources (for example: `package`, `service`, `execute`)
+- Cookbook attributes and metadata
+- Chef Infra Client versions and feature availability
+- Deprecated Chef syntax and APIs
+- Chef security and best-practice guidelines
+
+These cops allow Cookstyle to detect issues that would not be visible to a generic Ruby linter, such as using deprecated Chef resources, unsafe shell execution patterns, or configuration that will break on newer Chef versions.
+
+### How Chef-Specific Cops Are Tested
+
+Each Chef-specific cop includes automated tests to ensure it behaves correctly. These tests typically verify that:
+
+- Invalid or discouraged Chef code is detected and reported
+- Valid Chef code does not trigger false warnings
+- Automatic corrections (when supported) produce the expected output
+
+This testing approach ensures that new or updated cops reliably enforce infrastructure best practices without breaking existing cookbooks.
+
+
 For complete usage documentation along with documentation for all the included cops see https://docs.chef.io/workstation/cookstyle/
 
 ## Cookstyle vs. RuboCop
