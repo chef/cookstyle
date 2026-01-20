@@ -23,10 +23,10 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   default_source :community
         #
-        #   ### correct
+        #   # good
         #   default_source :supermarket
         #
         class PolicyfileCommunitySource < Base

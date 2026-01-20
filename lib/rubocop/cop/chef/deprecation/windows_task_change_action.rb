@@ -24,7 +24,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   windows_task 'chef ad-join leave start time' do
         #     task_name 'chef ad-join leave'
         #     start_day '06/09/2016'
@@ -32,7 +32,7 @@ module RuboCop
         #     action [:change, :create]
         #   end
         #
-        #   ### correct
+        #   # good
         #   windows_task 'chef ad-join leave start time' do
         #     task_name 'chef ad-join leave'
         #     start_day '06/09/2016'

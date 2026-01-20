@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   depends 'libarchive'
         #   depends 'windows_dns'
         #   depends 'windows_uac'

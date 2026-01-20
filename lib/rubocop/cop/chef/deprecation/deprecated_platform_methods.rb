@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   resource = Chef::Resource::File.new("/tmp/foo.xyz", run_context)
         #   provider = Chef::Platform.provider_for_resource(resource, :create)
         #
@@ -35,7 +35,7 @@ module RuboCop
         #
         #   Chef::Platform.set :platform => :mac_os_x, :resource => :package, :provider => Chef::Provider::Package::Homebrew
         #
-        #   ### correct
+        #   # good
         #   resource = Chef::Resource::File.new("/tmp/foo.xyz", run_context)
         #   provider = resource.provider_for_action(:create)
         #

@@ -23,7 +23,7 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   powershell_script 'Cleanup old files' do
         #     code 'Remove-Item C:\Windows\foo\bar.txt'
         #     only_if { ::File.exist?('C:\\Windows\\foo\\bar.txt') }
