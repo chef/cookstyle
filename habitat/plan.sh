@@ -51,6 +51,8 @@ do_build() {
   bundle config --local silence_root_warning 1
   bundle install
   gem build cookstyle.gemspec
+  ruby ./cleanup_lint_roller.rb
+
 }
 
 do_install() {
