@@ -18,3 +18,13 @@ jobs:
         bundler-cache: true
     - uses: r7kamura/rubocop-problem-matchers-action@v1 # this shows the failures in the PR
     - run: bundle exec cookstyle
+
+  linelint:
+    runs-on: ubuntu-latest
+    name: Check if all files end in newline
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Linelint
+        uses: fernandrone/linelint@master
+        id: linelint
