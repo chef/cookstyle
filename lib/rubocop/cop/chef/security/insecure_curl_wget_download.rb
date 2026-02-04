@@ -82,13 +82,4 @@ module RuboCop
 
           private
 
-          def insecure_command?(command_string)
-            return false unless command_string
-
-            command_string.match?(INSECURE_COMMAND_REGEX)
-          end
-        end
-      end
-    end
-  end
-end
+          def insecure_comm
