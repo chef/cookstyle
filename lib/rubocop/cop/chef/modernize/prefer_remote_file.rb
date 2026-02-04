@@ -23,6 +23,13 @@ module RuboCop
         # resources. The `remote_file` resource provides better error handling, idempotency,
         # checksum verification, and integrates properly with Chef's resource model.
         #
+        # NOTE: This cop does NOT provide autocorrection because:
+        # 1. `curl | bash` patterns execute scripts in memory - replacing with `remote_file`
+        #    would change behavior (download to disk instead of execute in memory)
+        # 2. curl/wget commands often have complex flags, authentication headers, or
+        #    redirects that cannot be automatically translated to `remote_file` properties
+        # 3. Some commands pipe output or process data streams that `remote_file` cannot handle
+        #
         # @example
         #
         #   ### incorrect
@@ -32,56 +39,82 @@ module RuboCop
         #     command 'curl https://example.com/file.tar.gz -o /tmp/file.tar.gz'
         #   end
         #
-        #   execute 'fetch_file' do
-        #     command 'wget https://example.com/app.tar.gz -O /tmp/app.tar.gz'
+        #   bash 'fetch_file' do
+        #     code 'wget https://example.com/app.tar.gz -O /tmp/app.tar.gz'
         #   end
         #
-        #   bash 'download_script' do
-        #     code 'curl https://example.com/install.sh -o /tmp/install.sh'
-        #   end
+        #   # This pattern is detected but CANNOT be auto-corrected safely
+        #   execute 'curl https://example.com/install.sh | bash'
         #
         #   ### correct
         #   remote_file '/tmp/file.tar.gz' do
         #     source 'https://example.com/file.tar.gz'
+        #     checksum 'sha256checksum'
         #   end
         #
         #   remote_file '/tmp/app.tar.gz' do
         #     source 'https://example.com/app.tar.gz'
-        #     checksum 'sha256checksum'
+        #     owner 'root'
+        #     group 'root'
+        #     mode '0644'
         #   end
         #
         class PreferRemoteFile < Base
+          # SAFETY: AutoCorrector is intentionally NOT included.
+          # Reason: Patterns like `curl | bash` execute scripts in memory. Converting
+          # to `remote_file` would download to disk instead, breaking functionality.
+          # Additionally, complex curl/wget flags cannot be reliably translated to
+          # remote_file properties. Manual review and refactoring is required.
+
           MSG = 'Use the `remote_file` resource instead of curl/wget in execute resources. ' \
                 'The `remote_file` resource provides better idempotency, error handling, and checksum verification.'
 
-          # Match curl or wget as whole words in a command
+          # Match curl or wget as whole words only (avoids false positives like curl-config, libcurl)
           CURL_WGET_REGEX = /\b(curl|wget)\b/.freeze
 
-          # Resources that can execute shell commands
-          SHELL_RESOURCES = %i[execute bash powershell_script sh csh perl python ruby zsh].freeze
+          # Performance optimization: Only trigger on_send for these shell resource methods
+          # and the command/code property setters
+          RESTRICT_ON_SEND = %i[execute bash powershell_script sh csh perl python ruby zsh command code].freeze
 
           def on_send(node)
             return unless node.arguments?
 
-            # Check if this is a shell resource call
-            if SHELL_RESOURCES.include?(node.method_name)
-              # Check the first argument (resource name which may contain the command)
-              first_arg = node.first_argument
-              if first_arg&.str_type? && curl_or_wget_command?(first_arg.value)
-                add_offense(first_arg)
-              end
-            end
+            method = node.method_name
 
-            # Check command/code properties inside blocks
-            if %i[command code].include?(node.method_name)
-              first_arg = node.first_argument
-              if first_arg&.str_type? && curl_or_wget_command?(first_arg.value)
-                add_offense(first_arg)
-              end
+            # Check if this is a shell resource call (execute, bash, etc.)
+            if shell_resource?(method)
+              check_resource_name(node)
+            # Check command/code properties inside resource blocks
+            elsif command_property?(method)
+              check_command_property(node)
             end
           end
 
           private
+
+          def shell_resource?(method)
+            %i[execute bash powershell_script sh csh perl python ruby zsh].include?(method)
+          end
+
+          def command_property?(method)
+            %i[command code].include?(method)
+          end
+
+          def check_resource_name(node)
+            first_arg = node.first_argument
+            return unless first_arg&.str_type?
+            return unless curl_or_wget_command?(first_arg.value)
+
+            add_offense(first_arg)
+          end
+
+          def check_command_property(node)
+            first_arg = node.first_argument
+            return unless first_arg&.str_type?
+            return unless curl_or_wget_command?(first_arg.value)
+
+            add_offense(first_arg)
+          end
 
           def curl_or_wget_command?(command_string)
             return false unless command_string

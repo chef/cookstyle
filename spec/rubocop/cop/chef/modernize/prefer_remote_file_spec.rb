@@ -18,9 +18,11 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::PreferRemoteFile, :config do
-  # Tests for curl detection
-  context 'when using curl' do
-    it 'registers an offense for execute resource with curl command as name' do
+  # ==========================================================================
+  # Test Case 1: execute with curl
+  # ==========================================================================
+  context 'when using execute with curl' do
+    it 'registers an offense for execute resource with curl command' do
       expect_offense(<<~RUBY)
         execute 'curl https://example.com/file.tar.gz -o /tmp/file.tar.gz'
                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the `remote_file` resource instead of curl/wget in execute resources. The `remote_file` resource provides better idempotency, error handling, and checksum verification.
@@ -36,22 +38,6 @@ describe RuboCop::Cop::Chef::Modernize::PreferRemoteFile, :config do
       RUBY
     end
 
-    it 'registers an offense for bash resource with curl in code property' do
-      expect_offense(<<~RUBY)
-        bash 'download_script' do
-          code 'curl https://example.com/install.sh -o /tmp/install.sh'
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the `remote_file` resource instead of curl/wget in execute resources. The `remote_file` resource provides better idempotency, error handling, and checksum verification.
-        end
-      RUBY
-    end
-
-    it 'registers an offense for sh resource with curl' do
-      expect_offense(<<~RUBY)
-        sh 'curl -L https://example.com/app.tar.gz -o /tmp/app.tar.gz'
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the `remote_file` resource instead of curl/wget in execute resources. The `remote_file` resource provides better idempotency, error handling, and checksum verification.
-      RUBY
-    end
-
     it 'registers an offense for curl with multiple flags' do
       expect_offense(<<~RUBY)
         execute 'download' do
@@ -60,42 +46,12 @@ describe RuboCop::Cop::Chef::Modernize::PreferRemoteFile, :config do
         end
       RUBY
     end
-
-    it 'registers an offense for curl piped to bash' do
-      expect_offense(<<~RUBY)
-        execute 'curl https://example.com/install.sh | bash'
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the `remote_file` resource instead of curl/wget in execute resources. The `remote_file` resource provides better idempotency, error handling, and checksum verification.
-      RUBY
-    end
-
-    it 'registers an offense for curl with environment variables' do
-      expect_offense(<<~RUBY)
-        bash 'download_with_auth' do
-          code 'curl -H "Authorization: Bearer $TOKEN" https://example.com/file -o /tmp/file'
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the `remote_file` resource instead of curl/wget in execute resources. The `remote_file` resource provides better idempotency, error handling, and checksum verification.
-        end
-      RUBY
-    end
   end
 
-  # Tests for wget detection
-  context 'when using wget' do
-    it 'registers an offense for execute resource with wget command as name' do
-      expect_offense(<<~RUBY)
-        execute 'wget https://example.com/file.tar.gz -O /tmp/file.tar.gz'
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the `remote_file` resource instead of curl/wget in execute resources. The `remote_file` resource provides better idempotency, error handling, and checksum verification.
-      RUBY
-    end
-
-    it 'registers an offense for execute with wget in command property' do
-      expect_offense(<<~RUBY)
-        execute 'download_file' do
-          command 'wget https://example.com/file.tar.gz -O /tmp/file.tar.gz'
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the `remote_file` resource instead of curl/wget in execute resources. The `remote_file` resource provides better idempotency, error handling, and checksum verification.
-        end
-      RUBY
-    end
-
+  # ==========================================================================
+  # Test Case 2: bash block with wget
+  # ==========================================================================
+  context 'when using bash with wget' do
     it 'registers an offense for bash resource with wget in code property' do
       expect_offense(<<~RUBY)
         bash 'download_script' do
@@ -105,12 +61,89 @@ describe RuboCop::Cop::Chef::Modernize::PreferRemoteFile, :config do
       RUBY
     end
 
-    it 'registers an offense for wget with quiet flag' do
+    it 'registers an offense for bash resource with wget and flags' do
       expect_offense(<<~RUBY)
-        execute 'silent_download' do
-          command 'wget -q https://example.com/file.tar.gz -O /tmp/file.tar.gz'
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the `remote_file` resource instead of curl/wget in execute resources. The `remote_file` resource provides better idempotency, error handling, and checksum verification.
+        bash 'fetch_file' do
+          code 'wget -q --progress=bar https://example.com/archive.zip -O /tmp/archive.zip'
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the `remote_file` resource instead of curl/wget in execute resources. The `remote_file` resource provides better idempotency, error handling, and checksum verification.
         end
+      RUBY
+    end
+  end
+
+  # ==========================================================================
+  # Test Case 3: False positive prevention (curl/wget as substrings)
+  # ==========================================================================
+  context 'false positive prevention - curl/wget as substrings' do
+    # The regex /\b(curl|wget)\b/ ensures whole-word matching only
+    # Note: curl-config WILL match because 'curl' is a complete word before the hyphen
+    it 'does not register an offense for libcurl-dev (curl embedded in word)' do
+      expect_no_offenses(<<~RUBY)
+        execute 'install libcurl-dev package'
+      RUBY
+    end
+
+    it 'does not register an offense for curlcache path (curl embedded in word)' do
+      expect_no_offenses(<<~RUBY)
+        execute 'cleanup' do
+          command 'rm -rf /var/cache/curlcache'
+        end
+      RUBY
+    end
+
+    it 'does not register an offense for wgetrc path (wget embedded in word)' do
+      expect_no_offenses(<<~RUBY)
+        execute 'show_wget_config' do
+          command 'cat /etc/wgetrc'
+        end
+      RUBY
+    end
+
+    it 'does not register an offense for scurl (curl as suffix)' do
+      expect_no_offenses(<<~RUBY)
+        execute 'run_scurl' do
+          command 'scurl https://example.com'
+        end
+      RUBY
+    end
+  end
+
+  # ==========================================================================
+  # Test Case 4: Edge case - curl | bash (should trigger but NO autocorrect)
+  # ==========================================================================
+  context 'edge case: curl | bash patterns (detected but not auto-correctable)' do
+    # IMPORTANT: This pattern is detected but autocorrect is intentionally NOT provided
+    # because `curl | bash` executes in memory, while `remote_file` downloads to disk
+    it 'registers an offense for curl piped to bash' do
+      expect_offense(<<~RUBY)
+        execute 'curl https://example.com/install.sh | bash'
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the `remote_file` resource instead of curl/wget in execute resources. The `remote_file` resource provides better idempotency, error handling, and checksum verification.
+      RUBY
+    end
+
+    it 'registers an offense for curl piped to sh' do
+      expect_offense(<<~RUBY)
+        execute 'curl -sL https://example.com/setup.sh | sh'
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the `remote_file` resource instead of curl/wget in execute resources. The `remote_file` resource provides better idempotency, error handling, and checksum verification.
+      RUBY
+    end
+
+    it 'registers an offense for wget piped to bash' do
+      expect_offense(<<~RUBY)
+        execute 'wget -qO- https://example.com/install.sh | bash'
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the `remote_file` resource instead of curl/wget in execute resources. The `remote_file` resource provides better idempotency, error handling, and checksum verification.
+      RUBY
+    end
+  end
+
+  # ==========================================================================
+  # Additional test cases for coverage
+  # ==========================================================================
+  context 'additional shell resources' do
+    it 'registers an offense for sh resource with curl' do
+      expect_offense(<<~RUBY)
+        sh 'curl -L https://example.com/app.tar.gz -o /tmp/app.tar.gz'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the `remote_file` resource instead of curl/wget in execute resources. The `remote_file` resource provides better idempotency, error handling, and checksum verification.
       RUBY
     end
 
@@ -120,10 +153,44 @@ describe RuboCop::Cop::Chef::Modernize::PreferRemoteFile, :config do
             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the `remote_file` resource instead of curl/wget in execute resources. The `remote_file` resource provides better idempotency, error handling, and checksum verification.
       RUBY
     end
+
+    it 'registers an offense for powershell_script with curl' do
+      expect_offense(<<~RUBY)
+        powershell_script 'download' do
+          code 'curl https://example.com/file.zip -o C:/temp/file.zip'
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the `remote_file` resource instead of curl/wget in execute resources. The `remote_file` resource provides better idempotency, error handling, and checksum verification.
+        end
+      RUBY
+    end
+
+    it 'registers an offense for full path to curl' do
+      expect_offense(<<~RUBY)
+        execute '/usr/bin/curl https://example.com/file -o /tmp/file'
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the `remote_file` resource instead of curl/wget in execute resources. The `remote_file` resource provides better idempotency, error handling, and checksum verification.
+      RUBY
+    end
+
+    it 'registers an offense for full path to wget' do
+      expect_offense(<<~RUBY)
+        execute '/usr/bin/wget https://example.com/file -O /tmp/file'
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the `remote_file` resource instead of curl/wget in execute resources. The `remote_file` resource provides better idempotency, error handling, and checksum verification.
+      RUBY
+    end
+
+    it 'registers an offense for curl with authentication headers' do
+      expect_offense(<<~RUBY)
+        bash 'download_with_auth' do
+          code 'curl -H "Authorization: Bearer $TOKEN" https://example.com/file -o /tmp/file'
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the `remote_file` resource instead of curl/wget in execute resources. The `remote_file` resource provides better idempotency, error handling, and checksum verification.
+        end
+      RUBY
+    end
   end
 
-  # Tests for correct usage (no offense)
-  context 'when using remote_file resource' do
+  # ==========================================================================
+  # Correct usage (no offense expected)
+  # ==========================================================================
+  context 'when using remote_file resource (correct pattern)' do
     it 'does not register an offense for remote_file resource' do
       expect_no_offenses(<<~RUBY)
         remote_file '/tmp/file.tar.gz' do
@@ -154,7 +221,9 @@ describe RuboCop::Cop::Chef::Modernize::PreferRemoteFile, :config do
     end
   end
 
-  # Tests for non-curl/wget execute commands
+  # ==========================================================================
+  # Non-curl/wget commands (no offense expected)
+  # ==========================================================================
   context 'when execute resource does not use curl or wget' do
     it 'does not register an offense for execute with other commands' do
       expect_no_offenses(<<~RUBY)
@@ -178,72 +247,6 @@ describe RuboCop::Cop::Chef::Modernize::PreferRemoteFile, :config do
       RUBY
     end
 
-    it 'does not register an offense for execute with cp command' do
-      expect_no_offenses(<<~RUBY)
-        execute 'copy_file' do
-          command 'cp /tmp/source /tmp/dest'
-        end
-      RUBY
-    end
-  end
-
-  # Tests for false positive prevention (curl/wget as substrings in non-command contexts)
-  context 'when curl/wget appear as substrings in non-command names' do
-    it 'does not register an offense for package names containing curl substring' do
-      expect_no_offenses(<<~RUBY)
-        execute 'install libcurl-dev package'
-      RUBY
-    end
-
-    it 'does not register an offense for variable names containing wget substring' do
-      expect_no_offenses(<<~RUBY)
-        execute 'set_wget_proxy_env' do
-          command 'export HTTP_PROXY=http://proxy:8080'
-        end
-      RUBY
-    end
-
-    it 'does not register an offense for paths containing curl substring' do
-      expect_no_offenses(<<~RUBY)
-        execute 'cleanup' do
-          command 'rm -rf /var/cache/curlcache'
-        end
-      RUBY
-    end
-  end
-
-  # Edge cases
-  context 'edge cases' do
-    it 'registers an offense for curl at the start of command' do
-      expect_offense(<<~RUBY)
-        execute 'curl -o /tmp/file https://example.com/file'
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the `remote_file` resource instead of curl/wget in execute resources. The `remote_file` resource provides better idempotency, error handling, and checksum verification.
-      RUBY
-    end
-
-    it 'registers an offense for full path to curl' do
-      expect_offense(<<~RUBY)
-        execute '/usr/bin/curl https://example.com/file -o /tmp/file'
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the `remote_file` resource instead of curl/wget in execute resources. The `remote_file` resource provides better idempotency, error handling, and checksum verification.
-      RUBY
-    end
-
-    it 'registers an offense for full path to wget' do
-      expect_offense(<<~RUBY)
-        execute '/usr/bin/wget https://example.com/file -O /tmp/file'
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the `remote_file` resource instead of curl/wget in execute resources. The `remote_file` resource provides better idempotency, error handling, and checksum verification.
-      RUBY
-    end
-
-    it 'registers an offense for powershell_script with curl' do
-      expect_offense(<<~RUBY)
-        powershell_script 'download' do
-          code 'curl https://example.com/file.zip -o C:/temp/file.zip'
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the `remote_file` resource instead of curl/wget in execute resources. The `remote_file` resource provides better idempotency, error handling, and checksum verification.
-        end
-      RUBY
-    end
-
     it 'does not register an offense for non-shell resources' do
       expect_no_offenses(<<~RUBY)
         template '/etc/config' do
@@ -252,7 +255,7 @@ describe RuboCop::Cop::Chef::Modernize::PreferRemoteFile, :config do
       RUBY
     end
 
-    it 'does not register an offense for file resource' do
+    it 'does not register an offense for file resource mentioning curl' do
       expect_no_offenses(<<~RUBY)
         file '/tmp/readme.txt' do
           content 'Download with curl or wget'

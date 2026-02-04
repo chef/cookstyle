@@ -2376,18 +2376,6 @@ Chef/Security:
   Enabled: true
   StyleGuideBaseURL: https://docs.chef.io/workstation/cookstyle/
 
-Chef/Security/InsecureCurlWgetDownload:
-  Description: Do not use curl or wget with insecure flags (-k, --insecure, --no-check-certificate) that disable SSL/TLS certificate verification. This exposes downloads to Man-in-the-Middle attacks.
-  StyleGuide: 'chef_security_insecurecurlwgetdownload'
-  Enabled: true
-  VersionAdded: '7.35'
-  Include:
-    - '**/libraries/*.rb'
-    - '**/resources/*.rb'
-    - '**/providers/*.rb'
-    - '**/recipes/*.rb'
-    - '**/definitions/*.rb'
-
 Chef/Security/SshPrivateKey:
   Description: Do not include plain text SSH private keys in your cookbook code. This sensitive data should be fetched from secrets management systems so that secrets are not uploaded in plain text to the Chef Infra Server or committed to source control systems.
   StyleGuide: 'chef_security_sshprivatekey'
