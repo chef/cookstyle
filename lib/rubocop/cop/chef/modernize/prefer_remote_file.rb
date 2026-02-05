@@ -74,7 +74,7 @@ module RuboCop
 
           # Performance optimization: Only trigger on_send for these shell resource methods
           # and the command/code property setters
-          RESTRICT_ON_SEND = %i[execute bash powershell_script sh csh perl python ruby zsh command code].freeze
+          RESTRICT_ON_SEND = %i(execute bash powershell_script sh csh perl python ruby zsh command code).freeze
 
           def on_send(node)
             return unless node.arguments?
@@ -93,11 +93,11 @@ module RuboCop
           private
 
           def shell_resource?(method)
-            %i[execute bash powershell_script sh csh perl python ruby zsh].include?(method)
+            %i(execute bash powershell_script sh csh perl python ruby zsh).include?(method)
           end
 
           def command_property?(method)
-            %i[command code].include?(method)
+            %i(command code).include?(method)
           end
 
           def check_resource_name(node)
