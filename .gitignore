@@ -15,3 +15,7 @@
 
 # spellcheck rake task
 chef_dictionary.txt
+
+
+#Ignore vscode AI rules
+.github\instructions\codacy.instructions.md
