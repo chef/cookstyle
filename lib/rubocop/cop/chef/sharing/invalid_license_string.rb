@@ -30,17 +30,17 @@ module RuboCop
         #   license 'Apache-2.0'
         #   license 'all rights reserved'
         #
-        # list of valid SPDX.org license strings. To build an array run this ruby:
-        # ```ruby
-        # require 'json'
-        # require 'net/http'
-        # json_data = JSON.parse(Net::HTTP.get(URI('https://raw.githubusercontent.com/spdx/license-list-data/master/json/licenses.json')))
-        # licenses = json_data['licenses'].map {|l| l['licenseId'] }.sort
-        # ```
-        #
         class InvalidLicenseString < Base
           extend AutoCorrector
 
+          # list of valid SPDX.org license strings. To build an array run this ruby:
+          # ```ruby
+          # require 'json'
+          # require 'net/http'
+          # json_data = JSON.parse(Net::HTTP.get(URI('https://raw.githubusercontent.com/spdx/license-list-data/master/json/licenses.json')))
+          # licenses = json_data['licenses'].map {|l| l['licenseId'] }.sort
+          # ```
+          #
           VALID_LICENSE_STRING = %w(
             0BSD
             AAL
