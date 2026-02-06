@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 8.6.2 -->
-## [v8.6.2](https://github.com/chef/cookstyle/tree/v8.6.2) (2026-02-05)
+ <!-- latest_release 8.6.3 -->
+## [v8.6.3](https://github.com/chef/cookstyle/tree/v8.6.3) (2026-02-06)
 
 #### Merged Pull Requests
-- Lint modernization [#1052](https://github.com/chef/cookstyle/pull/1052) ([jaymzh](https://github.com/jaymzh))
+- Fix typos throughout the project [#1054](https://github.com/chef/cookstyle/pull/1054) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.32.8 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Fix typos throughout the project [#1054](https://github.com/chef/cookstyle/pull/1054) ([tas50](https://github.com/tas50)) <!-- 8.6.3 -->
 - Lint modernization [#1052](https://github.com/chef/cookstyle/pull/1052) ([jaymzh](https://github.com/jaymzh)) <!-- 8.6.2 -->
 - Update the hab plan for removing lint roller [#1050](https://github.com/chef/cookstyle/pull/1050) ([sanghinitin](https://github.com/sanghinitin)) <!-- 8.6.1 -->
 - Update to RuboCop 1.82.1 and enable a new cop [#1043](https://github.com/chef/cookstyle/pull/1043) ([tas50](https://github.com/tas50)) <!-- 8.6.0 -->
