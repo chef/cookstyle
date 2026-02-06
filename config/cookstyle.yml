@@ -43,7 +43,7 @@ Chef/Style:
     - '**/.delivery/config.json'
 
 Chef/Style/AttributeKeys:
-  Description: Check which style of keys are used to access node attributes.
+  Description: Enforce consistent use of either string or symbol keys when accessing node attributes (e.g., `node['foo']` vs `node[:foo]`).
   StyleGuide: 'chef_style_attributekeys'
   Enabled: true
   EnforcedStyle: strings
@@ -55,7 +55,7 @@ Chef/Style/AttributeKeys:
     - '**/metadata.rb'
 
 Chef/Style/CopyrightCommentFormat:
-  Description: Properly format copyright dates in comment blocks and ensure dates are up to date
+  Description: Ensure copyright dates in comment blocks follow a consistent format and are up to date.
   StyleGuide: 'chef_style_copyrightcommentformat'
   Enabled: false
   VersionAdded: '5.0.0'
@@ -67,7 +67,7 @@ Chef/Style/CommentSentenceSpacing:
   VersionAdded: '5.1.0'
 
 Chef/Style/CommentFormat:
-  Description: Use Chef's unique format for comment headers
+  Description: 'Ensure comment headers in cookbooks follow the standard Chef comment format (e.g., # Cookbook:: name style headers).'
   StyleGuide: 'chef_style_commentformat'
   Enabled: true
   VersionAdded: '5.0.0'
@@ -85,7 +85,7 @@ Chef/Style/FileMode:
     - '**/Berksfile'
 
 Chef/Style/UsePlatformHelpers:
-  Description: Use platform? and platform_family? helpers to check node platform in resources and recipes
+  Description: Use the `platform?` and `platform_family?` helpers instead of comparing `node['platform']` or `node['platform_family']` directly. The helpers are easier to read and can accept multiple arguments.
   StyleGuide: 'chef_style_useplatformhelpers'
   Enabled: true
   VersionAdded: '5.6.0'
@@ -95,7 +95,7 @@ Chef/Style/UsePlatformHelpers:
     - '**/Berksfile'
 
 Chef/Style/SimplifyPlatformMajorVersionCheck:
-  Description: Use node['platform_version'].to_i instead of node['platform_version'].split('.').first or node['platform_version'].split('.')[0]
+  Description: "When checking the major version of a platform, use `node['platform_version'].to_i` instead of splitting the version string. It's simpler and easier to read."
   StyleGuide: 'chef_style_simplifyplatformmajorversioncheck'
   Enabled: true
   VersionAdded: '5.8.0'
@@ -104,13 +104,13 @@ Chef/Style/SimplifyPlatformMajorVersionCheck:
     - '**/Berksfile'
 
 Chef/Style/DefaultCopyrightComments:
-  Description: Cookbook copyright comment headers should be updated for a real person or organization.
+  Description: Cookbook copyright comment headers should list a real person or organization, not the default placeholder text from the cookbook generator.
   StyleGuide: 'chef_style_defaultcopyrightcomments'
   Enabled: true
   VersionAdded: '5.12.0'
 
 Chef/Style/UnnecessaryPlatformCaseStatement:
-  Description: Use the platform?() and platform_family?() helpers instead of a case statement that only includes a single when statement.
+  Description: Use the `platform?` and `platform_family?` helpers instead of a `case` statement that only includes a single `when`. A simple if/unless with the helper is easier to read.
   StyleGuide: 'chef_style_unnecessaryplatformcasestatement'
   Enabled: true
   VersionAdded: '5.16.0'
@@ -119,7 +119,7 @@ Chef/Style/UnnecessaryPlatformCaseStatement:
     - '**/Berksfile'
 
 Chef/Style/ImmediateNotificationTiming:
-  Description: Use :immediately instead of :immediate for resource notification timing.
+  Description: Use `:immediately` instead of `:immediate` when setting resource notification timing. Both work, but `:immediately` is the preferred form.
   StyleGuide: 'chef_style_immediatenotificationtiming'
   Enabled: true
   VersionAdded: '5.16.0'
@@ -138,7 +138,7 @@ Chef/Style/TrueClassFalseClassResourceProperties:
     - '**/resources/*.rb'
 
 Chef/Style/OverlyComplexSupportsDependsMetadata:
-  Description: Don't loop over an array to set cookbook dependencies or supported platforms if you have fewer than three values to set.
+  Description: Don't loop over an array to set cookbook dependencies or supported platforms when you have fewer than three values. Just list them individually for clarity.
   StyleGuide: 'chef_style_overcomplexsupportsdependsmetadata'
   Enabled: true
   VersionAdded: '5.19.0'
@@ -146,13 +146,13 @@ Chef/Style/OverlyComplexSupportsDependsMetadata:
     - '**/metadata.rb'
 
 Chef/Style/ChefWhaaat:
-  Description: Do you mean Chef (the company) or a Chef product (e.g. Chef Infra, Chef InSpec, etc)?
+  Description: "References to 'Chef' alone are ambiguous. Specify the product name instead (e.g., Chef Infra Client, Chef InSpec, Chef Habitat)."
   StyleGuide: 'chef_style_chefwhaaat'
   Enabled: false
   VersionAdded: '5.20.0'
 
 Chef/Style/UnnecessaryOSCheck:
-  Description: Use the platform_family?() helpers instead of node['os'] == 'foo' for platform_families that match 1:1 with OS values. These helpers are easier to read and can accept multiple platform arguments, which greatly simplifies complex platform logic.
+  Description: "Use the `platform_family?` helper instead of checking `node['os']` directly for platform families that match 1:1 with OS values. The helper is easier to read and can accept multiple arguments, which simplifies complex platform logic."
   StyleGuide: 'chef_style_unnecessaryoscheck'
   Enabled: true
   VersionAdded: '5.21.0'
@@ -161,7 +161,7 @@ Chef/Style/UnnecessaryOSCheck:
     - '**/Berksfile'
 
 Chef/Style/NegatingOnlyIf:
-  Description: Use not_if instead of only_if that negates the Ruby statement with a !
+  Description: "Use `not_if` guards instead of negating the condition inside `only_if` with `!`. For example, write `not_if { foo? }` instead of `only_if { !foo? }`."
   StyleGuide: 'chef_style_negatingonlyif'
   VersionAdded: '6.2.0'
   Enabled: true
@@ -170,7 +170,7 @@ Chef/Style/NegatingOnlyIf:
     - '**/Berksfile'
 
 Chef/Style/IncludeRecipeWithParentheses:
-  Description: There is no need to wrap the recipe in parentheses when using the include_recipe helper
+  Description: "There is no need to wrap the recipe name in parentheses when using `include_recipe`. Write `include_recipe 'foo'` instead of `include_recipe('foo')`."
   StyleGuide: 'chef_style_includerecipewithparentheses'
   VersionAdded: '6.11.0'
   Enabled: true
@@ -188,7 +188,7 @@ Chef/Correctness:
   StyleGuideBaseURL: https://docs.chef.io/workstation/cookstyle/
 
 Chef/Correctness/ServiceResource:
-  Description: Use a service resource to start and stop services instead of execute resources
+  Description: Use the `service` resource to start and stop services instead of shelling out with `execute` or `bash` resources. The `service` resource is idempotent and handles platform differences automatically.
   StyleGuide: 'chef_correctness_serviceresource'
   Enabled: true
   VersionAdded: '5.0.0'
@@ -198,7 +198,7 @@ Chef/Correctness/ServiceResource:
     - '**/Berksfile'
 
 Chef/Correctness/NodeNormal:
-  Description: Do not use the node.normal method
+  Description: Avoid using `node.normal` to set attributes. Normal attributes persist on the Chef Infra Server between runs and can cause unexpected behavior. Use `node.default` or `node.override` instead.
   StyleGuide: 'chef_correctness_nodenormal'
   Enabled: true
   VersionAdded: '5.1.0'
@@ -207,7 +207,7 @@ Chef/Correctness/NodeNormal:
     - '**/Berksfile'
 
 Chef/Correctness/NodeNormalUnless:
-  Description: Do not use the node.normal_unless method
+  Description: Avoid using `node.normal_unless` to set attributes. Normal attributes persist on the Chef Infra Server between runs and can cause unexpected behavior. Use `node.default_unless` or `node.override_unless` instead.
   StyleGuide: 'chef_correctness_nodenormalunless'
   Enabled: true
   VersionAdded: '5.1.0'
@@ -216,7 +216,7 @@ Chef/Correctness/NodeNormalUnless:
     - '**/Berksfile'
 
 Chef/Correctness/TmpPath:
-  Description: Use file_cache_path rather than hard-coding tmp paths
+  Description: "Use Chef's `file_cache_path` helper instead of hard-coding temporary directory paths like `/tmp` or `C:\\temp`. The helper returns the correct cache directory for each platform."
   StyleGuide: 'chef_correctness_tmppath'
   Enabled: true
   VersionAdded: '5.0.0'
@@ -225,7 +225,7 @@ Chef/Correctness/TmpPath:
     - '**/Berksfile'
 
 Chef/Correctness/InvalidPlatformMetadata:
-  Description: metadata.rb "supports" platform is invalid
+  Description: The platform name passed to the `supports` method in metadata.rb is not a valid Chef platform. Check for typos or consult the Chef documentation for valid platform names.
   StyleGuide: 'chef_correctness_invalidplatformmetadata'
   Enabled: true
   VersionAdded: '5.2.0'
@@ -242,7 +242,7 @@ Chef/Correctness/CookbookUsesNodeSave:
     - '**/Berksfile'
 
 Chef/Correctness/MetadataMissingName:
-  Description: The metadata.rb file is missing the name field which is required by Chef Infra Client 12 and later
+  Description: The metadata.rb file is missing the `name` method which is required by Chef Infra Client 12 and later. Add a `name` call to your metadata.rb to avoid failures.
   StyleGuide: 'chef_correctness_metadatamissingname'
   Enabled: true
   VersionAdded: '5.2.0'
@@ -260,7 +260,7 @@ Chef/Correctness/BlockGuardWithOnlyString:
     - '**/Berksfile'
 
 Chef/Correctness/ResourceSetsInternalProperties:
-  Description: Do not set properties used internally by Chef Infra Client to track the system state.
+  Description: Do not manually set properties used internally by Chef Infra Client to track system state. Setting these directly can cause unexpected behavior during the Chef run.
   StyleGuide: 'chef_correctness_resourcesetsinternalproperties'
   Enabled: true
   VersionAdded: '5.5.0'
@@ -270,7 +270,7 @@ Chef/Correctness/ResourceSetsInternalProperties:
     - '**/Berksfile'
 
 Chef/Correctness/ResourceSetsNameProperty:
-  Description: Resource sets the name property in the resource instead of using a name_property.
+  Description: Use the `name_property` option on a resource property instead of directly setting a property called `:name`. The `name_property` option automatically maps the resource block name to that property.
   StyleGuide: 'chef_correctness_resourcesetsnameproperty'
   Enabled: true
   VersionAdded: '5.5.0'
@@ -280,7 +280,7 @@ Chef/Correctness/ResourceSetsNameProperty:
     - '**/Berksfile'
 
 Chef/Correctness/ResourceWithNoneAction:
-  Description: Resource uses the nonexistent :none action instead of the :nothing action
+  Description: "Resource uses the nonexistent `:none` action instead of the correct `:nothing` action. Use `:nothing` to prevent a resource from running unless notified by another resource."
   StyleGuide: 'chef_correctness_resourcewithnoneaction'
   Enabled: true
   VersionAdded: '5.5.0'
@@ -298,7 +298,7 @@ Chef/Correctness/InvalidVersionMetadata:
     - '**/metadata.rb'
 
 Chef/Correctness/NotifiesActionNotSymbol:
-  Description: When notifying or subscribing an action within a resource the action should always be a symbol. In Chef Infra Client releases before 14.0 this may result in double notification.
+  Description: "When using `notifies` or `subscribes` in a resource the action should always be a symbol (e.g., `:restart`) not a string. Using a string may cause double notifications in Chef Infra Client versions before 14.0."
   StyleGuide: 'chef_correctness_notifiesactionnotsymbol'
   Enabled: true
   VersionAdded: '5.10.0'
@@ -308,7 +308,7 @@ Chef/Correctness/NotifiesActionNotSymbol:
     - '**/Berksfile'
 
 Chef/Correctness/IncorrectLibraryInjection:
-  Description: Libraries should be injected into the Chef::DSL::Recipe or Chef::DSL::Resource classes and not Recipe/Resource/Provider classes directly.
+  Description: Libraries should be injected into `Chef::DSL::Recipe` or `Chef::DSL::Resource` and not directly into `Chef::Recipe`, `Chef::Resource`, or `Chef::Provider`. Injecting into the DSL classes ensures your helpers are available everywhere they are needed.
   StyleGuide: 'chef_correctness_incorrectlibraryinjection'
   Enabled: true
   VersionAdded: '5.10.0'
@@ -317,7 +317,7 @@ Chef/Correctness/IncorrectLibraryInjection:
     - '**/Berksfile'
 
 Chef/Correctness/InvalidPlatformHelper:
-  Description: Pass valid platforms to the platform? helper.
+  Description: Pass valid platform names to the `platform?` helper. Check for typos in platform names to make sure the condition works as intended.
   StyleGuide: 'chef_correctness_invalidplatformhelper'
   Enabled: true
   VersionAdded: '5.15.0'
@@ -326,7 +326,7 @@ Chef/Correctness/InvalidPlatformHelper:
     - '**/Berksfile'
 
 Chef/Correctness/InvalidPlatformFamilyHelper:
-  Description: Pass valid platform families to the platform_family? helper.
+  Description: Pass valid platform family names to the `platform_family?` helper. Check for typos in platform family names to make sure the condition works as intended.
   StyleGuide: 'chef_correctness_invalidplatformfamilyhelper'
   Enabled: true
   VersionAdded: '5.15.0'
@@ -335,7 +335,7 @@ Chef/Correctness/InvalidPlatformFamilyHelper:
     - '**/Berksfile'
 
 Chef/Correctness/ScopedFileExist:
-  Description: Scope file exist to access the correct File class by using ::File.exist? not File.exist?.
+  Description: "Use `::File.exist?` instead of `File.exist?` in recipes and resources. Without the leading `::`, Ruby may resolve `File` to `Chef::Resource::File` instead of Ruby's built-in `File` class, leading to errors."
   StyleGuide: 'chef_correctness_scopedfileexist'
   Enabled: true
   VersionAdded: '5.15.0'
@@ -345,7 +345,7 @@ Chef/Correctness/ScopedFileExist:
     - '**/Berksfile'
 
 Chef/Correctness/InvalidPlatformValueForPlatformFamilyHelper:
-  Description: Pass valid platforms families to the value_for_platform_family helper.
+  Description: Pass valid platform family names to the `value_for_platform_family` helper. Check for typos to make sure the values are matched correctly.
   StyleGuide: 'chef_correctness_invalidplatformvalueforplatformfamilyhelper'
   Enabled: true
   VersionAdded: '5.15.0'
@@ -354,7 +354,7 @@ Chef/Correctness/InvalidPlatformValueForPlatformFamilyHelper:
     - '**/Berksfile'
 
 Chef/Correctness/InvalidPlatformValueForPlatformHelper:
-  Description: Pass valid platforms to the value_for_platform helper.
+  Description: Pass valid platform names to the `value_for_platform` helper. Check for typos to make sure values are matched correctly.
   StyleGuide: 'chef_correctness_invalidplatformvalueforplatformhelper'
   Enabled: true
   VersionAdded: '5.15.0'
@@ -363,7 +363,7 @@ Chef/Correctness/InvalidPlatformValueForPlatformHelper:
     - '**/Berksfile'
 
 Chef/Correctness/InvalidNotificationTiming:
-  Description: Valid notification timings are :immediately, :immediate (alias for :immediately), :delayed, and :before.
+  Description: "An invalid notification timing was used. Valid timings are `:immediately`, `:immediate` (alias for `:immediately`), `:delayed`, and `:before`."
   StyleGuide: 'chef_correctness_invalidnotificationtiming'
   Enabled: true
   VersionAdded: '5.16.0'
@@ -373,7 +373,7 @@ Chef/Correctness/InvalidNotificationTiming:
     - '**/Berksfile'
 
 Chef/Correctness/MalformedPlatformValueForPlatformHelper:
-  Description: When using the value_for_platform helper you must include a hash of possible platforms where each platform contains a hash of versions and potential values. If you don't wish to match on a particular version you can instead use the key 'default'.
+  Description: "The `value_for_platform` helper requires a properly structured hash: each platform maps to a hash of version/value pairs. Use the 'default' key for a fallback value when you don't need to match a specific version."
   StyleGuide: 'chef_correctness_malformedplatformvalueforplatformhelper'
   Enabled: true
   VersionAdded: '5.16.0'
@@ -382,7 +382,7 @@ Chef/Correctness/MalformedPlatformValueForPlatformHelper:
     - '**/Berksfile'
 
 Chef/Correctness/DnfPackageAllowDowngrades:
-  Description: dnf_package does not support the allow_downgrades property
+  Description: The `dnf_package` resource does not support the `allow_downgrades` property. DNF handles package version management differently than yum.
   StyleGuide: 'chef_correctness_dnfpackageallowdowngrades'
   Enabled: true
   VersionAdded: '5.16.0'
@@ -392,7 +392,7 @@ Chef/Correctness/DnfPackageAllowDowngrades:
     - '**/Berksfile'
 
 Chef/Correctness/EmptyResourceGuard:
-  Description: Resource guards (not_if/only_if) should not be empty strings as empty strings will always evaluate to true.
+  Description: "Resource guards (`not_if`/`only_if`) should not be empty strings. In Ruby, empty strings are 'truthy', so an empty guard string will always pass, which is almost certainly not what you intended."
   StyleGuide: 'chef_correctness_emptyresourceguard'
   Enabled: true
   VersionAdded: '8.4.0'
@@ -402,7 +402,7 @@ Chef/Correctness/EmptyResourceGuard:
     - '**/Berksfile'
 
 Chef/Correctness/ChefApplicationFatal:
-  Description: Use raise to force Chef Infra Client to fail instead of using Chef::Application.fatal
+  Description: Use `raise` to force Chef Infra Client to fail instead of `Chef::Application.fatal`, which can cause the entire application to exit without proper error handling or reporting.
   StyleGuide: 'chef_correctness_chefapplicationfatal'
   Enabled: true
   VersionAdded: '6.0.0'
@@ -421,7 +421,7 @@ Chef/Correctness/PowershellScriptDeleteFile:
     - '**/Berksfile'
 
 Chef/Correctness/ConditionalRubyShellout:
-  Description: Don't use Ruby to shellout in an only_if / not_if conditional when you can shellout directly by wrapping the command in quotes.
+  Description: "Don't use Ruby shell_out in `only_if`/`not_if` guards when you can pass the command as a string directly. For example, use `not_if 'test -f /tmp/foo'` instead of `not_if { shell_out('test -f /tmp/foo').exitstatus == 0 }`."
   StyleGuide: 'chef_correctness_conditionalrubyshellout'
   Enabled: true
   VersionAdded: '6.1.0'
@@ -440,7 +440,7 @@ Chef/Correctness/LazyEvalNodeAttributeDefaults:
     - '**/resources/*.rb'
 
 Chef/Correctness/OpenSSLPasswordHelpers:
-  Description: The secure_password helper from the openssl cookbooks Opscode::OpenSSL::Password class should not be used to generate passwords.
+  Description: "Do not use the `secure_password` helper from the openssl cookbook's `Opscode::OpenSSL::Password` class, as the passwords it generates are not truly secure. Use Chef Vault, encrypted data bags, or an external secrets manager instead."
   StyleGuide: 'chef_correctness_opensslpasswordhelpers'
   Enabled: true
   VersionAdded: '6.6.0'
@@ -449,7 +449,7 @@ Chef/Correctness/OpenSSLPasswordHelpers:
     - '**/Berksfile'
 
 Chef/Correctness/InvalidPlatformFamilyInCase:
-  Description: Use valid platform family values in case statements.
+  Description: Use valid platform family names in `case` statements. Check for typos to make sure your platform-specific code runs on the intended systems.
   StyleGuide: 'chef_correctness_invalidplatformfamilyincase'
   Enabled: true
   VersionAdded: '6.6.0'
@@ -458,7 +458,7 @@ Chef/Correctness/InvalidPlatformFamilyInCase:
     - '**/Berksfile'
 
 Chef/Correctness/InvalidPlatformInCase:
-  Description: Use valid platform values in case statements.
+  Description: Use valid platform names in `case` statements. Check for typos to make sure your platform-specific code runs on the intended systems.
   StyleGuide: 'chef_correctness_invalidplatformincase'
   Enabled: true
   VersionAdded: '6.6.0'
@@ -467,7 +467,7 @@ Chef/Correctness/InvalidPlatformInCase:
     - '**/Berksfile'
 
 Chef/Correctness/InvalidDefaultAction:
-  Description: Default actions in resources should be a symbol or an array of symbols.
+  Description: "Default actions in resources should be a symbol or an array of symbols (e.g., `default_action :create` or `default_action [:create, :enable]`)."
   StyleGuide: 'chef_correctness_invaliddefaultaction'
   Enabled: true
   VersionAdded: '6.13.0'
@@ -476,7 +476,7 @@ Chef/Correctness/InvalidDefaultAction:
     - '**/resources/*.rb'
 
 Chef/Correctness/SupportsMustBeFloat:
-  Description: Versions used in metadata.rb supports calls should be floats not integers.
+  Description: "Platform versions in metadata.rb `supports` calls should be floats not integers (e.g., `supports 'redhat', '>= 7.0'` not `supports 'redhat', '>= 7'`). Using an integer may not match versions correctly."
   StyleGuide: 'chef_correctness_supportsmustbefloat'
   Enabled: true
   VersionAdded: '6.13.0'
@@ -511,7 +511,7 @@ Chef/Correctness/PropertyWithoutType:
     - '**/resources/*.rb'
 
 Chef/Correctness/OctalModeAsString:
-  Description: Don't represent file modes as strings containing octal values. Use standard base 10 file modes instead.
+  Description: "Don't represent file modes as octal strings like '0755'. Use standard base 10 string values like '755' instead to avoid confusion between octal and decimal formats."
   StyleGuide: 'chef_correctness_octalmodeasstring'
   Enabled: true
   VersionAdded: '6.21.0'
@@ -521,7 +521,7 @@ Chef/Correctness/OctalModeAsString:
     - '**/Berksfile'
 
 Chef/Correctness/MetadataMalformedDepends:
-  Description: metadata.rb cookbook dependencies and version constraints should be comma separated.
+  Description: "In metadata.rb, the cookbook name and version constraint in `depends` calls must be separated by a comma (e.g., `depends 'apt', '>= 7.0'`)."
   StyleGuide: 'chef_correctness_metadatamalformeddepends'
   Enabled: true
   VersionAdded: '7.16'
@@ -538,7 +538,7 @@ Chef/Correctness/PowershellFileExists:
     - '**/Berksfile'
 
 Chef/Correctness/MetadataMissingVersion:
-  Description: metadata.rb should define a version for the cookbook.
+  Description: "The metadata.rb file should define a `version` for the cookbook (e.g., `version '1.0.0'`). Without an explicit version, the cookbook will default to version 0.0.0."
   StyleGuide: 'chef_correctness_metadatamissingversion'
   Enabled: true
   VersionAdded: '7.25'
@@ -554,7 +554,7 @@ Chef/Correctness/InvalidCookbookName:
     - '**/metadata.rb'
 
 Chef/Correctness/InvalidNotificationResource:
-  Description: The resource to notify when calling `notifies` or `subscribes` must be a string.
+  Description: "The resource to notify when calling `notifies` or `subscribes` must be a string (e.g., `notifies :restart, 'service[apache2]'`), not a symbol or other type."
   StyleGuide: 'chef_correctness_invalidnotificationresource'
   Enabled: true
   VersionAdded: '7.28'
@@ -572,7 +572,7 @@ Chef/Sharing:
   StyleGuideBaseURL: https://docs.chef.io/workstation/cookstyle/
 
 Chef/Sharing/InsecureCookbookURL:
-  Description: Insecure http Github or Gitlab URLs for metadata source_url/issues_url fields
+  Description: Use HTTPS instead of HTTP for GitHub or GitLab URLs in the `source_url` and `issues_url` fields of metadata.rb to ensure secure connections.
   StyleGuide: 'chef_sharing_insecurecookbookurl'
   Enabled: true
   VersionAdded: '5.1.0'
@@ -581,7 +581,7 @@ Chef/Sharing/InsecureCookbookURL:
     - '**/metadata.rb'
 
 Chef/Sharing/InvalidLicenseString:
-  Description: Cookbook metadata.rb does not use a SPDX compliant license string or "all rights reserved"
+  Description: "The `license` field in metadata.rb should use a valid SPDX license identifier (e.g., 'Apache-2.0', 'MIT') or 'all rights reserved'. See https://spdx.org/licenses/ for the full list."
   StyleGuide: 'chef_sharing_invalidlicensestring'
   Enabled: true
   VersionAdded: '5.2.0'
@@ -608,7 +608,7 @@ Chef/Sharing/EmptyMetadataField:
     - '**/metadata.rb'
 
 Chef/Sharing/IncludePropertyDescriptions:
-  Description: Properties should include description fields to allow automated documentation. Requires Chef Infra Client 13.9 or later.
+  Description: Resource properties should include a `description` field so that automated documentation tools can generate helpful documentation for your custom resources. Requires Chef Infra Client 13.9 or later.
   StyleGuide: 'chef_sharing_includepropertydescriptions'
   Enabled: false
   VersionAdded: '6.1.0'
@@ -617,7 +617,7 @@ Chef/Sharing/IncludePropertyDescriptions:
     - '**/resources/*.rb'
 
 Chef/Sharing/IncludeResourceDescriptions:
-  Description: Resources should include description fields to allow automated documentation. Requires Chef Infra Client 13.9 or later.
+  Description: Custom resources should include a `description` field at the top of the resource so that automated documentation tools can describe the resource. Requires Chef Infra Client 13.9 or later.
   StyleGuide: 'chef_sharing_includeresourcedescriptions'
   Enabled: false
   VersionAdded: '6.1.0'
@@ -625,7 +625,7 @@ Chef/Sharing/IncludeResourceDescriptions:
     - '**/resources/*.rb'
 
 Chef/Sharing/IncludeResourceExamples:
-  Description: Resources should include examples field to allow automated documentation. Requires Chef Infra Client 13.9 or later.
+  Description: Custom resources should include an `examples` field with usage examples so that automated documentation tools can show users how to use the resource. Requires Chef Infra Client 13.9 or later.
   StyleGuide: 'chef_sharing_includeresourceexamples'
   Enabled: false
   VersionAdded: '6.10.0'
@@ -641,7 +641,7 @@ Chef/Deprecations:
   StyleGuideBaseURL: https://docs.chef.io/workstation/cookstyle/
 
 Chef/Deprecations/NodeDeepFetch:
-  Description: Do not use the deprecated chef-sugar node.deep_fetch methods
+  Description: "Do not use the `node.deep_fetch` method from the deprecated chef-sugar gem. Use `node.read` or `node.dig` to safely access deeply nested node attributes instead."
   StyleGuide: 'chef_deprecations_nodedeepfetch'
   Enabled: true
   VersionAdded: '5.12.0'
@@ -650,7 +650,7 @@ Chef/Deprecations/NodeDeepFetch:
     - '**/Berksfile'
 
 Chef/Deprecations/NodeSet:
-  Description: Do not use the deprecated node.set method
+  Description: "Do not use `node.set`, which was removed in Chef Infra Client 14. Use `node.default` or `node.override` to set node attributes instead."
   StyleGuide: 'chef_deprecations_nodeset'
   Enabled: true
   VersionAdded: '5.0.0'
@@ -659,7 +659,7 @@ Chef/Deprecations/NodeSet:
     - '**/Berksfile'
 
 Chef/Deprecations/NodeSetUnless:
-  Description: Do not use the deprecated node.set_unless method
+  Description: "Do not use `node.set_unless`, which was removed in Chef Infra Client 14. Use `node.default_unless` or `node.override_unless` instead."
   StyleGuide: 'chef_deprecations_nodesetunless'
   Enabled: true
   VersionAdded: '5.1.0'
@@ -678,7 +678,7 @@ Chef/Deprecations/EpicFail:
     - '**/Berksfile'
 
 Chef/Deprecations/CookbookDependsOnPoise:
-  Description: Cookbooks should not depend on the deprecated Poise framework
+  Description: Cookbooks should not depend on the deprecated Poise framework cookbooks. Poise is no longer maintained and may not work with newer Chef Infra Client releases.
   StyleGuide: 'chef_deprecations_cookbookdependsonpoise'
   Enabled: true
   VersionAdded: '5.1.0'
@@ -686,7 +686,7 @@ Chef/Deprecations/CookbookDependsOnPoise:
     - '**/metadata.rb'
 
 Chef/Deprecations/CookbookDependsOnCompatResource:
-  Description: Don't depend on the deprecated compat_resource cookbook made obsolete by Chef Infra Client 12.19+
+  Description: "Don't depend on the `compat_resource` cookbook, which is no longer needed with Chef Infra Client 12.19 and later. The functionality it provided is now built into Chef Infra Client."
   StyleGuide: 'chef_deprecations_cookbookdependsoncompatresource'
   Enabled: true
   VersionAdded: '5.1.0'
@@ -694,7 +694,7 @@ Chef/Deprecations/CookbookDependsOnCompatResource:
     - '**/metadata.rb'
 
 Chef/Deprecations/CookbookDependsOnPartialSearch:
-  Description: Don't depend on the deprecated partial_search cookbook made obsolete by Chef Infra Client 13+
+  Description: "Don't depend on the `partial_search` cookbook, which is no longer needed with Chef Infra Client 13 and later. Use the `:filter_result` option in the built-in `search` helper instead."
   StyleGuide: 'chef_deprecations_cookbookdependsonpartialsearch'
   Enabled: true
   VersionAdded: '5.1.0'
@@ -702,7 +702,7 @@ Chef/Deprecations/CookbookDependsOnPartialSearch:
     - '**/metadata.rb'
 
 Chef/Deprecations/EasyInstallResource:
-  Description: Don't use the deprecated easy_install resource resource removed in Chef Infra Client 13
+  Description: "Don't use the deprecated `easy_install` resource, which was removed in Chef Infra Client 13."
   StyleGuide: 'chef_deprecations_easyinstallresource'
   Enabled: true
   VersionAdded: '5.1.0'
@@ -712,7 +712,7 @@ Chef/Deprecations/EasyInstallResource:
     - '**/Berksfile'
 
 Chef/Deprecations/ErlCallResource:
-  Description: Don't use the deprecated erl_call resource removed in Chef Infra Client 13
+  Description: "Don't use the deprecated `erl_call` resource, which was removed in Chef Infra Client 13."
   StyleGuide: 'chef_deprecations_erlcallresource'
   Enabled: true
   VersionAdded: '5.1.0'
@@ -722,7 +722,7 @@ Chef/Deprecations/ErlCallResource:
     - '**/Berksfile'
 
 Chef/Deprecations/RequireRecipe:
-  Description: Use include_recipe instead of the require_recipe method
+  Description: Use `include_recipe` instead of the deprecated `require_recipe` method, which was removed in Chef Infra Client 14.
   StyleGuide: 'chef_deprecations_requirerecipe'
   Enabled: true
   VersionAdded: '5.2.0'
@@ -732,7 +732,7 @@ Chef/Deprecations/RequireRecipe:
     - '**/Berksfile'
 
 Chef/Deprecations/NodeMethodsInsteadofAttributes:
-  Description: Use node attributes to access Ohai data instead of node methods, which were deprecated in Chef Infra Client 13.
+  Description: "Use `node['platform']` style attributes to access Ohai data instead of `node.platform` style method calls, which were deprecated in Chef Infra Client 13."
   StyleGuide: 'chef_deprecations_nodemethodsinsteadofattributes'
   Enabled: true
   VersionAdded: '5.4.0'
@@ -741,7 +741,7 @@ Chef/Deprecations/NodeMethodsInsteadofAttributes:
     - '**/Berksfile'
 
 Chef/Deprecations/UsesDeprecatedMixins:
-  Description: Don't use deprecated Mixins no longer included in Chef Infra Client 14 and later.
+  Description: "Don't use deprecated mixin modules (e.g., `Chef::Mixin::Command`, `Chef::Mixin::LanguageIncludeRecipe`) that were removed in Chef Infra Client 14. Use their modern replacements instead."
   StyleGuide: 'chef_deprecations_usesdeprecatedmixins'
   Enabled: true
   VersionAdded: '5.4.0'
@@ -751,7 +751,7 @@ Chef/Deprecations/UsesDeprecatedMixins:
     - '**/resources/*.rb'
 
 Chef/Deprecations/IncludingXMLRubyRecipe:
-  Description: The xml::ruby recipe installs nokogiri which is included in Chef Infra Client 12 and later.
+  Description: "There is no need to include the `xml::ruby` recipe to get the nokogiri gem. Nokogiri has been bundled with Chef Infra Client since version 12."
   StyleGuide: 'chef_deprecations_includingxmlrubyrecipe'
   Enabled: true
   VersionAdded: '5.4.0'
@@ -769,7 +769,7 @@ Chef/Deprecations/LegacyYumCookbookRecipes:
     - '**/metadata.rb'
 
 Chef/Deprecations/UsesChefRESTHelpers:
-  Description: Don't use the helpers in Chef::REST which were removed in Chef Infra Client 13
+  Description: "Don't use helpers from `Chef::REST`, which was removed in Chef Infra Client 13. Use `Chef::ServerAPI` for making requests to the Chef Infra Server instead."
   StyleGuide: 'chef_deprecations_useschefresthelpers'
   Enabled: true
   VersionAdded: '5.5.0'
@@ -777,7 +777,7 @@ Chef/Deprecations/UsesChefRESTHelpers:
     - '**/metadata.rb'
 
 Chef/Deprecations/ChocolateyPackageUninstallAction:
-  Description: Use the :remove action in the chocolatey_package resource instead of :uninstall which was removed in Chef Infra Client 14+
+  Description: "Use the `:remove` action in the `chocolatey_package` resource instead of `:uninstall`, which was removed in Chef Infra Client 14."
   StyleGuide: 'chef_deprecations_chocolateypackageuninstallaction'
   Enabled: true
   VersionAdded: '5.5.0'
@@ -785,7 +785,7 @@ Chef/Deprecations/ChocolateyPackageUninstallAction:
     - '**/metadata.rb'
 
 Chef/Deprecations/LaunchdDeprecatedHashProperty:
-  Description: The launchd resource's hash property was renamed to plist_hash in Chef Infra Client 13+ to avoid conflicts with Ruby's hash class.
+  Description: "The `launchd` resource's `hash` property was renamed to `plist_hash` in Chef Infra Client 13 to avoid conflicts with Ruby's built-in `hash` method."
   StyleGuide: 'chef_deprecations_launchddeprecatedhashproperty'
   Enabled: true
   VersionAdded: '5.5.0'
@@ -793,7 +793,7 @@ Chef/Deprecations/LaunchdDeprecatedHashProperty:
     - '**/metadata.rb'
 
 Chef/Deprecations/LocaleDeprecatedLcAllProperty:
-  Description: The locale resource's lc_all property has been deprecated and will be removed in Chef Infra Client 16
+  Description: "The `locale` resource's `lc_all` property has been deprecated and was removed in Chef Infra Client 16. Setting LC_ALL is generally discouraged as it overrides all other locale settings."
   StyleGuide: 'chef_deprecations_localedeprecatedlcallproperty'
   Enabled: true
   VersionAdded: '5.5.0'
@@ -801,7 +801,7 @@ Chef/Deprecations/LocaleDeprecatedLcAllProperty:
     - '**/metadata.rb'
 
 Chef/Deprecations/UserDeprecatedSupportsProperty:
-  Description: The supports property was removed in Chef Infra Client 13 in favor of individual 'manage_home' and 'non_unique' properties.
+  Description: "The `user` resource's `supports` property was removed in Chef Infra Client 13. Use the individual `manage_home` and `non_unique` properties instead."
   StyleGuide: 'chef_deprecations_userdeprecatedsupportsproperty'
   Enabled: true
   VersionAdded: '5.5.0'
@@ -809,7 +809,7 @@ Chef/Deprecations/UserDeprecatedSupportsProperty:
     - '**/metadata.rb'
 
 Chef/Deprecations/UseInlineResourcesDefined:
-  Description: use_inline_resources is now the default for resources in Chef Infra Client 13+ and does not need to be specified.
+  Description: "`use_inline_resources` is the default behavior in Chef Infra Client 13 and later and no longer needs to be called. Inline resources ensure that notifications from sub-resources work correctly."
   StyleGuide: 'chef_deprecations_useinlineresourcesdefined'
   Enabled: true
   VersionAdded: '5.4.0'
@@ -835,7 +835,7 @@ Chef/Deprecations/WindowsTaskChangeAction:
     - '**/metadata.rb'
 
 Chef/Deprecations/ResourceOverridesProvidesMethod:
-  Description: Don't override the provides? method in a resource provider. Use provides :SOME_PROVIDER_NAME instead. This will cause failures in Chef Infra Client 13 and later.
+  Description: "Don't override the `provides?` method in a resource provider. Use `provides :my_resource` instead to register the provider. Overriding `provides?` causes failures in Chef Infra Client 13 and later."
   StyleGuide: 'chef_deprecations_resourceoverridesprovidesmethod'
   Enabled: true
   VersionAdded: '5.7.0'
@@ -845,7 +845,7 @@ Chef/Deprecations/ResourceOverridesProvidesMethod:
     - '**/resources/*.rb'
 
 Chef/Deprecations/ResourceUsesDslNameMethod:
-  Description: Use resource_name instead of the dsl_name method in resources. This will cause failures in Chef Infra Client 13 and later.
+  Description: Use `resource_name` instead of the deprecated `dsl_name` method in resources. Using `dsl_name` causes failures in Chef Infra Client 13 and later.
   StyleGuide: 'chef_deprecations_resourceusesdslnamemethod'
   Enabled: true
   VersionAdded: '5.7.0'
@@ -855,7 +855,7 @@ Chef/Deprecations/ResourceUsesDslNameMethod:
     - '**/resources/*.rb'
 
 Chef/Deprecations/ResourceUsesUpdatedMethod:
-  Description: Don't use updated = true/false to update resource state. This will cause failures in Chef Infra Client 13 and later.
+  Description: "Don't use `updated = true/false` to update resource state. Use `updated_by_last_action` instead, or better yet, let Chef Infra Client handle convergence state automatically. Direct assignment causes failures in Chef Infra Client 13 and later."
   StyleGuide: 'chef_deprecations_resourceusesupdatedmethod'
   Enabled: false # has a high potential for false positives
   VersionAdded: '5.7.0'
@@ -865,7 +865,7 @@ Chef/Deprecations/ResourceUsesUpdatedMethod:
     - '**/resources/*.rb'
 
 Chef/Deprecations/NamePropertyWithDefaultValue:
-  Description: A resource property can't be marked as a name_property and also have a default value. This will fail in Chef Infra Client 13 or later.
+  Description: "A resource property can't be marked as `name_property: true` and also have a `default` value. The name property gets its value from the resource name, so a default would be ignored. This causes failures in Chef Infra Client 13 and later."
   StyleGuide: 'chef_deprecations_namepropertywithdefaultvalue'
   Enabled: true
   VersionAdded: '5.7.0'
@@ -883,7 +883,7 @@ Chef/Deprecations/ResourceUsesProviderBaseMethod:
     - '**/resources/*.rb'
 
 Chef/Deprecations/ChefSpecCoverageReport:
-  Description: Don't use the deprecated ChefSpec coverage report functionality in your specs.
+  Description: Don't use the deprecated ChefSpec coverage report functionality in your specs. The coverage report feature has been removed from newer versions of ChefSpec.
   StyleGuide: 'chef_deprecations_chefspeccoveragereport'
   Enabled: true
   VersionAdded: '5.8.0'
@@ -899,7 +899,7 @@ Chef/Deprecations/ChefSpecLegacyRunner:
     - '**/spec/*.rb'
 
 Chef/Deprecations/UsesRunCommandHelper:
-  Description: Use 'shell_out!' instead of the legacy 'run_command' helper for shelling out. The run_command helper was removed in Chef Infra Client 13.
+  Description: Use `shell_out!` instead of the legacy `run_command` helper for running system commands. The `run_command` helper was removed in Chef Infra Client 13.
   StyleGuide: 'chef_deprecations_usesruncommandhelper'
   Enabled: true
   VersionAdded: '5.9.0'
@@ -927,7 +927,7 @@ Chef/Deprecations/DeprecatedYumRepositoryProperties:
     - '**/Berksfile'
 
 Chef/Deprecations/EOLAuditModeUsage:
-  Description: The beta Audit Mode feature in Chef Infra Client was removed in Chef Infra Client 15.0.
+  Description: The beta Audit Mode feature was removed in Chef Infra Client 15.0. Use Chef InSpec for compliance auditing instead.
   StyleGuide: 'chef_deprecations_eolauditmodeusage'
   Enabled: true
   VersionAdded: '5.10.0'
@@ -937,7 +937,7 @@ Chef/Deprecations/EOLAuditModeUsage:
     - '**/Berksfile'
 
 Chef/Deprecations/ResourceInheritsFromCompatResource:
-  Description: HWRP style resource should inherit from the 'Chef::Resource' class and not the 'ChefCompat::Resource' class from the deprecated compat_resource cookbook.
+  Description: "Heavy Weight Resource Provider (HWRP) style resources should inherit from `Chef::Resource` and not `ChefCompat::Resource` from the deprecated compat_resource cookbook."
   StyleGuide: 'chef_deprecations_resourceinheritsfromcompatresource'
   Enabled: true
   VersionAdded: '5.10.0'
@@ -965,7 +965,7 @@ Chef/Deprecations/PoiseArchiveUsage:
     - '**/Berksfile'
 
 Chef/Deprecations/PartialSearchHelperUsage:
-  Description: Legacy partial_search usage should be updated to use :filter_result in the search helper instead.
+  Description: "Legacy `partial_search` usage should be updated to use the `:filter_result` option in the built-in `search` helper instead."
   StyleGuide: 'chef_deprecations_partialsearchhelperusage'
   Enabled: true
   VersionAdded: '5.11.0'
@@ -973,7 +973,7 @@ Chef/Deprecations/PartialSearchHelperUsage:
     - '**/metadata.rb'
 
 Chef/Deprecations/SearchUsesPositionalParameters:
-  Description: Don't use deprecated positional parameters in cookbook search queries.
+  Description: "Don't use deprecated positional parameters in search queries. Use named parameters instead (e.g., `search(:node, 'platform:ubuntu', filter_result: { 'name' => ['name'] })`)."
   StyleGuide: 'chef_deprecations_searchusespositionalparameters'
   Enabled: true
   VersionAdded: '5.11.0'
@@ -981,7 +981,7 @@ Chef/Deprecations/SearchUsesPositionalParameters:
     - '**/metadata.rb'
 
 Chef/Deprecations/PartialSearchClassUsage:
-  Description: Legacy Chef::PartialSearch class usage should be updated to use the search helper instead with the filter_result key.
+  Description: "Don't use the legacy `Chef::PartialSearch` class directly. Use the built-in `search` helper with the `:filter_result` option instead."
   StyleGuide: 'chef_deprecations_partialsearchclassusage'
   Enabled: true
   VersionAdded: '5.11.0'
@@ -989,7 +989,7 @@ Chef/Deprecations/PartialSearchClassUsage:
     - '**/metadata.rb'
 
 Chef/Deprecations/Cheffile:
-  Description: The Librarian-Chef depsolving project is no longer maintained and should not be used for cookbook depsolving. Consider using Policyfiles instead.
+  Description: The Librarian-Chef dependency solver is no longer maintained. Use Policyfiles or Berkshelf for cookbook dependency management instead.
   StyleGuide: 'chef_deprecations_cheffile'
   Enabled: true
   VersionAdded: '5.12.0'
@@ -1007,7 +1007,7 @@ Chef/Deprecations/LegacyNotifySyntax:
     - '**/Berksfile'
 
 Chef/Deprecations/NodeSetWithoutLevel:
-  Description: When setting a node attribute in Chef Infra Client 11 and later you must specify the precedence level.
+  Description: "When setting a node attribute you must specify a precedence level (e.g., `node.default`, `node.override`, or `node.normal`). Writing `node['key'] = value` without a level is deprecated."
   StyleGuide: 'chef_deprecations_nodesetwithoutlevel'
   Enabled: true
   VersionAdded: '5.13.0'
@@ -1016,7 +1016,7 @@ Chef/Deprecations/NodeSetWithoutLevel:
     - '**/attributes/*.rb'
 
 Chef/Deprecations/ChefRewind:
-  Description: Use delete_resource / edit_resource instead of functionality in the deprecated chef-rewind gem
+  Description: Use the built-in `delete_resource` and `edit_resource` helpers (available since Chef Infra Client 12.10) instead of the deprecated `chef-rewind` gem.
   StyleGuide: 'chef_deprecations_chefrewind'
   Enabled: true
   VersionAdded: '5.14.0'
@@ -1025,7 +1025,7 @@ Chef/Deprecations/ChefRewind:
     - '**/attributes/*.rb'
 
 Chef/Deprecations/RubyBlockCreateAction:
-  Description: Use the :run action in the ruby_block resource instead of the deprecated :create action
+  Description: "Use the `:run` action in the `ruby_block` resource instead of the deprecated `:create` action."
   StyleGuide: 'chef_deprecations_rubyblockcreateaction'
   Enabled: true
   VersionAdded: '5.16.0'
@@ -1091,7 +1091,7 @@ Chef/Deprecations/LogResourceNotifications:
     - '**/Berksfile'
 
 Chef/Deprecations/HWRPWithoutProvides:
-  Description: In Chef Infra Client 16 and later a legacy HWRP resource must use `provides` to define how the resource is called in recipes or other resources. To maintain compatibility with Chef Infra Client < 16 use both `resource_name` and `provides`.
+  Description: In Chef Infra Client 16 and later a legacy Heavy Weight Resource Provider (HWRP) resource must use `provides` to define how the resource is called in recipes or other resources. To maintain compatibility with Chef Infra Client < 16 use both `resource_name` and `provides`.
   StyleGuide: 'chef_deprecations_hwrpwithoutprovides'
   Enabled: true
   VersionAdded: '6.0.0'
@@ -1100,7 +1100,7 @@ Chef/Deprecations/HWRPWithoutProvides:
     - '**/libraries/*.rb'
 
 Chef/Deprecations/WindowsVersionHelpers:
-  Description: Use node['platform_version'] data instead of the Windows::VersionHelper helper from the Windows cookbook.
+  Description: "Use `node['platform_version']` to check Windows versions instead of the `Windows::VersionHelper` helpers from the deprecated Windows cookbook."
   StyleGuide: 'chef_deprecations_windowsversionhelpers'
   Enabled: true
   VersionAdded: '5.4.0'
@@ -1118,7 +1118,7 @@ Chef/Deprecations/PowershellCookbookHelpers:
     - '**/Berksfile'
 
 Chef/Deprecations/DeprecatedShelloutMethods:
-  Description: Many legacy specialized shell_out methods were replaced in Chef Infra Client 14.3 and removed in Chef Infra Client 15. Use shell_out and any additional options if necessary.
+  Description: Many legacy specialized `shell_out` methods were replaced in Chef Infra Client 14.3 and removed in Chef Infra Client 15. Use the standard `shell_out` or `shell_out!` methods with any additional options if necessary.
   StyleGuide: 'chef_deprecations_deprecatedshelloutmethods'
   Enabled: true
   VersionAdded: '6.3.0'
@@ -1237,7 +1237,7 @@ Chef/Deprecations/UseYamlDump:
   VersionAdded: '6.21.0'
 
 Chef/Deprecations/LibrarianChefSpec:
-  Description: The Librarian-Chef depsolving project is no longer maintained and ChefSpec should not use Librarian-Chef for cookbook depsolving. Consider using Policyfiles instead.
+  Description: The Librarian-Chef dependency solver is no longer maintained and ChefSpec should not use it. Use Policyfiles or Berkshelf for cookbook dependency management instead.
   StyleGuide: 'chef_deprecations_librarianchefspec'
   Enabled: true
   VersionAdded: '7.1.0'
@@ -1245,7 +1245,7 @@ Chef/Deprecations/LibrarianChefSpec:
     - '**/specs/*.rb'
 
 Chef/Deprecations/FoodcriticTesting:
-  Description: The Foodcritic cookbook linter has been deprecated and should no longer be used for validating cookbooks
+  Description: The Foodcritic cookbook linter has been deprecated and is no longer maintained. Use Cookstyle instead for cookbook linting and style checking.
   StyleGuide: 'chef_deprecations_foodcritictesting'
   Enabled: true
   VersionAdded: '7.1.0'
@@ -1254,7 +1254,7 @@ Chef/Deprecations/FoodcriticTesting:
     - '**/Gemfile'
 
 Chef/Deprecations/FoodcriticFile:
-  Description: The Foodcritic cookbook linter has been deprecated and should no longer be used for validating cookbooks
+  Description: The .foodcritic configuration file is no longer needed. Foodcritic has been deprecated in favor of Cookstyle for cookbook linting.
   StyleGuide: 'chef_deprecations_foodcriticfile'
   Enabled: true
   VersionAdded: '7.32.0'
@@ -1283,7 +1283,7 @@ Chef/Deprecations/ChefSugarHelpers:
     - '**/Rakefile'
 
 Chef/Deprecations/HWRPWithoutUnifiedTrue:
-  Description: Set `unified_mode true` in Chef Infra Client 15.3+ HWRP style custom resources to ensure they work correctly in Chef Infra Client 18 (April 2022) when Unified Mode becomes the default.
+  Description: Set `unified_mode true` in Chef Infra Client 15.3+ Heavy Weight Resource Provider (HWRP) style custom resources to ensure they work correctly in Chef Infra Client 18 (April 2022) when Unified Mode becomes the default.
   StyleGuide: 'chef_deprecations_hwrpwithoutunifiedtrue'
   Enabled: true
   VersionAdded: '7.12.0'
@@ -1302,7 +1302,7 @@ Chef/Deprecations/ResourceWithoutUnifiedTrue:
     - '**/spec/**/*.rb'
 
 Chef/Deprecations/PolicyfileCommunitySource:
-  Description: The Policyfile source of `:community` has been replaced with `:supermarket`
+  Description: "The Policyfile source `:community` has been replaced with `:supermarket`. Update your Policyfile.rb to use `default_source :supermarket`."
   StyleGuide: 'chef_deprecations_policyfilecommunitysource'
   Enabled: true
   VersionAdded: '7.15.0'
@@ -1363,7 +1363,7 @@ Chef/Modernize:
   StyleGuideBaseURL: https://docs.chef.io/workstation/cookstyle/
 
 Chef/Modernize/LegacyBerksfileSource:
-  Description: Do not use legacy Berksfile community sources. Use Chef Supermarket instead.
+  Description: "Do not use legacy Berksfile community sources like `site :opscode`. Use `source 'https://supermarket.chef.io'` instead."
   StyleGuide: 'chef_modernize_legacyberksfilesource'
   Enabled: true
   VersionAdded: '5.1.0'
@@ -1371,7 +1371,7 @@ Chef/Modernize/LegacyBerksfileSource:
     - '**/Berksfile'
 
 Chef/Modernize/WhyRunSupportedTrue:
-  Description: whyrun_supported? no longer needs to be set to true as it is the default in Chef 13+
+  Description: "`whyrun_supported?` no longer needs to be set to true as it is the default in Chef Infra Client 13 and later. Why-run mode allows you to see what Chef would change without actually making changes."
   StyleGuide: 'chef_modernize_whyrunsupportedtrue'
   Enabled: true
   VersionAdded: '5.1.0'
@@ -1389,7 +1389,7 @@ Chef/Modernize/UnnecessaryDependsChef14:
     - '**/metadata.rb'
 
 Chef/Modernize/RespondToInMetadata:
-  Description: It is no longer necessary to use respond_to? in metadata.rb in Chef Infra Client 12.15 and later
+  Description: "It is no longer necessary to wrap metadata.rb methods in `respond_to?` checks. This pattern was used for compatibility with older Chef versions, but all current metadata methods are supported since Chef Infra Client 12.15."
   StyleGuide: 'chef_modernize_respondtoinmetadata'
   Enabled: true
   VersionAdded: '5.2.0'
@@ -1397,7 +1397,7 @@ Chef/Modernize/RespondToInMetadata:
     - '**/metadata.rb'
 
 Chef/Modernize/RespondToResourceName:
-  Description: respond_to?(:resource_name) in resources is no longer necessary in Chef Infra Client 12.5+
+  Description: "Wrapping `resource_name` in a `respond_to?` check is no longer necessary. The `resource_name` method has been available since Chef Infra Client 12.5."
   StyleGuide: 'chef_modernize_respondtoresourcename'
   Enabled: true
   VersionAdded: '5.2.0'
@@ -1406,7 +1406,7 @@ Chef/Modernize/RespondToResourceName:
     - '**/libraries/*.rb'
 
 Chef/Modernize/RespondToProvides:
-  Description: respond_to?(:provides) in resources is no longer necessary in Chef Infra Client 12+
+  Description: "Wrapping `provides` in a `respond_to?` check is no longer necessary. The `provides` method has been available since Chef Infra Client 12."
   StyleGuide: 'chef_modernize_respondtoprovides'
   Enabled: true
   VersionAdded: '5.2.0'
@@ -1416,7 +1416,7 @@ Chef/Modernize/RespondToProvides:
     - '**/libraries/*.rb'
 
 Chef/Modernize/SetOrReturnInResources:
-  Description: Do not use set_or_return within a method to define a property for a resource. Use the property method instead, which supports validation, reporting, and documentation functionality.
+  Description: Do not use the legacy `set_or_return` method to define resource properties. Use the `property` method instead, which supports validation, default values, documentation, and reporting.
   StyleGuide: 'chef_modernize_setorreturninresources'
   Enabled: true
   VersionAdded: '5.2.0'
@@ -1425,7 +1425,7 @@ Chef/Modernize/SetOrReturnInResources:
     - '**/libraries/*.rb'
 
 Chef/Modernize/CustomResourceWithAttributes:
-  Description: Custom Resources should contain properties not attributes.
+  Description: Custom resources should use `property` to define inputs instead of the legacy `attribute` method. Properties offer better validation, documentation, and reporting features.
   StyleGuide: 'chef_modernize_customresourcewithattributes'
   Enabled: true
   VersionAdded: '5.2.0'
@@ -1449,7 +1449,7 @@ Chef/Modernize/IncludingWindowsDefaultRecipe:
     - '**/metadata.rb'
 
 Chef/Modernize/DefinesChefSpecMatchers:
-  Description: ChefSpec matchers are now auto generated by ChefSpec 7.1+ and do not need to be defined in a cookbook
+  Description: ChefSpec matchers are now automatically generated by ChefSpec 7.1 and later. You no longer need to manually define custom matchers in your cookbook libraries.
   StyleGuide: 'chef_modernize_defineschefspecmatchers'
   Enabled: true
   VersionAdded: '5.3.0'
@@ -1457,7 +1457,7 @@ Chef/Modernize/DefinesChefSpecMatchers:
     - '**/libraries/*.rb'
 
 Chef/Modernize/ExecuteAptUpdate:
-  Description: Use the apt_update resource instead of the execute resource to run an apt-get update package cache update
+  Description: Use the `apt_update` resource instead of shelling out with an `execute` resource to run `apt-get update`. The `apt_update` resource is idempotent and handles update frequency automatically.
   StyleGuide: 'chef_modernize_executeaptupdate'
   Enabled: true
   VersionAdded: '5.3.0'
@@ -1465,7 +1465,7 @@ Chef/Modernize/ExecuteAptUpdate:
     - '**/metadata.rb'
 
 Chef/Modernize/MinitestHandlerUsage:
-  Description: Use Chef InSpec for testing instead of the Minitest Handler cookbook pattern.
+  Description: Use Chef InSpec for integration testing instead of the deprecated Minitest Handler cookbook pattern, which is no longer maintained.
   StyleGuide: 'chef_modernize_minitesthandlerusage'
   Enabled: true
   VersionAdded: '5.4.0'
@@ -1473,7 +1473,7 @@ Chef/Modernize/MinitestHandlerUsage:
     - '**/metadata.rb'
 
 Chef/Modernize/IncludingMixinShelloutInResources:
-  Description: There is no need to include Chef::Mixin::ShellOut or Chef::Mixin::PowershellOut in resources or providers as this is already done by Chef Infra Client 12.4+.
+  Description: There is no need to `include Chef::Mixin::ShellOut` or `Chef::Mixin::PowershellOut` in resources or providers. These are already included automatically by Chef Infra Client 12.4 and later.
   StyleGuide: 'chef_modernize_includingmixinshelloutinresources'
   Enabled: true
   VersionAdded: '5.4.0'
@@ -1483,7 +1483,7 @@ Chef/Modernize/IncludingMixinShelloutInResources:
     - '**/libraries/*.rb'
 
 Chef/Modernize/UseBuildEssentialResource:
-  Description: Use the build_essential resource instead of the legacy build-essential recipe. This resource ships in the build-essential cookbook v5.0+ and is built into Chef Infra Client 14+
+  Description: Use the `build_essential` resource instead of including the `build-essential` recipe. The resource is built into Chef Infra Client 14 and later and gives you more control over when build tools are installed.
   StyleGuide: 'chef_modernize_usebuildessentialresource'
   Enabled: true
   VersionAdded: '5.1.0'
@@ -1491,7 +1491,7 @@ Chef/Modernize/UseBuildEssentialResource:
     - '**/metadata.rb'
 
 Chef/Modernize/WindowsZipfileUsage:
-  Description: Use the archive_file resource built into Chef Infra Client 15+ instead of the windows_zipfile from the Windows cookbook
+  Description: Use the `archive_file` resource built into Chef Infra Client 15 and later instead of `windows_zipfile` from the Windows cookbook.
   StyleGuide: 'chef_modernize_windowszipfileusage'
   Enabled: true
   VersionAdded: '5.4.0'
@@ -1499,7 +1499,7 @@ Chef/Modernize/WindowsZipfileUsage:
     - '**/metadata.rb'
 
 Chef/Modernize/SevenZipArchiveResource:
-  Description: Use the archive_file resource built into Chef Infra Client 15+ instead of the seven_zip_archive
+  Description: Use the `archive_file` resource built into Chef Infra Client 15 and later instead of `seven_zip_archive`.
   StyleGuide: 'chef_modernize_sevenziparchiveresource'
   Enabled: true
   VersionAdded: '5.5.0'
@@ -1555,7 +1555,7 @@ Chef/Modernize/CronManageResource:
     - '**/metadata.rb'
 
 Chef/Modernize/UsesZypperRepo:
-  Description: The zypper_repo resource was renamed zypper_repository when it was added to Chef Infra Client 13.3.
+  Description: The `zypper_repo` resource was renamed to `zypper_repository` when it was added to Chef Infra Client 13.3. Use the new name.
   StyleGuide: 'chef_modernize_useszypperrepo'
   Enabled: true
   VersionAdded: '5.6.0'
@@ -1563,7 +1563,7 @@ Chef/Modernize/UsesZypperRepo:
     - '**/metadata.rb'
 
 Chef/Modernize/DependsOnZypperCookbook:
-  Description: Don't include the zypper cookbook as the zypper_repository resource is built into Chef Infra Client 13.3+
+  Description: "Don't depend on the zypper cookbook. The `zypper_repository` resource is built into Chef Infra Client 13.3 and later."
   StyleGuide: 'chef_modernize_dependsonzyppercookbook'
   Enabled: true
   VersionAdded: '5.6.0'
@@ -1571,7 +1571,7 @@ Chef/Modernize/DependsOnZypperCookbook:
     - '**/metadata.rb'
 
 Chef/Modernize/ExecuteTzUtil:
-  Description: Use the timezone resource included in Chef Infra Client 14.6+ instead of shelling out to tzutil
+  Description: Use the `timezone` resource built into Chef Infra Client 14.6 and later instead of shelling out to `tzutil`.
   StyleGuide: 'chef_modernize_executetzutil'
   Enabled: true
   VersionAdded: '5.6.0'
@@ -1579,7 +1579,7 @@ Chef/Modernize/ExecuteTzUtil:
     - '**/metadata.rb'
 
 Chef/Modernize/OpensslRsaKeyResource:
-  Description: The openssl_rsa_key resource was renamed to openssl_rsa_private_key in Chef Infra Client 14.0. The new resource name should be used.
+  Description: The `openssl_rsa_key` resource was renamed to `openssl_rsa_private_key` in Chef Infra Client 14.0. Use the new name.
   StyleGuide: 'chef_modernize_opensslrsakeyresource'
   Enabled: true
   VersionAdded: '5.6.0'
@@ -1587,7 +1587,7 @@ Chef/Modernize/OpensslRsaKeyResource:
     - '**/metadata.rb'
 
 Chef/Modernize/OpensslX509Resource:
-  Description: The openssl_x509 resource was renamed to openssl_x509_certificate in Chef Infra Client 14.4. The new resource name should be used.
+  Description: The `openssl_x509` resource was renamed to `openssl_x509_certificate` in Chef Infra Client 14.4. Use the new name.
   StyleGuide: 'chef_modernize_opensslx509resource'
   Enabled: true
   VersionAdded: '5.6.0'
@@ -1595,7 +1595,7 @@ Chef/Modernize/OpensslX509Resource:
     - '**/metadata.rb'
 
 Chef/Modernize/OsxConfigProfileResource:
-  Description: The osx_config_profile resource was renamed to osx_profile. The new resource name should be used.
+  Description: The `osx_config_profile` resource was renamed to `osx_profile`. Use the new name.
   StyleGuide: 'chef_modernize_osxconfigprofileresource'
   Enabled: true
   VersionAdded: '5.6.0'
@@ -1603,7 +1603,7 @@ Chef/Modernize/OsxConfigProfileResource:
     - '**/metadata.rb'
 
 Chef/Modernize/SysctlParamResource:
-  Description: The sysctl_param resource was renamed to sysctl when it was added to Chef Infra Client 14.0. The new resource name should be used.
+  Description: The `sysctl_param` resource was renamed to `sysctl` when it was added to Chef Infra Client 14.0. Use the new name.
   StyleGuide: 'chef_modernize_sysctlparamresource'
   Enabled: true
   VersionAdded: '5.6.0'
@@ -1611,7 +1611,7 @@ Chef/Modernize/SysctlParamResource:
     - '**/metadata.rb'
 
 Chef/Modernize/MacOsXUserdefaults:
-  Description: The mac_os_x_userdefaults resource was renamed to macos_userdefaults when it was added to Chef Infra Client 14.0. The new resource name should be used.
+  Description: The `mac_os_x_userdefaults` resource was renamed to `macos_userdefaults` in Chef Infra Client 14.0. Use the new name.
   StyleGuide: 'chef_modernize_macosxuserdefaults'
   Enabled: true
   VersionAdded: '5.6.0'
@@ -1619,7 +1619,7 @@ Chef/Modernize/MacOsXUserdefaults:
     - '**/metadata.rb'
 
 Chef/Modernize/PowerShellGuardInterpreter:
-  Description: PowerShell is already set as the default guard interpreter for powershell_script resources in Chef Infra Client 13 and later and does not need to be specified.
+  Description: PowerShell is already the default guard interpreter for `powershell_script` resources in Chef Infra Client 13 and later. There is no need to set `guard_interpreter :powershell_script` explicitly.
   StyleGuide: 'chef_modernize_powershellguardinterpreter'
   Enabled: true
   VersionAdded: '5.9.0'
@@ -1637,7 +1637,7 @@ Chef/Modernize/DefaultActionFromInitialize:
     - '**/libraries/*.rb'
 
 Chef/Modernize/ResourceNameFromInitialize:
-  Description: The name of a resource can be set with the "resource_name" helper instead of using the initialize method.
+  Description: Set the resource name using the `resource_name` helper instead of overriding the `initialize` method. The helper is simpler and less error-prone.
   StyleGuide: 'chef_modernize_resourcenamefrominitialize'
   Enabled: true
   VersionAdded: '5.10.0'
@@ -1647,7 +1647,7 @@ Chef/Modernize/ResourceNameFromInitialize:
     - '**/libraries/*.rb'
 
 Chef/Modernize/Definitions:
-  Description: Legacy Chef Infra definitions should be rewritten as custom resources to take full advantage of the Chef Infra feature set.
+  Description: Legacy Chef Infra definitions should be rewritten as custom resources. Custom resources support notifications, why-run mode, reporting, and other features that definitions lack.
   StyleGuide: 'chef_modernize_definitions'
   Enabled: true
   VersionAdded: '5.11.0'
@@ -1655,7 +1655,7 @@ Chef/Modernize/Definitions:
     - '**/definitions/*.rb'
 
 Chef/Modernize/IfProvidesDefaultAction:
-  Description: if defined?(default_action) is no longer necessary in Chef Infra resources as default_action shipped in Chef Infra Client 10.8.
+  Description: Wrapping `default_action` in an `if defined?` check is no longer necessary. The `default_action` helper has been available since Chef Infra Client 10.8.
   StyleGuide: 'chef_modernize_ifprovidesdefaultaction'
   Enabled: true
   VersionAdded: '5.12.0'
@@ -1697,7 +1697,7 @@ Chef/Modernize/ChefGemNokogiri:
     - '**/attributes/*.rb'
 
 Chef/Modernize/PropertyWithNameAttribute:
-  Description: Resource property sets name_attribute not name_property
+  Description: "Use `name_property: true` instead of the legacy `name_attribute: true` when defining resource properties. Both work the same way, but `name_property` is the current convention."
   StyleGuide: 'chef_modernize_propertywithnameattribute'
   Enabled: true
   VersionAdded: '5.1.0'
@@ -1717,7 +1717,7 @@ Chef/Modernize/IncludingOhaiDefaultRecipe:
     - '**/Berksfile'
 
 Chef/Modernize/AllowedActionsFromInitialize:
-  Description: The allowed actions of a resource can be set with the "allowed_actions" helper instead of using the initialize method.
+  Description: Set the allowed actions of a resource using the `allowed_actions` helper instead of overriding the `initialize` method.
   StyleGuide: 'chef_modernize_allowedactionsfrominitialize'
   Enabled: true
   VersionAdded: '5.15.0'
@@ -1842,7 +1842,7 @@ Chef/Modernize/UseMultipackageInstalls:
     - '**/Berksfile'
 
 Chef/Modernize/ProvidesFromInitialize:
-  Description: Provides should be set using the `provides` resource DSL method instead of instead of setting @provides in the initialize method.
+  Description: Set `provides` using the resource DSL method instead of setting `@provides` in the `initialize` method.
   StyleGuide: 'chef_modernize_providesfrominitialize'
   Enabled: true
   VersionAdded: '6.0.0'
@@ -2036,7 +2036,7 @@ Chef/RedundantCode:
   StyleGuideBaseURL: https://docs.chef.io/workstation/cookstyle/
 
 Chef/RedundantCode/ConflictsMetadata:
-  Description: Don't use the deprecated 'conflicts' metadata value
+  Description: "Don't use the `conflicts` method in metadata.rb. This field was never used by Chef Infra Server or Client and is unnecessary."
   StyleGuide: 'chef_redundantcode_conflictsmetadata'
   Enabled: true
   VersionAdded: '5.1.0'
@@ -2045,7 +2045,7 @@ Chef/RedundantCode/ConflictsMetadata:
     - '**/metadata.rb'
 
 Chef/RedundantCode/SuggestsMetadata:
-  Description: The suggests metadata.rb method is not used and is unnecessary in cookbooks.
+  Description: The `suggests` method in metadata.rb is not used by Chef Infra Server or Client and can be safely removed.
   StyleGuide: 'chef_redundantcode_suggestsmetadata'
   Enabled: true
   VersionAdded: '5.1.0'
@@ -2054,7 +2054,7 @@ Chef/RedundantCode/SuggestsMetadata:
     - '**/metadata.rb'
 
 Chef/RedundantCode/ProvidesMetadata:
-  Description: The provides metadata.rb method is not used and is unnecessary in cookbooks.
+  Description: The `provides` method in metadata.rb is not used by Chef Infra Server or Client and can be safely removed.
   StyleGuide: 'chef_redundantcode_providesmetadata'
   Enabled: true
   VersionAdded: '5.1.0'
@@ -2063,7 +2063,7 @@ Chef/RedundantCode/ProvidesMetadata:
     - '**/metadata.rb'
 
 Chef/RedundantCode/ReplacesMetadata:
-  Description: The replaces metadata.rb method is not used and is unnecessary in cookbooks.
+  Description: The `replaces` method in metadata.rb is not used by Chef Infra Server or Client and can be safely removed.
   StyleGuide: 'chef_redundantcode_replacesmetadata'
   Enabled: true
   VersionAdded: '5.1.0'
@@ -2072,7 +2072,7 @@ Chef/RedundantCode/ReplacesMetadata:
     - '**/metadata.rb'
 
 Chef/RedundantCode/AttributeMetadata:
-  Description: The attribute metadata.rb method is not used and is unnecessary in cookbooks.
+  Description: The `attribute` method in metadata.rb is not used by Chef Infra Server or Client and can be safely removed.
   StyleGuide: 'chef_redundantcode_attributemetadata'
   Enabled: true
   VersionAdded: '5.1.0'
@@ -2081,7 +2081,7 @@ Chef/RedundantCode/AttributeMetadata:
     - '**/metadata.rb'
 
 Chef/RedundantCode/LongDescriptionMetadata:
-  Description: The long_description metadata.rb method is not used and is unnecessary in cookbooks
+  Description: The `long_description` method in metadata.rb is not used by Chef Infra Server or Client and can be safely removed.
   StyleGuide: 'chef_redundantcode_longdescriptionmetadata'
   Enabled: true
   VersionAdded: '5.2.0'
@@ -2090,7 +2090,7 @@ Chef/RedundantCode/LongDescriptionMetadata:
     - '**/metadata.rb'
 
 Chef/RedundantCode/RecipeMetadata:
-  Description: The recipe metadata.rb method is not used and is unnecessary in cookbooks. Recipes should be documented in the README.md file instead.
+  Description: The `recipe` method in metadata.rb is not used by Chef Infra Server or Client and can be safely removed. Document recipes in your README.md file instead.
   StyleGuide: 'chef_redundantcode_recipemetadata'
   Enabled: true
   VersionAdded: '5.6.0'
@@ -2099,7 +2099,7 @@ Chef/RedundantCode/RecipeMetadata:
     - '**/metadata.rb'
 
 Chef/RedundantCode/ResourceWithNothingAction:
-  Description: There is no need to define a :nothing action in your resource as Chef Infra Client provides the :nothing action by default for every resource.
+  Description: "There is no need to define a `:nothing` action in your resource. Chef Infra Client automatically provides the `:nothing` action for every resource."
   StyleGuide: 'chef_redundantcode_resourcewithnothingaction'
   Enabled: true
   VersionAdded: '5.12.0'
@@ -2120,7 +2120,7 @@ Chef/RedundantCode/UnnecessaryNameProperty:
     - '**/libraries/*.rb'
 
 Chef/RedundantCode/PropertyWithRequiredAndDefault:
-  Description: Resource property should not be both required and have a default value
+  Description: "A resource property should not be both `required: true` and have a `default` value. If a property has a default it will always have a value, making `required` unnecessary."
   StyleGuide: 'chef_redundantcode_propertywithrequiredanddefault'
   Enabled: true
   VersionAdded: '5.1.0'
@@ -2130,7 +2130,7 @@ Chef/RedundantCode/PropertyWithRequiredAndDefault:
     - '**/libraries/*.rb'
 
 Chef/RedundantCode/NamePropertyIsRequired:
-  Description: Resource properties marked as name properties should not also be required properties
+  Description: "Resource properties marked as `name_property: true` should not also have `required: true`. Name properties are automatically set from the resource block name and will always have a value."
   StyleGuide: 'chef_redundantcode_namepropertyisrequired'
   Enabled: true
   VersionAdded: '5.1.0'
@@ -2149,7 +2149,7 @@ Chef/RedundantCode/CustomResourceWithAllowedActions:
     - '**/resources/*.rb'
 
 Chef/RedundantCode/SensitivePropertyInResource:
-  Description: Every Chef Infra resources already include a sensitive property with a default value of false.
+  Description: Every Chef Infra resource already includes a `sensitive` property with a default value of `false`. There is no need to redefine it in your custom resource.
   StyleGuide: 'chef_redundantcode_sensitivepropertyinresource'
   Enabled: true
   VersionAdded: '5.16.0'
@@ -2167,7 +2167,7 @@ Chef/RedundantCode/UnnecessaryDesiredState:
     - '**/libraries/*.rb'
 
 Chef/RedundantCode/AptRepositoryNotifiesAptUpdate:
-  Description: There is no need to notify an apt-get update when an apt_repository is created as this is done automatically by the apt_repository resource.
+  Description: There is no need to notify an `apt-get update` when an `apt_repository` is created. The `apt_repository` resource automatically triggers a cache update.
   StyleGuide: 'chef_redundantcode_aptrepositorynotifiesaptupdate'
   Enabled: true
   VersionAdded: '5.17.0'
@@ -2187,7 +2187,7 @@ Chef/RedundantCode/AptRepositoryDistributionDefault:
     - '**/Berksfile'
 
 Chef/RedundantCode/GroupingMetadata:
-  Description: The grouping metadata.rb method is not used and is unnecessary in cookbooks.
+  Description: The `grouping` method in metadata.rb is not used by Chef Infra Server or Client and can be safely removed.
   StyleGuide: 'chef_redundantcode_groupingmetadata'
   Enabled: true
   VersionAdded: '5.19.0'
@@ -2195,7 +2195,7 @@ Chef/RedundantCode/GroupingMetadata:
     - '**/metadata.rb'
 
 Chef/RedundantCode/StringPropertyWithNilDefault:
-  Description: Properties have a nil value by default so there is no need to set the default value to nil.
+  Description: "Resource properties default to `nil` automatically, so explicitly setting `default: nil` is unnecessary."
   StyleGuide: 'chef_redundantcode_stringpropertywithnildefault'
   Enabled: true
   VersionAdded: '5.21.0'
@@ -2204,7 +2204,7 @@ Chef/RedundantCode/StringPropertyWithNilDefault:
     - '**/libraries/*.rb'
 
 Chef/RedundantCode/PropertySplatRegex:
-  Description: There is no need to validate the input of properties in resources using a regex value that will always pass.
+  Description: "Avoid using a regex like `/.*/` to validate resource properties, since a pattern that matches everything provides no real validation."
   StyleGuide: 'chef_redundantcode_propertysplatregex'
   Enabled: true
   VersionAdded: '5.21.0'
@@ -2213,7 +2213,7 @@ Chef/RedundantCode/PropertySplatRegex:
     - '**/libraries/*.rb'
 
 Chef/RedundantCode/UseCreateIfMissing:
-  Description: Use the :create_if_missing action instead of not_if with a ::File.exist(FOO) check.
+  Description: "Use the `:create_if_missing` action instead of pairing `:create` with a `not_if { ::File.exist?(...) }` guard. The built-in action is cleaner and less error-prone."
   StyleGuide: 'chef_redundantcode_usecreateifmissing'
   Enabled: true
   VersionAdded: '6.2.0'
@@ -2223,7 +2223,7 @@ Chef/RedundantCode/UseCreateIfMissing:
     - '**/Berksfile'
 
 Chef/RedundantCode/OhaiAttributeToString:
-  Description: Many Ohai node attributes are already strings and don't need to be cast to strings again
+  Description: "Many Ohai node attributes (like `node['platform']`) are already strings, so calling `.to_s` on them is unnecessary."
   StyleGuide: 'chef_redundantcode_ohaiattributetostring'
   Enabled: true
   VersionAdded: '6.10.0'
@@ -2232,7 +2232,7 @@ Chef/RedundantCode/OhaiAttributeToString:
     - '**/Berksfile'
 
 Chef/RedundantCode/MultiplePlatformChecks:
-  Description: You can pass multiple values to the platform? and platform_family? helpers instead of calling the helpers multiple times.
+  Description: "The `platform?` and `platform_family?` helpers accept multiple arguments, so use `platform?('ubuntu', 'debian')` instead of calling the helper multiple times."
   StyleGuide: 'chef_redundantcode_multipleplatformchecks'
   Enabled: true
   VersionAdded: '6.10.0'
@@ -2241,7 +2241,7 @@ Chef/RedundantCode/MultiplePlatformChecks:
     - '**/Berksfile'
 
 Chef/RedundantCode/DoubleCompileTime:
-  Description: If a resource includes the `compile_time` property there's no need to also use `.run_action(:some_action)` on the resource block
+  Description: "If a resource already sets `compile_time true`, there is no need to also call `.run_action(:some_action)` on the resource block. Both achieve compile-time execution, so using both is redundant."
   StyleGuide: 'chef_redundantcode_doublecompiletime'
   Enabled: true
   VersionAdded: '6.13.0'
@@ -2259,7 +2259,7 @@ Chef/Effortless:
   StyleGuideBaseURL: https://docs.chef.io/workstation/cookstyle/
 
 Chef/Effortless/CookbookUsesSearch:
-  Description: Cookbook uses search, which cannot be used in the Effortless Infra pattern
+  Description: Cookbook uses search, which is not available in the Effortless Infra pattern since there is no Chef Infra Server.
   StyleGuide: 'chef_effortless_cookbookusessearch'
   Enabled: false
   VersionAdded: '5.1.0'
@@ -2268,7 +2268,7 @@ Chef/Effortless/CookbookUsesSearch:
     - '**/Berksfile'
 
 Chef/Effortless/CookbookUsesDatabags:
-  Description: Cookbook uses data bags, which cannot be used in the Effortless Infra pattern
+  Description: Cookbook uses data bags, which are not available in the Effortless Infra pattern since there is no Chef Infra Server.
   StyleGuide: 'chef_effortless_cookbookusesdatabags'
   Enabled: false
   VersionAdded: '5.1.0'
@@ -2278,7 +2278,7 @@ Chef/Effortless/CookbookUsesDatabags:
 
 # https://github.com/chef/cookstyle/issues/346
 Chef/Effortless/ChefVaultUsed:
-  Description: Cookbook uses Chef Vault, which cannot be used in the Effortless Infra pattern
+  Description: Cookbook uses Chef Vault, which is not available in the Effortless Infra pattern. Use Habitat secrets or another secrets management solution instead.
   StyleGuide: 'chef_effortless_chefvaultused'
   Enabled: false
   VersionAdded: '6.19'
@@ -2288,7 +2288,7 @@ Chef/Effortless/ChefVaultUsed:
 
 # https://github.com/chef/cookstyle/issues/346
 Chef/Effortless/DependsChefVault:
-  Description: Cookbook depends on Chef Vault, which cannot be used in the Effortless Infra pattern
+  Description: "Cookbook declares a dependency on the `chef-vault` cookbook in metadata.rb, which is not available in the Effortless Infra pattern."
   StyleGuide: 'chef_effortless_dependschefvault'
   Enabled: false
   VersionAdded: '6.19'
@@ -2296,7 +2296,7 @@ Chef/Effortless/DependsChefVault:
     - '**/metadata.rb'
 
 Chef/Effortless/CookbookUsesEnvironments:
-  Description: Cookbook uses environments, which cannot be used in the Effortless Infra pattern
+  Description: Cookbook uses Chef Infra Server environments, which are not available in the Effortless Infra pattern.
   StyleGuide: 'chef_effortless_cookbookusesenvironments'
   Enabled: false
   VersionAdded: '5.10.0'
@@ -2305,7 +2305,7 @@ Chef/Effortless/CookbookUsesEnvironments:
     - '**/Berksfile'
 
 Chef/Effortless/CookbookUsesPolicygroups:
-  Description: Cookbook uses Policy Groups, which cannot be used in the Effortless Infra pattern
+  Description: Cookbook uses Policy Groups, which are not available in the Effortless Infra pattern.
   StyleGuide: 'chef_effortless_cookbookusespolicygroups'
   Enabled: false
   VersionAdded: '5.10.0'
@@ -2314,7 +2314,7 @@ Chef/Effortless/CookbookUsesPolicygroups:
     - '**/Berksfile'
 
 Chef/Effortless/CookbookUsesRoles:
-  Description: Cookbook uses Roles, which cannot be used in the Effortless Infra pattern
+  Description: Cookbook uses Chef Infra Server roles, which are not available in the Effortless Infra pattern.
   StyleGuide: 'chef_effortless_cookbookusesroles'
   Enabled: false
   VersionAdded: '5.10.0'
@@ -2323,7 +2323,7 @@ Chef/Effortless/CookbookUsesRoles:
     - '**/Berksfile'
 
 Chef/Effortless/SearchForEnvironmentsOrRoles:
-  Description: Cookbook uses search with a node query that looks for a role or environment
+  Description: Cookbook uses search with a node query that filters by role or environment, which are not available in the Effortless Infra pattern.
   StyleGuide: 'chef_effortless_searchforenvironmentsorroles'
   Enabled: false
   VersionAdded: '5.11.0'
@@ -2345,7 +2345,7 @@ InSpec/Deprecations:
   StyleGuideBaseURL: https://docs.chef.io/workstation/cookstyle/
 
 InSpec/Deprecations/AttributeHelper:
-  Description: InSpec attributes have been renamed to inputs. Use the `input` method not the deprecation `attribute` method to access these values.
+  Description: "InSpec attributes have been renamed to inputs. Use the `input` method instead of the deprecated `attribute` method to access these values."
   StyleGuide: 'inspec_deprecations_attributehelper'
   Enabled: true
   VersionAdded: '7.14.0'
@@ -2353,7 +2353,7 @@ InSpec/Deprecations/AttributeHelper:
     - '**/controls/*.rb'
 
 InSpec/Deprecations/AttributeDefault:
-  Description: The InSpec inputs `default` option has been replaced with the `value` option.
+  Description: "The InSpec inputs `default` option has been renamed to `value`. Update your input declarations to use the new option name."
   StyleGuide: 'inspec_deprecations_attributedefaults'
   Enabled: true
   VersionAdded: '7.14.0'

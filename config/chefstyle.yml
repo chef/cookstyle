@@ -882,14 +882,14 @@ Chef/Deprecations/Ruby27KeywordArgumentWarnings:
   VersionAdded: '1.3.0'
 
 Chef/Ruby/UnlessDefinedRequire:
-  Description: Workaround RubyGems' slow requires by only running require if the constant isn't already defined
+  Description: Speed up RubyGems loading by wrapping `require` statements in `unless defined?` checks so the file is only loaded when it hasn't been loaded already.
   Enabled: true
   VersionAdded: '1.3.0'
   Include:
     - 'lib/**/*'
 
 Chef/Ruby/GemspecRequireRubygems:
-  Description: Rubygems does not need to be required in a Gemspec
+  Description: There is no need to `require 'rubygems'` in a gemspec file because RubyGems is already loaded when processing gemspec files.
   Enabled: true
   VersionAdded: '1.3.0'
   Include:
@@ -906,7 +906,7 @@ Chef/Ruby/GemspecLicense:
     - '/**/test/**/*'
 
 Chef/Ruby/RequireNetHttps:
-  Description: net/https is deprecated and just includes net/http and openssl. We should include those directly instead
+  Description: The `net/https` library is deprecated because it simply loads `net/http` and `openssl` together. Require `net/http` and `openssl` directly instead.
   Enabled: true
   VersionAdded: '1.3.0'
 

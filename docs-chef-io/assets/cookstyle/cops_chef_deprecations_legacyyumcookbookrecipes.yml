@@ -2,8 +2,10 @@
 short_name: LegacyYumCookbookRecipes
 full_name: Chef/Deprecations/LegacyYumCookbookRecipes
 department: Chef/Deprecations
-description: Don't include recipes from the legacy yum cookbook that were removed in
-  later versions of the yum cookbook.
+description: |-
+  The Ohai default recipe previously allowed a user to ship custom Ohai plugins to a system by including them
+  in a directory in the Ohai cookbook. This functionality was replaced with the ohai_plugin resource, which
+  should be used instead as it doesn't require forking the ohai cookbook.
 autocorrection: false
 target_chef_version: All Versions
 examples: |2-

@@ -2,7 +2,7 @@
 short_name: UseCreateIfMissing
 full_name: Chef/RedundantCode/UseCreateIfMissing
 department: Chef/RedundantCode
-description: Use the `:create_if_missing` action instead of `not_if` with a `::File.exist?(FOO)`
+description: Use the `:create_if_missing` action instead of `not_if` with a `::File.exist(FOO)`
   check.
 autocorrection: true
 target_chef_version: All Versions

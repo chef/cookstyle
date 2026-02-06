@@ -7,7 +7,7 @@ description: |-
   be both required and a name_property. Name properties are a way to optionally
   override the name given to the resource block in cookbook code. In your resource
   code you use the name_property and if the user doesn't pass in anything to that
-  property its value will be populated with the resource block's name. This
+  property its value will be populated with resource block's name. This
   allows users to provide more friendly resource names for logging that give
   additional context on the change being made.
 

@@ -21,7 +21,7 @@ examples: |2-
   platform_family?('mac_os_x')
   platform_family?('windows')
   platform_family?('aix')
-  platform_family?('netbsd', 'openbsd', 'freebsd)
+  platform_family?('netbsd', 'openbsd', 'freebsd')
 version_added: 5.21.0
 enabled: true
 excluded_file_paths:
