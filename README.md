@@ -17,7 +17,7 @@ How does Cookstyle differ from RuboCop?
 
 Cookbook and profile development differs from that of traditional Ruby software development, so we have tailored the list of built-in cops in RuboCop for cookbook development. For the most part, this means disabling cops deemed not useful for cookbook development. Occasionally, we've changed the configuration of a rule to enforce a different behavior altogether. We've also extended the base RuboCop package with a set of our own Chef Infra-specific cops. These cops are only found in Cookstyle and will help you to write more reliable and future-proof cookbooks.
 
-See the current set of cops in [Cops Documentation](https://github.com/chef/cookstyle/blob/main/docs/cops.md)
+See the current set of cops in [Cops Documentation](https://docs.chef.io/workstation/cookstyle/cops/)
 
 #### Stable
 
@@ -25,11 +25,11 @@ RuboCop is an incredibly active project with new cops being introduced monthly. 
 
 ## Cookstyle vs. Foodcritic
 
-Cookstyle is the replacement for Foodcritic. For more information on why we decided to replace Foodcritic see our blog post [Goodbye Foodcritic](https://blog.chef.io/goodbye-foodcritic/)
+Cookstyle is the replacement for Foodcritic. For more information on why we decided to replace Foodcritic see our blog post [Goodbye Foodcritic](https://www.chef.io/blog/goodbye-foodcritic)
 
 ## Installation
 
-Cookstyle is included in [Chef Workstation](https://downloads.chef.io/chef-workstation/). If you choose not to use the Chef Workstation package, you can still install Cookstyle manually using the instructions below.
+Cookstyle is included in [Chef Workstation](https://www.chef.io/downloads/chef-workstation/). If you choose not to use the Chef Workstation package, you can still install Cookstyle manually using the instructions below.
 
 Add this line to your application's Gemfile:
 
