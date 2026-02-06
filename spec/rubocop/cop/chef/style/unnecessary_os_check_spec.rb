@@ -22,7 +22,7 @@ describe RuboCop::Cop::Chef::Style::UnnecessaryOSCheck, :config do
   it "registers an offense with node['os'] == 'darwin'" do
     expect_offense(<<~RUBY)
       node['os'] == 'darwin'
-      ^^^^^^^^^^^^^^^^^^^^^^ Use the platform_family?() helpers instead of node['os] == 'foo' for platform_families that match 1:1 with OS values.
+      ^^^^^^^^^^^^^^^^^^^^^^ Use the platform_family?() helpers instead of node['os'] == 'foo' for platform_families that match 1:1 with OS values.
     RUBY
 
     expect_correction(<<~RUBY)
@@ -33,7 +33,7 @@ describe RuboCop::Cop::Chef::Style::UnnecessaryOSCheck, :config do
   it "registers an offense with node['os'] == 'windows'" do
     expect_offense(<<~RUBY)
       node['os'] == 'windows'
-      ^^^^^^^^^^^^^^^^^^^^^^^ Use the platform_family?() helpers instead of node['os] == 'foo' for platform_families that match 1:1 with OS values.
+      ^^^^^^^^^^^^^^^^^^^^^^^ Use the platform_family?() helpers instead of node['os'] == 'foo' for platform_families that match 1:1 with OS values.
     RUBY
 
     expect_correction(<<~RUBY)
@@ -44,7 +44,7 @@ describe RuboCop::Cop::Chef::Style::UnnecessaryOSCheck, :config do
   it "registers an offense with node['os'].eql?('aix')" do
     expect_offense(<<~RUBY)
       node['os'].eql?('aix')
-      ^^^^^^^^^^^^^^^^^^^^^^ Use the platform_family?() helpers instead of node['os] == 'foo' for platform_families that match 1:1 with OS values.
+      ^^^^^^^^^^^^^^^^^^^^^^ Use the platform_family?() helpers instead of node['os'] == 'foo' for platform_families that match 1:1 with OS values.
     RUBY
 
     expect_correction(<<~RUBY)
@@ -55,7 +55,7 @@ describe RuboCop::Cop::Chef::Style::UnnecessaryOSCheck, :config do
   it "registers an offense with %w(netbsd openbsd freebsd).include?(node['os'])" do
     expect_offense(<<~RUBY)
       %w(netbsd openbsd freebsd).include?(node['os'])
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the platform_family?() helpers instead of node['os] == 'foo' for platform_families that match 1:1 with OS values.
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the platform_family?() helpers instead of node['os'] == 'foo' for platform_families that match 1:1 with OS values.
     RUBY
 
     expect_correction(<<~RUBY)
@@ -67,7 +67,7 @@ describe RuboCop::Cop::Chef::Style::UnnecessaryOSCheck, :config do
     expect_no_offenses("node['os'] == 'linux'")
   end
 
-  it "does not register an with node['os'].include? if any platforms aren't in our list of 1:1 matching platform families" do
+  it "does not register an offense with node['os'].include? if any platforms aren't in our list of 1:1 matching platform families" do
     expect_no_offenses(<<~RUBY)
       %w(netbsd openbsd freebsd linux).include?(node['os'])
     RUBY

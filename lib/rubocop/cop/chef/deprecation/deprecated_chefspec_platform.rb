@@ -19,7 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module Deprecations
-        # Use currently supported platforms in ChefSpec listed at https://github.com/chef/fauxhai/blob/main/PLATFORMS.md. Fauxhai / ChefSpec will perform fuzzy matching on platform version values so it's always best to be less specific ie. 10 instead of 10.3
+        # Use currently supported platforms in ChefSpec listed at https://github.com/chef/fauxhai/blob/main/PLATFORMS.md. Fauxhai / ChefSpec will perform fuzzy matching on platform version values so it's always best to be less specific i.e. 10 instead of 10.3
         #
         # @example
         #
@@ -29,7 +29,7 @@ module RuboCop
           include RuboCop::Chef::CookbookHelpers
           extend AutoCorrector
 
-          MSG = "Use currently supported platforms in ChefSpec listed at https://github.com/chef/fauxhai/blob/main/PLATFORMS.md. Fauxhai / ChefSpec will perform fuzzy matching on platform version so it's always best to be less specific ie. 10 instead of 10.3"
+          MSG = "Use currently supported platforms in ChefSpec listed at https://github.com/chef/fauxhai/blob/main/PLATFORMS.md. Fauxhai / ChefSpec will perform fuzzy matching on platform version so it's always best to be less specific i.e. 10 instead of 10.3"
 
           DEPRECATED_MAPPING = {
             'amazon' => {
@@ -109,7 +109,7 @@ module RuboCop
                                     replacement != true # true means it's busted, but requires human intervention to fix
             end
 
-            nil # we don't have a replacement os return nil
+            nil # we don't have a replacement so return nil
           end
 
           def on_send(node)

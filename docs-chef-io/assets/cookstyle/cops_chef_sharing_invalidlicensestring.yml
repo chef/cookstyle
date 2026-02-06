@@ -3,7 +3,7 @@ short_name: InvalidLicenseString
 full_name: Chef/Sharing/InvalidLicenseString
 department: Chef/Sharing
 description: |-
-  metadata.rb license field should include a SPDX compliant string or "all right reserved" (not case sensitive)
+  metadata.rb license field should include a SPDX compliant string or "all rights reserved" (not case sensitive)
 
   list of valid SPDX.org license strings. To build an array run this ruby:
   ```ruby

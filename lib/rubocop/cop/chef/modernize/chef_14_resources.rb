@@ -19,7 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module Modernize
-        # Don't depend on cookbooks made obsolete by Chef Infra Client 14.0+ These community cookbooks contain resources that are now included in Chef Infra Client itself.
+        # Don't depend on cookbooks made obsolete by Chef Infra Client 14.0+. These community cookbooks contain resources that are now included in Chef Infra Client itself.
         #
         # @example
         #

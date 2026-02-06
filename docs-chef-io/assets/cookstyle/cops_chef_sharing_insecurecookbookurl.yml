@@ -2,7 +2,7 @@
 short_name: InsecureCookbookURL
 full_name: Chef/Sharing/InsecureCookbookURL
 department: Chef/Sharing
-description: Use secure Github and Gitlab URLs for source_url and issues_url
+description: Use secure GitHub and GitLab URLs for source_url and issues_url
 autocorrection: true
 target_chef_version: All Versions
 examples: |2-

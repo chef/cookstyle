@@ -152,7 +152,7 @@ Chef/Style/ChefWhaaat:
   VersionAdded: '5.20.0'
 
 Chef/Style/UnnecessaryOSCheck:
-  Description: Use the platform_family?() helpers instead of node['os] == 'foo' for platform_families that match 1:1 with OS values. These helpers are easier to read and can accept multiple platform arguments, which greatly simplifies complex platform logic.
+  Description: Use the platform_family?() helpers instead of node['os'] == 'foo' for platform_families that match 1:1 with OS values. These helpers are easier to read and can accept multiple platform arguments, which greatly simplifies complex platform logic.
   StyleGuide: 'chef_style_unnecessaryoscheck'
   Enabled: true
   VersionAdded: '5.21.0'
@@ -793,7 +793,7 @@ Chef/Deprecations/LaunchdDeprecatedHashProperty:
     - '**/metadata.rb'
 
 Chef/Deprecations/LocaleDeprecatedLcAllProperty:
-  Description: The local resource's lc_all property has been deprecated and will be removed in Chef Infra Client 16
+  Description: The locale resource's lc_all property has been deprecated and will be removed in Chef Infra Client 16
   StyleGuide: 'chef_deprecations_localedeprecatedlcallproperty'
   Enabled: true
   VersionAdded: '5.5.0'
@@ -827,7 +827,7 @@ Chef/Deprecations/IncludingYumDNFCompatRecipe:
     - '**/metadata.rb'
 
 Chef/Deprecations/WindowsTaskChangeAction:
-  Description: The :change action in the windows_task resource was removed when windows_task was added to Chef Infra Client 13+. The default action of :create should can now be used to create an update tasks.
+  Description: The :change action in the windows_task resource was removed when windows_task was added to Chef Infra Client 13+. The default action of :create can now be used to create and update tasks.
   StyleGuide: 'chef_deprecations_windowstaskchangeaction'
   Enabled: true
   VersionAdded: '5.6.0'
@@ -1046,7 +1046,7 @@ Chef/Deprecations/DeprecatedPlatformMethods:
     - '**/providers/*.rb'
 
 Chef/Deprecations/DeprecatedChefSpecPlatform:
-  Description: Use currently supported platforms in ChefSpec listed at https://github.com/chef/fauxhai/blob/main/PLATFORMS.md. Fauxhai / ChefSpec will perform fuzzy matching on platform version so it's always best to be less specific ie. 10 instead of 10.3
+  Description: Use currently supported platforms in ChefSpec listed at https://github.com/chef/fauxhai/blob/main/PLATFORMS.md. Fauxhai / ChefSpec will perform fuzzy matching on platform version so it's always best to be less specific i.e. 10 instead of 10.3
   StyleGuide: 'chef_deprecations_deprecatedchefspecplatform'
   Enabled: true
   VersionAdded: '5.20.0'
@@ -1507,7 +1507,7 @@ Chef/Modernize/SevenZipArchiveResource:
     - '**/metadata.rb'
 
 Chef/Modernize/LibarchiveFileResource:
-  Description: Use the archive_file resource built into Chef Infra Client 15+ instead of the libarchive file resource from the libarchive cookbook
+  Description: Use the archive_file resource built into Chef Infra Client 15+ instead of the libarchive_file resource from the libarchive cookbook
   StyleGuide: 'chef_modernize_libarchivefileresource'
   Enabled: true
   VersionAdded: '5.5.0'

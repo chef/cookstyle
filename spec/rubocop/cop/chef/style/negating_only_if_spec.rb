@@ -19,7 +19,7 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Style::NegatingOnlyIf, :config do
-  it 'registers an offense when a only_if conditional negates ruby' do
+  it 'registers an offense when an only_if conditional negates ruby' do
     expect_offense(<<~RUBY)
       package 'legacy-sysv-deps' do
         only_if { !foo }

@@ -30,8 +30,8 @@ module RuboCop
         #   source_url 'http://gitlab.com/something/something'
         #
         #   # good
-        #   source_url 'http://github.com/something/something'
-        #   source_url 'http://gitlab.com/something/something'
+        #   source_url 'https://github.com/something/something'
+        #   source_url 'https://gitlab.com/something/something'
         #
         class InsecureCookbookURL < Base
           extend AutoCorrector

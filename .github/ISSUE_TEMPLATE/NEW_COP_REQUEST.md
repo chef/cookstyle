@@ -16,7 +16,7 @@ Please try to select as few as possible.
 - [ ] Chef/Effortless - A cop that alerts on code that must be resolved to move to the Effortless pattern
 - [ ] Chef/RedundantCode - A cop that detects redundant code regardless of Chef Infra release
 - [ ] Chef/Security - A cop that detects potential security issues like secrets in your code
-- [ ] InSpec/Deprecations - A cop that alerts on a deprecation in the Chef InSpec 
+- [ ] InSpec/Deprecations - A cop that alerts on a deprecation in Chef InSpec
 
 ### Describe the new cop:
 

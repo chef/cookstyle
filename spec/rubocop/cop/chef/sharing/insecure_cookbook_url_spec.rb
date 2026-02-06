@@ -51,7 +51,7 @@ describe RuboCop::Cop::Chef::Sharing::InsecureCookbookURL, :config do
     RUBY
   end
 
-  it 'also registers an offense when a cookbook sets its a bad issue_url' do
+  it 'also registers an offense when a cookbook sets a bad issue_url' do
     expect_offense(<<~RUBY)
       issues_url 'http://gitlab.com/something/something'
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Insecure http Github or Gitlab URLs for metadata source_url/issues_url fields

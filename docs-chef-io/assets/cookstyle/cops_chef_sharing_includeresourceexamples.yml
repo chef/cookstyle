@@ -2,7 +2,7 @@
 short_name: IncludeResourceExamples
 full_name: Chef/Sharing/IncludeResourceExamples
 department: Chef/Sharing
-description: Resources should include examples field to allow automated documentation.
+description: Resources should include an examples field to allow automated documentation.
   Requires Chef Infra Client 13.9 or later.
 autocorrection: false
 target_chef_version: 13.9+

@@ -19,7 +19,7 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Correctness::PowershellScriptDeleteFile, :config do
-  it 'registers an offense when when using powershell_script to run Remove-File' do
+  it 'registers an offense when using powershell_script to run Remove-File' do
     expect_offense(<<~RUBY)
       powershell_script 'Cleanup_Old_Install_File' do
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the `file` or `directory` resources built into Chef Infra Client with the :delete action to remove files/directories instead of using Remove-Item in a powershell_script resource

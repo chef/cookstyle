@@ -35,7 +35,7 @@ describe RuboCop::Cop::Chef::Modernize::ExecuteSleep, :config do
     RUBY
   end
 
-  it "registers an offense when running an bash resource with code 'sleep 60'" do
+  it "registers an offense when running a bash resource with code 'sleep 60'" do
     expect_offense(<<~RUBY)
       bash "Sleep the Chef run" do
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 15.5 and later include a chef_sleep resource that should be used to sleep between executing resources if necessary instead of using the bash or execute resources to run the sleep command.

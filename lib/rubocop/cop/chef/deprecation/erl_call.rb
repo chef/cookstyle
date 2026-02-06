@@ -19,7 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module Deprecations
-        # Don't use the deprecated `erl_call` resource removed in Chef Infra Client 13."
+        # Don't use the deprecated `erl_call` resource removed in Chef Infra Client 13.
         #
         # @example
         #

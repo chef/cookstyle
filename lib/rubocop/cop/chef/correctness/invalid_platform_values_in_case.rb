@@ -47,7 +47,7 @@ module RuboCop
                 when_node.each_condition do |con|
                   next unless con.str_type? # if the condition isn't a string we can't check so skip
                   new_value = INVALID_PLATFORMS[con.str_content]
-                  # some invalid platform have no direct correction value and return nil instead
+                  # some invalid platforms have no direct correction value and return nil instead
                   next unless new_value
 
                   add_offense(con, severity: :refactor) do |corrector|

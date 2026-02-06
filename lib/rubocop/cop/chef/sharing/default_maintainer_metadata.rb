@@ -19,7 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module Sharing
-        # Metadata contains default maintainer information from the `chef generate cookbook` command. This should be updated to reflect that actual maintainer of the cookbook.
+        # Metadata contains default maintainer information from the `chef generate cookbook` command. This should be updated to reflect the actual maintainer of the cookbook.
         #
         # @example
         #

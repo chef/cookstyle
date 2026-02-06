@@ -19,14 +19,14 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Correctness::PowershellFileExists, :config do
-  it 'registers an offense when when using powershell_out to run Test-Path' do
+  it 'registers an offense when using powershell_out to run Test-Path' do
     expect_offense(<<~RUBY)
       powershell_out('Test-Path "C:\\Program Files\\LAPS\\CSE\\AdmPwd.dll"').stdout.strip == 'True'
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use Ruby's built-in `File.exist?('C:\\somefile')` method instead of executing PowerShell's `Test-Path` cmdlet, which takes longer to load.
     RUBY
   end
 
-  it 'registers an offense when when using powershell_out! to run Test-Path' do
+  it 'registers an offense when using powershell_out! to run Test-Path' do
     expect_offense(<<~RUBY)
       powershell_out!('Test-Path "C:\\Program Files\\LAPS\\CSE\\AdmPwd.dll"').stdout.strip == 'True'
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use Ruby's built-in `File.exist?('C:\\somefile')` method instead of executing PowerShell's `Test-Path` cmdlet, which takes longer to load.

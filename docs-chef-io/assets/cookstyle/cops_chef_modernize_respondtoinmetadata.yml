@@ -2,7 +2,7 @@
 short_name: RespondToInMetadata
 full_name: Chef/Modernize/RespondToInMetadata
 department: Chef/Modernize
-description: It is not longer necessary respond_to?(:foo) or defined?(foo) in metadata.
+description: It is no longer necessary to use respond_to?(:foo) or defined?(foo) in metadata.
   This was used to support new metadata methods in Chef 11 and early versions of Chef
   12.
 autocorrection: true

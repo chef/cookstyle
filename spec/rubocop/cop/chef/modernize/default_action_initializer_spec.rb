@@ -19,7 +19,7 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::DefaultActionFromInitialize, :config do
-  it 'registers an offense with a HWRP specifies @action in the initializer' do
+  it 'registers an offense when a HWRP specifies @action in the initializer' do
     expect_offense(<<~RUBY)
       def initialize(*args)
         super
@@ -37,7 +37,7 @@ describe RuboCop::Cop::Chef::Modernize::DefaultActionFromInitialize, :config do
     RUBY
   end
 
-  it 'registers an offense with a HWRP specifies @default_action in the initializer' do
+  it 'registers an offense when a HWRP specifies @default_action in the initializer' do
     expect_offense(<<~RUBY)
       def initialize(*args)
         super

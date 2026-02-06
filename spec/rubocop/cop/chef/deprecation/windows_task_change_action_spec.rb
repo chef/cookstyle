@@ -25,7 +25,7 @@ describe RuboCop::Cop::Chef::Deprecations::WindowsTaskChangeAction, :config do
         start_day '06/09/2016'
         start_time '01:00'
         action :change
-               ^^^^^^^ The :change action in the windows_task resource was removed when windows_task was added to Chef Infra Client 13+. The default action of :create should can now be used to create an update tasks.
+               ^^^^^^^ The :change action in the windows_task resource was removed when windows_task was added to Chef Infra Client 13+. The default action of :create can now be used to create and update tasks.
       end
     RUBY
 
@@ -46,7 +46,7 @@ describe RuboCop::Cop::Chef::Deprecations::WindowsTaskChangeAction, :config do
         start_day '06/09/2016'
         start_time '01:00'
         action [:change, :create]
-                ^^^^^^^ The :change action in the windows_task resource was removed when windows_task was added to Chef Infra Client 13+. The default action of :create should can now be used to create an update tasks.
+                ^^^^^^^ The :change action in the windows_task resource was removed when windows_task was added to Chef Infra Client 13+. The default action of :create can now be used to create and update tasks.
       end
     RUBY
 

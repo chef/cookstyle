@@ -33,7 +33,7 @@ module RuboCop
         #     %w(redhat oracle) => {
         #       '5' => 'foo',
         #       '6' => 'bar',
-        #       'default'd => 'baz',
+        #       'default' => 'baz',
         #     }
         #   )
         #

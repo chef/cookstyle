@@ -23,7 +23,7 @@ describe RuboCop::Cop::Chef::Deprecations::DeprecatedYumRepositoryActions, :conf
     expect_offense(<<~RUBY)
       yum_repository 'OurCo' do
         action :delete
-        ^^^^^^^^^^^^^^ With the release of Chef Infra Client 12.14 and the yum cookbook 3.0 several properties in the yum_repository resource the actions the yum_repository resource actions were renamed. The `add` action became `create` and `delete` became `remove` to better match other resources in Chef Infra Client.
+        ^^^^^^^^^^^^^^ With the release of Chef Infra Client 12.14 and the yum cookbook 3.0 the `yum_repository` resource actions were renamed. The `add` action became `create` and `delete` became `remove` to better match other resources in Chef Infra Client.
       end
     RUBY
 
@@ -39,7 +39,7 @@ describe RuboCop::Cop::Chef::Deprecations::DeprecatedYumRepositoryActions, :conf
       yum_repository 'OurCo' do
         baseurl 'http://artifacts.ourco.org/foo/bar'
         action :add
-        ^^^^^^^^^^^ With the release of Chef Infra Client 12.14 and the yum cookbook 3.0 several properties in the yum_repository resource the actions the yum_repository resource actions were renamed. The `add` action became `create` and `delete` became `remove` to better match other resources in Chef Infra Client.
+        ^^^^^^^^^^^ With the release of Chef Infra Client 12.14 and the yum cookbook 3.0 the `yum_repository` resource actions were renamed. The `add` action became `create` and `delete` became `remove` to better match other resources in Chef Infra Client.
       end
     RUBY
 
