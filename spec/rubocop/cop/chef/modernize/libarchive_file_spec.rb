@@ -22,7 +22,7 @@ describe RuboCop::Cop::Chef::Modernize::LibarchiveFileResource, :config do
   it 'registers an offense when using the libarchive_file resource' do
     expect_offense(<<~RUBY)
       libarchive_file 'Precompiled.zip' do
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the archive_file resource built into Chef Infra Client 15+ instead of the libarchive file resource from the libarchive cookbook
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the archive_file resource built into Chef Infra Client 15+ instead of the libarchive_file resource from the libarchive cookbook
         path "foo/bar.zip"
         extract_to "/foo/bar"
       end
@@ -41,7 +41,7 @@ describe RuboCop::Cop::Chef::Modernize::LibarchiveFileResource, :config do
       remote_file archive_path do
         action :create_if_missing
         notifies :extract, 'libarchive_file[extract_yajsw]', :immediately
-                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the archive_file resource built into Chef Infra Client 15+ instead of the libarchive file resource from the libarchive cookbook
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the archive_file resource built into Chef Infra Client 15+ instead of the libarchive_file resource from the libarchive cookbook
       end
     RUBY
 

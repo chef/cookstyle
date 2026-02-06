@@ -19,7 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module Deprecations
-        # The local resource's lc_all property has been deprecated and will be removed in Chef Infra Client 17
+        # The locale resource's lc_all property has been deprecated and will be removed in Chef Infra Client 17
         #
         # @example
         #
@@ -32,7 +32,7 @@ module RuboCop
         class LocaleDeprecatedLcAllProperty < Base
           include RuboCop::Chef::CookbookHelpers
 
-          MSG = "The local resource's lc_all property has been deprecated and will be removed in Chef Infra Client 17"
+          MSG = "The locale resource's lc_all property has been deprecated and will be removed in Chef Infra Client 17"
 
           def on_block(node)
             match_property_in_resource?(:locale, 'lc_all', node) do |property|

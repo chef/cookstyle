@@ -57,7 +57,7 @@ describe RuboCop::Cop::Chef::Deprecations::ResourceUsesOnlyResourceName, :config
     RUBY
   end
 
-  it 'autocorrect deletes the resource_name if it the default name based on metadata.json data' do
+  it 'autocorrect deletes the resource_name if it is the default name based on metadata.json data' do
     allow(File).to receive(:exist?).and_call_original
     allow(File).to receive(:read).and_call_original
     allow(File).to receive(:exist?).with('/my_dev_dir/cookbooks/my_cookbook/metadata.rb').and_return(false)
@@ -83,7 +83,7 @@ describe RuboCop::Cop::Chef::Deprecations::ResourceUsesOnlyResourceName, :config
     expect(corrected).to eq("resource_name :my_cookbook_foo\nprovides :my_cookbook_foo\n")
   end
 
-  it 'is not an offense if the resource_name if it the default name based on metadata.json data, but the provides line contains a platform constraint' do
+  it 'is not an offense if the resource_name if it is the default name based on metadata.json data, but the provides line contains a platform constraint' do
     allow(File).to receive(:exist?).and_call_original
     allow(File).to receive(:read).and_call_original
     allow(File).to receive(:exist?).with('/my_dev_dir/cookbooks/my_cookbook/metadata.rb').and_return(false)

@@ -27,7 +27,7 @@ describe RuboCop::Cop::Chef::Correctness::ResourceSetsNameProperty, :config do
     RUBY
   end
 
-  it 'does not register an offense when when a resource sets other properties' do
+  it 'does not register an offense when a resource sets other properties' do
     expect_no_offenses(<<~RUBY)
       service 'foo' do
           not_name 'bar'

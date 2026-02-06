@@ -19,7 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module Deprecations
-        # In Chef Infra Client 13 and later you must either specific an absolute path when using the `execute` resource's `creates` property or also use the `cwd` property.
+        # In Chef Infra Client 13 and later you must either specify an absolute path when using the `execute` resource's `creates` property or also use the `cwd` property.
         #
         # @example
         #
@@ -41,7 +41,7 @@ module RuboCop
         class ExecuteRelativeCreatesWithoutCwd < Base
           include RuboCop::Chef::CookbookHelpers
 
-          MSG = "In Chef Infra Client 13 and later you must either specific an absolute path when using the `execute` resource's `creates` property or also use the `cwd` property."
+          MSG = "In Chef Infra Client 13 and later you must either specify an absolute path when using the `execute` resource's `creates` property or also use the `cwd` property."
 
           def on_block(node)
             match_property_in_resource?(:execute, 'creates', node) do |offense|

@@ -30,7 +30,7 @@ describe RuboCop::Cop::Chef::Style::IncludeRecipeWithParentheses, :config do
     RUBY
   end
 
-  it "does not register an with include_recipe 'foo'" do
+  it "does not register an offense with include_recipe 'foo'" do
     expect_no_offenses("include_recipe 'foo'")
   end
 end

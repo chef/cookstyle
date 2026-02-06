@@ -46,7 +46,7 @@ module RuboCop
 
           minimum_target_chef_version '12.14'
 
-          MSG = 'With the release of Chef Infra Client 12.14 and the yum cookbook 3.0 several properties in the yum_repository resource the actions the yum_repository resource actions were renamed. The `add` action became `create` and `delete` became `remove` to better match other resources in Chef Infra Client.'
+          MSG = 'With the release of Chef Infra Client 12.14 and the yum cookbook 3.0 the `yum_repository` resource actions were renamed. The `add` action became `create` and `delete` became `remove` to better match other resources in Chef Infra Client.'
 
           def on_block(node)
             match_property_in_resource?(:yum_repository, 'action', node) do |prop_node|

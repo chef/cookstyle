@@ -19,7 +19,7 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::IfProvidesDefaultAction, :config do
-  it 'registers an offense with a HWRP specifies the default_action in the initializer' do
+  it 'registers an offense when a HWRP specifies the default_action in the initializer' do
     expect_offense(<<~RUBY)
       default_action :foo if defined?(default_action)
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ if defined?(default_action) is no longer necessary in Chef Resources as default_action shipped in Chef 10.8.

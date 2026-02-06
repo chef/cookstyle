@@ -19,14 +19,14 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Correctness::PropertyWithoutType, :config do
-  it 'registers an offense when an property has no type' do
+  it 'registers an offense when a property has no type' do
     expect_offense(<<~RUBY)
       property :size, regex: /^\d+[KMGTP]$/
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Resource properties or attributes should always define a type to help users understand the correct allowed values.
     RUBY
   end
 
-  it 'registers an offense when an property has no type and no hash options' do
+  it 'registers an offense when a property has no type and no hash options' do
     expect_offense(<<~RUBY)
       property :size
       ^^^^^^^^^^^^^^ Resource properties or attributes should always define a type to help users understand the correct allowed values.

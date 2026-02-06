@@ -28,7 +28,7 @@ RSpec.describe RuboCop::Chef::CookbookHelpers do
   let (:running_true_ast) { s(:send, nil, :running, s(:true)) }
 
   describe '#resource_block_name_if_string' do
-    describe 'when the the resource name is a string' do
+    describe 'when the resource name is a string' do
       let(:resource_source) { "service 'foo' do; running true; end" }
 
       it 'returns the resource name string' do
@@ -36,7 +36,7 @@ RSpec.describe RuboCop::Chef::CookbookHelpers do
       end
     end
 
-    describe 'when the the resource name is a variable' do
+    describe 'when the resource name is a variable' do
       let(:resource_source) { 'service foo_service do; running true; end' }
 
       it 'returns nil' do

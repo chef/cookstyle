@@ -28,7 +28,7 @@ describe RuboCop::Cop::Chef::Modernize::WhyRunSupportedTrue, :config do
     expect_correction("\n")
   end
 
-  it "registers an offense when a using the typo'd form of the whyrun_supported? method" do
+  it "registers an offense when using the typo'd form of the whyrun_supported? method" do
     expect_offense(<<~RUBY)
       def why_run_supported?; true; end
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ whyrun_supported? no longer needs to be set to true as it is the default in Chef Infra Client 13+

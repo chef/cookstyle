@@ -19,7 +19,7 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Correctness::ScopedFileExist, :config do
-  it 'registers an offense when not scoping File.exist? in a only_if block' do
+  it 'registers an offense when not scoping File.exist? in an only_if block' do
     expect_offense(<<~RUBY)
       template '/etc/foo' do
         mode '0644'

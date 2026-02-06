@@ -101,7 +101,7 @@ describe RuboCop::Cop::Chef::Modernize::WindowsRegistryUAC, :config do
     RUBY
   end
 
-  it 'does not register when the values property is a variable or method we cant parse' do
+  it "does not register when the values property is a variable or method we can't parse" do
     expect_no_offenses(<<~RUBY)
       registry_key 'HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System' do
           values we_cant_parse_this
@@ -110,7 +110,7 @@ describe RuboCop::Cop::Chef::Modernize::WindowsRegistryUAC, :config do
     RUBY
   end
 
-  it 'does not register when the hash contains a variable or method we cant parse' do
+  it "does not register when the hash contains a variable or method we can't parse" do
     expect_no_offenses(<<~RUBY)
       registry_key 'HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System' do
         values [{ name: who_knows_what_this_is, type: :dword, data: 0 }, { name: 'Foo', type: :dword, data: 0 }]

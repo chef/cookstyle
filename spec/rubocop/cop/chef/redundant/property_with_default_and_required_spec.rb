@@ -27,7 +27,7 @@ describe RuboCop::Cop::Chef::RedundantCode::PropertyWithRequiredAndDefault, :con
     expect_correction("property :bob, String, required: true\n")
   end
 
-  it 'registers an offense when a attribute has a default value and is required' do
+  it 'registers an offense when an attribute has a default value and is required' do
     expect_offense(<<~RUBY)
       attribute :bob, String, required: true, default: 'foo'
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Resource properties should not be both required and have a default value. This will fail on Chef Infra Client 13+

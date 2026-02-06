@@ -36,7 +36,7 @@ module RuboCop
           def_node_search :cb_version?, '(send nil? :version str ...)'
 
           def on_new_investigation
-            # handle an empty metdata.rb file
+            # handle an empty metadata.rb file
             return if processed_source.ast.nil?
 
             # Using range similar to RuboCop::Cop::Naming::Filename (file_name.rb)

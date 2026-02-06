@@ -35,11 +35,11 @@ describe RuboCop::Cop::Chef::Ruby::LegacyPowershellOutMethods, :config do
     RUBY
   end
 
-  it "doesn't register an when using powershell_exec" do
+  it "doesn't register an offense when using powershell_exec" do
     expect_no_offenses("powershell_exec('foo')")
   end
 
-  it "doesn't register an when using powershell_exec!" do
+  it "doesn't register an offense when using powershell_exec!" do
     expect_no_offenses("powershell_exec!('foo')")
   end
 end

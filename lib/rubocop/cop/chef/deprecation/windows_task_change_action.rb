@@ -20,7 +20,7 @@ module RuboCop
     module Chef
       module Deprecations
         # The :change action in the windows_task resource was removed when windows_task was added to Chef Infra Client 13+
-        # The default action of :create should can now be used to create an update tasks.
+        # The default action of :create can now be used to create and update tasks.
         #
         # @example
         #
@@ -47,7 +47,7 @@ module RuboCop
 
           minimum_target_chef_version '13.0'
 
-          MSG = 'The :change action in the windows_task resource was removed when windows_task was added to Chef Infra Client 13+. The default action of :create should can now be used to create an update tasks.'
+          MSG = 'The :change action in the windows_task resource was removed when windows_task was added to Chef Infra Client 13+. The default action of :create can now be used to create and update tasks.'
 
           def on_block(node)
             match_property_in_resource?(:windows_task, 'action', node) do |action_node|

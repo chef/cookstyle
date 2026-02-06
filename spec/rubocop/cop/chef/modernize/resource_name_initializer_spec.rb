@@ -19,7 +19,7 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::ResourceNameFromInitialize, :config do
-  it 'registers an offense with a HWRP specifies the resource_name in the initializer' do
+  it 'registers an offense when a HWRP specifies the resource_name in the initializer' do
     expect_offense(<<~RUBY)
       def initialize(*args)
         super

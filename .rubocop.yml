@@ -6,7 +6,7 @@ Chef/Style/CommentFormat:
   Exclude:
     - 'lib/rubocop/cop/chef/comments_format.rb'
 
-# Chef/Modernize/FoodcriticComments itself include an example Foocritic comment which alerts
+# Chef/Modernize/FoodcriticComments itself includes an example Foodcritic comment which alerts
 Chef/Modernize/FoodcriticComments:
   Enabled: false
 

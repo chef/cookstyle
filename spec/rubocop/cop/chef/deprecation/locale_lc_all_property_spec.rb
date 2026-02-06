@@ -23,12 +23,12 @@ describe RuboCop::Cop::Chef::Deprecations::LocaleDeprecatedLcAllProperty, :confi
       locale 'set locale' do
         lang 'en_gb.utf-8'
         lc_all 'en_gb.utf-8'
-        ^^^^^^^^^^^^^^^^^^^^ The local resource's lc_all property has been deprecated and will be removed in Chef Infra Client 17
+        ^^^^^^^^^^^^^^^^^^^^ The locale resource's lc_all property has been deprecated and will be removed in Chef Infra Client 17
       end
     RUBY
   end
 
-  it "doesn't register an offense when when locale sets lang property" do
+  it "doesn't register an offense when locale sets lang property" do
     expect_no_offenses(<<~RUBY)
       locale 'set locale' do
         lang 'en_gb.utf-8'

@@ -36,7 +36,7 @@ describe RuboCop::Cop::Chef::Correctness::ConditionalRubyShellout, :config do
     RUBY
   end
 
-  it 'registers an offense with a only_if that shells out using shell_out' do
+  it 'registers an offense with an only_if that shells out using shell_out' do
     expect_offense(<<~RUBY)
       cookbook_file '/logs/foo/error.log' do
         source 'error.log'

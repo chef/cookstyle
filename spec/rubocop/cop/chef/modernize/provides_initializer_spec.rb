@@ -24,7 +24,7 @@ describe RuboCop::Cop::Chef::Modernize::ProvidesFromInitialize, :config do
       def initialize(*args)
         super
         @provides = :foo
-        ^^^^^^^^^^^^^^^^ Provides should be set using the `provides` resource DSL method instead of instead of setting @provides in the initialize method.
+        ^^^^^^^^^^^^^^^^ Provides should be set using the `provides` resource DSL method instead of setting @provides in the initialize method.
       end
     RUBY
 

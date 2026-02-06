@@ -19,7 +19,7 @@
 require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Correctness::MetadataMalformedDepends, :config do
-  it 'registers an when passing a name and a constraint without a comma' do
+  it 'registers an offense when passing a name and a constraint without a comma' do
     expect_offense(<<~RUBY)
       depends 'some_awesome_cookbook' '= 4.5.5'
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ metadata.rb cookbook dependencies and version constraints should be comma separated

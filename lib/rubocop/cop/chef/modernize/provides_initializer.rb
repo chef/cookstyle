@@ -19,7 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module Modernize
-        # Provides should be set using the `provides` resource DSL method instead of instead of setting @provides in the initialize method.
+        # Provides should be set using the `provides` resource DSL method instead of setting @provides in the initialize method.
         #
         # @example
         #
@@ -36,7 +36,7 @@ module RuboCop
           include RangeHelp
           extend AutoCorrector
 
-          MSG = 'Provides should be set using the `provides` resource DSL method instead of instead of setting @provides in the initialize method.'
+          MSG = 'Provides should be set using the `provides` resource DSL method instead of setting @provides in the initialize method.'
 
           def_node_matcher :provides_assignment?, <<-PATTERN
             (ivasgn :@provides $(sym ...))

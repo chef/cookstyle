@@ -19,7 +19,7 @@ module RuboCop
   module Cop
     module Chef
       module Style
-        # Use the platform_family?() helpers instead of node['os] == 'foo' for platform_families that match one-to-one with OS values. These helpers are easier to read and can accept multiple platform arguments, which greatly simplifies complex platform logic. All values of `os` from Ohai match one-to-one with `platform_family` values except for `linux`, which has no single equivalent `platform_family`.
+        # Use the platform_family?() helpers instead of node['os'] == 'foo' for platform_families that match one-to-one with OS values. These helpers are easier to read and can accept multiple platform arguments, which greatly simplifies complex platform logic. All values of `os` from Ohai match one-to-one with `platform_family` values except for `linux`, which has no single equivalent `platform_family`.
         #
         # @example
         #
@@ -33,12 +33,12 @@ module RuboCop
         #   platform_family?('mac_os_x')
         #   platform_family?('windows')
         #   platform_family?('aix')
-        #   platform_family?('netbsd', 'openbsd', 'freebsd)
+        #   platform_family?('netbsd', 'openbsd', 'freebsd')
         #
         class UnnecessaryOSCheck < Base
           extend AutoCorrector
 
-          MSG = "Use the platform_family?() helpers instead of node['os] == 'foo' for platform_families that match 1:1 with OS values."
+          MSG = "Use the platform_family?() helpers instead of node['os'] == 'foo' for platform_families that match 1:1 with OS values."
           RESTRICT_ON_SEND = [:==, :!=, :eql?, :include?].freeze
 
           # sorted list of all the os values that match 1:1 with a platform_family

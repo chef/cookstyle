@@ -35,7 +35,7 @@ describe RuboCop::Cop::Chef::Style::FileMode, :config do
     RUBY
   end
 
-  it 'registers an offense when setting a mode using a octal integer' do
+  it 'registers an offense when setting a mode using an octal integer' do
     expect_offense(<<~RUBY)
       file '/foo' do
         owner 'root'

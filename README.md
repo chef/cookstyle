@@ -5,7 +5,7 @@
 
 Cookstyle is a [code linting](https://en.wikipedia.org/wiki/Lint_%28software%29) tool that helps you to write better Chef Infra cookbooks and InSpec profiles by detecting and automatically correcting style, syntax, logic, and security mistakes in your code.
 
-Cookstyle is powered by the [RuboCop](https://www.rubocop.org) linting engine. RuboCop ships with over three-hundred rules, or cops, designed to detect common Ruby coding mistakes and enforce a common coding style. We've customized Cookstyle with a subset of those cops that we believe are perfectly tailored for cookbook development. We also ship **260 Chef Infra specific cops** that catch common cookbook coding mistakes, cleanup portions of code that are no longer necessary, and detect deprecations that prevent cookbooks from running on the latest releases of Chef Infra Client.
+Cookstyle is powered by the [RuboCop](https://www.rubocop.org) linting engine. RuboCop ships with over three-hundred rules, or cops, designed to detect common Ruby coding mistakes and enforce a common coding style. We've customized Cookstyle with a subset of those cops that we believe are perfectly tailored for cookbook development. We also ship **260 Chef Infra specific cops** that catch common cookbook coding mistakes, clean up portions of code that are no longer necessary, and detect deprecations that prevent cookbooks from running on the latest releases of Chef Infra Client.
 
 For complete usage documentation along with documentation for all the included cops see https://docs.chef.io/workstation/cookstyle/
 
@@ -17,7 +17,7 @@ How does Cookstyle differ from RuboCop?
 
 Cookbook and profile development differs from that of traditional Ruby software development, so we have tailored the list of built-in cops in RuboCop for cookbook development. For the most part, this means disabling cops deemed not useful for cookbook development. Occasionally, we've changed the configuration of a rule to enforce a different behavior altogether. We've also extended the base RuboCop package with a set of our own Chef Infra-specific cops. These cops are only found in Cookstyle and will help you to write more reliable and future-proof cookbooks.
 
-See the current set of cops in [Cops Documentation](https://github.com/chef/cookstyle/blob/main/docs/cops.md)
+See the current set of cops in [Cops Documentation](https://docs.chef.io/workstation/cookstyle/cops/)
 
 #### Stable
 
@@ -25,11 +25,11 @@ RuboCop is an incredibly active project with new cops being introduced monthly. 
 
 ## Cookstyle vs. Foodcritic
 
-Cookstyle is the replacement for Foodcritic. For more information on why we decided to replace Foodcritic see our blog post [Goodbye Foodcritic](https://blog.chef.io/goodbye-foodcritic/)
+Cookstyle is the replacement for Foodcritic. For more information on why we decided to replace Foodcritic see our blog post [Goodbye Foodcritic](https://www.chef.io/blog/goodbye-foodcritic)
 
 ## Installation
 
-Cookstyle is included in [Chef Workstation](https://downloads.chef.io/chef-workstation/). If you choose not to use the Chef Workstation package, you can still install Cookstyle manually using the instructions below.
+Cookstyle is included in [Chef Workstation](https://www.chef.io/downloads/chef-workstation/). If you choose not to use the Chef Workstation package, you can still install Cookstyle manually using the instructions below.
 
 Add this line to your application's Gemfile:
 
@@ -75,7 +75,7 @@ end
 
 Run RuboCop as normal, and simply add a `-r cookstyle` option when running:
 
-```sh
+```shell
 rubocop -r cookstyle -D --format offenses
 ```
 
@@ -107,9 +107,9 @@ As with RuboCop, any custom settings can still be placed in a `.rubocop.yml` fil
 
 ### Testing Against Specific Chef Versions
 
-Many of the cops included in Cookstyle will autocorrect Chef Infra cookbook code in ways that will require fairly recent releases of Chef Infra Client in order to run those cookbooks. For example the `Chef/Modernize/UnnecessaryDependsChef14` cop will remove cookbook dependencies from your `metadata.rb` which are no longer necessary with Chef Infra Client 14+. This cop would be problematic if you ran it against your cookbooks, and had yet to upgrade your fleet of systems to Chef Infra Client 14+. For this reason you may want to configure Cookstyle to skip cops that would be destructive on older version of Chef Infra Client by setting.
+Many of the cops included in Cookstyle will autocorrect Chef Infra cookbook code in ways that will require fairly recent releases of Chef Infra Client in order to run those cookbooks. For example, the `Chef/Modernize/UnnecessaryDependsChef14` cop will remove cookbook dependencies from your `metadata.rb` which are no longer necessary with Chef Infra Client 14+. This cop would be problematic if you ran it against your cookbooks, and had yet to upgrade your fleet of systems to Chef Infra Client 14+. For this reason you may want to configure Cookstyle to skip cops that would be destructive on older versions of Chef Infra Client.
 
-Cookstyle now includes a new top-level configuration option TargetChefVersion. This new configuration option works similarly to RuboCop's TargetRubyVersion config option and allows you to specify a Chef Infra version that you want to target in your Cookstyle analysis. By setting the target version you disable incompatible cops and autocorrect from running. This allows you to gradually update your target version to allow stepped upgrades of Chef Infra Client such as 12.something -> 12.latest -> 13.latest -> 14.latest -> 15.latest.
+Cookstyle includes a top-level configuration option TargetChefVersion. This configuration option works similarly to RuboCop's TargetRubyVersion config option and allows you to specify a Chef Infra version that you want to target in your Cookstyle analysis. By setting the target version you disable incompatible cops and autocorrect from running. This allows you to gradually update your target version to allow stepped upgrades of Chef Infra Client such as 12.something -> 12.latest -> 13.latest -> 14.latest -> 15.latest.
 
 Example .rubocop.yml config specifying a TargetChefVersion of 14.0:
 
@@ -160,7 +160,7 @@ The project itself is a derivative of [finstyle](https://github.com/fnichol/fins
 
 ### NOTE CAREFULLY ABOUT UPDATING COOKSTYLE
 
-Cookstyle is designed to allow bumping the RuboCop engine while keeping backwards compatibility with the config and not requiring all the cookbooks to update. This isn't *always* possible since many bugfixes catch new issues in cookbooks, but we do our best to prevent constantly linting of large codebases.
+Cookstyle is designed to allow bumping the RuboCop engine while keeping backwards compatibility with the config and not requiring all the cookbooks to update. This isn't *always* possible since many bugfixes catch new issues in cookbooks, but we do our best to prevent constant relinting of large codebases.
 
 Enabling or disabling any new cops in this file must be accompanied by comments demonstrating why the change should be made. Keep in mind anything you add here causes Chef users significant work, so make sure it's worth it.
 
