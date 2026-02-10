@@ -17,7 +17,7 @@ permissions:
   contents: read
   
 env:
-  STUB_VERSION: "1.0.7" 
+  STUB_VERSION: "1.0.8" 
 
 jobs: 
   echo_version:
@@ -92,14 +92,14 @@ jobs:
 
   call-ci-main-pr-check-pipeline:
     uses: chef/common-github-actions/.github/workflows/ci-main-pull-request.yml@main
-    needs: detect-custom-metadata
+    needs: [detect-custom-metadata, detect-version-from-file]
     secrets: inherit
     permissions: 
       id-token: write
       contents: read
 
     with:   
-      application: ${{ needs.detect-custom-metadata.outputs.primaryApp }}
+      application: ${{ needs.detect-custom-metadata.outputs.primaryApplication }}
       visibility: ${{ github.event.repository.visibility }}   #  private, public, or internal
       # go-private-modules: GOPRIVATE for Go private modules, default is 'github.com/progress-platform-services/*
 
