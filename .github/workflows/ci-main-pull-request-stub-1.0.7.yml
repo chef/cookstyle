@@ -79,7 +79,6 @@ jobs:
           if [ -f "VERSION" ]; then
             version=$(head -1 VERSION)
             echo "VERSION_FROM_FILE=$version" >> $GITHUB_ENV
-            # do not do echo "::set-output name=versionFromFile::$version" any more per https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/
             echo "versionFromFile=$version" >> $GITHUB_OUTPUT
           elif [ -f "go.mod" ]; then
             version=$(grep -Eo 'v[0-9]+\.[0-9]+\.[0-9]+' go.mod | head -1)
@@ -89,6 +88,7 @@ jobs:
             echo "VERSION_FROM_FILE not found, defaulting to empty"
             echo "versionFromFile=" >> $GITHUB_OUTPUT
           fi
+        # do not do echo "::set-output name=versionFromFile::$version" any more per https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/
 
   call-ci-main-pr-check-pipeline:
     uses: chef/common-github-actions/.github/workflows/ci-main-pull-request.yml@main
