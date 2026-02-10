@@ -69,17 +69,20 @@ jobs:
     outputs:
       versionFromFile: ${{ steps.set-version-from-file.outputs.versionFromFile }}
     steps:
+      - name: 'Checkout repository'
+        uses: actions/checkout@v4
+        
       - name: 'Detect version from file'
         id: set-version-from-file
         run: |
           ls
-          if [ -f "../../VERSION" ]; then
-            version=$(head -1 ../../VERSION)
+          if [ -f "VERSION" ]; then
+            version=$(head -1 VERSION)
             echo "VERSION_FROM_FILE=$version" >> $GITHUB_ENV
             # do not do echo "::set-output name=versionFromFile::$version" any more per https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/
             echo "versionFromFile=$version" >> $GITHUB_OUTPUT
-          elif [ -f "../../go.mod" ]; then
-            version=$(grep -Eo 'v[0-9]+\.[0-9]+\.[0-9]+' ../../go.mod | head -1)
+          elif [ -f "go.mod" ]; then
+            version=$(grep -Eo 'v[0-9]+\.[0-9]+\.[0-9]+' go.mod | head -1)
             echo "VERSION_FROM_FILE=$version" >> $GITHUB_ENV
             echo "versionFromFile=$version" >> $GITHUB_OUTPUT
           else
