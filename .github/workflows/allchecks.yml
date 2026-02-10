@@ -1,4 +1,6 @@
 name: All checks pass
+# should this be removed? It seems duplicate of continue-on-error and other statuses in more complex workflows
+# ref: https://github.com/wechuli/allcheckspassed/tree/v1/
 on:
   pull_request:
     types: [ opened, synchronize, reopened, ready_for_review ]
