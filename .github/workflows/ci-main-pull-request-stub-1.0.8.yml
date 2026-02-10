@@ -35,38 +35,6 @@ jobs:
       primaryApp: ${{ steps.set-custom-metadata.outputs.primaryApplication }}
       appBuildLanguage: ${{ steps.set-custom-metadata.outputs.applicationBuildLanguage }}
       appBuildProfile: ${{ steps.set-custom-metadata.outputs.applicationBuildProfile }}
-    steps:
-      - name: 'Detect app, language, and build profile environment variables from repository custom properties'
-        id: set-custom-metadata
-      # GH API returns something like [{"property_name":"GABuildLanguage","value":"go"},{"property_name":"GABuildProfile","value":"cli"},{"property_name":"primaryApplication","value":"chef-360"}]'
-        run: |
-          response=$(gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/${{ github.repository }}/properties/values) 
-
-          primaryApplication=$(echo "$response" | jq -r '.[] | select(.property_name=="primaryApplication") | .value')
-          GABuildLanguage=$(echo "$response" | jq -r '.[] | select(.property_name=="GABuildLanguage") | .value')
-          GABuildProfile=$(echo "$response" | jq -r '.[] | select(.property_name=="GABuildProfile") | .value')
-          
-          echo "PRIMARY APP... $primaryApplication"
-          echo "BUILD LANG... $GABuildLanguage"
-          echo "BUILD PROFILE... $GABuildProfile"
-          
-          echo "PRIMARY_APPLICATION=$primaryApplication" >> $GITHUB_ENV
-          echo "GA_BUILD_LANGUAGE=$GABuildLanguage" >> $GITHUB_ENV
-          echo "GA_BUILD_PROFILE=$GABuildProfile" >> $GITHUB_ENV
-
-          # If workflow_dispatch, use inputs (left), if other trigger, use default env (right)
-          # echo "::set-output name=build-and-verify::${{ github.event.inputs.build-and-verify || 'true' }}"
-          echo "::set-output name=primaryApplication::$primaryApplication"
-          echo "::set-output name=applicationBuildLanguage::$GABuildLanguage"
-          echo "::set-output name=applicationBuildProfile::$GABuildProfile"
-        continue-on-error: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
-    
-  detect-version-from-file:
-    name: 'Detect version from file'
-    runs-on: ubuntu-latest
-    outputs:
       versionFromFile: ${{ steps.set-version-from-file.outputs.versionFromFile }}
     steps:
       - name: 'Checkout repository'
@@ -90,9 +58,32 @@ jobs:
           fi
         # do not do echo "::set-output name=versionFromFile::$version" any more per https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/
 
+      - name: 'Detect app, language, and build profile environment variables from repository custom properties'
+        id: set-custom-metadata
+      # GH API returns something like [{"property_name":"GABuildLanguage","value":"go"},{"property_name":"GABuildProfile","value":"cli"},{"property_name":"primaryApplication","value":"chef-360"}]'
+        run: |
+          response=$(gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/${{ github.repository }}/properties/values) 
+
+          primaryApplication=$(echo "$response" | jq -r '.[] | select(.property_name=="primaryApplication") | .value')
+          GABuildLanguage=$(echo "$response" | jq -r '.[] | select(.property_name=="GABuildLanguage") | .value')
+          GABuildProfile=$(echo "$response" | jq -r '.[] | select(.property_name=="GABuildProfile") | .value')
+          
+          echo "PRIMARY_APPLICATION=$primaryApplication" >> $GITHUB_ENV
+          echo "GA_BUILD_LANGUAGE=$GABuildLanguage" >> $GITHUB_ENV
+          echo "GA_BUILD_PROFILE=$GABuildProfile" >> $GITHUB_ENV
+
+          # If workflow_dispatch, use inputs (left), if other trigger, use default env (right)
+          echo "primaryApplication=${primaryApplication}" >> $GITHUB_OUTPUT
+          echo "applicationBuildLanguage=${GABuildLanguage}" >> $GITHUB_OUTPUT
+          echo "applicationBuildProfile=${GABuildProfile}" >> $GITHUB_OUTPUT
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+    
   call-ci-main-pr-check-pipeline:
     uses: chef/common-github-actions/.github/workflows/ci-main-pull-request.yml@main
-    needs: [detect-custom-metadata, detect-version-from-file]
+    # needs: [detect-custom-metadata, detect-version-from-file]
+    needs: [detect-custom-metadata]
     secrets: inherit
     permissions: 
       id-token: write
@@ -104,7 +95,7 @@ jobs:
       # go-private-modules: GOPRIVATE for Go private modules, default is 'github.com/progress-platform-services/*
 
       # if version specified, it takes precedence; can be a semver like 1.0.2-xyz or a tag like "latest"
-      version: ${{ needs.detect-version-from-file.outputs.versionFromFile || '1.0.0' }} #8.6.3
+      version: ${{ needs.detect-custom-metadata.outputs.versionFromFile || '1.0.0' }}
       detect-version-source-type: 'file' # options include "none" (do not detect), "file", "github-tag" or "github-release"
       detect-version-source-parameter: '' # use for file name
       language: ${{ needs.detect-custom-metadata.outputs.appBuildLanguage }} # Go, Ruby, Rust, JavaScript, TypeScript, Python, Java, C#, PHP, other - used for build and SonarQube language setting
