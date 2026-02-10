@@ -32,7 +32,7 @@ jobs:
     name: 'Detect custom properties'
     runs-on: ubuntu-latest
     outputs:
-      primaryApp: ${{ steps.set-custom-metadata.outputs.primaryApplication }}
+      primaryApplication: ${{ steps.set-custom-metadata.outputs.primaryApplication }}
       appBuildLanguage: ${{ steps.set-custom-metadata.outputs.applicationBuildLanguage }}
       appBuildProfile: ${{ steps.set-custom-metadata.outputs.applicationBuildProfile }}
       versionFromFile: ${{ steps.set-version-from-file.outputs.versionFromFile }}
