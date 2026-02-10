@@ -74,16 +74,16 @@ jobs:
         
       - name: 'Detect version from file'
         id: set-version-from-file
+        shell: bash
         run: |
-          ls
-          if [ -f "VERSION" ]; then
+          if [[ -f "VERSION" ]]; then
             version=$(head -1 VERSION)
-            echo "VERSION_FROM_FILE=$version" >> $GITHUB_ENV
-            echo "versionFromFile=$version" >> $GITHUB_OUTPUT
-          elif [ -f "go.mod" ]; then
+            echo "VERSION_FROM_FILE=${version}" >> $GITHUB_ENV
+            echo "versionFromFile=${version}" >> $GITHUB_OUTPUT
+          elif [[ -f "go.mod" ]]; then
             version=$(grep -Eo 'v[0-9]+\.[0-9]+\.[0-9]+' go.mod | head -1)
-            echo "VERSION_FROM_FILE=$version" >> $GITHUB_ENV
-            echo "versionFromFile=$version" >> $GITHUB_OUTPUT
+            echo "VERSION_FROM_FILE=${version}" >> $GITHUB_ENV
+            echo "versionFromFile=${version}" >> $GITHUB_OUTPUT
           else
             echo "VERSION_FROM_FILE not found, defaulting to empty"
             echo "versionFromFile=" >> $GITHUB_OUTPUT
