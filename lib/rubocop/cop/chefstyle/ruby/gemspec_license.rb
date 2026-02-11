@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 #
-# Copyright:: Chef Software, Inc.
+#  Copyright (c) 2016-2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
 # Author:: Tim Smith (<tsmith@chef.io>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
