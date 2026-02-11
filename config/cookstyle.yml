@@ -2027,6 +2027,26 @@ Chef/Modernize/DeclareActionClass:
     - '**/resources/*.rb'
     - '**/libraries/*.rb'
 
+Chef/Modernize/PreferRemoteFile:
+  Description: Use the `remote_file` resource instead of `curl` or `wget`. Native resources ensure idempotence, support retries, and handle permissions correctly.
+  StyleGuide: 'chef_modernize_preferremotefile'
+  Enabled: true
+  VersionAdded: '8.0.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/attributes/*.rb'
+    - '**/Berksfile'
+
+Chef/Modernize/PreferArchiveFile:
+  Description: Use the `archive_file` resource instead of shell-based extraction (`tar`, `unzip`, etc.). Native resources handle idempotence and multiple formats natively.
+  StyleGuide: 'chef_modernize_preferarchivefile'
+  Enabled: true
+  VersionAdded: '8.0.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/attributes/*.rb'
+    - '**/Berksfile'
+
 ###############################
 # Chef/RedundantCode: Cleanup unnecessary code in your cookbooks regardless of Chef Infra Client release
 ###############################
