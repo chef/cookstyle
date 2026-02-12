@@ -28,8 +28,8 @@ module RuboCop
         #     code 'Install-Package -Name docker'
         #   end
         #
-        #  ### correct
-        #  powershell_package 'docker'
+        #   # good
+        #   powershell_package 'docker'
         #
         class PowershellInstallPackage < Base
           include RuboCop::Chef::CookbookHelpers

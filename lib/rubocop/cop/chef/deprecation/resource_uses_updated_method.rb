@@ -33,6 +33,7 @@ module RuboCop
         #     converge_by('resource did something') do
         #       # code that causes the resource to converge
         #     end
+        #   end
         #
         class ResourceUsesUpdatedMethod < Base
           MSG = "Don't use updated = true/false to update resource state. This will cause failures in Chef Infra Client 13 and later."
