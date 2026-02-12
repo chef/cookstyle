@@ -28,6 +28,7 @@ module RuboCop
         #   maintainer_email 'YOUR_EMAIL'
         #   maintainer 'The Authors'
         #   maintainer_email 'you@example.com'
+        #
         #   # good
         #   maintainer 'Bob Bobberson'
         #   maintainer_email 'bob@bobberson.com'

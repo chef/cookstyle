@@ -74,7 +74,7 @@ module RuboCop
 
           # see if the parent is a method and if it equals the passed in name
           #
-          # @param [Rubocop::AST:Node] node The rubocop ast node to search
+          # @param [RuboCop::AST::Node] node The rubocop ast node to search
           # @param [Symbol] name The method name
           #
           def parent_method_equals?(node, name)
