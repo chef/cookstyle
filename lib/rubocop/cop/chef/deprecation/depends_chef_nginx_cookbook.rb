@@ -36,12 +36,12 @@ module RuboCop
           MSG = "Don't depend on the deprecated `chef_nginx` cookbook that was replaced by the `nginx` cookbook."
           RESTRICT_ON_SEND = [:depends].freeze
 
-          def_node_matcher :depends_compat_resource?, <<-PATTERN
+          def_node_matcher :depends_chef_nginx?, <<-PATTERN
             (send nil? :depends (str {"chef_nginx"}))
           PATTERN
 
           def on_send(node)
-            depends_compat_resource?(node) do
+            depends_chef_nginx?(node) do
               add_offense(node, severity: :warning) do |corrector|
                 corrector.remove(range_with_surrounding_space(range: node.loc.expression, side: :left))
               end
