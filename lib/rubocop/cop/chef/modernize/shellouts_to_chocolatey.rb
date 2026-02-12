@@ -29,7 +29,7 @@ module RuboCop
         #   end
         #
         #  powershell_script 'add artifactory choco source' do
-        #    code "choco source add -n=artifactory -s='https://mycorp.jfrog.io/mycorp/api/nuget/chocolatey-remote' -u foo -p bar"x
+        #    code "choco source add -n=artifactory -s='https://mycorp.jfrog.io/mycorp/api/nuget/chocolatey-remote' -u foo -p bar"
         #    not_if 'choco source list | findstr artifactory'
         #  end
         #
