@@ -29,8 +29,8 @@ module RuboCop
         #     @resource_name = :foo
         #   end
         #
-        #  ### correct
-        #  resource_name :create
+        #   # good
+        #   resource_name :foo
 
         class ResourceNameFromInitialize < Base
           extend AutoCorrector
