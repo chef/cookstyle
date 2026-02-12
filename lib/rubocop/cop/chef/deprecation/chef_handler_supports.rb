@@ -26,7 +26,7 @@ module RuboCop
         #   # bad
         #   chef_handler 'whatever' do
         #     supports start: true, report: true, exception: true
-        #   end0
+        #   end
         #
         #   # good
         #   chef_handler 'whatever' do
