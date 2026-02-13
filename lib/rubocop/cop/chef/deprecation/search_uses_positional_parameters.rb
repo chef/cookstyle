@@ -23,17 +23,15 @@ module RuboCop
         #
         # @example
         #
-        ### incorrect:
-        #  search(:node, '*:*', 0, 1000, { :ip_address => ["ipaddress"] })
-        #  search(:node, '*:*', 0, 1000)
-        #  search(:node, '*:*', 0)
-
-        ### correct
+        #   # bad
+        #   search(:node, '*:*', 0, 1000, { :ip_address => ["ipaddress"] })
+        #   search(:node, '*:*', 0, 1000)
+        #   search(:node, '*:*', 0)
         #
-        # query(:node, '*:*')
-        #  search(:node, '*:*', start: 0, rows: 1000, filter_result: { :ip_address => ["ipaddress"] })
-        #  search(:node, '*:*', start: 0, rows: 1000)
-        #  search(:node, '*:*', start: 0)
+        #   # good
+        #   search(:node, '*:*', start: 0, rows: 1000, filter_result: { :ip_address => ["ipaddress"] })
+        #   search(:node, '*:*', start: 0, rows: 1000)
+        #   search(:node, '*:*', start: 0)
         #
         class SearchUsesPositionalParameters < Base
           extend AutoCorrector

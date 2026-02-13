@@ -24,7 +24,7 @@ module RuboCop
         # @example
         #
         #   # bad
-        #   ::Chef::PartialSearch.new.search((:node, 'role:web',
+        #   ::Chef::PartialSearch.new.search(:node, 'role:web',
         #     keys: { 'name' => [ 'name' ],
         #             'ip' => [ 'ipaddress' ],
         #             'kernel_version' => %w(kernel version),

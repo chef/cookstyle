@@ -23,15 +23,15 @@ module RuboCop
         #
         # @example
         #
-        #  ### incorrect
-        #  class AptUpdate < ChefCompat::Resource
-        #    # some resource code
-        #  end
+        #   # bad
+        #   class AptUpdate < ChefCompat::Resource
+        #     # some resource code
+        #   end
         #
-        #  ### correct
-        #  class AptUpdate < Chef::Resource
-        #    # some resource code
-        #  end
+        #   # good
+        #   class AptUpdate < Chef::Resource
+        #     # some resource code
+        #   end
         #
         #  # better
         #  Write a custom resource using the custom resource DSL and avoid class based HWRPs entirely

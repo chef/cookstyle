@@ -35,9 +35,9 @@ module RuboCop
         #     @default_action = :create
         #   end
         #
-        #  ### correct
-        #  default_action :create
-
+        #   # good
+        #   default_action :create
+        #
         class DefaultActionFromInitialize < Base
           extend AutoCorrector
           include RangeHelp

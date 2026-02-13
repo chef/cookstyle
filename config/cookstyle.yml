@@ -3305,3 +3305,7 @@ Style/ArrayIntersectWithSingleElement:
 # use `.method_defined?(:foo) instead of `.instance_methods.include?(:foo)` which is much slower
 Style/ModuleMemberExistenceCheck:
   Enabled: true
+
+# simplify array access
+Style/NegativeArrayIndex:
+  Enabled: true

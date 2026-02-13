@@ -23,8 +23,8 @@ module RuboCop
         #
         # @example
         #
-        # ### incorrect
-        # property :sensitive, [true, false], default: false
+        #   # bad
+        #   property :sensitive, [true, false], default: false
         #
         class SensitivePropertyInResource < Base
           extend AutoCorrector

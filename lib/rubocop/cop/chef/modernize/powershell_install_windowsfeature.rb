@@ -28,11 +28,11 @@ module RuboCop
         #     code 'Install-WindowsFeature -Name "Net-framework-Core"'
         #   end
         #
-        #  ### correct
-        #  windows_feature 'Net-framework-Core' do
-        #    action :install
-        #    install_method :windows_feature_powershell
-        #  end
+        #   # good
+        #   windows_feature 'Net-framework-Core' do
+        #     action :install
+        #     install_method :windows_feature_powershell
+        #   end
         #
         class PowershellInstallWindowsFeature < Base
           include RuboCop::Chef::CookbookHelpers

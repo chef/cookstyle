@@ -42,7 +42,7 @@ module RuboCop
           MSG = 'When writing cookbook generators use the ChefCLI module instead of the ChefDK module which was removed in Chef Workstation 0.8 and later.'
 
           def on_const(node)
-            # We want to catch calls like ChefCLI::CLI.whatever or places where classes are defined in the ChefDK module
+            # We want to catch calls like ChefDK::CLI.whatever or places where classes are defined in the ChefDK module
             return unless node.const_name == 'ChefDK' && (node.parent&.module_type? || node.parent&.const_type?)
 
             add_offense(node, severity: :warning) do |corrector|

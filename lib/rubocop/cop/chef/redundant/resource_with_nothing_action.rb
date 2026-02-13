@@ -24,7 +24,7 @@ module RuboCop
         # @example
         #
         #   # bad
-        #   action :nothing
+        #   action :nothing do
         #     # let's do nothing
         #   end
         #

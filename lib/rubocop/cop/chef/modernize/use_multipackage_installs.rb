@@ -37,7 +37,7 @@ module RuboCop
           extend AutoCorrector
 
           MSG = 'Pass an array of packages to package resources instead of iterating over an array of packages when using multi-package capable package subsystem such as apt, yum, chocolatey, dnf, or zypper. Multi-package installs are faster and simplify logs.'
-          MULTIPACKAGE_PLATS = %w(debian redhat suse amazon fedora scientific oracle rhel ubuntu centos redhat).freeze
+          MULTIPACKAGE_PLATS = %w(debian redhat suse amazon fedora scientific oracle rhel ubuntu centos).freeze
 
           def_node_matcher :platform_or_platform_family?, <<-PATTERN
             (send (send nil? :node) :[] (str {"platform" "platform_family"}) )

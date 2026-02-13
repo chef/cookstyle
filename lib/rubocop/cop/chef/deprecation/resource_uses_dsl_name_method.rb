@@ -37,8 +37,8 @@ module RuboCop
             add_offense(node, severity: :warning)
           end
 
-          # potential autocorrect is new_resource.updated_by_last_action true, but we need to actually see what class we were called from
-          # this might not be worth it yet based on the number of these we'd run into and the false auto correct potential
+          # potential autocorrect is to replace .dsl_name with .resource_name, but we need to actually verify the context
+          # this might not be worth it yet based on the false auto correct potential
         end
       end
     end

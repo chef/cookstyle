@@ -19,14 +19,14 @@ module RuboCop
   module Cop
     module Chef
       module Deprecations
-        # Use the type `property` instead of the deprecated `supports` property in the `chef_handler` resource. The `supports` property was removed in `chef_handler` cookbook version 3.0 (June 2017) and Chef Infra Client 14.0.
+        # Use the `type` property instead of the deprecated `supports` property in the `chef_handler` resource. The `supports` property was removed in `chef_handler` cookbook version 3.0 (June 2017) and Chef Infra Client 14.0.
         #
         # @example
         #
         #   # bad
         #   chef_handler 'whatever' do
         #     supports start: true, report: true, exception: true
-        #   end0
+        #   end
         #
         #   # good
         #   chef_handler 'whatever' do

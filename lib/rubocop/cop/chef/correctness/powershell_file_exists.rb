@@ -23,11 +23,11 @@ module RuboCop
         #
         # @example
         #
-        #  ### incorrect
-        #  powershell_out('Test-Path "C:\\Program Files\\LAPS\\CSE\\AdmPwd.dll"').stdout.strip == 'True'
+        #   # bad
+        #   powershell_out('Test-Path "C:\\Program Files\\LAPS\\CSE\\AdmPwd.dll"').stdout.strip == 'True'
         #
-        #  ### correct
-        #  ::File.exist?('C:\Program Files\LAPS\CSE\AdmPwd.dll')
+        #   # good
+        #   ::File.exist?('C:\Program Files\LAPS\CSE\AdmPwd.dll')
         #
         class PowershellFileExists < Base
           RESTRICT_ON_SEND = [:powershell_out, :powershell_out!].freeze
