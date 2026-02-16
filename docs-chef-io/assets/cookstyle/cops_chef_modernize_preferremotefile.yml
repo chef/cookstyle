@@ -1,0 +1,37 @@
+---
+short_name: PreferRemoteFile
+full_name: Chef/Modernize/PreferRemoteFile
+department: Chef/Modernize
+description: Use the `remote_file` resource instead of `curl` or `wget`. Native
+  resources ensure idempotence, support retries, and handle permissions correctly.
+autocorrection: false
+target_chef_version: All Versions
+examples: |2-
+
+  # bad
+  execute 'curl -k https://example.com/install.sh | bash'
+
+  # bad
+  execute 'wget https://example.com/file.tar.gz'
+
+  # bad
+  execute 'download_file' do
+    command 'curl https://example.com/file.tar.gz -o /tmp/file.tar.gz'
+  end
+
+  # good
+  remote_file '/tmp/file.tar.gz' do
+    source 'https://example.com/file.tar.gz'
+    mode '0644'
+  end
+version_added: 8.0.0
+enabled: true
+included_file_paths:
+- "**/recipes/*.rb"
+- "**/resources/*.rb"
+- "**/libraries/*.rb"
+- "**/providers/*.rb"
+excluded_file_paths:
+- "**/metadata.rb"
+- "**/attributes/*.rb"
+- "**/Berksfile"

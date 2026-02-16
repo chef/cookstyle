@@ -1,3 +1,5 @@
+require: cookstyle
+
 # enable new cops for rubocop-performance
 AllCops:
   NewCops: enable

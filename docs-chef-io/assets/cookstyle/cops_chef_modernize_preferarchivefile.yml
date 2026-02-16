@@ -1,0 +1,33 @@
+---
+short_name: PreferArchiveFile
+full_name: Chef/Modernize/PreferArchiveFile
+department: Chef/Modernize
+description: Use the `archive_file` resource instead of shell-based extraction (`tar`,
+  `unzip`, etc.). Native resources handle idempotence and multiple formats natively.
+autocorrection: false
+target_chef_version: All Versions
+examples: |2-
+
+  # bad
+  execute 'tar -xzf package.tar.gz'
+
+  # bad
+  bash 'extract' do
+    code 'unzip -o /tmp/app.zip -d /opt/app'
+  end
+
+  # good
+  archive_file '/opt/app' do
+    path '/tmp/package.tar.gz'
+  end
+version_added: 8.0.0
+enabled: true
+included_file_paths:
+- "**/recipes/*.rb"
+- "**/resources/*.rb"
+- "**/libraries/*.rb"
+- "**/providers/*.rb"
+excluded_file_paths:
+- "**/metadata.rb"
+- "**/attributes/*.rb"
+- "**/Berksfile"

@@ -2032,6 +2032,11 @@ Chef/Modernize/PreferRemoteFile:
   StyleGuide: 'chef_modernize_preferremotefile'
   Enabled: true
   VersionAdded: '8.0.0'
+  Include:
+    - '**/recipes/*.rb'
+    - '**/resources/*.rb'
+    - '**/libraries/*.rb'
+    - '**/providers/*.rb'
   Exclude:
     - '**/metadata.rb'
     - '**/attributes/*.rb'
@@ -2042,6 +2047,11 @@ Chef/Modernize/PreferArchiveFile:
   StyleGuide: 'chef_modernize_preferarchivefile'
   Enabled: true
   VersionAdded: '8.0.0'
+  Include:
+    - '**/recipes/*.rb'
+    - '**/resources/*.rb'
+    - '**/libraries/*.rb'
+    - '**/providers/*.rb'
   Exclude:
     - '**/metadata.rb'
     - '**/attributes/*.rb'
