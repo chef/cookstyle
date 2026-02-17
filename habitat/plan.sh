@@ -13,8 +13,9 @@ pkg_build_deps=(
   core/make
   core/bash
   core/gcc
+  core/git
 )
-pkg_deps=(${ruby_pkg} core/coreutils core/git)
+pkg_deps=(${ruby_pkg} core/coreutils)
 
 pkg_svc_user=root
 

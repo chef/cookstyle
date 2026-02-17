@@ -11,6 +11,9 @@ $pkg_maintainer="The Chef Maintainers <humans@chef.io>"
 
 $pkg_deps=@(
   "core/ruby3_4-plus-devkit"
+)
+
+$pkg_build_deps=@(
   "core/git"
 )
 $pkg_bin_dirs=@("bin"
