@@ -15,3 +15,10 @@ Chef/Modernize/FoodcriticComments:
 # reduces memory usage
 Style/FrozenStringLiteralComment:
   Enabled: true
+
+# The UnlessDefinedRequire cop is meant for Chef cookbooks, not for the cookstyle tool's own infrastructure files
+Chef/Ruby/UnlessDefinedRequire:
+  Exclude:
+    - 'Rakefile'
+    - 'cleanup_lint_roller.rb'
+    - 'tasks/**/*'
