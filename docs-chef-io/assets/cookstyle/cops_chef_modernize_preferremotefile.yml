@@ -24,7 +24,7 @@ examples: |2-
     source 'https://example.com/file.tar.gz'
     mode '0644'
   end
-version_added: 8.0.0
+version_added: 8.6.5
 enabled: true
 included_file_paths:
 - "**/recipes/*.rb"

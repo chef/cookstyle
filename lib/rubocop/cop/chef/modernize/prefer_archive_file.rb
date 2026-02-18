@@ -29,7 +29,7 @@ module RuboCop
         #   # bad
         #   execute 'tar -xzf package.tar.gz'
         #
-        #   # correct
+        #   # good
         #   archive_file '/opt/app' do
         #     path '/tmp/package.tar.gz'
         #   end

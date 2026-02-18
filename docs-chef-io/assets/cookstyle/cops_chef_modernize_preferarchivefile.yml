@@ -20,7 +20,7 @@ examples: |2-
   archive_file '/opt/app' do
     path '/tmp/package.tar.gz'
   end
-version_added: 8.0.0
+version_added: 8.6.5
 enabled: true
 included_file_paths:
 - "**/recipes/*.rb"

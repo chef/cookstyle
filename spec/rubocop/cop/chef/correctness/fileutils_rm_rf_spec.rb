@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-RSpec.describe RuboCop::Cop::Chef::Correctness::FileUtilsRMRF, :config do
+describe RuboCop::Cop::Chef::Correctness::FileUtilsRMRF, :config do
   it 'registers an offense when using FileUtils.rm_rf' do
     expect_offense(<<~RUBY)
       ruby_block 'delete stuff' do

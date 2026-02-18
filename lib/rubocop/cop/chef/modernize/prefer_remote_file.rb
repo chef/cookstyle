@@ -32,7 +32,7 @@ module RuboCop
         #   # bad
         #   execute 'wget https://example.com/file.tar.gz'
         #
-        #   # correct
+        #   # good
         #   remote_file '/tmp/file.tar.gz' do
         #     source 'https://example.com/file.tar.gz'
         #     mode '0644'

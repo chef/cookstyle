@@ -26,14 +26,14 @@ module RuboCop
         #
         # @example
         #
-        #   ### incorrect
+        #   # bad
         #   ruby_block 'delete temp file' do
         #     block do
         #       FileUtils.rm_rf '/tmp/foo.txt'
         #     end
         #   end
         #
-        #   ### correct
+        #   # good
         #   file '/tmp/foo.txt' do
         #     action :delete
         #   end
