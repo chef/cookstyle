@@ -171,6 +171,8 @@ jobs:
       perform-blackduck-sca-scan: true # combined with generate sbom & generate github-sbom, also needs version above
       blackduck-project-group-name: 'Chef-Agents' # typically one of (Chef), Chef-Agents, Chef-Automate, Chef-Chef360, Chef-Habitat, Chef-Infrastructure-Server, Chef-Shared-Services, Chef-Non-Product'
       blackduck-project-name: 'chef-cookstyle' # BlackDuck project name, typically the repository name
+
+      run-bundle-install: true
   
       # udf1: 'default' # user defined flag 1
       # udf2: 'default' # user defined flag 2 
