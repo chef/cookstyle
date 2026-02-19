@@ -7,9 +7,9 @@ name: CI Pull Request on Main Branch
 
 on: 
   pull_request:
-    branches: [ main, release/** ]
+    branches: [ nikhil/bump-version-sbom, release/** ]
   push:
-    branches: [ main, release/** ]
+    branches: [ nikhil/bump-version-sbom, release/** ]
 
   workflow_dispatch:
 
