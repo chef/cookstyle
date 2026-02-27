@@ -3309,3 +3309,44 @@ Style/ModuleMemberExistenceCheck:
 # simplify array access
 Style/NegativeArrayIndex:
   Enabled: true
+
+# Use the 1 line version of File.open
+Style/FileOpen:
+  Enabled: true
+
+# avoid a map to single and then a join when just a join would do
+Style/MapJoin:
+   Enabled: true
+
+# Use .partition instead of calls to both .select and .reject
+Style/PartitionInsteadOfDoubleSelect:
+  Enabled: true
+
+# avoid unecessary blocks
+Style/PredicateWithKind:
+  Enabled: true
+
+# Use .to_h instead of rolling your own hash construction
+Style/ReduceToHash:
+  Enabled: true
+
+# Use .max and .min instead of max_by and min_by with a block
+Style/RedundantMinMaxBy:
+  Enabled: true
+
+# avoid keyword_init when it's not necessary
+Style/RedundantStructKeywordInit:
+  Enabled: true
+
+# avoid select and reject with an uncessary block to select on class
+Style/SelectByKind:
+  Enabled: true
+
+# use .grep and .grep_v for simple ranges
+Style/SelectByRange:
+  Enabled: true
+
+# Use new .tally method that is much simpler that group_by with a block
+Style/TallyMethod:
+  Enabled: true
+
