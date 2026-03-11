@@ -13,7 +13,6 @@ artifact_channels:
   - current
   - base-2025
 
-
 release_branches:
   - main:
       version_constraint: 7.*
