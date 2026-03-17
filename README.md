@@ -177,4 +177,3 @@ Before updating the engine, save a copy of the current engine's rule output with
 # Copyright
 
 See [COPYRIGHT.md](./COPYRIGHT.md).
-
