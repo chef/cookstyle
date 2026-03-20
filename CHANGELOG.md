@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 8.6.8 -->
-## [v8.6.8](https://github.com/chef/cookstyle/tree/v8.6.8) (2026-03-11)
+ <!-- latest_release 8.6.9 -->
+## [v8.6.9](https://github.com/chef/cookstyle/tree/v8.6.9) (2026-03-20)
 
 #### Merged Pull Requests
-- Update Expeditor config to promote Habitat packages to current and base-2025 channels [#1060](https://github.com/chef/cookstyle/pull/1060) ([nikhil2611](https://github.com/nikhil2611))
+- CHEF-27648 Update and standardize copyright notices to Progress Software Corporation - copyright_update [#1045](https://github.com/chef/cookstyle/pull/1045) ([clintoncwolfe](https://github.com/clintoncwolfe))
 <!-- latest_release -->
 
 <!-- release_rollup since=7.32.8 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- CHEF-27648 Update and standardize copyright notices to Progress Software Corporation - copyright_update [#1045](https://github.com/chef/cookstyle/pull/1045) ([clintoncwolfe](https://github.com/clintoncwolfe)) <!-- 8.6.9 -->
 - Update Expeditor config to promote Habitat packages to current and base-2025 channels [#1060](https://github.com/chef/cookstyle/pull/1060) ([nikhil2611](https://github.com/nikhil2611)) <!-- 8.6.8 -->
 - Updated project name to chef-cookstyle because only cookstyle fails in sbominator and also fixed hab test pipeline [#1058](https://github.com/chef/cookstyle/pull/1058) ([nikhil2611](https://github.com/nikhil2611)) <!-- 8.6.7 -->
 - Change git build deps [#1056](https://github.com/chef/cookstyle/pull/1056) ([sanghinitin](https://github.com/sanghinitin)) <!-- 8.6.6 -->
