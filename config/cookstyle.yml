@@ -563,6 +563,15 @@ Chef/Correctness/InvalidNotificationResource:
     - '**/metadata.rb'
     - '**/Berksfile'
 
+Chef/Correctness/FileUtilsRMRF:
+  Description: 'Do not use FileUtils.rm_rf. Use the file or directory resources with action :delete instead.'
+  StyleGuide: 'chef_correctness_fileutilsrmrf'
+  Enabled: true
+  VersionAdded: '8.6.5'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/Berksfile'
+
 ###############################
 # Chef/Sharing: Issues that prevent sharing code with other teams or with the Chef community in general
 ###############################
@@ -2027,6 +2036,36 @@ Chef/Modernize/DeclareActionClass:
     - '**/resources/*.rb'
     - '**/libraries/*.rb'
 
+Chef/Modernize/PreferRemoteFile:
+  Description: Use the `remote_file` resource instead of `curl` or `wget`. Native resources ensure idempotence, support retries, and handle permissions correctly.
+  StyleGuide: 'chef_modernize_preferremotefile'
+  Enabled: true
+  VersionAdded: '8.6.5'
+  Include:
+    - '**/recipes/*.rb'
+    - '**/resources/*.rb'
+    - '**/libraries/*.rb'
+    - '**/providers/*.rb'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/attributes/*.rb'
+    - '**/Berksfile'
+
+Chef/Modernize/PreferArchiveFile:
+  Description: Use the `archive_file` resource instead of shell-based extraction (`tar`, `unzip`, etc.). Native resources handle idempotence and multiple formats natively.
+  StyleGuide: 'chef_modernize_preferarchivefile'
+  Enabled: true
+  VersionAdded: '8.6.5'
+  Include:
+    - '**/recipes/*.rb'
+    - '**/resources/*.rb'
+    - '**/libraries/*.rb'
+    - '**/providers/*.rb'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/attributes/*.rb'
+    - '**/Berksfile'
+
 ###############################
 # Chef/RedundantCode: Cleanup unnecessary code in your cookbooks regardless of Chef Infra Client release
 ###############################
@@ -3309,3 +3348,36 @@ Style/ModuleMemberExistenceCheck:
 # simplify array access
 Style/NegativeArrayIndex:
   Enabled: true
+
+###############################
+# Chef/Ruby: Ruby-specific cops for Chef codebases
+###############################
+
+Chef/Ruby/GemspecRequireRubygems:
+  Description: "Rubygems does not need to be required in a Gemspec. It's already loaded out of the box in Ruby now."
+  Enabled: true
+  VersionAdded: '8.6.5'
+  Include:
+    - '**/*.gemspec'
+
+Chef/Ruby/LegacyPowershellOutMethods:
+  Description: 'Use powershell_exec!/powershell_exec instead of the slower legacy powershell_out!/powershell_out methods.'
+  Enabled: true
+  VersionAdded: '8.6.5'
+
+Chef/Ruby/GemspecLicense:
+  Description: 'All gemspec files should define their license.'
+  Enabled: true
+  VersionAdded: '8.6.5'
+  Include:
+    - '**/*.gemspec'
+
+Chef/Ruby/RequireNetHttps:
+  Description: 'net/https is deprecated and just includes net/http and openssl. We should include those directly instead.'
+  Enabled: true
+  VersionAdded: '8.6.5'
+
+Chef/Ruby/UnlessDefinedRequire:
+  Description: "Workaround rubygems slow requires by only running require if the class isn't already defined."
+  Enabled: true
+  VersionAdded: '8.6.5'
