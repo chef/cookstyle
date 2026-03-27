@@ -1,72 +1,69 @@
 # Cookstyle Changelog
 
- <!-- latest_release 8.6.10 -->
-## [v8.6.10](https://github.com/chef/cookstyle/tree/v8.6.10) (2026-03-27)
-
-#### Merged Pull Requests
-- Updating config version constraint from 7.* to 8.* [#1062](https://github.com/chef/cookstyle/pull/1062) ([nikhil2611](https://github.com/nikhil2611))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=7.32.8 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Updating config version constraint from 7.* to 8.* [#1062](https://github.com/chef/cookstyle/pull/1062) ([nikhil2611](https://github.com/nikhil2611)) <!-- 8.6.10 -->
-- CHEF-27648 Update and standardize copyright notices to Progress Software Corporation - copyright_update [#1045](https://github.com/chef/cookstyle/pull/1045) ([clintoncwolfe](https://github.com/clintoncwolfe)) <!-- 8.6.9 -->
-- Update Expeditor config to promote Habitat packages to current and base-2025 channels [#1060](https://github.com/chef/cookstyle/pull/1060) ([nikhil2611](https://github.com/nikhil2611)) <!-- 8.6.8 -->
-- Updated project name to chef-cookstyle because only cookstyle fails in sbominator and also fixed hab test pipeline [#1058](https://github.com/chef/cookstyle/pull/1058) ([nikhil2611](https://github.com/nikhil2611)) <!-- 8.6.7 -->
-- Change git build deps [#1056](https://github.com/chef/cookstyle/pull/1056) ([sanghinitin](https://github.com/sanghinitin)) <!-- 8.6.6 -->
-- Update Rubocop to 1.84.2 + enable 1 new cop [#1053](https://github.com/chef/cookstyle/pull/1053) ([tas50](https://github.com/tas50)) <!-- 8.6.5 -->
-- Disable sonarqube from the CI pipeline [#1055](https://github.com/chef/cookstyle/pull/1055) ([jaymzh](https://github.com/jaymzh)) <!-- 8.6.4 -->
-- Fix typos throughout the project [#1054](https://github.com/chef/cookstyle/pull/1054) ([tas50](https://github.com/tas50)) <!-- 8.6.3 -->
-- Lint modernization [#1052](https://github.com/chef/cookstyle/pull/1052) ([jaymzh](https://github.com/jaymzh)) <!-- 8.6.2 -->
-- Update the hab plan for removing lint roller [#1050](https://github.com/chef/cookstyle/pull/1050) ([sanghinitin](https://github.com/sanghinitin)) <!-- 8.6.1 -->
-- Update to RuboCop 1.82.1 and enable a new cop [#1043](https://github.com/chef/cookstyle/pull/1043) ([tas50](https://github.com/tas50)) <!-- 8.6.0 -->
-- Fix docs rake task and cop example comments [#1041](https://github.com/chef/cookstyle/pull/1041) ([IanMadd](https://github.com/IanMadd)) <!-- 8.5.5 -->
-- Update actions/checkout@v6 [#1037](https://github.com/chef/cookstyle/pull/1037) ([dafyddcrosby](https://github.com/dafyddcrosby)) <!-- 8.5.4 -->
-- Update to RuboCop 1.81.7 [#1038](https://github.com/chef/cookstyle/pull/1038) ([tas50](https://github.com/tas50)) <!-- 8.5.3 -->
-- Update to RuboCop 1.81.6 [#1035](https://github.com/chef/cookstyle/pull/1035) ([tas50](https://github.com/tas50)) <!-- 8.5.2 -->
-- CHEF-24666 - Merge extra top-level docs into README [#1024](https://github.com/chef/cookstyle/pull/1024) ([cgunasree08](https://github.com/cgunasree08)) <!-- 8.5.1 -->
-- Update to Rubocop 1.81 + enable new cop [#1034](https://github.com/chef/cookstyle/pull/1034) ([tas50](https://github.com/tas50)) <!-- 8.5.0 -->
-- Update to RuboCop 1.80.2 [#1028](https://github.com/chef/cookstyle/pull/1028) ([tas50](https://github.com/tas50)) <!-- 8.4.4 -->
-- [CI] Update Windows runner to 2025 [#1032](https://github.com/chef/cookstyle/pull/1032) ([dafyddcrosby](https://github.com/dafyddcrosby)) <!-- 8.4.3 -->
-- Add myself to codeowners [#1033](https://github.com/chef/cookstyle/pull/1033) ([jaymzh](https://github.com/jaymzh)) <!-- 8.4.2 -->
-- CHEF-25767 - Standardize - Removing SLA from README [#1027](https://github.com/chef/cookstyle/pull/1027) ([nandanhegde73](https://github.com/nandanhegde73)) <!-- 8.4.1 -->
-- Update RuboCop to 1.79.2 + prep release [#1026](https://github.com/chef/cookstyle/pull/1026) ([tas50](https://github.com/tas50)) <!-- 8.4.0 -->
-- Add Chef/Correctness/EmptyResourceGuard cop [#1022](https://github.com/chef/cookstyle/pull/1022) ([sumedha-lolur](https://github.com/sumedha-lolur)) <!-- 8.3.1 -->
-- Update RuboCop to 1.79.1 [#1023](https://github.com/chef/cookstyle/pull/1023) ([tas50](https://github.com/tas50)) <!-- 8.3.0 -->
-- Ruby 3.4 update in cookstyle hab package for windows [#1019](https://github.com/chef/cookstyle/pull/1019) ([nikhil2611](https://github.com/nikhil2611)) <!-- 8.2.4 -->
-- Support private hab bldr of publishing hab pkg and update ruby core package [#1017](https://github.com/chef/cookstyle/pull/1017) ([sanjain-progress](https://github.com/sanjain-progress)) <!-- 8.2.3 -->
-- Fixing habitat test builds by declaring HAB_ORIGIN after habitat install [#1018](https://github.com/chef/cookstyle/pull/1018) ([nikhil2611](https://github.com/nikhil2611)) <!-- 8.2.2 -->
-- Upgrade RuboCop to 1.77 + enable new cops [#1016](https://github.com/chef/cookstyle/pull/1016) ([tas50](https://github.com/tas50)) <!-- 8.2.1 -->
-- Update to RuboCop 1.76.1 [#1015](https://github.com/chef/cookstyle/pull/1015) ([tas50](https://github.com/tas50)) <!-- 8.2.0 -->
-- Habitat authentication token [#1014](https://github.com/chef/cookstyle/pull/1014) ([borisicbs](https://github.com/borisicbs)) <!-- 8.1.6 -->
-- Update RuboCop to 1.75.8 [#1013](https://github.com/chef/cookstyle/pull/1013) ([tas50](https://github.com/tas50)) <!-- 8.1.5 -->
-- Updating version to 8.1.3 [#1011](https://github.com/chef/cookstyle/pull/1011) ([johnmccrae](https://github.com/johnmccrae)) <!-- 8.1.4 -->
-- Update RuboCop to 1.75.6 [#1010](https://github.com/chef/cookstyle/pull/1010) ([tas50](https://github.com/tas50)) <!-- 8.1.3 -->
-- Update RuboCop to 1.75.5 [#1009](https://github.com/chef/cookstyle/pull/1009) ([tas50](https://github.com/tas50)) <!-- 8.1.2 -->
-- correcting habitat plan [#1007](https://github.com/chef/cookstyle/pull/1007) ([johnmccrae](https://github.com/johnmccrae)) <!-- 8.1.1 -->
-- Update RuboCop to 1.75.3 [#1006](https://github.com/chef/cookstyle/pull/1006) ([tas50](https://github.com/tas50)) <!-- 8.1.0 -->
-- Remove extra deps we no longer need [#1005](https://github.com/chef/cookstyle/pull/1005) ([tas50](https://github.com/tas50)) <!-- 8.0.2 -->
-- Added support for Ruby 3.4 [#1004](https://github.com/chef/cookstyle/pull/1004) ([ashiqueps](https://github.com/ashiqueps)) <!-- 8.0.1 -->
-- Upgrade RuboCop to 1.75.2 + enable new cops [#984](https://github.com/chef/cookstyle/pull/984) ([tas50](https://github.com/tas50)) <!-- 8.0.0 -->
-- make pipelines public: habitat/test [#1002](https://github.com/chef/cookstyle/pull/1002) ([jaymzh](https://github.com/jaymzh)) <!-- 7.32.15 -->
-- Fix commented out cops due to renames [#981](https://github.com/chef/cookstyle/pull/981) ([tas50](https://github.com/tas50)) <!-- 7.32.14 -->
-- Updating configuration for a symantec version promote and publish [#999](https://github.com/chef/cookstyle/pull/999) ([nikhil2611](https://github.com/nikhil2611)) <!-- 7.32.13 -->
-- Test pipeline with empty commit [#994](https://github.com/chef/cookstyle/pull/994) ([nikhil2611](https://github.com/nikhil2611)) <!-- 0.1.2 -->
-- Added pipeline config to build automatically [#993](https://github.com/chef/cookstyle/pull/993) ([nikhil2611](https://github.com/nikhil2611)) <!-- 0.1.1 -->
-- [CI] Drop EOL rubies [#979](https://github.com/chef/cookstyle/pull/979) ([dafyddcrosby](https://github.com/dafyddcrosby)) <!-- 7.32.12 -->
-- Correct styleguide link for TmpPath [#973](https://github.com/chef/cookstyle/pull/973) ([williamtheaker](https://github.com/williamtheaker)) <!-- 7.32.11 -->
-- Fix #970: Add extra stub to pass ConfigValidator [#971](https://github.com/chef/cookstyle/pull/971) ([dafyddcrosby](https://github.com/dafyddcrosby)) <!-- 7.32.10 -->
-- [#946 and #954] Add missing tests [#972](https://github.com/chef/cookstyle/pull/972) ([dafyddcrosby](https://github.com/dafyddcrosby)) <!-- 7.32.9 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v8.6.10](https://github.com/chef/cookstyle/tree/v8.6.10) (2026-03-27)
+
+#### Merged Pull Requests
+- [#946 and #954] Add missing tests [#972](https://github.com/chef/cookstyle/pull/972) ([dafyddcrosby](https://github.com/dafyddcrosby))
+- Fix #970: Add extra stub to pass ConfigValidator [#971](https://github.com/chef/cookstyle/pull/971) ([dafyddcrosby](https://github.com/dafyddcrosby))
+- Correct styleguide link for TmpPath [#973](https://github.com/chef/cookstyle/pull/973) ([williamtheaker](https://github.com/williamtheaker))
+- [CI] Drop EOL rubies [#979](https://github.com/chef/cookstyle/pull/979) ([dafyddcrosby](https://github.com/dafyddcrosby))
+- Added pipeline config to build automatically [#993](https://github.com/chef/cookstyle/pull/993) ([nikhil2611](https://github.com/nikhil2611))
+- Test pipeline with empty commit [#994](https://github.com/chef/cookstyle/pull/994) ([nikhil2611](https://github.com/nikhil2611))
+- Updating configuration for a symantec version promote and publish [#999](https://github.com/chef/cookstyle/pull/999) ([nikhil2611](https://github.com/nikhil2611))
+- Fix commented out cops due to renames [#981](https://github.com/chef/cookstyle/pull/981) ([tas50](https://github.com/tas50))
+- make pipelines public: habitat/test [#1002](https://github.com/chef/cookstyle/pull/1002) ([jaymzh](https://github.com/jaymzh))
+- Upgrade RuboCop to 1.75.2 + enable new cops [#984](https://github.com/chef/cookstyle/pull/984) ([tas50](https://github.com/tas50))
+- Added support for Ruby 3.4 [#1004](https://github.com/chef/cookstyle/pull/1004) ([ashiqueps](https://github.com/ashiqueps))
+- Remove extra deps we no longer need [#1005](https://github.com/chef/cookstyle/pull/1005) ([tas50](https://github.com/tas50))
+- Update RuboCop to 1.75.3 [#1006](https://github.com/chef/cookstyle/pull/1006) ([tas50](https://github.com/tas50))
+- correcting habitat plan [#1007](https://github.com/chef/cookstyle/pull/1007) ([johnmccrae](https://github.com/johnmccrae))
+- Update RuboCop to 1.75.5 [#1009](https://github.com/chef/cookstyle/pull/1009) ([tas50](https://github.com/tas50))
+- Update RuboCop to 1.75.6 [#1010](https://github.com/chef/cookstyle/pull/1010) ([tas50](https://github.com/tas50))
+- Updating version to 8.1.3 [#1011](https://github.com/chef/cookstyle/pull/1011) ([johnmccrae](https://github.com/johnmccrae))
+- Update RuboCop to 1.75.8 [#1013](https://github.com/chef/cookstyle/pull/1013) ([tas50](https://github.com/tas50))
+- Habitat authentication token [#1014](https://github.com/chef/cookstyle/pull/1014) ([borisicbs](https://github.com/borisicbs))
+- Update to RuboCop 1.76.1 [#1015](https://github.com/chef/cookstyle/pull/1015) ([tas50](https://github.com/tas50))
+- Upgrade RuboCop to 1.77 + enable new cops [#1016](https://github.com/chef/cookstyle/pull/1016) ([tas50](https://github.com/tas50))
+- Fixing habitat test builds by declaring HAB_ORIGIN after habitat install [#1018](https://github.com/chef/cookstyle/pull/1018) ([nikhil2611](https://github.com/nikhil2611))
+- Support private hab bldr of publishing hab pkg and update ruby core package [#1017](https://github.com/chef/cookstyle/pull/1017) ([sanjain-progress](https://github.com/sanjain-progress))
+- Ruby 3.4 update in cookstyle hab package for windows [#1019](https://github.com/chef/cookstyle/pull/1019) ([nikhil2611](https://github.com/nikhil2611))
+- Update RuboCop to 1.79.1 [#1023](https://github.com/chef/cookstyle/pull/1023) ([tas50](https://github.com/tas50))
+- Add Chef/Correctness/EmptyResourceGuard cop [#1022](https://github.com/chef/cookstyle/pull/1022) ([sumedha-lolur](https://github.com/sumedha-lolur))
+- Update RuboCop to 1.79.2 + prep release [#1026](https://github.com/chef/cookstyle/pull/1026) ([tas50](https://github.com/tas50))
+- CHEF-25767 - Standardize - Removing SLA from README [#1027](https://github.com/chef/cookstyle/pull/1027) ([nandanhegde73](https://github.com/nandanhegde73))
+- Add myself to codeowners [#1033](https://github.com/chef/cookstyle/pull/1033) ([jaymzh](https://github.com/jaymzh))
+- [CI] Update Windows runner to 2025 [#1032](https://github.com/chef/cookstyle/pull/1032) ([dafyddcrosby](https://github.com/dafyddcrosby))
+- Update to RuboCop 1.80.2 [#1028](https://github.com/chef/cookstyle/pull/1028) ([tas50](https://github.com/tas50))
+- Update to Rubocop 1.81 + enable new cop [#1034](https://github.com/chef/cookstyle/pull/1034) ([tas50](https://github.com/tas50))
+- CHEF-24666 - Merge extra top-level docs into README [#1024](https://github.com/chef/cookstyle/pull/1024) ([cgunasree08](https://github.com/cgunasree08))
+- Update to RuboCop 1.81.6 [#1035](https://github.com/chef/cookstyle/pull/1035) ([tas50](https://github.com/tas50))
+- Update to RuboCop 1.81.7 [#1038](https://github.com/chef/cookstyle/pull/1038) ([tas50](https://github.com/tas50))
+- Update actions/checkout@v6 [#1037](https://github.com/chef/cookstyle/pull/1037) ([dafyddcrosby](https://github.com/dafyddcrosby))
+- Fix docs rake task and cop example comments [#1041](https://github.com/chef/cookstyle/pull/1041) ([IanMadd](https://github.com/IanMadd))
+- Update to RuboCop 1.82.1 and enable a new cop [#1043](https://github.com/chef/cookstyle/pull/1043) ([tas50](https://github.com/tas50))
+- Update the hab plan for removing lint roller [#1050](https://github.com/chef/cookstyle/pull/1050) ([sanghinitin](https://github.com/sanghinitin))
+- Lint modernization [#1052](https://github.com/chef/cookstyle/pull/1052) ([jaymzh](https://github.com/jaymzh))
+- Fix typos throughout the project [#1054](https://github.com/chef/cookstyle/pull/1054) ([tas50](https://github.com/tas50))
+- Disable sonarqube from the CI pipeline [#1055](https://github.com/chef/cookstyle/pull/1055) ([jaymzh](https://github.com/jaymzh))
+- Update Rubocop to 1.84.2 + enable 1 new cop [#1053](https://github.com/chef/cookstyle/pull/1053) ([tas50](https://github.com/tas50))
+- Change git build deps [#1056](https://github.com/chef/cookstyle/pull/1056) ([sanghinitin](https://github.com/sanghinitin))
+- Updated project name to chef-cookstyle because only cookstyle fails in sbominator and also fixed hab test pipeline [#1058](https://github.com/chef/cookstyle/pull/1058) ([nikhil2611](https://github.com/nikhil2611))
+- Update Expeditor config to promote Habitat packages to current and base-2025 channels [#1060](https://github.com/chef/cookstyle/pull/1060) ([nikhil2611](https://github.com/nikhil2611))
+- CHEF-27648 Update and standardize copyright notices to Progress Software Corporation - copyright_update [#1045](https://github.com/chef/cookstyle/pull/1045) ([clintoncwolfe](https://github.com/clintoncwolfe))
+- Updating config version constraint from 7.* to 8.* [#1062](https://github.com/chef/cookstyle/pull/1062) ([nikhil2611](https://github.com/nikhil2611))
+<!-- latest_stable_release -->
+
 ## [v7.32.8](https://github.com/chef/cookstyle/tree/v7.32.8) (2024-02-06)
 
 #### Merged Pull Requests
 - Add chefstyle library file for Rake backwards compatibility [#969](https://github.com/chef/cookstyle/pull/969) ([dafyddcrosby](https://github.com/dafyddcrosby))
-<!-- latest_stable_release -->
 
 ## [v7.32.7](https://github.com/chef/cookstyle/tree/v7.32.7) (2024-01-23)
 
