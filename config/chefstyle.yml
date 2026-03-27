@@ -880,10 +880,6 @@ Style/ModuleMemberExistenceCheck:
 Style/NegativeArrayIndex:
   Enabled: true
 
-# Use the 1 line version of File.open
-Style/FileOpen:
-  Enabled: true
-
 # avoid a map to single and then a join when just a join would do
 Style/MapJoin:
    Enabled: true
