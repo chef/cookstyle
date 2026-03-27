@@ -15,7 +15,7 @@ artifact_channels:
 
 release_branches:
   - main:
-      version_constraint: 7.*
+      version_constraint: 8.*
 
 github:
   # This deletes the GitHub PR branch after successfully merged into the release branch
