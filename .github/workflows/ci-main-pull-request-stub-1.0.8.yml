@@ -17,7 +17,7 @@ permissions:
   contents: read
   
 env:
-  STUB_VERSION: "1.0.8" 
+  STUB_VERSION: "1.0.8"
 
 jobs: 
   echo_version:
@@ -39,7 +39,7 @@ jobs:
     steps:
       - name: 'Checkout repository'
         uses: actions/checkout@v4
-        
+
       - name: 'Detect version from file'
         id: set-version-from-file
         shell: bash
@@ -82,8 +82,7 @@ jobs:
     
   call-ci-main-pr-check-pipeline:
     uses: chef/common-github-actions/.github/workflows/ci-main-pull-request.yml@main
-    # needs: [detect-custom-metadata, detect-version-from-file]
-    needs: [detect-custom-metadata]
+    needs: detect-custom-metadata
     secrets: inherit
     permissions: 
       id-token: write
@@ -95,7 +94,7 @@ jobs:
       # go-private-modules: GOPRIVATE for Go private modules, default is 'github.com/progress-platform-services/*
 
       # if version specified, it takes precedence; can be a semver like 1.0.2-xyz or a tag like "latest"
-      version: ${{ needs.detect-custom-metadata.outputs.versionFromFile || '1.0.0' }}
+      version: ${{ needs.detect-custom-metadata.outputs.versionFromFile }}
       detect-version-source-type: 'file' # options include "none" (do not detect), "file", "github-tag" or "github-release"
       detect-version-source-parameter: '' # use for file name
       language: ${{ needs.detect-custom-metadata.outputs.appBuildLanguage }} # Go, Ruby, Rust, JavaScript, TypeScript, Python, Java, C#, PHP, other - used for build and SonarQube language setting
@@ -103,9 +102,14 @@ jobs:
       # complexity-checks, linting, trufflehog and trivy
       perform-complexity-checks: true
       # scc-output-filename: 'scc-output.txt'
-      perform-language-linting: true    # Perform language-specific linting and pre-compilation checks
+      perform-language-linting: false    # Perform language-specific linting and pre-compilation checks
       perform-trufflehog-scan: true
       perform-trivy-scan: true
+
+      # grype vulnerability scanning
+      perform-grype-scan: true
+      grype-fail-on-high: true
+      grype-fail-on-critical: true
              
       # perform application build and unit testing, will use custom repository properties when implemented for chef-primary-application, chef-build-profile, and chef-build-language
       build: true
@@ -131,10 +135,21 @@ jobs:
       # polaris-config-path: ''   # Path to Detect configuration file, typically a file supplied at root level like ./detect-config.yml
       # polaris-coverity-config-path: ''  # Path to Coverity configuration file, typically a file supplied at root level like ./coverity.yml
       # polaris-coverity-args: '' # Additional Coverity arguments,can supply extra arguments like "--config-override capture.build.build-command=make
+
+      # Perform Grype Scan on habitat packages
+      perform-grype-hab-scan: true
+      grype-hab-build-package: false
+      grype-hab-origin: 'chef'
+      grype-hab-package: 'cookstyle'
+      grype-hab-version: ${{ needs.detect-custom-metadata.outputs.versionFromFile }}
+      grype-hab-channel: 'unstable'
+      grype-hab-scan-linux: true
+      grype-hab-scan-windows: true
+      grype-hab-scan-macos: false
       
       # perform SonarQube scan, with or without unit test coverage data
       # requires secrets SONAR_TOKEN and SONAR_HOST_URL (progress.sonar.com)
-      perform-sonarqube-scan: false
+      perform-sonarqube-scan: true
       # perform-sonar-build: true
       # build-profile: 'default' 
       # report-unit-test-coverage: true
@@ -148,17 +163,6 @@ jobs:
       # quality-service-name: 'YourServiceOrRepoName'
       # quality-junit-report: 'path/to/junit/report''
 
-      # perform Habitat-based and native packaging, publish to package repositories
-      package-binaries: false     # Package binaries (e.g., RPM, DEB, MSI, dpkg + signing + SHA)
-      habitat-build: false        # Create Habitat packages
-      publish-habitat-packages: false   # Publish Habitat packages to Builder
-      publish-habitat-hab_package: false # Chef Habitat package to install (e.g., core/nginx)
-      publish-habitat-hab_version: "1.0.0" # Chef Habitat package version (optional)
-      publish-habitat-hab_release: "20240101010101"  # Chef Habitat package release (optional)
-      publish-habitat-hab_channel: "stable"  # Chef Habitat package channel (e.g., stable, base, base-2025); default is stable
-      publish-habitat-hab_auth_token: ""   # Chef Habitat Builder authentication token (uses secret if not provided)
-      publish-habitat-runner_os: "ubuntu-latest"   # OS runner for Habitat package publishing job, can also be windows-latest
-      habitat-grype-scan: false  # Scan built Habitat packages with Grype for vulnerabilities
       publish-packages: false     # Publish packages (e.g., container from Dockerfile to ECR, go-releaser binary to releases page, omnibus to artifactory, gems, choco, homebrew, other app stores)
 
       # generate and export Software Bill of Materials (SBOM) in various formats
@@ -171,8 +175,9 @@ jobs:
       perform-blackduck-sca-scan: true # combined with generate sbom & generate github-sbom, also needs version above
       blackduck-project-group-name: 'Chef-Agents' # typically one of (Chef), Chef-Agents, Chef-Automate, Chef-Chef360, Chef-Habitat, Chef-Infrastructure-Server, Chef-Shared-Services, Chef-Non-Product'
       blackduck-project-name: 'chef-cookstyle' # BlackDuck project name, typically the repository name
+
       run-bundle-install: true
   
       # udf1: 'default' # user defined flag 1
-      # udf2: 'default' # user defined flag 2 
-      # udf3: 'default' # user defined flag 3  
+      # udf2: 'default' # user defined flag 2
+      # udf3: 'default' # user defined flag 3
