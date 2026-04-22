@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 8.6.11 -->
+## [v8.6.11](https://github.com/chef/cookstyle/tree/v8.6.11) (2026-04-22)
+
+#### Merged Pull Requests
+- Fix-up dependabot [#1064](https://github.com/chef/cookstyle/pull/1064) ([jaymzh](https://github.com/jaymzh))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=8.6.10 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Fix-up dependabot [#1064](https://github.com/chef/cookstyle/pull/1064) ([jaymzh](https://github.com/jaymzh)) <!-- 8.6.11 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
