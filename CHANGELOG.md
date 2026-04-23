@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 8.6.12 -->
-## [v8.6.12](https://github.com/chef/cookstyle/tree/v8.6.12) (2026-04-23)
+ <!-- latest_release 8.6.13 -->
+## [v8.6.13](https://github.com/chef/cookstyle/tree/v8.6.13) (2026-04-23)
 
 #### Merged Pull Requests
-- Bump wechuli/allcheckspassed from 1 to 2 [#1066](https://github.com/chef/cookstyle/pull/1066) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump actions/checkout from 4 to 6 [#1065](https://github.com/chef/cookstyle/pull/1065) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=8.6.10 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Bump actions/checkout from 4 to 6 [#1065](https://github.com/chef/cookstyle/pull/1065) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 8.6.13 -->
 - Bump wechuli/allcheckspassed from 1 to 2 [#1066](https://github.com/chef/cookstyle/pull/1066) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 8.6.12 -->
 - Fix-up dependabot [#1064](https://github.com/chef/cookstyle/pull/1064) ([jaymzh](https://github.com/jaymzh)) <!-- 8.6.11 -->
 <!-- release_rollup -->
