@@ -2,7 +2,6 @@
 module Cookstyle
   module PostInstall
     def self.run
-      puts 'Hello World'
       spec = Gem::Specification.find_all_by_name('lint_roller').find { |s| s.version.to_s == '1.1.0' }
       return unless spec
 
