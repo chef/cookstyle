@@ -19,6 +19,7 @@ require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::PreferRemoteFile, :config do
   let(:msg) { 'Use the `remote_file` resource instead of `curl` or `wget`. Native resources ensure idempotence, support retries, and handle permissions correctly.' }
+  let(:supported_resources) { %w(execute bash csh ksh perl python ruby powershell_script) }
 
   # ==========================================================================
   # Offense: execute resource name contains curl/wget
@@ -138,16 +139,16 @@ describe RuboCop::Cop::Chef::Modernize::PreferRemoteFile, :config do
   # Additional shell resources
   # ==========================================================================
   context 'additional shell resources' do
-    it 'registers an offense for sh resource with curl' do
+    it 'registers an offense for csh resource with curl' do
       expect_offense(<<~RUBY)
-        sh 'curl -L https://example.com/app.tar.gz -o /tmp/app.tar.gz'
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ #{msg}
+        csh 'curl -L https://example.com/app.tar.gz -o /tmp/app.tar.gz'
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ #{msg}
       RUBY
     end
 
-    it 'registers an offense for zsh resource with wget' do
+    it 'registers an offense for ksh resource with wget' do
       expect_offense(<<~RUBY)
-        zsh 'wget https://example.com/script.sh -O /tmp/script.sh'
+        ksh 'wget https://example.com/script.sh -O /tmp/script.sh'
         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ #{msg}
       RUBY
     end
@@ -244,6 +245,48 @@ describe RuboCop::Cop::Chef::Modernize::PreferRemoteFile, :config do
         file '/tmp/readme.txt' do
           content 'Download with curl or wget'
         end
+      RUBY
+    end
+  end
+
+  context 'resource and property permutations' do
+    it 'registers an offense for all supported resources when command is in the name argument' do
+      supported_resources.each do |resource|
+        command = 'curl -L https://example.com/file.tar.gz -o /tmp/file.tar.gz'
+        line = %(#{resource} '#{command}')
+
+        expect_offense(<<~RUBY, resource: resource, command: command, carets: '^' * line.length)
+          %{resource} '%{command}'
+          %{carets} #{msg}
+        RUBY
+      end
+    end
+
+    it 'registers an offense for command/code properties in supported resource blocks' do
+      supported_resources.each do |resource|
+        property = resource == 'execute' ? 'command' : 'code'
+        command = 'wget https://example.com/archive.zip -O /tmp/archive.zip'
+
+        expect_offense(<<~RUBY, resource: resource, property: property, command: command, carets: '^' * %(#{property} '#{command}').length)
+          %{resource} 'download' do
+            %{property} '%{command}'
+            %{carets} #{msg}
+          end
+        RUBY
+      end
+    end
+  end
+
+  context 'false positive prevention - bare command/code calls' do
+    it 'does not register an offense for bare command method calls outside Chef resources' do
+      expect_no_offenses(<<~RUBY)
+        command 'curl https://example.com/file.tar.gz -o /tmp/file.tar.gz'
+      RUBY
+    end
+
+    it 'does not register an offense for bare code method calls outside Chef resources' do
+      expect_no_offenses(<<~RUBY)
+        code 'wget https://example.com/file.tar.gz -O /tmp/file.tar.gz'
       RUBY
     end
   end

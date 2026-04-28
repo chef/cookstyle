@@ -35,11 +35,14 @@ module RuboCop
         #   end
         #
         class PreferArchiveFile < Base
+          include RuboCop::Chef::CookbookHelpers
+
           MSG = 'Use the `archive_file` resource instead of shell-based extraction (`tar`, `unzip`, etc.). ' \
                 'Native resources handle idempotence and multiple formats natively.'
 
-          # Performance: only trigger on_send for shell resources and command/code property setters
-          RESTRICT_ON_SEND = %i(execute bash sh csh perl python ruby zsh powershell_script command code).freeze
+          RESOURCE_METHODS = %i(execute bash csh ksh perl python ruby powershell_script).freeze
+          RESTRICT_ON_SEND = RESOURCE_METHODS
+          PROPERTY_METHODS = %i(command code).freeze
 
           # Matches extraction tools as whole words.
           # Excludes filenames like 'file.tar.gz' by ensuring a leading space/start and trailing space/end.
@@ -47,6 +50,14 @@ module RuboCop
 
           def on_send(node)
             check_offense(node, node.first_argument)
+          end
+
+          def on_block(node)
+            return unless RESOURCE_METHODS.include?(node.send_node.method_name)
+
+            match_property_in_resource?(RESOURCE_METHODS, PROPERTY_METHODS, node) do |property_node|
+              check_offense(property_node, property_node.first_argument)
+            end
           end
 
           private

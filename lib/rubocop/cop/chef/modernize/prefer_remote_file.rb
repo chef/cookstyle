@@ -39,11 +39,14 @@ module RuboCop
         #   end
         #
         class PreferRemoteFile < Base
+          include RuboCop::Chef::CookbookHelpers
+
           MSG = 'Use the `remote_file` resource instead of `curl` or `wget`. ' \
                 'Native resources ensure idempotence, support retries, and handle permissions correctly.'
 
-          # Performance: only trigger on_send for shell resources and command/code property setters
-          RESTRICT_ON_SEND = %i(execute bash sh csh perl python ruby zsh powershell_script command code).freeze
+          RESOURCE_METHODS = %i(execute bash csh ksh perl python ruby powershell_script).freeze
+          RESTRICT_ON_SEND = RESOURCE_METHODS
+          PROPERTY_METHODS = %i(command code).freeze
 
           # Matches 'curl' or 'wget' as whole words to avoid false positives (e.g., 'libcurl')
           # Regex: start-of-string OR whitespace, then curl/wget, then whitespace OR end-of-string
@@ -51,6 +54,14 @@ module RuboCop
 
           def on_send(node)
             check_offense(node, node.first_argument)
+          end
+
+          def on_block(node)
+            return unless RESOURCE_METHODS.include?(node.send_node.method_name)
+
+            match_property_in_resource?(RESOURCE_METHODS, PROPERTY_METHODS, node) do |property_node|
+              check_offense(property_node, property_node.first_argument)
+            end
           end
 
           private

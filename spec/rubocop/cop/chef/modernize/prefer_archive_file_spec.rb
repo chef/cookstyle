@@ -19,6 +19,7 @@ require 'spec_helper'
 
 describe RuboCop::Cop::Chef::Modernize::PreferArchiveFile, :config do
   let(:msg) { 'Use the `archive_file` resource instead of shell-based extraction (`tar`, `unzip`, etc.). Native resources handle idempotence and multiple formats natively.' }
+  let(:supported_resources) { %w(execute bash csh ksh perl python ruby powershell_script) }
 
   # ==========================================================================
   # Offense: execute with tar
@@ -284,16 +285,16 @@ describe RuboCop::Cop::Chef::Modernize::PreferArchiveFile, :config do
   # Additional shell resources
   # ==========================================================================
   context 'additional shell resources' do
-    it 'registers an offense for sh resource with tar' do
+    it 'registers an offense for csh resource with tar' do
       expect_offense(<<~RUBY)
-        sh 'tar -xzf /tmp/data.tar.gz -C /var/data'
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ #{msg}
+        csh 'tar -xzf /tmp/data.tar.gz -C /var/data'
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ #{msg}
       RUBY
     end
 
-    it 'registers an offense for zsh resource with unzip' do
+    it 'registers an offense for ksh resource with unzip' do
       expect_offense(<<~RUBY)
-        zsh 'unzip /tmp/files.zip -d /opt'
+        ksh 'unzip /tmp/files.zip -d /opt'
         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ #{msg}
       RUBY
     end
@@ -304,6 +305,48 @@ describe RuboCop::Cop::Chef::Modernize::PreferArchiveFile, :config do
           code '7z x C:/temp/archive.7z -oC:/app'
           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ #{msg}
         end
+      RUBY
+    end
+  end
+
+  context 'resource and property permutations' do
+    it 'registers an offense for all supported resources when command is in the name argument' do
+      supported_resources.each do |resource|
+        command = 'tar -xzf /tmp/archive.tar.gz -C /opt/app'
+        line = %(#{resource} '#{command}')
+
+        expect_offense(<<~RUBY, resource: resource, command: command, carets: '^' * line.length)
+          %{resource} '%{command}'
+          %{carets} #{msg}
+        RUBY
+      end
+    end
+
+    it 'registers an offense for command/code properties in supported resource blocks' do
+      supported_resources.each do |resource|
+        property = resource == 'execute' ? 'command' : 'code'
+        command = 'unzip /tmp/archive.zip -d /opt/app'
+
+        expect_offense(<<~RUBY, resource: resource, property: property, command: command, carets: '^' * %(#{property} '#{command}').length)
+          %{resource} 'extract_archive' do
+            %{property} '%{command}'
+            %{carets} #{msg}
+          end
+        RUBY
+      end
+    end
+  end
+
+  context 'false positive prevention - bare command/code calls' do
+    it 'does not register an offense for bare command method calls outside Chef resources' do
+      expect_no_offenses(<<~RUBY)
+        command 'tar -xzf /tmp/archive.tar.gz -C /opt/app'
+      RUBY
+    end
+
+    it 'does not register an offense for bare code method calls outside Chef resources' do
+      expect_no_offenses(<<~RUBY)
+        code 'unzip /tmp/archive.zip -d /opt/app'
       RUBY
     end
   end
