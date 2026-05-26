@@ -34,5 +34,15 @@ RSpec.describe Cookstyle do
     it 'points to an existing file' do
       expect(File.exist?(Cookstyle.config)).to be true
     end
+
+    it 'raises with a clear message when the config file is missing' do
+      allow(Cookstyle).to receive(:config_file_name).and_return('nonexistent.yml')
+      expect { Cookstyle.config }.to raise_error(RuntimeError, /config file not found.*nonexistent\.yml/)
+    end
+
+    it 'raises with a clear message when CONFIG_DIR does not exist' do
+      stub_const('Cookstyle::CONFIG_DIR', '/no/such/directory')
+      expect { Cookstyle.config }.to raise_error(RuntimeError, /CONFIG_DIR not found.*\/no\/such\/directory/)
+    end
   end
 end

@@ -34,9 +34,14 @@ module Cookstyle
   # Resolve the active configuration file.
   #
   # @return [String] absolute, symlink-resolved path to the YAML config
-  # @raise [Errno::ENOENT] if the resolved file does not exist on disk
+  # @raise [RuntimeError] if CONFIG_DIR is missing or the config file is not found
   def self.config
-    File.realpath(File.join(CONFIG_DIR, config_file_name))
+    raise "Cookstyle CONFIG_DIR not found: #{CONFIG_DIR}" unless Dir.exist?(CONFIG_DIR)
+
+    config_path = File.join(CONFIG_DIR, config_file_name)
+    raise "Cookstyle config file not found: #{config_path}" unless File.exist?(config_path)
+
+    File.realpath(config_path)
   end
 
   # Select the YAML filename based on whether the caller opted into
