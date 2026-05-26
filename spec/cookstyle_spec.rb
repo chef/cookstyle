@@ -14,6 +14,16 @@ RSpec.describe Cookstyle do
     end
   end
 
+  describe 'CONFIG_DIR' do
+    it 'points to the config directory' do
+      expect(Cookstyle::CONFIG_DIR).to end_with('config')
+    end
+
+    it 'is a directory that exists on disk' do
+      expect(Dir.exist?(Cookstyle::CONFIG_DIR)).to be true
+    end
+  end
+
   describe '.config' do
     it 'returns a path ending with default.yml' do
       expect(Cookstyle.config).to end_with('config/default.yml')

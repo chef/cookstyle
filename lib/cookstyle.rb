@@ -18,11 +18,19 @@ require_relative 'rubocop/monkey_patches/registry_cop'
 # Cookstyle patches the RuboCop tool to set a new default configuration that
 # is vendored in the Cookstyle codebase.
 module Cookstyle
+  # Absolute path to the vendored config directory.
+  CONFIG_DIR = File.expand_path('../config', __dir__).freeze
+
   # @return [String] the absolute path to the main RuboCop configuration YAML file
   def self.config
-    config_file = const_defined?(:CHEFSTYLE_CONFIG) ? 'chefstyle.yml' : 'default.yml'
-    File.realpath(File.join(__dir__, '..', 'config', config_file))
+    File.realpath(File.join(CONFIG_DIR, config_file_name))
   end
+
+  # @return [String] the YAML filename selected by the current mode
+  def self.config_file_name
+    const_defined?(:CHEFSTYLE_CONFIG) ? 'chefstyle.yml' : 'default.yml'
+  end
+  private_class_method :config_file_name
 end
 
 require_relative 'rubocop/chef'
