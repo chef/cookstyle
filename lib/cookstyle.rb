@@ -3,6 +3,8 @@ require_relative 'cookstyle/version'
 
 require 'pathname' unless defined?(Pathname)
 require 'yaml' unless defined?(YAML)
+require 'logger'
+require 'json'
 
 # ensure the desired target version of RuboCop is gem activated
 gem 'rubocop', "= #{Cookstyle::RUBOCOP_VERSION}"
@@ -31,17 +33,37 @@ module Cookstyle
   # Frozen to prevent accidental mutation at runtime.
   CONFIG_DIR = File.expand_path('../config', __dir__).freeze
 
+  # Optional structured logger, activated by setting COOKSTYLE_LOG.
+  #   COOKSTYLE_LOG=stderr  → log to $stderr
+  #   COOKSTYLE_LOG=/path   → log to file
+  # When unset, logging is a no-op (zero overhead).
+  def self.logger
+    @logger ||= build_logger
+  end
+
   # Resolve the active configuration file.
+  # Emits a structured log line with {op, status, elapsed_ms, config}.
   #
   # @return [String] absolute, symlink-resolved path to the YAML config
   # @raise [RuntimeError] if CONFIG_DIR is missing or the config file is not found
   def self.config
-    raise "Cookstyle CONFIG_DIR not found: #{CONFIG_DIR}" unless Dir.exist?(CONFIG_DIR)
+    t0 = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+
+    unless Dir.exist?(CONFIG_DIR)
+      log_event(t0, 'config', 'error', config_dir: CONFIG_DIR, reason: 'CONFIG_DIR not found')
+      raise "Cookstyle CONFIG_DIR not found: #{CONFIG_DIR}"
+    end
 
     config_path = File.join(CONFIG_DIR, config_file_name)
-    raise "Cookstyle config file not found: #{config_path}" unless File.exist?(config_path)
 
-    File.realpath(config_path)
+    unless File.exist?(config_path)
+      log_event(t0, 'config', 'error', path: config_path, reason: 'config file not found')
+      raise "Cookstyle config file not found: #{config_path}"
+    end
+
+    resolved = File.realpath(config_path)
+    log_event(t0, 'config', 'ok', config: resolved)
+    resolved
   end
 
   # Select the YAML filename based on whether the caller opted into
@@ -53,6 +75,29 @@ module Cookstyle
     const_defined?(:CHEFSTYLE_CONFIG) ? 'chefstyle.yml' : 'default.yml'
   end
   private_class_method :config_file_name
+
+  # Emit a structured log entry with consistent fields.
+  # @api private
+  def self.log_event(t0, op, status, extra = {})
+    return unless logger
+
+    elapsed_ms = ((Process.clock_gettime(Process::CLOCK_MONOTONIC) - t0) * 1000).round(3)
+    entry = { op: op, status: status, elapsed_ms: elapsed_ms }.merge(extra)
+    logger.info(JSON.generate(entry))
+  end
+  private_class_method :log_event
+
+  # @api private
+  def self.build_logger
+    dest = ENV['COOKSTYLE_LOG']
+    return nil if dest.nil? || dest.empty?
+
+    io = dest == 'stderr' ? $stderr : File.open(dest, 'a')
+    lg = Logger.new(io, level: Logger::INFO)
+    lg.formatter = proc { |_sev, time, _prog, msg| "#{time.utc.iso8601(3)} #{msg}\n" }
+    lg
+  end
+  private_class_method :build_logger
 end
 
 require_relative 'rubocop/chef'
