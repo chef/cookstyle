@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 8.7.0 -->
-## [v8.7.0](https://github.com/chef/cookstyle/tree/v8.7.0) (2026-04-28)
+ <!-- latest_release 8.7.1 -->
+## [v8.7.1](https://github.com/chef/cookstyle/tree/v8.7.1) (2026-05-26)
 
 #### Merged Pull Requests
-- Update to RuboCop 1.86.1 + enable new cops [#1059](https://github.com/chef/cookstyle/pull/1059) ([tas50](https://github.com/tas50))
+- Extra gem remove during build hab pkg [#1070](https://github.com/chef/cookstyle/pull/1070) ([sanghinitin](https://github.com/sanghinitin))
 <!-- latest_release -->
 
 <!-- release_rollup since=8.6.10 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Extra gem remove during build hab pkg [#1070](https://github.com/chef/cookstyle/pull/1070) ([sanghinitin](https://github.com/sanghinitin)) <!-- 8.7.1 -->
 - Update to RuboCop 1.86.1 + enable new cops [#1059](https://github.com/chef/cookstyle/pull/1059) ([tas50](https://github.com/tas50)) <!-- 8.7.0 -->
 - Bump actions/checkout from 4 to 6 [#1065](https://github.com/chef/cookstyle/pull/1065) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 8.6.13 -->
 - Bump wechuli/allcheckspassed from 1 to 2 [#1066](https://github.com/chef/cookstyle/pull/1066) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 8.6.12 -->
