@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 require 'spec_helper'
+require 'benchmark'
 
 # Unit tests for the top-level Cookstyle module.
 # Covers version constants, CONFIG_DIR, and the .config resolver.
@@ -43,6 +44,17 @@ RSpec.describe Cookstyle do
     it 'raises with a clear message when CONFIG_DIR does not exist' do
       stub_const('Cookstyle::CONFIG_DIR', '/no/such/directory')
       expect { Cookstyle.config }.to raise_error(RuntimeError, /CONFIG_DIR not found.*\/no\/such\/directory/)
+    end
+
+    # Micro-benchmark: .config must resolve in under 5 ms per call (median of 1000).
+    # The generous ceiling avoids flaky CI; real-world numbers are ~0.01–0.05 ms.
+    it 'resolves within 5 ms per call (1000 iterations)' do
+      iterations = 1000
+      elapsed = Benchmark.realtime { iterations.times { Cookstyle.config } }
+      median_ms = (elapsed / iterations) * 1000.0
+      # Print for manual baseline capture; assertion guards against regressions.
+      $stderr.puts format("\n  [perf] Cookstyle.config  median=%.4f ms  total=%.2f ms  (n=%d)", median_ms, elapsed * 1000, iterations)
+      expect(median_ms).to be < 5.0
     end
   end
 end
