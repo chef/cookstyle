@@ -22,7 +22,7 @@ bundle exec cookstyle
 ## Run Tests
 
 ```bash
-bundle exec rake spec          # all specs under spec/cop/
+bundle exec rake spec          # all specs under spec/**/*_spec.rb
 bundle exec rspec spec/rubocop/cop/chef/style/  # one department
 ```
 
@@ -100,6 +100,40 @@ Run it with:
 bundle exec rspec spec/cookstyle_spec.rb --format documentation
 ```
 
+## Local Test Script
+
+A self-contained script that mirrors CI is available at `scripts/test-local.sh`.
+It runs dependency checks, lint, config validation, and the full spec suite.
+
+```bash
+# Full run (lint + validate_config + specs) — same as CI
+./scripts/test-local.sh
+
+# Quick run (specs only, skip lint)
+./scripts/test-local.sh --quick
+```
+
+The script exits non-zero on any failure and prints colour-coded pass/fail
+for each step.
+
+## CI Configuration
+
+GitHub Actions workflows in `.github/workflows/`:
+
+| Workflow | File | What it runs |
+|----------|------|--------------|
+| **unit** | `unit.yml` | `bundle exec rake spec` on {ubuntu, windows} × {Ruby 3.1, 3.4} |
+| **lint** | `lint.yml` | `bundle exec cookstyle` + linelint newline check |
+| **allchecks** | `allchecks.yml` | Gate that waits for all other checks to pass |
+
+All three trigger on `push` to `main` and on every pull request.
+
+**Important:** The Rakefile spec pattern was updated from `spec/cop/**/*.rb`
+(which silently skipped tests outside that directory) to `spec/**/*_spec.rb`
+so that all spec files are discovered. This means CI now runs the full set
+of tests including `spec/cookstyle_spec.rb` and
+`spec/rubocop/chef/cookbook_helpers_spec.rb`.
+
 ## Common Issues
 
 | Symptom | Fix |
@@ -108,3 +142,4 @@ bundle exec rspec spec/cookstyle_spec.rb --format documentation
 | Coverage < 80 % | Add missing specs |
 | `validate_config` fails | Add the missing cop entry to `config/cookstyle.yml` |
 | Lint offenses | Run `bundle exec cookstyle -a` for autocorrect |
+| Tests missing from `rake spec` | Ensure file matches `spec/**/*_spec.rb` glob |
