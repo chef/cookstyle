@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
+# Unit tests for the top-level Cookstyle module.
+# Covers version constants, CONFIG_DIR, and the .config resolver.
 RSpec.describe Cookstyle do
   describe 'VERSION' do
     it 'is a valid semver string' do

@@ -17,16 +17,33 @@ require_relative 'rubocop/monkey_patches/registry_cop'
 
 # Cookstyle patches the RuboCop tool to set a new default configuration that
 # is vendored in the Cookstyle codebase.
+#
+# == Configuration resolution
+# Cookstyle ships two YAML profiles:
+#   * +default.yml+  — the standard Cookstyle rule set (most users)
+#   * +chefstyle.yml+ — the stricter internal Chef style (activated when
+#     the +CHEFSTYLE_CONFIG+ constant is defined)
+#
+# +CONFIG_DIR+ points to the vendored +config/+ directory so that paths
+# are resolved once, at load time, and reused by every caller.
 module Cookstyle
-  # Absolute path to the vendored config directory.
+  # Absolute path to the vendored +config/+ directory.
+  # Frozen to prevent accidental mutation at runtime.
   CONFIG_DIR = File.expand_path('../config', __dir__).freeze
 
-  # @return [String] the absolute path to the main RuboCop configuration YAML file
+  # Resolve the active configuration file.
+  #
+  # @return [String] absolute, symlink-resolved path to the YAML config
+  # @raise [Errno::ENOENT] if the resolved file does not exist on disk
   def self.config
     File.realpath(File.join(CONFIG_DIR, config_file_name))
   end
 
-  # @return [String] the YAML filename selected by the current mode
+  # Select the YAML filename based on whether the caller opted into
+  # Chefstyle mode by defining +Cookstyle::CHEFSTYLE_CONFIG+.
+  #
+  # @return [String] +'chefstyle.yml'+ or +'default.yml'+
+  # @api private
   def self.config_file_name
     const_defined?(:CHEFSTYLE_CONFIG) ? 'chefstyle.yml' : 'default.yml'
   end
