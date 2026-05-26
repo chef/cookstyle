@@ -18,3 +18,17 @@ chef_dictionary.txt
 
 # claude local settings files
 settings.local.json
+
+# Secrets & credentials — never commit these
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+**/credentials.yml
+**/secrets.yml
+**/secret_token.rb
+**/*.credential
+**/*.keystore
