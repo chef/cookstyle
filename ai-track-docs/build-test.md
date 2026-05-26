@@ -59,6 +59,47 @@ build .
 # Tests: habitat/tests/test.sh (Linux) / test.ps1 (Windows)
 ```
 
+## Exact Build & Test Commands (copy-paste ready)
+
+```bash
+# 1. Install dependencies
+bundle install
+
+# 2. Lint the codebase (Cookstyle on itself)
+bundle exec rake style
+
+# 3. Run the full test suite
+bundle exec rake spec
+
+# 4. Run a single spec file
+bundle exec rspec spec/cookstyle_spec.rb --format documentation
+
+# 5. Run one department of cops
+bundle exec rspec spec/rubocop/cop/chef/style/ --format documentation
+
+# 6. Run tests with coverage (must be >80%)
+bundle exec rake coverage
+
+# 7. Validate cop config
+bundle exec rake validate_config
+```
+
+## Deterministic Unit Test Added
+
+A lightweight spec for the `Cookstyle` module was added at
+`spec/cookstyle_spec.rb`. It verifies:
+
+- `Cookstyle::VERSION` is a valid semver string
+- `Cookstyle::RUBOCOP_VERSION` is a valid semver string
+- `Cookstyle.config` returns a path ending in `config/default.yml`
+- `Cookstyle.config` points to a file that exists on disk
+
+Run it with:
+
+```bash
+bundle exec rspec spec/cookstyle_spec.rb --format documentation
+```
+
 ## Common Issues
 
 | Symptom | Fix |
