@@ -91,7 +91,7 @@ module Cookstyle
   # @api private
   def self.build_logger
     dest = ENV['COOKSTYLE_LOG']
-    return nil if dest.nil? || dest.empty?
+    return if dest.nil? || dest.empty?
 
     io = dest == 'stderr' ? $stderr : File.open(dest, 'a')
     lg = Logger.new(io, level: Logger::INFO)
@@ -115,8 +115,8 @@ module Cookstyle
   def self.emit_debug(config_path)
     return unless debug?
 
-    $stderr.puts format('[cookstyle debug] v%s (rubocop %s) config=%s ruby=%s',
-                        VERSION, RUBOCOP_VERSION, config_path, RUBY_VERSION)
+    warn format('[cookstyle debug] v%s (rubocop %s) config=%s ruby=%s',
+                VERSION, RUBOCOP_VERSION, config_path, RUBY_VERSION)
   end
   private_class_method :emit_debug
 end

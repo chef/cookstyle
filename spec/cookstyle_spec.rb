@@ -45,7 +45,7 @@ RSpec.describe Cookstyle do
 
     it 'raises with a clear message when CONFIG_DIR does not exist' do
       stub_const('Cookstyle::CONFIG_DIR', '/no/such/directory')
-      expect { Cookstyle.config }.to raise_error(RuntimeError, /CONFIG_DIR not found.*\/no\/such\/directory/)
+      expect { Cookstyle.config }.to raise_error(RuntimeError, %r{CONFIG_DIR not found.*/no/such/directory})
     end
 
     # Micro-benchmark: .config must resolve in under 5 ms per call (median of 1000).
@@ -55,7 +55,7 @@ RSpec.describe Cookstyle do
       elapsed = Benchmark.realtime { iterations.times { Cookstyle.config } }
       median_ms = (elapsed / iterations) * 1000.0
       # Print for manual baseline capture; assertion guards against regressions.
-      $stderr.puts format("\n  [perf] Cookstyle.config  median=%.4f ms  total=%.2f ms  (n=%d)", median_ms, elapsed * 1000, iterations)
+      warn format("\n  [perf] Cookstyle.config  median=%.4f ms  total=%.2f ms  (n=%d)", median_ms, elapsed * 1000, iterations)
       expect(median_ms).to be < 5.0
     end
   end

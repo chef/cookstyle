@@ -19,6 +19,8 @@ bundle exec rake style
 bundle exec cookstyle
 ```
 
+See `ai-track-docs/static-analysis.md` for full lint documentation.
+
 ## Run Tests
 
 ```bash
