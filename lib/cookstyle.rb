@@ -63,6 +63,7 @@ module Cookstyle
 
     resolved = File.realpath(config_path)
     log_event(t0, 'config', 'ok', config: resolved)
+    emit_debug(resolved)
     resolved
   end
 
@@ -98,6 +99,26 @@ module Cookstyle
     lg
   end
   private_class_method :build_logger
+
+  # Whether debug boot diagnostics are enabled.
+  # Activated by setting COOKSTYLE_DEBUG=1 (or any truthy value).
+  # When ON, `.config` prints version and config path to $stderr.
+  # When OFF (default), completely silent — zero overhead.
+  #
+  # @return [Boolean]
+  def self.debug?
+    !ENV['COOKSTYLE_DEBUG'].to_s.empty?
+  end
+
+  # Print a one-line boot diagnostic to $stderr when debug mode is on.
+  # @api private
+  def self.emit_debug(config_path)
+    return unless debug?
+
+    $stderr.puts format('[cookstyle debug] v%s (rubocop %s) config=%s ruby=%s',
+                        VERSION, RUBOCOP_VERSION, config_path, RUBY_VERSION)
+  end
+  private_class_method :emit_debug
 end
 
 require_relative 'rubocop/chef'

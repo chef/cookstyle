@@ -108,4 +108,30 @@ RSpec.describe Cookstyle do
       expect(entry['reason']).to match(/not found/)
     end
   end
+
+  describe '.debug? toggle' do
+    it 'returns false when COOKSTYLE_DEBUG is not set' do
+      allow(ENV).to receive(:[]).and_call_original
+      allow(ENV).to receive(:[]).with('COOKSTYLE_DEBUG').and_return(nil)
+      expect(Cookstyle.debug?).to be false
+    end
+
+    it 'returns true when COOKSTYLE_DEBUG is set' do
+      allow(ENV).to receive(:[]).and_call_original
+      allow(ENV).to receive(:[]).with('COOKSTYLE_DEBUG').and_return('1')
+      expect(Cookstyle.debug?).to be true
+    end
+
+    it 'prints boot diagnostics to stderr when ON' do
+      allow(ENV).to receive(:[]).and_call_original
+      allow(ENV).to receive(:[]).with('COOKSTYLE_DEBUG').and_return('1')
+      expect { Cookstyle.config }.to output(/\[cookstyle debug\] v#{Regexp.escape(Cookstyle::VERSION)}/).to_stderr
+    end
+
+    it 'prints nothing to stderr when OFF' do
+      allow(ENV).to receive(:[]).and_call_original
+      allow(ENV).to receive(:[]).with('COOKSTYLE_DEBUG').and_return(nil)
+      expect { Cookstyle.config }.not_to output.to_stderr
+    end
+  end
 end

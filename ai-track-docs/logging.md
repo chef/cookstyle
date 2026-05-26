@@ -115,3 +115,47 @@ end
 ```
 
 Always include `op`, `status`, and let `log_event` compute `elapsed_ms`.
+
+---
+
+## Debug Toggle (`COOKSTYLE_DEBUG`)
+
+A lightweight toggle that prints a one-line boot diagnostic to stderr.
+Separate from structured logging — designed for quick "is it loading the
+right config?" checks.
+
+### Enable
+
+```bash
+COOKSTYLE_DEBUG=1 bundle exec cookstyle .
+```
+
+Output (stderr):
+
+```
+[cookstyle debug] v8.7.0 (rubocop 1.86.1) config=/path/to/config/default.yml ruby=3.1.7
+```
+
+### Disable (default)
+
+Unset `COOKSTYLE_DEBUG` or leave it empty. No output, no overhead.
+
+### How it works
+
+- `Cookstyle.debug?` returns `true` when `ENV['COOKSTYLE_DEBUG']` is
+  non-empty, `false` otherwise.
+- `emit_debug` (private) writes to `$stderr` only on the success path
+  of `.config`. Error paths rely on the exception message instead.
+- Can be combined with `COOKSTYLE_LOG` — they are independent.
+
+### Tests
+
+Four specs in `spec/cookstyle_spec.rb` under `.debug? toggle`:
+
+| Test | Mode | Asserts |
+|------|------|---------|
+| `returns false when not set` | OFF | `debug?` is `false` |
+| `returns true when set` | ON | `debug?` is `true` |
+| `prints diagnostics when ON` | ON | stderr matches `[cookstyle debug] v...` |
+| `prints nothing when OFF` | OFF | stderr is empty |
+
