@@ -1,0 +1,43 @@
+%%{init: {"theme": "default"}}%%
+graph TD
+    subgraph CLI
+        A[bin/cookstyle] -->|loads| B[lib/cookstyle.rb]
+    end
+
+    subgraph Core
+        B --> C[RuboCop Engine]
+        B --> D[config/cookstyle.yml]
+        B --> E[config/default.yml]
+    end
+
+    subgraph Cops
+        C --> F[Chef/Correctness]
+        C --> G[Chef/Deprecations]
+        C --> H[Chef/Modernize]
+        C --> I[Chef/Style]
+        C --> J[Chef/Sharing]
+        C --> K[Chef/RedundantCode]
+        C --> L[Chef/Effortless]
+        C --> M[Chef/Security]
+        C --> N[InSpec Cops]
+        C --> O[ChefStyle Cops]
+    end
+
+    subgraph Helpers
+        F & G & H & I & J & K & L & M --> P[autocorrect_helpers.rb]
+        F & G & H & I & J & K & L & M --> Q[monkey_patches/]
+    end
+
+    subgraph Testing
+        R[RSpec spec/] -->|mirrors| Cops
+    end
+
+    subgraph Packaging
+        S[Habitat plan.sh] --> B
+        T[Gemspec] --> B
+    end
+
+    subgraph Docs
+        U[docs/] --> Cops
+        V[docs-chef-io/] --> Cops
+    end
