@@ -100,6 +100,26 @@ cat /tmp/cookstyle.log | sed 's/^[^ ]* //' | jq '{op, elapsed_ms}'
 - Tests inject a `StringIO`-backed logger to capture and parse output
   without touching `ENV` or the filesystem.
 
+## Resilience: Graceful Degradation on Log Errors
+
+`build_logger` catches `SystemCallError` (covers `Errno::ENOENT`,
+`Errno::EACCES`, `Errno::EISDIR`, etc.) when opening the log file.
+Instead of crashing, it:
+
+1. Prints a warning to stderr: `[cookstyle] Could not open log destination '...': ...`
+2. Returns `nil`, so the rest of Cookstyle runs normally without logging.
+
+This means a misconfigured `COOKSTYLE_LOG` path never prevents linting.
+
+**Before:** `COOKSTYLE_LOG=/bad/path bundle exec cookstyle` → crash with
+`Errno::ENOENT`.
+
+**After:** warns once, continues linting without logging.
+
+**Tests:** Two failure-mode specs in `spec/cookstyle_spec.rb`:
+- Invalid path (`/no/such/dir/cookstyle.log`) → returns nil, warns
+- Not-writable path (`/dev/null/impossible.log`) → returns nil, warns
+
 ---
 
 ## Adding Logging to New Code Paths

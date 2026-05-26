@@ -76,6 +76,20 @@ RSpec.describe Cookstyle do
       Cookstyle.instance_variable_set(:@logger, nil)
       expect(Cookstyle.logger).to be_a(Logger)
     end
+
+    it 'degrades to nil and warns when log path is invalid' do
+      allow(ENV).to receive(:[]).and_call_original
+      allow(ENV).to receive(:[]).with('COOKSTYLE_LOG').and_return('/no/such/dir/cookstyle.log')
+      Cookstyle.instance_variable_set(:@logger, nil)
+      expect { expect(Cookstyle.logger).to be_nil }.to output(%r{Could not open log destination.*/no/such/dir}).to_stderr
+    end
+
+    it 'degrades to nil and warns when log path is not writable' do
+      allow(ENV).to receive(:[]).and_call_original
+      allow(ENV).to receive(:[]).with('COOKSTYLE_LOG').and_return('/dev/null/impossible.log')
+      Cookstyle.instance_variable_set(:@logger, nil)
+      expect { expect(Cookstyle.logger).to be_nil }.to output(/Could not open log destination/).to_stderr
+    end
   end
 
   describe 'structured log output' do

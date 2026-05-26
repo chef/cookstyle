@@ -97,6 +97,10 @@ module Cookstyle
     lg = Logger.new(io, level: Logger::INFO)
     lg.formatter = proc { |_sev, time, _prog, msg| "#{time.utc.iso8601(3)} #{msg}\n" }
     lg
+  rescue SystemCallError => e
+    # Logging is non-critical — degrade gracefully instead of crashing.
+    warn "[cookstyle] Could not open log destination '#{dest}': #{e.message}"
+    nil
   end
   private_class_method :build_logger
 
