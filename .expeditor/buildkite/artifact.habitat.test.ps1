@@ -9,7 +9,6 @@ $env:HAB_BLDR_CHANNEL = 'base-2025'
 $env:HAB_REFRESH_CHANNEL = "base-2025"
 $env:CHEF_LICENSE = 'accept-no-persist'
 $env:HAB_LICENSE = 'accept-no-persist'
-$HabitatVersion = if ($env:HAB_VERSION) { $env:HAB_VERSION } else { '1.6.1245' }
 $Plan = 'cookstyle'
 
 Write-Host "--- system details"
@@ -28,20 +27,8 @@ function Stop-HabProcess {
 
 # Installing Habitat
 function Install-Habitat {
-  param(
-    [Parameter(Mandatory = $true)]
-    [string]$Version
-  )
-  Write-Host "Downloading and installing Habitat version $Version..."
-  $installScriptUrl = 'https://raw.githubusercontent.com/habitat-sh/habitat/main/components/hab/install.ps1'
-  $installScriptPath = Join-Path $env:TEMP "hab-install-$Version.ps1"
-  Invoke-WebRequest -Uri $installScriptUrl -OutFile $installScriptPath
-  try {
-    & $installScriptPath -Version $Version
-  }
-  finally {
-    Remove-Item $installScriptPath -Force -ErrorAction SilentlyContinue
-  }
+  Write-Host "Downloading and installing Habitat..."
+  Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/habitat-sh/habitat/main/components/hab/install.ps1'))
 }
 
 try {
@@ -64,7 +51,7 @@ catch {
       }
   }
 
-  Install-Habitat -Version $HabitatVersion
+  Install-Habitat
   Write-Host "******************************************************************"
   Write-Host "** What is My Hab Version after installation? $(hab --version)"
   Write-Host "******************************************************************"
