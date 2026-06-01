@@ -71,6 +71,8 @@ do_install() {
   build_line "Setting GEM_PATH=$GEM_HOME"
   export GEM_PATH="$GEM_HOME"
   gem install cookstyle-*.gem --no-document
+  # Upgrade rdoc to a non-vulnerable version (CVE GHSA-592j-995h-p23j affects < 6.5.1.1)
+  gem install rdoc --no-document
   wrap_ruby_cookstyle
   set_runtime_env "GEM_PATH" "${pkg_prefix}/vendor"
 }
@@ -99,6 +101,22 @@ export GEM_PATH="$GEM_PATH"
 exec $(pkg_path_for ${ruby_pkg})/bin/ruby $real_bin \$@
 EOF
   chmod -v 755 "$bin"
+}
+
+do_after() {
+  # Remove .github directories from vendored gems to avoid shipping GHA workflow
+  # files that trigger grype vulnerability reports (e.g. step-security/harden-runner CVEs).
+  find "$pkg_prefix/vendor/gems" -type d -name ".github" -exec rm -rf {} + 2>/dev/null || true
+
+  # Remove the cache of downloaded .gem files
+  rm -rf "$pkg_prefix/vendor/cache"
+  # Remove gem docs
+  rm -rf "$pkg_prefix/vendor/doc"
+  # Remove test suites for gem dependencies (keep cookstyle's own)
+  find "$pkg_prefix/vendor/gems" -maxdepth 2 -type d -name "spec" \
+    | grep -v "cookstyle" | xargs rm -rf
+  # Remove byproducts of compiling gems with native extensions
+  find "$pkg_prefix/vendor/gems" -type f \( -name "gem_make.out" -o -name "mkmf.log" -o -name "Makefile" \) -delete
 }
 
 do_strip() {
