@@ -94,11 +94,6 @@ function Invoke-Install {
 }
 
 function Invoke-After {
-    # Remove .github directories from vendored gems to avoid shipping GHA workflow
-    # files that trigger grype vulnerability reports (e.g. step-security/harden-runner CVEs).
-    Get-ChildItem $pkg_prefix/vendor/gems -Filter ".github" -Directory -Recurse `
-        | Remove-Item -Recurse -Force
-
     # We don't need the cache of downloaded .gem files ...
     Remove-Item $pkg_prefix/vendor/cache -Recurse -Force
     # We don't need the gem docs.
