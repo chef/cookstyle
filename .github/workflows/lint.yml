@@ -10,6 +10,8 @@ name: lint
 jobs:
   cookstyle:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
     - uses: actions/checkout@v6
     - uses: ruby/setup-ruby@v1
@@ -21,6 +23,8 @@ jobs:
 
   linelint:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     name: Check if all files end in newline
     steps:
       - name: Checkout
