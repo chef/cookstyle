@@ -1,11 +1,10 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
-
-require "rubygems"
+# Removes stray Gemfile.lock files shipped inside vendored gems to appease security scanners.
+require 'rubygems'
 
 # List of gems that ship with Gemfile.lock files that should be removed
-# to prevent security scanners from flagging CVEs in their transitive dependencies.
-GEMS_WITH_LOCKFILES = %w{lint_roller unicode-emoji}.freeze
+GEMS_WITH_LOCKFILES = %w(lint_roller unicode-emoji).freeze
 
 def cleanup_gem_lockfile(gem_name)
   puts "Cleaning up #{gem_name} Gemfile.lock..."
@@ -16,7 +15,7 @@ def cleanup_gem_lockfile(gem_name)
   end
 
   specs.each do |spec|
-    gemfile_lock_path = File.join(spec.gem_dir, "Gemfile.lock")
+    gemfile_lock_path = File.join(spec.gem_dir, 'Gemfile.lock')
     if File.exist?(gemfile_lock_path)
       puts "  Removing #{gemfile_lock_path}"
       File.delete(gemfile_lock_path)
