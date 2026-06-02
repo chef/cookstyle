@@ -54,7 +54,7 @@ function Invoke-Build {
 	    Write-BuildLine " ** Using gem to  install"
 	    gem install cookstyle-*.gem --no-document
         Write-BuildLine " ** Cleaning up vendored gem Gemfile.lock files"
-        ruby ./cleanup_vendor_lockfiles.rb
+        ruby ./cleanup_gem_lockfiles.rb
         If ($lastexitcode -ne 0) { Exit $lastexitcode }
     } finally {
         Pop-Location

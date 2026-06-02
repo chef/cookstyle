@@ -23,6 +23,8 @@ jobs:
   echo_version:
     name: 'Echo stub version'
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: echo version of stub and inputs
         run: |
@@ -31,6 +33,8 @@ jobs:
   detect-custom-metadata:
     name: 'Detect custom properties'
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     outputs:
       primaryApplication: ${{ steps.set-custom-metadata.outputs.primaryApplication }}
       appBuildLanguage: ${{ steps.set-custom-metadata.outputs.applicationBuildLanguage }}

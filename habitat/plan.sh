@@ -52,7 +52,7 @@ do_build() {
   bundle config --local silence_root_warning 1
   bundle install
   gem build cookstyle.gemspec
-  ruby ./cleanup_vendor_lockfiles.rb
+  ruby ./cleanup_gem_lockfiles.rb
 
 }
 
