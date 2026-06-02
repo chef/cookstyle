@@ -1,27 +1,32 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
-# Removes stray Gemfile.lock files shipped inside vendored gems to appease security scanners.
-# These lock files can contain references to older gem versions with known CVEs.
-require 'rubygems'
 
-def cleanup_vendor_lockfiles
-  puts 'Cleaning up Gemfile.lock files from all vendored gems...'
-  removed = 0
+require "rubygems"
 
-  Gem::Specification.each do |spec|
-    gemfile_lock_path = File.join(spec.gem_dir, 'Gemfile.lock')
-    next unless File.exist?(gemfile_lock_path)
+# List of gems that ship with Gemfile.lock files that should be removed
+# to prevent security scanners from flagging CVEs in their transitive dependencies.
+GEMS_WITH_LOCKFILES = %w{lint_roller unicode-emoji}.freeze
 
-    puts "  Removing #{gemfile_lock_path}"
-    File.delete(gemfile_lock_path)
-    removed += 1
-  rescue StandardError => e
-    warn "  Warning: Failed to remove #{gemfile_lock_path}: #{e.message}"
+def cleanup_gem_lockfile(gem_name)
+  puts "Cleaning up #{gem_name} Gemfile.lock..."
+  specs = Gem::Specification.find_all_by_name(gem_name)
+  if specs.empty?
+    puts "  No #{gem_name} gem installed"
+    return
   end
 
-  puts removed > 0 ? "  Removed #{removed} Gemfile.lock file(s)." : '  No Gemfile.lock files found in vendored gems.'
+  specs.each do |spec|
+    gemfile_lock_path = File.join(spec.gem_dir, "Gemfile.lock")
+    if File.exist?(gemfile_lock_path)
+      puts "  Removing #{gemfile_lock_path}"
+      File.delete(gemfile_lock_path)
+      puts "  Successfully removed #{gem_name} Gemfile.lock"
+    else
+      puts "  No Gemfile.lock found in #{spec.gem_dir}"
+    end
+  end
 rescue StandardError => e
-  warn "  Warning: Failed to enumerate gem specifications: #{e.message}"
+  warn "  Warning: Failed to clean up #{gem_name} Gemfile.lock: #{e.message}"
 end
 
-cleanup_vendor_lockfiles
+GEMS_WITH_LOCKFILES.each { |gem_name| cleanup_gem_lockfile(gem_name) }
