@@ -53,8 +53,8 @@ function Invoke-Build {
         gem build cookstyle.gemspec
 	    Write-BuildLine " ** Using gem to  install"
 	    gem install cookstyle-*.gem --no-document
-        Write-BuildLine " ** Cleaning up lint_roller Gemfile.lock"
-        ruby ./cleanup_lint_roller.rb
+        Write-BuildLine " ** Cleaning up vendored gem Gemfile.lock files"
+        ruby ./cleanup_gem_lockfiles.rb
         If ($lastexitcode -ne 0) { Exit $lastexitcode }
     } finally {
         Pop-Location
@@ -94,6 +94,16 @@ function Invoke-Install {
 }
 
 function Invoke-After {
+    # Remove .github directories from vendored gems to avoid shipping GHA workflow
+    # files that trigger grype vulnerability reports (e.g. step-security/harden-runner CVEs).
+    Get-ChildItem $pkg_prefix/vendor/gems -Filter ".github" -Directory -Recurse `
+        | Remove-Item -Recurse -Force
+
+    # Remove stray Gemfile.lock files from vendored gems to avoid CVE false positives
+    # (e.g. rdoc GHSA-592j-995h-p23j found in unicode-emoji Gemfile.lock).
+    Get-ChildItem $pkg_prefix/vendor/gems -Filter "Gemfile.lock" -File -Recurse `
+        | Remove-Item -Force
+
     # We don't need the cache of downloaded .gem files ...
     Remove-Item $pkg_prefix/vendor/cache -Recurse -Force
     # We don't need the gem docs.

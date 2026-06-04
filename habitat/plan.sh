@@ -51,7 +51,7 @@ do_build() {
   bundle config --local silence_root_warning 1
   bundle install
   gem build cookstyle.gemspec
-  ruby ./cleanup_lint_roller.rb
+  ruby ./cleanup_gem_lockfiles.rb
 
 }
 
@@ -85,6 +85,15 @@ do_install() {
   fi
 
   fix_interpreter "${pkg_prefix}/bin/*" "$ruby_pkg" bin/ruby
+}
+
+do_after() {
+  build_line "Removing .github directories from vendored gems..."
+  find "$pkg_prefix/vendor/gems" -type d -name ".github" \
+      | while read github_dir; do rm -rf "$github_dir"; done
+
+  build_line "Removing stray Gemfile.lock files from vendored gems..."
+  find "$pkg_prefix/vendor/gems" -name "Gemfile.lock" -type f -delete
 }
 
 do_strip() {
