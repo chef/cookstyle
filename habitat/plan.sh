@@ -20,11 +20,10 @@ pkg_deps=(${ruby_pkg} core/coreutils)
 pkg_svc_user=root
 
 do_setup_environment() {
-  build_line 'Setting GEM_HOME="$pkg_prefix/vendor"'
-  export GEM_HOME="$pkg_prefix/vendor"
-
-  build_line "Setting GEM_PATH=$GEM_HOME"
-  export GEM_PATH="$GEM_HOME"
+  push_runtime_env GEM_PATH "${pkg_prefix}/vendor"
+  set_runtime_env APPBUNDLER_ALLOW_RVM "true" # prevent appbundler from clearing out the carefully constructed runtime GEM_PATH
+  set_runtime_env LANG "en_US.UTF-8"
+  set_runtime_env LC_CTYPE "en_US.UTF-8"
 }
 
 pkg_version() {
@@ -71,34 +70,21 @@ do_install() {
   build_line "Setting GEM_PATH=$GEM_HOME"
   export GEM_PATH="$GEM_HOME"
   gem install cookstyle-*.gem --no-document
-  wrap_ruby_cookstyle
-  set_runtime_env "GEM_PATH" "${pkg_prefix}/vendor"
-}
 
-wrap_ruby_cookstyle() {
-  local bin="$pkg_prefix/bin/$pkg_name"
-  local real_bin="$GEM_HOME/gems/cookstyle-${pkg_version}/bin/cookstyle"
-  wrap_bin_with_ruby "$bin" "$real_bin"
-}
+  build_line "** generating binstubs for cookstyle with precise version pins"
+  "${pkg_prefix}/vendor/bin/appbundler" . "$pkg_prefix/bin" cookstyle
 
-wrap_bin_with_ruby() {
-  local bin="$1"
-  local real_bin="$2"
-  build_line "Adding wrapper $bin to $real_bin"
-  cat <<EOF > "$bin"
-#!$(pkg_path_for core/bash)/bin/bash
-set -e
+  build_line "** patching binstubs to allow running directly"
+  for binstub in ${pkg_prefix}/bin/*; do
+    sed -i -e "/require ['\"']rubygems['\"']/r ${PLAN_CONTEXT}/binstub_patch.rb" "$binstub"
+  done
 
-# Set binary path that allows cookstyle to use non-Hab pkg binaries
-export PATH="/sbin:/usr/sbin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:\$PATH"
+  if ! grep -q 'APPBUNDLER_ALLOW_RVM' "${pkg_prefix}/bin/cookstyle"; then
+    build_line "ERROR: binstub patch injection failed for ${pkg_prefix}/bin/cookstyle"
+    return 1
+  fi
 
-# Set Ruby paths defined from 'do_setup_environment()'
-export GEM_HOME="$pkg_prefix/vendor"
-export GEM_PATH="$GEM_PATH"
-
-exec $(pkg_path_for ${ruby_pkg})/bin/ruby $real_bin \$@
-EOF
-  chmod -v 755 "$bin"
+  fix_interpreter "${pkg_prefix}/bin/*" "$ruby_pkg" bin/ruby
 }
 
 do_after() {
