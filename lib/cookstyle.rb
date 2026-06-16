@@ -8,6 +8,7 @@ require 'yaml' unless defined?(YAML)
 gem 'rubocop', "= #{Cookstyle::RUBOCOP_VERSION}"
 require 'rubocop'
 require_relative 'rubocop/monkey_patches/directive_comment'
+require_relative 'rubocop/monkey_patches/comment_config'
 
 # monkey patches needed for the TargetChefVersion config option
 require_relative 'rubocop/monkey_patches/config'
