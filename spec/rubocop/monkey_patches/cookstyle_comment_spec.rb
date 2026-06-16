@@ -18,6 +18,8 @@
 # this is shamelessly copied from the rubocop rspec for this class
 # since we're just monkeypatching it and we want to ensure our monkeypatch
 # continues to function when we upgrade the engine
+require 'spec_helper'
+
 RSpec.describe RuboCop::CommentConfig do
   subject(:comment_config) { described_class.new(parse_source(source)) }
 
@@ -42,6 +44,30 @@ RSpec.describe RuboCop::CommentConfig do
 
     it 'supports disabling cops with the cookstyle: disable comment' do
       expect(disabled_lines_of_cop('Chef/Correctness/Foo')).to eq([2])
+    end
+  end
+
+  describe '#cop_enabled_at_line? with only cookstyle directives (no rubocop string)' do
+    let(:source) do
+      <<~RUBY
+        node.normal[:foo] # cookstyle:disable Chef/Correctness/Foo
+        node.normal[:bar]
+      RUBY
+    end
+
+    def disabled_lines_of_cop(cop)
+      (1..source.size).each_with_object([]) do |line_number, disabled_lines|
+        enabled = comment_config.cop_enabled_at_line?(cop, line_number)
+        disabled_lines << line_number unless enabled
+      end
+    end
+
+    it 'supports disabling cops when only cookstyle directives are present' do
+      expect(disabled_lines_of_cop('Chef/Correctness/Foo')).to eq([1])
+    end
+
+    it 'does not disable cops on lines without a directive' do
+      expect(comment_config.cop_enabled_at_line?('Chef/Correctness/Foo', 2)).to be true
     end
   end
 end
