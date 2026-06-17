@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 8.7.3 -->
-## [v8.7.3](https://github.com/chef/cookstyle/tree/v8.7.3) (2026-06-04)
+ <!-- latest_release 8.7.4 -->
+## [v8.7.4](https://github.com/chef/cookstyle/tree/v8.7.4) (2026-06-17)
 
 #### Merged Pull Requests
-- CHEF-35087: Use appbundler in hab packaging and install latest Habitat in Windows test [#1073](https://github.com/chef/cookstyle/pull/1073) ([nikhil2611](https://github.com/nikhil2611))
+- CHEF-34832: Update NOTICE [#1076](https://github.com/chef/cookstyle/pull/1076) ([nikhil2611](https://github.com/nikhil2611))
 <!-- latest_release -->
 
 <!-- release_rollup since=8.6.10 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- CHEF-34832: Update NOTICE [#1076](https://github.com/chef/cookstyle/pull/1076) ([nikhil2611](https://github.com/nikhil2611)) <!-- 8.7.4 -->
 - CHEF-35087: Use appbundler in hab packaging and install latest Habitat in Windows test [#1073](https://github.com/chef/cookstyle/pull/1073) ([nikhil2611](https://github.com/nikhil2611)) <!-- 8.7.3 -->
 - CHEF-34831: Security scan packaging fixes and dependency updates [#1074](https://github.com/chef/cookstyle/pull/1074) ([nikhil2611](https://github.com/nikhil2611)) <!-- 8.7.2 -->
 - Extra gem remove during build hab pkg [#1070](https://github.com/chef/cookstyle/pull/1070) ([sanghinitin](https://github.com/sanghinitin)) <!-- 8.7.1 -->
