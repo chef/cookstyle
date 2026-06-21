@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 8.7.5 -->
-## [v8.7.5](https://github.com/chef/cookstyle/tree/v8.7.5) (2026-06-19)
+ <!-- latest_release 8.7.6 -->
+## [v8.7.6](https://github.com/chef/cookstyle/tree/v8.7.6) (2026-06-21)
 
 #### Merged Pull Requests
-- Fix cookstyle:disable ignored by RuboCop CommentConfig fast-path [#1077](https://github.com/chef/cookstyle/pull/1077) ([sanghinitin](https://github.com/sanghinitin))
+- Bump actions/checkout from 6 to 7 [#1078](https://github.com/chef/cookstyle/pull/1078) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=8.6.10 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Bump actions/checkout from 6 to 7 [#1078](https://github.com/chef/cookstyle/pull/1078) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 8.7.6 -->
 - Fix cookstyle:disable ignored by RuboCop CommentConfig fast-path [#1077](https://github.com/chef/cookstyle/pull/1077) ([sanghinitin](https://github.com/sanghinitin)) <!-- 8.7.5 -->
 - CHEF-34832: Update NOTICE [#1076](https://github.com/chef/cookstyle/pull/1076) ([nikhil2611](https://github.com/nikhil2611)) <!-- 8.7.4 -->
 - CHEF-35087: Use appbundler in hab packaging and install latest Habitat in Windows test [#1073](https://github.com/chef/cookstyle/pull/1073) ([nikhil2611](https://github.com/nikhil2611)) <!-- 8.7.3 -->
