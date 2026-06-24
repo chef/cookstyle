@@ -1,29 +1,27 @@
 # Cookstyle Changelog
 
- <!-- latest_release 8.7.6 -->
-## [v8.7.6](https://github.com/chef/cookstyle/tree/v8.7.6) (2026-06-21)
-
-#### Merged Pull Requests
-- Bump actions/checkout from 6 to 7 [#1078](https://github.com/chef/cookstyle/pull/1078) ([dependabot[bot]](https://github.com/dependabot[bot]))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=8.6.10 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Bump actions/checkout from 6 to 7 [#1078](https://github.com/chef/cookstyle/pull/1078) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 8.7.6 -->
-- Fix cookstyle:disable ignored by RuboCop CommentConfig fast-path [#1077](https://github.com/chef/cookstyle/pull/1077) ([sanghinitin](https://github.com/sanghinitin)) <!-- 8.7.5 -->
-- CHEF-34832: Update NOTICE [#1076](https://github.com/chef/cookstyle/pull/1076) ([nikhil2611](https://github.com/nikhil2611)) <!-- 8.7.4 -->
-- CHEF-35087: Use appbundler in hab packaging and install latest Habitat in Windows test [#1073](https://github.com/chef/cookstyle/pull/1073) ([nikhil2611](https://github.com/nikhil2611)) <!-- 8.7.3 -->
-- CHEF-34831: Security scan packaging fixes and dependency updates [#1074](https://github.com/chef/cookstyle/pull/1074) ([nikhil2611](https://github.com/nikhil2611)) <!-- 8.7.2 -->
-- Extra gem remove during build hab pkg [#1070](https://github.com/chef/cookstyle/pull/1070) ([sanghinitin](https://github.com/sanghinitin)) <!-- 8.7.1 -->
-- Update to RuboCop 1.86.1 + enable new cops [#1059](https://github.com/chef/cookstyle/pull/1059) ([tas50](https://github.com/tas50)) <!-- 8.7.0 -->
-- Bump actions/checkout from 4 to 6 [#1065](https://github.com/chef/cookstyle/pull/1065) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 8.6.13 -->
-- Bump wechuli/allcheckspassed from 1 to 2 [#1066](https://github.com/chef/cookstyle/pull/1066) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 8.6.12 -->
-- Fix-up dependabot [#1064](https://github.com/chef/cookstyle/pull/1064) ([jaymzh](https://github.com/jaymzh)) <!-- 8.6.11 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
+## [v8.7.6](https://github.com/chef/cookstyle/tree/v8.7.6) (2026-06-24)
+
+#### Merged Pull Requests
+- Fix-up dependabot [#1064](https://github.com/chef/cookstyle/pull/1064) ([jaymzh](https://github.com/jaymzh))
+- Bump wechuli/allcheckspassed from 1 to 2 [#1066](https://github.com/chef/cookstyle/pull/1066) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump actions/checkout from 4 to 6 [#1065](https://github.com/chef/cookstyle/pull/1065) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Update to RuboCop 1.86.1 + enable new cops [#1059](https://github.com/chef/cookstyle/pull/1059) ([tas50](https://github.com/tas50))
+- Extra gem remove during build hab pkg [#1070](https://github.com/chef/cookstyle/pull/1070) ([sanghinitin](https://github.com/sanghinitin))
+- CHEF-34831: Security scan packaging fixes and dependency updates [#1074](https://github.com/chef/cookstyle/pull/1074) ([nikhil2611](https://github.com/nikhil2611))
+- CHEF-35087: Use appbundler in hab packaging and install latest Habitat in Windows test [#1073](https://github.com/chef/cookstyle/pull/1073) ([nikhil2611](https://github.com/nikhil2611))
+- CHEF-34832: Update NOTICE [#1076](https://github.com/chef/cookstyle/pull/1076) ([nikhil2611](https://github.com/nikhil2611))
+- Fix cookstyle:disable ignored by RuboCop CommentConfig fast-path [#1077](https://github.com/chef/cookstyle/pull/1077) ([sanghinitin](https://github.com/sanghinitin))
+- Bump actions/checkout from 6 to 7 [#1078](https://github.com/chef/cookstyle/pull/1078) ([dependabot[bot]](https://github.com/dependabot[bot]))
+<!-- latest_stable_release -->
+
 ## [v8.6.10](https://github.com/chef/cookstyle/tree/v8.6.10) (2026-03-27)
 
 #### Merged Pull Requests
@@ -75,7 +73,6 @@
 - Update Expeditor config to promote Habitat packages to current and base-2025 channels [#1060](https://github.com/chef/cookstyle/pull/1060) ([nikhil2611](https://github.com/nikhil2611))
 - CHEF-27648 Update and standardize copyright notices to Progress Software Corporation - copyright_update [#1045](https://github.com/chef/cookstyle/pull/1045) ([clintoncwolfe](https://github.com/clintoncwolfe))
 - Updating config version constraint from 7.* to 8.* [#1062](https://github.com/chef/cookstyle/pull/1062) ([nikhil2611](https://github.com/nikhil2611))
-<!-- latest_stable_release -->
 
 ## [v7.32.8](https://github.com/chef/cookstyle/tree/v7.32.8) (2024-02-06)
 
