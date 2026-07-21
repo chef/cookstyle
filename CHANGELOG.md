@@ -1,9 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 8.7.7 -->
+## [v8.7.7](https://github.com/chef/cookstyle/tree/v8.7.7) (2026-07-21)
+
+#### Merged Pull Requests
+- CHEF-36043: Enable macOS Habitat package build for aarch64-darwin [#1079](https://github.com/chef/cookstyle/pull/1079) ([sanghinitin](https://github.com/sanghinitin))
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=8.7.6 -->
+### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- CHEF-36043: Enable macOS Habitat package build for aarch64-darwin [#1079](https://github.com/chef/cookstyle/pull/1079) ([sanghinitin](https://github.com/sanghinitin)) <!-- 8.7.7 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
