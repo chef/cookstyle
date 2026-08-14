@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 8.7.8 -->
-## [v8.7.8](https://github.com/chef/cookstyle/tree/v8.7.8) (2026-08-04)
+ <!-- latest_release 8.7.9 -->
+## [v8.7.9](https://github.com/chef/cookstyle/tree/v8.7.9) (2026-08-14)
 
 #### Merged Pull Requests
-- CHEF-37336: add Linux ARM Habitat validation in Expeditor pipeline [#1080](https://github.com/chef/cookstyle/pull/1080) ([sanjain-progress](https://github.com/sanjain-progress))
+- Add good examples to cop docs that only showed bad code [#1108](https://github.com/chef/cookstyle/pull/1108) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=8.7.6 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add good examples to cop docs that only showed bad code [#1108](https://github.com/chef/cookstyle/pull/1108) ([tas50](https://github.com/tas50)) <!-- 8.7.9 -->
 - CHEF-37336: add Linux ARM Habitat validation in Expeditor pipeline [#1080](https://github.com/chef/cookstyle/pull/1080) ([sanjain-progress](https://github.com/sanjain-progress)) <!-- 8.7.8 -->
 - CHEF-36043: Enable macOS Habitat package build for aarch64-darwin [#1079](https://github.com/chef/cookstyle/pull/1079) ([sanghinitin](https://github.com/sanghinitin)) <!-- 8.7.7 -->
 <!-- release_rollup -->
