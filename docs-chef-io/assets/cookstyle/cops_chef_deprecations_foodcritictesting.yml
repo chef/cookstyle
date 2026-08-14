@@ -14,7 +14,6 @@ examples: |2-
 
   # good
   gem 'cookstyle'
-  require 'cookstyle'
 version_added: 7.1.0
 enabled: true
 included_file_paths:

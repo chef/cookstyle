@@ -29,7 +29,6 @@ module RuboCop
         #
         #   # good
         #   gem 'cookstyle'
-        #   require 'cookstyle'
         #
         class FoodcriticTesting < Base
           MSG = 'The Foodcritic cookbook linter has been deprecated and should no longer be used for validating cookbooks.'
