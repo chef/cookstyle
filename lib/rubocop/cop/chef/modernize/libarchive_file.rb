@@ -44,8 +44,10 @@ module RuboCop
           MSG = 'Use the archive_file resource built into Chef Infra Client 15+ instead of the libarchive_file resource from the libarchive cookbook'
           RESTRICT_ON_SEND = [:libarchive_file, :notifies, :subscribes].freeze
 
+          # the notification timing is optional and defaults to :delayed, so the trailing
+          # argument is matched with ... rather than being required
           def_node_matcher :notification_property?, <<-PATTERN
-            (send nil? {:notifies :subscribes} (sym _) $(...) (sym _))
+            (send nil? {:notifies :subscribes} (sym _) $(...) ...)
           PATTERN
 
           def on_send(node)

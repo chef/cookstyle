@@ -79,4 +79,22 @@ describe RuboCop::Cop::Chef::Modernize::ExecuteAptUpdate, :config do
       end
     RUBY
   end
+
+  it "registers an offense when a resource notifies 'execute[apt-get update]' without a timing" do
+    expect_offense(<<~RUBY)
+      execute 'some execute resource' do
+        notifies :run, 'execute[apt-get update]'
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^ Use the apt_update resource instead of the execute resource to run an apt-get update package cache update
+      end
+    RUBY
+  end
+
+  it "registers an offense when a resource subscribes to 'execute[apt-get update]' without a timing" do
+    expect_offense(<<~RUBY)
+      execute 'some execute resource' do
+        subscribes :run, 'execute[apt-get update]'
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^ Use the apt_update resource instead of the execute resource to run an apt-get update package cache update
+      end
+    RUBY
+  end
 end

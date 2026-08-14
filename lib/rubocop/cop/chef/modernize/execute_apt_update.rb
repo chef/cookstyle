@@ -53,8 +53,10 @@ module RuboCop
             (send nil? :execute (str { "apt-get update" "apt-get update -y" "apt-get -y update" }))
           PATTERN
 
+          # the notification timing is optional and defaults to :delayed, so the trailing
+          # argument is matched with ... rather than being required
           def_node_matcher :notification_property?, <<-PATTERN
-            (send nil? {:notifies :subscribes} (sym _) $(...) (sym _))
+            (send nil? {:notifies :subscribes} (sym _) $(...) ...)
           PATTERN
 
           def_node_matcher :execute_command?, <<-PATTERN
