@@ -33,6 +33,15 @@ module RuboCop
         #     end
         #   end
         #
+        #   # good
+        #   module MyCookbook
+        #     class MyCookbookService < Chef::Resource
+        #       provides :mycookbook_service
+        #
+        #       # some additional code
+        #     end
+        #   end
+        #
         class UseAutomaticResourceName < Base
           extend RuboCop::Cop::AutoCorrector
           include RangeHelp

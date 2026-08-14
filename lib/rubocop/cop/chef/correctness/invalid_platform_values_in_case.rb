@@ -29,6 +29,12 @@ module RuboCop
         #     puts "I'm on a Red Hat system!"
         #   end
         #
+        #   # good
+        #   case node['platform']
+        #   when 'redhat'
+        #     puts "I'm on a Red Hat system!"
+        #   end
+        #
         class InvalidPlatformInCase < Base
           extend AutoCorrector
           include RangeHelp

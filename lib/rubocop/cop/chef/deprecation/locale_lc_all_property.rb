@@ -29,6 +29,11 @@ module RuboCop
         #     lc_all 'en_gb.utf-8'
         #   end
         #
+        #   # good
+        #   locale 'set locale' do
+        #     lang 'en_gb.utf-8'
+        #   end
+        #
         class LocaleDeprecatedLcAllProperty < Base
           include RuboCop::Chef::CookbookHelpers
 

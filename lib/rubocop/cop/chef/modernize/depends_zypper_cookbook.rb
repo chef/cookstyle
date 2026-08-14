@@ -26,6 +26,13 @@ module RuboCop
         #   # bad
         #   depends 'zypper'
         #
+        #   # good
+        #   # the resource ships in Chef Infra Client 13.3+, so use it without a depends
+        #   zypper_repository 'apache' do
+        #     baseurl 'http://download.opensuse.org/repositories/Apache'
+        #     action :add
+        #   end
+        #
         class DependsOnZypperCookbook < Base
           extend AutoCorrector
           extend TargetChefVersion

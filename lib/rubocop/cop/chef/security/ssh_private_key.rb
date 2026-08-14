@@ -29,6 +29,15 @@ module RuboCop
         #     mode '600'
         #   end
         #
+        #   # good
+        #   # fetch the key from a secrets management system instead
+        #   file '/home/bob/.ssh/id_rsa' do
+        #     content chef_vault_item('ssh_keys', 'bob')['private_key']
+        #     mode '600'
+        #     owner 'bob'
+        #     sensitive true
+        #   end
+        #
         class SshPrivateKey < Base
           MSG = 'Do not include plain text SSH private keys in your cookbook code. This sensitive data should be fetched from secrets management systems so that secrets are not uploaded in plain text to the Chef Infra Server or committed to source control systems.'
 

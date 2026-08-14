@@ -33,6 +33,17 @@ module RuboCop
         #    not_if 'choco source list | findstr artifactory'
         #  end
         #
+        #   # good
+        #   chocolatey_package 'foo' do
+        #     source 'artifactory'
+        #     options '--no-progress --ignore-package-exit-codes'
+        #   end
+        #
+        #   chocolatey_source 'artifactory' do
+        #     source 'https://mycorp.jfrog.io/mycorp/api/nuget/chocolatey-remote'
+        #     action :add
+        #   end
+        #
         class ShellOutToChocolatey < Base
           include RuboCop::Chef::CookbookHelpers
 

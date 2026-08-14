@@ -28,6 +28,12 @@ module RuboCop
         #     path 'C:\expand_here'
         #   end
         #
+        #   # good
+        #   archive_file 'expand file.zip' do
+        #     path 'C:\\file.zip'
+        #     destination 'C:\\expand_here'
+        #   end
+        #
         class ZipfileResource < Base
           include RuboCop::Chef::CookbookHelpers
           extend TargetChefVersion

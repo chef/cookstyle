@@ -27,6 +27,11 @@ module RuboCop
         #   include_recipe 'ohai::default'
         #   include_recipe 'ohai'
         #
+        #   # good
+        #   ohai_plugin 'my_custom_plugin' do
+        #     source_file 'my_plugin.rb'
+        #   end
+        #
         class IncludingOhaiDefaultRecipe < Base
           MSG = "Use the ohai_plugin resource to ship custom Ohai plugins instead of using the ohai::default recipe. If you're not shipping custom Ohai plugins, then you can remove this recipe entirely"
           RESTRICT_ON_SEND = [:include_recipe].freeze

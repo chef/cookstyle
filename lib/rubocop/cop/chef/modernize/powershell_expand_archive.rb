@@ -28,6 +28,13 @@ module RuboCop
         #     code 'Expand-Archive "C:\\file.zip" -DestinationPath "C:\\inetpub\\wwwroot\\" -Force'
         #   end
         #
+        #   # good
+        #   archive_file 'Expand website' do
+        #     path 'C:\\file.zip'
+        #     destination 'C:\\inetpub\\wwwroot'
+        #     overwrite true
+        #   end
+        #
         class PowershellScriptExpandArchive < Base
           include RuboCop::Chef::CookbookHelpers
           extend TargetChefVersion

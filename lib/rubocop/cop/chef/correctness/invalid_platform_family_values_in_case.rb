@@ -29,6 +29,12 @@ module RuboCop
         #     puts "I'm on a RHEL-like system"
         #   end
         #
+        #   # good
+        #   case node['platform_family']
+        #   when 'rhel'
+        #     puts "I'm on a RHEL-like system"
+        #   end
+        #
         class InvalidPlatformFamilyInCase < Base
           extend AutoCorrector
           include RangeHelp

@@ -12,6 +12,12 @@ examples: |2-
   windows_zipfile 'C:\\files\\' do
     source 'C:\\Temp\\file.zip'
   end
+
+  # good
+  archive_file 'expand file.zip' do
+    path 'C:\\Temp\\file.zip'
+    destination 'C:\\files'
+  end
 version_added: 5.4.0
 enabled: true
 excluded_file_paths:

@@ -13,6 +13,12 @@ examples: |2-
   when 'rhel'
     puts "I'm on a Red Hat system!"
   end
+
+  # good
+  case node['platform']
+  when 'redhat'
+    puts "I'm on a Red Hat system!"
+  end
 version_added: 6.6.0
 enabled: true
 excluded_file_paths:

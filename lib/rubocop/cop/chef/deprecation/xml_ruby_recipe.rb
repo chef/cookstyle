@@ -26,6 +26,10 @@ module RuboCop
         #   # bad
         #   include_recipe 'xml::ruby'
         #
+        #   # good
+        #   # nokogiri ships with Chef Infra Client, so just require it
+        #   require 'nokogiri'
+        #
         class IncludingXMLRubyRecipe < Base
           extend AutoCorrector
 

@@ -27,6 +27,9 @@ module RuboCop
         #   require 'chef/rest'
         #   Chef::REST::RESTRequest.new(:GET, FOO, nil).call
         #
+        #   # good
+        #   Chef::ServerAPI.new(Chef::Config[:chef_server_url]).get('nodes')
+        #
         class UsesChefRESTHelpers < Base
           MSG = "Don't use the helpers in Chef::REST which were removed in Chef Infra Client 13"
           RESTRICT_ON_SEND = [:require].freeze

@@ -28,6 +28,12 @@ module RuboCop
         #     source 'C:\\Temp\\file.zip'
         #   end
         #
+        #   # good
+        #   archive_file 'expand file.zip' do
+        #     path 'C:\\Temp\\file.zip'
+        #     destination 'C:\\files'
+        #   end
+        #
         class WindowsZipfileUsage < Base
           extend TargetChefVersion
 

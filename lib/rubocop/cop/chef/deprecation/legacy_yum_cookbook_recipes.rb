@@ -33,6 +33,14 @@ module RuboCop
         #   include_recipe 'yum::repoforge'
         #   include_recipe 'yum::yum'
         #
+        #   # good
+        #   include_recipe 'yum-elrepo'
+        #   include_recipe 'yum-epel'
+        #   include_recipe 'yum-ius'
+        #   include_recipe 'yum-remi'
+        #   include_recipe 'yum-repoforge'
+        #   include_recipe 'yum'
+        #
         class LegacyYumCookbookRecipes < Base
           MSG = 'The elrepo, epel, ius, remi, and repoforge recipes were split into their own cookbooks and the yum recipe was renamed to be default with the release of yum cookbook 3.0 (Dec 2013).'
           RESTRICT_ON_SEND = [:include_recipe].freeze

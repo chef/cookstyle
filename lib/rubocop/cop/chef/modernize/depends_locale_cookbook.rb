@@ -26,6 +26,12 @@ module RuboCop
         #   # bad
         #   depends 'locale'
         #
+        #   # good
+        #   # the resource ships in Chef Infra Client 14.5+, so use it without a depends
+        #   locale 'set locale' do
+        #     lang 'en_us.UTF-8'
+        #   end
+        #
         class DependsOnLocaleCookbook < Base
           extend AutoCorrector
           extend TargetChefVersion

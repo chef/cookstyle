@@ -26,6 +26,10 @@ module RuboCop
         #   # bad
         #   depends 'timezone_lwrp'
         #
+        #   # good
+        #   # the resource ships in Chef Infra Client 14.6+, so use it without a depends
+        #   timezone 'UTC'
+        #
         class DependsOnTimezoneLwrpCookbook < Base
           extend AutoCorrector
           extend TargetChefVersion

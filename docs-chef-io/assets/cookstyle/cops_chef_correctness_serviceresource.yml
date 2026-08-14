@@ -10,6 +10,15 @@ examples: |2-
   # bad
   command "/etc/init.d/mysql start"
   command "/sbin/service/memcached start"
+
+  # good
+  service 'mysql' do
+    action :start
+  end
+
+  service 'memcached' do
+    action :start
+  end
 version_added: 5.0.0
 enabled: true
 excluded_file_paths:
