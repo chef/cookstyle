@@ -23,7 +23,7 @@ describe RuboCop::Cop::Chef::Security::InsecureRemoteFileSource, :config do
     expect_offense(<<~RUBY)
       remote_file '/tmp/foo.tar.gz' do
         source 'http://example.com/foo.tar.gz'
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Fetch remote files over HTTPS. A file downloaded over plain HTTP or FTP can be modified in transit and the resource will install whatever it receives.
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Fetch remote files over HTTPS. A file downloaded over plain HTTP or FTP can be modified in transit and the resource will use whatever it receives.
       end
     RUBY
   end
@@ -32,7 +32,7 @@ describe RuboCop::Cop::Chef::Security::InsecureRemoteFileSource, :config do
     expect_offense(<<~RUBY)
       remote_file '/tmp/foo.tar.gz' do
         source 'ftp://example.com/foo.tar.gz'
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Fetch remote files over HTTPS. A file downloaded over plain HTTP or FTP can be modified in transit and the resource will install whatever it receives.
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Fetch remote files over HTTPS. A file downloaded over plain HTTP or FTP can be modified in transit and the resource will use whatever it receives.
       end
     RUBY
   end
@@ -41,7 +41,34 @@ describe RuboCop::Cop::Chef::Security::InsecureRemoteFileSource, :config do
     expect_offense(<<~RUBY)
       windows_package 'Foo' do
         source 'http://example.com/foo.msi'
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Fetch remote files over HTTPS. A file downloaded over plain HTTP or FTP can be modified in transit and the resource will install whatever it receives.
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Fetch remote files over HTTPS. A file downloaded over plain HTTP or FTP can be modified in transit and the resource will use whatever it receives.
+      end
+    RUBY
+  end
+
+  it 'registers an offense when msu_package fetches over http' do
+    expect_offense(<<~RUBY)
+      msu_package 'Windows Update' do
+        source 'http://example.com/update.msu'
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Fetch remote files over HTTPS. A file downloaded over plain HTTP or FTP can be modified in transit and the resource will use whatever it receives.
+      end
+    RUBY
+  end
+
+  it 'registers an offense when dmg_package fetches over http' do
+    expect_offense(<<~RUBY)
+      dmg_package 'Foo' do
+        source 'http://example.com/foo.dmg'
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Fetch remote files over HTTPS. A file downloaded over plain HTTP or FTP can be modified in transit and the resource will use whatever it receives.
+      end
+    RUBY
+  end
+
+  it 'registers an offense when cab_package fetches over http' do
+    expect_offense(<<~RUBY)
+      cab_package 'Foo' do
+        source 'http://example.com/foo.cab'
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Fetch remote files over HTTPS. A file downloaded over plain HTTP or FTP can be modified in transit and the resource will use whatever it receives.
       end
     RUBY
   end
@@ -50,7 +77,7 @@ describe RuboCop::Cop::Chef::Security::InsecureRemoteFileSource, :config do
     expect_offense(<<~'RUBY')
       remote_file '/tmp/foo.tar.gz' do
         source "http://example.com/#{node['foo']['version']}/foo.tar.gz"
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Fetch remote files over HTTPS. A file downloaded over plain HTTP or FTP can be modified in transit and the resource will install whatever it receives.
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Fetch remote files over HTTPS. A file downloaded over plain HTTP or FTP can be modified in transit and the resource will use whatever it receives.
       end
     RUBY
   end
@@ -59,7 +86,7 @@ describe RuboCop::Cop::Chef::Security::InsecureRemoteFileSource, :config do
     expect_offense(<<~RUBY)
       remote_file '/tmp/foo.tar.gz' do
         source ['https://example.com/foo.tar.gz', 'http://mirror.example.com/foo.tar.gz']
-                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Fetch remote files over HTTPS. A file downloaded over plain HTTP or FTP can be modified in transit and the resource will install whatever it receives.
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Fetch remote files over HTTPS. A file downloaded over plain HTTP or FTP can be modified in transit and the resource will use whatever it receives.
       end
     RUBY
   end

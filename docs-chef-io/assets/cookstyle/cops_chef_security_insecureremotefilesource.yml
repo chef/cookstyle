@@ -4,7 +4,7 @@ full_name: Chef/Security/InsecureRemoteFileSource
 department: Chef/Security
 description: |-
   Files downloaded over plain HTTP or FTP can be modified in transit, and the resource will
-  install whatever it receives. Fetch them over HTTPS so the transport is authenticated.
+  use whatever it receives. Fetch them over HTTPS so the transport is authenticated.
 
   Where an HTTPS endpoint genuinely isn't available, a `checksum` on the resource at least
   detects tampering, since the digest is compared before the file is used.

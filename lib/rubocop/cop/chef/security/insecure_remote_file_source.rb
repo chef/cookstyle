@@ -20,7 +20,7 @@ module RuboCop
     module Chef
       module Security
         # Files downloaded over plain HTTP or FTP can be modified in transit, and the resource will
-        # install whatever it receives. Fetch them over HTTPS so the transport is authenticated.
+        # use whatever it receives. Fetch them over HTTPS so the transport is authenticated.
         #
         # Where an HTTPS endpoint genuinely isn't available, a `checksum` on the resource at least
         # detects tampering, since the digest is compared before the file is used.
@@ -40,7 +40,7 @@ module RuboCop
         class InsecureRemoteFileSource < Base
           include RuboCop::Chef::CookbookHelpers
 
-          MSG = 'Fetch remote files over HTTPS. A file downloaded over plain HTTP or FTP can be modified in transit and the resource will install whatever it receives.'
+          MSG = 'Fetch remote files over HTTPS. A file downloaded over plain HTTP or FTP can be modified in transit and the resource will use whatever it receives.'
 
           # the resources that download a file from the source property
           RESOURCES = %i(remote_file windows_package msu_package dmg_package cab_package).freeze

@@ -2367,7 +2367,7 @@ Chef/Security:
   StyleGuideBaseURL: https://docs.chef.io/workstation/cookstyle/
 
 Chef/Security/InsecureRemoteFileSource:
-  Description: "Fetch remote files over HTTPS. A file downloaded over plain HTTP or FTP can be modified in transit and the resource will install whatever it receives."
+  Description: "Fetch remote files over HTTPS. A file downloaded over plain HTTP or FTP can be modified in transit and the resource will use whatever it receives."
   StyleGuide: 'chef_security_insecureremotefilesource'
   Enabled: true
   VersionAdded: '8.8.0'
