@@ -27,6 +27,13 @@ module RuboCop
         #   depends 'chocolatey_source'
         #   depends 'chocolatey_config'
         #
+        #   # good
+        #   # the resources ship in Chef Infra Client 14.3+, so use them without a depends
+        #   chocolatey_source 'internal' do
+        #     source 'https://mycorp.example/nuget'
+        #     action :add
+        #   end
+        #
         class DependsOnChocolateyCookbooks < Base
           extend AutoCorrector
           extend TargetChefVersion

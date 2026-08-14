@@ -26,12 +26,12 @@ module RuboCop
         #   # bad
         #   depends 'libarchive'
         #
-        #   libarchive_file "C:\file.zip" do
+        #   libarchive_file 'C:\file.zip' do
         #     path 'C:\expand_here'
         #   end
         #
         #   # good
-        #   archive_file "C:\file.zip" do
+        #   archive_file 'C:\file.zip' do
         #     path 'C:\expand_here'
         #   end
         #

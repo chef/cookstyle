@@ -26,13 +26,13 @@ module RuboCop
         #   # bad
         #   powershell_script 'Cleanup old files' do
         #     code 'Remove-Item C:\Windows\foo\bar.txt'
-        #     only_if { ::File.exist?('C:\\Windows\\foo\\bar.txt') }
+        #     only_if { ::File.exist?('C:\Windows\foo\bar.txt') }
         #   end
         #
-        #  ### correct
-        #  file 'C:\Windows\foo\bar.txt' do
-        #    action :delete
-        #  end
+        #   # good
+        #   file 'C:\Windows\foo\bar.txt' do
+        #     action :delete
+        #   end
         #
         class PowershellScriptDeleteFile < Base
           include RuboCop::Chef::CookbookHelpers

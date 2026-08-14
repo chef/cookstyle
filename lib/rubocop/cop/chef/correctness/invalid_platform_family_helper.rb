@@ -27,7 +27,7 @@ module RuboCop
         #   platform_family?('redhat')
         #   platform_family?('sles')
         #
-        #   # bad
+        #   # good
         #   platform_family?('rhel')
         #   platform_family?('suse')
         #

@@ -26,6 +26,10 @@ module RuboCop
         #   # bad
         #   chef_gem 'nokogiri'
         #
+        #   # good
+        #   # nokogiri ships with Chef Infra Client, so just require it
+        #   require 'nokogiri'
+        #
         class ChefGemNokogiri < Base
           extend AutoCorrector
           include RangeHelp

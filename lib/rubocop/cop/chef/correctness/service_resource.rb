@@ -26,6 +26,15 @@ module RuboCop
         #   command "/etc/init.d/mysql start"
         #   command "/sbin/service/memcached start"
         #
+        #   # good
+        #   service 'mysql' do
+        #     action :start
+        #   end
+        #
+        #   service 'memcached' do
+        #     action :start
+        #   end
+        #
         class ServiceResource < Base
           MSG = 'Use a service resource to start and stop services'
           RESTRICT_ON_SEND = [:command].freeze

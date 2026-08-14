@@ -26,6 +26,10 @@ module RuboCop
         #   # bad
         #   depends 'chef-vault'
         #
+        #   # good
+        #   # the chef-vault helpers ship in Chef Infra Client 16+, so use them without a depends
+        #   chef_vault_item('secrets', 'my_secret')
+        #
         class DependsOnChefVaultCookbook < Base
           extend AutoCorrector
           extend TargetChefVersion

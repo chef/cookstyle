@@ -24,8 +24,14 @@ module RuboCop
         # @example
         #
         #   # bad
-        #   seven_zip_archive "C:\file.zip" do
+        #   seven_zip_archive 'C:\file.zip' do
         #     path 'C:\expand_here'
+        #   end
+        #
+        #   # good
+        #   archive_file 'expand file.zip' do
+        #     path 'C:\file.zip'
+        #     destination 'C:\expand_here'
         #   end
         #
         class SevenZipArchiveResource < Base

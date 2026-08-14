@@ -78,8 +78,8 @@ module RuboCop
         #     end
         #   end
         #
-        #  # better
-        #  Convert your legacy HWRPs to custom resources
+        #   # better
+        #   # Convert your legacy HWRPs to custom resources
         #
         class HWRPWithoutProvides < Base
           extend AutoCorrector

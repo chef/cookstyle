@@ -32,6 +32,14 @@ module RuboCop
         #   depends 'swap'
         #   depends 'sysctl'
         #
+        #   # good
+        #   # the resources ship in Chef Infra Client 14+, so use them without a depends
+        #   build_essential 'install compilation tools'
+        #
+        #   sysctl 'vm.swappiness' do
+        #     value 10
+        #   end
+        #
         class UnnecessaryDependsChef14 < Base
           extend AutoCorrector
           extend TargetChefVersion

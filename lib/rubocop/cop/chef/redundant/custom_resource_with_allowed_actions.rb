@@ -29,6 +29,16 @@ module RuboCop
         #   # also bad
         #   actions [:create, :remove]
         #
+        #   # good
+        #   # Chef Infra Client derives the allowed actions from the actions you define
+        #   action :create do
+        #     # ...
+        #   end
+        #
+        #   action :remove do
+        #     # ...
+        #   end
+        #
         class CustomResourceWithAllowedActions < Base
           include RangeHelp
           extend AutoCorrector
