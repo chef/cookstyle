@@ -406,6 +406,7 @@ Chef/Correctness/ChefApplicationFatal:
   StyleGuide: 'chef_correctness_chefapplicationfatal'
   Enabled: true
   VersionAdded: '6.0.0'
+  VersionChanged: '8.8.0'
   Exclude:
     - '**/metadata.rb'
     - '**/Berksfile'

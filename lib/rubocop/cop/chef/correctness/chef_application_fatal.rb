@@ -21,10 +21,15 @@ module RuboCop
       module Correctness
         # Use `raise` to force Chef Infra Client to fail instead of using `Chef::Application.fatal`, which masks the full stack trace of the failure and makes debugging difficult.
         #
+        # `Chef::Application.fatal!` optionally takes an exit code as a second argument. That form is
+        # reported but not autocorrected, since `raise` has no way to express a specific exit code and
+        # rewriting it would silently change how the run terminates.
+        #
         # @example
         #
         #   # bad
         #   Chef::Application.fatal!('Something horrible happened!')
+        #   Chef::Application.fatal!('Something horrible happened!', 1)
         #
         #   # good
         #   raise "Something horrible happened!"
@@ -38,14 +43,21 @@ module RuboCop
           def_node_matcher :application_fatal?, <<-PATTERN
             (send
               (const
-                (const nil? :Chef) :Application) :fatal!
-              $( ... ))
+                (const {nil? cbase} :Chef) :Application) :fatal!
+              $...)
           PATTERN
 
           def on_send(node)
-            application_fatal?(node) do |val|
+            application_fatal?(node) do |args|
+              # Only the single message argument form maps cleanly onto raise. With an exit code (or
+              # with no message at all) we still report, but leave the rewrite to a human.
+              unless args.one?
+                add_offense(node, severity: :refactor)
+                next
+              end
+
               add_offense(node, severity: :refactor) do |corrector|
-                corrector.replace(node, "raise(#{val.source})")
+                corrector.replace(node, "raise(#{args.first.source})")
               end
             end
           end
