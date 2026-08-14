@@ -62,10 +62,10 @@ module RuboCop
 
           def on_block(node)
             match_property_in_resource?(:ruby_block, 'action', node) do |ruby_action|
-              ruby_action.arguments.each do |action|
-                next unless action.source == ':create'
+              each_action_symbol(ruby_action) do |action, prefix|
+                next unless action.value == :create
                 add_offense(action, severity: :warning) do |corrector|
-                  corrector.replace(action, ':run')
+                  corrector.replace(action, "#{prefix}run")
                 end
               end
             end

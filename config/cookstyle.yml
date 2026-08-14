@@ -294,6 +294,7 @@ Chef/Correctness/ResourceWithNoneAction:
   StyleGuide: 'chef_correctness_resourcewithnoneaction'
   Enabled: true
   VersionAdded: '5.5.0'
+  VersionChanged: '8.8.0'
   Exclude:
     - '**/attributes/*.rb'
     - '**/metadata.rb'
@@ -801,6 +802,7 @@ Chef/Deprecations/ChocolateyPackageUninstallAction:
   StyleGuide: 'chef_deprecations_chocolateypackageuninstallaction'
   Enabled: true
   VersionAdded: '5.5.0'
+  VersionChanged: '8.8.0'
   Exclude:
     - '**/metadata.rb'
 

@@ -41,10 +41,10 @@ module RuboCop
 
           def on_block(node)
             match_property_in_resource?(:chocolatey_package, 'action', node) do |choco_action|
-              choco_action.arguments.each do |action|
-                next unless action.source == ':uninstall'
+              each_action_symbol(choco_action) do |action, prefix|
+                next unless action.value == :uninstall
                 add_offense(action, severity: :warning) do |corrector|
-                  corrector.replace(action, ':remove')
+                  corrector.replace(action, "#{prefix}remove")
                 end
               end
             end

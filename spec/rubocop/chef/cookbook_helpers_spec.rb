@@ -223,4 +223,40 @@ RSpec.describe RuboCop::Chef::CookbookHelpers do
       end
     end
   end
+
+  describe '#each_action_symbol' do
+    def yielded_actions(source)
+      results = []
+      each_action_symbol(parse_source(source).ast) { |node, prefix| results << [node.value, prefix] }
+      results
+    end
+
+    it 'yields a single symbol action' do
+      expect(yielded_actions('action :create')).to eq [[:create, ':']]
+    end
+
+    it 'yields each symbol when several are passed as separate arguments' do
+      expect(yielded_actions('action :create, :run')).to eq [[:create, ':'], [:run, ':']]
+    end
+
+    it 'yields each symbol in a bracketed array with a colon prefix' do
+      expect(yielded_actions('action [:create, :run]')).to eq [[:create, ':'], [:run, ':']]
+    end
+
+    it 'yields each symbol in a %i array with no prefix' do
+      expect(yielded_actions('action %i(create run)')).to eq [[:create, ''], [:run, '']]
+    end
+
+    it 'yields nothing for a string array, which holds no symbols' do
+      expect(yielded_actions('action %w(create run)')).to eq []
+    end
+
+    it 'yields nothing when the action cannot be resolved statically' do
+      expect(yielded_actions("action node['foo']['action']")).to eq []
+    end
+
+    it 'yields nothing when no action is given' do
+      expect(yielded_actions('action')).to eq []
+    end
+  end
 end
