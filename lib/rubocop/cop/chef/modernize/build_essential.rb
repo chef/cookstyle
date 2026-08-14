@@ -27,6 +27,7 @@ module RuboCop
         #   depends 'build-essential'
         #   include_recipe 'build-essential::default'
         #   include_recipe 'build-essential'
+        #   run_context.include_recipe 'build-essential::default'
         #
         #   # good
         #   build_essential 'install compilation tools'
@@ -37,8 +38,10 @@ module RuboCop
           MSG = 'Use the build_essential resource instead of the legacy build-essential recipe. This resource ships in the build-essential cookbook v5.0+ and is built into Chef Infra Client 14+'
           RESTRICT_ON_SEND = [:include_recipe].freeze
 
+          # matches a bare include_recipe as well as the run_context.include_recipe form used in
+          # libraries and custom resources
           def_node_matcher :build_essential_recipe_usage?, <<-PATTERN
-            (send nil? :include_recipe (str {"build-essential" "build-essential::default"}))
+            (send {nil? (send nil? :run_context)} :include_recipe (str {"build-essential" "build-essential::default"}))
           PATTERN
 
           def on_send(node)

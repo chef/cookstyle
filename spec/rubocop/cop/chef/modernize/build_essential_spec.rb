@@ -40,9 +40,43 @@ describe RuboCop::Cop::Chef::Modernize::UseBuildEssentialResource, :config do
     RUBY
   end
 
+  it 'registers an offense when including the "build-essential" recipe via run_context' do
+    expect_offense(<<~RUBY)
+      run_context.include_recipe 'build-essential'
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the build_essential resource instead of the legacy build-essential recipe. This resource ships in the build-essential cookbook v5.0+ and is built into Chef Infra Client 14+
+    RUBY
+
+    expect_correction(<<~RUBY)
+      build_essential 'install compilation tools'
+    RUBY
+  end
+
+  it 'registers an offense when including the "build-essential::default" recipe via run_context' do
+    expect_offense(<<~RUBY)
+      run_context.include_recipe 'build-essential::default'
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the build_essential resource instead of the legacy build-essential recipe. This resource ships in the build-essential cookbook v5.0+ and is built into Chef Infra Client 14+
+    RUBY
+
+    expect_correction(<<~RUBY)
+      build_essential 'install compilation tools'
+    RUBY
+  end
+
   it "doesn't register an offense when using the build_essential resource" do
     expect_no_offenses(<<~RUBY)
       build_essential 'install some tools!'
+    RUBY
+  end
+
+  it "doesn't register an offense when including another cookbook's recipe" do
+    expect_no_offenses(<<~RUBY)
+      run_context.include_recipe 'some-other-cookbook::default'
+    RUBY
+  end
+
+  it "doesn't register an offense when include_recipe is called on an unrelated receiver" do
+    expect_no_offenses(<<~RUBY)
+      other_thing.include_recipe 'build-essential'
     RUBY
   end
 end

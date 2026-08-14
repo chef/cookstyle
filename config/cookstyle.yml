@@ -1487,6 +1487,7 @@ Chef/Modernize/UseBuildEssentialResource:
   StyleGuide: 'chef_modernize_usebuildessentialresource'
   Enabled: true
   VersionAdded: '5.1.0'
+  VersionChanged: '8.8.0'
   Exclude:
     - '**/metadata.rb'
 
