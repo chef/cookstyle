@@ -424,6 +424,16 @@ Chef/Correctness/RubyGuardWithoutBlock:
     - '**/metadata.rb'
     - '**/Berksfile'
 
+Chef/Correctness/InvalidChecksum:
+  Description: "The `checksum` property of the file downloading resources takes a SHA-256 digest. An MD5 or SHA-1 digest can never match, so the run fails with a checksum mismatch rather than installing anything."
+  StyleGuide: 'chef_correctness_invalidchecksum'
+  Enabled: true
+  VersionAdded: '9.0.0'
+  Exclude:
+    - '**/attributes/*.rb'
+    - '**/metadata.rb'
+    - '**/Berksfile'
+
 Chef/Correctness/PlatformVersionStringComparison:
   Description: "Ohai version attributes are strings, so comparing one with an ordering operator compares them character by character rather than as versions. `'7.9' >= '10'` is true. Use `.to_i` for a major version comparison, or `Gem::Version` to compare full versions."
   StyleGuide: 'chef_correctness_platformversionstringcomparison'
