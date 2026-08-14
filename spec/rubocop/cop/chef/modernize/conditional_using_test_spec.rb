@@ -23,7 +23,7 @@ describe RuboCop::Cop::Chef::Modernize::ConditionalUsingTest, :config do
     expect_offense(<<~RUBY)
       execute 'apt-get update' do
         only_if 'test -f /sbin/apt'
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use ::File.exist?('/foo/bar') instead of the slower 'test -f /foo/bar' which requires shelling out
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use only_if { ::File.exist?('/foo/bar') } instead of the slower only_if 'test -f /foo/bar' which requires shelling out
       end
     RUBY
 
@@ -38,7 +38,7 @@ describe RuboCop::Cop::Chef::Modernize::ConditionalUsingTest, :config do
     expect_offense(<<~RUBY)
       execute 'yum update' do
         not_if 'test -f /sbin/apt'
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^ Use ::File.exist?('/foo/bar') instead of the slower 'test -f /foo/bar' which requires shelling out
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^ Use not_if { ::File.exist?('/foo/bar') } instead of the slower not_if 'test -f /foo/bar' which requires shelling out
       end
     RUBY
 
@@ -53,7 +53,7 @@ describe RuboCop::Cop::Chef::Modernize::ConditionalUsingTest, :config do
     expect_offense(<<~RUBY)
       execute 'yum update' do
         not_if 'test -e /sbin/apt'
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^ Use ::File.exist?('/foo/bar') instead of the slower 'test -f /foo/bar' which requires shelling out
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^ Use not_if { ::File.exist?('/foo/bar') } instead of the slower not_if 'test -f /foo/bar' which requires shelling out
       end
     RUBY
 
