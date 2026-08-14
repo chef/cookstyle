@@ -164,6 +164,8 @@ Lint/RedundantCopDisableDirective:
 
 Security/Eval:
   Enabled: true
+Security/YAMLLoad:
+  Enabled: true
 
 #
 # Metrics
