@@ -22,7 +22,7 @@ describe RuboCop::Cop::Chef::Modernize::ExecuteUpdateAlternatives, :config do
   it 'registers an offense when execute uses a command property to install an alternative' do
     expect_offense(<<~RUBY)
       execute 'install java alternative' do
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 16.0 and later includes an alternatives resource that should be used to manage alternatives links instead of shelling out to update-alternatives
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 16.0 and later includes an alternatives resource that should be used to manage alternatives links instead of shelling out to update-alternatives or alternatives
         command 'update-alternatives --install /usr/bin/java java /usr/lib/jvm/jre-11/bin/java 1'
       end
     RUBY
@@ -31,14 +31,14 @@ describe RuboCop::Cop::Chef::Modernize::ExecuteUpdateAlternatives, :config do
   it 'registers an offense when the execute resource name is the alternatives command' do
     expect_offense(<<~RUBY)
       execute 'alternatives --set java /usr/lib/jvm/jre-11/bin/java'
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 16.0 and later includes an alternatives resource that should be used to manage alternatives links instead of shelling out to update-alternatives
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 16.0 and later includes an alternatives resource that should be used to manage alternatives links instead of shelling out to update-alternatives or alternatives
     RUBY
   end
 
   it 'registers an offense for the RHEL alternatives command' do
     expect_offense(<<~RUBY)
       execute 'set the java alternative' do
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 16.0 and later includes an alternatives resource that should be used to manage alternatives links instead of shelling out to update-alternatives
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 16.0 and later includes an alternatives resource that should be used to manage alternatives links instead of shelling out to update-alternatives or alternatives
         command 'alternatives --auto java'
       end
     RUBY
@@ -47,7 +47,7 @@ describe RuboCop::Cop::Chef::Modernize::ExecuteUpdateAlternatives, :config do
   it 'registers an offense for an absolute path to the binary' do
     expect_offense(<<~RUBY)
       execute 'remove the java alternative' do
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 16.0 and later includes an alternatives resource that should be used to manage alternatives links instead of shelling out to update-alternatives
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 16.0 and later includes an alternatives resource that should be used to manage alternatives links instead of shelling out to update-alternatives or alternatives
         command '/usr/sbin/update-alternatives --remove java /usr/lib/jvm/jre-11/bin/java'
       end
     RUBY
@@ -56,7 +56,7 @@ describe RuboCop::Cop::Chef::Modernize::ExecuteUpdateAlternatives, :config do
   it 'registers an offense when a bash resource manages alternatives' do
     expect_offense(<<~RUBY)
       bash 'install java alternative' do
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 16.0 and later includes an alternatives resource that should be used to manage alternatives links instead of shelling out to update-alternatives
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 16.0 and later includes an alternatives resource that should be used to manage alternatives links instead of shelling out to update-alternatives or alternatives
         code 'update-alternatives --install /usr/bin/java java /usr/lib/jvm/jre-11/bin/java 1'
       end
     RUBY

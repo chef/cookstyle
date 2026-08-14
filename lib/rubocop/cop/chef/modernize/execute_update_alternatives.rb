@@ -47,11 +47,12 @@ module RuboCop
 
           minimum_target_chef_version '16.0'
 
-          MSG = 'Chef Infra Client 16.0 and later includes an alternatives resource that should be used to manage alternatives links instead of shelling out to update-alternatives'
+          MSG = 'Chef Infra Client 16.0 and later includes an alternatives resource that should be used to manage alternatives links instead of shelling out to update-alternatives or alternatives'
           RESTRICT_ON_SEND = [:execute].freeze
 
           # Debian ships update-alternatives and RHEL ships alternatives, and the resource drives both.
-          # Only the subcommands the resource can express are matched: --config and --display are
+          # Matching is limited to the four subcommands the resource can express: --install, --set,
+          # --auto, and --remove. The rest are deliberately left alone -- --config and --display are
           # interactive or read only, and --remove-all has no resource equivalent.
           ALTERNATIVES_COMMAND = %r{
             \A\s*(?:/usr/sbin/|/usr/bin/|/sbin/|/bin/)?  # an optional absolute path to the binary
