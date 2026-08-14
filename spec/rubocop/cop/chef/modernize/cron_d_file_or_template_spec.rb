@@ -137,4 +137,48 @@ describe RuboCop::Cop::Chef::Modernize::CronDFileOrTemplate, :config do
       end
     RUBY
   end
+
+  # https://github.com/chef/cookstyle/issues/957
+  it 'does not raise when the path property indexes into an array' do
+    expect_no_offenses(<<~'RUBY')
+      [ %w( test /etc/file1 ) ].each do |arr|
+        file "file_#{arr[1]}" do
+          path arr[1]
+        end
+      end
+    RUBY
+  end
+
+  # https://github.com/chef/cookstyle/issues/957
+  it 'does not raise when the path property indexes into a hash value' do
+    expect_no_offenses(<<~'RUBY')
+      {
+        files: [ 'test', '/etc/file3'],
+      }.each do |title, config|
+        file "file_#{title}" do
+          path config[1]
+        end
+      end
+    RUBY
+  end
+
+  # https://github.com/chef/cookstyle/issues/957
+  it 'does not raise when the path property contains a non-string literal' do
+    expect_no_offenses(<<~RUBY)
+      file 'some file' do
+        path foo(1, 2.5, :sym, true, nil)
+      end
+    RUBY
+  end
+
+  # https://github.com/chef/cookstyle/issues/957
+  it 'still registers an offense when a cron.d path is built with a numeric index' do
+    expect_offense(<<~RUBY)
+      file 'delete old cron job' do
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the cron_d resource that ships with Chef Infra Client 14.4+ instead of manually creating the file with template, file, or cookbook_file resources
+        path ::File.join('/etc/cron.d', jobs[0])
+        action :delete
+      end
+    RUBY
+  end
 end

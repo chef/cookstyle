@@ -106,11 +106,13 @@ module RuboCop
             end
 
             match_property_in_resource?(%i(template file cookbook_file), 'path', node) do |code_property|
-              # instead of using CookbookHelpers#method_arg_ast_to_string, walk the property's descendants
-              # and check if their value contains '/etc/cron.d'
+              # instead of using CookbookHelpers#method_arg_ast_to_string, walk the property's string
+              # descendants and check if their value contains '/etc/cron.d'
               # covers the case where the argument to the path property is provided via a method like File.join
-              code_property.each_descendant do |d|
-                add_offense(node, severity: :refactor) if d.respond_to?(:value) && d.value.match?(%r{/etc/cron\.d\b}i)
+              # only string nodes are walked: other literals respond to #value too, but return types
+              # like Integer that have no #match?, which raised inside the cop (issue #957)
+              code_property.each_descendant(:str) do |d|
+                add_offense(node, severity: :refactor) if d.value.match?(%r{/etc/cron\.d\b}i)
               end
             end
           end
