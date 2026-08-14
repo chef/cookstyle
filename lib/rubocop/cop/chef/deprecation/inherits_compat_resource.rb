@@ -33,8 +33,8 @@ module RuboCop
         #     # some resource code
         #   end
         #
-        #  # better
-        #  Write a custom resource using the custom resource DSL and avoid class based HWRPs entirely
+        #   # better
+        #   # Write a custom resource using the custom resource DSL and avoid class based HWRPs entirely
         #
         class ResourceInheritsFromCompatResource < Base
           extend AutoCorrector
