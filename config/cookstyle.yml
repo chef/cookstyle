@@ -1522,6 +1522,16 @@ Chef/Modernize/PowershellScriptExpandArchive:
   Exclude:
     - '**/metadata.rb'
 
+Chef/Modernize/PowershellDownloadFile:
+  Description: "Use the `remote_file` resource to download files instead of shelling out to PowerShell. `remote_file` is idempotent and supports checksum verification, proxies, and conditional downloads."
+  StyleGuide: 'chef_modernize_powershelldownloadfile'
+  Enabled: true
+  VersionAdded: '8.8.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/attributes/*.rb'
+    - '**/Berksfile'
+
 Chef/Modernize/PowershellInstallPackage:
   Description: Use the package resource built into Chef Infra Client instead of using Install-Package in a powershell_script resource
   StyleGuide: 'chef_modernize_powershellinstallpackage'
