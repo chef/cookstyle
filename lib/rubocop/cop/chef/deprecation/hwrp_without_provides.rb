@@ -95,7 +95,7 @@ module RuboCop
                 (const nil? ... )
                 (const
                   (const nil? :Chef) :Resource)
-                  (begin ... ))))
+                  ...)))
           PATTERN
 
           def_node_search :provides, '(send nil? :provides (sym $_) ...)'

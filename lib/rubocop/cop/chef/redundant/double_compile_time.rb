@@ -41,23 +41,37 @@ module RuboCop
           MSG = "If a resource includes the `compile_time` property there's no need to also use `.run_action(:some_action)` on the resource block."
           RESTRICT_ON_SEND = [:run_action].freeze
 
-          def_node_matcher :compile_time_and_run_action?, <<-PATTERN
+          def_node_matcher :run_action_on_resource?, <<-PATTERN
           (send
             $(block
               (send nil? ... )
               (args)
-              (begin <
-                (send nil? :action (sym $_) )
-                (send nil? :compile_time (true) )
-                ...
-              >)
+              _
             ) :run_action (sym $_) )
           PATTERN
 
+          def_node_search :compile_time_true?, '(send nil? :compile_time (true))'
+          def_node_search :action_nodes, '(send nil? :action $(sym _))'
+
           def on_send(node)
-            compile_time_and_run_action?(node) do |resource, action, run_action|
+            run_action_on_resource?(node) do |resource, run_action|
+              next unless compile_time_true?(resource.body)
+
+              # without an explicit action there's nothing to rewrite: the resource runs its
+              # default action, and picking the replacement would mean knowing what that is.
+              # report it, but leave the fix to a human.
+              action = action_nodes(resource.body).first
+              unless action
+                add_offense(node.loc.selector, severity: :refactor)
+                next
+              end
+
               add_offense(node.loc.selector, severity: :refactor) do |corrector|
-                corrector.replace(node, resource.source.gsub(action.to_s, run_action.to_s))
+                # rewrite the action's value and drop the trailing .run_action(...). rewriting the
+                # whole block source instead would replace the action name wherever else it appears,
+                # renaming the resource itself in something like chef_gem 'nothing'
+                corrector.replace(action, ":#{run_action}")
+                corrector.remove(node.loc.dot.join(node.source_range.end))
               end
             end
           end

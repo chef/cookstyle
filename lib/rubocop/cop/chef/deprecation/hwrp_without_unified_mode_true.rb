@@ -68,7 +68,7 @@ module RuboCop
                 (const nil? ... )
                 (const
                   (const nil? :Chef) :Resource)
-                  (begin ... ))))
+                  ...)))
           PATTERN
 
           def_node_search :unified_mode?, '(send nil? :unified_mode ...)'
