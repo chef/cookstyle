@@ -414,6 +414,16 @@ Chef/Correctness/ExecuteDeleteFile:
     - '**/metadata.rb'
     - '**/Berksfile'
 
+Chef/Correctness/RubyGuardWithoutBlock:
+  Description: "A Ruby expression used as a resource guard (`not_if`/`only_if`) has to be wrapped in a block. String guards are run as shell commands and are fine as they are; it is only a bare Ruby expression that is a problem, since the guard receives the expression result rather than the expression."
+  StyleGuide: 'chef_correctness_rubyguardwithoutblock'
+  Enabled: true
+  VersionAdded: '8.8.0'
+  Exclude:
+    - '**/attributes/*.rb'
+    - '**/metadata.rb'
+    - '**/Berksfile'
+
 Chef/Correctness/PlatformVersionStringComparison:
   Description: "Ohai version attributes are strings, so comparing one with an ordering operator compares them character by character rather than as versions. `'7.9' >= '10'` is true. Use `.to_i` for a major version comparison, or `Gem::Version` to compare full versions."
   StyleGuide: 'chef_correctness_platformversionstringcomparison'
