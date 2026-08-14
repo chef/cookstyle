@@ -637,6 +637,15 @@ Chef/Sharing/EmptyMetadataField:
   Include:
     - '**/metadata.rb'
 
+Chef/Sharing/EmptyPropertyDescription:
+  Description: Resource properties should not set an empty `description`. Automated documentation tools have nothing to render from it, so it does no more than a missing field would while looking like the property has been documented.
+  StyleGuide: 'chef_sharing_emptypropertydescription'
+  Enabled: true
+  VersionAdded: '8.8.0'
+  Include:
+    - '**/libraries/*.rb'
+    - '**/resources/*.rb'
+
 Chef/Sharing/IncludePropertyDescriptions:
   Description: Resource properties should include a `description` field so that automated documentation tools can generate helpful documentation for your custom resources. Requires Chef Infra Client 13.9 or later.
   StyleGuide: 'chef_sharing_includepropertydescriptions'
