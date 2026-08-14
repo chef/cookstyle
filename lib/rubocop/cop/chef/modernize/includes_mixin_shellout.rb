@@ -31,7 +31,7 @@ module RuboCop
         #
         #   # good
         #   # shell_out is available in resources and providers with no include
-        #   shell_out!('systemctl reload nginx')
+        #   shell_out!('/opt/app/bin/app --version')
         #
         class IncludingMixinShelloutInResources < Base
           extend AutoCorrector

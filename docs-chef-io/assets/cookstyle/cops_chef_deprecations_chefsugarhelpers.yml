@@ -30,8 +30,8 @@ examples: |2-
   # good
   # the equivalent helpers now shipping in Chef Infra Client itself
   vagrant?
-  includes_recipe?('foo::bar')      # => node.recipe?('foo::bar')
-  File.exist?('/dev/null')          # => dev_null
+  node.recipe?('foo::bar')
+  ::File.exist?('/dev/null')
 version_added: 7.3.0
 enabled: true
 excluded_file_paths:

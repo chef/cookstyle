@@ -25,14 +25,14 @@ module RuboCop
         #
         #   # bad
         #   sc_windows 'chef-client' do
-        #     path "C:\\opscode\\chef\\bin"
+        #     path 'C:\opscode\chef\bin'
         #     action :create
         #   end
         #
         #   # good
         #   windows_service 'chef-client' do
         #     action :create
-        #     binary_path_name "C:\\opscode\\chef\\bin"
+        #     binary_path_name 'C:\opscode\chef\bin'
         #   end
         #
         class WindowsScResource < Base

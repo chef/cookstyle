@@ -24,14 +24,14 @@ module RuboCop
         # @example
         #
         #   # bad
-        #   windows_zipfile 'C:\\files\\' do
-        #     source 'C:\\Temp\\file.zip'
+        #   windows_zipfile 'C:\files' do
+        #     source 'C:\Temp\file.zip'
         #   end
         #
         #   # good
         #   archive_file 'expand file.zip' do
-        #     path 'C:\\Temp\\file.zip'
-        #     destination 'C:\\files'
+        #     path 'C:\Temp\file.zip'
+        #     destination 'C:\files'
         #   end
         #
         class WindowsZipfileUsage < Base

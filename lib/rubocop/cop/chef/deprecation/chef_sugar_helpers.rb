@@ -44,8 +44,8 @@ module RuboCop
         #   # good
         #   # the equivalent helpers now shipping in Chef Infra Client itself
         #   vagrant?
-        #   includes_recipe?('foo::bar')      # => node.recipe?('foo::bar')
-        #   File.exist?('/dev/null')          # => dev_null
+        #   node.recipe?('foo::bar')
+        #   ::File.exist?('/dev/null')
         #
         class ChefSugarHelpers < Base
           MSG = 'Do not use legacy chef-sugar helper methods, which will not be moved into Chef Infra Client itself. For a complete set of chef-sugar helpers now shipping in Chef Infra Client itself see https://github.com/chef/chef/tree/main/chef-utils#getting-started'
