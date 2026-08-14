@@ -187,6 +187,15 @@ Chef/Correctness:
   Enabled: true
   StyleGuideBaseURL: https://docs.chef.io/workstation/cookstyle/
 
+Chef/Correctness/ConditionalUnifiedModeTrue:
+  Description: "Set `unified_mode true` unconditionally. Setting it conditionally leaves a resource running in unified mode on newer Chef Infra Client releases and in legacy mode on older ones, so it has to be written and tested against both execution models."
+  StyleGuide: 'chef_correctness_conditionalunifiedmodetrue'
+  Enabled: true
+  VersionAdded: '8.8.0'
+  Include:
+    - '**/libraries/*.rb'
+    - '**/resources/*.rb'
+
 Chef/Correctness/ServiceResource:
   Description: Use the `service` resource to start and stop services instead of shelling out with `execute` or `bash` resources. The `service` resource is idempotent and handles platform differences automatically.
   StyleGuide: 'chef_correctness_serviceresource'
