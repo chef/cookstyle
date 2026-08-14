@@ -36,7 +36,7 @@ module RuboCop
           RESTRICT_ON_SEND = [:property, :attribute].freeze
 
           def_node_matcher :trueclass_falseclass_property?, <<-PATTERN
-            (send nil? {:property :attribute} (sym _) $(array (const nil? :TrueClass) (const nil? :FalseClass)) ... )
+            (send nil? {:property :attribute} (sym _) $(array (const {nil? cbase} :TrueClass) (const {nil? cbase} :FalseClass)) ... )
           PATTERN
 
           def on_send(node)

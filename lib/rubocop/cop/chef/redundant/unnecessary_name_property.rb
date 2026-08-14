@@ -39,7 +39,7 @@ module RuboCop
           def_node_matcher :name_property?, <<-PATTERN
           (send nil? {:attribute :property}
             (sym :name)
-            (const nil? :String)?
+            (const {nil? cbase} :String)?
             (hash $...)?
           )
           PATTERN

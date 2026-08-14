@@ -133,6 +133,7 @@ Chef/Style/TrueClassFalseClassResourceProperties:
   StyleGuide: 'chef_style_trueclassfalseclassresourceproperties'
   Enabled: true
   VersionAdded: '5.16.0'
+  VersionChanged: '8.8.0'
   Include:
     - '**/libraries/*.rb'
     - '**/resources/*.rb'
@@ -464,6 +465,7 @@ Chef/Correctness/OpenSSLPasswordHelpers:
   StyleGuide: 'chef_correctness_opensslpasswordhelpers'
   Enabled: true
   VersionAdded: '6.6.0'
+  VersionChanged: '8.8.0'
   Exclude:
     - '**/metadata.rb'
     - '**/Berksfile'
@@ -765,6 +767,7 @@ Chef/Deprecations/UsesDeprecatedMixins:
   StyleGuide: 'chef_deprecations_usesdeprecatedmixins'
   Enabled: true
   VersionAdded: '5.4.0'
+  VersionChanged: '8.8.0'
   Include:
     - '**/libraries/*.rb'
     - '**/providers/*.rb'
@@ -793,6 +796,7 @@ Chef/Deprecations/UsesChefRESTHelpers:
   StyleGuide: 'chef_deprecations_useschefresthelpers'
   Enabled: true
   VersionAdded: '5.5.0'
+  VersionChanged: '8.8.0'
   Exclude:
     - '**/metadata.rb'
 
@@ -961,6 +965,7 @@ Chef/Deprecations/ResourceInheritsFromCompatResource:
   StyleGuide: 'chef_deprecations_resourceinheritsfromcompatresource'
   Enabled: true
   VersionAdded: '5.10.0'
+  VersionChanged: '8.8.0'
   Include:
     - '**/libraries/*.rb'
 
@@ -1098,6 +1103,7 @@ Chef/Deprecations/ChefWindowsPlatformHelper:
   StyleGuide: 'chef_deprecations_chefwindowsplatformhelper'
   Enabled: true
   VersionAdded: '6.0.0'
+  VersionChanged: '8.8.0'
   Exclude:
     - '**/metadata.rb'
     - '**/Berksfile'
@@ -1216,6 +1222,7 @@ Chef/Deprecations/ChefShellout:
   StyleGuide: 'chef_deprecations_chefshellout'
   Enabled: true
   VersionAdded: '6.17.0'
+  VersionChanged: '8.8.0'
   Exclude:
     - '**/metadata.rb'
     - '**/attributes/*.rb'
@@ -1802,6 +1809,7 @@ Chef/Modernize/DslIncludeInResource:
   StyleGuide: 'chef_modernize_dslincludeinresource'
   Enabled: true
   VersionAdded: '5.17.0'
+  VersionChanged: '8.8.0'
   Include:
     - '**/resources/*.rb'
     - '**/providers/*.rb'
@@ -1841,6 +1849,7 @@ Chef/Modernize/UseRequireRelative:
   StyleGuide: 'chef_modernize_userequirerelative'
   Enabled: true
   VersionAdded: '5.22.0'
+  VersionChanged: '8.8.0'
   Exclude:
     - '**/metadata.rb'
     - '**/attributes/*.rb'
@@ -1890,6 +1899,7 @@ Chef/Modernize/DatabagHelpers:
   StyleGuide: 'chef_modernize_databaghelpers'
   Enabled: true
   VersionAdded: '6.0.0'
+  VersionChanged: '8.8.0'
   Exclude:
     - '**/metadata.rb'
     - '**/Berksfile'
@@ -2149,7 +2159,7 @@ Chef/RedundantCode/UnnecessaryNameProperty:
   StyleGuide: 'chef_redundantcode_unnecessarynameproperty'
   Enabled: true
   VersionAdded: '5.8.0'
-  VersionChanged: '5.15.0'
+  VersionChanged: '8.8.0'
   Include:
     - '**/resources/*.rb'
     - '**/libraries/*.rb'
@@ -2234,6 +2244,7 @@ Chef/RedundantCode/StringPropertyWithNilDefault:
   StyleGuide: 'chef_redundantcode_stringpropertywithnildefault'
   Enabled: true
   VersionAdded: '5.21.0'
+  VersionChanged: '8.8.0'
   Include:
     - '**/resources/*.rb'
     - '**/libraries/*.rb'

@@ -38,7 +38,7 @@ module RuboCop
           def_node_matcher :require_with_expand_path?, <<-PATTERN
             (send nil? :require
               (send
-                (const nil? :File) :expand_path
+                (const {nil? cbase} :File) :expand_path
                 $( str ... )
                 $( str ... )))
           PATTERN

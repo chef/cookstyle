@@ -40,4 +40,26 @@ describe RuboCop::Cop::Chef::Modernize::DatabagHelpers, :config do
       data_bag_item('foo', 'bar')
     RUBY
   end
+
+  it 'registers an offense when using ::Chef::DataBagItem.load' do
+    expect_offense(<<~RUBY)
+      ::Chef::DataBagItem.load('bag', 'item')
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the `data_bag_item` helper instead of `Chef::DataBagItem.load` or `Chef::EncryptedDataBagItem.load`.
+    RUBY
+
+    expect_correction(<<~RUBY)
+      data_bag_item('bag', 'item')
+    RUBY
+  end
+
+  it 'does not rewrite arguments that contain the class name' do
+    expect_offense(<<~RUBY)
+      Chef::DataBagItem.load('Chef::DataBagItem.load', 'item')
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the `data_bag_item` helper instead of `Chef::DataBagItem.load` or `Chef::EncryptedDataBagItem.load`.
+    RUBY
+
+    expect_correction(<<~RUBY)
+      data_bag_item('Chef::DataBagItem.load', 'item')
+    RUBY
+  end
 end

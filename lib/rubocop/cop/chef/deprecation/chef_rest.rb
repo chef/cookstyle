@@ -39,7 +39,7 @@ module RuboCop
           PATTERN
 
           def_node_matcher :rest_const?, <<-PATTERN
-          (const (const nil? :Chef) :REST)
+          (const (const {nil? cbase} :Chef) :REST)
           PATTERN
 
           def on_send(node)

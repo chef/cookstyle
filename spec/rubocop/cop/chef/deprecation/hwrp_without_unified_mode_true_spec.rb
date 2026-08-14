@@ -85,4 +85,20 @@ describe RuboCop::Cop::Chef::Deprecations::HWRPWithoutUnifiedTrue, :config do
       end
     RUBY
   end
+
+  it 'registers an offense when a HWRP inheriting from ::Chef::Resource does not define unified_mode true' do
+    expect_offense(<<~RUBY)
+      class Chef
+        class Resource
+          class UlimitRule < ::Chef::Resource
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Set `unified_mode true` in Chef Infra Client 15.3+ HWRP style custom resources to ensure they work correctly in Chef Infra Client 18 (April 2022) when Unified Mode becomes the default.
+            provides :ulimit_rule
+            property :type, [Symbol, String], required: true
+
+            # additional resource code
+          end
+        end
+      end
+    RUBY
+  end
 end

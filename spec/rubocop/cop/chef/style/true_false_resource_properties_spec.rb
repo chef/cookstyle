@@ -31,4 +31,15 @@ describe RuboCop::Cop::Chef::Style::TrueClassFalseClassResourceProperties, :conf
   it 'does not register an offense when a resource property has a type of true, false' do
     expect_no_offenses('property :foo, [true, false]')
   end
+
+  it 'registers an offense when a property uses ::TrueClass and ::FalseClass' do
+    expect_offense(<<~RUBY)
+      property :foo, [::TrueClass, ::FalseClass]
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ When setting the allowed types for a resource to accept either true or false values it's much simpler to use true and false instead of TrueClass and FalseClass.
+    RUBY
+
+    expect_correction(<<~RUBY)
+      property :foo, [true, false]
+    RUBY
+  end
 end

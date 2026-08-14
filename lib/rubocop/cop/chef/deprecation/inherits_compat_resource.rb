@@ -42,7 +42,7 @@ module RuboCop
           MSG = "HWRP style resource should inherit from the 'Chef::Resource' class and not the 'ChefCompat::Resource' class from the deprecated compat_resource cookbook."
 
           def_node_matcher :inherits_from_compat_resource?, <<-PATTERN
-          (class (const nil? _ ) (const (const nil? :ChefCompat) :Resource) ... )
+          (class (const nil? _ ) (const (const {nil? cbase} :ChefCompat) :Resource) ... )
           PATTERN
 
           def on_class(node)

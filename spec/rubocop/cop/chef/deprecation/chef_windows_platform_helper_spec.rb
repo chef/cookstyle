@@ -30,4 +30,15 @@ describe RuboCop::Cop::Chef::Deprecations::ChefWindowsPlatformHelper, :config do
   it "doesn't register an offense when calling other Chef::Platform helpers" do
     expect_no_offenses('Chef::Platform.foo?')
   end
+
+  it 'registers an offense when using ::Chef::Platform.windows?' do
+    expect_offense(<<~RUBY)
+      ::Chef::Platform.windows?
+      ^^^^^^^^^^^^^^^^^^^^^^^^^ Use `platform?('windows')` instead of the legacy `Chef::Platform.windows?` helper.
+    RUBY
+
+    expect_correction(<<~RUBY)
+      platform?('windows')
+    RUBY
+  end
 end

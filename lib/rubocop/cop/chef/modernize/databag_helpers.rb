@@ -40,15 +40,18 @@ module RuboCop
           def_node_matcher :data_bag_class_load?, <<-PATTERN
           (send
             (const
-              (const nil? :Chef) {:DataBagItem :EncryptedDataBagItem}) :load
+              (const {nil? cbase} :Chef) {:DataBagItem :EncryptedDataBagItem}) :load
               ...)
           PATTERN
 
           def on_send(node)
             data_bag_class_load?(node) do
               add_offense(node, severity: :refactor) do |corrector|
-                corrector.replace(node,
-                   node.source.gsub(/Chef::(EncryptedDataBagItem|DataBagItem).load/, 'data_bag_item'))
+                # replace only the receiver and the .load selector, so that the arguments are left
+                # exactly as written. rewriting node.source would also hit any argument that
+                # happened to contain the class name, and would leave the leading :: of a scope
+                # resolved ::Chef::DataBagItem.load behind
+                corrector.replace(node.receiver.source_range.join(node.loc.selector), 'data_bag_item')
               end
             end
           end

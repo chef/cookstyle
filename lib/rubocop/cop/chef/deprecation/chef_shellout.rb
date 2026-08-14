@@ -43,7 +43,7 @@ module RuboCop
           def_node_matcher :include_shellout?, <<-PATTERN
           (send nil? :include
             (const
-              (const nil? :Chef) :ShellOut))
+              (const {nil? cbase} :Chef) :ShellOut))
           PATTERN
 
           def_node_matcher :require_shellout?, <<-PATTERN
@@ -53,7 +53,7 @@ module RuboCop
           def_node_matcher :shellout_new?, <<-PATTERN
           (send
             (const
-              (const nil? :Chef) :ShellOut) :new
+              (const {nil? cbase} :Chef) :ShellOut) :new
               ... )
           PATTERN
 

@@ -29,4 +29,15 @@ describe RuboCop::Cop::Chef::Modernize::UseRequireRelative, :config do
       require_relative '../libraries/helpers'
     RUBY
   end
+
+  it 'registers an offense when requiring a file with ::File.expand_path and __FILE__' do
+    expect_offense(<<~RUBY)
+      require ::File.expand_path('../../libraries/helpers', __FILE__)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Instead of using require with a File.expand_path and __FILE__ use the simpler require_relative method.
+    RUBY
+
+    expect_correction(<<~RUBY)
+      require_relative '../libraries/helpers'
+    RUBY
+  end
 end
