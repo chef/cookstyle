@@ -69,9 +69,14 @@ module RuboCop
 
           def on_send(node)
             command = node.arguments.first
-            return unless command&.str_type? && extracts_archive?(command.value)
+            return unless command
 
-            add_offense(node, severity: :refactor)
+            # Match on source rather than .value so an interpolated name such as
+            # execute "tar xzf #{node['foo']['tarball']}" is caught too -- that is a
+            # dstr node whose .value does not exist.
+            return unless %i(str dstr).include?(command.type)
+
+            add_offense(node, severity: :refactor) if extracts_archive?(unquote(command.source))
           end
 
           def on_block(node)
@@ -85,6 +90,16 @@ module RuboCop
           end
 
           private
+
+          # strip the surrounding quotes off a string literal's source so the
+          # command regexes, which are anchored at the start, still match
+          #
+          # @param [String] source
+          #
+          # @return [String]
+          def unquote(source)
+            source.sub(/\A["']/, '').sub(/["']\z/, '')
+          end
 
           def report_property(node, property)
             command = method_arg_ast_to_string(property)

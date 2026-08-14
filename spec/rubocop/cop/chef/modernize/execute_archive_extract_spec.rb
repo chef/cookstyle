@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 #
 # Copyright:: Copyright (c) 2016-2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
+# Author:: Tim Smith (<tsmith84@gmail.com>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -49,6 +50,13 @@ describe RuboCop::Cop::Chef::Modernize::ExecuteArchiveExtract, :config do
       ^^^^^^^^^^^^^^^^^^^^^^^^^ Use the archive_file resource built into Chef Infra Client 15+ instead of shelling out to tar or unzip
         code 'tar --extract --file /tmp/foo.tar'
       end
+    RUBY
+  end
+
+  it 'registers an offense when the resource name is an interpolated tar command' do
+    expect_offense(<<~'RUBY')
+      execute "tar xzf #{node['foo']['tarball']} -C /opt/foo"
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the archive_file resource built into Chef Infra Client 15+ instead of shelling out to tar or unzip
     RUBY
   end
 
