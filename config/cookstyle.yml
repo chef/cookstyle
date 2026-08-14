@@ -1826,6 +1826,16 @@ Chef/Modernize/ResourceForcingCompileTime:
     - '**/attributes/*.rb'
     - '**/Berksfile'
 
+Chef/Modernize/ExecuteUpdateAlternatives:
+  Description: "Chef Infra Client 16.0 and later includes an `alternatives` resource that should be used to manage alternatives links instead of shelling out to `update-alternatives` or `alternatives`."
+  StyleGuide: 'chef_modernize_executeupdatealternatives'
+  Enabled: true
+  VersionAdded: '8.8.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/attributes/*.rb'
+    - '**/Berksfile'
+
 Chef/Modernize/ExecuteSysctl:
   Description: Chef Infra Client 14.0 and later includes a sysctl resource that should be used to idempotently load sysctl values instead of templating files and using execute to load them.
   StyleGuide: 'chef_modernize_executesysctl'
