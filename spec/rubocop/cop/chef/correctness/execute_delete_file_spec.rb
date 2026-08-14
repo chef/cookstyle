@@ -22,7 +22,7 @@ describe RuboCop::Cop::Chef::Correctness::ExecuteDeleteFile, :config do
   it 'registers an offense when execute uses a command property to rm a path' do
     expect_offense(<<~RUBY)
       execute 'delete the thing' do
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the `file` or `directory` resources built into Chef Infra Client with the :delete action to remove files/directories instead of shelling out to rm
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the `directory` resource with `recursive true` and the :delete action to remove a directory instead of shelling out to rm. Use the `file` resource instead if the path is a file.
         command 'rm -rf /opt/thing'
       end
     RUBY
@@ -31,21 +31,21 @@ describe RuboCop::Cop::Chef::Correctness::ExecuteDeleteFile, :config do
   it 'registers an offense when the execute resource name is the rm command' do
     expect_offense(<<~RUBY)
       execute 'rm -rf /opt/thing'
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the `file` or `directory` resources built into Chef Infra Client with the :delete action to remove files/directories instead of shelling out to rm
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the `directory` resource with `recursive true` and the :delete action to remove a directory instead of shelling out to rm. Use the `file` resource instead if the path is a file.
     RUBY
   end
 
   it 'registers an offense for a bare rm without flags' do
     expect_offense(<<~RUBY)
       execute 'rm /etc/foo.conf'
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the `file` or `directory` resources built into Chef Infra Client with the :delete action to remove files/directories instead of shelling out to rm
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the `file` resource with the :delete action to remove a file instead of shelling out to rm
     RUBY
   end
 
   it 'registers an offense when a bash resource rms a path' do
     expect_offense(<<~RUBY)
       bash 'delete the thing' do
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the `file` or `directory` resources built into Chef Infra Client with the :delete action to remove files/directories instead of shelling out to rm
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the `directory` resource with `recursive true` and the :delete action to remove a directory instead of shelling out to rm. Use the `file` resource instead if the path is a file.
         code 'rm -rf /opt/thing'
       end
     RUBY
@@ -54,7 +54,21 @@ describe RuboCop::Cop::Chef::Correctness::ExecuteDeleteFile, :config do
   it 'registers an offense for an absolute path to rm' do
     expect_offense(<<~RUBY)
       execute '/bin/rm -f /etc/foo.conf'
-      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the `file` or `directory` resources built into Chef Infra Client with the :delete action to remove files/directories instead of shelling out to rm
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the `file` resource with the :delete action to remove a file instead of shelling out to rm
+    RUBY
+  end
+
+  it 'points at the file resource for a bare rm, which cannot target a directory' do
+    expect_offense(<<~RUBY)
+      execute 'rm /var/log/foo.log'
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the `file` resource with the :delete action to remove a file instead of shelling out to rm
+    RUBY
+  end
+
+  it 'points at the directory resource for a recursive rm' do
+    expect_offense(<<~RUBY)
+      execute 'rm -r /opt/thing'
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the `directory` resource with `recursive true` and the :delete action to remove a directory instead of shelling out to rm. Use the `file` resource instead if the path is a file.
     RUBY
   end
 

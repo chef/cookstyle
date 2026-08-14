@@ -23,18 +23,30 @@ module RuboCop
         # to remove files and directories instead of shelling out to `rm`. The resources are idempotent,
         # report correctly on what they changed, and work without a shell.
         #
+        # The two resources are not interchangeable and the one you pick has to match what is on disk.
+        # `directory` asserts the path really is a directory before deleting, so it raises
+        # `Cannot delete directory[...]` on a file even with `recursive true`, and `file` calls
+        # `File.delete`, so it raises `Errno::EISDIR` on a directory. A `directory` delete also needs
+        # `recursive true` for anything that isn't empty, or it raises `Errno::ENOTEMPTY`.
+        #
         # Only a single `rm` of one path is flagged. A command containing a glob, a shell operator, or
         # anything beyond the one deletion is left alone, since the `file` and `directory` resources
         # can't express those.
         #
         # @example
         #
-        #   # bad
+        #   # bad -- rm without -r, which the shell will not let you point at a directory
+        #   execute 'rm /etc/foo.conf'
+        #
+        #   # good
+        #   file '/etc/foo.conf' do
+        #     action :delete
+        #   end
+        #
+        #   # bad -- a recursive rm of a directory
         #   execute 'delete the thing' do
         #     command 'rm -rf /opt/thing'
         #   end
-        #
-        #   execute 'rm -rf /opt/thing'
         #
         #   # good
         #   directory '/opt/thing' do
@@ -45,13 +57,18 @@ module RuboCop
         class ExecuteDeleteFile < Base
           include RuboCop::Chef::CookbookHelpers
 
-          MSG = 'Use the `file` or `directory` resources built into Chef Infra Client with the :delete action to remove files/directories instead of shelling out to rm'
+          # The two resources are not interchangeable, so the message has to name the right one.
+          # `directory` asserts the path really is a directory before deleting, and `file` calls
+          # File.delete, so pointing at the wrong one fails the converge rather than doing nothing.
+          FILE_MSG = 'Use the `file` resource with the :delete action to remove a file instead of shelling out to rm'
+          DIRECTORY_MSG = 'Use the `directory` resource with `recursive true` and the :delete action to remove a directory instead of shelling out to rm. Use the `file` resource instead if the path is a file.'
+
           RESTRICT_ON_SEND = [:execute].freeze
 
           # a lone rm of a single path: optional flags, one target, nothing else on the line.
           # the target excludes the shell metacharacters used for substitution and expansion, since
           # a path the shell computes at runtime isn't something the file/directory resources can take
-          DELETE_COMMAND = %r{\A\s*(?:/bin/|/usr/bin/)?rm\s+(?:-[a-zA-Z]+\s+)*(?<path>[^\s;&|<>$`(){}]+)\s*\z}.freeze
+          DELETE_COMMAND = %r{\A\s*(?:/bin/|/usr/bin/)?rm\s+(?<flags>(?:-[a-zA-Z]+\s+)*)(?<path>[^\s;&|<>$`(){}]+)\s*\z}.freeze
 
           # the shell resources whose script lives in a code property
           SCRIPT_RESOURCES = %i(bash sh csh ksh zsh).freeze
@@ -60,7 +77,8 @@ module RuboCop
 
           def on_send(node)
             execute_with_command_name?(node) do |command|
-              add_offense(node, severity: :refactor) if simple_delete?(command)
+              message = message_for(command)
+              add_offense(node, message: message, severity: :refactor) if message
             end
           end
 
@@ -78,20 +96,29 @@ module RuboCop
 
           def report_property(node, property)
             command = method_arg_ast_to_string(property)
-            add_offense(node, severity: :refactor) if command && simple_delete?(command)
+            return unless command
+
+            message = message_for(command)
+            add_offense(node, message: message, severity: :refactor) if message
           end
 
-          # Does the command do nothing but delete one named path? Globs are excluded because the
-          # file and directory resources take a single path rather than a pattern.
+          # Does the command do nothing but delete one named path, and if so which resource replaces
+          # it? Globs are excluded because the file and directory resources take a single path rather
+          # than a pattern.
+          #
+          # Without -r the shell refuses to remove a directory, so a bare `rm` provably targets a
+          # file and `file` is the right answer. With -r the author is removing a tree, so
+          # `directory` is, though the path could still be a file that -rf was used on out of habit.
           #
           # @param [String] command
           #
-          # @return [Boolean]
-          def simple_delete?(command)
+          # @return [String, nil] the message to report, or nil when this isn't a simple delete
+          def message_for(command)
             match = DELETE_COMMAND.match(command)
-            return false unless match
+            return if match.nil?
+            return if match[:path].match?(/[*?\[]/)
 
-            !match[:path].match?(/[*?\[]/)
+            match[:flags].match?(/-[a-zA-Z]*r/i) ? DIRECTORY_MSG : FILE_MSG
           end
         end
       end

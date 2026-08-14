@@ -402,7 +402,7 @@ Chef/Correctness/DnfPackageAllowDowngrades:
     - '**/Berksfile'
 
 Chef/Correctness/ExecuteDeleteFile:
-  Description: "Use the `file` or `directory` resources built into Chef Infra Client with the `:delete` action to remove files and directories instead of shelling out to `rm`."
+  Description: "Use the `file` or `directory` resources built into Chef Infra Client with the `:delete` action to remove files and directories instead of shelling out to `rm`. The resource has to match what is on disk: `file` for a file, `directory` with `recursive true` for a directory."
   StyleGuide: 'chef_correctness_executedeletefile'
   Enabled: true
   VersionAdded: '8.8.0'
