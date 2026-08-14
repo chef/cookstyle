@@ -2260,6 +2260,16 @@ Chef/RedundantCode/DoubleCompileTime:
     - '**/attributes/*.rb'
     - '**/Berksfile'
 
+Chef/RedundantCode/ServiceGuardOnStopDisable:
+  Description: "The `:stop` and `:disable` actions of the `service` resource are already no-ops when the service isn't installed, so guarding them with a check for the init script or unit file is redundant. It's also fragile, since the guard hardcodes a single path while the provider searches several."
+  StyleGuide: 'chef_redundantcode_serviceguardonstopdisable'
+  Enabled: true
+  VersionAdded: '8.8.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/attributes/*.rb'
+    - '**/Berksfile'
+
 ###############################
 # Chef/Effortless: Migrating to new patterns
 ###############################
