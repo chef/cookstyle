@@ -36,7 +36,7 @@ module RuboCop
           RESTRICT_ON_SEND = [:include_recipe].freeze
 
           def_node_matcher :include_recipe?, <<-PATTERN
-            (send nil? :include_recipe $(str _))
+            (send {nil? (send nil? :run_context)} :include_recipe $(str _))
           PATTERN
 
           def on_send(node)
@@ -47,7 +47,10 @@ module RuboCop
               return if node.parent&.send_type?
 
               add_offense(node, severity: :refactor) do |corrector|
-                corrector.replace(node, "include_recipe #{recipe.source}")
+                # keep any receiver, otherwise run_context.include_recipe('foo') would correct to a
+                # bare include_recipe and lose the run_context
+                receiver = node.receiver ? "#{node.receiver.source}." : ''
+                corrector.replace(node, "#{receiver}include_recipe #{recipe.source}")
               end
             end
           end

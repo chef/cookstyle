@@ -37,7 +37,7 @@ module RuboCop
           RESTRICT_ON_SEND = [:include_recipe].freeze
 
           def_node_matcher :ohai_recipe_usage?, <<-PATTERN
-            (send nil? :include_recipe (str {"ohai" "ohai::default"}))
+            (send {nil? (send nil? :run_context)} :include_recipe (str {"ohai" "ohai::default"}))
           PATTERN
 
           def on_send(node)

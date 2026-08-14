@@ -46,7 +46,7 @@ module RuboCop
           RESTRICT_ON_SEND = [:include_recipe].freeze
 
           def_node_matcher :old_yum_recipe?, <<-PATTERN
-            (send nil? :include_recipe (str {"yum::elrepo" "yum::epel" "yum::ius" "yum::remi" "yum::repoforge" "yum::yum"}))
+            (send {nil? (send nil? :run_context)} :include_recipe (str {"yum::elrepo" "yum::epel" "yum::ius" "yum::remi" "yum::repoforge" "yum::yum"}))
           PATTERN
 
           def on_send(node)

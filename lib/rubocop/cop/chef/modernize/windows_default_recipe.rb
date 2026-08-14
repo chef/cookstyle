@@ -35,7 +35,7 @@ module RuboCop
           RESTRICT_ON_SEND = [:include_recipe].freeze
 
           def_node_matcher :windows_recipe_usage?, <<-PATTERN
-            (send nil? :include_recipe (str {"windows" "windows::default"}))
+            (send {nil? (send nil? :run_context)} :include_recipe (str {"windows" "windows::default"}))
           PATTERN
 
           def on_send(node)

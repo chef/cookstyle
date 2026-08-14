@@ -37,4 +37,11 @@ describe RuboCop::Cop::Chef::Modernize::IncludingOhaiDefaultRecipe, :config do
       include_recipe 'foo'
     RUBY
   end
+
+  it 'registers an offense when including the ohai default recipe via run_context' do
+    expect_offense(<<~RUBY)
+      run_context.include_recipe 'ohai::default'
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the ohai_plugin resource to ship custom Ohai plugins instead of using the ohai::default recipe. If you're not shipping custom Ohai plugins, then you can remove this recipe entirely
+    RUBY
+  end
 end

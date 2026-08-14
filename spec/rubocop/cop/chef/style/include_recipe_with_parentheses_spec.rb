@@ -33,4 +33,15 @@ describe RuboCop::Cop::Chef::Style::IncludeRecipeWithParentheses, :config do
   it "does not register an offense with include_recipe 'foo'" do
     expect_no_offenses("include_recipe 'foo'")
   end
+
+  it 'registers an offense and keeps the receiver when run_context.include_recipe uses parens' do
+    expect_offense(<<~RUBY)
+      run_context.include_recipe('foo::bar')
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ There is no need to wrap the recipe in parentheses when using the include_recipe helper
+    RUBY
+
+    expect_correction(<<~RUBY)
+      run_context.include_recipe 'foo::bar'
+    RUBY
+  end
 end
