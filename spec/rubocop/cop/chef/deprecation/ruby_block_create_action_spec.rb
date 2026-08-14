@@ -50,4 +50,90 @@ describe RuboCop::Cop::Chef::Deprecations::RubyBlockCreateAction, :config do
       end
     RUBY
   end
+
+  it 'registers an offense when a notification uses the :create action on a ruby_block' do
+    expect_offense(<<~RUBY)
+      template '/etc/foo.conf' do
+        source 'foo.conf.erb'
+        notifies :create, 'ruby_block[foo]', :immediately
+                 ^^^^^^^ Use the :run action in the ruby_block resource instead of the deprecated :create action
+      end
+    RUBY
+
+    expect_correction(<<~RUBY)
+      template '/etc/foo.conf' do
+        source 'foo.conf.erb'
+        notifies :run, 'ruby_block[foo]', :immediately
+      end
+    RUBY
+  end
+
+  it 'registers an offense when a notification omits the timing' do
+    expect_offense(<<~RUBY)
+      template '/etc/foo.conf' do
+        notifies :create, 'ruby_block[foo]'
+                 ^^^^^^^ Use the :run action in the ruby_block resource instead of the deprecated :create action
+      end
+    RUBY
+
+    expect_correction(<<~RUBY)
+      template '/etc/foo.conf' do
+        notifies :run, 'ruby_block[foo]'
+      end
+    RUBY
+  end
+
+  it 'registers an offense when a subscription uses the :create action on a ruby_block' do
+    expect_offense(<<~RUBY)
+      template '/etc/foo.conf' do
+        subscribes :create, 'ruby_block[foo]', :immediately
+                   ^^^^^^^ Use the :run action in the ruby_block resource instead of the deprecated :create action
+      end
+    RUBY
+
+    expect_correction(<<~RUBY)
+      template '/etc/foo.conf' do
+        subscribes :run, 'ruby_block[foo]', :immediately
+      end
+    RUBY
+  end
+
+  it 'registers an offense when the notified ruby_block name is interpolated' do
+    expect_offense(<<~'RUBY')
+      template '/etc/foo.conf' do
+        notifies :create, "ruby_block[#{node['foo']['name']}]", :delayed
+                 ^^^^^^^ Use the :run action in the ruby_block resource instead of the deprecated :create action
+      end
+    RUBY
+
+    expect_correction(<<~'RUBY')
+      template '/etc/foo.conf' do
+        notifies :run, "ruby_block[#{node['foo']['name']}]", :delayed
+      end
+    RUBY
+  end
+
+  it "doesn't register an offense when a notification uses :create on another resource" do
+    expect_no_offenses(<<~RUBY)
+      template '/etc/foo.conf' do
+        notifies :create, 'template[/etc/bar.conf]', :immediately
+      end
+    RUBY
+  end
+
+  it "doesn't register an offense when a notification uses :run on a ruby_block" do
+    expect_no_offenses(<<~RUBY)
+      template '/etc/foo.conf' do
+        notifies :run, 'ruby_block[foo]', :immediately
+      end
+    RUBY
+  end
+
+  it "doesn't register an offense when the notified resource type is interpolated" do
+    expect_no_offenses(<<~'RUBY')
+      template '/etc/foo.conf' do
+        notifies :create, "#{node['foo']['type']}[bar]", :immediately
+      end
+    RUBY
+  end
 end

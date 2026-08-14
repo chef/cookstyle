@@ -1029,6 +1029,7 @@ Chef/Deprecations/RubyBlockCreateAction:
   StyleGuide: 'chef_deprecations_rubyblockcreateaction'
   Enabled: true
   VersionAdded: '5.16.0'
+  VersionChanged: '8.8.0'
   Exclude:
     - '**/metadata.rb'
     - '**/attributes/*.rb'
