@@ -20,21 +20,30 @@ task :coverage do
   Rake::Task['spec'].execute
 end
 
-desc 'Ensure that all cops are defined in the cookstyle.yml config'
+desc 'Ensure that all cops are defined in the cookstyle.yml and chefstyle.yml configs'
 task :validate_config do
   require 'cookstyle'
   require 'yaml' unless defined?(YAML)
   status = 0
-  config = YAML.load_file('config/cookstyle.yml')
+  configs = {
+    'config/cookstyle.yml' => YAML.load_file('config/cookstyle.yml'),
+    'config/chefstyle.yml' => YAML.load_file('config/chefstyle.yml'),
+  }
 
-  puts 'Checking that all cops are defined in config/cookstyle.yml:'
+  puts 'Checking that all cops are defined in the cookstyle.yml and chefstyle.yml configs:'
 
   RuboCop::Cop::Chef.constants.each do |dep|
-    RuboCop::Cop::Chef.const_get(dep).constants.each do |cop|
-      unless config["Chef/#{dep}/#{cop}"]
-        puts "Error: Chef/#{dep}/#{cop} not found in config/cookstyle.yml"
-        status = 1
-      end
+    department = RuboCop::Cop::Chef.const_get(dep)
+    department.constants.each do |cop|
+      # Cookstyle and Chefstyle cops share the RuboCop::Cop::Chef namespace but ship separate
+      # configs, so check each cop against the config that matches where it's defined.
+      source = department.const_source_location(cop)&.first.to_s
+      config_file = source.include?('/cop/chefstyle/') ? 'config/chefstyle.yml' : 'config/cookstyle.yml'
+
+      next if configs[config_file]["Chef/#{dep}/#{cop}"]
+
+      puts "Error: Chef/#{dep}/#{cop} not found in #{config_file}"
+      status = 1
     end
   end
 
