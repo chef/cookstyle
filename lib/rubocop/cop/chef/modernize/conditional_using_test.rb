@@ -19,20 +19,27 @@ module RuboCop
   module Cop
     module Chef
       module Modernize
-        # Use ::File.exist?('/foo/bar') instead of the slower 'test -f /foo/bar' which requires shelling out
+        # Use `::File.exist?('/foo/bar')` in an `only_if` or `not_if` guard instead of the slower `'test -f /foo/bar'`, which requires shelling out. The Ruby check has to be passed as a block. Passing it directly, as `not_if ::File.exist?('/foo/bar')`, raises `ArgumentError: Invalid only_if/not_if command, expected a string`.
         #
         # @example
         #
         #   # bad
         #   only_if 'test -f /bin/foo'
+        #   not_if 'test -f /bin/foo'
+        #
+        #   # bad - a Ruby guard has to be a block, this raises at converge time
+        #   only_if ::File.exist?('/bin/foo')
         #
         #   # good
         #   only_if { ::File.exist?('/bin/foo') }
+        #   not_if { ::File.exist?('/bin/foo') }
         #
         class ConditionalUsingTest < Base
           extend AutoCorrector
 
-          MSG = "Use ::File.exist?('/foo/bar') instead of the slower 'test -f /foo/bar' which requires shelling out"
+          # %{guard} is the guard the offense was found on, so that a not_if offense isn't told to
+          # use an only_if, which would invert the condition
+          MSG = "Use %{guard} { ::File.exist?('/foo/bar') } instead of the slower %{guard} 'test -f /foo/bar' which requires shelling out"
           RESTRICT_ON_SEND = [:not_if, :only_if].freeze
 
           def_node_matcher :resource_conditional?, <<~PATTERN
@@ -42,7 +49,7 @@ module RuboCop
           def on_send(node)
             resource_conditional?(node) do |conditional|
               return unless conditional.value.match?(/^test -[ef] \S*$/)
-              add_offense(node, severity: :refactor) do |corrector|
+              add_offense(node, message: format(MSG, guard: node.method_name), severity: :refactor) do |corrector|
                 new_string = "{ ::File.exist?('#{conditional.value.match(/^test -[ef] (\S*)$/)[1]}') }"
                 corrector.replace(conditional, new_string)
               end
