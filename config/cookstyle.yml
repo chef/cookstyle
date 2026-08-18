@@ -1784,16 +1784,6 @@ Chef/Modernize/ResourceForcingCompileTime:
     - '**/attributes/*.rb'
     - '**/Berksfile'
 
-Chef/Modernize/ExecuteArchiveExtract:
-  Description: "Use the `archive_file` resource built into Chef Infra Client 15+ instead of shelling out to `tar` or `unzip` to extract an archive."
-  StyleGuide: 'chef_modernize_executearchiveextract'
-  Enabled: true
-  VersionAdded: '8.8.0'
-  Exclude:
-    - '**/metadata.rb'
-    - '**/attributes/*.rb'
-    - '**/Berksfile'
-
 Chef/Modernize/ExecuteSysctl:
   Description: Chef Infra Client 14.0 and later includes a sysctl resource that should be used to idempotently load sysctl values instead of templating files and using execute to load them.
   StyleGuide: 'chef_modernize_executesysctl'
@@ -2387,6 +2377,15 @@ InSpec/Deprecations/AttributeDefault:
 Chef/Security:
   Enabled: true
   StyleGuideBaseURL: https://docs.chef.io/workstation/cookstyle/
+
+Chef/Security/InsecureRemoteFileSource:
+  Description: "Fetch remote files over HTTPS. A file downloaded over plain HTTP or FTP can be modified in transit and the resource will use whatever it receives."
+  StyleGuide: 'chef_security_insecureremotefilesource'
+  Enabled: true
+  VersionAdded: '8.8.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/Berksfile'
 
 Chef/Security/SshPrivateKey:
   Description: Do not include plain text SSH private keys in your cookbook code. This sensitive data should be fetched from secrets management systems so that secrets are not uploaded in plain text to the Chef Infra Server or committed to source control systems.
