@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 8.7.23 -->
-## [v8.7.23](https://github.com/chef/cookstyle/tree/v8.7.23) (2026-08-18)
+ <!-- latest_release 8.7.24 -->
+## [v8.7.24](https://github.com/chef/cookstyle/tree/v8.7.24) (2026-08-18)
 
 #### Merged Pull Requests
-- Name the guard in the ConditionalUsingTest message [#1089](https://github.com/chef/cookstyle/pull/1089) ([tas50](https://github.com/tas50))
+- Add Chef/Correctness/ConditionalUnifiedModeTrue cop [#1087](https://github.com/chef/cookstyle/pull/1087) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=8.7.6 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add Chef/Correctness/ConditionalUnifiedModeTrue cop [#1087](https://github.com/chef/cookstyle/pull/1087) ([tas50](https://github.com/tas50)) <!-- 8.7.24 -->
 - Name the guard in the ConditionalUsingTest message [#1089](https://github.com/chef/cookstyle/pull/1089) ([tas50](https://github.com/tas50)) <!-- 8.7.23 -->
 - Treat the notification timing as optional in 2 cops [#1094](https://github.com/chef/cookstyle/pull/1094) ([tas50](https://github.com/tas50)) <!-- 8.7.22 -->
 - Match single-statement bodies in 3 cops [#1095](https://github.com/chef/cookstyle/pull/1095) ([tas50](https://github.com/tas50)) <!-- 8.7.21 -->
