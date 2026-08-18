@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 8.7.11 -->
-## [v8.7.11](https://github.com/chef/cookstyle/tree/v8.7.11) (2026-08-18)
+ <!-- latest_release 8.7.12 -->
+## [v8.7.12](https://github.com/chef/cookstyle/tree/v8.7.12) (2026-08-18)
 
 #### Merged Pull Requests
-- Add Chef/RedundantCode/ServiceGuardOnStopDisable cop [#1083](https://github.com/chef/cookstyle/pull/1083) ([tas50](https://github.com/tas50))
+- Fix Chef/Correctness/ChefApplicationFatal missing calls with an exit code [#1084](https://github.com/chef/cookstyle/pull/1084) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=8.7.6 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Fix Chef/Correctness/ChefApplicationFatal missing calls with an exit code [#1084](https://github.com/chef/cookstyle/pull/1084) ([tas50](https://github.com/tas50)) <!-- 8.7.12 -->
 - Add Chef/RedundantCode/ServiceGuardOnStopDisable cop [#1083](https://github.com/chef/cookstyle/pull/1083) ([tas50](https://github.com/tas50)) <!-- 8.7.11 -->
 - Add Chef/Modernize/ExecuteArchiveExtract cop [#1107](https://github.com/chef/cookstyle/pull/1107) ([tas50](https://github.com/tas50)) <!-- 8.7.10 -->
 - Add good examples to cop docs that only showed bad code [#1108](https://github.com/chef/cookstyle/pull/1108) ([tas50](https://github.com/tas50)) <!-- 8.7.9 -->
