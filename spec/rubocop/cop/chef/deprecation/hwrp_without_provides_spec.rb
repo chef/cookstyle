@@ -177,4 +177,17 @@ describe RuboCop::Cop::Chef::Deprecations::HWRPWithoutProvides, :config do
       end
     RUBY
   end
+
+  it 'registers an offense when a HWRP with a single-statement body does not define provides' do
+    expect_offense(<<~RUBY)
+      class Chef
+        class Resource
+          class UlimitRule < Chef::Resource
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ In Chef Infra Client 16 and later a legacy HWRP resource must use `provides` to define how the resource is called in recipes or other resources. To maintain compatibility with Chef Infra Client < 16 use both `resource_name` and `provides`.
+            resource_name :ulimit_rule
+          end
+        end
+      end
+    RUBY
+  end
 end

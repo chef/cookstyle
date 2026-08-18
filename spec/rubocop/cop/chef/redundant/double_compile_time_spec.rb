@@ -39,8 +39,48 @@ describe RuboCop::Cop::Chef::RedundantCode::DoubleCompileTime, :config do
   it 'does not register an offense if compile_time property is not present' do
     expect_no_offenses(<<~RUBY)
       chef_gem 'deep_merge' do
+        action :nothing
+      end.run_action(:install)
+    RUBY
+  end
+
+  it 'registers an offense when a resource sets compile_time without an action property' do
+    expect_offense(<<~RUBY)
+      chef_gem 'deep_merge' do
         compile_time true
       end.run_action(:install)
+          ^^^^^^^^^^ If a resource includes the `compile_time` property there's no need to also use `.run_action(:some_action)` on the resource block.
+    RUBY
+
+    expect_no_corrections
+  end
+
+  it 'registers an offense when a multi-statement resource sets compile_time without an action' do
+    expect_offense(<<~RUBY)
+      chef_gem 'deep_merge' do
+        compile_time true
+        version '1.0'
+      end.run_action(:install)
+          ^^^^^^^^^^ If a resource includes the `compile_time` property there's no need to also use `.run_action(:some_action)` on the resource block.
+    RUBY
+
+    expect_no_corrections
+  end
+
+  it 'does not rewrite the resource name when it matches the action name' do
+    expect_offense(<<~RUBY)
+      chef_gem 'nothing' do
+        action :nothing
+        compile_time true
+      end.run_action(:install)
+          ^^^^^^^^^^ If a resource includes the `compile_time` property there's no need to also use `.run_action(:some_action)` on the resource block.
+    RUBY
+
+    expect_correction(<<~RUBY)
+      chef_gem 'nothing' do
+        action :install
+        compile_time true
+      end
     RUBY
   end
 end

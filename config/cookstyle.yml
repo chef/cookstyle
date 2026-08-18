@@ -1107,7 +1107,7 @@ Chef/Deprecations/HWRPWithoutProvides:
   StyleGuide: 'chef_deprecations_hwrpwithoutprovides'
   Enabled: true
   VersionAdded: '6.0.0'
-  VersionChanged: '6.8.0'
+  VersionChanged: '8.8.0'
   Include:
     - '**/libraries/*.rb'
 
@@ -1299,6 +1299,7 @@ Chef/Deprecations/HWRPWithoutUnifiedTrue:
   StyleGuide: 'chef_deprecations_hwrpwithoutunifiedtrue'
   Enabled: true
   VersionAdded: '7.12.0'
+  VersionChanged: '8.8.0'
   Include:
     - '**/libraries/*.rb'
 
@@ -2267,6 +2268,7 @@ Chef/RedundantCode/DoubleCompileTime:
   StyleGuide: 'chef_redundantcode_doublecompiletime'
   Enabled: true
   VersionAdded: '6.13.0'
+  VersionChanged: '8.8.0'
   Exclude:
     - '**/metadata.rb'
     - '**/attributes/*.rb'
