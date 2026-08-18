@@ -2725,6 +2725,8 @@ Lint/EnsureReturn:
   Enabled: true
 Security/Eval:
   Enabled: true
+Security/YAMLLoad:
+  Enabled: true
 Lint/FloatOutOfRange:
   Enabled: true
 Lint/FormatParameterMismatch:
