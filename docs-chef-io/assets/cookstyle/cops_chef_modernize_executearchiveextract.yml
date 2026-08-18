@@ -23,9 +23,5 @@ examples: |2-
     path "#{Chef::Config[:file_cache_path]}/nginx.tar.gz"
     destination '/opt/nginx'
   end
-version_added: 8.8.0
-enabled: true
-excluded_file_paths:
-- "**/metadata.rb"
-- "**/attributes/*.rb"
-- "**/Berksfile"
+version_added: 
+enabled: false
