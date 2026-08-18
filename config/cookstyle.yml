@@ -392,6 +392,15 @@ Chef/Correctness/DnfPackageAllowDowngrades:
     - '**/metadata.rb'
     - '**/Berksfile'
 
+Chef/Correctness/PlatformVersionStringComparison:
+  Description: "Ohai version attributes are strings, so comparing one with an ordering operator compares them character by character rather than as versions. `'7.9' >= '10'` is true. Use `.to_i` for a major version comparison, or `Gem::Version` to compare full versions."
+  StyleGuide: 'chef_correctness_platformversionstringcomparison'
+  Enabled: true
+  VersionAdded: '8.8.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/Berksfile'
+
 Chef/Correctness/EmptyResourceGuard:
   Description: "Resource guards (`not_if`/`only_if`) should not be empty strings. In Ruby, empty strings are 'truthy', so an empty guard string will always pass, which is almost certainly not what you intended."
   StyleGuide: 'chef_correctness_emptyresourceguard'
