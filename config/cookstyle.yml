@@ -1474,6 +1474,7 @@ Chef/Modernize/ExecuteAptUpdate:
   StyleGuide: 'chef_modernize_executeaptupdate'
   Enabled: true
   VersionAdded: '5.3.0'
+  VersionChanged: '8.8.0'
   Exclude:
     - '**/metadata.rb'
 
@@ -1524,6 +1525,7 @@ Chef/Modernize/LibarchiveFileResource:
   StyleGuide: 'chef_modernize_libarchivefileresource'
   Enabled: true
   VersionAdded: '5.5.0'
+  VersionChanged: '8.8.0'
   Exclude:
     - '**/metadata.rb'
 

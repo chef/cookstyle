@@ -74,4 +74,36 @@ describe RuboCop::Cop::Chef::Modernize::LibarchiveFileResource, :config do
       RUBY
     end
   end
+
+  it 'registers an offense when a resource notifies libarchive_file without a timing' do
+    expect_offense(<<~RUBY)
+      remote_file archive_path do
+        action :create_if_missing
+        notifies :extract, 'libarchive_file[extract_yajsw]'
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the archive_file resource built into Chef Infra Client 15+ instead of the libarchive_file resource from the libarchive cookbook
+      end
+    RUBY
+
+    expect_correction(<<~RUBY)
+      remote_file archive_path do
+        action :create_if_missing
+        notifies :extract, 'archive_file[extract_yajsw]'
+      end
+    RUBY
+  end
+
+  it 'registers an offense when a resource subscribes to libarchive_file without a timing' do
+    expect_offense(<<~RUBY)
+      remote_file archive_path do
+        subscribes :extract, 'libarchive_file[extract_yajsw]'
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Use the archive_file resource built into Chef Infra Client 15+ instead of the libarchive_file resource from the libarchive cookbook
+      end
+    RUBY
+
+    expect_correction(<<~RUBY)
+      remote_file archive_path do
+        subscribes :extract, 'archive_file[extract_yajsw]'
+      end
+    RUBY
+  end
 end
