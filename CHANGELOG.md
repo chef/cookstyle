@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 8.7.15 -->
-## [v8.7.15](https://github.com/chef/cookstyle/tree/v8.7.15) (2026-08-18)
+ <!-- latest_release 8.7.16 -->
+## [v8.7.16](https://github.com/chef/cookstyle/tree/v8.7.16) (2026-08-18)
 
 #### Merged Pull Requests
-- Validate Chefstyle cops against chefstyle.yml [#1109](https://github.com/chef/cookstyle/pull/1109) ([tas50](https://github.com/tas50))
+- Add Chef/Security/InsecureRemoteFileSource cop [#1106](https://github.com/chef/cookstyle/pull/1106) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=8.7.6 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add Chef/Security/InsecureRemoteFileSource cop [#1106](https://github.com/chef/cookstyle/pull/1106) ([tas50](https://github.com/tas50)) <!-- 8.7.16 -->
 - Validate Chefstyle cops against chefstyle.yml [#1109](https://github.com/chef/cookstyle/pull/1109) ([tas50](https://github.com/tas50)) <!-- 8.7.15 -->
 - Fix Chef/Modernize/CronDFileOrTemplate raising on non-string path literals [#1086](https://github.com/chef/cookstyle/pull/1086) ([tas50](https://github.com/tas50)) <!-- 8.7.14 -->
 - Flag the deprecated ruby_block :create action in notifications [#1085](https://github.com/chef/cookstyle/pull/1085) ([tas50](https://github.com/tas50)) <!-- 8.7.13 -->
