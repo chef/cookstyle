@@ -188,10 +188,11 @@ Chef/Correctness:
   StyleGuideBaseURL: https://docs.chef.io/workstation/cookstyle/
 
 Chef/Correctness/ServiceResource:
-  Description: Use the `service` resource to start and stop services instead of shelling out with `execute` or `bash` resources. The `service` resource is idempotent and handles platform differences automatically.
+  Description: Use the `service` resource to manage services instead of shelling out to an init script, `service`, `systemctl`, or a similar tool. The `service` resource is idempotent and handles platform differences automatically.
   StyleGuide: 'chef_correctness_serviceresource'
   Enabled: true
   VersionAdded: '5.0.0'
+  VersionChanged: '8.8.0'
   Exclude:
     - '**/attributes/*.rb'
     - '**/metadata.rb'
