@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 8.7.17 -->
-## [v8.7.17](https://github.com/chef/cookstyle/tree/v8.7.17) (2026-08-18)
+ <!-- latest_release 8.7.18 -->
+## [v8.7.18](https://github.com/chef/cookstyle/tree/v8.7.18) (2026-08-18)
 
 #### Merged Pull Requests
-- Enable Lint/UriEscapeUnescape in the cookstyle config [#1103](https://github.com/chef/cookstyle/pull/1103) ([tas50](https://github.com/tas50))
+- Fix and widen Chef/Correctness/ServiceResource [#1102](https://github.com/chef/cookstyle/pull/1102) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=8.7.6 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Fix and widen Chef/Correctness/ServiceResource [#1102](https://github.com/chef/cookstyle/pull/1102) ([tas50](https://github.com/tas50)) <!-- 8.7.18 -->
 - Enable Lint/UriEscapeUnescape in the cookstyle config [#1103](https://github.com/chef/cookstyle/pull/1103) ([tas50](https://github.com/tas50)) <!-- 8.7.17 -->
 - Add Chef/Security/InsecureRemoteFileSource cop [#1106](https://github.com/chef/cookstyle/pull/1106) ([tas50](https://github.com/tas50)) <!-- 8.7.16 -->
 - Validate Chefstyle cops against chefstyle.yml [#1109](https://github.com/chef/cookstyle/pull/1109) ([tas50](https://github.com/tas50)) <!-- 8.7.15 -->
