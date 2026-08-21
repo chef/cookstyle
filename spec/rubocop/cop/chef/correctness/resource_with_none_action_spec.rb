@@ -40,4 +40,19 @@ describe RuboCop::Cop::Chef::Correctness::ResourceWithNoneAction, :config do
       end
     RUBY
   end
+
+  it 'registers an offense when a resource uses :none in a %i array' do
+    expect_offense(<<~RUBY)
+      service 'a' do
+        action %i(none)
+                  ^^^^ Resource uses the nonexistent :none action instead of the :nothing action
+      end
+    RUBY
+
+    expect_correction(<<~RUBY)
+      service 'a' do
+        action %i(nothing)
+      end
+    RUBY
+  end
 end

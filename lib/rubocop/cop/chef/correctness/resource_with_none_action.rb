@@ -41,10 +41,10 @@ module RuboCop
 
           def on_block(node)
             match_property_in_resource?(nil, 'action', node) do |action_node|
-              action_node.arguments.each do |action|
-                next unless action.source == ':none'
+              each_action_symbol(action_node) do |action, prefix|
+                next unless action.value == :none
                 add_offense(action, severity: :refactor) do |corrector|
-                  corrector.replace(action, ':nothing')
+                  corrector.replace(action, "#{prefix}nothing")
                 end
               end
             end

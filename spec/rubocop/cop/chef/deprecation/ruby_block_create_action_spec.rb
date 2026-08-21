@@ -136,4 +136,34 @@ describe RuboCop::Cop::Chef::Deprecations::RubyBlockCreateAction, :config do
       end
     RUBY
   end
+
+  it 'registers an offense when ruby_block uses :create in a %i array' do
+    expect_offense(<<~RUBY)
+      ruby_block 'a' do
+        action %i(create)
+                  ^^^^^^ Use the :run action in the ruby_block resource instead of the deprecated :create action
+      end
+    RUBY
+
+    expect_correction(<<~RUBY)
+      ruby_block 'a' do
+        action %i(run)
+      end
+    RUBY
+  end
+
+  it 'registers an offense when ruby_block uses :create in a bracketed array' do
+    expect_offense(<<~RUBY)
+      ruby_block 'a' do
+        action [:create, :nothing]
+                ^^^^^^^ Use the :run action in the ruby_block resource instead of the deprecated :create action
+      end
+    RUBY
+
+    expect_correction(<<~RUBY)
+      ruby_block 'a' do
+        action [:run, :nothing]
+      end
+    RUBY
+  end
 end

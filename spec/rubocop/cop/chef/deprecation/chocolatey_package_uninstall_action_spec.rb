@@ -36,4 +36,19 @@ describe RuboCop::Cop::Chef::Deprecations::ChocolateyPackageUninstallAction, :co
       end
     RUBY
   end
+
+  it 'registers an offense when chocolatey_package uses :uninstall in a %i array' do
+    expect_offense(<<~RUBY)
+      chocolatey_package 'a' do
+        action %i(uninstall)
+                  ^^^^^^^^^ Use the :remove action in the chocolatey_package resource instead of :uninstall which was removed in Chef Infra Client 14+
+      end
+    RUBY
+
+    expect_correction(<<~RUBY)
+      chocolatey_package 'a' do
+        action %i(remove)
+      end
+    RUBY
+  end
 end

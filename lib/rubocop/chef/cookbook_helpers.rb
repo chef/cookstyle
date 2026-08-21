@@ -67,6 +67,29 @@ module RuboCop
         end
       end
 
+      # Yield each action symbol declared by an `action` property, however it's written:
+      # `action :foo`, `action :foo, :bar`, `action [:foo, :bar]`, or `action %i(foo bar)`.
+      #
+      # The yielded prefix is what a corrector must put in front of a replacement action name.
+      # Inside a %i() literal the elements carry no colon, so replacing `%i(create)` with `:run`
+      # would produce the invalid `%i(:run)`.
+      #
+      # @param [RuboCop::AST::SendNode] action_property the `action` property node
+      #
+      # @yield [RuboCop::AST::SymbolNode, String] the action symbol and the replacement prefix
+      #
+      def each_action_symbol(action_property)
+        action_property.arguments.each do |arg|
+          if arg.sym_type?
+            yield(arg, ':')
+          elsif arg.array_type?
+            prefix = arg.percent_literal? ? '' : ':'
+            symbols = arg.values.select(&:sym_type?)
+            symbols.each { |symbol| yield(symbol, prefix) }
+          end
+        end
+      end
+
       def method_arg_ast_to_string(ast)
         # a property without a value. This is totally bogus, but they exist
         return if ast.children[2].nil?
