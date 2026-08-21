@@ -421,10 +421,11 @@ Chef/Correctness/PlatformVersionStringComparison:
     - '**/Berksfile'
 
 Chef/Correctness/EmptyResourceGuard:
-  Description: "Resource guards (`not_if`/`only_if`) should not be empty strings. In Ruby, empty strings are 'truthy', so an empty guard string will always pass, which is almost certainly not what you intended."
+  Description: "Resource guards (`not_if`/`only_if`) should not be empty. In Ruby, an empty string is 'truthy', so an empty guard string always passes. An empty block returns `nil`, so it always fails. Neither is likely to be what you intended."
   StyleGuide: 'chef_correctness_emptyresourceguard'
   Enabled: true
   VersionAdded: '8.4.0'
+  VersionChanged: '8.8.0'
   Exclude:
     - '**/attributes/*.rb'
     - '**/metadata.rb'

@@ -19,12 +19,17 @@ module RuboCop
   module Cop
     module Chef
       module Correctness
-        # Resource guards (not_if/only_if) should not be empty strings as empty strings will always evaluate to true.
-        # This will cause confusion in your cookbooks as the guard will always pass.
+        # Resource guards (not_if/only_if) should not be empty. An empty string always evaluates to true
+        # and an empty block always evaluates to false, so in either case the guard stops doing the job
+        # it was written for and the resource silently runs, or fails to run, on every converge.
         #
         # Empty strings in Ruby are "truthy", which means:
         # - `only_if ''` will ALWAYS execute the resource (guard always passes)
         # - `not_if ''` will NEVER execute the resource (guard always blocks)
+        #
+        # An empty block behaves the other way around, since a block with no body returns `nil`:
+        # - `only_if { }` will NEVER execute the resource
+        # - `not_if { }` will ALWAYS execute the resource
         #
         # This behavior is usually unintended and can lead to resources running when they shouldn't
         # or never running when they should.
@@ -72,6 +77,7 @@ module RuboCop
         #
         class EmptyResourceGuard < Base
           MSG = 'Resource guards (not_if/only_if) should not be empty strings as empty strings will always evaluate to true.'
+          EMPTY_BLOCK_MSG = 'Resource guards (not_if/only_if) should not be empty blocks as an empty block returns nil, which always evaluates to false.'
           RESTRICT_ON_SEND = [:not_if, :only_if].freeze
 
           def_node_matcher :empty_string_guard?, <<-PATTERN
@@ -80,6 +86,12 @@ module RuboCop
 
           def_node_matcher :empty_string_block_guard?, <<-PATTERN
             (block (send nil? {:not_if :only_if}) (args) (str #empty_string?))
+          PATTERN
+
+          # A block with no body at all. Such a block returns nil rather than the empty string matched
+          # above, so the guard fails rather than passes.
+          def_node_matcher :empty_block_guard?, <<-PATTERN
+            (block (send nil? {:not_if :only_if}) (args) nil?)
           PATTERN
 
           def empty_string?(str)
@@ -95,6 +107,10 @@ module RuboCop
           def on_block(node)
             empty_string_block_guard?(node) do
               add_offense(node, severity: :refactor)
+            end
+
+            empty_block_guard?(node) do
+              add_offense(node, message: EMPTY_BLOCK_MSG, severity: :refactor)
             end
           end
         end

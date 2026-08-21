@@ -98,4 +98,31 @@ describe RuboCop::Cop::Chef::Correctness::EmptyResourceGuard, :config do
       end
     RUBY
   end
+
+  it 'registers an offense when only_if is an empty block' do
+    expect_offense(<<~RUBY)
+      execute 'foo' do
+        only_if { }
+        ^^^^^^^^^^^ Resource guards (not_if/only_if) should not be empty blocks as an empty block returns nil, which always evaluates to false.
+      end
+    RUBY
+  end
+
+  it 'registers an offense when not_if is an empty multi-line block' do
+    expect_offense(<<~RUBY)
+      execute 'foo' do
+        not_if do
+        ^^^^^^^^^ Resource guards (not_if/only_if) should not be empty blocks as an empty block returns nil, which always evaluates to false.
+        end
+      end
+    RUBY
+  end
+
+  it "doesn't register an offense when the guard block has a body" do
+    expect_no_offenses(<<~RUBY)
+      execute 'foo' do
+        only_if { ::File.exist?('/etc/foo') }
+      end
+    RUBY
+  end
 end
