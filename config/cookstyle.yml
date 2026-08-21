@@ -401,6 +401,16 @@ Chef/Correctness/DnfPackageAllowDowngrades:
     - '**/metadata.rb'
     - '**/Berksfile'
 
+Chef/Correctness/ExecuteDeleteFile:
+  Description: "Use the `file` or `directory` resources built into Chef Infra Client with the `:delete` action to remove files and directories instead of shelling out to `rm`. The resource has to match what is on disk: `file` for a file, `directory` with `recursive true` for a directory."
+  StyleGuide: 'chef_correctness_executedeletefile'
+  Enabled: true
+  VersionAdded: '8.8.0'
+  Exclude:
+    - '**/attributes/*.rb'
+    - '**/metadata.rb'
+    - '**/Berksfile'
+
 Chef/Correctness/PlatformVersionStringComparison:
   Description: "Ohai version attributes are strings, so comparing one with an ordering operator compares them character by character rather than as versions. `'7.9' >= '10'` is true. Use `.to_i` for a major version comparison, or `Gem::Version` to compare full versions."
   StyleGuide: 'chef_correctness_platformversionstringcomparison'
