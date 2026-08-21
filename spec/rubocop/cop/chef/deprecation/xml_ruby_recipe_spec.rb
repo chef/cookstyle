@@ -53,4 +53,11 @@ describe RuboCop::Cop::Chef::Deprecations::IncludingXMLRubyRecipe, :config do
       include_recipe 'xml::default'
     RUBY
   end
+
+  it 'registers an offense when including the xml::ruby recipe via run_context' do
+    expect_offense(<<~RUBY)
+      run_context.include_recipe 'xml::ruby'
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Do not include the deprecated xml::ruby recipe to install the nokogiri gem. Chef Infra Client 12 and later ships with nokogiri included.
+    RUBY
+  end
 end

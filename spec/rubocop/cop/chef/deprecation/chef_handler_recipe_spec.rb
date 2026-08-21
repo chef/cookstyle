@@ -40,4 +40,13 @@ describe RuboCop::Cop::Chef::Deprecations::ChefHandlerRecipe, :config do
   it "doesn't register an offense when including a different recipe" do
     expect_no_offenses("include_recipe 'yum'")
   end
+
+  it 'registers an offense when including the chef_handler default recipe via run_context' do
+    expect_offense(<<~RUBY)
+      run_context.include_recipe 'chef_handler::default'
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ There is no need to include the empty and deprecated chef_handler::default recipe to use the chef_handler resource
+    RUBY
+
+    expect_correction("\n")
+  end
 end

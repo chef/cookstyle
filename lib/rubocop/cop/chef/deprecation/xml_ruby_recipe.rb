@@ -37,7 +37,7 @@ module RuboCop
           RESTRICT_ON_SEND = [:include_recipe].freeze
 
           def_node_matcher :xml_ruby_recipe?, <<-PATTERN
-            (send nil? :include_recipe (str "xml::ruby"))
+            (send {nil? (send nil? :run_context)} :include_recipe (str "xml::ruby"))
           PATTERN
 
           def on_send(node)

@@ -42,7 +42,7 @@ module RuboCop
           RESTRICT_ON_SEND = [:include_recipe].freeze
 
           def_node_matcher :chef_handler_recipe?, <<-PATTERN
-            (send nil? :include_recipe (str {"chef_handler" "chef_handler::default"}))
+            (send {nil? (send nil? :run_context)} :include_recipe (str {"chef_handler" "chef_handler::default"}))
           PATTERN
 
           def on_send(node)

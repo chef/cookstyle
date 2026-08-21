@@ -65,4 +65,11 @@ describe RuboCop::Cop::Chef::Deprecations::LegacyYumCookbookRecipes, :config do
       include_recipe 'yum::default'
     RUBY
   end
+
+  it 'registers an offense when including a legacy yum recipe via run_context' do
+    expect_offense(<<~RUBY)
+      run_context.include_recipe 'yum::epel'
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ The elrepo, epel, ius, remi, and repoforge recipes were split into their own cookbooks and the yum recipe was renamed to be default with the release of yum cookbook 3.0 (Dec 2013).
+    RUBY
+  end
 end

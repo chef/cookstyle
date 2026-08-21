@@ -47,4 +47,11 @@ describe RuboCop::Cop::Chef::Modernize::IncludingAptDefaultRecipe, :config do
       RUBY
     end
   end
+
+  it 'registers an offense when including the apt default recipe via run_context' do
+    expect_offense(<<~RUBY)
+      run_context.include_recipe 'apt::default'
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Do not include the Apt default recipe to update package cache. Instead use the apt_update resource, which is built into Chef Infra Client 12.7 and later.
+    RUBY
+  end
 end
