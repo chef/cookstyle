@@ -25,4 +25,11 @@ describe RuboCop::Cop::Chef::Correctness::OpenSSLPasswordHelpers, :config do
                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^ The `secure_password` helper from the openssl cookbooks `Opscode::OpenSSL::Password` class should not be used to generate passwords.
     RUBY
   end
+
+  it 'registers an offense when using ::Opscode::OpenSSL::Password' do
+    expect_offense(<<~RUBY)
+      ::Opscode::OpenSSL::Password.random_password
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ The `secure_password` helper from the openssl cookbooks `Opscode::OpenSSL::Password` class should not be used to generate passwords.
+    RUBY
+  end
 end

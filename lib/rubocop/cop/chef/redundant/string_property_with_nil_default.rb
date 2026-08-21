@@ -40,13 +40,13 @@ module RuboCop
 
           def_node_matcher :string_property_with_nil_default?, <<-PATTERN
             (send nil? :property (sym _)
-            {(const nil? :String) #string_and_nil_like?}
+            {(const {nil? cbase} :String) #string_and_nil_like?}
             (hash <$(pair (sym :default) (nil)) ...>))
           PATTERN
 
           # An array of types that includes String & either NilClass or nil
           def_node_matcher :string_and_nil_like?, <<-PATTERN
-            (array <(const nil? :String) {(const nil? :NilClass) (nil)}>)
+            (array <(const {nil? cbase} :String) {(const {nil? cbase} :NilClass) (nil)}>)
           PATTERN
 
           def on_send(node)

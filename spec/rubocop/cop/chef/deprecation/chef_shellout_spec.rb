@@ -67,4 +67,11 @@ describe RuboCop::Cop::Chef::Deprecations::ChefShellout, :config do
       Mixlib::ShellOut.new('some_command').run_command
     RUBY
   end
+
+  it 'registers an offense when using ::Chef::ShellOut' do
+    expect_offense(<<~RUBY)
+      foo = ::Chef::ShellOut.new('foo')
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^ Don't use the deprecated `Chef::ShellOut` class which was removed in Chef Infra Client 13. Use the `Mixlib::ShellOut` class instead, which behaves identically.
+    RUBY
+  end
 end

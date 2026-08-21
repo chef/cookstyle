@@ -69,4 +69,11 @@ describe RuboCop::Cop::Chef::RedundantCode::UnnecessaryNameProperty, :config do
       property :name, String, default: ''
     RUBY
   end
+
+  it 'registers an offense when a name property uses ::String' do
+    expect_offense(<<~RUBY)
+      property :name, ::String
+      ^^^^^^^^^^^^^^^^^^^^^^^^ There is no need to define a property or attribute named :name in a resource as Chef Infra defines this on all resources by default.
+    RUBY
+  end
 end

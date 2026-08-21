@@ -31,4 +31,11 @@ describe RuboCop::Cop::Chef::Deprecations::UsesChefRESTHelpers, :config do
       ^^^^^^^^^^ Don't use the helpers in Chef::REST which were removed in Chef Infra Client 13
     RUBY
   end
+
+  it 'registers an offense when using ::Chef::REST' do
+    expect_offense(<<~RUBY)
+      ::Chef::REST.new('http://example.com')
+      ^^^^^^^^^^^^ Don't use the helpers in Chef::REST which were removed in Chef Infra Client 13
+    RUBY
+  end
 end

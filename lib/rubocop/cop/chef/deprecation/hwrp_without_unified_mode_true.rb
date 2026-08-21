@@ -67,7 +67,7 @@ module RuboCop
               $(class
                 (const nil? ... )
                 (const
-                  (const nil? :Chef) :Resource)
+                  (const {nil? cbase} :Chef) :Resource)
                   ...)))
           PATTERN
 

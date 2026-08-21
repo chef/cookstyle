@@ -51,4 +51,11 @@ describe RuboCop::Cop::Chef::RedundantCode::StringPropertyWithNilDefault, :confi
       property :bob, String, default: 'foo'
     RUBY
   end
+
+  it 'registers an offense when a property uses ::String with a nil default' do
+    expect_offense(<<~RUBY)
+      property :config_file, ::String, default: nil
+                                       ^^^^^^^^^^^^ Properties have a nil value by default so there is no need to set the default value to nil.
+    RUBY
+  end
 end

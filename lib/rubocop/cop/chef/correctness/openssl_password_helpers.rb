@@ -31,7 +31,7 @@ module RuboCop
           def_node_matcher :openssl_helper?, <<~PATTERN
             (const
               (const
-                (const nil? :Opscode) :OpenSSL) :Password)
+                (const {nil? cbase} :Opscode) :OpenSSL) :Password)
           PATTERN
 
           def on_const(node)

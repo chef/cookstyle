@@ -40,4 +40,11 @@ describe RuboCop::Cop::Chef::Modernize::DslIncludeInResource, :config do
   it "doesn't register an offense when including Chef::DSL::Foo" do
     expect_no_offenses('include Chef::DSL::Foo')
   end
+
+  it 'registers an offense when including ::Chef::DSL::Recipe' do
+    expect_offense(<<~RUBY)
+      include ::Chef::DSL::Recipe
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^ Chef Infra Client 12.4+ includes the Chef::DSL::Recipe in the resource and provider classes by default so there is no need to include this DSL in your resources or providers.
+    RUBY
+  end
 end

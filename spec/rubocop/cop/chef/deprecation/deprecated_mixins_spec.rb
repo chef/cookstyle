@@ -95,4 +95,11 @@ describe RuboCop::Cop::Chef::Deprecations::UsesDeprecatedMixins, :config do
       depends 'foo'
     RUBY
   end
+
+  it 'registers an offense when including ::Chef::Mixin::LanguageIncludeAttribute' do
+    expect_offense(<<~RUBY)
+      include ::Chef::Mixin::LanguageIncludeAttribute
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Don't use deprecated Mixins no longer included in Chef Infra Client 14 and later.
+    RUBY
+  end
 end

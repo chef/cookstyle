@@ -38,7 +38,7 @@ module RuboCop
           def_node_matcher :chef_platform_windows?, <<-PATTERN
             (send
               (const
-                (const nil? :Chef) :Platform) :windows?)
+                (const {nil? cbase} :Chef) :Platform) :windows?)
           PATTERN
 
           def on_send(node)

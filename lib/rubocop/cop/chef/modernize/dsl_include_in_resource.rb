@@ -38,7 +38,7 @@ module RuboCop
           (send nil? :include
             (const
               (const
-                (const nil? :Chef) :DSL) {:Recipe :IncludeRecipe}))
+                (const {nil? cbase} :Chef) :DSL) {:Recipe :IncludeRecipe}))
           PATTERN
 
           def on_send(node)

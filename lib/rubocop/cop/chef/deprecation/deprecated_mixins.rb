@@ -41,11 +41,11 @@ module RuboCop
           RESTRICT_ON_SEND = [:include, :require].freeze
 
           def_node_matcher :deprecated_mixin?, <<-PATTERN
-            (send nil? :include (const (const (const nil? :Chef) :Mixin) { :Language :LanguageIncludeAttribute :RecipeDefinitionDSLCore :LanguageIncludeRecipe }))
+            (send nil? :include (const (const (const {nil? cbase} :Chef) :Mixin) { :Language :LanguageIncludeAttribute :RecipeDefinitionDSLCore :LanguageIncludeRecipe }))
           PATTERN
 
           def_node_matcher :deprecated_dsl?, <<-PATTERN
-            (send nil? :include (const (const (const (const nil? :Chef) :DSL) :Recipe) :FullDSL))
+            (send nil? :include (const (const (const (const {nil? cbase} :Chef) :DSL) :Recipe) :FullDSL))
           PATTERN
 
           def_node_matcher :dsl_mixin_require?, <<-PATTERN
