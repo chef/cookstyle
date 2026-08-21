@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 8.7.26 -->
-## [v8.7.26](https://github.com/chef/cookstyle/tree/v8.7.26) (2026-08-21)
+ <!-- latest_release 8.7.27 -->
+## [v8.7.27](https://github.com/chef/cookstyle/tree/v8.7.27) (2026-08-21)
 
 #### Merged Pull Requests
-- Add Chef/Modernize/ExecuteUpdateAlternatives cop [#1105](https://github.com/chef/cookstyle/pull/1105) ([tas50](https://github.com/tas50))
+- Flag empty guard blocks in Chef/Correctness/EmptyResourceGuard [#1097](https://github.com/chef/cookstyle/pull/1097) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=8.7.6 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Flag empty guard blocks in Chef/Correctness/EmptyResourceGuard [#1097](https://github.com/chef/cookstyle/pull/1097) ([tas50](https://github.com/tas50)) <!-- 8.7.27 -->
 - Add Chef/Modernize/ExecuteUpdateAlternatives cop [#1105](https://github.com/chef/cookstyle/pull/1105) ([tas50](https://github.com/tas50)) <!-- 8.7.26 -->
 - Add Chef/Sharing/EmptyPropertyDescription cop [#1088](https://github.com/chef/cookstyle/pull/1088) ([tas50](https://github.com/tas50)) <!-- 8.7.25 -->
 - Add Chef/Correctness/ConditionalUnifiedModeTrue cop [#1087](https://github.com/chef/cookstyle/pull/1087) ([tas50](https://github.com/tas50)) <!-- 8.7.24 -->
