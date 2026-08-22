@@ -25,7 +25,7 @@ examples: |2-
     priority 1
     action :install
   end
-version_added: 8.8.0
+version_added: 9.0.0
 enabled: true
 excluded_file_paths:
 - "**/metadata.rb"

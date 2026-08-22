@@ -1,5 +1,5 @@
 
- Progress Chef Cookstyle 8.7                                                                         Updated June 2026
+ Progress Chef Cookstyle 9.0                                                                       Updated August 2026
 
  ----------------------------------------------------------------------------------------------------------------------------
  NOTICES REPORT
@@ -147,8 +147,8 @@ Components:
 | RSpec 3.13.8                           | http://rspec.info/                    | MIT License                              |
 | rspec-support 3.13.7                   | https://github.com/rspec/rspec-suppor | MIT License                              |
 |                                        |   t                                   |                                          |
-| rubocop 1.86.1                         | http://batsov.com/rubocop             | MIT License                              |
-| rubocop-ast 1.49.1                     | https://www.rubocop.org/              | MIT License                              |
+| rubocop 1.89.0                         | http://batsov.com/rubocop             | MIT License                              |
+| rubocop-ast 1.50.0                     | https://www.rubocop.org/              | MIT License                              |
 | rubychan's coderay 1.1.3               | http://coderay.rubychan.de            | MIT License                              |
 | sickill's rainbow 3.1.1                | http://sickill.net                    | MIT License                              |
 | unicode-display_width 3.2.0            | https://github.com/janlelis/unicode-d | MIT License                              |
@@ -3527,7 +3527,7 @@ this License. But first, please read
 ---
 
 MIT License
-(ast 2.4.3, concurrent-ruby 1.3.6, grosser's parallel 2.1.0, Habitat core_libffi 3.4.7, Habitat core_libyaml 0.2.5, Habitat core_ncurses 6.5, halostatue/diff-lcs 1.6.2, jfelchner/ruby-progressbar 1.13.0, language_server-protocol 3.17.0.5, lint_roller 1.1.0, memory-profiler 1.1.0, method_source 1.1.0, mwunsch's prism 1.9.0, parser 3.3.11.1, Pry REPL 0.16.0, Rake 13.4.2, RSpec 3.13.2, RSpec 3.13.5, RSpec 3.13.6, RSpec 3.13.8, rspec-support 3.13.7, rubocop 1.86.1, rubocop-ast 1.49.1, rubychan's coderay 1.1.3, sickill's rainbow 3.1.1, unicode-display_width 3.2.0, unicode-emoji 4.2.0)
+(ast 2.4.3, concurrent-ruby 1.3.6, grosser's parallel 2.1.0, Habitat core_libffi 3.4.7, Habitat core_libyaml 0.2.5, Habitat core_ncurses 6.5, halostatue/diff-lcs 1.6.2, jfelchner/ruby-progressbar 1.13.0, language_server-protocol 3.17.0.5, lint_roller 1.1.0, memory-profiler 1.1.0, method_source 1.1.0, mwunsch's prism 1.9.0, parser 3.3.11.1, Pry REPL 0.16.0, Rake 13.4.2, RSpec 3.13.2, RSpec 3.13.5, RSpec 3.13.6, RSpec 3.13.8, rspec-support 3.13.7, rubocop 1.89.0, rubocop-ast 1.50.0, rubychan's coderay 1.1.3, sickill's rainbow 3.1.1, unicode-display_width 3.2.0, unicode-emoji 4.2.0)
 
 The MIT License
 ===============

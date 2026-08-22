@@ -19,7 +19,7 @@ examples: |2-
   remote_file 'C:\foo.msi' do
     source 'https://example.com/foo.msi'
   end
-version_added: 8.8.0
+version_added: 9.0.0
 enabled: true
 excluded_file_paths:
 - "**/metadata.rb"
