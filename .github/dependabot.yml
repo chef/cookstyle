@@ -16,7 +16,8 @@ updates:
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
-      interval: daily
+      interval: weekly
+      day: monday
     open-pull-requests-limit: 10
     # don't automatically rebase on every single time we're out of date with
     # base (whith is always) because it kills CI capacity
