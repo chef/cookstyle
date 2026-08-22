@@ -25,7 +25,7 @@ examples: |2-
 
   # good - deliberately opting out of unified mode
   unified_mode false if respond_to?(:unified_mode)
-version_added: 8.8.0
+version_added: 9.0.0
 enabled: true
 included_file_paths:
 - "**/libraries/*.rb"

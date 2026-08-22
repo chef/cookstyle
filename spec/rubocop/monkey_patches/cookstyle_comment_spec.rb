@@ -70,4 +70,66 @@ RSpec.describe RuboCop::CommentConfig do
       expect(comment_config.cop_enabled_at_line?('Chef/Correctness/Foo', 2)).to be true
     end
   end
+
+  # RuboCop grows new directive modes over time (`push`/`pop` in 1.86, `disable-next`
+  # and `todo-next` in 1.90). The `cookstyle:` alias is built from RuboCop's own mode
+  # list rather than a copy of it, so every mode has to work under both spellings.
+  describe 'directive modes' do
+    def disabled_lines(source, cop)
+      config = described_class.new(parse_source(source))
+      (1..source.lines.size).reject { |line| config.cop_enabled_at_line?(cop, line) }
+    end
+
+    %w(rubocop cookstyle).each do |keyword|
+      context "with the #{keyword}: spelling" do
+        it 'supports disable/enable' do
+          source = <<~RUBY
+            # #{keyword}:disable Chef/Correctness/Foo
+            node.normal[:foo]
+            # #{keyword}:enable Chef/Correctness/Foo
+            node.normal[:bar]
+          RUBY
+          expect(disabled_lines(source, 'Chef/Correctness/Foo')).to eq([1, 2, 3])
+        end
+
+        it 'supports todo' do
+          source = <<~RUBY
+            node.normal[:foo] # #{keyword}:todo Chef/Correctness/Foo
+            node.normal[:bar]
+          RUBY
+          expect(disabled_lines(source, 'Chef/Correctness/Foo')).to eq([1])
+        end
+
+        it 'supports disable-next' do
+          source = <<~RUBY
+            # #{keyword}:disable-next Chef/Correctness/Foo
+            node.normal[:foo]
+            node.normal[:bar]
+          RUBY
+          expect(disabled_lines(source, 'Chef/Correctness/Foo')).to eq([2])
+        end
+
+        it 'supports todo-next' do
+          source = <<~RUBY
+            # #{keyword}:todo-next Chef/Correctness/Foo
+            node.normal[:foo]
+            node.normal[:bar]
+          RUBY
+          expect(disabled_lines(source, 'Chef/Correctness/Foo')).to eq([2])
+        end
+
+        # Unlike `enable`, a `pop` reopens the cop on its own line, so line 3 is
+        # enabled again. That asymmetry is RuboCop's, and both spellings share it.
+        it 'supports push/pop' do
+          source = <<~RUBY
+            # #{keyword}:push -Chef/Correctness/Foo
+            node.normal[:foo]
+            # #{keyword}:pop
+            node.normal[:bar]
+          RUBY
+          expect(disabled_lines(source, 'Chef/Correctness/Foo')).to eq([1, 2])
+        end
+      end
+    end
+  end
 end

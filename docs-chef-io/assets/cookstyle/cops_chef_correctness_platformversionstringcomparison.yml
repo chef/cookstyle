@@ -26,7 +26,7 @@ examples: |2-
 
   # good - equality is a plain string match, which is fine
   node['platform_version'] == '10'
-version_added: 8.8.0
+version_added: 9.0.0
 enabled: true
 excluded_file_paths:
 - "**/metadata.rb"
