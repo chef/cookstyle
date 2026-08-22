@@ -1883,6 +1883,16 @@ Chef/Modernize/ExecuteUpdateAlternatives:
     - '**/attributes/*.rb'
     - '**/Berksfile'
 
+Chef/Modernize/ExecuteArchiveExtract:
+  Description: "Chef Infra Client 15.0 and later includes an `archive_file` resource that should be used to extract tar and zip archives instead of shelling out to `tar` or `unzip`. The resource only extracts when the archive is newer than the extracted content, where the shelled out command re-extracts on every converge."
+  StyleGuide: 'chef_modernize_executearchiveextract'
+  Enabled: true
+  VersionAdded: '9.0.0'
+  Exclude:
+    - '**/metadata.rb'
+    - '**/attributes/*.rb'
+    - '**/Berksfile'
+
 Chef/Modernize/ExecuteSysctl:
   Description: Chef Infra Client 14.0 and later includes a sysctl resource that should be used to idempotently load sysctl values instead of templating files and using execute to load them.
   StyleGuide: 'chef_modernize_executesysctl'
