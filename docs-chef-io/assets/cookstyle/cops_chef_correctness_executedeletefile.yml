@@ -38,7 +38,7 @@ examples: |2-
     recursive true
     action :delete
   end
-version_added: 8.8.0
+version_added: 9.0.0
 enabled: true
 excluded_file_paths:
 - "**/attributes/*.rb"

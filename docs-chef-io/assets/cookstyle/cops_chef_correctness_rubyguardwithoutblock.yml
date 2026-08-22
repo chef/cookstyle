@@ -30,7 +30,7 @@ examples: |2-
 
   # good - a string guard runs as a shell command
   not_if 'test -f /etc/foo'
-version_added: 8.8.0
+version_added: 9.0.0
 enabled: true
 excluded_file_paths:
 - "**/attributes/*.rb"

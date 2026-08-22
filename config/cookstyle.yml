@@ -133,7 +133,7 @@ Chef/Style/TrueClassFalseClassResourceProperties:
   StyleGuide: 'chef_style_trueclassfalseclassresourceproperties'
   Enabled: true
   VersionAdded: '5.16.0'
-  VersionChanged: '8.8.0'
+  VersionChanged: '9.0.0'
   Include:
     - '**/libraries/*.rb'
     - '**/resources/*.rb'
@@ -174,7 +174,7 @@ Chef/Style/IncludeRecipeWithParentheses:
   Description: "There is no need to wrap the recipe name in parentheses when using `include_recipe`. Write `include_recipe 'foo'` instead of `include_recipe('foo')`."
   StyleGuide: 'chef_style_includerecipewithparentheses'
   VersionAdded: '6.11.0'
-  VersionChanged: '8.8.0'
+  VersionChanged: '9.0.0'
   Enabled: true
   Exclude:
     - '**/attributes/*.rb'
@@ -193,7 +193,7 @@ Chef/Correctness/ConditionalUnifiedModeTrue:
   Description: "Set `unified_mode true` unconditionally. Setting it conditionally leaves a resource running in unified mode on newer Chef Infra Client releases and in legacy mode on older ones, so it has to be written and tested against both execution models."
   StyleGuide: 'chef_correctness_conditionalunifiedmodetrue'
   Enabled: true
-  VersionAdded: '8.8.0'
+  VersionAdded: '9.0.0'
   Include:
     - '**/libraries/*.rb'
     - '**/resources/*.rb'
@@ -203,7 +203,7 @@ Chef/Correctness/ServiceResource:
   StyleGuide: 'chef_correctness_serviceresource'
   Enabled: true
   VersionAdded: '5.0.0'
-  VersionChanged: '8.8.0'
+  VersionChanged: '9.0.0'
   Exclude:
     - '**/attributes/*.rb'
     - '**/metadata.rb'
@@ -296,7 +296,7 @@ Chef/Correctness/ResourceWithNoneAction:
   StyleGuide: 'chef_correctness_resourcewithnoneaction'
   Enabled: true
   VersionAdded: '5.5.0'
-  VersionChanged: '8.8.0'
+  VersionChanged: '9.0.0'
   Exclude:
     - '**/attributes/*.rb'
     - '**/metadata.rb'
@@ -408,7 +408,7 @@ Chef/Correctness/ExecuteDeleteFile:
   Description: "Use the `file` or `directory` resources built into Chef Infra Client with the `:delete` action to remove files and directories instead of shelling out to `rm`. The resource has to match what is on disk: `file` for a file, `directory` with `recursive true` for a directory."
   StyleGuide: 'chef_correctness_executedeletefile'
   Enabled: true
-  VersionAdded: '8.8.0'
+  VersionAdded: '9.0.0'
   Exclude:
     - '**/attributes/*.rb'
     - '**/metadata.rb'
@@ -418,7 +418,7 @@ Chef/Correctness/RubyGuardWithoutBlock:
   Description: "A Ruby expression used as a resource guard (`not_if`/`only_if`) has to be wrapped in a block. String guards are run as shell commands and are fine as they are; it is only a bare Ruby expression that is a problem, since the guard receives the expression result rather than the expression."
   StyleGuide: 'chef_correctness_rubyguardwithoutblock'
   Enabled: true
-  VersionAdded: '8.8.0'
+  VersionAdded: '9.0.0'
   Exclude:
     - '**/attributes/*.rb'
     - '**/metadata.rb'
@@ -438,7 +438,7 @@ Chef/Correctness/PlatformVersionStringComparison:
   Description: "Ohai version attributes are strings, so comparing one with an ordering operator compares them character by character rather than as versions. `'7.9' >= '10'` is true. Use `.to_i` for a major version comparison, or `Gem::Version` to compare full versions."
   StyleGuide: 'chef_correctness_platformversionstringcomparison'
   Enabled: true
-  VersionAdded: '8.8.0'
+  VersionAdded: '9.0.0'
   Exclude:
     - '**/metadata.rb'
     - '**/Berksfile'
@@ -448,7 +448,7 @@ Chef/Correctness/EmptyResourceGuard:
   StyleGuide: 'chef_correctness_emptyresourceguard'
   Enabled: true
   VersionAdded: '8.4.0'
-  VersionChanged: '8.8.0'
+  VersionChanged: '9.0.0'
   Exclude:
     - '**/attributes/*.rb'
     - '**/metadata.rb'
@@ -459,7 +459,7 @@ Chef/Correctness/ChefApplicationFatal:
   StyleGuide: 'chef_correctness_chefapplicationfatal'
   Enabled: true
   VersionAdded: '6.0.0'
-  VersionChanged: '8.8.0'
+  VersionChanged: '9.0.0'
   Exclude:
     - '**/metadata.rb'
     - '**/Berksfile'
@@ -498,7 +498,7 @@ Chef/Correctness/OpenSSLPasswordHelpers:
   StyleGuide: 'chef_correctness_opensslpasswordhelpers'
   Enabled: true
   VersionAdded: '6.6.0'
-  VersionChanged: '8.8.0'
+  VersionChanged: '9.0.0'
   Exclude:
     - '**/metadata.rb'
     - '**/Berksfile'
@@ -666,7 +666,7 @@ Chef/Sharing/EmptyPropertyDescription:
   Description: Resource properties should not set an empty `description`. Automated documentation tools have nothing to render from it, so it does no more than a missing field would while looking like the property has been documented.
   StyleGuide: 'chef_sharing_emptypropertydescription'
   Enabled: true
-  VersionAdded: '8.8.0'
+  VersionAdded: '9.0.0'
   Include:
     - '**/libraries/*.rb'
     - '**/resources/*.rb'
@@ -809,7 +809,7 @@ Chef/Deprecations/UsesDeprecatedMixins:
   StyleGuide: 'chef_deprecations_usesdeprecatedmixins'
   Enabled: true
   VersionAdded: '5.4.0'
-  VersionChanged: '8.8.0'
+  VersionChanged: '9.0.0'
   Include:
     - '**/libraries/*.rb'
     - '**/providers/*.rb'
@@ -820,7 +820,7 @@ Chef/Deprecations/IncludingXMLRubyRecipe:
   StyleGuide: 'chef_deprecations_includingxmlrubyrecipe'
   Enabled: true
   VersionAdded: '5.4.0'
-  VersionChanged: '8.8.0'
+  VersionChanged: '9.0.0'
   Exclude:
     - '**/attributes/*.rb'
     - '**/metadata.rb'
@@ -831,7 +831,7 @@ Chef/Deprecations/LegacyYumCookbookRecipes:
   StyleGuide: 'chef_deprecations_legacyyumcookbookrecipes'
   Enabled: true
   VersionAdded: '5.4.0'
-  VersionChanged: '8.8.0'
+  VersionChanged: '9.0.0'
   Exclude:
     - '**/metadata.rb'
 
@@ -840,7 +840,7 @@ Chef/Deprecations/UsesChefRESTHelpers:
   StyleGuide: 'chef_deprecations_useschefresthelpers'
   Enabled: true
   VersionAdded: '5.5.0'
-  VersionChanged: '8.8.0'
+  VersionChanged: '9.0.0'
   Exclude:
     - '**/metadata.rb'
 
@@ -849,7 +849,7 @@ Chef/Deprecations/ChocolateyPackageUninstallAction:
   StyleGuide: 'chef_deprecations_chocolateypackageuninstallaction'
   Enabled: true
   VersionAdded: '5.5.0'
-  VersionChanged: '8.8.0'
+  VersionChanged: '9.0.0'
   Exclude:
     - '**/metadata.rb'
 
@@ -1010,7 +1010,7 @@ Chef/Deprecations/ResourceInheritsFromCompatResource:
   StyleGuide: 'chef_deprecations_resourceinheritsfromcompatresource'
   Enabled: true
   VersionAdded: '5.10.0'
-  VersionChanged: '8.8.0'
+  VersionChanged: '9.0.0'
   Include:
     - '**/libraries/*.rb'
 
@@ -1099,7 +1099,7 @@ Chef/Deprecations/RubyBlockCreateAction:
   StyleGuide: 'chef_deprecations_rubyblockcreateaction'
   Enabled: true
   VersionAdded: '5.16.0'
-  VersionChanged: '8.8.0'
+  VersionChanged: '9.0.0'
   Exclude:
     - '**/metadata.rb'
     - '**/attributes/*.rb'
@@ -1148,7 +1148,7 @@ Chef/Deprecations/ChefWindowsPlatformHelper:
   StyleGuide: 'chef_deprecations_chefwindowsplatformhelper'
   Enabled: true
   VersionAdded: '6.0.0'
-  VersionChanged: '8.8.0'
+  VersionChanged: '9.0.0'
   Exclude:
     - '**/metadata.rb'
     - '**/Berksfile'
@@ -1167,7 +1167,7 @@ Chef/Deprecations/HWRPWithoutProvides:
   StyleGuide: 'chef_deprecations_hwrpwithoutprovides'
   Enabled: true
   VersionAdded: '6.0.0'
-  VersionChanged: '8.8.0'
+  VersionChanged: '9.0.0'
   Include:
     - '**/libraries/*.rb'
 
@@ -1231,7 +1231,7 @@ Chef/Deprecations/ChefHandlerRecipe:
   StyleGuide: 'chef_deprecations_chefhandlerrecipe'
   Enabled: true
   VersionAdded: '6.12.0'
-  VersionChanged: '8.8.0'
+  VersionChanged: '9.0.0'
   Exclude:
     - '**/metadata.rb'
     - '**/Berksfile'
@@ -1268,7 +1268,7 @@ Chef/Deprecations/ChefShellout:
   StyleGuide: 'chef_deprecations_chefshellout'
   Enabled: true
   VersionAdded: '6.17.0'
-  VersionChanged: '8.8.0'
+  VersionChanged: '9.0.0'
   Exclude:
     - '**/metadata.rb'
     - '**/attributes/*.rb'
@@ -1361,7 +1361,7 @@ Chef/Deprecations/HWRPWithoutUnifiedTrue:
   StyleGuide: 'chef_deprecations_hwrpwithoutunifiedtrue'
   Enabled: true
   VersionAdded: '7.12.0'
-  VersionChanged: '8.8.0'
+  VersionChanged: '9.0.0'
   Include:
     - '**/libraries/*.rb'
 
@@ -1512,7 +1512,7 @@ Chef/Modernize/IncludingAptDefaultRecipe:
   StyleGuide: 'chef_modernize_includingaptdefaultrecipe'
   Enabled: true
   VersionAdded: '5.3.0'
-  VersionChanged: '8.8.0'
+  VersionChanged: '9.0.0'
   Exclude:
     - '**/metadata.rb'
 
@@ -1521,7 +1521,7 @@ Chef/Modernize/IncludingWindowsDefaultRecipe:
   StyleGuide: 'chef_modernize_includingwindowsdefaultrecipe'
   Enabled: true
   VersionAdded: '5.3.0'
-  VersionChanged: '8.8.0'
+  VersionChanged: '9.0.0'
   Exclude:
     - '**/metadata.rb'
 
@@ -1538,7 +1538,7 @@ Chef/Modernize/ExecuteAptUpdate:
   StyleGuide: 'chef_modernize_executeaptupdate'
   Enabled: true
   VersionAdded: '5.3.0'
-  VersionChanged: '8.8.0'
+  VersionChanged: '9.0.0'
   Exclude:
     - '**/metadata.rb'
 
@@ -1565,7 +1565,7 @@ Chef/Modernize/UseBuildEssentialResource:
   StyleGuide: 'chef_modernize_usebuildessentialresource'
   Enabled: true
   VersionAdded: '5.1.0'
-  VersionChanged: '8.8.0'
+  VersionChanged: '9.0.0'
   Exclude:
     - '**/metadata.rb'
 
@@ -1590,7 +1590,7 @@ Chef/Modernize/LibarchiveFileResource:
   StyleGuide: 'chef_modernize_libarchivefileresource'
   Enabled: true
   VersionAdded: '5.5.0'
-  VersionChanged: '8.8.0'
+  VersionChanged: '9.0.0'
   Exclude:
     - '**/metadata.rb'
 
@@ -1606,7 +1606,7 @@ Chef/Modernize/PowershellDownloadFile:
   Description: "Use the `remote_file` resource to download files instead of shelling out to PowerShell. `remote_file` is idempotent and supports checksum verification, proxies, and conditional downloads."
   StyleGuide: 'chef_modernize_powershelldownloadfile'
   Enabled: true
-  VersionAdded: '8.8.0'
+  VersionAdded: '9.0.0'
   Exclude:
     - '**/metadata.rb'
     - '**/attributes/*.rb'
@@ -1801,7 +1801,7 @@ Chef/Modernize/IncludingOhaiDefaultRecipe:
   StyleGuide: 'chef_modernize_includingohaidefaultrecipe'
   Enabled: true
   VersionAdded: '5.4.0'
-  VersionChanged: '8.8.0'
+  VersionChanged: '9.0.0'
   Exclude:
     - '**/metadata.rb'
     - '**/Berksfile'
@@ -1858,7 +1858,7 @@ Chef/Modernize/DslIncludeInResource:
   StyleGuide: 'chef_modernize_dslincludeinresource'
   Enabled: true
   VersionAdded: '5.17.0'
-  VersionChanged: '8.8.0'
+  VersionChanged: '9.0.0'
   Include:
     - '**/resources/*.rb'
     - '**/providers/*.rb'
@@ -1877,7 +1877,7 @@ Chef/Modernize/ExecuteUpdateAlternatives:
   Description: "Chef Infra Client 16.0 and later includes an `alternatives` resource that should be used to manage alternatives links instead of shelling out to `update-alternatives` or `alternatives`."
   StyleGuide: 'chef_modernize_executeupdatealternatives'
   Enabled: true
-  VersionAdded: '8.8.0'
+  VersionAdded: '9.0.0'
   Exclude:
     - '**/metadata.rb'
     - '**/attributes/*.rb'
@@ -1908,7 +1908,7 @@ Chef/Modernize/UseRequireRelative:
   StyleGuide: 'chef_modernize_userequirerelative'
   Enabled: true
   VersionAdded: '5.22.0'
-  VersionChanged: '8.8.0'
+  VersionChanged: '9.0.0'
   Exclude:
     - '**/metadata.rb'
     - '**/attributes/*.rb'
@@ -1958,7 +1958,7 @@ Chef/Modernize/DatabagHelpers:
   StyleGuide: 'chef_modernize_databaghelpers'
   Enabled: true
   VersionAdded: '6.0.0'
-  VersionChanged: '8.8.0'
+  VersionChanged: '9.0.0'
   Exclude:
     - '**/metadata.rb'
     - '**/Berksfile'
@@ -1996,7 +1996,7 @@ Chef/Modernize/ConditionalUsingTest:
   StyleGuide: 'chef_modernize_conditionalusingtest'
   Enabled: true
   VersionAdded: '6.11.0'
-  VersionChanged: '8.8.0'
+  VersionChanged: '9.0.0'
   Exclude:
     - '**/metadata.rb'
     - '**/Berksfile'
@@ -2218,7 +2218,7 @@ Chef/RedundantCode/UnnecessaryNameProperty:
   StyleGuide: 'chef_redundantcode_unnecessarynameproperty'
   Enabled: true
   VersionAdded: '5.8.0'
-  VersionChanged: '8.8.0'
+  VersionChanged: '9.0.0'
   Include:
     - '**/resources/*.rb'
     - '**/libraries/*.rb'
@@ -2303,7 +2303,7 @@ Chef/RedundantCode/StringPropertyWithNilDefault:
   StyleGuide: 'chef_redundantcode_stringpropertywithnildefault'
   Enabled: true
   VersionAdded: '5.21.0'
-  VersionChanged: '8.8.0'
+  VersionChanged: '9.0.0'
   Include:
     - '**/resources/*.rb'
     - '**/libraries/*.rb'
@@ -2350,7 +2350,7 @@ Chef/RedundantCode/DoubleCompileTime:
   StyleGuide: 'chef_redundantcode_doublecompiletime'
   Enabled: true
   VersionAdded: '6.13.0'
-  VersionChanged: '8.8.0'
+  VersionChanged: '9.0.0'
   Exclude:
     - '**/metadata.rb'
     - '**/attributes/*.rb'
@@ -2360,7 +2360,7 @@ Chef/RedundantCode/ServiceGuardOnStopDisable:
   Description: "The `:stop` and `:disable` actions of the `service` resource are already no-ops when the service isn't installed, so guarding them with a check for the init script or unit file is redundant. It's also fragile, since the guard hardcodes a single path while the provider searches several."
   StyleGuide: 'chef_redundantcode_serviceguardonstopdisable'
   Enabled: true
-  VersionAdded: '8.8.0'
+  VersionAdded: '9.0.0'
   Exclude:
     - '**/metadata.rb'
     - '**/attributes/*.rb'
@@ -2486,7 +2486,7 @@ Chef/Security/InsecureRemoteFileSource:
   Description: "Fetch remote files over HTTPS. A file downloaded over plain HTTP or FTP can be modified in transit and the resource will use whatever it receives."
   StyleGuide: 'chef_security_insecureremotefilesource'
   Enabled: true
-  VersionAdded: '8.8.0'
+  VersionAdded: '9.0.0'
   Exclude:
     - '**/metadata.rb'
     - '**/Berksfile'

@@ -19,7 +19,7 @@ examples: |2-
   property :site_name, String,
            name_property: true,
            description: 'The name of the site'
-version_added: 8.8.0
+version_added: 9.0.0
 enabled: true
 included_file_paths:
 - "**/libraries/*.rb"

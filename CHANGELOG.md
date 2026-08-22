@@ -1,43 +1,46 @@
 # Cookstyle Changelog
 
- <!-- latest_release 8.7.33 -->
-## [v8.7.33](https://github.com/chef/cookstyle/tree/v8.7.33) (2026-08-22)
+ <!-- latest_release 9.0.0 -->
+## [v9.0.0](https://github.com/chef/cookstyle/tree/v9.0.0) (2026-08-22)
 
 #### Merged Pull Requests
+- Update RuboCop to 1.89.0 and release Cookstyle 9.0.0 [#1081](https://github.com/chef/cookstyle/pull/1081) ([tas50](https://github.com/tas50))
 - Test against Ruby 4.0 in CI [#1111](https://github.com/chef/cookstyle/pull/1111) ([tas50](https://github.com/tas50))
+- Pin GitHub Actions to commit SHAs and slow Dependabot to weekly [#1112](https://github.com/chef/cookstyle/pull/1112) ([tas50](https://github.com/tas50))
+- Add Chef/Correctness/InvalidChecksum cop [#1098](https://github.com/chef/cookstyle/pull/1098) ([tas50](https://github.com/tas50))
+- Add Chef/Correctness/RubyGuardWithoutBlock cop [#1096](https://github.com/chef/cookstyle/pull/1096) ([tas50](https://github.com/tas50))
+- Detect actions written as arrays in 3 cops [#1093](https://github.com/chef/cookstyle/pull/1093) ([tas50](https://github.com/tas50))
+- Match scope-resolved constants in 14 cops [#1091](https://github.com/chef/cookstyle/pull/1091) ([tas50](https://github.com/tas50))
+- Detect run_context.include_recipe in 8 cops [#1092](https://github.com/chef/cookstyle/pull/1092) ([tas50](https://github.com/tas50))
+- Flag empty guard blocks in Chef/Correctness/EmptyResourceGuard [#1097](https://github.com/chef/cookstyle/pull/1097) ([tas50](https://github.com/tas50))
+- Add Chef/Modernize/ExecuteUpdateAlternatives cop [#1105](https://github.com/chef/cookstyle/pull/1105) ([tas50](https://github.com/tas50))
+- Add Chef/Sharing/EmptyPropertyDescription cop [#1088](https://github.com/chef/cookstyle/pull/1088) ([tas50](https://github.com/tas50))
+- Add Chef/Correctness/ExecuteDeleteFile cop [#1100](https://github.com/chef/cookstyle/pull/1100) ([tas50](https://github.com/tas50))
+- Add Chef/Correctness/ConditionalUnifiedModeTrue cop [#1087](https://github.com/chef/cookstyle/pull/1087) ([tas50](https://github.com/tas50))
+- Name the guard in the ConditionalUsingTest message [#1089](https://github.com/chef/cookstyle/pull/1089) ([tas50](https://github.com/tas50))
+- Treat the notification timing as optional in 2 cops [#1094](https://github.com/chef/cookstyle/pull/1094) ([tas50](https://github.com/tas50))
+- Match single-statement bodies in 3 cops [#1095](https://github.com/chef/cookstyle/pull/1095) ([tas50](https://github.com/tas50))
+- Add Chef/Correctness/PlatformVersionStringComparison cop [#1099](https://github.com/chef/cookstyle/pull/1099) ([tas50](https://github.com/tas50))
+- Add Chef/Modernize/PowershellDownloadFile cop [#1101](https://github.com/chef/cookstyle/pull/1101) ([tas50](https://github.com/tas50))
+- Fix and widen Chef/Correctness/ServiceResource [#1102](https://github.com/chef/cookstyle/pull/1102) ([tas50](https://github.com/tas50))
+- Enable Lint/UriEscapeUnescape in the cookstyle config [#1103](https://github.com/chef/cookstyle/pull/1103) ([tas50](https://github.com/tas50))
+- Enable Security/YAMLLoad in both configs [#1104](https://github.com/chef/cookstyle/pull/1104) ([tas50](https://github.com/tas50))
+- Add Chef/Security/InsecureRemoteFileSource cop [#1106](https://github.com/chef/cookstyle/pull/1106) ([tas50](https://github.com/tas50))
+- Validate Chefstyle cops against chefstyle.yml [#1109](https://github.com/chef/cookstyle/pull/1109) ([tas50](https://github.com/tas50))
+- Fix Chef/Modernize/CronDFileOrTemplate raising on non-string path literals [#1086](https://github.com/chef/cookstyle/pull/1086) ([tas50](https://github.com/tas50))
+- Flag the deprecated ruby_block :create action in notifications [#1085](https://github.com/chef/cookstyle/pull/1085) ([tas50](https://github.com/tas50))
+- Fix Chef/Correctness/ChefApplicationFatal missing calls with an exit code [#1084](https://github.com/chef/cookstyle/pull/1084) ([tas50](https://github.com/tas50))
+- Add Chef/RedundantCode/ServiceGuardOnStopDisable cop [#1083](https://github.com/chef/cookstyle/pull/1083) ([tas50](https://github.com/tas50))
+- Add Chef/Modernize/ExecuteArchiveExtract cop [#1107](https://github.com/chef/cookstyle/pull/1107) ([tas50](https://github.com/tas50))
+- Add good examples to cop docs that only showed bad code [#1108](https://github.com/chef/cookstyle/pull/1108) ([tas50](https://github.com/tas50))
+- CHEF-37336: add Linux ARM Habitat validation in Expeditor pipeline [#1080](https://github.com/chef/cookstyle/pull/1080) ([sanjain-progress](https://github.com/sanjain-progress))
+- CHEF-36043: Enable macOS Habitat package build for aarch64-darwin [#1079](https://github.com/chef/cookstyle/pull/1079) ([sanghinitin](https://github.com/sanghinitin))
 <!-- latest_release -->
 
-<!-- release_rollup since=8.7.6 -->
+<!-- release_rollup since=9.0.0 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
-- Test against Ruby 4.0 in CI [#1111](https://github.com/chef/cookstyle/pull/1111) ([tas50](https://github.com/tas50)) <!-- 8.7.33 -->
-- Add Chef/Correctness/InvalidChecksum cop [#1098](https://github.com/chef/cookstyle/pull/1098) ([tas50](https://github.com/tas50)) <!-- 8.7.32 -->
-- Add Chef/Correctness/RubyGuardWithoutBlock cop [#1096](https://github.com/chef/cookstyle/pull/1096) ([tas50](https://github.com/tas50)) <!-- 8.7.31 -->
-- Detect actions written as arrays in 3 cops [#1093](https://github.com/chef/cookstyle/pull/1093) ([tas50](https://github.com/tas50)) <!-- 8.7.30 -->
-- Match scope-resolved constants in 14 cops [#1091](https://github.com/chef/cookstyle/pull/1091) ([tas50](https://github.com/tas50)) <!-- 8.7.29 -->
-- Detect run_context.include_recipe in 8 cops [#1092](https://github.com/chef/cookstyle/pull/1092) ([tas50](https://github.com/tas50)) <!-- 8.7.28 -->
-- Flag empty guard blocks in Chef/Correctness/EmptyResourceGuard [#1097](https://github.com/chef/cookstyle/pull/1097) ([tas50](https://github.com/tas50)) <!-- 8.7.27 -->
-- Add Chef/Modernize/ExecuteUpdateAlternatives cop [#1105](https://github.com/chef/cookstyle/pull/1105) ([tas50](https://github.com/tas50)) <!-- 8.7.26 -->
-- Add Chef/Sharing/EmptyPropertyDescription cop [#1088](https://github.com/chef/cookstyle/pull/1088) ([tas50](https://github.com/tas50)) <!-- 8.7.25 -->
-- Add Chef/Correctness/ConditionalUnifiedModeTrue cop [#1087](https://github.com/chef/cookstyle/pull/1087) ([tas50](https://github.com/tas50)) <!-- 8.7.24 -->
-- Name the guard in the ConditionalUsingTest message [#1089](https://github.com/chef/cookstyle/pull/1089) ([tas50](https://github.com/tas50)) <!-- 8.7.23 -->
-- Treat the notification timing as optional in 2 cops [#1094](https://github.com/chef/cookstyle/pull/1094) ([tas50](https://github.com/tas50)) <!-- 8.7.22 -->
-- Match single-statement bodies in 3 cops [#1095](https://github.com/chef/cookstyle/pull/1095) ([tas50](https://github.com/tas50)) <!-- 8.7.21 -->
-- Add Chef/Correctness/PlatformVersionStringComparison cop [#1099](https://github.com/chef/cookstyle/pull/1099) ([tas50](https://github.com/tas50)) <!-- 8.7.20 -->
-- Add Chef/Modernize/PowershellDownloadFile cop [#1101](https://github.com/chef/cookstyle/pull/1101) ([tas50](https://github.com/tas50)) <!-- 8.7.19 -->
-- Fix and widen Chef/Correctness/ServiceResource [#1102](https://github.com/chef/cookstyle/pull/1102) ([tas50](https://github.com/tas50)) <!-- 8.7.18 -->
-- Enable Lint/UriEscapeUnescape in the cookstyle config [#1103](https://github.com/chef/cookstyle/pull/1103) ([tas50](https://github.com/tas50)) <!-- 8.7.17 -->
-- Add Chef/Security/InsecureRemoteFileSource cop [#1106](https://github.com/chef/cookstyle/pull/1106) ([tas50](https://github.com/tas50)) <!-- 8.7.16 -->
-- Validate Chefstyle cops against chefstyle.yml [#1109](https://github.com/chef/cookstyle/pull/1109) ([tas50](https://github.com/tas50)) <!-- 8.7.15 -->
-- Fix Chef/Modernize/CronDFileOrTemplate raising on non-string path literals [#1086](https://github.com/chef/cookstyle/pull/1086) ([tas50](https://github.com/tas50)) <!-- 8.7.14 -->
-- Flag the deprecated ruby_block :create action in notifications [#1085](https://github.com/chef/cookstyle/pull/1085) ([tas50](https://github.com/tas50)) <!-- 8.7.13 -->
-- Fix Chef/Correctness/ChefApplicationFatal missing calls with an exit code [#1084](https://github.com/chef/cookstyle/pull/1084) ([tas50](https://github.com/tas50)) <!-- 8.7.12 -->
-- Add Chef/RedundantCode/ServiceGuardOnStopDisable cop [#1083](https://github.com/chef/cookstyle/pull/1083) ([tas50](https://github.com/tas50)) <!-- 8.7.11 -->
-- Add Chef/Modernize/ExecuteArchiveExtract cop [#1107](https://github.com/chef/cookstyle/pull/1107) ([tas50](https://github.com/tas50)) <!-- 8.7.10 -->
-- Add good examples to cop docs that only showed bad code [#1108](https://github.com/chef/cookstyle/pull/1108) ([tas50](https://github.com/tas50)) <!-- 8.7.9 -->
-- CHEF-37336: add Linux ARM Habitat validation in Expeditor pipeline [#1080](https://github.com/chef/cookstyle/pull/1080) ([sanjain-progress](https://github.com/sanjain-progress)) <!-- 8.7.8 -->
-- CHEF-36043: Enable macOS Habitat package build for aarch64-darwin [#1079](https://github.com/chef/cookstyle/pull/1079) ([sanghinitin](https://github.com/sanghinitin)) <!-- 8.7.7 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
