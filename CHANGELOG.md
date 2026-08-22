@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 8.7.31 -->
-## [v8.7.31](https://github.com/chef/cookstyle/tree/v8.7.31) (2026-08-21)
+ <!-- latest_release 8.7.32 -->
+## [v8.7.32](https://github.com/chef/cookstyle/tree/v8.7.32) (2026-08-22)
 
 #### Merged Pull Requests
-- Add Chef/Correctness/RubyGuardWithoutBlock cop [#1096](https://github.com/chef/cookstyle/pull/1096) ([tas50](https://github.com/tas50))
+- Add Chef/Correctness/InvalidChecksum cop [#1098](https://github.com/chef/cookstyle/pull/1098) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=8.7.6 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add Chef/Correctness/InvalidChecksum cop [#1098](https://github.com/chef/cookstyle/pull/1098) ([tas50](https://github.com/tas50)) <!-- 8.7.32 -->
 - Add Chef/Correctness/RubyGuardWithoutBlock cop [#1096](https://github.com/chef/cookstyle/pull/1096) ([tas50](https://github.com/tas50)) <!-- 8.7.31 -->
 - Detect actions written as arrays in 3 cops [#1093](https://github.com/chef/cookstyle/pull/1093) ([tas50](https://github.com/tas50)) <!-- 8.7.30 -->
 - Match scope-resolved constants in 14 cops [#1091](https://github.com/chef/cookstyle/pull/1091) ([tas50](https://github.com/tas50)) <!-- 8.7.29 -->
