@@ -38,4 +38,16 @@ describe RuboCop::Cop::Chef::Ruby::GemspecRequireRubygems, :config do
 
     expect_correction("\n")
   end
+
+  it "doesn't register an offense when requiring a file under rubygems" do
+    expect_no_offenses(<<~RUBY)
+      require 'rubygems/package'
+    RUBY
+  end
+
+  it "doesn't register an offense when requiring another library" do
+    expect_no_offenses(<<~RUBY)
+      require 'bundler'
+    RUBY
+  end
 end

@@ -26,4 +26,18 @@ describe RuboCop::Cop::Chef::Deprecations::DeprecatedWindowsVersionCheck, :confi
       end
     RUBY
   end
+
+  it "doesn't register an offense when checking the platform version directly" do
+    expect_no_offenses(<<~RUBY)
+      if node['platform_version'].to_f >= 6.2
+      end
+    RUBY
+  end
+
+  it "doesn't register an offense when using a different windows helper" do
+    expect_no_offenses(<<~RUBY)
+      if windows_server_2012?
+      end
+    RUBY
+  end
 end

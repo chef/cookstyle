@@ -78,4 +78,18 @@ describe RuboCop::Cop::Chef::Deprecations::WindowsVersionHelpers, :config do
       end
     RUBY
   end
+
+  it "doesn't register an offense when using the platform_version attribute" do
+    expect_no_offenses(<<~RUBY)
+      if node['platform_version'].to_f == 10.0
+      end
+    RUBY
+  end
+
+  it "doesn't register an offense for a VersionHelper in another namespace" do
+    expect_no_offenses(<<~RUBY)
+      if MyCookbook::VersionHelper.nt_version == 10
+      end
+    RUBY
+  end
 end

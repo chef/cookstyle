@@ -27,4 +27,18 @@ describe RuboCop::Cop::Chef::Deprecations::UseYamlDump, :config do
 
     expect_correction("YAML.dump(Foo.bar)\n")
   end
+
+  it "doesn't register an offense when using YAML.dump" do
+    expect_no_offenses(<<~RUBY)
+      YAML.dump(Foo.bar)
+    RUBY
+  end
+
+  it "doesn't register an offense when to_yaml is called without a receiver" do
+    expect_no_offenses(<<~RUBY)
+      def to_s
+        to_yaml
+      end
+    RUBY
+  end
 end

@@ -40,4 +40,16 @@ describe RuboCop::Cop::Chef::Modernize::UseRequireRelative, :config do
       require_relative '../libraries/helpers'
     RUBY
   end
+
+  it "doesn't register an offense when already using require_relative" do
+    expect_no_offenses(<<~RUBY)
+      require_relative '../libraries/helpers'
+    RUBY
+  end
+
+  it "doesn't register an offense when expanding against __dir__ instead of __FILE__" do
+    expect_no_offenses(<<~RUBY)
+      require File.expand_path('../libraries/helpers', __dir__)
+    RUBY
+  end
 end

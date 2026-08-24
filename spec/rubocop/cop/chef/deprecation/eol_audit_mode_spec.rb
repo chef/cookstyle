@@ -30,4 +30,20 @@ describe RuboCop::Cop::Chef::Deprecations::EOLAuditModeUsage, :config do
       end
     RUBY
   end
+
+  it "doesn't register an offense when using an InSpec control block" do
+    expect_no_offenses(<<~RUBY)
+      control 'SSH' do
+        it 'should be listening on port 22' do
+          expect(port(22)).to be_listening
+        end
+      end
+    RUBY
+  end
+
+  it "doesn't register an offense when control_group is called on a receiver" do
+    expect_no_offenses(<<~RUBY)
+      profile.control_group 'Baseline'
+    RUBY
+  end
 end

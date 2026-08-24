@@ -130,4 +130,16 @@ describe RuboCop::Cop::Chef::Deprecations::ChefSugarHelpers, :config do
       ^^^^^^^^^^^^^^^ Do not use legacy chef-sugar helper methods, which will not be moved into Chef Infra Client itself. For a complete set of chef-sugar helpers now shipping in Chef Infra Client itself see https://github.com/chef/chef/tree/main/chef-utils#getting-started
     RUBY
   end
+
+  it "doesn't register an offense when using a helper that ships in chef-utils" do
+    expect_no_offenses(<<~RUBY)
+      windows?
+    RUBY
+  end
+
+  it "doesn't register an offense when using the platform_family? helper" do
+    expect_no_offenses(<<~RUBY)
+      platform_family?('rhel')
+    RUBY
+  end
 end

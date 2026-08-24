@@ -26,4 +26,16 @@ describe RuboCop::Cop::Chef::Deprecations::ChefSpecCoverageReport, :config do
 
     expect_correction("\n")
   end
+
+  it "doesn't register an offense when at_exit does something else" do
+    expect_no_offenses(<<~RUBY)
+      at_exit { puts 'done' }
+    RUBY
+  end
+
+  it "doesn't register an offense when another coverage tool is used at_exit" do
+    expect_no_offenses(<<~RUBY)
+      at_exit { SimpleCov.result.format! }
+    RUBY
+  end
 end

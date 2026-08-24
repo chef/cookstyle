@@ -36,4 +36,16 @@ describe RuboCop::Cop::Chef::Deprecations::Delivery, :config do
       TOML
     end
   end
+
+  it "doesn't register an offense on another file in the .delivery directory" do
+    expect_no_offenses(<<~RUBY, 'cookbook/.delivery/build_cookbook/metadata.rb')
+      name 'build_cookbook'
+    RUBY
+  end
+
+  it "doesn't register an offense on a regular cookbook file" do
+    expect_no_offenses(<<~RUBY, 'cookbook/metadata.rb')
+      name 'foo'
+    RUBY
+  end
 end

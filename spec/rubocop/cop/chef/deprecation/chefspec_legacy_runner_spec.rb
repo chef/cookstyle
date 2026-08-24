@@ -32,4 +32,20 @@ describe RuboCop::Cop::Chef::Deprecations::ChefSpecLegacyRunner, :config do
       end
     RUBY
   end
+
+  it "doesn't register an offense when using ChefSpec::SoloRunner" do
+    expect_no_offenses(<<~RUBY)
+      describe 'foo::default' do
+        subject { ChefSpec::SoloRunner.new.converge(described_recipe) }
+      end
+    RUBY
+  end
+
+  it "doesn't register an offense when using ChefSpec::ServerRunner" do
+    expect_no_offenses(<<~RUBY)
+      describe 'foo::default' do
+        subject { ChefSpec::ServerRunner.new.converge(described_recipe) }
+      end
+    RUBY
+  end
 end

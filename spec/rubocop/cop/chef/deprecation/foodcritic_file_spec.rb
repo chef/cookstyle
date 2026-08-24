@@ -36,4 +36,16 @@ describe RuboCop::Cop::Chef::Deprecations::FoodcriticFile, :config do
     TEXT
     end
   end
+
+  it "doesn't register an offense on a regular cookbook file" do
+    expect_no_offenses(<<~RUBY, 'cookbook/metadata.rb')
+      name 'foo'
+    RUBY
+  end
+
+  it "doesn't register an offense on a file that merely mentions foodcritic" do
+    expect_no_offenses(<<~RUBY, 'cookbook/recipes/default.rb')
+      # we no longer run foodcritic here
+    RUBY
+  end
 end

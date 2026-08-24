@@ -27,4 +27,16 @@ describe RuboCop::Cop::Chef::Deprecations::PowershellCookbookHelpers, :config do
 
     expect_correction("node['powershell']['version'].to_f == '4.0'\n")
   end
+
+  it "doesn't register an offense when using the built-in powershell_version helper" do
+    expect_no_offenses(<<~RUBY)
+      powershell_version?('4.0')
+    RUBY
+  end
+
+  it "doesn't register an offense when checking the powershell version attribute" do
+    expect_no_offenses(<<~RUBY)
+      node['powershell']['version'].to_f == 4.0
+    RUBY
+  end
 end

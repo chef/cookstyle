@@ -26,4 +26,20 @@ describe RuboCop::Cop::Chef::Modernize::Definitions, :config do
       end
     RUBY
   end
+
+  it "doesn't register an offense on a resource block" do
+    expect_no_offenses(<<~RUBY)
+      template '/etc/foo.conf' do
+        source 'foo.conf.erb'
+      end
+    RUBY
+  end
+
+  it "doesn't register an offense on define_method" do
+    expect_no_offenses(<<~RUBY)
+      define_method(:foo) do
+        'bar'
+      end
+    RUBY
+  end
 end

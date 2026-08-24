@@ -27,4 +27,16 @@ describe RuboCop::Cop::Chef::Modernize::UnnecessaryMixlibShelloutRequire, :confi
 
     expect_correction("\n")
   end
+
+  it "doesn't register an offense when requiring another mixlib library" do
+    expect_no_offenses(<<~RUBY)
+      require 'mixlib/cli'
+    RUBY
+  end
+
+  it "doesn't register an offense when requiring a similarly named library" do
+    expect_no_offenses(<<~RUBY)
+      require 'shellout'
+    RUBY
+  end
 end
