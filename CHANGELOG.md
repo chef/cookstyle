@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 8.7.34 -->
-## [v8.7.34](https://github.com/chef/cookstyle/tree/v8.7.34) (2026-08-24)
+ <!-- latest_release 8.7.35 -->
+## [v8.7.35](https://github.com/chef/cookstyle/tree/v8.7.35) (2026-08-24)
 
 #### Merged Pull Requests
-- Add the missing negative cases to cop specs and enforce them [#1117](https://github.com/chef/cookstyle/pull/1117) ([tas50](https://github.com/tas50))
+- Restore the ExecuteArchiveExtract config entry and gate validate_config in CI [#1118](https://github.com/chef/cookstyle/pull/1118) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=8.7.6 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Restore the ExecuteArchiveExtract config entry and gate validate_config in CI [#1118](https://github.com/chef/cookstyle/pull/1118) ([tas50](https://github.com/tas50)) <!-- 8.7.35 -->
 - Add the missing negative cases to cop specs and enforce them [#1117](https://github.com/chef/cookstyle/pull/1117) ([tas50](https://github.com/tas50)) <!-- 8.7.34 -->
 - Test against Ruby 4.0 in CI [#1111](https://github.com/chef/cookstyle/pull/1111) ([tas50](https://github.com/tas50)) <!-- 8.7.33 -->
 - Add Chef/Correctness/InvalidChecksum cop [#1098](https://github.com/chef/cookstyle/pull/1098) ([tas50](https://github.com/tas50)) <!-- 8.7.32 -->
