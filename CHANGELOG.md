@@ -1,20 +1,18 @@
 # Cookstyle Changelog
 
- <!-- latest_release 9.0.0 -->
+ <!-- latest_release -->
+<!-- latest_release -->
+
+<!-- release_rollup -->
+<!-- release_rollup -->
+
+<!-- latest_stable_release -->
 ## [v9.0.0](https://github.com/chef/cookstyle/tree/v9.0.0) (2026-08-24)
 
 #### Merged Pull Requests
 - Update RuboCop to 1.90.0 and release Cookstyle 9.0.0 [#1081](https://github.com/chef/cookstyle/pull/1081) ([tas50](https://github.com/tas50))
-<!-- latest_release -->
-
-<!-- release_rollup since=9.0.0 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Update RuboCop to 1.90.0 and release Cookstyle 9.0.0 [#1081](https://github.com/chef/cookstyle/pull/1081) ([tas50](https://github.com/tas50)) <!-- 9.0.0 -->
-<!-- release_rollup -->
-
 <!-- latest_stable_release -->
+
 ## [v8.7.6](https://github.com/chef/cookstyle/tree/v8.7.6) (2026-06-24)
 
 #### Merged Pull Requests
@@ -28,7 +26,6 @@
 - CHEF-34832: Update NOTICE [#1076](https://github.com/chef/cookstyle/pull/1076) ([nikhil2611](https://github.com/nikhil2611))
 - Fix cookstyle:disable ignored by RuboCop CommentConfig fast-path [#1077](https://github.com/chef/cookstyle/pull/1077) ([sanghinitin](https://github.com/sanghinitin))
 - Bump actions/checkout from 6 to 7 [#1078](https://github.com/chef/cookstyle/pull/1078) ([dependabot[bot]](https://github.com/dependabot[bot]))
-<!-- latest_stable_release -->
 
 ## [v8.6.10](https://github.com/chef/cookstyle/tree/v8.6.10) (2026-03-27)
 
