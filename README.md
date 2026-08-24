@@ -1,6 +1,6 @@
 # Chef Cookstyle - Chef Infra Cookbook and InSpec profile linting with autocorrection
 
-[![Build status](https://badge.buildkite.com/c086ffe05e32e4d61282b91ead96b3721590a59ed4360cf7ac.svg?branch=main)](https://buildkite.com/chef-oss/chef-cookstyle-main-verify)
+[![Unit tests](https://github.com/chef/cookstyle/actions/workflows/unit.yml/badge.svg?branch=main)](https://github.com/chef/cookstyle/actions/workflows/unit.yml?query=branch%3Amain)
 [![Gem Version](https://badge.fury.io/rb/cookstyle.svg)](https://badge.fury.io/rb/cookstyle)
 
 Cookstyle is a [code linting](https://en.wikipedia.org/wiki/Lint_%28software%29) tool that helps you to write better Chef Infra cookbooks and InSpec profiles by detecting and automatically correcting style, syntax, logic, and security mistakes in your code.
