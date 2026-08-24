@@ -1,5 +1,11 @@
 # GitHub Copilot Instructions for cookstyle
 
+> **Start with [AGENTS.md](../AGENTS.md)**, which is the shared instruction file for all AI coding agents
+> working in this repository. It covers what to verify, the cop conventions, which files are generated,
+> and the DCO requirement. This file adds the Copilot-specific Jira workflow on top of it.
+>
+> Repository detail lives in [DEVELOPER_GUIDE.md](../DEVELOPER_GUIDE.md) and [WRITING_RULES.md](../WRITING_RULES.md).
+
 ---
 
 ## 1. Repository Analysis & Structure
@@ -31,14 +37,15 @@ Cookstyle is a code linting tool for Chef Infra cookbooks and InSpec profiles, p
 ├── CHANGELOG.md        # Changelog
 ├── CODE_OF_CONDUCT.md  # Code of conduct
 ├── CONTRIBUTING.md     # Contribution guide
-├── DEVELOPER_GUIDE.md  # Developer guide for maintainers
+├── AGENTS.md           # Instructions for AI coding agents
+├── DEVELOPER_GUIDE.md  # Repo layout, tooling, release process
 ├── Gemfile             # Ruby gem dependencies
 ├── LICENSE             # Apache 2.0 license
 ├── Rakefile            # Rake build/test tasks
 ├── README.md           # Project overview and usage
 ├── RELEASE_NOTES.md    # Release notes
 ├── VERSION             # Current version
-├── WRITING_RULES.md    # Guide for writing new cops/rules
+├── WRITING_RULES.md    # How to write a new cop
 ```
 
 ### Languages, Frameworks, and Technologies
@@ -80,7 +87,7 @@ Cookstyle is a code linting tool for Chef Infra cookbooks and InSpec profiles, p
     - Implement code, update docs, follow repo structure.
     - Prompt: "Implementation complete. Ready for testing phase. Proceed?"
   - **Phase 3: Testing Phase**
-    - Create/extend unit tests, run tests, validate coverage.
+    - Create/extend unit tests and run `bundle exec rake`.
     - Prompt: "Testing complete. Ready for PR creation. Proceed?"
   - **Phase 4: Pull Request Creation**
     - Use GH CLI for all git operations, create PR, add labels.
@@ -92,7 +99,7 @@ Cookstyle is a code linting tool for Chef Infra cookbooks and InSpec profiles, p
 
 ## 3. Testing Requirements (**Critical - Hard Requirement**)
 - **MANDATORY:** All code changes must include comprehensive unit tests.
-- **Test Coverage:** >80% coverage is a **hard, non-negotiable requirement**. PRs below this threshold will be rejected.
+- **Negative cases:** Every cop spec must include an `expect_no_offenses` example. A false positive in an autocorrecting cop rewrites a working cookbook.
 - **Framework:** Use RSpec for Ruby code. Place tests in `spec/` mirroring the `lib/` structure.
 - **Test Structure Example:**
   ```ruby
@@ -111,9 +118,6 @@ Cookstyle is a code linting tool for Chef Infra cookbooks and InSpec profiles, p
     end
   end
   ```
-- **Coverage Verification:**
-  - Run: `bundle exec rake coverage`
-  - Ensure output shows >80% coverage.
 - **Test Both:**
   - Positive and negative scenarios
   - Edge cases and error conditions
@@ -121,7 +125,7 @@ Cookstyle is a code linting tool for Chef Infra cookbooks and InSpec profiles, p
   - Ensure tests are independent and order-agnostic
 - **Test Command:**
   - `bundle exec rake spec`
-  - `bundle exec rake coverage`
+  - `bundle exec rake validate_config`
 
 ---
 
@@ -139,7 +143,7 @@ Cookstyle is a code linting tool for Chef Infra cookbooks and InSpec profiles, p
   - Summary of changes
   - Jira ticket link
   - List of changes
-  - Testing performed and coverage
+  - Testing performed
   - Files modified
   - Screenshots/examples if applicable
 
@@ -170,7 +174,6 @@ Cookstyle is a code linting tool for Chef Infra cookbooks and InSpec profiles, p
 - **Rake:**
   - `rake style` (lint)
   - `rake spec` (tests)
-  - `rake coverage` (coverage)
   - `rake validate_config` (cop config validation)
   - `rake docs` (YARD docs)
 - **Habitat:**
@@ -206,7 +209,7 @@ Cookstyle is a code linting tool for Chef Infra cookbooks and InSpec profiles, p
 ---
 
 ## 9. Repository-Specific Guidelines
-- **Build:** Use Rake tasks (`rake style`, `rake spec`, `rake coverage`)
+- **Build:** Use Rake tasks (`rake style`, `rake spec`, `rake validate_config`)
 - **Dependencies:** Use Bundler (`bundle install`)
 - **Habitat:** Use `plan.sh`/`plan.ps1` for packaging
 - **Prohibited Modifications:** See section 1
@@ -239,13 +242,12 @@ Cookstyle is a code linting tool for Chef Infra cookbooks and InSpec profiles, p
   - `bundle install`
   - `bundle exec rake style`
   - `bundle exec rake spec`
-  - `bundle exec rake coverage`
 - **Habitat:**
   - `hab studio enter`
   - `build .`
 - **Troubleshooting:**
   - Bundler errors: check Gemfile.lock
-  - Coverage <80%: add more tests
+  - Spec failures: run `bundle exec rake spec` and read the diff in the offense annotation
   - Lint errors: run `cookstyle` and fix offenses
 
 ---
@@ -296,7 +298,7 @@ Cookstyle is a code linting tool for Chef Infra cookbooks and InSpec profiles, p
 > 2. (User confirms)
 > 3. "Phase 2: Implementing new cop in lib/rubocop/cop/chef/style/example_cop.rb, updating config/cookstyle.yml, and adding docs. Do you want me to continue?"
 > 4. (User confirms)
-> 5. "Phase 3: Creating spec/rubocop/cop/chef/style/example_cop_spec.rb and running tests. Ensuring >80% coverage. Do you want me to continue?"
+> 5. "Phase 3: Creating spec/rubocop/cop/chef/style/example_cop_spec.rb and running tests. Do you want me to continue?"
 > 6. (User confirms)
 > 7. "Phase 4: Creating PR with branch PROJ-123, DCO signoff, and labels. Do you want me to continue?"
 > 8. (User confirms)
@@ -333,7 +335,7 @@ Cookstyle is a code linting tool for Chef Infra cookbooks and InSpec profiles, p
 ## Validation Checklist
 - [x] Repository structure diagram
 - [x] DCO signoff requirements in all commit examples
-- [x] >80% test coverage requirement mentioned multiple times
+- [x] Testing requirements and negative-case rule
 - [x] Actual repository labels (not generic ones)
 - [x] Build system integration (Expeditor, Rake, Habitat)
 - [x] Prompt-based workflow examples
