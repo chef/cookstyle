@@ -3,15 +3,18 @@
  <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup -->
+<!-- release_rollup since=9.0.0 -->
+### Changes not yet released to rubygems.org
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
 ## [v9.0.0](https://github.com/chef/cookstyle/tree/v9.0.0) (2026-08-24)
+<!-- latest_stable_release -->
+
+## [v9.0.0](https://github.com/chef/cookstyle/tree/v9.0.0) (2026-08-24)
 
 #### Merged Pull Requests
 - Update RuboCop to 1.90.0 and release Cookstyle 9.0.0 [#1081](https://github.com/chef/cookstyle/pull/1081) ([tas50](https://github.com/tas50))
-<!-- latest_stable_release -->
 
 ## [v8.7.6](https://github.com/chef/cookstyle/tree/v8.7.6) (2026-06-24)
 
