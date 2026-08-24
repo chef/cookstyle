@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 8.7.33 -->
-## [v8.7.33](https://github.com/chef/cookstyle/tree/v8.7.33) (2026-08-22)
+ <!-- latest_release 8.7.34 -->
+## [v8.7.34](https://github.com/chef/cookstyle/tree/v8.7.34) (2026-08-24)
 
 #### Merged Pull Requests
-- Test against Ruby 4.0 in CI [#1111](https://github.com/chef/cookstyle/pull/1111) ([tas50](https://github.com/tas50))
+- Add the missing negative cases to cop specs and enforce them [#1117](https://github.com/chef/cookstyle/pull/1117) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=8.7.6 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add the missing negative cases to cop specs and enforce them [#1117](https://github.com/chef/cookstyle/pull/1117) ([tas50](https://github.com/tas50)) <!-- 8.7.34 -->
 - Test against Ruby 4.0 in CI [#1111](https://github.com/chef/cookstyle/pull/1111) ([tas50](https://github.com/tas50)) <!-- 8.7.33 -->
 - Add Chef/Correctness/InvalidChecksum cop [#1098](https://github.com/chef/cookstyle/pull/1098) ([tas50](https://github.com/tas50)) <!-- 8.7.32 -->
 - Add Chef/Correctness/RubyGuardWithoutBlock cop [#1096](https://github.com/chef/cookstyle/pull/1096) ([tas50](https://github.com/tas50)) <!-- 8.7.31 -->
