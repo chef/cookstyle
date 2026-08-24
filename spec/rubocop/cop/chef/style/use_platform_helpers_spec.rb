@@ -95,4 +95,18 @@ describe RuboCop::Cop::Chef::Style::UsePlatformHelpers, :config do
       end
     RUBY
   end
+
+  it "doesn't register an offense when already using the platform? helper" do
+    expect_no_offenses(<<~RUBY)
+      if platform?('redhat')
+      end
+    RUBY
+  end
+
+  it "doesn't register an offense when comparing a different node attribute" do
+    expect_no_offenses(<<~RUBY)
+      if node['platform_version'] == '7'
+      end
+    RUBY
+  end
 end

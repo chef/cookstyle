@@ -38,4 +38,16 @@ describe RuboCop::Cop::Chef::Deprecations::UsesChefRESTHelpers, :config do
       ^^^^^^^^^^^^ Don't use the helpers in Chef::REST which were removed in Chef Infra Client 13
     RUBY
   end
+
+  it "doesn't register an offense when requiring 'chef/http'" do
+    expect_no_offenses(<<~RUBY)
+      require 'chef/http'
+    RUBY
+  end
+
+  it "doesn't register an offense when using Chef::HTTP" do
+    expect_no_offenses(<<~RUBY)
+      Chef::HTTP::Simple.new(url).get('/')
+    RUBY
+  end
 end

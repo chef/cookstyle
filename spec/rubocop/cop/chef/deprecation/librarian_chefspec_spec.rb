@@ -26,4 +26,16 @@ describe RuboCop::Cop::Chef::Deprecations::LibrarianChefSpec, :config do
       name 'foo'
     RUBY
   end
+
+  it "doesn't register an offense when requiring chefspec itself" do
+    expect_no_offenses(<<~RUBY)
+      require 'chefspec'
+    RUBY
+  end
+
+  it "doesn't register an offense when requiring chefspec/berkshelf" do
+    expect_no_offenses(<<~RUBY)
+      require 'chefspec/berkshelf'
+    RUBY
+  end
 end

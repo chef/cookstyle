@@ -24,4 +24,16 @@ describe RuboCop::Cop::Chef::Deprecations::ResourceUsesProviderBaseMethod, :conf
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Don't use the deprecated provider_base method in a resource to specify the provider module to use. Instead, the provider should call provides to register itself, or the resource should call provider to specify the provider to use. This will cause failures in Chef Infra Client 13 and later.
     RUBY
   end
+
+  it "doesn't register an offense when a provider registers itself with provides" do
+    expect_no_offenses(<<~RUBY)
+      provides :something_something
+    RUBY
+  end
+
+  it "doesn't register an offense when a resource specifies its provider" do
+    expect_no_offenses(<<~RUBY)
+      provider ::Chef::Provider::SomethingSomething
+    RUBY
+  end
 end

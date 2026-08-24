@@ -27,4 +27,16 @@ describe RuboCop::Cop::Chef::Deprecations::UseAutomaticResourceName, :config do
 
     expect_correction("\n")
   end
+
+  it "doesn't register an offense when the resource name is set explicitly" do
+    expect_no_offenses(<<~RUBY)
+      resource_name :my_resource
+    RUBY
+  end
+
+  it "doesn't register an offense when the resource uses provides" do
+    expect_no_offenses(<<~RUBY)
+      provides :my_resource
+    RUBY
+  end
 end

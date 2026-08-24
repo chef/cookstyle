@@ -62,4 +62,16 @@ describe RuboCop::Cop::Chef::Modernize::DatabagHelpers, :config do
       data_bag_item('Chef::DataBagItem.load', 'item')
     RUBY
   end
+
+  it "doesn't register an offense when using the data_bag_item helper" do
+    expect_no_offenses(<<~RUBY)
+      data_bag_item('foo', 'bar')
+    RUBY
+  end
+
+  it "doesn't register an offense when loading another Chef class" do
+    expect_no_offenses(<<~RUBY)
+      Chef::Node.load('foo')
+    RUBY
+  end
 end

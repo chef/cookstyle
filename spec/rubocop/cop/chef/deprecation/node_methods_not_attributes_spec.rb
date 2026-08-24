@@ -72,4 +72,16 @@ describe RuboCop::Cop::Chef::Deprecations::NodeMethodsInsteadofAttributes, :conf
       node['hostname']
     RUBY
   end
+
+  it "doesn't register an offense when the Ohai data is accessed as an attribute" do
+    expect_no_offenses(<<~RUBY)
+      node['platform']
+    RUBY
+  end
+
+  it "doesn't register an offense when calling a node method that isn't Ohai data" do
+    expect_no_offenses(<<~RUBY)
+      node.run_state
+    RUBY
+  end
 end

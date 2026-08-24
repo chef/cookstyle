@@ -36,6 +36,11 @@ module RuboCop
           RESTRICT_ON_SEND = [:to_yaml].freeze
 
           def on_send(node)
+            # A receiverless to_yaml is a call to a locally defined method rather than
+            # the Ruby stdlib conversion this cop is about, and there's nothing to pass
+            # to YAML.dump. Bail out rather than dereferencing a nil receiver.
+            return unless node.receiver
+
             add_offense(node, severity: :warning) do |corrector|
               corrector.replace(node, "YAML.dump(#{node.receiver.source})")
             end

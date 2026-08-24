@@ -27,4 +27,14 @@ describe RuboCop::Cop::Chef::Deprecations::Cheffile, :config do
       cookbook 'application'
     RUBY
   end
+
+  context 'with the default Include of **/Cheffile' do
+    let(:cop_config) { { 'Include' => ['**/Cheffile'] } }
+
+    it "doesn't register an offense on a file that isn't a Cheffile" do
+      expect_no_offenses(<<~RUBY, 'metadata.rb')
+        name 'foo'
+      RUBY
+    end
+  end
 end

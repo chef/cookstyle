@@ -40,4 +40,16 @@ describe RuboCop::Cop::Chef::Modernize::NodeRolesInclude, :config do
       node.role?(foo+bar)
     RUBY
   end
+
+  it "doesn't register an offense when using the node.role? helper" do
+    expect_no_offenses(<<~RUBY)
+      node.role?('foo')
+    RUBY
+  end
+
+  it "doesn't register an offense when checking a different node attribute" do
+    expect_no_offenses(<<~RUBY)
+      node['recipes'].include?('foo')
+    RUBY
+  end
 end
