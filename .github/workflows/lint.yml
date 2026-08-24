@@ -20,6 +20,19 @@ jobs:
     - uses: r7kamura/rubocop-problem-matchers-action@59f1a0759f50cc2649849fd850b8487594bb5a81 # v1.2.2
     - run: bundle exec cookstyle
 
+  validate-config:
+    runs-on: ubuntu-latest
+    name: Check every cop is defined in the configs
+    env:
+      BUNDLE_WITHOUT: profiling debug docs
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: ruby/setup-ruby@95ef2b042f9d7a56d8268cba8559e2842e2ad01b # v1.321.0
+        with:
+          ruby-version: 3.4
+          bundler-cache: true
+      - run: bundle exec rake validate_config
+
   linelint:
     runs-on: ubuntu-latest
     name: Check if all files end in newline
