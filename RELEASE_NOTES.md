@@ -1,7 +1,80 @@
-## Cookstyle 8.6.0
+## Cookstyle 9.0
 
-- Upgrade to RuboCop 1.82.1
-- Enable the new `Style/ModuleMemberExistenceCheck` cop
+### RuboCop 1.90.0
+
+The RuboCop engine that powers Cookstyle has been updated from 1.86.1 to 1.90.0 with a large number of under-the-hood improvements and autocorrection bug fixes.
+
+RuboCop added seven cops across this range: `Lint/DeprecatedReference`, `Lint/NameTypo`, and `Lint/UnusedPrivateMethod` in 1.89.0, and `Lint/ArgumentMismatch`, `Lint/SuperArgumentMismatch`, `Style/DirectiveScope`, and `Style/TimeNow` in 1.90.0. None of them are enabled in Cookstyle. The five project-index cops depend on RuboCop's `AllCops/UseProjectIndex` option, which builds a whole-project symbol index on every run, and that is a meaningful cost for a linter usually run per-cookbook in CI. No cops were removed or renamed.
+
+### Cookstyle directive comments support every RuboCop directive mode
+
+Cookstyle accepts `# cookstyle:disable` as an alias for `# rubocop:disable`. That alias was built from a hardcoded list of directive modes that had fallen behind RuboCop, so modes added upstream were silently ignored under both spellings: a `# rubocop:push` / `# rubocop:pop` pair, and the `# rubocop:disable-next` and `# rubocop:todo-next` directives new in RuboCop 1.90, did nothing and the offense was still reported.
+
+The alias is now derived from RuboCop's own directive definitions, so `disable`, `enable`, `todo`, `push`, `pop`, `disable-next`, and `todo-next` all work under both the `rubocop:` and `cookstyle:` spellings, and modes added in future RuboCop releases will work without a Cookstyle change.
+
+### New Chef cops
+
+- `Chef/Correctness/ConditionalUnifiedModeTrue` - Set `unified_mode true` unconditionally, so a resource doesn't run in unified mode on newer Chef Infra Client releases and legacy mode on older ones.
+- `Chef/Correctness/ExecuteDeleteFile` - Use the `file` or `directory` resource with the `:delete` action instead of shelling out to `rm`.
+- `Chef/Correctness/InvalidChecksum` - The `checksum` property takes a SHA-256 digest. An MD5 or SHA-1 digest can never match, so the run fails with a checksum mismatch rather than installing anything.
+- `Chef/Correctness/PlatformVersionStringComparison` - Ohai version attributes are strings, so an ordering comparison runs character by character rather than by version. `'7.9' >= '10'` is true.
+- `Chef/Correctness/RubyGuardWithoutBlock` - A Ruby expression used as a `not_if`/`only_if` guard has to be wrapped in a block or it is evaluated once at compile time.
+- `Chef/Modernize/ExecuteArchiveExtract` - Use the `archive_file` resource from Chef Infra Client 15+ instead of shelling out to `tar` or `unzip`.
+- `Chef/Modernize/ExecuteUpdateAlternatives` - Use the `alternatives` resource from Chef Infra Client 16+ instead of shelling out to `update-alternatives`.
+- `Chef/Modernize/PowershellDownloadFile` - Use `remote_file` instead of shelling out to PowerShell to download files.
+- `Chef/RedundantCode/ServiceGuardOnStopDisable` - The `:stop` and `:disable` service actions are already no-ops when the service isn't installed, so guarding them is redundant.
+- `Chef/Security/InsecureRemoteFileSource` - Fetch remote files over HTTPS. A file downloaded over plain HTTP or FTP can be modified in transit.
+- `Chef/Sharing/EmptyPropertyDescription` - Resource properties should not set an empty `description`, which documentation tools have nothing to render from.
+
+### Newly enabled RuboCop cops
+
+- `Lint/UriEscapeUnescape`
+- `Security/YAMLLoad`
+
+### Existing cops now catch more code
+
+A cookbook that linted cleanly on 8.7.6 can pick up new findings from cops it already had enabled:
+
+- Scope-resolved constants such as `::Chef::Config` are now matched by 14 cops
+- `run_context.include_recipe` is now matched alongside plain `include_recipe` by 8 cops
+- Actions written as arrays, such as `action [:create, :start]`, are now matched by 3 cops
+- Single-statement resource bodies are now matched by 3 cops
+- The notification timing argument is now treated as optional by 2 cops
+
+### Bug fixes
+
+- `Chef/Modernize/CronDFileOrTemplate` no longer raises on non-string path literals
+- `Chef/Correctness/ChefApplicationFatal` no longer misses calls that pass an exit code
+- `Chef/Correctness/ServiceResource` detection was fixed and widened
+- `Chef/Correctness/EmptyResourceGuard` now flags empty guard blocks
+- `Chef/Deprecations/RubyBlockCreateAction` now flags the deprecated `:create` action in notifications
+- `Chef/Modernize/ConditionalUsingTest` now names the guard in its message
+- Cop documentation that only showed bad code now includes good examples as well
+
+## Cookstyle 8.7.6
+
+- Upgrade RuboCop to 1.86.1
+- Fix `# cookstyle:disable` comments being ignored by RuboCop's `CommentConfig` fast path
+- Enable the following new cops:
+  - Style/MapJoin
+  - Style/PartitionInsteadOfDoubleSelect
+  - Style/PredicateWithKind
+  - Style/ReduceToHash
+  - Style/RedundantMinMaxBy
+  - Style/RedundantStructKeywordInit
+  - Style/SelectByKind
+  - Style/SelectByRange
+  - Style/TallyMethod
+
+## Cookstyle 8.6.10
+
+- Standardize copyright notices across the project
+- No cop or detection changes from 8.6.4
+
+## Cookstyle 8.6.4
+
+- Upgrade to RuboCop 1.84.2
+- Enable the new `Style/ModuleMemberExistenceCheck` and `Style/NegativeArrayIndex` cops
 
 ## Cookstyle 8.5.3
 

@@ -1,5 +1,5 @@
 
- Progress Chef Cookstyle 8.7                                                                         Updated June 2026
+ Progress Chef Cookstyle 9.0                                                                       Updated August 2026
 
  ----------------------------------------------------------------------------------------------------------------------------
  NOTICES REPORT
@@ -86,8 +86,10 @@ Components:
 | -------------------------------------- | ------------------------------------- | ---------------------------------------- |
 | appbundler 0.13.4                      |                                       | PSC Product License                      |
 | ast 2.4.3                              | http://github.com/whitequark/ast      | MIT License                              |
-| concurrent-ruby 1.3.6                  | http://www.concurrent-ruby.com        | MIT License                              |
-| cookstyle v8.7.0                       | https://github.com/chef/cookstyle     | Apache License 2.0                       |
+| chef-utils 19.3.15                     | https://github.com/chef/chef/tree/mai | Apache License 2.0                       |
+|                                        |   n/chef-utils                        |                                          |
+| concurrent-ruby 1.3.8                  | http://www.concurrent-ruby.com        | MIT License                              |
+| cookstyle v9.0.0                       | https://github.com/chef/cookstyle     | Apache License 2.0                       |
 | grosser's parallel 2.1.0               | https://github.com/grosser/parallel   | MIT License                              |
 | Habitat core_acl 2.3.2                 |                                       | (GNU Lesser General Public License v2.1  |
 |                                        |                                       |   only AND GNU General Public License    |
@@ -119,11 +121,11 @@ Components:
 | Habitat core_zlib 1.3.1                |                                       | zlib License                             |
 | halostatue/diff-lcs 1.6.2              | https://github.com/halostatue/diff-lc | MIT License                              |
 |                                        |   s                                   |                                          |
-| io-console 0.8.2                       | http://www.ruby-lang.org              | BSD 2-clause "Simplified" License        |
+| io-console 0.9.2                       | http://www.ruby-lang.org              | BSD 2-clause "Simplified" License        |
 | jfelchner/ruby-progressbar 1.13.0      | https://github.com/jfelchner/ruby-pro | MIT License                              |
 |                                        |   gressbar                            |                                          |
-| JSON for Ruby v2.19.8                  | http://json.rubyforge.org/            | Ruby License                             |
-| language_server-protocol 3.17.0.5      | https://github.com/mtsmfm/language_se | MIT License                              |
+| JSON for Ruby v2.21.2                  | http://json.rubyforge.org/            | Ruby License                             |
+| language_server-protocol 3.17.0.6      | https://github.com/mtsmfm/language_se | MIT License                              |
 |                                        |   rver-protocol-ruby                  |                                          |
 | lint_roller 1.1.0                      | https://github.com/standardrb/lint_ro | MIT License                              |
 |                                        |   ller                                |                                          |
@@ -135,20 +137,22 @@ Components:
 | mixlib-shellout 3.4.10                 | https://github.com/opscode/mixlib-she | Apache License 2.0                       |
 |                                        |   llout                               |                                          |
 | mwunsch's prism 1.9.0                  | http://github.com/mwunsch/prism       | MIT License                              |
-| parser 3.3.11.1                        | http://github.com/whitequark/parser   | MIT License                              |
+| parser 3.3.12.0                        | http://github.com/whitequark/parser   | MIT License                              |
 | Pry REPL 0.16.0                        | http://pryrepl.org/                   | MIT License                              |
 | racc 1.8.1                             | http://i.loveruby.net/en/projects/rac | BSD 2-clause "Simplified" License        |
 |                                        |   c/                                  |                                          |
 | Rake 13.4.2                            | https://github.com/ruby/rake          | MIT License                              |
-| reline 0.6.3                           | https://github.com/ruby/reline        | BSD 2-clause "Simplified" License        |
+| regexp_parser 2.12.0                   | https://github.com/ammar/regexp_parse | MIT License                              |
+|                                        |   r                                   |                                          |
+| reline 0.7.0                           | https://github.com/ruby/reline        | BSD 2-clause "Simplified" License        |
 | RSpec 3.13.2                           | http://rspec.info/                    | MIT License                              |
 | RSpec 3.13.5                           | http://rspec.info/                    | MIT License                              |
 | RSpec 3.13.6                           | http://rspec.info/                    | MIT License                              |
 | RSpec 3.13.8                           | http://rspec.info/                    | MIT License                              |
 | rspec-support 3.13.7                   | https://github.com/rspec/rspec-suppor | MIT License                              |
 |                                        |   t                                   |                                          |
-| rubocop 1.86.1                         | http://batsov.com/rubocop             | MIT License                              |
-| rubocop-ast 1.49.1                     | https://www.rubocop.org/              | MIT License                              |
+| rubocop 1.90.0                         | http://batsov.com/rubocop             | MIT License                              |
+| rubocop-ast 1.50.0                     | https://www.rubocop.org/              | MIT License                              |
 | rubychan's coderay 1.1.3               | http://coderay.rubychan.de            | MIT License                              |
 | sickill's rainbow 3.1.1                | http://sickill.net                    | MIT License                              |
 | unicode-display_width 3.2.0            | https://github.com/janlelis/unicode-d | MIT License                              |
@@ -162,7 +166,7 @@ License Data and Text:
 -------------------------------------------------------------------------------------------------------------------------
 
 Apache License 2.0
-(cookstyle v8.7.0, mixlib-shellout 3.4.10)
+(chef-utils 19.3.15, cookstyle v9.0.0, mixlib-shellout 3.4.10)
 
 Apache License
 Version 2.0, January 2004
@@ -348,7 +352,7 @@ third-party archives.
 ---
 
 BSD 2-clause "Simplified" License
-(Habitat core_ruby3_4 3.4.8, Habitat core_ruby3_4-plus-devkit 3.4.8, io-console 0.8.2, racc 1.8.1, reline 0.6.3)
+(Habitat core_ruby3_4 3.4.8, Habitat core_ruby3_4-plus-devkit 3.4.8, io-console 0.9.2, racc 1.8.1, reline 0.7.0)
 
 BSD Two Clause License
 ======================
@@ -3527,7 +3531,7 @@ this License. But first, please read
 ---
 
 MIT License
-(ast 2.4.3, concurrent-ruby 1.3.6, grosser's parallel 2.1.0, Habitat core_libffi 3.4.7, Habitat core_libyaml 0.2.5, Habitat core_ncurses 6.5, halostatue/diff-lcs 1.6.2, jfelchner/ruby-progressbar 1.13.0, language_server-protocol 3.17.0.5, lint_roller 1.1.0, memory-profiler 1.1.0, method_source 1.1.0, mwunsch's prism 1.9.0, parser 3.3.11.1, Pry REPL 0.16.0, Rake 13.4.2, RSpec 3.13.2, RSpec 3.13.5, RSpec 3.13.6, RSpec 3.13.8, rspec-support 3.13.7, rubocop 1.86.1, rubocop-ast 1.49.1, rubychan's coderay 1.1.3, sickill's rainbow 3.1.1, unicode-display_width 3.2.0, unicode-emoji 4.2.0)
+(ast 2.4.3, concurrent-ruby 1.3.8, grosser's parallel 2.1.0, Habitat core_libffi 3.4.7, Habitat core_libyaml 0.2.5, Habitat core_ncurses 6.5, halostatue/diff-lcs 1.6.2, jfelchner/ruby-progressbar 1.13.0, language_server-protocol 3.17.0.6, lint_roller 1.1.0, memory-profiler 1.1.0, method_source 1.1.0, mwunsch's prism 1.9.0, parser 3.3.12.0, Pry REPL 0.16.0, Rake 13.4.2, regexp_parser 2.12.0, RSpec 3.13.2, RSpec 3.13.5, RSpec 3.13.6, RSpec 3.13.8, rspec-support 3.13.7, rubocop 1.90.0, rubocop-ast 1.50.0, rubychan's coderay 1.1.3, sickill's rainbow 3.1.1, unicode-display_width 3.2.0, unicode-emoji 4.2.0)
 
 The MIT License
 ===============
@@ -4078,7 +4082,7 @@ See Progress License
 ---
 
 Ruby License
-(JSON for Ruby v2.19.8)
+(JSON for Ruby v2.21.2)
 
 Ruby is copyrighted free software by Yukihiro Matsumoto . You can redistribute it
 and/or modify it under either the terms of the 2-clause BSDL (see the file BSDL),
