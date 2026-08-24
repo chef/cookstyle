@@ -14,12 +14,6 @@ RSpec::Core::RakeTask.new(:spec) do |spec|
   spec.pattern = FileList['spec/cop/**/*.rb']
 end
 
-desc 'Run RSpec with code coverage'
-task :coverage do
-  ENV['COVERAGE'] = 'true'
-  Rake::Task['spec'].execute
-end
-
 desc 'Ensure that all cops are defined in the cookstyle.yml and chefstyle.yml configs'
 task :validate_config do
   require 'cookstyle'
