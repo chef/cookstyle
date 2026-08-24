@@ -10,12 +10,19 @@ begin
 
   desc 'Update cop count in the readme'
   task :update_readme_cop_count do
-    def cop_count
-      Dir.glob('lib/rubocop/cop/**/*.rb').count
+    # The README sentence claims "Chef Infra specific cops", so only count the Chef
+    # department. The InSpec and Chefstyle cops under lib/rubocop/cop fall outside
+    # that claim, as does target_chef_version.rb, which isn't a cop at all.
+    cop_count = Dir.glob('lib/rubocop/cop/chef/**/*.rb').count
+    pattern = /ship \*\*\d+\+? Chef Infra specific cops\*\*/
+    readme = File.read('README.md')
+
+    unless readme.match?(pattern)
+      raise 'Could not find the cop count sentence in README.md. If the wording changed, update the pattern in this task.'
     end
 
-    contents = File.read('README.md').gsub(/ship \*\*\d* Chef/, "ship **#{cop_count} Chef")
-    File.write('README.md', contents)
+    File.write('README.md', readme.sub(pattern, "ship **#{cop_count} Chef Infra specific cops**"))
+    puts "README cop count set to #{cop_count}"
   end
 
   desc 'Generate yaml format docs of all Chef/InSpec cops for docs.chef.io'
