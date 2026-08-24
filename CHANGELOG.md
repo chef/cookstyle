@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 8.7.37 -->
-## [v8.7.37](https://github.com/chef/cookstyle/tree/v8.7.37) (2026-08-24)
+ <!-- latest_release 8.7.38 -->
+## [v8.7.38](https://github.com/chef/cookstyle/tree/v8.7.38) (2026-08-24)
 
 #### Merged Pull Requests
-- Make the README cop count task work again [#1114](https://github.com/chef/cookstyle/pull/1114) ([tas50](https://github.com/tas50))
+- Add the developer and cop-writing guides the docs already referenced [#1116](https://github.com/chef/cookstyle/pull/1116) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=8.7.6 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add the developer and cop-writing guides the docs already referenced [#1116](https://github.com/chef/cookstyle/pull/1116) ([tas50](https://github.com/tas50)) <!-- 8.7.38 -->
 - Make the README cop count task work again [#1114](https://github.com/chef/cookstyle/pull/1114) ([tas50](https://github.com/tas50)) <!-- 8.7.37 -->
 - Remove the dead coverage pipeline [#1115](https://github.com/chef/cookstyle/pull/1115) ([tas50](https://github.com/tas50)) <!-- 8.7.36 -->
 - Restore the ExecuteArchiveExtract config entry and gate validate_config in CI [#1118](https://github.com/chef/cookstyle/pull/1118) ([tas50](https://github.com/tas50)) <!-- 8.7.35 -->
