@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 #
 # Copyright:: Copyright (c) 2016-2025 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.
-# Author:: Tim Smith (<tsmith84@gmail.com>)
+# Author:: Tim Smith (<tsmith84@proton.me>)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -197,7 +197,7 @@ describe RuboCop::Cop::Chef::Security::SshPrivateKey, :config do
 
   it 'does not register an offense with an RSA public key' do
     expect_no_offenses(<<~RUBY)
-      default['jenkins-server']['dev_mode']['security']['private_key'] = 'ssh-rsa foo/bar/baz== tsmith84@gmail.com'
+      default['jenkins-server']['dev_mode']['security']['private_key'] = 'ssh-rsa foo/bar/baz== tsmith84@proton.me'
     RUBY
   end
 end
