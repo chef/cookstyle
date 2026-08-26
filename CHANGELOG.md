@@ -1,10 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release -->
+ <!-- latest_release 9.0.1 -->
+## [v9.0.1](https://github.com/chef/cookstyle/tree/v9.0.1) (2026-08-26)
+
+#### Merged Pull Requests
+- Fix binstub_patch.rb/NOTICE path resolution on aarch64-linux builds [#1121](https://github.com/chef/cookstyle/pull/1121) ([sanjain-progress](https://github.com/sanjain-progress))
 <!-- latest_release -->
 
 <!-- release_rollup since=9.0.0 -->
 ### Changes not yet released to rubygems.org
+
+#### Merged Pull Requests
+- Fix binstub_patch.rb/NOTICE path resolution on aarch64-linux builds [#1121](https://github.com/chef/cookstyle/pull/1121) ([sanjain-progress](https://github.com/sanjain-progress)) <!-- 9.0.1 -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
