@@ -28,17 +28,31 @@ Two questions decide most of the design:
 
 `config/cookstyle.yml` is the authoritative list.
 
-## The five files
+## The six files
 
-Adding a cop touches five things. The `validate_config` rake task enforces the second one; the rest are convention.
+Adding a cop touches six things. The `validate_config` rake task enforces the third one and `spec/lazy_cop_loading_spec.rb` enforces the second; the rest are convention.
 
 1. `lib/rubocop/cop/chef/<department>/<cop_name>.rb` — the cop
-2. `config/cookstyle.yml` — the cop's configuration entry
-3. `spec/rubocop/cop/chef/<department>/<cop_name>_spec.rb` — the spec
-4. `docs-chef-io/assets/cookstyle/cops_chef_<department>_<copname>.yml` — generated, don't hand-write
-5. `README.md` cop count — generated, don't hand-write
+2. `lib/rubocop/cop/chef.rb` — the cop's `register_cop` line, added to its department
+3. `config/cookstyle.yml` — the cop's configuration entry
+4. `spec/rubocop/cop/chef/<department>/<cop_name>_spec.rb` — the spec
+5. `docs-chef-io/assets/cookstyle/cops_chef_<department>_<copname>.yml` — generated, don't hand-write
+6. `README.md` cop count — generated, don't hand-write
 
-Run `bundle exec rake generate_cops_yml_documentation update_readme_cop_count` to produce 4 and 5 from your YARD comments. Expeditor also runs this on merge.
+Cops are loaded lazily, so dropping a file into a department directory is not enough to
+ship a cop — it has to be registered. Add a line in the matching department block of
+`lib/rubocop/cop/chef.rb` (or `lib/rubocop/cop/inspec.rb` for an InSpec cop):
+
+```ruby
+register_cop :CookbookUsesNodeSave, "#{__dir__}/chef/correctness/node_save"
+```
+
+The constant is the class name and the path is the file, without the `.rb` extension. They
+don't have to agree — plenty of cops are named differently from their file. Forgetting the
+line fails `rake validate_config` and the spec suite, because the config entry will name a
+cop RuboCop has never heard of.
+
+Run `bundle exec rake generate_cops_yml_documentation update_readme_cop_count` to produce 5 and 6 from your YARD comments. Expeditor also runs this on merge.
 
 ## Anatomy of a cop
 
