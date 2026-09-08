@@ -31,7 +31,13 @@ task :validate_config do
     department.constants.each do |cop|
       # Cookstyle and Chefstyle cops share the RuboCop::Cop::Chef namespace but ship separate
       # configs, so check each cop against the config that matches where it's defined.
-      source = department.const_source_location(cop)&.first.to_s
+      #
+      # Cops are registered for lazy loading, so ask for the pending autoload path first.
+      # `autoload?` returns nil once a cop has been loaded, in which case
+      # `const_source_location` gives the real file. Note that for a cop that is still
+      # unloaded, `const_source_location` would point at the `register_cop` call site
+      # instead of the cop's own file, which is why it can't be used on its own.
+      source = (department.autoload?(cop) || department.const_source_location(cop)&.first).to_s
       config_file = source.include?('/cop/chefstyle/') ? 'config/chefstyle.yml' : 'config/cookstyle.yml'
 
       next if configs[config_file]["Chef/#{dep}/#{cop}"]

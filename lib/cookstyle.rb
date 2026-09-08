@@ -33,12 +33,11 @@ require_relative 'rubocop/chef/platform_helpers'
 require_relative 'rubocop/chef/cookbook_only'
 require_relative 'rubocop/cop/target_chef_version'
 
-# Chef Infra specific cops
-Dir.glob(__dir__ + '/rubocop/cop/**/*.rb') do |file|
-  next if File.directory?(file)
-
-  require_relative file # not actually relative but require_relative is faster
-end
+# Chef Infra, Chefstyle, and InSpec cops. These files only register the cops with
+# RuboCop's global registry; each cop class is loaded on first use rather than at
+# require time. See lib/rubocop/cop/chef.rb for details.
+require_relative 'rubocop/cop/chef'
+require_relative 'rubocop/cop/inspec'
 
 # stub default value of TargetChefVersion to avoid STDERR noise when ConfigLoader.configuration_from_file runs
 RuboCop::ConfigLoader.default_configuration['AllCops']['TargetChefVersion'] ||= nil

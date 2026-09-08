@@ -28,7 +28,7 @@ bin/cookstyle path/to/cookbook
 Cookstyle is RuboCop plus three things:
 
 1. **A vendored configuration** (`config/cookstyle.yml`) that turns off most upstream RuboCop cops, tunes some of the rest, and enables the Chef-specific ones. `DisabledByDefault: true` means a cop is off unless the config names it.
-2. **Chef and InSpec cops** under `lib/rubocop/cop/`.
+2. **Chef and InSpec cops** under `lib/rubocop/cop/`. These are registered for lazy loading in `lib/rubocop/cop/chef.rb` and `lib/rubocop/cop/inspec.rb` rather than being required up front, so a cop's file is only read when the cop is actually going to run.
 3. **A handful of monkey patches** under `lib/rubocop/monkey_patches/` that add the `TargetChefVersion` config option, accept `# cookstyle:disable` alongside `# rubocop:disable`, and adjust a warning message.
 
 `bin/cookstyle` is a shim that requires the `cookstyle` library — which swaps RuboCop's default configuration for the vendored one — and then hands off to RuboCop's own binary. It also appends `--fail-level C` and `--display-style-guide`, which is what implements the stability promise described in the README: new cops ship at `refactor` severity and print without failing anyone's build.
@@ -48,6 +48,8 @@ lib/
   cookstyle/          version constants
   rubocop/
     chef/             shared mixins for cops (cookbook, platform, autocorrect helpers)
+    cop/chef.rb       lazy-load registrations for every Chef and Chefstyle cop
+    cop/inspec.rb     lazy-load registrations for the InSpec cops
     cop/chef/         the Chef Infra cops, one directory per department
     cop/inspec/       InSpec profile cops
     cop/chefstyle/    cops for Chef's own Ruby code, used by --chefstyle
@@ -105,6 +107,20 @@ bundle exec rake prof:slow_cops # list the slowest cops
 ```
 
 The two highest-leverage things in a cop are setting `RESTRICT_ON_SEND` and setting `Include`/`Exclude` in the config. Both stop the cop being invoked at all for irrelevant code.
+
+### Cop loading
+
+Startup cost matters too, because every `cookstyle` invocation pays it before inspecting a
+single file. Cop files are not required up front. `lib/rubocop/cop/chef.rb` and
+`lib/rubocop/cop/inspec.rb` call RuboCop's `register_cop`, which does two things: sets an
+`autoload` for the cop's constant, and registers the cop's name with RuboCop's global
+registry as a string. The registry can therefore validate the config, resolve `--only`
+arguments, and list departments knowing only names, and a cop's file is read the first
+time the class itself is needed — which for a disabled cop is never.
+
+`spec/lazy_cop_loading_spec.rb` asserts that every cop file is registered exactly once and
+that requiring `cookstyle` loads no cop classes at all. If you find yourself needing every
+cop class loaded (the docs rake task does), `RuboCop::Cop::Registry.global.cops` forces it.
 
 ## Chefstyle
 
