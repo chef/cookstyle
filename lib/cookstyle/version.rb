@@ -4,5 +4,5 @@ module Cookstyle
   VERSION = "9.0.3" # rubocop: disable Style/StringLiterals
 
   # version of rubocop we pin to
-  RUBOCOP_VERSION = '1.90.0'
+  RUBOCOP_VERSION = '1.91.0'
 end
