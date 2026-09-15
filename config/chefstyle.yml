@@ -786,6 +786,18 @@ Style/MagicCommentFormat:
 Lint/DuplicateMagicComment:
   Enabled: true
 
+# Catch magic comments that Ruby silently ignores where they're placed
+Lint/MisplacedMagicComment:
+  Enabled: true
+
+# The encoding comment is ignored unless it precedes other magic comments
+Lint/OrderedMagicComments:
+  Enabled: true
+
+# Catch malformed rubocop:disable/enable comments that silently do nothing
+Lint/CopDirectiveSyntax:
+  Enabled: true
+
 # Don't escape strings when you don't need to
 Style/RedundantStringEscape:
   Enabled: true
