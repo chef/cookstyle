@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 9.0.4 -->
-## [v9.0.4](https://github.com/chef/cookstyle/tree/v9.0.4) (2026-09-11)
+ <!-- latest_release 9.0.5 -->
+## [v9.0.5](https://github.com/chef/cookstyle/tree/v9.0.5) (2026-09-15)
 
 #### Merged Pull Requests
-- Update my author email to tsmith84@proton.me [#1123](https://github.com/chef/cookstyle/pull/1123) ([tas50](https://github.com/tas50))
+- Add the AGENTS.md details that cost time to rediscover [#1120](https://github.com/chef/cookstyle/pull/1120) ([tas50](https://github.com/tas50))
 <!-- latest_release -->
 
 <!-- release_rollup since=9.0.0 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Add the AGENTS.md details that cost time to rediscover [#1120](https://github.com/chef/cookstyle/pull/1120) ([tas50](https://github.com/tas50)) <!-- 9.0.5 -->
 - Update my author email to tsmith84@proton.me [#1123](https://github.com/chef/cookstyle/pull/1123) ([tas50](https://github.com/tas50)) <!-- 9.0.4 -->
 - Point the build status badge at GitHub Actions [#1119](https://github.com/chef/cookstyle/pull/1119) ([tas50](https://github.com/tas50)) <!-- 9.0.3 -->
 - Load cops lazily instead of requiring all 271 files at startup [#1122](https://github.com/chef/cookstyle/pull/1122) ([tas50](https://github.com/tas50)) <!-- 9.0.2 -->
