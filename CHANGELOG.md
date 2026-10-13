@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 9.0.6 -->
-## [v9.0.6](https://github.com/chef/cookstyle/tree/v9.0.6) (2026-09-15)
+ <!-- latest_release 9.0.7 -->
+## [v9.0.7](https://github.com/chef/cookstyle/tree/v9.0.7) (2026-10-13)
 
 #### Merged Pull Requests
-- Update RuboCop to 1.91.0 and enable three comment-hygiene cops [#1124](https://github.com/chef/cookstyle/pull/1124) ([tas50](https://github.com/tas50))
+- Bump ruby/setup-ruby from 1.321.0 to 1.327.0 [#1126](https://github.com/chef/cookstyle/pull/1126) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_release -->
 
 <!-- release_rollup since=9.0.0 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Bump ruby/setup-ruby from 1.321.0 to 1.327.0 [#1126](https://github.com/chef/cookstyle/pull/1126) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 9.0.7 -->
 - Update RuboCop to 1.91.0 and enable three comment-hygiene cops [#1124](https://github.com/chef/cookstyle/pull/1124) ([tas50](https://github.com/tas50)) <!-- 9.0.6 -->
 - Add the AGENTS.md details that cost time to rediscover [#1120](https://github.com/chef/cookstyle/pull/1120) ([tas50](https://github.com/tas50)) <!-- 9.0.5 -->
 - Update my author email to tsmith84@proton.me [#1123](https://github.com/chef/cookstyle/pull/1123) ([tas50](https://github.com/tas50)) <!-- 9.0.4 -->
