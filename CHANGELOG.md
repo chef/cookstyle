@@ -1,16 +1,17 @@
 # Cookstyle Changelog
 
- <!-- latest_release 9.0.7 -->
-## [v9.0.7](https://github.com/chef/cookstyle/tree/v9.0.7) (2026-10-13)
+ <!-- latest_release 9.0.8 -->
+## [v9.0.8](https://github.com/chef/cookstyle/tree/v9.0.8) (2026-11-05)
 
 #### Merged Pull Requests
-- Bump ruby/setup-ruby from 1.321.0 to 1.327.0 [#1126](https://github.com/chef/cookstyle/pull/1126) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Fix Windows habitat test failure  [#1134](https://github.com/chef/cookstyle/pull/1134) ([nikhil2611](https://github.com/nikhil2611))
 <!-- latest_release -->
 
 <!-- release_rollup since=9.0.0 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Fix Windows habitat test failure  [#1134](https://github.com/chef/cookstyle/pull/1134) ([nikhil2611](https://github.com/nikhil2611)) <!-- 9.0.8 -->
 - Bump ruby/setup-ruby from 1.321.0 to 1.327.0 [#1126](https://github.com/chef/cookstyle/pull/1126) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 9.0.7 -->
 - Update RuboCop to 1.91.0 and enable three comment-hygiene cops [#1124](https://github.com/chef/cookstyle/pull/1124) ([tas50](https://github.com/tas50)) <!-- 9.0.6 -->
 - Add the AGENTS.md details that cost time to rediscover [#1120](https://github.com/chef/cookstyle/pull/1120) ([tas50](https://github.com/tas50)) <!-- 9.0.5 -->
