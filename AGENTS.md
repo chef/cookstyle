@@ -72,3 +72,9 @@ Write commit messages and PR descriptions that explain why the change is needed 
 ## Scope
 
 Do what was asked. This is a widely deployed linter, so unrequested cop changes, severity changes, and config changes have a large blast radius. If you notice an unrelated problem, mention it rather than fixing it in the same change.
+
+## CI runner preflight (2026-11-09)
+
+- [x] GitHub CLI has `repo` scope and write access to this PR branch.
+- [x] `macos-15` is a supported ARM64 runner; GitHub retired macOS 14 on November 2, 2026 ([notice](https://github.blog/changelog/2026-10-01-github-actions-macos-14-runner-image-retirement/)).
+- [x] Existing workflow permissions and secret usage remain unchanged; no new tokens, scopes, secrets, license keys, or deploy keys are required.
