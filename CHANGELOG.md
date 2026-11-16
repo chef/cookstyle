@@ -1,30 +1,27 @@
 # Cookstyle Changelog
 
- <!-- latest_release 9.0.9 -->
-## [v9.0.9](https://github.com/chef/cookstyle/tree/v9.0.9) (2026-11-16)
-
-#### Merged Pull Requests
-- Bump wechuli/allcheckspassed from 2.5.0 to 2.6.0 [#1129](https://github.com/chef/cookstyle/pull/1129) ([dependabot[bot]](https://github.com/dependabot[bot]))
+ <!-- latest_release -->
 <!-- latest_release -->
 
-<!-- release_rollup since=9.0.0 -->
-### Changes not yet released to rubygems.org
-
-#### Merged Pull Requests
-- Bump wechuli/allcheckspassed from 2.5.0 to 2.6.0 [#1129](https://github.com/chef/cookstyle/pull/1129) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 9.0.9 -->
-- Fix Windows habitat test failure  [#1134](https://github.com/chef/cookstyle/pull/1134) ([nikhil2611](https://github.com/nikhil2611)) <!-- 9.0.8 -->
-- Bump ruby/setup-ruby from 1.321.0 to 1.327.0 [#1126](https://github.com/chef/cookstyle/pull/1126) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 9.0.7 -->
-- Update RuboCop to 1.91.0 and enable three comment-hygiene cops [#1124](https://github.com/chef/cookstyle/pull/1124) ([tas50](https://github.com/tas50)) <!-- 9.0.6 -->
-- Add the AGENTS.md details that cost time to rediscover [#1120](https://github.com/chef/cookstyle/pull/1120) ([tas50](https://github.com/tas50)) <!-- 9.0.5 -->
-- Update my author email to tsmith84@proton.me [#1123](https://github.com/chef/cookstyle/pull/1123) ([tas50](https://github.com/tas50)) <!-- 9.0.4 -->
-- Point the build status badge at GitHub Actions [#1119](https://github.com/chef/cookstyle/pull/1119) ([tas50](https://github.com/tas50)) <!-- 9.0.3 -->
-- Load cops lazily instead of requiring all 271 files at startup [#1122](https://github.com/chef/cookstyle/pull/1122) ([tas50](https://github.com/tas50)) <!-- 9.0.2 -->
-- Fix binstub_patch.rb/NOTICE path resolution on aarch64-linux builds [#1121](https://github.com/chef/cookstyle/pull/1121) ([sanjain-progress](https://github.com/sanjain-progress)) <!-- 9.0.1 -->
+<!-- release_rollup -->
 <!-- release_rollup -->
 
 <!-- latest_stable_release -->
-## [v9.0.0](https://github.com/chef/cookstyle/tree/v9.0.0) (2026-08-24)
+## [v9.0.9](https://github.com/chef/cookstyle/tree/v9.0.9) (2026-11-16)
+
+#### Merged Pull Requests
+- Fix binstub_patch.rb/NOTICE path resolution on aarch64-linux builds [#1121](https://github.com/chef/cookstyle/pull/1121) ([sanjain-progress](https://github.com/sanjain-progress))
+- Load cops lazily instead of requiring all 271 files at startup [#1122](https://github.com/chef/cookstyle/pull/1122) ([tas50](https://github.com/tas50))
+- Point the build status badge at GitHub Actions [#1119](https://github.com/chef/cookstyle/pull/1119) ([tas50](https://github.com/tas50))
+- Update my author email to tsmith84@proton.me [#1123](https://github.com/chef/cookstyle/pull/1123) ([tas50](https://github.com/tas50))
+- Add the AGENTS.md details that cost time to rediscover [#1120](https://github.com/chef/cookstyle/pull/1120) ([tas50](https://github.com/tas50))
+- Update RuboCop to 1.91.0 and enable three comment-hygiene cops [#1124](https://github.com/chef/cookstyle/pull/1124) ([tas50](https://github.com/tas50))
+- Bump ruby/setup-ruby from 1.321.0 to 1.327.0 [#1126](https://github.com/chef/cookstyle/pull/1126) ([dependabot[bot]](https://github.com/dependabot[bot]))
+- Fix Windows habitat test failure  [#1134](https://github.com/chef/cookstyle/pull/1134) ([nikhil2611](https://github.com/nikhil2611))
+- Bump wechuli/allcheckspassed from 2.5.0 to 2.6.0 [#1129](https://github.com/chef/cookstyle/pull/1129) ([dependabot[bot]](https://github.com/dependabot[bot]))
 <!-- latest_stable_release -->
+
+## [v9.0.0](https://github.com/chef/cookstyle/tree/v9.0.0) (2026-08-24)
 
 ## [v9.0.0](https://github.com/chef/cookstyle/tree/v9.0.0) (2026-08-24)
 
